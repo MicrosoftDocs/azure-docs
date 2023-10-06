@@ -37,7 +37,7 @@ During an impacting event, two things may happen:
 - A Microsoft Entra tenant.
 - A user with global administrator or security administrator role for the Microsoft Entra tenant.
 - A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. Learn how to  [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
-- Microsoft Entra ID logs integrated with Azure Monitor logs. Learn how to [Integrate Microsoft Entra Sign- in Logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- Microsoft Entra ID logs integrated with Azure Monitor logs. Learn how to [Integrate Microsoft Entra sign-in logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ## Configure the App sign-in health workbook 
 

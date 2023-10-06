@@ -136,7 +136,7 @@ We need to ensure that only one Sync Server is syncing changes at any given time
    > ![Screenshot shows Ready to Configure screen in the Active Microsoft Entra Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-config.png)  
 
 Since the server will be in staging mode, it will not write changes to Microsoft Entra ID, but retain any changes to the AD in its Connector Space, ready to write them.  
-It is recommended to leave the sync process on for the server in Staging Mode, so if it becomes active, it will quickly take over and won't have to do a large sync to catch up to the current state of the AD/Azure AD objects in scope.
+It is recommended to leave the sync process on for the server in Staging Mode, so if it becomes active, it will quickly take over and won't have to do a large sync to catch up to the current state of the Active Directory / Microsoft Entra objects in scope.
 
 5. After selecting to start the sync process and clicking Configure, the Microsoft Entra Connect server will be configured into Staging Mode.  
 When this is completed, you will be prompted with a screen that confirms Staging Mode is enabled.  

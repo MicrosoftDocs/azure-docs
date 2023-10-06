@@ -5,8 +5,7 @@ description: Deploy the language detection container, with a running sample, to 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 01/10/2022
 ms.author: aahi

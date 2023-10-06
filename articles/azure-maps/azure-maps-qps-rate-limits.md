@@ -27,7 +27,8 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Copyright service | 10 | 10 | 10 |
 | Creator - Alias, TilesetDetails | 10 | Not Available | Not Available |
 | Creator - Conversion, Dataset, Feature State, WFS | 50 | Not Available | Not Available |
-| Data service | 50 | 50 |  Not Available  |
+| Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
+| Data registry service | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |
 | Render service - Traffic tiles and Static maps | 50 | 50 | 50 |
 | Render service - Road tiles | 500 | 500 | 50 |
@@ -43,7 +44,13 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Traffic service | 50 | 50 | 50 |
 | Weather service | 50 | 50 | 50 |
 
+<sup>1</sup> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry] service by 9/16/24. For more information, see [How to create data registry].
+
 When QPS limits are reached, an HTTP 429 error is returned. If you're using the Gen 2 or Gen 1 S1 pricing tiers, you can create an Azure Maps *Technical* Support Request in the [Azure portal] to increase a specific QPS limit if needed. QPS limits for the Gen 1 S0 pricing tier can't be increased.
 
 [Azure portal]: https://portal.azure.com/
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
+[v1]: /rest/api/maps/data
+[v2]: /rest/api/maps/data-v2
+[Data Registry]: /rest/api/maps/data-registry
+[How to create data registry]: how-to-create-data-registries.md

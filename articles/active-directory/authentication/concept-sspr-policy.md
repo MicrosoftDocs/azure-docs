@@ -53,7 +53,7 @@ The following Microsoft Entra password policy options are defined. Unless noted,
 | Characters allowed |A – Z<br>a - z<br>0 – 9<br>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ><br>Blank space |
 | Characters not allowed | Unicode characters |
 | Password restrictions |A minimum of 8 characters and a maximum of 256 characters.<br>Requires three out of four of the following types of characters:<br>- Lowercase characters<br>- Uppercase characters<br>- Numbers (0-9)<br>- Symbols (see the previous password restrictions) |
-| Password expiry duration (Maximum password age) |Default value: **90** days. If the tenant was created after 2021, it has no default expiration value. You can check current policy with [Get-MsolPasswordPolicy](/powershell/module/msonline/get-msolpasswordpolicy).<br>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Microsoft Entra Module for Windows PowerShell.|
+| Password expiry duration (Maximum password age) |Default value: **90** days. If the tenant was created after 2021, it has no default expiration value. You can check current policy with [Get-MsolPasswordPolicy](/powershell/module/msonline/get-msolpasswordpolicy).<br>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure AD module for PowerShell.|
 | Password expiry (Let passwords never expire) |Default value: **false** (indicates that passwords have an expiration date).<br>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet. |
 | Password change history | The last password *can't* be used again when the user changes a password. |
 | Password reset history | The last password *can* be used again when the user resets a forgotten password. |
@@ -112,7 +112,7 @@ A one-gate policy requires one piece of authentication data, such as an email ad
 
 ## Password expiration policies
 
-A *Global Administrator* or *User Administrator* can use the [Microsoft Entra Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
+A *Global Administrator* or *User Administrator* can use the [Azure Active Directory module for PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 You can also use PowerShell cmdlets to remove the never-expires configuration or to see which user passwords are set to never expire.
 

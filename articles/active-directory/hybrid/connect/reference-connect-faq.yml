@@ -55,7 +55,7 @@ sections:
           As of the February 2016 builds, this scenario is supported.
 
       - question: |
-          Does the Microsoft Entra Domain Services (Microsoft Entra DS) health agent work on server core?  
+          Does the Microsoft Entra Domain Services health agent work on server core?
         answer: |
           Yes. After you install the agent, you can complete the registration process by using the following PowerShell cmdlet: 
           

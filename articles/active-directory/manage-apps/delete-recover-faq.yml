@@ -59,12 +59,6 @@ sections:
             > No. You can't configure the periodicity of hard deletion.
             >
       - question: |
-          Why can't I recover managed identities?
-        answer: |
-            > [Managed identities](../managed-identities-azure-resources/overview.md) are a special type of service principals. Deleted managed identities can't be recovered currently.
-            >
-            >
-      - question: |
           I can't see the provisioning data from a recovered service principal. How can I recover it? 
         answer: |
             > After recovering a service principal, you may initially see the error in the following screenshot. This issue resolves itself between 40 mins and 1 day. If you'd like the provisioning job to start immediately, you can hit restart to force the provisioning service to run again. Hitting restart triggers an initial cycle that can take time for customers with 100 K+ users or group memberships. 

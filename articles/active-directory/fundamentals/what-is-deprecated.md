@@ -33,7 +33,7 @@ Use the following table to learn about changes including deprecations, retiremen
 |[Terms of Use experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jul 2023|
 |[Azure AD PowerShell and MSOnline PowerShell](https://aka.ms/aadgraphupdate)|Deprecation|Mar 30, 2024|
 |[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Sep 30, 2024|
-|[Legacy MFA & SSPR policy](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Sep 30, 2024|
+|[Legacy MFA & SSPR policy](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Sep 30, 2025|
 |['Require approved client app' Conditional Access Grant](https://aka.ms/RetireApprovedClientApp)|Retirement|Mar 31, 2026|
 
 

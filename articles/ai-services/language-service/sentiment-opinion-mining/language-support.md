@@ -5,8 +5,7 @@ description: This article explains which languages are supported by the Sentimen
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 09/18/2023
 ms.author: aahi

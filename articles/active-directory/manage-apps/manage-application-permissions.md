@@ -50,8 +50,17 @@ To review an application's permissions that have been granted for the entire org
 1. Select the application that you want to restrict access to.
 1. Select **Permissions**. 
 1. To view permissions that apply to your entire organization, select the **Admin consent** tab. To view permissions granted to a specific user or group, select the **User consent** tab.
-1. To view the details of a given permission, select the permission from the list. The **Permission Details** pane opens. 
-1. To revoke a given permission, choose the permission you would like to revoke, select the **...** control for that permission, and then choose **Revoke permission**.
+1. To view the details of a given permission, select the permission from the list. The **Permission Details** pane opens.
+   After you've reviewed the permissions granted to an application, you can revoke permissions granted by admins for your entire organization. 
+   > [!NOTE]
+   > You can't revoke permissions in the **User consent** tab using the portal. You can revoke these permissions using Microsoft Graph API calls or PowerShell cmdlets. Go to the PowerShell and Microsoft Graph tabs of this article for more information.
+
+To revoke permissions in the **Admin consent** tab:
+
+1. View the list of permissions in the **Admin consent** tab.
+1. Choose the permission you would like to revoke, then select the **...** control for that permission.
+   :::image type="content" source="media/manage-application-permissions/revoke-permissions.png" alt-text="Screenshot shows how to revoke admin consent.":::
+1.  Select **Revoke permission**.
 
 :::zone-end
 

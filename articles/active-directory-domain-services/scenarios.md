@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 
 ---
@@ -166,13 +166,13 @@ For more information about this deployment scenario, see [how to configure domai
 To get started, [Create and configure a Microsoft Entra Domain Services managed domain][tutorial-create-instance].
 
 <!-- INTERNAL LINKS -->
-[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
+[hdinsight]: /azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
 [tutorial-create-instance]: tutorial-create-instance.md
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
-[sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
+[sspr]: /azure/active-directory/authentication/overview-authentication#self-service-password-reset
 [compare]: compare-identity-solutions.md
-[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
+[azure-ad-connect]: /azure/active-directory/hybrid/connect/whatis-azure-ad-connect
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

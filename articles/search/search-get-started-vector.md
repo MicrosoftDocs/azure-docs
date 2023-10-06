@@ -304,7 +304,7 @@ api-key: {{admin-api-key}}
 
 ### Cross-field vector search
 
-A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries):
+A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md):
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -329,7 +329,7 @@ api-key: {{admin-api-key}}
 
 ### Multi-query vector search
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. This also displays scores using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries).
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. This also displays scores using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -367,7 +367,7 @@ api-key: {{admin-api-key}}
 
 Hybrid search consists of keyword queries and vector queries in a single search request. 
 
-The response includes the top 10 ordered by search score. Both vector queries and free text queries are assigned a search score according to the scoring or similarity functions configured on the fields (BM25 for text fields). The scores are merged using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries) to weight each document with the inverse of its position in the ranked result set. 
+The response includes the top 10 ordered by search score. Both vector queries and free text queries are assigned a search score according to the scoring or similarity functions configured on the fields (BM25 for text fields). The scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to weight each document with the inverse of its position in the ranked result set. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}

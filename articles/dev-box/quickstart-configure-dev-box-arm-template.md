@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to configure the Microsoft Dev Bo
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart-arm
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 09/20/2023

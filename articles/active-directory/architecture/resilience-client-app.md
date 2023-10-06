@@ -87,14 +87,14 @@ We recommend developers build a process to use the latest MSAL release because a
 
 Find the latest version and release notes:
 
-* [microsoft-authentication-library-for--js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
-* [microsoft-authentication-library-for--dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
-* [microsoft-authentication-library-for--python](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
-* [microsoft-authentication-library-for--java](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
-* [microsoft-authentication-library-for--objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
-* [microsoft-authentication-library-for--android](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
-* [microsoft-authentication-library-for--js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
-* [microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web/releases)
+* [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [`microsoft-authentication-library-for-dotnet`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
+* [`microsoft-authentication-library-for-python`](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
+* [`microsoft-authentication-library-for-java`](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
+* [`microsoft-authentication-library-for-objc`](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
+* [`microsoft-authentication-library-for-android`](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
+* [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [`microsoft-identity-web`](https://github.com/AzureAD/microsoft-identity-web/releases)
 
 ## Resilient patterns for token handling
 
@@ -216,7 +216,7 @@ Learn more:
 * [Conditional Access policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation)
 * [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 
-If you develop resource APIs, go to openid.net for [Shared Signals – A Secure Webhooks Framework](https://openid.net/wg/sse/).
+If you develop resource APIs, go to `openid.net` for [Shared Signals – A Secure Webhooks Framework](https://openid.net/wg/sse/).
 
 ## Next steps
 

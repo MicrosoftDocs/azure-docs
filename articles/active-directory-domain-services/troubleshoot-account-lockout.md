@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/21/2023
 ms.author: justinha
 
 #Customer intent: As a directory administrator, I want to troubleshoot why user accounts are locked out in a Microsoft Entra Domain Services managed domain.
@@ -17,13 +17,13 @@ ms.author: justinha
 
 # Troubleshoot account lockout problems with a Microsoft Entra Domain Services managed domain
 
-To prevent repeated malicious sign-in attempts, a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain locks accounts after a defined threshold. This account lockout can also happen by accident without a sign-in attack incident. For example, if a user repeatedly enters the wrong password or a service attempts to use an old password, the account gets locked out.
+To prevent repeated malicious sign-in attempts, a Microsoft Entra Domain Services managed domain locks accounts after a defined threshold. This account lockout can also happen by accident without a sign-in attack incident. For example, if a user repeatedly enters the wrong password or a service attempts to use an old password, the account gets locked out.
 
 This troubleshooting article outlines why account lockouts happen and how you can configure the behavior, and how to review security audits to troubleshoot lockout events.
 
 ## What is an account lockout?
 
-A user account in a Microsoft Entra DS managed domain is locked out when a defined threshold for unsuccessful sign-in attempts has been met. This account lockout behavior is designed to protect you from repeated brute-force sign-in attempts that may indicate an automated digital attack.
+A user account in a Domain Services managed domain is locked out when a defined threshold for unsuccessful sign-in attempts has been met. This account lockout behavior is designed to protect you from repeated brute-force sign-in attempts that may indicate an automated digital attack.
 
 **By default, if there are 5 bad password attempts in 2 minutes, the account is locked out for 30 minutes.**
 
@@ -35,7 +35,7 @@ Fine-grained password policies (FGPPs) let you apply specific restrictions for p
 
 Policies are distributed through group association in the managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
-For more information on fine-grained password policies, and the differences between users created directly in Microsoft Entra DS versus synchronized in from Microsoft Entra ID, see [Configure password and account lockout policies][configure-fgpp].
+For more information on fine-grained password policies, and the differences between users created directly in Domain Services versus synchronized in from Microsoft Entra ID, see [Configure password and account lockout policies][configure-fgpp].
 
 ## Common account lockout reasons
 
@@ -52,7 +52,7 @@ The most common reasons for an account to be locked out, without any malicious i
 
 ## Troubleshoot account lockouts with security audits
 
-To troubleshoot when account lockout events occur and where they're coming from, [enable security audits for Microsoft Entra DS][security-audit-events]. Audit events are only captured from the time you enable the feature. Ideally, you should enable security audits *before* there's an account lockout issue to troubleshoot. If a user account repeatedly has lockout issues, you can enable security audits ready for the next time the situation occurs.
+To troubleshoot when account lockout events occur and where they're coming from, [enable security audits for Domain Services][security-audit-events]. Audit events are only captured from the time you enable the feature. Ideally, you should enable security audits *before* there's an account lockout issue to troubleshoot. If a user account repeatedly has lockout issues, you can enable security audits ready for the next time the situation occurs.
 
 Once you have enabled security audits, the following sample queries show you how to review *Account Lockout Events*, code *4740*.
 
@@ -84,7 +84,7 @@ AADDomainServicesAccountManagement
 
 You may find on 4776 and 4740 event details of "Source Workstation: " empty. This is because the bad password happened over Network logon via some other devices.
 
-For example, a RADIUS server can forward the authentication to Microsoft Entra DS. 
+For example, a RADIUS server can forward the authentication to Domain Services. 
 
 
 03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Entered 
@@ -112,4 +112,4 @@ If you still have problems joining your VM to the managed domain, [find help and
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md
 [security-audit-events]: security-audit-events.md
-[azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-ad-support]: /azure/active-directory/fundamentals/how-to-get-support

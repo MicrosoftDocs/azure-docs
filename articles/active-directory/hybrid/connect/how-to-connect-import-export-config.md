@@ -96,7 +96,7 @@ To migrate the settings:
 
 
  3. Run the script as shown here, and save the entire down-level server configuration directory. Copy this directory to the new staging server. You must copy the entire **Exported-ServerConfiguration-*** folder to the new server.
-     ![Screenshot that shows script in Windows PowerShell.](media/how-to-connect-import-export-config/migrate-2.png)![Screenshot that shows copying the Exported-ServerConfiguration-* folder.](media/how-to-connect-import-export-config/migrate-3.png)
+     ![Screenshot that shows script in PowerShell.](media/how-to-connect-import-export-config/migrate-2.png)![Screenshot that shows copying the Exported-ServerConfiguration-* folder.](media/how-to-connect-import-export-config/migrate-3.png)
 
  4. Start **Microsoft Entra Connect** by double-clicking the icon on the desktop. Accept the Microsoft Software License Terms, and on the next page, select **Customize**.
  5. Select the **Import synchronization settings** check box. Select **Browse** to browse the copied-over Exported-ServerConfiguration-* folder. Select the MigratedPolicy.json to import the migrated settings.

@@ -487,6 +487,8 @@
       items:
         - name: Security overview
           href: ../../managed-instance-apache-cassandra/security.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Building resilient applications
+          href: ../../managed-instance-apache-cassandra/resilient-applications.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json          
         - name: Frequently asked questions
           displayName: cost, region, monitor, backup
           href: ../../managed-instance-apache-cassandra/faq.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json

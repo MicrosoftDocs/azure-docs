@@ -54,9 +54,9 @@ Some overtaken domains might not be updated. For example, a missing DNS TXT reco
 
 Use the sample application on [Azure-Samples/Remove-Unmanaged-Guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests).
 
-## Reset redemption using MSIdentityTools PowerShell Module
+## Reset redemption using `MSIdentityTools` PowerShell module
 
-MSIdentityTools PowerShell Module is a collection of cmdlets and scripts, which you use in the Microsoft identity platform and Microsoft Entra ID. Use the cmdlets and scripts to augment PowerShell SDK capabilities. See, [microsoftgraph/msgraph-sdk-powershell](https://github.com/microsoftgraph/msgraph-sdk-powershell).
+The `MSIdentityTools` PowerShell module is a collection of cmdlets and scripts, which you use in the Microsoft identity platform and Microsoft Entra ID. Use the cmdlets and scripts to augment PowerShell SDK capabilities. See, [microsoftgraph/msgraph-sdk-powershell](https://github.com/microsoftgraph/msgraph-sdk-powershell).
 
 Run the following cmdlets:
 

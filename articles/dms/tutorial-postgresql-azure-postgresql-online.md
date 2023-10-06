@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the CLI.
 author: apduvuri
 ms.author: adityaduvuri
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 04/11/2020
 ms.service: dms
 ms.topic: tutorial
@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - devx-track-azurecli
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS (classic) via the Azure CLI

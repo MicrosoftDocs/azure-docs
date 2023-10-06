@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 05/30/2023
+ms.date: 09/06/2023
 ms.topic: how-to
 ms.service: azure-blob-storage
 ms.reviewer: sadodd 

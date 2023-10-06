@@ -8,7 +8,7 @@ brand: azure
 
 metadata:
   title: Microsoft Entra External ID documentation
-  description: Learn how to use Microsoft Entra ID for customers to manage how partners and customers sign in to your applications.
+  description: Learn how to use Microsoft Entra External ID for customers to manage how partners and customers sign in to your applications.
   services: active-directory
   ms.service: active-directory
   ms.subservice: ciam
@@ -42,7 +42,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Microsoft Entra ID for customers (CIAM)
+    - title: Microsoft Entra External ID for customers (CIAM)
       items:
         # Card
         - title: Overview

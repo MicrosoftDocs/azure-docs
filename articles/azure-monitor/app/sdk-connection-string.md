@@ -281,4 +281,4 @@ Get started at development time with:
 * [ASP.NET Core](./asp-net-core.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)

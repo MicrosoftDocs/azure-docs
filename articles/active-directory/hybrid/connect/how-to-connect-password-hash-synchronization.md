@@ -72,7 +72,7 @@ The following section describes, in-depth, how password hash synchronization wor
 
 When synchronizing passwords, the plain-text version of your password is not exposed to the password hash synchronization feature, to Microsoft Entra ID, or any of the associated services.
 
-User authentication takes place against Microsoft Entra rather than against the organization's own Active Directory instance. The SHA256 password data stored in Microsoft Entra ID--a hash of the original MD4 hash--is more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
+User authentication takes place against Microsoft Entra rather than against the organization's own Active Directory instance. The SHA256 password data stored in Microsoft Entra ID (a hash of the original MD4 hash) is more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
 
 ### Password policy considerations
 
@@ -165,7 +165,7 @@ If your organization uses the accountExpires attribute as part of user account m
 
 ### Overwrite synchronized passwords
 
-An administrator can manually reset your password directly in Microsoft Entra ID by using Windows PowerShell (unless the user is in a Federated Domain).
+An administrator can manually reset your password directly in Microsoft Entra ID by using PowerShell (unless the user is in a federated domain).
 
 In this case, the new password overrides your synchronized password, and all password policies defined in the cloud are applied to the new password.
 

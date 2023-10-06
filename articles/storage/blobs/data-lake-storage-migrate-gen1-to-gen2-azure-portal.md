@@ -230,6 +230,57 @@ The following functionality isn't supported in the compatibility layer.
 
 ## Frequently asked questions
 
+#### How long will migration take?
+
+Data and metadata are migrated in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. 
+
+The following table shows the approximate speed of each migration processing task. 
+
+> [!NOTE]
+> These time estimates are approximate and can vary. For example, copying a large number of small files can slow performance. 
+
+| Processing task                        | Speed                                 |
+|----------------------------------------|---------------------------------------|
+| Data copy                              | 9 TB per hour                        |
+| Data validation                        | 9 million files per hour              |
+| Metadata copy                          | 4 million files and folders per hour  |
+| Metadata processing                    | 25 million files and folders per hour |
+| Additional metadata processing (data copy option)<sup>1</sup> | 50 million files and folders per hour |
+
+<sup>1</sup>    The additional metadata processing time applies only if you choose the **Copy data to a new Gen2 account** option. This processing time does not apply if you choose the **Complete migration to a new gen2 account** option.
+
+##### Example: Processing a large amount of data and metadata
+
+This example assumes **300 TB** of data and **200 million** data and metadata items.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | 300 TB / 9 TB = 33.33 hours |
+| Validate data | 200 million / 9 million = 22.22 hours|
+| **Total data migration time** | **33.33 + 22.2 = 55.55 hours** |   
+| Copy metadata | 200 million / 4 million = 50 hours |
+| Metadata processing | 200 million / 25 million = 8 hours |
+| Additional metadata processing - data copy option only | 200 million / 50 million = 4 hours |
+| **Total metadata migration time** | **50 + 8 + 4 = 62 hours** |
+| **Total time to perform a data-only migration** | **62 hours** |
+| **Total time to perform a complete migration**| **62 - 4 = 58 hours** |
+
+##### Example: Processing a small amount of data and metadata
+
+This example assumes that **2 TB** of data and **56 thousand** data and metadata items.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | (2 TB / 9 TB) * 60 minutes = 13.3 minutes|
+| Validate data | (56,000 / 9 million) * 3,600 seconds = 22.4 seconds  |
+| **Total data migration time** | **13.3 minutes + 22.4 seconds = approximately 14 minutes** |   
+| Copy metadata | (56,000 / 4 million) * 3,600 seconds  = approximately 51 seconds |
+| Metadata processing | 56,000/ 25 million = 8 seconds |
+| Additional metadata processing - data copy option only | (56,000 / 50 million) * 3,600 seconds = 4 seconds|
+| **Total metadata migration time** | **51 + 8 + 4 = 63 seconds** |
+| **Total time to perform a data-only migration** | **14 minutes** |
+| **Total time to perform a complete migration** | **14 minutes - 4 seconds = 13 minutes and 56 seconds (approximately 14 minutes)** |
+
 #### How much does the data migration cost?
 
 There's no cost to use the portal-based migration tool, however you'll be billed for usage of Azure Data Lake Gen1 and Gen2 services. During the data migration, you'll be billed for the data storage and transactions of the Gen1 account.

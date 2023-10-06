@@ -5,8 +5,7 @@ description: Deploy the Anomaly Detector container to an Azure Container Instanc
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/01/2020

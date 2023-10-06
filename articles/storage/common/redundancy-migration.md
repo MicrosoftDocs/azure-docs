@@ -3,12 +3,12 @@ title: Change how a storage account is replicated
 titleSuffix: Azure Storage
 description: Learn how to change how data in an existing storage account is replicated.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/20/2023
-ms.author: jammart
+ms.date: 09/21/2023
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
 ---
@@ -328,9 +328,9 @@ Converting your storage account to zone-redundancy (ZRS, GZRS or RA-GZRS) is not
 
 ### Failover and failback
 
-After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).
+After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
-If you performed an [account failover](storage-disaster-recovery-guidance.md) for your GRS or RA-GRS account, the account is locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it will be LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it will be LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to add zone-redundancy.
+If you performed an account failover for your GRS or RA-GRS account, the account is locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it will be LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it will be LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to add zone-redundancy.
 
 ## Downtime requirements
 

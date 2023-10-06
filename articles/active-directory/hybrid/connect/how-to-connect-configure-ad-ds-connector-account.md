@@ -17,7 +17,7 @@ ms.custom:
 
 # Microsoft Entra Connect: Configure AD DS Connector Account Permissions 
 
-The PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Microsoft Entra Connect deployment. 
+The PowerShell module named [`ADSyncConfig.psm1`](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Microsoft Entra Connect deployment. 
 
 ## Overview 
 The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you select to enable in Microsoft Entra Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Microsoft Entra Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Microsoft Entra Connect is deployed.
@@ -39,7 +39,8 @@ The following table provides a summary of the permissions required on AD objects
 | Device writeback |Read and Write permissions to device objects and containers documented in [device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.|
 
-## Using the ADSyncConfig PowerShell Module 
+## Using the ADSyncConfig PowerShell module
+
 The ADSyncConfig module requires the [Remote Server Administration Tools (RSAT) for AD DS](/windows-server/remote/remote-server-administration-tools) since it depends on the AD DS PowerShell module and tools. To install RSAT for AD DS, open a Windows PowerShell window with ‘Run As Administrator’ and execute: 
 
 ``` powershell

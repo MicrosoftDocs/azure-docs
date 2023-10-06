@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python, moe-wsvnet
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)
@@ -27,6 +27,7 @@ As your needs change or requirements for automation increase you can also manage
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * If using the Python SDK: 
    1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
+   1. Install azure-identity: `pip install azure-identity`.  If in a notebook cell, use `%pip install azure-identity`.
    1. Provide your subscription details
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
@@ -52,7 +53,7 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-* When you use network isolation that is based on a workspace's managed virtual network (preview) with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace. For limitations that apply to securing managed online endpoints using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
+* When you use network isolation that is based on a workspace's managed virtual network with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace. For limitations that apply to securing managed online endpoints using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
 
 * By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 

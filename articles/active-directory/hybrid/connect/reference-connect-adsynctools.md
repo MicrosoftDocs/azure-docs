@@ -15,10 +15,11 @@ ms.custom: has-azure-ad-ps-ref
 ---
 
 # Microsoft Entra Connect:  ADSyncTools PowerShell Reference
-The following documentation provides reference information for the ADSyncTools.psm1 PowerShell Module that is included with Microsoft Entra Connect.
+The following documentation provides reference information for the `ADSyncTools.psm1` PowerShell module included with Microsoft Entra Connect.
 
-## Install the ADSyncTools PowerShell Module
-To install the ADSyncTools PowerShell Module do the following:
+## Install the ADSyncTools PowerShell module
+
+To install the ADSyncTools PowerShell module do the following:
 
 1.  Open Windows PowerShell with administrative privileges
 2.  Type or copy and paste the following: 

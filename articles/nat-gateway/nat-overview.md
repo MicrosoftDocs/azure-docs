@@ -86,14 +86,14 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 ### Traffic routes
 
-* NAT gateway replaces a subnet’s default route to the internet when configured. All traffic within the 0.0.0.0/0 prefix has a next hop type to NAT gateway before connecting outbound to the internet. 
+* NAT gateway replaces a subnet’s [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) to the internet when configured. When NAT gateway is attached to the subnet, all traffic within the 0.0.0.0/0 prefix will route to NAT gateway before connecting outbound to the internet. 
 
-* You can override NAT gateway as a subnet’s next hop to the internet with the creation of a custom user-defined route (UDR). 
+* You can override NAT gateway as a subnet’s system default route to the internet with the creation of a custom user-defined route (UDR) for 0.0.0.0/0 traffic. 
 
-* Presence of custom UDRs for virtual appliances and ExpressRoute override NAT gateway for directing internet bound traffic (route to the 0.0.0.0/0 address prefix).
+* Presence of UDRs for virtual appliances, VPN Gateway and ExpressRoute for a subnet's 0.0.0.0/0 traffic will cause traffic to route to these services instead of NAT gateway.
 
 * Outbound connectivity follows this order of precedence among different routing and outbound connectivity methods: 
-Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP address on a virtual machine >> Load balancer outbound rules >> default system route to the internet
+Virtual appliance UDR / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-level public IP address on a virtual machine >> Load balancer outbound rules >> default system route to the internet
 
 ### NAT gateway configurations
 

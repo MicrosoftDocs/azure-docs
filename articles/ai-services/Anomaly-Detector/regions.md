@@ -5,8 +5,7 @@ description: A list of available regions and endpoints for the Anomaly Detector 
 services: cognitive-services
 author: jr-MS
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: conceptual
 ms.date: 11/1/2022
 ms.author: jingruhan

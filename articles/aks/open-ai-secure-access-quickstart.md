@@ -2,6 +2,7 @@
 title: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
 description: Learn how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS).
 ms.service: azure-kubernetes-service
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/18/2023
 ms.author: schaffererin

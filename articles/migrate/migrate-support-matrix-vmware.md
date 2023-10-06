@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 05/15/2023
+ms.date: 09/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -32,7 +32,7 @@ Learn more about [assessments](concepts-assessment-calculation.md).
 
 VMware | Details
 --- | ---
-**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
+**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 **Permissions** | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps and SQL discovery, the account must have privileges for guest operations on VMware VMs.
 
 ## Server requirements
@@ -106,8 +106,7 @@ The following are sample scripts for creating a login and provisioning it with t
   ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
+	  DECLARE @SID NVARCHAR(MAX) = N'';
     CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
 	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
 	IF (ISNULL(@SID,'') != '')
@@ -164,8 +163,11 @@ The following are sample scripts for creating a login and provisioning it with t
    ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
+	-- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login. 
+	  -- After the account is created in one of the members, copy the SID output from the script and include this value 
+	  -- when executing against the remaining replicas.
+	  -- When the SID needs to be specified, add the value to the @SID variable definition below.
+  DECLARE @SID NVARCHAR(MAX) = N'';
 	IF (@SID = N'')
 	BEGIN
 		CREATE LOGIN [evaluator]
@@ -173,13 +175,14 @@ The following are sample scripts for creating a login and provisioning it with t
 	END
 	ELSE
 	BEGIN
-		CREATE LOGIN [evaluator]
-			WITH PASSWORD = '<provide a strong password>'
-			, SID = @SID 
+		DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+			WITH PASSWORD = ''<provide a strong password>''
+			, SID = ' + @SID 
+    EXEC SP_EXECUTESQL @SQLString
 	END
-	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'evaluator'
+	SELECT @SID = N'0x'+CONVERT(NVARCHAR(100), sid, 2) FROM sys.syslogins where name = 'evaluator'
 	IF (ISNULL(@SID,'') != '')
-		PRINT N'Created login [evaluator] with SID = '+@SID
+		PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
 	ELSE
 		PRINT N'Login creation failed'
   GO    

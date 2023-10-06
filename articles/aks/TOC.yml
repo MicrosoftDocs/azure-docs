@@ -190,8 +190,6 @@
       items:
         - name: Plan and execute a migration
           href: aks-migration.md
-        - name: Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Wildfly
@@ -317,23 +315,27 @@
               href: virtual-nodes-portal.md
     - name: Workloads
       items:       
-        - name: Use Vertical Pod Autoscaler
-          href: vertical-pod-autoscaler.md
+        - name: Vertical Pod Autoscaler
+          items:
+            - name: About Vertical Pod Autoscaler 
+              href: vertical-pod-autoscaler.md
+            - name: Vertical Pod Autoscaler API reference
+              href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
           href: use-metrics-server-vertical-pod-autoscaler.md
-        - name: Use proximity placement groups
+        - name: Proximity placement groups
           href: reduce-latency-ppg.md
-        - name: Use Cluster Autoscaler
+        - name: Cluster Autoscaler
           href: cluster-autoscaler.md
-        - name: Use Availability Zones
+        - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management
       items:
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
-        - name: Use tags
+        - name: Tags
           href: use-tags.md
-        - name: Use labels
+        - name: Labels
           href: use-labels.md
     - name: Security and authentication
       items:
@@ -343,6 +345,8 @@
           href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Image security
           items:
+            - name: Validate signed images with Image Integrity
+              href: image-integrity.md
             - name: Remove vulnerable images with ImageCleaner
               href: image-cleaner.md
             - name: Scan images in your CI/CD Workflow
@@ -595,6 +599,8 @@
           href: ../azure-monitor/containers/container-insights-onboard.md
         - name: Collect Prometheus metrics
           href: ../azure-monitor/containers/container-insights-prometheus.md
+        - name: Monitor Kubernetes object events
+          href: events.md
         - name: Monitor kube-audit events
           href: monitor-apiserver.md
         - name: Monitor reference
@@ -747,4 +753,8 @@
     - name: FAQ
       href: faq.md
 - name: Support and troubleshooting
-  href: aks-support-help.md
+  items:
+    - name: Support options for AKS
+      href: aks-support-help.md
+    - name: Troubleshooting documentation for AKS
+      href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes

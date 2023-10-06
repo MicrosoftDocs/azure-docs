@@ -73,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Only user properties and custom attributes listed in the **Identity** > **External Identities** > **Custom user attributes** experience are available to be sent in the request.
+Only user properties and custom attributes listed in the **Identity** > **External Identities** > **Overview** > **Custom user attributes** experience are available to be sent in the request.
 
 Custom attributes exist in the **extension_\<extensions-app-id>_AttributeName**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 

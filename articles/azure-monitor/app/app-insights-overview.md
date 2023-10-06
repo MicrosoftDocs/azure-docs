@@ -96,17 +96,13 @@ Autoinstrumentation is available for [Azure App Service](azure-web-apps-nodejs.m
 
 The [Application Insights SDK](nodejs.md) is an alternative. We also have an [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
+### [Python](#tab/python)
+
+Python applications can be monitored by using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md?tabs=python).
+
 ### [JavaScript](#tab/javascript)
 
 JavaScript requires the [Application Insights SDK](javascript.md).
-
-### [Python](#tab/python)
-
-Python applications can be monitored by using [OpenCensus Python SDK via the Azure Monitor exporters](opencensus-python.md).
-
-An extension is available for monitoring [Azure Functions](opencensus-python.md#integrate-with-azure-functions).
-
-An [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also available.
 
 ---
 
@@ -115,11 +111,33 @@ An [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also availab
 
 This section outlines supported scenarios.
 
-* [C#|VB (.NET)](./asp-net.md)
+### Automatic instrumentation (enable without code changes)
+* [Autoinstrumentation supported environments and languages](codeless-overview.md#supported-environments-languages-and-resource-providers)
+
+### Manual instrumentation
+
+#### OpenTelemetry Distro
+
+* [ASP.NET](opentelemetry-enable.md?tabs=net)
+* [Java](opentelemetry-enable.md?tabs=java)
+* [Node.js](opentelemetry-enable.md?tabs=nodejs)
+* [Python](opentelemetry-enable.md?tabs=python)
+* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore) (preview)
+
+#### Application Insights SDK (Classic API)
+
+* [ASP.NET](./asp-net.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
-* [JavaScript](./javascript.md)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
+* [ASP.NET Core](./asp-net-core.md)
+
+#### Client-side JavaScript SDK
+
+* [JavaScript](./javascript.md)
+  * [React](./javascript-framework-extensions.md)
+  * [React Native](./javascript-framework-extensions.md)
+  * [Angular](./javascript-framework-extensions.md)
 
 ### Supported platforms and frameworks
 
@@ -132,39 +150,21 @@ This section lists all supported platforms and frameworks.
 * [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
-#### Autoinstrumentation (enable without code changes)
-* [ASP.NET: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
-* [ASP.NET Core: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
-* [Java](./opentelemetry-enable.md?tabs=java)
-
-#### Manual instrumentation/SDK (some code changes required)
-* [ASP.NET](./asp-net.md)
-* [ASP.NET Core](./asp-net-core.md)
-* [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
-* [JavaScript: Web](./javascript.md)
-  * [React](./javascript-framework-extensions.md)
-  * [React Native](./javascript-framework-extensions.md)
-  * [Angular](./javascript-framework-extensions.md)
-
-> [!NOTE]
-> OpenTelemetry-based instrumentation is available for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
-
-### Logging frameworks
-* [ILogger](./ilogger.md)
+#### Logging frameworks
+* [`ILogger`](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Log4J, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
+* [`Log4J`, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
-### Export and data analysis
+#### Export and data analysis
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
 ### Unsupported SDKs
-Several other community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
+Many community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
 
-We're constantly assessing opportunities to expand our support for other languages. For the latest SDK news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
+We're constantly assessing opportunities to expand our support for other languages. For the latest news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
 
 ---------------------------
 
@@ -179,7 +179,10 @@ From server web apps:
 * HTTP requests.
 * [Dependencies](./asp-net-dependencies.md). Calls to SQL databases, HTTP calls to external services, Azure Cosmos DB, Azure Table Storage, Azure Blob Storage, and Azure Queue Storage.
 * [Exceptions](./asp-net-exceptions.md) and stack traces.
-* [Performance counters](./performance-counters.md): If you use the [Azure Monitor Application Insights agent](./application-insights-asp-net-agent.md), [Azure monitoring for VMs or virtual machine scale sets](./azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
+* [Performance counters](./performance-counters.md): Performance counters are available when using:
+- [Azure Monitor Application Insights agent](application-insights-asp-net-agent.md)
+- [Azure monitoring for VMs or virtual machine scale sets](./azure-vm-vmss-apps.md)
+- [Application Insights `collectd` writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
 * [Custom events and metrics](./api-custom-events-metrics.md) that you code.
 * [Trace logs](./asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -225,7 +228,7 @@ You can [write PowerShell scripts](./powershell.md) by using Azure Resource Moni
           
 You can't set up a metrics explorer report or set up continuous export.
 
-### How can I query Application Insights telemetery? 
+### How can I query Application Insights telemetry? 
           
 Use the [REST API](/rest/api/application-insights/) to run [Log Analytics](../logs/log-query-overview.md) queries.
 
@@ -253,7 +256,7 @@ Post general questions to the Microsoft Q&A [answers forum](/answers/topics/2422
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) by using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) by using an `azure-application-insights` tag.
 
 ### Feedback Community
 

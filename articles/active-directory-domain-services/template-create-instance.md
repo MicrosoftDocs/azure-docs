@@ -15,7 +15,7 @@ ms.author: justinha
 ---
 # Create a Microsoft Entra Domain Services managed domain using an Azure Resource Manager template
 
-Microsoft Entra Domain Services (Microsoft Entra DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Microsoft Entra DS integrates with your existing Microsoft Entra tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Domain Services integrates with your existing Microsoft Entra tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
 
 This article shows you how to create a managed domain using an Azure Resource Manager template. Supporting resources are created using Azure PowerShell.
 
@@ -29,12 +29,12 @@ To complete this article, you need the following resources:
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Microsoft Entra ID](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Microsoft Entra DS.
-* You need Domain Services Contributor Azure role to create the required Microsoft Entra DS resources.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need Domain Services Contributor Azure role to create the required Domain Services resources.
 
 ## DNS naming requirements
 
-When you create a Microsoft Entra DS managed domain, you specify a DNS name. There are some considerations when you choose this DNS name:
+When you create a Domain Services managed domain, you specify a DNS name. There are some considerations when you choose this DNS name:
 
 * **Built-in domain name:** By default, the built-in domain name of the directory is used (a *.onmicrosoft.com* suffix). If you wish to enable secure LDAP access to the managed domain over the internet, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a Certificate Authority (CA) won't issue a certificate.
 * **Custom domain names:** The most common approach is to specify a custom domain name, typically one that you already own and is routable. When you use a routable, custom domain, traffic can correctly flow as needed to support your applications.
@@ -61,7 +61,7 @@ The following DNS name restrictions also apply:
 
 ## Create required Microsoft Entra resources
 
-Microsoft Entra DS requires a service principal and a Microsoft Entra group. These resources let the managed domain synchronize data, and define which users have administrative permissions in the managed domain.
+Domain Services requires a service principal and a Microsoft Entra group. These resources let the managed domain synchronize data, and define which users have administrative permissions in the managed domain.
 
 First, register the Microsoft Entra Domain Services resource provider using the [Register-AzResourceProvider][Register-AzResourceProvider] cmdlet:
 
@@ -69,7 +69,7 @@ First, register the Microsoft Entra Domain Services resource provider using the 
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Create a Microsoft Entra service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Microsoft Entra DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *2565bd9d-da50-47d4-8b85-4c97f669dc36* for Azure Global. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. 
+Create a Microsoft Entra service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Domain Services to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *2565bd9d-da50-47d4-8b85-4c97f669dc36* for Azure Global. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. 
 
 ```powershell
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
@@ -111,22 +111,22 @@ New-AzResourceGroup `
   -Location "WestUS"
 ```
 
-If you choose a region that supports Availability Zones, the Microsoft Entra DS resources are distributed across zones for additional redundancy. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
+If you choose a region that supports Availability Zones, the Domain Services resources are distributed across zones for additional redundancy. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
 
-There's nothing for you to configure for Microsoft Entra DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones].
+There's nothing for you to configure for Domain Services to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones].
 
 <a name='resource-definition-for-azure-ad-ds'></a>
 
-## Resource definition for Microsoft Entra DS
+## Resource definition for Domain Services
 
 As part of the Resource Manager resource definition, the following configuration parameters are required:
 
 | Parameter               | Value |
 |-------------------------|---------|
 | domainName              | The DNS domain name for your managed domain, taking into consideration the previous points on naming prefixes and conflicts. |
-| filteredSync            | Microsoft Entra DS lets you synchronize *all* users and groups available in Microsoft Entra ID, or a *scoped* synchronization of only specific groups.<br /><br /> For more information about scoped synchronization, see [Microsoft Entra Domain Services scoped synchronization][scoped-sync].|
+| filteredSync            | Domain Services lets you synchronize *all* users and groups available in Microsoft Entra ID, or a *scoped* synchronization of only specific groups.<br /><br /> For more information about scoped synchronization, see [Microsoft Entra Domain Services scoped synchronization][scoped-sync].|
 | notificationSettings    | If there are any alerts generated in the managed domain, email notifications can be sent out. <br /><br />*Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.<br /><br /> If desired, you can add additional recipients for notifications when there are alerts that require attention.|
-| domainConfigurationType | By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Microsoft Entra ID, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /><br /> A *Resource* forest only synchronizes users and groups created directly in Microsoft Entra ID. Set the value to *ResourceTrusting* to create a resource forest.<br /><br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Microsoft Entra DS resource forests overview][resource-forests].|
+| domainConfigurationType | By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Microsoft Entra ID, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /><br /> A *Resource* forest only synchronizes users and groups created directly in Microsoft Entra ID. Set the value to *ResourceTrusting* to create a resource forest.<br /><br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Domain Services resource forests overview][resource-forests].|
 
 The following condensed parameters definition shows how these values are declared. A user forest named *aaddscontoso.com* is created with all users from Azure AD synchronized to the managed domain:
 
@@ -331,7 +331,7 @@ When the Microsoft Entra admin center shows that the managed domain has finished
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* [Enable password synchronization to Microsoft Entra DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+* [Enable password synchronization to Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 
@@ -341,11 +341,11 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
-[availability-zones]: ../reliability/availability-zones-overview.md
-[portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
-[powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
+[availability-zones]: /azure/reliability/availability-zones-overview
+[portal-deploy]: /azure/azure-resource-manager/templates/deploy-portal
+[powershell-deploy]: /azure/azure-resource-manager/templates/deploy-powershell
 [scoped-sync]: scoped-synchronization.md
-[resource-forests]: concepts-resource-forest.md
+[resource-forests]: ./concepts-forest-trust.md
 
 <!-- EXTERNAL LINKS -->
 [Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
@@ -358,6 +358,6 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [Register-AzResourceProvider]: /powershell/module/Az.Resources/Register-AzResourceProvider
 [New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
+[cloud-shell]: /azure/active-directory/develop/configure-app-multi-instancing
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain
-[New-AzResourceGroupDeployment]: /powershell/module/Az.Resources/New-AzResourceGroupDeployment
+[New-AzResourceGroupDeployment]: /powershell/module/az.resources/new-azresourcegroupdeployment

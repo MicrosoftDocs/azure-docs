@@ -4,8 +4,7 @@ description: This article provides a conceptual overview of the auto-optimize fe
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 03/08/2021
 ---

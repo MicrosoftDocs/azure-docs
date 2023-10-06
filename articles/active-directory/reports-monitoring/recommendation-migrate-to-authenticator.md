@@ -8,11 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/07/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
-
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Entra recommendation: Migrate to Microsoft Authenticator (preview)
@@ -23,7 +21,7 @@ This article covers the recommendation to migrate users to the Microsoft Authent
 
 ## Description
 
-Multi-factor authentication (MFA) is a key component to improve the security posture of your Microsoft Entra tenant. While SMS text and voice calls were once commonly used for multi-factor authentication, they are becoming increasingly less secure. You also don't want to overwhelm your users with lots of MFA methods and messages.
+Multi-factor authentication (MFA) is a key component to improve the security posture of your Microsoft Entra tenant. While SMS text and voice calls were once commonly used for multi-factor authentication, they're becoming increasingly less secure. You also don't want to overwhelm your users with lots of MFA methods and messages.
 
 One way to ease the burden on your users while also increasing the security of their authentication methods is to migrate anyone using SMS or voice call for MFA to use the Microsoft Authenticator app.
 

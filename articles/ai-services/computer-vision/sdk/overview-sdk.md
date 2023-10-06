@@ -5,12 +5,11 @@ description: This page gives you an overview of the Azure AI Vision SDK for Imag
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-csharp
 ---
 
 # Vision SDK overview

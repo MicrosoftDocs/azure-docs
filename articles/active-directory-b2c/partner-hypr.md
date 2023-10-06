@@ -54,7 +54,7 @@ The following architecture diagram shows the implementation.
 
 ## Configure the Azure AD B2C policy
 
-1. Go to [Azure-AD-B2C-HYPR-Sample/policy/](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy).
+1. Go to [`Azure-AD-B2C-HYPR-Sample/policy/`](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy).
 
 2. Follow the instructions in [Custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download [Active-directory-b2c-custom-policy-starterpack/LocalAccounts/](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 3. Configure the policy for the Azure AD B2C tenant.

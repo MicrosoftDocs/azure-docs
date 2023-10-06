@@ -1,6 +1,6 @@
 ---
 title: Instructions for data retrieval from Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how to retrieve data from Microsoft Entra Domain Services (Microsoft Entra DS).
+description: Learn how to retrieve data from Microsoft Entra Domain Services.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.author: justinha
 ms.reviewer: manthanm
 ---
 
-# Microsoft Entra DS instructions for data retrieval
+# Microsoft Entra Domain Services instructions for data retrieval
 
-This document describes how to retrieve data from Microsoft Entra Domain Services (Microsoft Entra DS).
+This document describes how to retrieve data from Microsoft Entra Domain Services.
 
 [!INCLUDE [active-directory-app-provisioning.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -24,14 +24,14 @@ This document describes how to retrieve data from Microsoft Entra Domain Service
 
 ## Use Microsoft Entra ID to create, read, update, and delete user objects
 
-You can create a user in the Microsoft Entra portal or by using Graph PowerShell or Graph API. You can also read, update, and delete users. The next sections show how to do these operations in the Microsoft Entra portal. 
+You can create a user in the Microsoft Entra admin center or by using Graph PowerShell or Graph API. You can also read, update, and delete users. The next sections show how to do these operations in the Microsoft Entra admin center. 
 
 ### Create, read, or update a user
 
-You can create a new user using the Microsoft Entra portal.
+You can create a new user using the Microsoft Entra admin center.
 To add a new user, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](/azure/active-directory/roles/permissions-reference#user-administrator).
 
 1. Browse to **Identity** > **Users**, and then select **New user**.
 
@@ -74,7 +74,7 @@ When a user is deleted, any licenses consumed by the user are made available for
 
 <a name='use-rsat-tools-to-connect-to-an-azure-ad-ds-managed-domain-and-view-users'></a>
 
-## Use RSAT tools to connect to a Microsoft Entra DS managed domain and view users
+## Use RSAT tools to connect to a Microsoft Entra Domain Services managed domain and view users
 
 Sign in to an administrative workstation with a user account that's a member of the *AAD DC Administrators* group. The following steps require installation of [Remote Server Administration Tools (RSAT)](tutorial-create-management-vm.md#install-active-directory-administrative-tools).
 
@@ -91,11 +91,11 @@ Sign in to an administrative workstation with a user account that's a member of 
 
     In the following example output, a user account named *Contoso Admin* and a group for *AAD DC Administrators* are shown in this container.
 
-    ![View the list of Microsoft Entra DS domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
+    ![View the list of Microsoft Entra Domain Services domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. To see the computers that are joined to the managed domain, select the **AADDC Computers** container. An entry for the current virtual machine, such as *myVM*, is listed. Computer accounts for all devices that are joined to the managed domain are stored in this *AADDC Computers* container.
 
 You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your managed domain.
 
 ## Next steps
-* [Microsoft Entra DS Overview](overview.md)
+* [Microsoft Entra Domain Services Overview](overview.md)

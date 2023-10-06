@@ -5,8 +5,7 @@ description: Use the Anomaly Detector API's algorithms to find anomalies in your
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 01/27/2023
 ms.author: mbullwin

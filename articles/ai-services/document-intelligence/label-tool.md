@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to use the Document Intelligence sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar

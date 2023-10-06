@@ -1,5 +1,5 @@
 ---
-title: Enable SharePoint User Profile service with Microsoft Entra DS | Microsoft Docs
+title: Enable SharePoint User Profile service with Domain Services | Microsoft Docs
 description: Learn how to configure a Microsoft Entra Domain Services managed domain to support profile synchronization for SharePoint Server
 services: active-directory-ds
 author: justinha
@@ -16,9 +16,9 @@ ms.author: justinha
 ---
 # Configure Microsoft Entra Domain Services to support user profile synchronization for SharePoint Server
 
-SharePoint Server includes a service to synchronize user profiles. This feature allows user profiles to be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain. For more information, see [user profile synchronization in SharePoint Server](/SharePoint/administration/user-profile-service-administration).
+SharePoint Server includes a service to synchronize user profiles. This feature allows user profiles to be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in a Microsoft Entra Domain Services managed domain. For more information, see [user profile synchronization in SharePoint Server](/SharePoint/administration/user-profile-service-administration).
 
-This article shows you how to configure Microsoft Entra DS to allow the SharePoint Server user profile sync service.
+This article shows you how to configure Domain Services to allow the SharePoint Server user profile sync service.
 
 ## Before you begin
 
@@ -30,7 +30,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Microsoft Entra DS managed domain.
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 * The SharePoint service account name for the user profile synchronization service. For more information about the *Profile Synchronization account*, see [Plan for administrative and service accounts in SharePoint Server][sharepoint-service-account]. To get the *Profile Synchronization account* name from the SharePoint Central Administration website, click **Application Management** > **Manage service applications** > **User Profile service application**. For more information, see [Configure profile synchronization by using SharePoint Active Directory Import in SharePoint Server](/SharePoint/administration/configure-profile-synchronization-by-using-sharepoint-active-directory-import).
@@ -50,7 +50,7 @@ When added to this security group, the service account for SharePoint Server use
 
 The service account for SharePoint Server needs adequate privileges to replicate changes to the directory and let SharePoint Server user profile sync work correctly. To provide these privileges, add the service account used for SharePoint user profile synchronization to the *Microsoft Entra DC Service Accounts* group.
 
-From your Microsoft Entra DS management VM, complete the following steps:
+From your Domain Services management VM, complete the following steps:
 
 > [!NOTE]
 > To edit group membership in a managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
@@ -66,8 +66,8 @@ From your Microsoft Entra DS management VM, complete the following steps:
 
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 

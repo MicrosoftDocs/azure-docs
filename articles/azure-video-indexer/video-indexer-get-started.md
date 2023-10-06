@@ -10,6 +10,8 @@ author: IngridAtMicrosoft
 
 # Quickstart: How to sign up and upload your first video
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 You can access Azure AI Video Indexer capabilities in three ways:

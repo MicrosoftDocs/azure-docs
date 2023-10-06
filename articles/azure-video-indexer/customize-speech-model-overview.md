@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Customize a speech model
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
 Through Azure AI Video Indexer integration with [Azure AI Speech services](../ai-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
