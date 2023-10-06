@@ -92,7 +92,7 @@ Follow these rules when naming a blob:
 - Reserved URL characters must be properly escaped.  
 - There are limitations on the number of path segments comprising a blob name. A path segment is the string between consecutive delimiter characters (for example, a forward slash `/`) that corresponds to the directory or virtual directory. The following path segment limitations apply to blob names:
   - If the storage account *does not* have hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 254.
-  - If the storage account has hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 63.
+  - If the storage account has hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 63 (including path segments for container name and account host name).
   
 > [!NOTE]
 > Avoid blob names that end with a dot (.), a forward slash (/), or a sequence or combination of the two. No path segments should end with a dot (.).
