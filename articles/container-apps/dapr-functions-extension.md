@@ -1,7 +1,7 @@
 ---
 title: Deploy the Dapr extension for Azure Functions in Azure Container Apps
 titleSuffix: "Azure Container Apps"
-description: Learn how to use and deploy the Dapr extension for Azure Functions in your Dapr-enabled container apps. 
+description: Learn how to use and deploy the Azure Functions with Dapr extension in your Dapr-enabled container apps.  
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: paulyuk
@@ -43,7 +43,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 1. From the root directory, change into the folder holding the template.
 
    ```azurecli
-   cd samples/sample-infra
+   cd deploy/aca
    ```
 
 ## Create resource group
@@ -51,7 +51,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 1. Create a resource group for your container app.
 
    ```azurecli
-   az group create --name {resourceGroupName} --location eastasia
+   az group create --name {resourceGroupName} --location {region}
    ```
 
 
