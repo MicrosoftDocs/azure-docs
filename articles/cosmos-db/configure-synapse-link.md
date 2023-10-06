@@ -101,7 +101,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 * You won't be able to query analytical store of an existing container while Synapse Link is being enabled on that container. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
 
 > [!NOTE]
-> Currently you can't enable Synapse Link on your existing MongoDB API containers. Synapse Link can be enabled on newly created Mongo DB containers.
+> Now you can enable Synapse Link on your existing MongoDB API collections, using Azure CLI or PowerShell.
 
 
 ### Azure portal
@@ -142,7 +142,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 The following options enable Synapse Link in a container by using Azure CLI by setting the `--analytical-storage-ttl` property. 
 
-* [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create-examples)
+* [Create or update an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create-examples)
 * [Create or update an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create)
 
 ##### Use Azure CLI to enable Synapse Link for Azure Synapse Link for Gremlin API Graphs
@@ -159,7 +159,7 @@ For existing graphs, replace `create` with `update`.
 
 The following options enable Synapse Link in a container by using Azure CLI by setting the `-AnalyticalStorageTtl` property. 
 
-* [Create an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
+* [Create or update an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
 * [Create or update an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
 
 
