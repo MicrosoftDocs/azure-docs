@@ -87,7 +87,7 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
    > [!div class="nextstepaction"]
    > [Manage the Confluent Cloud resource](manage.md)
 
-- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
 
    > [!div class="nextstepaction"]
    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
