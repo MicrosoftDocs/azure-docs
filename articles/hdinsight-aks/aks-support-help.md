@@ -1,6 +1,6 @@
 ---
-title: Support and troubleshooting for Azure Kubernetes Service (AKS)
-description: This article provides support and troubleshooting options for Azure Kubernetes Service (AKS).
+title: Support and troubleshooting for Azure Kubernetes Service
+description: This article provides support and troubleshooting options for Azure Kubernetes Service.
 ms.topic: troubleshooting
 ms.date: 09/27/2023
 ms.custom: support-help-page
@@ -26,17 +26,17 @@ The following table lists the tags for AKS and related services:
 
 | Area | Tag |
 |-------|----------------------|
-| [Azure Kubernetes Service](intro-kubernetes.md) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
-| [Azure Container Registry](../container-registry/container-registry-intro.md) | [azure-container-registry](/answers/topics/azure-container-registry.html)|
-| [Azure storage accounts](../storage/common/storage-account-overview.md) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
-| [Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
-| [Azure RBAC](../role-based-access-control/overview.md) | [azure-rbac](/answers/topics/azure-rbac.html)|
-| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | [azure-active-directory](/answers/topics/azure-active-directory.html)|
-| [Azure Policy](../governance/policy/overview.md) | [azure-policy](/answers/topics/azure-policy.html)|
-| [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [virtual-machine-scale-sets](/answers/topics/123/azure-virtual-machines-scale-set.html)|
-| [Azure Virtual Network](../virtual-network/network-overview.md) | [azure-virtual-network](/answers/topics/azure-virtual-network.html)|
-| [Azure Application Gateway](../application-gateway/overview.md) | [azure-application-gateway](/answers/topics/azure-application-gateway.html)|
-| [Azure Virtual Machines](../virtual-machines/linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) |
+| [Azure Kubernetes Service](/azure/aks/intro-kubernetes) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
+| [Azure Container Registry](/azure/container-registry/container-registry-intro.md) | [azure-container-registry](/answers/topics/azure-container-registry.html)|
+| [Azure storage accounts](/azure/storage/common/storage-account-overview) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
+| [Azure Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
+| [Azure RBAC](/azure/role-based-access-control/overview) | [azure-rbac](/answers/topics/azure-rbac.html)|
+| [Azure Active Directory](/azure/active-directory/fundamentals/whatis) | [azure-active-directory](/answers/topics/azure-active-directory.html)|
+| [Azure Policy](/azure/governance/policy/overview) | [azure-policy](/answers/topics/azure-policy.html)|
+| [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) | [virtual-machine-scale-sets](/answers/topics/123/azure-virtual-machines-scale-set.html)|
+| [Azure Virtual Network]() | [azure-virtual-network](/answers/topics/azure-virtual-network.html)|
+| [Azure Application Gateway](/azure/application-gateway/overview) | [azure-application-gateway](/answers/topics/azure-application-gateway.html)|
+| [Azure Virtual Machines](/azure/virtual-machines/overview) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) |
 
 ## Create an Azure support request
 
