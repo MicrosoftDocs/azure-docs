@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/28/2022
+ms.date: 09/28/2023
 ms.author: jeedes
 ---
 
@@ -57,7 +57,7 @@ To configure and test Microsoft Entra SSO with Bynder, perform the following ste
 1. **[Configure Microsoft Entra SSO](#configure-microsoft-entra-sso)** - to enable your users to use this feature.
    1. **[Create a Microsoft Entra test user](#create-a-microsoft-entra-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
    1. **[Assign the Microsoft Entra test user](#assign-the-microsoft-entra-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
-1. **[Configure Bynder SSO](#configure-bynder-sso)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Bynder SSO](#configure-bynder-sso)** - to configure the single sign-on settings on application side.
    1. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -170,7 +170,7 @@ In this section, you test your Microsoft Entra single sign-on configuration with
 
 * Click on **Test this application**, and you should be automatically signed in to the Bynder for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Bynder tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Bynder for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Bynder tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Bynder for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
