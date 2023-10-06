@@ -4,7 +4,7 @@ description: This article answers common questions about Azure VM disaster recov
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 04/28/2022
+ms.date: 10/06/2023
 ms.topic: conceptual
 ms.service: site-recovery
 
@@ -263,8 +263,11 @@ Site Recovery tries to provide the IP address at the time of failover. If anothe
 The *Latest (lowest RPO)* recovery point option does the following:
 
 1. It first processes all the data that has been sent to Site Recovery.
-2. After the service processes the data, it creates a recovery point for each VM, before failing over to the VM. This option provides the lowest recovery point objective (RPO).
-3. The VM created after failover has all the data replicated to Site Recovery, from when the failover was triggered.
+1. After the service processes the data, it creates a recovery point for each VM, before failing over to the VM. This option provides the lowest recovery point objective (RPO).
+1. The VM created after failover has all the data replicated to Site Recovery, from when the failover was triggered.
+
+> [!NOTE]
+> If there is no data waiting to be processed by the time a failover is initiated, Azure Site Recovery will not perform any processing and won't create a new recovery point. In this scenario, it will instead execute the failover using the previously processed recovery point.
 
 ### Do *latest* recovery points impact failover RTO?
 

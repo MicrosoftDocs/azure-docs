@@ -2,7 +2,7 @@
 title: About failover and failback in Azure Site Recovery - Modernized
 description: Learn about failover and failback in Azure Site Recovery - Modernized
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 10/06/2023
 ms.author: ankitadutta
 ms.service: site-recovery
 author: ankitaduttaMSFT
@@ -74,7 +74,7 @@ During failover, you can select a number of recovery point options.
 
 **Option** | **Details**
 --- | ---
-**Latest (lowest RPO)** | This option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
+**Latest (lowest RPO)** | This option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered. <br> It initially attempts to process and apply all incoming data sent to Site Recovery service in the target region to create the latest recovery point that can be produced. However, if there is no data waiting to be processed by the time a failover is initiated, Azure Site Recovery will not perform any processing and won't create a new recovery point. In this scenario, it will instead execute the failover using the previously processed recovery point.
 **Latest processed**  | This option fails over VMs to the latest recovery point processed by Site Recovery. To see the latest recovery point for a specific VM, check **Latest Recovery Points** in the VM settings. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
 **Latest app-consistent** |  This option fails over VMs to the latest application-consistent recovery point processed by Site Recovery if app-consistent recovery points are enabled. Check the latest recovery point in the VM settings.
 **Latest multi-VM processed** | This option is available for recovery plans with one or more VMs that have multi-VM consistency enabled. VMs with the setting enabled failover to the latest common multi-VM consistent recovery point. Any other VMs in the plan failover to the latest processed recovery point.
