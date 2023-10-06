@@ -146,7 +146,6 @@ In the notebook, add a new cell, and paste the following code into that cell.
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a DataFrame to read the csv data
-
 flight_df = spark.read.format('csv').options(
     header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
@@ -159,31 +158,41 @@ Press the **SHIFT + ENTER** keys to run the code in this block.
 
 ## Explore data
 
-In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy.
+In this section you use the [Databrics file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your ADLS Gen 2 object storage using the mount point you created in the previous section.
+
+In a new cell, paste the following code to get a list of the files at the mount point. This includes the *.csv* file you uploaded using AzCopy.
 
 ```python
-import os.path
-import IPython
-from pyspark.sql import SQLContext
+dbutils.fs.ls("/mnt/flightdata")
 display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Press the **SHIFT + ENTER** keys to run the code in this block.
 
-To create a new file and list files in the *parquet/flights* folder, paste the following code into a new cell and run it:
+Notice that the *parquet* directory appears in the listing. You saved the *.csv* flight data in parquet format to the *parquet/flights* directory in the previous section. To list files in the *parquet/flights* directory, paste the following code into a new cell and run it:
 
 ```python
-dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)
-dbutils.fs.ls("/mnt/flightdata")
-dbutils.fs.ls("/mnt/flightdata/parquet/flights")
+display(dbutils.fs.ls("/mnt/flightdata/parquet/flights"))
 ```
 
-Since you won't use the *1.txt* file in this tutorial, you can paste the following script into a cell and run it to delete the file:
+To create a new file and list it, paste the following code into a new cell and run it:
 
 ```python
-dbutils.fs.rm("/mnt/flightdata/1.txt")
-dbutils.fs.ls("/mnt/flightdata")
+dbutils.fs.put("/mnt/flightdata/mydirectory/mysubdirectory/1.txt", "Hello, World!", True)
+display(dbutils.fs.ls("/mnt/flightdata/mydirectory/mysubdirectory"))
 ```
+
+Since you won't use the *1.txt* file in this tutorial, you can paste the following code into a cell and run it to recursively delete *mydirectory*. The `True` parameter indicates a recursive delete.
+
+```python
+dbutils.fs.rm("/mnt/flightdata/mydirectory", True)
+```
+
+As a convenience, you can use the help command to learn detail about other commands.
+
+```python
+dbutils.fs.help("rm.")
+``````
 
 With these code samples, you have explored the hierarchical nature of HDFS using data stored in a storage account with Data Lake Storage Gen2 enabled.
 
