@@ -80,6 +80,28 @@ We can easily upgrade from any small update in one Nexus Kubernetes version to a
 
 For more information on upgrading your cluster, see [Upgrade an Azure Operator Nexus Kubernetes Service cluster](./howto-upgrade-nexus-kubernetes-cluster.md).
 
+## Components version and breaking changes
+
+Note the following important changes to make before you upgrade to any of the available minor versions:
+
+| Kubernetes Version | Version Bundle | Components                                             | OS components                             | Breaking Changes                           | Notes           |
+|--------------------|----------------|--------------------------------------------------------|-------------------------------------------|-------------------------------------------|-----------------|
+| 1.24.9             | 1              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
+| 1.24.9             | 2              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
+| 1.24.9             | 3              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
+| 1.24.9             | 4              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
+| 1.25.4             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.25.4             | 2              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.25.4             | 3              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.25.4             | 4              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.25.4             | 5              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.25.6             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.25.6             | 2              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.26.3             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.26.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
+| 1.27.1             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5   | Mariner 2.0 (2023-09-21) with *cgroupv2* |              cgroupv2                             |                 |
+| 1.27.1             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5   | Mariner 2.0 (2023-09-22) with *cgroupv2* |              cgroupv2                             |                 |
+
 ## Kubernetes version support policy
 
 Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
@@ -163,7 +185,7 @@ AKS provides a Long Term Support (LTS) version of Kubernetes for a two-year peri
 The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
 
 > [!IMPORTANT]
-> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on AKS. It is not yet available.
+> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on Nexus Kubernetes service.
 
 ## FAQ
 
