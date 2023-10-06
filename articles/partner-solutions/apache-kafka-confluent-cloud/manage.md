@@ -14,7 +14,7 @@ This article describes how to manage your instance of Apache Kafka for Confluent
 
 ## Single sign-on
 
-To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../../active-directory/manage-apps/add-application-portal.md). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Confluent Cloud portal.
+To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Entra tenant](../../active-directory/manage-apps/add-application-portal.md). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Confluent Cloud portal.
 
 To enable SSO, follow these steps:
 
@@ -28,7 +28,7 @@ To enable SSO, follow these steps:
 
    :::image type="content" source="media/manage/permissions-requested.png" alt-text="Grant permissions.":::
 
-1. Choose an Azure AD account for single sign-on to the Confluent Cloud portal.
+1. Choose an Azure Entra account for single sign-on to the Confluent Cloud portal.
 1. After consent is provided, you're redirected to the Confluent Cloud portal.
 
 ## Set up cluster
