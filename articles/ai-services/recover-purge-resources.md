@@ -1,36 +1,33 @@
 ---
-title: Recover deleted Azure AI services resource
+title: Recover or purge deleted Azure AI services resources
 titleSuffix: Azure AI services
-description: This article provides instructions on how to recover an already-deleted Azure AI services resource.
-services: cognitive-services
-author: aahill
+description: This article provides instructions on how to recover or purge an already-deleted Azure AI services resource.
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 07/05/2023
-ms.author: aahi
+ms.date: 10/5/2023
+ms.author: eur
 ---
 
-# Recover deleted Azure AI services resources
+# Recover or purge deleted Azure AI services resources
 
-This article provides instructions on how to recover an Azure AI services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
+This article provides instructions on how to recover or purge an Azure AI services resource that is already deleted. 
+
+Once you delete a resource, you won't be able to create another one with the same name for 48 hours. To create a resource with the same name, you will need to purge the deleted resource.
 
 > [!NOTE]
 > The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple Azure AI services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific Azure AI service for which the resource was created.
 
-## Prerequisites
+## Recover a deleted resource
+
+The following prerequisites must be met before you can recover a deleted resource:
 
 * The resource to be recovered must have been deleted within the past 48 hours.
 * The resource to be recovered must not have been purged already. A purged resource cannot be recovered.
 * Before you attempt to recover a deleted resource, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group is not possible. For more information, see [Manage resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Azure AI services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
 * If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Azure AI services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
-
-Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
-
-When using `Contributor` to purge a resource the role must be assigned at the subscription level. If the role assignment is only present at the resource or resource group level you will be unable to access the purge functionality.
-
-## Recover a deleted resource
 
 To recover a deleted Azure AI services resource, use the following commands. Where applicable, replace:
 
@@ -94,7 +91,9 @@ az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resour
 
 ## Purge a deleted resource 
 
-Once you delete a resource, you won't be able to create another one with the same name for 48 hours. To create a resource with the same name, you will need to purge the deleted resource.
+Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
+
+When using `Contributor` to purge a resource the role must be assigned at the subscription level. If the role assignment is only present at the resource or resource group level you will be unable to access the purge functionality.
 
 To purge a deleted Azure AI services resource, use the following commands. Where applicable, replace:
 
@@ -111,13 +110,13 @@ To purge a deleted Azure AI services resource, use the following commands. Where
 
 If you need to purge a deleted resource, the steps are similar to recovering a deleted resource.
 
-Navigate to the hub of the Azure AI services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service. Then select **Manage deleted resources** from the menu.
+1. Navigate to the hub of the Azure AI services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service. Then select **Manage deleted resources** from the menu.
 
-Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
-Select one or more deleted resources and select **Purge**.
-Purging will permanently delete an Azure AI services resource. 
+1. Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
 
-:::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing a list of resources that can be purged." lightbox="media/managing-deleted-resource.png":::
+1. Select one or more deleted resources and select **Purge**. Purging will permanently delete an Azure AI services resource. 
+
+    :::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing a list of resources that can be purged." lightbox="media/managing-deleted-resource.png":::
 
 
 # [Rest API](#tab/rest-api)
