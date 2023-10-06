@@ -126,12 +126,12 @@ For example, suppose Contoso uses Teams Federation Controls to block the Fabrika
 
 You can configure the tenant restrictions v2 policy to allow specific users or groups with externally issued identities to join specific externally hosted Teams meetings. With this configuration, users can sign in to Teams with their externally issued identities and join the specified tenant's externally hosted Teams meetings.
 
-Currently there's a known issue where if Teams federation is off, Teams blocks a home identity authenticated session from joining externally hosted Teams meetings.
 
 | Auth identity | Authenticated session  | Result |
 |----------------------|---------|---------|
+|Tenant Member users (authenticated session)<br></br> Example: A user uses their home identity as a member user (for example, user@mytenant.com) | Authenticated |  Tenant restrictions v2 allows access to the Teams meeting. TRv2 never get applied to tenant member users. Cross tenant access inbound/outbound policy applies.  |
 |Anonymous (no authenticated session) <br></br> Example: A user tries to use an unauthenticated session, for example in an InPrivate browser window, to access a Teams meeting. | Not authenticated |  Tenant restrictions v2 blocks access to the Teams meeting.  |
-|Externally issued identity (authenticated session)<br></br> Example: A user uses any identity other than their home identity (for example, user@externaltenant.com) | Authenticated as an externally issued identity |  Allow or block access to the Teams meeting per Tenant restrictions v2 policy. If allowed by the policy, the user can join the meeting. Otherwise access is blocked. <br></br> Note: Currently there's a known issue where if Teams isn't explicitly federated with the external tenant, Teams and Tenant restrictions v2 block users using a home identity authenticated session from joining externally hosted Teams meetings.  
+|Externally issued identity (authenticated session)<br></br> Example: A user uses any identity other than their home identity (for example, user@externaltenant.com) | Authenticated as an externally issued identity |  Allow or block access to the Teams meeting per Tenant restrictions v2 policy. If allowed by the policy, the user can join the meeting. Otherwise access is blocked. |   
 
 ### Tenant restrictions v2 and SharePoint Online
 
