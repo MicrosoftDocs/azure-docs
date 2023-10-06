@@ -3,7 +3,7 @@ title: How to create Kafka table on Apache FlinkSQL - Azure portal
 description: Learn how to create Kafka table on Apache FlinkSQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/06/2023
 ---
 
 # Create Kafka table on Apache FlinkSQL
@@ -27,7 +27,11 @@ The Kafka connector allows for reading data from and writing data into Kafka top
 
 **Prepare messages with weblog.py**
 
-``` py
+``` Python
+import random
+import json
+import time
+from datetime import datetime
 
 user_set = [
         'John',
@@ -150,7 +154,7 @@ CREATE TABLE KafkaTable (
 'properties.group.id' = 'my_group',
 'scan.startup.mode' = 'earliest-offset',
 'format' = 'json'
-)
+);
 
 select * from KafkaTable;
 ``` 

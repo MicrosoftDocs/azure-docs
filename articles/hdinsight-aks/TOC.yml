@@ -40,8 +40,6 @@ items:
   items:
   - name: Release notes
     href: ./release-notes/hdinsight-aks-release-notes.md
-  - name: Archived release notes
-    href: ./release-notes/hdinsight-aks-release-notes-archive.md
 - name: Get started
   items:
   - name: Create a cluster pool and cluster
@@ -265,6 +263,10 @@ items:
   items:
   - name: FAQ
     href: ./faq.md
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Support options
+    href: ./hdinsight-aks-support-help.md
   - name: Troubleshoot
     items:
     - name: Cluster creation errors
