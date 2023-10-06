@@ -3,7 +3,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: include
-ms.date: 09/06/2023
+ms.date: 10/09/2023
 ---
 
 - In most cases, we recommend using Microsoft Azure Peering Service (MAPS) to connect your network to Azure Communications Gateway.

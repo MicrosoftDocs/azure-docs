@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 09/01/2023
+ms.date: 10/09/2023
 ---
 
 # Prepare for live traffic with Microsoft Teams Direct Routing and Azure Communications Gateway

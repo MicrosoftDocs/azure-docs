@@ -6,7 +6,7 @@ ms.author: rdunstan
 ms.custom: subject-cost-optimization
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 09/06/2023
+ms.date: 10/09/2023
 ---
 
 # Plan and manage costs for Azure Communications Gateway

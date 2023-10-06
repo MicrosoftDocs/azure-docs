@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 10/06/2023
+ms.date: 10/09/2023
 ms.custom: template-concept
 ---
 

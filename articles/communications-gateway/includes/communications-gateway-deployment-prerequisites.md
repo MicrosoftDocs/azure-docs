@@ -3,7 +3,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: include
-ms.date: 08/23/2022
+ms.date: 10/09/2023
 ---
 
 > [!IMPORTANT]

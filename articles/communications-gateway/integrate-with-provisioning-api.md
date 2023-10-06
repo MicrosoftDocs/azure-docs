@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 10/09/2023
 ---
 
 # Integrate with Azure Communications Gateway's Provisioning API (preview)
