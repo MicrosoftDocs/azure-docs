@@ -19,7 +19,7 @@ To use the DICOM service, users and applications need to prove their identity an
 
 ## Assign roles and grant permissions
 
-Before you get an access token, configure access control for the DICOM service using [Azure role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview) (Azure RBAC). Azure RBAC is a system that allows you to define who can access what resources and what actions they can perform on them1
+Before you get an access token, configure access control for the DICOM service using [Azure role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview) (Azure RBAC). Azure RBAC is a system that allows you to define who can access what resources and what actions they can perform on them.
 
 To assign roles and grant access to the DICOM service:
 
