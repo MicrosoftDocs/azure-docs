@@ -29,52 +29,18 @@ Clusters are individual open source compute workloads, such as Apache Spark, Apa
 
 The following table list shows the features of HDInsight on AKS that are currently in preview. Preview features are sorted alphabetically.
 
-|	Area	|	Features	|	Remarks	|
-|	---	|	---	|	---	|
-|	Fundamentals	|	Create Pool and clusters using portal	|		|
-|	  |	Web ssh support 	|		|
-|		|	Ability to Choose number of worker nodes during cluster creation	|		|
-|	Storage	|	ADLS Gen2 support for storage	|		|
-|	Metastore	|	External Metastore support	|		|
-|		|	Integrate with HDI VM version Services	|		|
-|	Security	|	Support for ARM RBAC	|		|
-|		|	Support for MSI based authentication	|		|
-|		|	Option to provide cluster access to other users	|		|
-|	Logging and Monitoring	|	Log aggregation in Azure log analytics for server logs	|		|
-|		|	Cluster and Service metrics via Managed Prometheus and Grafana	|		|
-|		|	Support server metrics in Azure monitor	|		|
-|		|	Service Status page for monitoring the service Health	|		|
-|	Auto-Scaling	|	Load based Auto Scaling Support	|		|
-|		|	Schedule based Auto Scaling Support	|		|
-|	Customize and configure	|	Support script actions during cluster create	|		|
-|		|	Support library management	|		|
-|		|	Service config settings after cluster creation	|		|
-|	Trino	|	Support for Trino catalogs	|		|
-|		|	Submit queries to the cluster using Trino Cli/Dbeaver	|		|
-|		|	Trino CLI Support	|		|
-|		|	Add or remove plugins/connectors	|		|
-|		|	Support for logging query events	|		|
-|		|	Support for scan query statistics for any connector in Trino dashboard	|		|
-|		|	Support Trino dashboard for query monitoring	|		|
-|		|	Query Caching	|		|
-|		|	Integrate with `PowerBI`	|		|
-|		|	Integrate with Apache Superset/Redash	|		|
-|		|	Support for multiple connectors	|		|
-|	Flink	|	Support for Flink native web UI	|		|
-|		|	Flink SQL support with HMS	|		|
-|		|	Submit jobs to the cluster using REST API	|		|
-|		|	Run programs packaged as JAR files via the Flink CLI.  	|		|
-|		|	Support for persistent Savepoints	|		|
-|		|	Support for update the config options when the job is running. 	|		|
-|		|	Connecting to Azure services	|		|
-|		|	Submit jobs to the cluster using Flink CLI - Python and Scala shells	|		|
-|	Spark	|	Jupyter Notebook	|		|
-|		|	Support for Delta lake 2.0	|		|
-|		|	Zeppelin Support	|		|
-|		|	Support ATS	|		|
-|		|	Support for Yarn History server interface	|		|
-|		|	Job submission using SSH	|		|
-|		|	Job submission using SDK	|		|
+|	Area	|	Features	|	
+|	---	|	---	|
+|	Fundamentals	|	[Create Pool and clusters](./quickstart-create-cluster) using portal,	Web secure shell (ssh) support, Ability to Choose number of worker nodes during cluster creation	|		|
+|	Storage	|	[ADLS Gen2 support for storage](/azure/databricks/getting-started/connect-to-azure-storage)	|	
+|	Metastore	|	External Metastore support,	Integrate with HDI VM version Services	|		
+|	Security	|	Support for ARM RBAC,	Support for MSI based authentication,	Option to provide cluster access to other users	|	
+|	Logging and Monitoring	|	Log aggregation in Azure log analytics for server logs,	Cluster and Service metrics via [Managed Prometheus and Grafana](./monitor-with-prometheus-grafana),	Support server metrics in [Azure monitor](/azure/azure-monitor/overview),	Service Status page for monitoring the [Service health](./service-health)	|	
+|	Auto-Scaling	|	Load based [Auto Scaling](./hdinsight-on-aks-autoscale-clusters) Support,	Schedule based [Auto Scaling](./hdinsight-on-aks-autoscale-clusters) Support	|
+|	Customize and configure	|	Support [script actions](./manage-script-actions) during cluster create, Support [library management](./spark/library-management),   Service config settings after cluster creation	|	
+|	Trino	|	Support for [Trino catalogs](./trino/trino-add-catalogs), Submit queries to the cluster using [Trino Cli](/trino/trino-ui-command-line-interface)/Dbeaver,	[Trino CLI](./trino/trino-ui-command-line-interface) Support,	Add or remove plugins/[connectors](/trino/trino-connectors), Support for [logging query](./trino/trino-query-logging) events, Support for [scan query statistics](./trino/trino-scan-stats) for any [Connector](./trino/trino-connectors) in Trino dashboard, Support Trino dashboard for query monitoring, [Query Caching](./trino/trino-caching), Integrate with `PowerBI`, Integrate with [Apache Superset](./trino/trino-superset)/Redash, Support for multiple connectors, |
+|	Flink	|	Support for Flink native web UI, Flink SQL support with HMS, Submit jobs to the cluster using REST API, Run programs packaged as JAR files via the Flink CLI, Support for persistent Savepoints, Support for update the config options when the job is running, Connecting to Azure services, Submit jobs to the cluster using [Flink CLI](./flink/use-flink-cli-to-submit-jobs) - Python and Scala shells |
+|	Spark	|	Jupyter Notebook, Support for [Delta lake](./spark/azure-hdinsight-spark-on-aks-delta-lake) 2.0, Zeppelin Support, Support ATS, Support for Yarn History server interface, Job submission using SSH, Job submission using SDK	|		
 
 ## Coming soon
 
