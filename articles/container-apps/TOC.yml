@@ -116,6 +116,8 @@
           href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Troubleshooting
+      href: troubleshooting.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md
 - name: Logs and monitoring
