@@ -3,6 +3,8 @@ title: Configure private endpoints for namespaces with MQTT
 description: This article describes how to configure private endpoints for Azure Event Grid namespaces that have MQTT enabled.
 ms.topic: how-to
 ms.date: 10/04/2023 
+author: veyaddan
+ms.author: veyaddan
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces with MQTT enabled

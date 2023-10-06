@@ -3,6 +3,8 @@ title: Configure IP firewall for Azure Event Grid namespaces
 description: This article describes how to configure firewall settings for Azure Event Grid namespaces that have MQTT enabled. 
 ms.topic: how-to
 ms.date: 10/04/2023
+author: veyaddan
+ms.author: veyaddan
 ---
 
 # Configure IP firewall for Azure Event Grid namespaces
