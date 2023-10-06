@@ -61,6 +61,11 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
     <td>300 K</td>  
+  </tr> 
+   <tr>  
+    <td>gpt-35-turbo-instruct</td>  
+    <td>East US, Sweden Central</td>  
+    <td>240 K</td>  
   </tr>  
   <tr>  
     <td rowspan="2">gpt-4</td>  
