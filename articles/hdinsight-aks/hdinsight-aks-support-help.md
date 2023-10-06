@@ -34,7 +34,7 @@ The following table lists the tags for HDInsight on AKS and related services:
 | Area | Tag |
 |-------|----------------------|
 | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
-| [Azure HDInsight on AKS](./overview.md) | [azure-hdinsight-aks](/answers/topics/azure-kubernetes-service.html)|
+| [Azure HDInsight on AKS](./overview.md) | [azure-hdinsight-aks](/answers/tags/168/azure-hdinsight.html) |
 | [Azure storage accounts](/azure/storage/common/storage-account-overview) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
 | [Azure Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
 | [Azure RBAC](/azure/role-based-access-control/overview) | [azure-rbac](/answers/topics/azure-rbac.html)|
@@ -72,7 +72,7 @@ The following table lists the GitHub repositories for HDInsight on AKS and relat
 
 :::image type="icon" source="./media/hdinsight-aks-support-help/updates-logo.png" alt-text="":::
 
-Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?query=HDInsight).
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?query=HDInsight), [Release notes](./release-notes/hdinsight-aks-release-notes) and [Social Channels](https://www.linkedin.com/groups/14313521/).
 
 ## Next steps
 
