@@ -33,7 +33,7 @@ For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster 
 
  - For more information about the cluster witness, see [Cluster witness on Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
  - For more information about a witness in the cloud, see [Configure cloud witness](azure-stack-edge-gpu-manage-cluster.md#configure-cloud-witness).
- - For more information about a local witness, see [Configure local witness](azure-stack-edge-gpu-manage-cluster.md#configure-local-witness). 
+ - For more information about a local witness, see [Configure local witness](azure-stack-edge-gpu-manage-cluster.md#configure-local-witness).
 
 ## Infrastructure cluster
 
