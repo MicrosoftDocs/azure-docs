@@ -54,7 +54,7 @@ This section lists out some key differences between these two Load Balancer SKUs
 
 For information on limits, see [Load Balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 
-## Upgrade using automated scripts 
+## Upgrade using automated scripts (recommended)
 
 Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 
@@ -62,7 +62,8 @@ Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 
 ## Upgrade manually
 
-Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the automated script option above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications. 
+> [!NOTE]
+> Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the [**automated script option**](./load-balancer-multiple-ip-powershell.md) above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications. 
 
 When manually migrating from a Basic to Standard SKU Load Balancer, there are a couple key considerations to keep in mind:
 
@@ -87,6 +88,8 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 1. For public load balancers, if you do not have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
 1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md#performing-manual-upgrades) 
 1. Delete the Basic Load Balancer 
+   > [!NOTE]
+   > For Virtual Machine Scale Set backends, you will need to remove the load balancer  association in the Networking settings and update the instances prior to deletion of the Basic Load Balancer. Once removed, you will also need to [**update the instances**](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md#performing-manual-upgrades) 
 1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-upgrade-portal.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
