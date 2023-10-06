@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/azure-stack-install-visual-studio.md",
-            "redirect_url": "/azure-stack/user/azure-stack-install-visual-studio",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-install-visual-studio",
             "redirect_document_id": false
         },
         {
@@ -42,7 +42,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-create-vm-template.md",
-            "redirect_url": "/azure-stack/user/azure-stack-create-vm-template",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-create-vm-template",
             "redirect_document_id": false
         },
         {
@@ -57,7 +57,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-deploy.md",
-            "redirect_url": "/azure-stack/asdk/asdk-install",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-install",
             "redirect_document_id": false
         },
         {
@@ -72,17 +72,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-marketplace-item-offline.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-create-and-publish-marketplace-item",
+            "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-marketplace-item.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-create-and-publish-marketplace-item",
+            "redirect_url": "/azure/azure-stack/azure-stack-marketplace-publisher",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-offer-services.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-tutorial-tenant-vm",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-tenant-vm",
             "redirect_document_id": false
         },
         {
@@ -117,7 +117,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-subscribe-services.md",
-            "redirect_url": "/azure-stack/user/azure-stack-subscribe-services",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-subscribe-services",
             "redirect_document_id": false
         },
         {
@@ -132,7 +132,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/asdk/asdk-update-offers.md",
-            "redirect_url": "/azure-stack/operator/create-add-on-plan",
+            "redirect_url": "/azure/azure-stack/create-add-on-plan",
             "redirect_document_id": false
         },
         {
@@ -157,12 +157,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-acs-differences.md",
-            "redirect_url": "/azure-stack/user/azure-stack-acs-differences",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-acs-differences",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-add-default-image.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-create-and-publish-marketplace-item",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-marketplace-item",
             "redirect_document_id": false
         },
         {
@@ -227,7 +227,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-app-service-enable-ftp.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-app-service-overview",
+            "redirect_url": "/azure/azure-stack/azure-stack-app-service-overview",
             "redirect_document_id": false
         },
         {
@@ -282,17 +282,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-architecture.md",
-            "redirect_url": "/azure-stack/asdk/asdk-architecture",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-architecture",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-arm-templates.md",
-            "redirect_url": "/azure-stack/user/azure-stack-arm-templates",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-arm-templates",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-asdk-release-notes.md",
-            "redirect_url": "/azure-stack/asdk/asdk-release-notes",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-release-notes",
             "redirect_document_id": false
         },
         {
@@ -362,12 +362,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-connect-azure-stack.md",
-            "redirect_url": "/azure-stack/asdk/asdk-connect",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-connect",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-connect-cli.md",
-            "redirect_url": "/azure-stack/user/azure-stack-version-profiles-azurecli2",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-connect-cli",
             "redirect_document_id": false
         },
         {
@@ -397,7 +397,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-considerations.md",
-            "redirect_url": "/azure-stack/user/azure-stack-considerations",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-considerations",
             "redirect_document_id": false
         },
         {
@@ -467,52 +467,52 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deploy-overview.md",
-            "redirect_url": "/azure-stack/asdk/asdk-download",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-download",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deploy-template-command-line.md",
-            "redirect_url": "/azure-stack/user/azure-stack-deploy-template-command-line",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-deploy-template-command-line",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deploy-template-portal.md",
-            "redirect_url": "/azure-stack/user/azure-stack-deploy-template-portal",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-deploy-template-portal",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deploy-template-powershell.md",
-            "redirect_url": "/azure-stack/user/azure-stack-deploy-template-powershell",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-deploy-template-powershell",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deploy-template-visual-studio.md",
-            "redirect_url": "/azure-stack/user/azure-stack-deploy-template-visual-studio",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-deploy-template-visual-studio",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deploy.md",
-            "redirect_url": "/azure-stack/asdk/asdk-install",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deployment-decisions.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-connection-models",
+            "redirect_url": "/azure/azure-stack/azure-stack-connection-models",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-deployment-planning.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-datacenter-integration",
+            "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-develop-templates.md",
-            "redirect_url": "/azure-stack/user/azure-stack-develop-templates",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-develop-templates",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-developer.md",
-            "redirect_url": "/azure-stack/user/azure-stack-developer",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-developer",
             "redirect_document_id": false
         },
         {
@@ -532,7 +532,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-dns.md",
-            "redirect_url": "/azure-stack/user/azure-stack-dns",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-dns",
             "redirect_document_id": false
         },
         {
@@ -617,37 +617,37 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-integration-checklist.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-datacenter-integration",
+            "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-key-features.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-overview",
+            "redirect_url": "/azure/azure-stack/azure-stack-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-kv-deploy-vm-with-secret.md",
-            "redirect_url": "/azure-stack/user/azure-stack-key-vault-deploy-vm-with-secret",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-kv-deploy-vm-with-secret",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-kv-intro.md",
-            "redirect_url": "/azure-stack/user/azure-stack-key-vault-intro",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-kv-intro",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-kv-manage-portal.md",
-            "redirect_url": "/azure-stack/user/azure-stack-key-vault-manage-portal",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-kv-manage-portal",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-kv-push-secret-into-vm.md",
-            "redirect_url": "/azure-stack/user/azure-stack-key-vault-push-secret-into-vm",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-kv-push-secret-into-vm",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-kv-sample-app.md",
-            "redirect_url": "/azure-stack/user/azure-stack-key-vault-sample-app",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-kv-sample-app",
             "redirect_document_id": false
         },
         {
@@ -767,7 +767,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-network-differences.md",
-            "redirect_url": "/azure-stack/user/azure-stack-network-differences",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-network-differences",
             "redirect_document_id": false
         },
         {
@@ -802,17 +802,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-planning-considerations.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-datacenter-integration",
+            "redirect_url": "/azure/azure-stack/azure-stack-deployment-planning",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-poc.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-overview",
+            "redirect_url": "/azure/azure-stack/azure-stack-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-policy-module.md",
-            "redirect_url": "/azure-stack/user/azure-stack-policy-module",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-policy-module",
             "redirect_document_id": false
         },
         {
@@ -827,7 +827,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-powershell-configure-user.md",
-            "redirect_url": "/azure-stack/user/azure-stack-powershell-configure-user",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-powershell-configure-user",
             "redirect_document_id": false
         },
         {
@@ -862,7 +862,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-provision-vm.md",
-            "redirect_url": "/azure-stack/user/azure-stack-create-vm-template",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-create-vm-template",
             "redirect_document_id": false
         },
         {
@@ -872,7 +872,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-redeploy.md",
-            "redirect_url": "/azure-stack/asdk/asdk-redeploy",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
             "redirect_document_id": false
         },
         {
@@ -887,7 +887,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-register.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-registration",
+            "redirect_url": "/azure/azure-stack/azure-stack-registration",
             "redirect_document_id": false
         },
         {
@@ -927,7 +927,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-run-powershell-script.md",
-            "redirect_url": "/azure-stack/asdk/asdk-install",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
             "redirect_document_id": false
         },
         {
@@ -952,12 +952,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-setting-quotas.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-plan-offer-quota-overview",
+            "redirect_url": "/azure/azure-stack/azure-stack-plan-offer-quota-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-solution-pipeline.md",
-            "redirect_url": "/azure-stack/user/azure-stack-solution-pipeline",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-solution-pipeline",
             "redirect_document_id": false
         },
         {
@@ -1017,12 +1017,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-storage-connect-se.md",
-            "redirect_url": "/azure-stack/user/azure-stack-storage-connect-se",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-storage-connect-se",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-storage-dev.md",
-            "redirect_url": "/azure-stack/user/azure-stack-storage-dev",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-storage-dev",
             "redirect_document_id": false
         },
         {
@@ -1032,12 +1032,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-storage-overview.md",
-            "redirect_url": "/azure-stack/user/azure-stack-storage-overview",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-storage-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-storage-transfer.md",
-            "redirect_url": "/azure-stack/user/azure-stack-storage-transfer",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-storage-transfer",
             "redirect_document_id": false
         },
         {
@@ -1062,7 +1062,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-tools-paas-services.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-offer-services-overview",
+            "redirect_url": "/azure/azure-stack/azure-stack-offer-services-overview",
             "redirect_document_id": false
         },
         {
@@ -1107,7 +1107,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-understanding-dns.md",
-            "redirect_url": "/azure-stack/user/azure-stack-understanding-dns",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-understanding-dns",
             "redirect_document_id": false
         },
         {
@@ -1222,7 +1222,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-validate-templates.md",
-            "redirect_url": "/azure-stack/user/azure-stack-validate-templates",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-templates",
             "redirect_document_id": false
         },
         {
@@ -1242,7 +1242,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack-vm-considerations.md",
-            "redirect_url": "/azure-stack/user/azure-stack-vm-considerations",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-vm-considerations",
             "redirect_document_id": false
         },
         {
@@ -1272,7 +1272,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/azure-stack/azure-stack-deploy.md",
-            "redirect_url": "/azure-stack/asdk/asdk-deploy-considerations",
+            "redirect_url": "/azure/azure-stack/asdk/asdk-deploy-considerations",
             "redirect_document_id": false
         },
         {
@@ -1317,12 +1317,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-partner-update-1802.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-update-1903",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-partner-update-1803.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-update-1903",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
             "redirect_document_id": false
         },
         {
@@ -1352,7 +1352,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-vaas-known-issues.md",
-            "redirect_url": "/azure-stack/partner/azure-stack-vaas-release-notes",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-release-notes",
             "redirect_document_id": false
         },
         {
@@ -1372,7 +1372,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-vaas-parameters-test.md",
-            "redirect_url": "/azure-stack/partner/azure-stack-vaas-parameters",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-parameters",
             "redirect_document_id": false
         },
         {
@@ -1392,12 +1392,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-vaas-schedule-your-first-test.md",
-            "redirect_url": "/azure-stack/partner/azure-stack-vaas-schedule-test-pass",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
-            "redirect_url": "/azure-stack/partner/azure-stack-vaas-set-up-resources",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
             "redirect_document_id": false
         },
         {
@@ -1407,7 +1407,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/partner/azure-stack-vaas-test-vm.md",
-            "redirect_url": "/azure-stack/partner/azure-stack-vaas-monitor-test",
+            "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-monitor-test",
             "redirect_document_id": false
         },
         {
@@ -1502,7 +1502,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/prepare-pki-certs.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-prepare-pki-certs",
+            "redirect_url": "/azure/azure-stack/azure-stack-prepare-pki-certs",
             "redirect_document_id": false
         },
         {
@@ -1727,7 +1727,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/user/azure-stack-powershell-download.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-powershell-download",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-download",
             "redirect_document_id": false
         },
         {
@@ -1882,12 +1882,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/user/azure-stack-tutorial-mysql.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-tutorial-mysql",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-mysql",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-stack/user/azure-stack-tutorial-sql.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-tutorial-sql",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
             "redirect_document_id": false
         },
         {
@@ -1977,7 +1977,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/user/media/azure-stack-app-service-deploy-offline/temp.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-app-service-deploy-offline",
+            "redirect_url": "/azure/azure-stack/azure-stack-app-service-deploy-offline",
             "redirect_document_id": false
         },
         {
@@ -1992,7 +1992,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-stack/validate-pki-certs.md",
-            "redirect_url": "/azure-stack/operator/azure-stack-validate-pki-certs",
+            "redirect_url": "/azure/azure-stack/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         }
     ]
