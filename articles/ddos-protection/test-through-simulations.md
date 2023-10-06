@@ -169,7 +169,7 @@ During the creation of the load balancer, you'll configure:
     | Setting                 | Value                                              |
     | -----------------------| -------------------------------------------------- |
     | **Name**                | Enter **myFrontend**.                               |
-    | **Subnet**          | Select your subnet. In this example, our subnet is named *MyBackendSubnet*. |
+    | **IP Type**          | Select *Create new*. In *Add a public IP address*, enter **myPublicIP** for Name |
     | **Availability zone** | Select **Zone-redundant**. |
 
     > [!NOTE]
@@ -183,12 +183,10 @@ During the creation of the load balancer, you'll configure:
     | Setting                 | Value                                              |
     | -----------------------| -------------------------------------------------- |
     | **Name**                | Enter **myBackendPool**.                               |
-    | **Subnet**          | Select your subnet. In this example, our subnet is named *MyBackendSubnet*. |
-    | **Availability zone** | Select **Zone-redundant**. |
     | **Backend Pool Configuration** | Select **IP Address**. |
     
 
-1. Select **Next: Inbound rules** at the bottom of the page.
+1. Select **Save**, then select **Next: Inbound rules** at the bottom of the page.
 
 1. Under **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
@@ -198,7 +196,7 @@ During the creation of the load balancer, you'll configure:
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **myFrontend (Dynamic)**. |
+    | Frontend IP address | Select **myFrontend (To be created)**. |
     | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
@@ -208,7 +206,7 @@ During the creation of the load balancer, you'll configure:
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select the *Enabled* radio. |
     | Floating IP | Select the *Disabled* radio. |
- 
+    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 1. Select **Save**.
 
