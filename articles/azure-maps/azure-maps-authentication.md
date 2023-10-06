@@ -232,7 +232,7 @@ If you want to assign temporary access and remove access for before the SAS toke
 
 there are two options to revoke access for SAS token(s):
 
-1. Regenerate the key that was used by the SAS token, the primaryKey or secondaryKey or managed identity of the map account.
+1. Regenerate the key that was used by the SAS token or secondaryKey of the map account.
 1. Remove the role assignment for the managed identity on the associated map account.
 
 > [!WARNING]
@@ -241,7 +241,7 @@ there are two options to revoke access for SAS token(s):
 > To avoid disruption:
 >
 > 1. Add a second managed identity to the Map Account and grant the new managed identity the correct role assignment.
-> 1. Create a SAS token using `secondaryKey` or managed identity as the `signingKey` and distribute the new SAS token to the application.
+> 1. Create a SAS token using `secondaryKey`, or a different managed identity than the previous one, as the `signingKey` and distribute the new SAS token to the application.
 > 1. Regenerate the primary key, remove the managed identity from the account, and remove the role assignment for the managed identity.
 
 ### Create SAS tokens
