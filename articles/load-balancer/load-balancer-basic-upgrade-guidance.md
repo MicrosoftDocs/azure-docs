@@ -24,7 +24,7 @@ We recommend the following approach for upgrading to Standard Load Balancer:
 1. Learn about some of the [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) between Basic Load Balancer and Standard Load Balancer. 
 1. Identify the Basic Load Balancer to upgrade. 
 1. Create a migration plan for planned downtime. 
-1. Perform migration with [automated PowerShell scripts](#upgrade-using-automated-scripts) for your scenario or create a new Standard Load Balancer with the Basic Load Balancer configurations.
+1. Perform migration with [automated PowerShell scripts](#upgrade-using-automated-scripts-recommended) for your scenario or create a new Standard Load Balancer with the Basic Load Balancer configurations.
 1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic Load Balancer resource. 
 
 ## Basic Load Balancer SKU vs. standard Load Balancer SKU 
