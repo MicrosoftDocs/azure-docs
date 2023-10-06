@@ -58,10 +58,6 @@ resource "azurerm_public_ip_prefix" "pip_prefix" {
 
     :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/providers.tf":::
 
-1. Create a file named `ssh.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/ssh.tf":::
-
 1. Create a file named `main.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/main.tf":::
