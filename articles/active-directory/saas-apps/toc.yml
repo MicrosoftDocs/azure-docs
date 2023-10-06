@@ -380,6 +380,8 @@
         href: britive-tutorial.md
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
+      - name: Brocade SANnav Management Portal
+        href: brocade-sannav-management-portal-tutorial.md
       - name: Broker groupe Achat Solutions
         href: broker-groupe-tutorial.md
       - name: BrowserStack Single Sign-on
