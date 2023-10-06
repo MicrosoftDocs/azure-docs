@@ -1,0 +1,5 @@
+{ 
+    "displayName": "TransformInput", 
+    "description": "Make array of tags into one object", 
+    "query": ".payload.values |= (map({(.tag): (.numVal // .boolVal)}) | add)"
+}  

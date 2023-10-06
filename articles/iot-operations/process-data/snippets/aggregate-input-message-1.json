@@ -1,0 +1,19 @@
+{ 
+    "systemProperties":{ 
+        "partitionKey":"foo", 
+        "partitionId":5, 
+        "timestamp":"2023-01-11T10:02:07Z" 
+    }, 
+    "qos":1, 
+    "topic":"/assets/foo/tags/bar", 
+    "properties":{ 
+        "responseTopic":"outputs/foo/tags/bar", 
+        "contentType": "application/json" 
+    }, 
+    "payload":{ 
+        "humidity": 10, 
+        "temperature":250, 
+        "pressure":30, 
+        "runningState": true 
+    } 
+} 

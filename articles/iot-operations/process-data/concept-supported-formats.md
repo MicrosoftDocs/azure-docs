@@ -318,5 +318,6 @@ The following example shows the configuration for deserializing batched CSV data
 
 ## Related content
 
-- [Message structure overview](concept-message-structure.md)
-- [Configuration patterns](concept-configuration-patterns.md)
+- [Data processor messages](concept-message-structure.md)
+- [What is partitioning?](concept-partitioning.md)
+- [What are configuration patterns?](concept-configuration-patterns.md)

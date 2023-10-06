@@ -95,3 +95,4 @@ To partition your data, specify a partitioning strategy and the number of partit
 ## Related content
 
 - [Serialization and deserialization formats](concept-supported-formats.md)
+- [What is partitioning?](concept-partitioning.md)

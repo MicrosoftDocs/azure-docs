@@ -1,0 +1,12 @@
+{ 
+    "systemProperties":{  
+        "partitionKey":"foo",  
+        "partitionId":5,  
+        "timestamp":"2023-01-11T10:02:07Z"  
+    }, 
+    "payload":{ 
+        "temperature_avg":242.5, 
+        "temperature_all":[250,235], 
+        "pressure":27.5 
+    } 
+} 
