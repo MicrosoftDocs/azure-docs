@@ -97,11 +97,11 @@ If a traffic filter is no longer needed, unlink it from deployment and then dele
 
 ## Connected Elastic resources
 
-To get a consolidated visibility into all Elastic resources and deployments, created using the Azure or Elastic portal experience, you can go to the 'Connected Elastic resources' tab in any of your Azure Elastic resource.
+To access all Elastic resources and deployments you have created using the Azure or Elastic portal experience, go to the **Connected Elastic resources** tab in any of your Azure Elastic resources.
 
 :::image type="content" source="media/manage/connected-elastic-resources.png" alt-text="Screenshot showing Connected Elastic resources selected in the Resource menu.":::
 
-You can easily switch to corresponding Elastic deployments or Azure resources using links to manage those resources, provided you have owner or contributor rights to the same.
+You can easily manage the corresponding Elastic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
 
 ## Delete Elastic resource
 
