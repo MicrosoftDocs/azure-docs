@@ -35,7 +35,7 @@ In this quickstart, you'll use the Azure portal and Marketplace to find and crea
 
     | Property  | Description |
     |---------|---------|
-    | **Subscription**  | From the drop-down, select your Azure subscription where you have owner access. |
+    | **Subscription**  | From the drop-down, select your Azure subscription where you have Owner or Contributor access. |
     | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](azure/azure-resource-manager/management/overview). |
     | **Resource Name**  | Put the name for the Astro organization you want to create. |
     | **Region** | Select the closest region to where you would like to deploy your resource. |
