@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/15/2023
+ms.date: 10/03/2023
 ms.author: gasinh
 ms.reviewer: 
 ms.custom: aaddev 
@@ -45,6 +45,7 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 |**Lifecycle Management**|    |    |   |
 |Access reviews for service provider-assigned privileged roles  |   Closely monitor workload identities with impactful permissions |    |  Yes |
 | Application authentication methods API |  Allows IT admins to enforce best practices for how apps in their organizations use application authentication methods. |  | Yes |
+| App Health Recommendations | Identify unused or inactive workload identities and their risk levels.  Get remediation guidelines.  |  | Yes |
 |**Identity Protection**  |  | |
 |Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |
 
@@ -68,7 +69,7 @@ You can purchase the plan through Enterprise Agreement (EA)/Enterprise Subscript
 
 ## Where can I find more feature details to determine if I need a license(s)?
 
-Microsoft Entra Workload ID has three premium features that require a license. 
+Microsoft Entra Workload ID has four premium features that require a license. 
 
 - [Conditional Access](../conditional-access/workload-identity.md):
 Supports location or risk-based policies for workload identities.
@@ -81,11 +82,13 @@ suspicious changes to accounts.
 Enables delegation of reviews to the right people, focused on the most
 important privileged roles.
 
+- [App health recommendations](/azure/active-directory/reports-monitoring/howto-use-recommendations): Provides recommendations for addressing identity hygiene gaps in your application portfolio so you can improve the security and resilience posture of a tenant. 
+
 ## What do the numbers in each category on the [Workload identities - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) mean?
 
 Category definitions:
 
-- **Enterprise apps/Service Principals**: This category includes multi-tenant apps, gallery apps, non-gallery apps and service principals.
+- **Enterprise apps/Service Principals**: This category includes multitenant apps, gallery apps, non-gallery apps and service principals.
 
 - **Microsoft apps**: Apps such as Outlook and Microsoft Teams.
 
@@ -96,9 +99,9 @@ applications for connecting resources that support Microsoft Entra authenticatio
 
 All workload identities - service principles, apps and managed identities, configured in your directory for a Microsoft Entra Workload ID Premium feature require a license. Customers don’t need to license all the workload identities. You can find the right number of Workload ID licenses with the following guidance:
 
-1. Customer will need to license enterprise applications or service principals ONLY if they set up Conditional Access policies or use Identity Protection for them.
-2. Customers don't need to license applications at all, even if they are using Conditional Access policies.
-3. Customers will need to license managed identities, only when they set up access reviews for managed identities.
+1. Customer needs to license enterprise applications or service principals ONLY if they set up Conditional Access policies or use Identity Protection for them.
+2. Customers don't need to license applications at all, even if they're using Conditional Access policies.
+3. Customers need to license managed identities, only when they set up access reviews for managed identities.
 You can find the number of each workload identity type (enterprise apps/service principals, apps, managed identities) on the product landing page at the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Do these licenses require individual workload identities assignment? 

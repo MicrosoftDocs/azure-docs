@@ -117,7 +117,7 @@ items:
         - name: Client-side JavaScript
           items:
           - name: Get Started with JavaScript SDK
-            displayName: browser, client-side, Javascript (Web) SDK Loader Script
+            displayName: browser, client-side, JavaScript (Web) SDK Loader Script
             href: app/javascript-sdk.md
           - name: Configure JavaScript SDK
             href: app/javascript-sdk-configuration.md
@@ -174,8 +174,6 @@ items:
                 displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
               - name: Performance counters
                 href: app/performance-counters.md
-              - name: Remove Application Insights
-                href: app/remove-application-insights.md
         - name: Node.js
           href: app/nodejs.md
         - name: Python OpenCensus (deprecated)
@@ -215,7 +213,7 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-    - name: Features
+    - name: Experiences
       items:
       - name: Application dashboard
         displayName: dashboard, Application Insights dashboard
@@ -242,35 +240,15 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-      - name: Transaction diagnostics
-        href: app/transaction-diagnostics.md
-        displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
+      - name: Transaction search
+        href: app/diagnostic-search.md
+        items:
+        - name: Transaction diagnostics
+          href: app/transaction-diagnostics.md
+          displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
-      - name: Transaction search
-        href: app/diagnostic-search.md
-      - name: Smart detection
-        href: alerts/proactive-diagnostics.md
-        items:
-        - name: Upgrade to alerts
-          href: alerts/alerts-smart-detections-migration.md
-        - name: Failure anomalies
-          href: alerts/proactive-failure-diagnostics.md
-        - name: Performance anomalies
-          href: alerts/smart-detection-performance.md
-        - name: Trace degradation
-          href: alerts/proactive-trace-severity.md
-        - name: Exception volume
-          href: alerts/proactive-exception-volume.md
-        - name: Memory leak
-          href: alerts/proactive-potential-memory-leak.md
-        - name: Security detection
-          href: alerts/proactive-application-security-detection-pack.md
-        - name: Manage smart detection rules
-          href: alerts/proactive-arm-config.md
-        - name: E-mail notification
-          href: alerts/proactive-email-notification.md
       - name: Usage (user behavior analytics)
         items:
         - name: Overview
@@ -298,6 +276,8 @@ items:
           href: app/annotations.md
         - name: Continuous monitoring
           href: app/continuous-monitoring.md
+    - name: Code-level diagnostics
+      items:
       - name: Profiler
         items:
         - name: Overview
@@ -361,6 +341,27 @@ items:
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
           href: snapshot-debugger/snapshot-debugger-troubleshoot.md
+      - name: Smart detection
+        href: alerts/proactive-diagnostics.md
+        items:
+        - name: Upgrade to alerts
+          href: alerts/alerts-smart-detections-migration.md
+        - name: Failure anomalies
+          href: alerts/proactive-failure-diagnostics.md
+        - name: Performance anomalies
+          href: alerts/smart-detection-performance.md
+        - name: Trace degradation
+          href: alerts/proactive-trace-severity.md
+        - name: Exception volume
+          href: alerts/proactive-exception-volume.md
+        - name: Memory leak
+          href: alerts/proactive-potential-memory-leak.md
+        - name: Security detection
+          href: alerts/proactive-application-security-detection-pack.md
+        - name: Manage smart detection rules
+          href: alerts/proactive-arm-config.md
+        - name: E-mail notification
+          href: alerts/proactive-email-notification.md
     - name: Administration and security
       items:
       - name: Manage Application Insights
@@ -480,6 +481,9 @@ items:
     - name: Monitor Kubernetes
       displayName: containers
       href: containers/monitor-kubernetes.md
+    - name: Best practices
+      displayName: containers, kubernetes
+      href: best-practices-containers.md
     - name: Prometheus
       items:
       - name: Enable on AKS cluster

@@ -1100,6 +1100,12 @@
 		"branch": "main",
 		"branch_mapping": {}
 	  },
+    {
+    "path_to_root": "playwright-testing-service",
+    "url": "https://github.com/microsoft/playwright-testing-service",
+    "branch": "main",
+    "branch_mapping": {}
+    },
 	  {
       "path_to_root": "microsoft-graph",
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs-contrib",

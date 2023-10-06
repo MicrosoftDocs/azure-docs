@@ -11,11 +11,11 @@ ms.date: 05/02/2023
 At this time, a test or preview build is not available for the next release.
  -->
  
-Oct 2023 test release is now available.
+Oct 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.24.0_2023-10-10`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -40,8 +40,10 @@ Oct 2023 test release is now available.
 
 
 
-<!--
 ### Release notes
 
--->
-
+- Arc SQL Server | Arc enable SQL Server FCI - General Support | Public Preview
+- Arc SQL Server | Arc enable SQL Server FCI - DB Inventory | Public Preview
+- Arc SQL Server | Arc enable SQL Server FCI - Defender | Public Preview
+- Arc SQL Server | Point-in-time restore | Private Preview
+- Arc SQL Server | Billing | Enable ESU for FCI clusters | GA

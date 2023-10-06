@@ -34,6 +34,8 @@
           href: quickstarts-kubernetes-cluster-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-kubernetes-cluster-deployment-bicep.md
+        - name: Use Azure PowerShell
+          href: quickstarts-kubernetes-cluster-deployment-powershell.md
     - name: Deploy Nexus Virtual Machine
       expanded: true
       items:
@@ -93,6 +95,8 @@
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
           href: howto-kubernetes-service-load-balancer.md
+        - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
+          href: howto-disable-cgroupsv2.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
