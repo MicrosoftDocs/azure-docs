@@ -21,6 +21,12 @@ This article explains how to access an endpoint for your application in a privat
 
 When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint uses a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in the [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments) section of [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
+## Prerequisites
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
+
 ## Find the IP for your application
 
 ### [Azure portal](#tab/azure-portal)
@@ -37,13 +43,13 @@ Use the following steps to find the IP address for your application.
 
 ### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to find the IP address for your application. Be sure to replace the placeholder with your actual Azure Spring Apps instance name.
+Use the following commands to find the IP address for your application. Be sure to replace the placeholder with your actual Azure Spring Apps instance name.
 
 ```azurecli
-export SPRING_CLOUD_NAME='spring-cloud-name'
+export AZURE_SPRING_APPS_INSTANCE_NAME='<Azure-Spring-Apps-instance-name>'
 export SERVICE_RUNTIME_RG=$(az spring show \
     --resource-group $RESOURCE_GROUP \
-    --name $SPRING_CLOUD_NAME \
+    --name $AZURE_SPRING_APPS_INSTANCE_NAME \
     --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
     --output tsv)
 export IP_ADDRESS=$(az network lb frontend-ip list \
@@ -51,6 +57,7 @@ export IP_ADDRESS=$(az network lb frontend-ip list \
     --resource-group $SERVICE_RUNTIME_RG \
     --query "[0].privateIPAddress" \
     --output tsv)
+echo $IP_ADDRESS
 ```
 
 ---
@@ -80,22 +87,22 @@ Use the following steps to create a private DNS zone for an application in the p
 
 ### [Azure CLI](#tab/azure-CLI)
 
-1. Define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
+1. Use the following commands to define variables for your subscription, resource group, and Azure Spring Apps instance. Be sure to replace the placeholders with your actual values.
 
    ```azurecli
-   export SUBSCRIPTION='subscription-id'
-   export RESOURCE_GROUP='my-resource-group'
-   export VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
+   export SUBSCRIPTION='<subscription-ID>'
+   export RESOURCE_GROUP='<resource-group-name>'
+   export VIRTUAL_NETWORK_NAME='<Azure-Spring-Apps-virtual-network-name>'
    ```
 
-1. Sign in to the Azure CLI and choose your active subscription.
+1. Use the following commands to sign in to the Azure CLI and choose your active subscription:
 
    ```azurecli
    az login
    az account set --subscription ${SUBSCRIPTION}
    ```
 
-1. Create the private DNS zone.
+1. Use the following commands to create the private DNS zone:
 
    ```azurecli
    az network private-dns zone create \
@@ -180,13 +187,13 @@ az network private-dns record-set a add-record \
 
 ## Assign a private FQDN for your application
 
-After you deploy Azure Spring Apps in a virtual network, you can assign a private FQDN for your application. Fore more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md). 
+You can assign a private FQDN for your application after you deploy Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md). 
 
 ### [Azure portal](#tab/azure-portal)
 
 Use the following steps to assign a private FQDN:
 
-1. Select the Azure Spring Apps service instance deployed in your virtual network, and open the **Apps** tab in the menu on the left.
+1. Select the Azure Spring Apps service instance deployed in your virtual network, and open the **Apps** tab.
 
 1. Select the application to open the **Overview** page.
 
