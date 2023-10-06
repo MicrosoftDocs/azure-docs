@@ -173,7 +173,7 @@ Use the following steps to use the private DNS zone to translate/resolve DNS. Yo
 
 ### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to create the A record in your DNS zone:
+Use the following commands to create the A record in your DNS zone:
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -205,7 +205,7 @@ Use the following steps to assign a private FQDN:
 
 ### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to assign an endpoint to your application. Be sure to replace the placeholder with your own value.
+Use the following commands to assign an endpoint to your application. Be sure to replace the placeholder with your own value.
 
 ```azurecli
 export APP_NAME='<application-name>'
