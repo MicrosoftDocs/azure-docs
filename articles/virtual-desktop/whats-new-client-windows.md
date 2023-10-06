@@ -66,8 +66,6 @@ In this release, we've made the following changes:
 
 *Date published: July 21, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPy), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17Yn9), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17VPx)
-
 In this release, we've made the following changes:
 
 - Fixed an issue where the client doesn't auto-reconnect when the gateway WebSocket connection shuts down normally.
