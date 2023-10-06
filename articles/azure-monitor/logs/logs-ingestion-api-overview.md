@@ -20,7 +20,7 @@ Your application sends data to a [data collection endpoint (DCE)](../essentials/
 
 You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
-:::image type="content" source="media/data-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="media/data-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram that shows an overview of logs ingestion API.":::
+:::image type="content" source="media/logs-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="media/logs-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram that shows an overview of logs ingestion API.":::
 
 > [!NOTE]
 > To migrate solutions from the [Data Collector API](data-collector-api.md), see [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md).

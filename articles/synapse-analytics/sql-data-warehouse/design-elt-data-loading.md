@@ -1,14 +1,13 @@
 ---
-title: Instead of ETL, design ELT 
+title: Instead of ETL, design ELT
 description: Implement flexible data loading strategies for dedicated SQL pools within Azure Synapse Analytics.
 author: joannapea
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/20/2020
 ms.author: joanpo
 ms.reviewer: wiassaf
+ms.date: 11/20/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 

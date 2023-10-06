@@ -112,4 +112,4 @@ If you still have problems joining your VM to the managed domain, [find help and
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md
 [security-audit-events]: security-audit-events.md
-[azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-ad-support]: /azure/active-directory/fundamentals/how-to-get-support

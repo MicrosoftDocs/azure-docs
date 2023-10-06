@@ -38,7 +38,7 @@ landingContent:
           - text: JavaScript
             url: tutorial-v2-javascript-auth-code.md
           - text: React
-            url: ./single-page-app-tutorial-01-register-app.md
+            url: tutorial-single-page-app-react-register-app.md
   - title: "Scenario in depth"
     linkLists:
       - linkListType: how-to-guide

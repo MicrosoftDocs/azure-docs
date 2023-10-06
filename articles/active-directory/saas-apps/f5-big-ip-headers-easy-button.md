@@ -185,7 +185,7 @@ The Service Provider settings define the properties for the SAML SP instance of 
 
 ### Microsoft Entra ID
 
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Microsoft Entra tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **F5 BIG-IP APM Microsoft Entra Integration > Add**.
+This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Microsoft Entra tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
 
    ![Screenshot for Azure configuration add BIG-IP application.](./media/f5-big-ip-headers-easy-button/azure-configuration-add-app.png)
 

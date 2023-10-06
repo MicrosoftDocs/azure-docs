@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
-ms.date: 09/15/2023
+ms.date: 10/05/2023
 ms.author: justinha
 ---
 # Common errors and troubleshooting steps for Microsoft Entra Domain Services
@@ -116,7 +116,7 @@ Check if you've disabled an application with the identifier *00000002-0000-0000-
 
 To check the status of this application and enable it if needed, complete the following steps:
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com), seearch for and select **Enterprise applications**. 
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Enterprise applications**. 
 1. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
 1. In the search box, enter *00000002-0000-0000-c000-00000000000*. Select the application, then choose **Properties**.
 1. If **Enabled for users to sign-in** is set to *No*, set the value to *Yes*, then select **Save**.
@@ -138,7 +138,7 @@ If one or more users in your Microsoft Entra tenant can't sign in to the managed
       * You've deployed, or updated to, the [latest recommended release of Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * You've configured Microsoft Entra Connect to [perform a full synchronization][hybrid-phs].
       * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in the managed domain. Make sure you wait long enough before trying to authenticate against the managed domain.
-      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Entra ID Sync Service*. From your Microsoft Entra Connect server, open a command prompt, then run the following commands:
+      * If the issue persists after verifying the previous steps, try restarting the *Azure AD Sync Service*. From your Microsoft Entra Connect server, open a command prompt, then run the following commands:
     
         ```console
         net stop 'Microsoft Azure AD Sync'
@@ -180,5 +180,5 @@ If you continue to have issues, [open an Azure support request][azure-support] f
 [password-policy]: password-policy.md
 [check-health]: check-health.md
 [troubleshoot-alerts]: troubleshoot-alerts.md
-[Remove-MsolUser]: /powershell/module/MSOnline/Remove-MsolUser
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[Remove-MsolUser]: /powershell/module/msonline/remove-msoluser
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support

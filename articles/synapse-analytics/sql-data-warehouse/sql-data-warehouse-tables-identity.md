@@ -1,14 +1,13 @@
 ---
 title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
-author:  mstehrani
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 07/20/2020
+author: mstehrani
 ms.author: emtehran
 ms.reviewer: wiassaf
+ms.date: 07/20/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 

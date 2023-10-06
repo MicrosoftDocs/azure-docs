@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Use blob index tags to manage and find data with Python
 
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
 ## Prerequisites

@@ -11,6 +11,176 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/global-secure-access/concept-global-secure-access-logs-monitoring.md",
+      "redirect_url": "/entra/global-secure-access/concept-global-secure-access-logs-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-private-access.md",
+      "redirect_url": "/entra/global-secure-access/concept-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-remote-network-connectivity.md",
+      "redirect_url": "/entra/global-secure-access/concept-remote-network-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-traffic-dashboard.md",
+      "redirect_url": "/entra/global-secure-access/concept-traffic-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-traffic-forwarding.md",
+      "redirect_url": "/entra/global-secure-access/concept-traffic-forwarding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/concept-universal-conditional-access.md",
+      "redirect_url": "/entra/global-secure-access/concept-universal-conditional-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-access-audit-logs.md",
+      "redirect_url": "/entra/global-secure-access/how-to-access-audit-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-assign-traffic-profile-to-remote-network.md",
+      "redirect_url": "/entra/global-secure-access/how-to-assign-traffic-profile-to-remote-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-compliant-network.md",
+      "redirect_url": "/entra/global-secure-access/how-to-compliant-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-connectors.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-customer-premises-equipment.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-customer-premises-equipment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-per-app-access.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-per-app-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-configure-quick-access.md",
+      "redirect_url": "/entra/global-secure-access/how-to-configure-quick-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-create-remote-network-custom-ike-policy.md",
+      "redirect_url": "/entra/global-secure-access/how-to-create-remote-network-custom-ike-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-create-remote-networks.md",
+      "redirect_url": "/entra/global-secure-access/how-to-create-remote-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-get-started-with-global-secure-access.md",
+      "redirect_url": "/entra/global-secure-access/how-to-get-started-with-global-secure-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-install-windows-client.md",
+      "redirect_url": "/entra/global-secure-access/how-to-install-windows-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-list-remote-networks.md",
+      "redirect_url": "/entra/global-secure-access/how-to-list-remote-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-microsoft-365-profile.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-microsoft-365-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-private-access-profile.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-private-access-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-remote-network-device-links.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-remote-network-device-links",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-manage-remote-networks.md",
+      "redirect_url": "/entra/global-secure-access/how-to-manage-remote-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-simulate-remote-network.md",
+      "redirect_url": "/entra/global-secure-access/how-to-simulate-remote-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-source-ip-restoration.md",
+      "redirect_url": "/entra/global-secure-access/how-to-source-ip-restoration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-target-resource-microsoft-365-profile.md",
+      "redirect_url": "/entra/global-secure-access/how-to-target-resource-microsoft-365-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-target-resource-private-access-apps.md",
+      "redirect_url": "/entra/global-secure-access/how-to-target-resource-private-access-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-universal-tenant-restrictions.md",
+      "redirect_url": "/entra/global-secure-access/how-to-universal-tenant-restrictions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-view-enriched-logs.md",
+      "redirect_url": "/entra/global-secure-access/how-to-view-enriched-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/how-to-view-traffic-logs.md",
+      "redirect_url": "/entra/global-secure-access/how-to-view-traffic-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/index.yml",
+      "redirect_url": "/entra/global-secure-access/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/overview-what-is-global-secure-access.md",
+      "redirect_url": "/entra/global-secure-access/overview-what-is-global-secure-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/reference-points-of-presence.md",
+      "redirect_url": "/entra/global-secure-access/reference-points-of-presence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/reference-remote-network-configurations.md",
+      "redirect_url": "/entra/global-secure-access/reference-remote-network-configurations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/global-secure-access/resource-faq.yml",
+      "redirect_url": "/entra/global-secure-access/resource-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-prepare-azure-ad-user-accounts.md",
       "redirect_url": "/azure/active-directory/governance/tutorial-prepare-user-accounts",
       "redirect_document_id": false
@@ -5290,6 +5460,21 @@
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/identity-secure-score.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-identity-secure-score",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-ad-sla-performance.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reference-sla-performance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/licensing-whatis-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-group-based-licensing",
+      "redirect_document_id": false
+    }, 
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
@@ -12197,7 +12382,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-playbook.md",
-      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-quickstart-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-quickstart-guide",
       "redirect_document_id": false
     },
     {

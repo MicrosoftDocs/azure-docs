@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute Traffic Collector
+title: Azure ExpressRoute Traffic Collector (Preview)
 titleSuffix: Azure ExpressRoute
 description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature is helpful.
 services: expressroute
@@ -11,7 +11,7 @@ ms.author: duau
 ms.custom: references_regions
 ---
 
-# Azure ExpressRoute Traffic Collector
+# Azure ExpressRoute Traffic Collector (Preview)
 
 ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 

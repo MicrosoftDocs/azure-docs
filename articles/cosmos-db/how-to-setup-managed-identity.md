@@ -3,7 +3,7 @@ title: Configure managed identities with Azure AD for your Azure Cosmos DB accou
 description: Learn how to configure managed identities with Azure Active Directory for your Azure Cosmos DB account
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/15/2021
 ms.author: sidandrews

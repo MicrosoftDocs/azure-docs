@@ -95,8 +95,7 @@ sections:
           Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Microsoft Entra admin center. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
           
           1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as a security administrator or a Conditional Access administrator.
-          2. In the Microsoft Entra admin center, select **Microsoft Entra ID**. 
-          3. Under **Manage**, select **Security**.
+          2. In the Microsoft Entra admin center, under **Protection**, select **Security Center**. 
           4. Under **Protect**, select **Conditional Access**. Select **New policy**.
           5. On the **New** page, in the **Name** textbox, enter a name for the policy (for example "Block guests from accessing the portal").
           6. Under **Assignments**, select **Users and groups**.

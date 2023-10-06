@@ -30,6 +30,7 @@ The following capabilities must be present to allow user equipment (UEs) to atta
 - There must be a RAN, sending and receiving the cellular signal, to all parts of the enterprise site that contain UEs needing service.
 - There must be a packet core instance connected to the RAN and to an upstream network. The packet core is responsible for authenticating the UE's SIMs as they connect across the RAN and request service from the network. It applies policy to the resulting data flows to and from the UEs; for example, to set a quality of service.
 - The RAN, packet core, and upstream network infrastructure must be connected via Ethernet so that they can pass IP traffic to one another.
+- The site hosting the packet core must have a continuous, high speed connection to the internet (100 Mbps minimum) to allow for service management, telemetry, diagnostics, and upgrades.
 
 ## Designing a private mobile network
 

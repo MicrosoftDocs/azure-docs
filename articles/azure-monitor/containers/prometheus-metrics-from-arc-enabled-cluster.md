@@ -4,6 +4,7 @@ description: How to configure your Azure Arc-enabled Kubernetes cluster (preview
 author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 05/07/2023
 ---
 

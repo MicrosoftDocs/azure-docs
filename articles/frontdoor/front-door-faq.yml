@@ -226,7 +226,7 @@ sections:
     questions:
   
       - question: | 
-          How does Azure Front Door handle **domain fronting** behavior? 
+          How does Azure Front Door handle domain fronting behavior? 
         answer: |
           Domain fronting is a technique that allows an attacker to hide the true destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           

@@ -126,7 +126,7 @@ Agents|[Azure Monitor Agent overview](agents/agents-overview.md)|Log Analytics a
 Alerts|[Common alert schema](alerts/alerts-common-schema.md)|Updated alert payload common schema to include custom properties.|
 Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Clarified use of basic auth in webhook.|
 Application-Insights|[Application Insights logging with .NET](app/ilogger.md)|We've made it easier to understand where to find iLogger telemetry.|
-Application-Insights|[Set up Azure Monitor for your Python application](app/opencensus-python.md)|Updated telemetry type mappings code sample.|
+Application-Insights|[Set up Azure Monitor for your Python application](/previous-versions/azure/azure-monitor/app/opencensus-python)|Updated telemetry type mappings code sample.|
 Application-Insights|[Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](app/javascript-feature-extensions.md)|Code samples updated to use connection strings.|
 Application-Insights|[Connection strings](app/sdk-connection-string.md)|Code samples updated for .NET 6/7.|
 Application-Insights|[Live Metrics: Monitor and diagnose with 1-second latency](app/live-stream.md)|Code samples updated for .NET 6/7.|
@@ -474,9 +474,9 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |[Application Insights Overview dashboard](app/overview-dashboard.md)|Added important information clarifying that moving or renaming resources breaks dashboards, with more instructions on how to resolve this scenario.|
 |[Application Insights override default SDK endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints)|Clarified that endpoint modification isn't recommended and to use connection strings instead.|
 |[Continuous export of telemetry from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry)|Added important information about avoiding duplicates when you save diagnostic logs in a Log Analytics workspace.|
-|[Dependency tracking in Application Insights with OpenCensus Python](app/opencensus-python-dependency.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
-|[Incoming request tracking in Application Insights with OpenCensus Python](app/opencensus-python-request.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
-|[Monitor Python applications with Azure Monitor](app/opencensus-python.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
+|[Dependency tracking in Application Insights with OpenCensus Python](/previous-versions/azure/azure-monitor/app/opencensus-python-dependency)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
+|[Incoming request tracking in Application Insights with OpenCensus Python](/previous-versions/azure/azure-monitor/app/opencensus-python-request)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
+|[Monitor Python applications with Azure Monitor](/previous-versions/azure/azure-monitor/app/opencensus-python)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Updated connection string overrides example.|
 |[Application Insights SDK for ASP.NET Core applications](app/tutorial-asp-net-core.md)|Added a new tutorial with step-by-step instructions on how to use the Application Insights SDK with .NET Core applications.|
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|Updated and clarified the SDK support guidance.|

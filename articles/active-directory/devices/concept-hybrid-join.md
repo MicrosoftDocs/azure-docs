@@ -56,5 +56,5 @@ Use Microsoft Entra hybrid joined devices if:
 
 - [Plan your Microsoft Entra hybrid join implementation](hybrid-join-plan.md)
 - [Co-management using Configuration Manager and Microsoft Intune](/mem/configmgr/comanage/overview)
-- [Manage device identities using the Azure portal](manage-device-identities.md)
+- [Manage device identities](manage-device-identities.md)
 - [Manage stale devices in Microsoft Entra ID](manage-stale-devices.md)

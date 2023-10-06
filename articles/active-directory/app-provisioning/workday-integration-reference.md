@@ -424,10 +424,10 @@ To retrieve these data sets:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
-1. Select your Workday to AD/Azure AD user provisioning application.
+1. Select your Workday to Active Directory / Microsoft Entra user provisioning application.
 1. Select **Provisioning**.
 1. Edit the mappings and open the Workday attribute list from the advanced section. 
-1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in AD or Azure AD. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
+1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in Active Directory or Microsoft Entra ID. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
      > [!div class="mx-tdCol2BreakAll"]
      >| Attribute Name | XPATH API expression |

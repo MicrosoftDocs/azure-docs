@@ -31,7 +31,7 @@ The Microsoft Entra provisioning service supports a [SCIM 2.0](https://techcommu
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
-1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Cloud Sync** > **Agents**.
+1. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Cloud Sync** > **Agents**.
 
    :::image type="content" source="../../../includes/media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="../../../includes/media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
 
@@ -55,7 +55,7 @@ Once the agent is installed, no further configuration is necessary on-premises, 
 1. From the left hand menu navigate to the **Provisioning** option and select **Get started**.
 1. Select **Automatic** from the dropdown list and expand the **On-Premises Connectivity** option.
 1. Select the agent that you installed from the dropdown list and select **Assign Agent(s)**.
-1. Now either wait 10 minutes or restart the **Microsoft Azure AD Connect Provisioning Agent** before proceeding to the next step & testing the connection.
+1. Now either wait 10 minutes or restart the **Microsoft Entra Connect Provisioning Agent** before proceeding to the next step & testing the connection.
 1. In the **Tenant URL** field, provide the SCIM endpoint URL for your application. The URL is typically unique to each target application and must be resolvable by DNS. An example for a scenario where the agent is installed on the same host as the application is https://localhost:8585/scim 
 
    ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png) 

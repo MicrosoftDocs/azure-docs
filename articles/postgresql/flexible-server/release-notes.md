@@ -16,6 +16,9 @@ ms.date: 9/20/2023
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL
 
+## Release: September 2023
+
+
 ## Release: August 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.3, 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
 * General availability of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics), [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics), [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) and [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.

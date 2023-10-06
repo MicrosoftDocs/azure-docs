@@ -52,15 +52,15 @@
     - name: How Domain Services synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
-      href: ../active-directory/hybrid/connect/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: /azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Custom attributes
       href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
     - name: What is Microsoft Entra ID?
-      href: ../active-directory/fundamentals/whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: /azure/active-directory/fundamentals/whatis?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Microsoft Entra architecture
-      href: ../active-directory/architecture/architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: /azure/active-directory/architecture/architecture?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: How to
   items:
     - name: Configure common settings

@@ -260,7 +260,7 @@ By default, the agent emits minimal error messages and stack trace information. 
 
 To gather more information for troubleshooting agent-related problems:
 
- 1. Install the AADCloudSyncTools PowerShell module as described in [AADCloudSyncTools PowerShell Module for Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+ 1. Install the `AADCloudSyncTools` PowerShell module as described in [`AADCloudSyncTools` PowerShell module for Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
  2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information. Use the following switches to fine-tune your data collection. Use:
 
       - **SkipVerboseTrace** to only export current logs without capturing verbose logs (default = false).

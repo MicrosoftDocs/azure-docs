@@ -1,6 +1,6 @@
 ---
 title: How synchronization works in Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how the synchronization process works between Microsoft Entra or an on-premises environment to a Microsoft Entra Domain Services managed domain.
+description: Learn how the synchronization process works between Microsoft Entra ID or an on-premises environment to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -158,6 +158,6 @@ For hybrid user accounts synced from on-premises AD DS environment using Microso
 
 ## Next steps
 
-For more information on the specifics of password synchronization, see [How password hash synchronization works with Microsoft Entra Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
+For more information on the specifics of password synchronization, see [How password hash synchronization works with Microsoft Entra Connect](/azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 
 To get started with Domain Services, [create a managed domain](tutorial-create-instance.md).

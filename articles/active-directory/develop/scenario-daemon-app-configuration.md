@@ -206,7 +206,7 @@ import com.microsoft.aad.msal4j.SilentParameters;
 
 # [Node.js](#tab/nodejs)
 
-Install the packages by running `npm install` in the folder where *package.json* file resides. Then, import **msal-node** package:
+Install the packages by running `npm install` in the folder where `package.json` file resides. Then, import the `msal-node` package:
 
 ```JavaScript 
 const msal = require('@azure/msal-node');

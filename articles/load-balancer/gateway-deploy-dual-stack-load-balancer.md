@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/25/2023
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a dual-stack Azure Gateway Load Balancer

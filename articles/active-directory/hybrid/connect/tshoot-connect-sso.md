@@ -39,7 +39,7 @@ This article helps you find troubleshooting information about common problems re
 
 ## Check status of feature
 
-Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect Sync** pane in the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/).
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect Sync** pane in the [[Microsoft Entra admin center](https://entra.microsoft.com)](https://portal.azure.com/).
 
 ![Screenshot of the Microsoft Entra admin center: Microsoft Entra Connect pane.](./media/tshoot-connect-sso/sso10.png)
 

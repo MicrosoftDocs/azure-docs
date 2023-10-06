@@ -39,7 +39,7 @@ The following are the built-in roles supported by Azure Lab Services:
 | Administrator | Lab Services Contributor | Grant the same permissions as the Owner role, except for assigning roles. Learn more about the [Lab Services Contributor role](#lab-services-contributor-role). |
 | Lab management | Lab Creator | Grant permission to create labs and have full control over the labs that they create. Learn more about the [Lab Creator role](#lab-creator-role). |
 | Lab management | Lab Contributor | Grant permission to help manage an existing lab, but not create new labs. Learn more about the [Lab Contributor role](#lab-contributor-role). |
-| Lab management | Lab Assistant | Grant permission to view an existing lab. Can also start, stop, or reset any VM in the lab. Learn more about the [Lab Assistant role](#lab-assistant-role). |
+| Lab management | Lab Assistant | Grant permission to view an existing lab. Can also start, stop, or reimage any VM in the lab. Learn more about the [Lab Assistant role](#lab-assistant-role). |
 | Lab management | Lab Services Reader | Grant permission to view existing labs. Learn more about the [Lab Services Reader role](#lab-services-reader-role). |
 
 ## Role assignment scope
@@ -75,8 +75,8 @@ The following table shows common lab activities and the role that's needed for a
 | Grant permission to create or manage your own labs for *all* lab plans within a resource group. | Lab management | [Lab Creator](#lab-creator-role) | Resource group |
 | Grant permission to create or manage your own labs for a specific lab plan. | Lab management | [Lab Creator](#lab-creator-role) | Lab plan |
 | Grant permission to co-manage a lab, but *not* the ability to create labs. | Lab management | [Lab Contributor](#lab-contributor-role) | Lab |
-| Grant permission to only start/stop/reset VMs for *all* labs within a resource group. | Lab management | [Lab Assistant](#lab-assistant-role) | Resource group |
-| Grant permission to only start/stop/reset VMs for a specific lab. | Lab management | [Lab Assistant](#lab-assistant-role) | Lab |
+| Grant permission to only start/stop/reimage VMs for *all* labs within a resource group. | Lab management | [Lab Assistant](#lab-assistant-role) | Resource group |
+| Grant permission to only start/stop/reimage VMs for a specific lab. | Lab management | [Lab Assistant](#lab-assistant-role) | Lab |
 
 > [!IMPORTANT]
 > An organization’s subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role on the [subscription](./administrator-guide.md#subscription). Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.
@@ -180,7 +180,7 @@ When you assign the Lab Contributor role on the lab, the user can manage the ass
 
 ### Lab Assistant role
 
-Assign the Lab Assistant role to grant a user permission to view a lab, and start, stop, and reset lab virtual machines for the lab.
+Assign the Lab Assistant role to grant a user permission to view a lab, and start, stop, and reimage lab virtual machines for the lab.
 
 Assign the Lab Assistant role on the *resource group or lab*.
 
@@ -188,12 +188,12 @@ Assign the Lab Assistant role on the *resource group or lab*.
 
 When you assign the Lab Assistant role on the resource group, the user:
 
-- Can view all labs within the resource group and start, stop, or reset lab virtual machines for each lab.
+- Can view all labs within the resource group and start, stop, or reimage lab virtual machines for each lab.
 - Can’t delete or make any other changes to the labs.
 
 When you assign the Lab Assistant role on the lab, the user:
 
-- Can view the assigned lab and start, stop, or reset lab virtual machines.
+- Can view the assigned lab and start, stop, or reimage lab virtual machines.
 - Can’t delete or make any other changes to the lab.
 - Can’t create new labs.
 

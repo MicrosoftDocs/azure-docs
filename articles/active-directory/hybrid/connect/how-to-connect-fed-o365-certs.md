@@ -78,7 +78,7 @@ On your AD FS server, open the MSOnline PowerShell prompt, and connect to Micros
 
 > [!NOTE]
 > MSOL-Cmdlets are part of the MSOnline PowerShell module.
-> You can download the MSOnline PowerShell Module directly from the PowerShell Gallery.
+> You can download the MSOnline PowerShell module directly from the PowerShell Gallery.
 > 
 >
 
@@ -167,7 +167,7 @@ Two certificates should be listed now, one of which has a **NotAfter** date of a
 ### Step 2: Update the new token signing certificates for the Microsoft 365 trust
 Update Microsoft 365 with the new token signing certificates to be used for the trust, as follows.
 
-1. Open the Azure AD PowerShell Module for Windows PowerShell.
+1. Open the Azure AD PowerShell module.
 2. Run $cred=Get-Credential. When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.
 3. Run Connect-MsolService –Credential $cred. This cmdlet connects you to the cloud service. Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.
 4. If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer &lt;AD FS primary server&gt;, where &lt;AD FS primary server&gt; is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.

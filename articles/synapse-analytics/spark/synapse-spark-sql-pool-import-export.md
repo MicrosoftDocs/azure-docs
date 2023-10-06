@@ -189,7 +189,7 @@ This section presents reference code templates to describe how to use and invoke
 
 > [!Note]
 > Using the Connector in Python-
-> * The connector is supported in Python for Spark 3 only. For Spark 2.4, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
+> * The connector is supported in Python for Spark 3 only. For [Spark 2.4 (unsupported)](./apache-spark-24-runtime.md), we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
 > * The call back handle is not available in Python.
 
 ### Read from Azure Synapse Dedicated SQL Pool
@@ -275,7 +275,7 @@ dfToReadFromTable.show()
 > * Table name and query cannot be specified at the same time.
 > * Only select queries are allowed. DDL and DML SQLs are not allowed.
 > * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
-> * Read from a query is only available in Spark 3.1 and 3.2. It is not available in Spark 2.4.
+> * Read from a query is only available in Spark 3.1 and 3.2. 
 
 ##### [Scala](#tab/scala2)
 
@@ -563,7 +563,7 @@ dfToReadFromQueryAsArgument.show()
 
 #### Write Request - `synapsesql` method signature
 
-The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
+The method signature for the Connector version built for [Spark 2.4.8](./apache-spark-24-runtime.md) has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
 
 * Spark Pool Version 2.4.8
 

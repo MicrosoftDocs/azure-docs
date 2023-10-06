@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
  
 # Tutorial: create an ARM-based account with Azure portal
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 To start using unlimited features and robust capabilities of Azure AI Video Indexer, you need to create an Azure AI Video Indexer unlimited account. 

@@ -43,12 +43,16 @@
       href: cache-tutorial-functions-getting-started.md
     - name: Using Azure Functions to create a write-behind cache
       href: cache-tutorial-write-behind.md
-  - name: Connect from apps hosted on Azure Kubernetes Service
+  - name: Use Azure Kubernetes Service with a cache
     items:
-    - name: Use active geo-replication with an AKS-hosted application
-      href: cache-tutorial-active-replication.md
     - name: Connect an AKS application to a cache
       href: cache-tutorial-aks-get-started.md
+    - name: Use active geo-replication with an AKS-hosted application
+      href: cache-tutorial-active-replication.md      
+  - name: Artificial Intelligence
+    items:
+    - name: Vector similarity search
+      href: cache-tutorial-vector-similarity.md
   - name: ASP.NET
     items:
     - name: Use session state provider
@@ -87,6 +91,10 @@
       href: scripts/create-manage-premium-cache-cluster.md
 - name: Concepts
   items:
+    - name: Artificial Intelligence
+      items:
+      - name: Vector Search
+        href: cache-overview-vector-similarity.md
     - name: Resiliency
       items:
       - name: High availability
@@ -196,8 +204,8 @@
       href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
-    - name: Schedule updates
-      href: cache-administration.md#schedule-updates
+    - name: Update channel and schedule updates
+      href: cache-administration.md#update-channel-and-schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
     - name: Create and manage a cache using CLI

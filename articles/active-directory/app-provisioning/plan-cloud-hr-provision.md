@@ -499,7 +499,7 @@ To review these events and all other activities performed by the provisioning se
 
 #### Azure Monitor logs
 
-All activities performed by the provisioning service are recorded in the Microsoft Entra audit logs. You can route Microsoft Entra audit logs to Azure Monitor logs for further analysis. With Azure Monitor logs (also known as Log Analytics workspace), you can query data to find events, analyze trends, and perform correlation across various data sources. Watch this [video](https://youtu.be/MP5IaCTwkQg) to learn the benefits of using Azure Monitor logs for Microsoft Entra ID logs in practical user scenarios.
+All activities performed by the provisioning service are recorded in the Microsoft Entra audit logs. You can route Microsoft Entra audit logs to Azure Monitor logs for further analysis. With Azure Monitor logs (also known as Log Analytics workspace), you can query data to find events, analyze trends, and perform correlation across various data sources. Watch this [video](https://youtu.be/MP5IaCTwkQg) to learn the benefits of using Azure Monitor logs for Microsoft Entra logs in practical user scenarios.
 
 Install the [log analytics views for Microsoft Entra activity logs](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md) to get access to [prebuilt reports](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) around provisioning events in your environment.
 

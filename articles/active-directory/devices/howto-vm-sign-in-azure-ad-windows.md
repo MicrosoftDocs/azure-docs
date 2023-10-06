@@ -79,7 +79,7 @@ Microsoft Azure operated by 21Vianet:
 
 ### Authentication requirements
 
-[Microsoft Entra Guest accounts](/azure/active-directory/external-identities/what-is-b2b) can't connect to Azure Bastion via Microsoft Entra authentication.
+[Microsoft Entra Guest accounts](/azure/active-directory/external-identities/what-is-b2b) can't connect to Azure VMs or Azure Bastion enabled VMs via Microsoft Entra authentication.
 
 <a name='enable-azure-ad-login-for-a-windows-vm-in-azure'></a>
 
@@ -180,7 +180,7 @@ An Azure user who has the Owner or Contributor role assigned for a VM doesn't au
 
 There are two ways to configure role assignments for a VM:
 
-- Microsoft Entra portal experience
+- Microsoft Entra admin center experience
 - Azure Cloud Shell experience
 
 > [!NOTE]
@@ -188,7 +188,9 @@ There are two ways to configure role assignments for a VM:
 
 <a name='azure-ad-portal'></a>
 
-### Microsoft Entra portal
+<a name='microsoft-entra-portal'></a>
+
+### Microsoft Entra admin center
 
 To configure role assignments for your Microsoft Entra ID-enabled Windows Server 2019 Datacenter VMs:
 
@@ -252,7 +254,7 @@ To use passwordless authentication for your Windows VMs in Azure, you need the W
 - Windows Server 2022 with [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
 > [!IMPORTANT]
-> There is no requirement for Windows client machine to be either Microsoft Entra registered, or Microsoft Entra joined or Microsoft Entra hybrid joined to the *same* directory as the VM. Additionally, to RDP by using Microsoft Entra credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login.
+> The Windows client machine is required to be either Microsoft Entra registered, or Microsoft Entra joined or Microsoft Entra hybrid joined to the *same* directory as the VM. Additionally, to RDP by using Microsoft Entra credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. This requirement doesn't exist for [passwordless sign-in](#log-in-using-passwordless-authentication-with-microsoft-entra-id).
 
 To connect to the remote computer:
 
@@ -377,7 +379,7 @@ Exit code -2145648607 translates to `DSREG_AUTOJOIN_DISC_FAILED`. The extension 
    - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select  **Identity** > **Overview** > **Properties** > **Tenant ID**.
+   > Replace `<TenantID>` with the Microsoft Entra tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select  **Identity** > **Overview** > **Properties** > **Tenant ID**.
    >
    > Attempts to connect to `enterpriseregistration.windows.net` might return 404 Not Found, which is expected behavior. Attempts to connect to `pas.windows.net` might prompt for PIN credentials or might return 404 Not Found. (You don't need to enter the PIN.) Either one is sufficient to verify that the URL is reachable.
 

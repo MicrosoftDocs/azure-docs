@@ -136,6 +136,10 @@ Once you have a working profile and need to distribute it to other users, you ca
 
 You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
+## Azure VPN Client version information
+
+For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
+  
 ## Next steps
 
 For more information, see [Create an Azure AD tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).

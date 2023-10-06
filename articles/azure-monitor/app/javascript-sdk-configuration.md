@@ -2,7 +2,7 @@
 title: Microsoft Azure Monitor Application Insights JavaScript SDK configuration
 description: Microsoft Azure Monitor Application Insights JavaScript SDK configuration.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 10/03/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -176,25 +176,6 @@ To configure or change the storage account or blob container that's linked to yo
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows reconfiguring your selected Azure blob container on the Properties pane.](./media/javascript-sdk-configuration/reconfigure.png)
-
-#### Troubleshooting
-
-This section offers troubleshooting tips for common issues related to the uploading of source maps to your Azure Storage account blob container.
-
-##### Required Azure role-based access control settings on your blob container
-
-Any user on the portal who uses this feature must be assigned at least as a [Storage Blob Data Reader][storage blob data reader] to your blob container. Assign this role to anyone who might use the source maps through this feature.
-
-> [!NOTE]
-> Depending on how the container was created, this role might not have been automatically assigned to you or your team.
-
-##### Source map not found
-
-1. Verify that the corresponding source map is uploaded to the correct blob container.
-1. Verify that the source map file is named after the JavaScript file it maps to and uses the suffix `.map`.
-   
-   For example, `/static/js/main.4e2ca5fa.chunk.js` searches for the blob named `main.4e2ca5fa.chunk.js.map`.
-1. Check your browser's console to see if any errors were logged. Include this information in any support ticket.
 
 ### View the unminified callstack
  

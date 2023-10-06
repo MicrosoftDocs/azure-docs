@@ -65,7 +65,7 @@ If you still have problems joining your VM to the managed domain, [find help and
 <!-- INTERNAL LINKS -->
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
-[azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-ad-support]: /azure/active-directory/fundamentals/how-to-get-support
 [configure-dns]: tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network
 
 <!-- EXTERNAL LINKS -->

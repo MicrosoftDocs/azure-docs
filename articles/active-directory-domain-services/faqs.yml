@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 09/23/2023
+  ms.date: 10/05/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Microsoft Entra Domain Services
 summary: This page answers frequently asked questions about Microsoft Entra Domain Services.
@@ -52,7 +52,7 @@ sections:
       - question: |
           Can I make Microsoft Entra Domain Services available in multiple virtual networks within my subscription?
         answer: |
-          The service itself doesn't directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you can configure connectivity between multiple virtual networks to expose Microsoft Entra Domain Services to other virtual networks. For more information, see [how to connect virtual networks in Azure using VPN gateways](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) or [virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+          The service itself doesn't directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you can configure connectivity between multiple virtual networks to expose Microsoft Entra Domain Services to other virtual networks. For more information, see [how to connect virtual networks in Azure using VPN gateways](/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic) or [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
           
       - question: |
           Can I enable Microsoft Entra Domain Services using PowerShell?
@@ -72,7 +72,7 @@ sections:
       - question: |
           Can guest users be invited to my directory use Microsoft Entra Domain Services?
         answer: |
-          No. Guest users invited to your Microsoft Entra directory using the [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md) invite process are synchronized into your Microsoft Entra Domain Services managed domain. However, passwords for these users aren't stored in your Microsoft Entra directory. Therefore, Microsoft Entra Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
+          No. Guest users invited to your Microsoft Entra directory using the [Microsoft Entra B2B](/azure/active-directory/external-identities/what-is-b2b) invite process are synchronized into your Microsoft Entra Domain Services managed domain. However, passwords for these users aren't stored in your Microsoft Entra directory. Therefore, Microsoft Entra Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
           
       - question: |
           Can a two-way forest trust be created between Domain Services and an on-premises forest?
@@ -92,7 +92,7 @@ sections:
       - question: |
           Does Microsoft Entra Domain Services include high availability options?
         answer: |
-          Yes. Each Microsoft Entra Domain Services managed domain includes two domain controllers. You don't manage or connect to these domain controllers, they're part of the managed service. If you deploy Microsoft Entra Domain Services into a region that supports Availability Zones, the domain controllers are distributed across zones. In regions that don't support Availability Zones, the domain controllers are distributed across Availability Sets. You have no configuration options or management control over this distribution. For more information, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md).
+          Yes. Each Microsoft Entra Domain Services managed domain includes two domain controllers. You don't manage or connect to these domain controllers, they're part of the managed service. If you deploy Microsoft Entra Domain Services into a region that supports Availability Zones, the domain controllers are distributed across zones. In regions that don't support Availability Zones, the domain controllers are distributed across Availability Sets. You have no configuration options or management control over this distribution. For more information, see [Availability options for virtual machines in Azure](/azure/virtual-machines/availability).
           
   - name: Administration and operations
     questions:
@@ -159,7 +159,10 @@ sections:
           How are Windows Updates applied in Microsoft Entra Domain Services?
         answer: |
           Domain controllers in a managed domain automatically apply required Windows updates. There's nothing for you to configure or administer here. Make sure you don't create network security group rules that block outbound traffic to Windows Updates. For your own VMs joined to the managed domain, you are responsible for configuring and applying any required OS and application updates.
-          
+      - question: |
+         How is patching performed on domain controllers that are part of a managed domain?
+        answer: |
+         Patches are installed as soon as they become available (every second Tuesday). They are installed in phases during the week they become available, starting on Tuesdays.          
       - question: |
           Why do my domain controllers change names?
         answer: |

@@ -5,7 +5,7 @@ description: Learn how to get started with Azure OpenAI Service and create your 
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
-ms.custom: devx-track-azurecli, build-2023, build-2023-dataai
+ms.custom: devx-track-azurecli, build-2023, build-2023-dataai, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/25/2023
 zone_pivot_groups: openai-create-resource

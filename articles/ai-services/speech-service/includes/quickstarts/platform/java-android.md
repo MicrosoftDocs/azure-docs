@@ -5,8 +5,7 @@ description: Use this guide to install the Speech SDK for Java in Android Studio
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.custom: devx-track-java

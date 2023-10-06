@@ -51,7 +51,7 @@ To create a user account in your Microsoft Entra tenant:
 To assign a user account to an enterprise application:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
-1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**. For example, the application that you created in the previous quickstart named **Azure AD SAML toolkit 1**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**. For example, the application that you created in the previous quickstart named **Azure AD SAML Toolkit 1**.
 1. In the left pane, select **Users and groups**, and then select **Add user/group**.
 
     :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Microsoft Entra tenant.":::

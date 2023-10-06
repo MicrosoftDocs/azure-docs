@@ -59,10 +59,10 @@ Copy the Response into a text file. It looks like the JSON text shown, with valu
 Here's the JSON block to add to the mapping. 
 
 ```json
-        {
-            "key": "SkipOutOfScopeDeletions",
-            "value": "True"
-        }
+{
+  "key": "SkipOutOfScopeDeletions",
+  "value": "True"
+}
 ```
 
 ## Step 4: Update the secrets endpoint with the SkipOutOfScopeDeletions flag

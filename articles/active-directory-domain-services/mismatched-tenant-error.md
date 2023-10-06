@@ -58,7 +58,7 @@ The managed domain and the virtual network belong to two different Microsoft Ent
 The following two options resolve the mismatched directory error:
 
 * First, [delete the managed domain](delete-aadds.md) from your existing Microsoft Entra directory. Then, [create a replacement managed domain](tutorial-create-instance.md) in the same Microsoft Entra directory as the virtual network you wish to use. When ready, join all machines previously joined to the deleted domain to the recreated managed domain.
-* [Move the Azure subscription](../cost-management-billing/manage/billing-subscription-transfer.md) containing the virtual network to the same Microsoft Entra directory as the managed domain.
+* [Move the Azure subscription](/azure/cost-management-billing/manage/billing-subscription-transfer) containing the virtual network to the same Microsoft Entra directory as the managed domain.
 
 ## Next steps
 

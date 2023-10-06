@@ -1,6 +1,6 @@
 ---
 title: Configure B2B collaboration cross-tenant access
-description: Use cross-tenant collaboration settings to manage how you collaborate with other Microsoft Entra organizations. Learn how to configure  outbound access to external organizations and inbound access from external Microsoft Entra ID for B2B collaboration.
+description: Use cross-tenant collaboration settings to manage how you collaborate with other Microsoft Entra organizations. Learn how to configure  outbound access to external organizations and inbound access from external Microsoft Entra organizations for B2B collaboration.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B

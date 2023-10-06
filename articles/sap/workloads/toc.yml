@@ -69,6 +69,8 @@ items:
         href: hana-vm-operations-netapp.md
       - name: Azure Files NFS/SMB for SAP
         href: planning-guide-storage-azure-files.md
+      - name: SAP HANA data tiering and archiving guidance
+        href: hana-tiering-guidance.md
     - name: High availability (HA)
       items:
       - name: About HA for Azure VMs

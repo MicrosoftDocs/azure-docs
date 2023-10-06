@@ -39,7 +39,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
 * You need Domain Services Contributor Azure role to create the required Domain Services resources.
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, the first tutorial [creates and configures a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
@@ -160,9 +160,9 @@ To see this managed domain in action, create and join a virtual machine to the d
 > [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
 
 <!-- INTERNAL LINKS --> 
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[peering-overview]: /azure/virtual-network/virtual-network-peering-overview
 [network-considerations]: network-considerations.md

@@ -243,6 +243,8 @@ items:
       items:
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Map each REST operation to a price 
+        href: map-rest-apis-transaction-categories.md
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
       - name: Estimate the cost to archive data

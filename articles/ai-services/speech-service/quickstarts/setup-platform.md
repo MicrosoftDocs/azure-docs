@@ -5,8 +5,7 @@ description: In this quickstart, you learn how to install the Speech SDK for you
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 09/05/2023
 ms.author: eur

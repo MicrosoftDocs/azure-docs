@@ -25,7 +25,7 @@ This article helps you understand this new authentication feature, and reviews t
 
 In the Azure Identity client libraries, choose one of the following approaches:
 
-- Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`.
+- Use `DefaultAzureCredential`, which attempts to use the `WorkloadIdentityCredential`.
 - Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`.
 - Use `WorkloadIdentityCredential` directly.
 
@@ -40,7 +40,7 @@ The following table provides the **minimum** package version required for each l
 | Node.js   | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           |
 | Python    | [azure-identity](/python/api/overview/azure/identity-readme)                                                     | 1.13.0          |
 
-In the following code samples, `DefaultAzureCredential` is used. This credential type will use the environment variables injected by the Azure Workload Identity mutating webhook to authenticate with Azure Key Vault.
+In the following code samples, `DefaultAzureCredential` is used. This credential type uses the environment variables injected by the Azure Workload Identity mutating webhook to authenticate with Azure Key Vault.
 
 ## [.NET](#tab/dotnet)
 
@@ -224,7 +224,7 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ### Webhook Certificate Auto Rotation
 
-Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation][auto-rotation] operation.
+Similar to other webhook addons, the certificate is rotated by cluster certificate [auto rotation][auto-rotation] operation.
 
 ## Service account labels and annotations
 
@@ -252,11 +252,11 @@ All annotations are optional. If the annotation isn't specified, the default val
 ### Pod labels
 
 > [!NOTE]
-> For applications using Workload Identity it is now required to add the label 'azure.workload.identity/use: "true"' pod label in order for AKS to move Workload Identity to a "Fail Close" scenario before GA to provide a consistent and reliable behavior for pods that need to use workload identity. 
+> For applications using workload identity, it's required to add the label `azure.workload.identity/use: "true"` to the pod spec for AKS to move workload identity to a *Fail Close* scenario to provide a consistent and reliable behavior for pods that need to use workload identity. Otherwise the pods fail after their restarted.
 
 |Label |Description |Recommended value |Required |
 |------|------------|------------------|---------|
-|`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
+|`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label are mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
 

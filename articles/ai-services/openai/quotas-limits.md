@@ -74,7 +74,7 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td rowspan="2">gpt-4-32k</td>  
     <td>East US, South Central US, West Europe, France Central</td>  
-    <td>40 K</td>  
+    <td>60 K</td>  
   </tr>  
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  

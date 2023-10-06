@@ -103,7 +103,7 @@ Some administrator roles are exempted from these policies, across all group work
 
 ## Install PowerShell cmdlets
 
-Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands.
+Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph module and install [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands.
 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.
