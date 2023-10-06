@@ -1,12 +1,10 @@
 ---
 title: Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article provides information about troubleshooting Elastic integration with Azure
-
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 10/06/2023
 author: flang-msft
 ms.author: franlanglois
-
 ---
 
 # Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
@@ -54,11 +52,11 @@ In the Elastic site, open a support request.
 
 ## Suggest a feature
 
-To suggest a new feature for the Elastic integration with Azure, select the **Suggest a feature** link on top of the resource overview experience.
+To suggest a new feature for the Elastic integration with Azure, select the **Suggest a feature** link at the top of the resource overview page.
 
 :::image type="content" source="media/troubleshoot/suggest-a-feature.png" alt-text="Suggest a feature for Elastic integration with Azure":::
 
-This link redirects to the **Developer community forum** where you suggest a new feature and view/ upvote or comment on feature suggestions from other customers.
+This link takes you to the **Developer community forum** where you can suggest a new feature. You can also view, upvote, or comment on feature suggestions from other customers.
 
 ## Next steps
 
