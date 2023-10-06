@@ -87,10 +87,10 @@ Collect all of the values in the following table for all the test lines that you
  |---------|---------|
  |A name for the test line. |**Name**|
  |The phone number for the test line, in E.164 format and including the country code. |**Phone Number**|
- |The purpose of the test line: **Manual** (for manual test calls by you and/or Microsoft staff during integration testing) or **Automated** (for automated validation with Microsoft Teams test suites).|**Testing purpose**|
+ |The purpose of the test line: **Manual** (for manual test calls by you and/or Microsoft staff during integration testing) or **Automated** (for automated validation with Microsoft Teams test suites - Operator Connect and Teams Phone Mobile only).|**Testing purpose**|
 
 > [!IMPORTANT]
-> You must configure at least six automated test lines. We recommend nine automated test lines (to allow simultaneous tests).
+> For Operator Connect and Teams Phone Mobile, you must configure at least six automated test lines. We recommend nine automated test lines (to allow simultaneous tests).
 
 ## Decide if you want tags
 
