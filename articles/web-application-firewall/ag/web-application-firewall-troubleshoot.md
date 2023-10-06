@@ -291,7 +291,7 @@ With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 
 
 The first entry is logged because the user used a numeric IP address to navigate to the Application Gateway, which can be ignored in this case.
 
-The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern (1=1), and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that **equals** **1=1**.
+The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern `(1=1)`, and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that equals `1=1`.
 
 ## Finding request header names
 
