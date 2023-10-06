@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In HDInsight, all resources are managed on individual clusters, and Ambari is used to manage and operate on hosts and services running on the cluster. In HDInsight on AKS, all cluster management and operations have native support for [service management](./service-configuration.md) on Azure portal for individual clusters on HDInsight on AKS service. 
+In HDInsight on AKS, all cluster management and operations have native support for [service management](./service-configuration.md) on Azure portal for individual clusters. 
 
 In HDInsight on AKS, two new concepts are introduced:
 
