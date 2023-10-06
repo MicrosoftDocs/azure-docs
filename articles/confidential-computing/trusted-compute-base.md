@@ -16,7 +16,7 @@ The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware,
 The following diagram shows what is "in" and what is "outside' of the trusted compute base. The workload and data that the customer operator manages is inside the TCB, and the elements managed by the cloud provider (Microsoft Azure) are outside. 
 
 
-:::image type="content" source="./media/trusted-compute-base/azure-confidential-computing-zero-trust-architecture" alt-text="Diagram showing the Trusted Compute Base (TCB) concept.":::
+:::image type="content" source="./media/trusted-compute-base/azure-confidential-computing-zero-trust-architecture.jpg" alt-text="Diagram showing the Trusted Compute Base (TCB) concept.":::
 
 
 ## Hardware Root of Trust
