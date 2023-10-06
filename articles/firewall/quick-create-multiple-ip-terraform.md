@@ -1,46 +1,45 @@
 ---
-title: 'Quickstart: Create an Azure Firewall and IP Groups - Terraform'
-description: In this quickstart, you learn how to use Terraform to create an Azure Firewall and IP Groups.
+title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Terraform'
+description: In this quickstart, you learn how to use Terraform to create an Azure Firewall with multiple public IP addresses.
 services: firewall
 author: cshea15
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: victorh
-ms.date: 10/05/2023
+ms.date: 10/06/2023
 content_well_notification: 
   - AI-contribution
 ---
 
-# Quickstart: Create an Azure Firewall and IP Groups - Terraform
+# Quickstart: Create an Azure Firewall with multiple public IP addresses - Terraform
 
-In this quickstart, you use Terraform to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. IP Group is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
+In this quickstart, you use Terraform to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+For more information about Azure Firewall with multiple public IP addresses, see [Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
+
 > * Create a random value (to be used in the resource group name) using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
-> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random password for the Windows VM using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
-> * Create a random value (to be used as the storage name) using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+resource "azurerm_public_ip_prefix" "pip_prefix" {
 > * Create an Azure public IP using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
-> * Create a storage account using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+> * Create an Azure Virtual Network using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+> * Create an Azure subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+> * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+> * Create a network security group (to contain a list of network security rules) using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+> * Create an association between a Network Interface and a Network Security Group using [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
+> * Create an Windows Virtual Machine using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
 > * Create an Azure Firewall Policy using [azurerm_firewall_policy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy)
 > * Create an Azure Firewall Policy Rule Collection Group using [azurerm_firewall_policy_rule_collection_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy_rule_collection_group)
 > * Create an Azure Firewall using [azurerm_firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
-> * Create an Azure IP group using [azurerm_ip_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/ip_group)
-> * Create an Azure Virtual Network using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
-> * Create three Azure subnets using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
-> * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
-> * Create a network security group (to contain a list of network security rules) using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
-> * Create an association between the network interface and the network security group using - [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
-> * Create an Azure Linux Virtual Machine using [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
 > * Create a route table using [azurerm_route_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
 > * Create an association between the route table and the subnet using - [azurerm_subnet_route_table_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_route_table_association)
-> * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
-> * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
 ## Prerequisites
 
@@ -49,7 +48,7 @@ In this article, you learn how to:
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-azfw-with-ipgroups). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-azfw-with-ipgroups/TestRecord.md).
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-azfw-multi-addresses). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-azfw-multi-addresses/TestRecord.md).
 >
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
@@ -57,23 +56,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/providers.tf":::
 
 1. Create a file named `ssh.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/ssh.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/ssh.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-with-ipgroups/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/201-azfw-multi-addresses/outputs.tf":::
 
 ## Initialize Terraform
 
