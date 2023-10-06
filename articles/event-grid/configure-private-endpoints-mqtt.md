@@ -89,7 +89,7 @@ You can reject a private endpoint that's in the pending state or approved state.
 1. On the **Reject connection** dialog box, enter a comment (optional), and select **Yes**. 
 1. Confirm that you see the status of the endpoint as **Rejected**. 
 
-    :::image type="content" source="./media/configure-private-endpoints-mqtt/reject-private-endpoint.png" alt-text="Screenshot showing the Private endpoint connection tab with Reject button selected. (MQTT)":::
+    :::image type="content" source="./media/configure-private-endpoints-mqtt/reject-private-endpoint.png" alt-text="Screenshot showing the Private endpoint connection tab with Reject button selected (MQTT).":::
 
     > [!NOTE]
     > You can't approve a private endpoint in the Azure portal once it's rejected. 
@@ -100,7 +100,7 @@ To delete a private endpoint, follow these steps:
 1. Select the **private endpoint** you wish to delete, and select **Remove** on the toolbar.
 1. On the **Delete connection** dialog box, select **Yes** to delete the private endpoint.
 
-    :::image type="content" source="./media/configure-private-endpoints-mqtt/remove-private-endpoint.png" alt-text="Screenshot showing the Private endpoint connection tab with Remove button selected. (MQTT)":::
+    :::image type="content" source="./media/configure-private-endpoints-mqtt/remove-private-endpoint.png" alt-text="Screenshot showing the Private endpoint connection tab with Remove button selected (MQTT).":::
 
 ## Next steps
 To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid namespaces](configure-firewall-mqtt.md).
