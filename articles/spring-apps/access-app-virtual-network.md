@@ -25,7 +25,7 @@ When you assign an endpoint on an application in an Azure Spring Apps service in
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 
 ## Find the IP for your application
 
@@ -134,7 +134,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 ### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to link the private DNS zone you created to the virtual network holding your Azure Spring Apps service:
+Use the following commands to link the private DNS zone you created to the virtual network holding your Azure Spring Apps service:
 
 ```azurecli
 az network private-dns link vnet create \
@@ -161,15 +161,15 @@ Use the following steps to use the private DNS zone to translate/resolve DNS. Yo
 
    | Setting    | Value                                                                                                               |
    |------------|---------------------------------------------------------------------------------------------------------------------|
-   | Name       | Enter *\**                                                                                                          |
-   | Type       | Select **A**                                                                                                        |
-   | TTL        | Enter *1*                                                                                                           |
-   | TTL unit   | Select **Hours**                                                                                                    |
+   | Name       | Enter *\**.                                                                                                         |
+   | Type       | Select **A**.                                                                                                       |
+   | TTL        | Enter *1*.                                                                                                          |
+   | TTL unit   | Select **Hours**.                                                                                                   |
    | IP address | Enter the [IP address](#find-the-ip-for-your-application). The following screenshot uses the IP address *10.1.0.7*. |
 
-1. Select **OK**.
+   :::image type="content" source="media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png" alt-text="Screenshot of the Azure portal that shows the Add record set page." lightbox="media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png":::   
 
-   :::image type="content" source="media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png" alt-text="Screenshot of the Azure portal that shows the Add record set page." lightbox="media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png":::    
+1. Select **OK**. 
 
 ### [Azure CLI](#tab/azure-CLI)
 
