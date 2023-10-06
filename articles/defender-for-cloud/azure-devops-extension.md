@@ -26,7 +26,7 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
 > [!NOTE]
-> Effective September 20, 2023, the secret scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secret scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/en-us/products/devops/github-advanced-security). 
+> Effective September 20, 2023, the secret scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secret scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security). 
 
 ## Prerequisites
 
