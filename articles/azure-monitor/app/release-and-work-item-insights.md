@@ -9,7 +9,7 @@ ms.reviewer: abinetabate
 
 # Release and work item insights
 
-Release and Work Item Insights are crucial for optimizing the software development lifecycle. As applications evolve, it's vital to monitor each release and its work items closely. These insights highlight performance bottlenecks and let teams address issues proactively, ensuring smooth deployment and user experience. They equip developers and stakeholders to make decisions, adjust processes, and deliver high-quality software.
+Release and work item insights are crucial for optimizing the software development lifecycle. As applications evolve, it's vital to monitor each release and its work items closely. These insights highlight performance bottlenecks and let teams address issues proactively, ensuring smooth deployment and user experience. They equip developers and stakeholders to make decisions, adjust processes, and deliver high-quality software.
 
 ## [Continuous monitoring](#tab/continuous-monitoring)
 
