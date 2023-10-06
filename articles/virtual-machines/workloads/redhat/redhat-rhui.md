@@ -219,11 +219,13 @@ southeastasia - 20.24.186.80
 13.72.14.155
 52.244.249.194
 ```
-> [!NOTE]
-> As of October 12, 2023, all pay-as-you-go (PAYG) clients will be directed to the Red Hat Update Infrastructure (RHUI) 4 IPs in phase over the next two months. During this time, the RHUI3 IPs will remain for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs must be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. Do not remove RHUI3 IPs to continue receiving updates during the transition period.
 
 > [!NOTE]
-> The new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
+> 
+> - As of October 12, 2023, all pay-as-you-go (PAYG) clients will be directed to the Red Hat Update Infrastructure (RHUI) 4 IPs in phase over the next two months. During this time, the RHUI3 IPs will remain for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs must be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. Do not remove RHUI3 IPs to continue receiving updates during the transition period.
+>
+> - Also, the new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
+
 >
 > Also, Azure Germany is deprecated in favor of public Germany regions. We recommend for Azure Germany customers to start pointing to public RHUI by using the steps in [Manual update procedure to use the Azure RHUI servers](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
