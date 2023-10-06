@@ -67,7 +67,7 @@ sections:
       - question: |
           Can I enable analytical store on existing containers?
         answer: |
-          Currently you can only enable analytical store for existing API for NoSQL containers.
+          Yes. Currently you can use Azure Portal, Azure CLI, PowerShell, or Azure Cosmos DB SDKs to enable analytical store for existing API for NoSQL containers. And you can use Azure CLI or PowerShell for existing API for MongoDB collections.
 
       - question: |
           Can I see analytical store files using Azure Data Explorer?
