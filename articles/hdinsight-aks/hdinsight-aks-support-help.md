@@ -72,7 +72,7 @@ The following table lists the GitHub repositories for HDInsight on AKS and relat
 
 :::image type="icon" source="./media/hdinsight-aks-support-help/updates-logo.png" alt-text="":::
 
-Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?query=HDInsight), [Release notes](./release-notes/hdinsight-aks-release-notes) and [Social Channels](https://www.linkedin.com/groups/14313521/).
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?query=HDInsight), [Release notes](./release-notes/hdinsight-aks-release-notes.md) and [Social Channels](https://www.linkedin.com/groups/14313521/).
 
 ## Next steps
 
