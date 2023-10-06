@@ -80,7 +80,7 @@ The key functional components of Event Hubs include:
 
 ## Next steps
 
-To get started using Event Hubs, see the **Send and receive events** tutorials:
+To get started using Event Hubs, see the following quick start guides. 
 
 ### Stream data using Event Hubs SDK (AMQP) 
 You can use any of the following samples to stream data to Event Hubs using SDKs. 
