@@ -56,7 +56,7 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Ranger for RBAC	|	Q2 2024	|
 |	App mode support for Flink	|	Q2 2024	|
 |	Flink 1.17 Support	|	Q2 2024	|
-|	Spark ACID Support	|	Q2 2024	|
+|	Spark ACID Support	|	Q1 2024	|
 |	Configurable SKUs for Headnode, SSH	|	Q2 2024	|
 |	Flink SQL Gateway Support	|	Q2 2024	|
 |	Private Clusters for HDInsight on AKS	|	Q2 2024	|
