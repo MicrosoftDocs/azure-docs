@@ -87,7 +87,7 @@ Once the *Summarization* container is on the host computer, use the following `d
 docker run -p 5000:5000 -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
 ```
 
-Or if you are running a GPU container, use the this command instead.
+Or if you are running a GPU container, use this command instead.
 ```bash
 docker run -p 5000:5000 --gpus all -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:gpu eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
 ```
