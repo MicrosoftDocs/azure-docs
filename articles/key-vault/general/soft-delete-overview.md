@@ -47,11 +47,13 @@ You can't reuse the name of a key vault that has been soft-deleted until the ret
 
 ### Purge protection
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on, for example, via [CLI](./key-vault-recovery.md?tabs=azure-cli), [PowerShell](./key-vault-recovery.md?tabs=azure-powershell) or [Portal](./key-vault-recovery.md?tabs=azure-portal). Purge protection is recommended when using keys for encryption to prevent data loss. Most Azure services that integrate with Azure Key Vault, such as Storage, require purge protection to prevent data loss.
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled. Purge protection is recommended when using keys for encryption to prevent data loss. Most Azure services that integrate with Azure Key Vault, such as Storage, require purge protection to prevent data loss.
 
 When purge protection is on, a vault or an object in the deleted state can't be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.
 
 The default retention period is 90 days, but it's possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Once the retention policy interval is set and saved it can't be changed for that vault.
+
+Purge protection can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli), [PowerShell](./key-vault-recovery.md?tabs=azure-powershell) or the [Azure portal](./key-vault-recovery.md?tabs=azure-portal). 
 
 ### Permitted purge
 
