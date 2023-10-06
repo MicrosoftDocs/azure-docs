@@ -20,7 +20,7 @@ To add a gRPC API to API Management, you need to:
 * Specify the location of your gRPC service
 * Configure the API in API Management
 
-For background about gRPC, see [Introduction to gRPC](https://grpc.io/docs/what-is-grpc/introduction/).
+API Management supports pass-through with the following types of gRPC service methods: unary, server streaming, client streaming, and bidirectional streaming. For background about gRPC, see [Introduction to gRPC](https://grpc.io/docs/what-is-grpc/introduction/).
 
 
 > [!NOTE]
