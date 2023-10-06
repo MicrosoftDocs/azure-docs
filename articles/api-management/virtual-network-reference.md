@@ -49,6 +49,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
+| * / 443                       | Inbound            | TCP                | AzureTrafficManager / VirtualNetwork | **Azure Traffic Manager**                          | External |
 
 ### [stv1](#tab/stv1)
 
@@ -69,6 +70,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / *                         | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer** (required for Premium SKU, optional for other SKUs)                        | External & Internal  |
+| * / 443                       | Inbound            | TCP                | AzureTrafficManager / VirtualNetwork | **Azure Traffic Manager**                          | External |
 
 ---
 
