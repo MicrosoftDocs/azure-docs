@@ -119,4 +119,4 @@ To remove the resource group and its associated resources, use the [Remove-AzRes
 Remove-AzResourceGroup -Name ai-services-resource-group
 ```
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
