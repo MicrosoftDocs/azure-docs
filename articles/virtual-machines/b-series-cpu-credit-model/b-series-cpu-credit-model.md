@@ -41,8 +41,8 @@ Similarly, utilizing the example of a Standard_B32as_v2 VM size, if the workload
  
 
 ## Credit monitoring
-To monitor B-series specific credit metrics, customers can utilize the Azure monitor data platform, see [Overview of metrics in Microsoft Azure](../../azure-monitor/data-platform.md). Azure monitor data platform can be accessed via Azure portal and other orchestration paths, and via programmatic API calls to Azure monitor.
-Via Azure monitor data platform, customers can access B-series credit model specific metrics such as 'CPU Credits Consumed', 'CPU Credits Remaining' and 'Percentage CPU' for their given B-series size in real time.  
+To monitor B-series specific credit metrics, customers can utilize the Azure monitor data platform, see [Overview of metrics in Microsoft Azure](../../azure-monitor/data-platform.md). Azure monitor data platform can be accessed via the Azure portal and other orchestration paths, and via programmatic API calls to Azure monitor.
+Via Azure monitor data platform, customers can access B-series credit model-specific metrics such as 'CPU Credits Consumed', 'CPU Credits Remaining', and 'Percentage CPU' for their given B-series size in real time.  
 
 
 ## Other sizes and information

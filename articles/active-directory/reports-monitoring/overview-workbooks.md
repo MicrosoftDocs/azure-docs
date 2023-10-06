@@ -1,7 +1,7 @@
 ---
 
 title: What are Microsoft Entra workbooks?
-description: Learn about Microsoft Entra workbooks.
+description: Learn how to create and work with Microsoft Entra workbooks, for identity monitoring, alerts, and data visualization.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,10 +9,9 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 10/03/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
-ms.collection: M365-identity-device-management
 
 # Customer intent: As a Microsoft Entra administrator, I want a visualization tool that I can customize for my tenant.
 
@@ -28,7 +27,9 @@ With Azure Workbooks for Microsoft Entra ID, you can:
 - Visualize data for reporting and analysis
 - Combine multiple elements into a single interactive experience
 
-Workbooks are found in Microsoft Entra ID and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks. Workbooks for Microsoft Entra ID, however, cover only those identity management scenarios that are associated with Microsoft Entra ID. Sign-ins, Conditional Access, multifactor authentication, and Identity Protection are scenarios included in Azure Workbook for Microsoft Entra ID.
+Workbooks are found in Microsoft Entra ID and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks. Workbooks for Microsoft Entra ID, however, cover only those identity management scenarios that are associated with Microsoft Entra ID. Sign-ins, Conditional Access, multifactor authentication, and Identity Protection are scenarios included in the Workbooks for Microsoft Entra ID.
+
+![Screenshot of the Microsoft Entra workbooks gallery.](./media/overview-workbooks/workbooks-gallery.png)
 
 For more information on workbooks for other Azure services, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
@@ -58,8 +59,10 @@ Public workbook templates are built, updated, and deprecated to reflect the need
 - [Authentication prompts analysis](workbook-authentication-prompts-analysis.md)
 - [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer.md)
 - [Cross-tenant access activity](workbook-cross-tenant-access-activity.md)
+- [Multifactor authentication gaps](workbook-mfa-gaps.md)
 - [Risk analysis](workbook-risk-analysis.md)
 - [Sensitive Operations Report](workbook-sensitive-operations-report.md)
+- [Sign-ins using legacy authentication](workbook-legacy-authentication.md)
 
 ## Next steps
 

@@ -6334,6 +6334,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/opencensus-python.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/remove-application-insights.md",
+            "redirect_url": "/azure/azure-monitor/app/asp-net-core#how-can-i-uninstall-the-sdk",
+            "redirect_document_id": false
         }
     ]
 }
