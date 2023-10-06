@@ -96,7 +96,7 @@ The following function deletes the specified resource from the given resource gr
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
 
 ## Run the application
 

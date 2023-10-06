@@ -127,4 +127,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Recover deleted Azure AI services resources](manage-resources.md)
+> [Recover or purge deleted Azure AI services resources](recover-purge-resources.md)
