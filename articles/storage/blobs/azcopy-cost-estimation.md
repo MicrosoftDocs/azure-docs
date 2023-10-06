@@ -12,53 +12,50 @@ ms.custom: subject-cost-optimization
 
 # Estimate the cost of AzCopy transfers
 
-This article explains how to calculate the cost of using AzCopy to transfer data to and from Blob Storage and presents a few example scenarios.
+This article explains how to calculate the cost of using AzCopy to transfer data to, from, or between Azure Blob Storage containers.
 
-## Elements that impact the cost
+## Cost components
 
-The cost to transfer data is derived from these components:
+These components impact cost in all transfer scenarios
+
+- The number of blobs
+
+- The size of each blob
 
 - The REST operations used by AzCopy to complete the transfer
-- The size of each blob
-- The number of blobs
-- The size of each blob
-- Network costs
 
-Some light weight description of how these all factor here.
+- The block size used by AzCopy to upload files. This component impacts only upload scenarios.
 
-## Scenarios
+- Network egress charges. This component applies only when you copy blobs between regions.
 
-Brief description
+## Estimate the cost to upload
 
-- Upload blobs
+You upload blobs by using the `azcopy copy` command. For examples, see [Upload files to Azure Blob storage by using AzCopy](./common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json).
 
-- Download blobs
+| Cost component | Value |
+|--|---|
+| Number of blobs | 1,000,000 |
+| Size of each blob | 10 GiB |
+| Network egress charge | None |
 
-- Copy between containers
+### Transfers to the Blob Service endpoint
 
-- Synchronize changes
+To transfer to the Blob Storage endpoint, you use`blob.core.windows.net` URI in your command (For example: `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'`).
 
-- Tag, metadata, and property updates
+These components apply to transferring to this endpoint.
 
-### Upload blobs
+| Cost component | Value |
+|--|---|
+| REST operations | PutBlock & PutBlockList |
+| Block size | 8 MiB |
 
-Scenario description
+Put calculation table here.
 
-Show rest operations called
+### Transfers to the Data Lake Storage endpoint
 
-Cost table (Blob Storage endpoint)
+Put stuff here.
 
-- Mention 8 MB default with up to 100MB for Blob Storage
-
-Cost table (Data Lake Storage endpoint)
-
-- Gen2 endpoints charge at 4MB transactions.
-
-Tips to optimize cost
-
-- Increase the block size of transfers to 100 Mib (which is the maximum)
-
-### Download blobs
+## Estimate the cost to download
 
 Scenario description
 
@@ -72,7 +69,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-### Copy between containers
+## Estimate the cost to copy between containers
 
 Scenario description
 
@@ -86,7 +83,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-### Synchronize changes
+## Estimate the cost to synchronize changes
 
 Scenario description
 
@@ -100,7 +97,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-### Tag, metadata, and property updates
+## Estimate the cost to update tags, metadata, and properties
 
 Scenario description
 
@@ -112,14 +109,36 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-## Reference: Sample prices
+## Map of commands to REST operations
+
+These tables show how each AzCopy command translates to one or more REST operations. 
+
+### Commands that target the Blob service endpoint
+
+| Command      | Scenario | REST operation    |
+|--------------|----------|-------------------------|
+| azcopy bench | upload   | GetBlob                 |
+| azcopy bench | download | PutBlock & PutBlockList |
+
+To map each operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
+
+### Commands that target the Data Lake Storage endpoint
+
+| Command      | Scenario | REST operation   |
+|--------------|----------|-------------------------|
+| azcopy bench | upload   | GetBlob                 |
+| azcopy bench | download | PutBlock & PutBlockList |
+
+To map each operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
+
+## Sample prices
 
 This article uses the fictitious prices that appear in the following tables. 
 
 > [!IMPORTANT]
 > These prices are meant only as examples, and should not be used to calculate your costs.
 
-### Requests to the Blob service endpoint (`blob.core.windows.net`)
+### Commands that target the Blob service endpoint
 
 | Price factor                               | Hot     | Cool    | Cold    | Archive |
 |--------------------------------------------|---------|---------|---------|---------|
@@ -132,7 +151,7 @@ This article uses the fictitious prices that appear in the following tables.
 
 For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### Requests to the Data Lake Storage endpoint (`dfs.core.windows.net`)
+### Commands that target the Data Lake Storage endpoint
 
 | Price factor                                        | Hot      | Cool     | Cold     | Archive |
 |-----------------------------------------------------|----------|----------|----------|---------|
@@ -144,24 +163,6 @@ For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.co
 | All other operations (per 10,000)                   | $0.00572 | $0.00572 | $0.00676 | $0.0052 |
 
 For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
-
-## Reference: Table of commands to REST operations
-
-These tables show how each AzCopy command translates to one or more REST operations. To map each operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
-
-### Requests to the Blob service endpoint (`blob.core.windows.net`)
-
-| Command      | Scenario | REST operation called   |
-|--------------|----------|-------------------------|
-| azcopy bench | upload   | GetBlob                 |
-| azcopy bench | download | PutBlock & PutBlockList |
-
-### Requests to the Data Lake Storage endpoint (`dfs.core.windows.net`)
-
-| Command      | Scenario | REST operation called   |
-|--------------|----------|-------------------------|
-| azcopy bench | upload   | GetBlob                 |
-| azcopy bench | download | PutBlock & PutBlockList |
 
 ## See also
 
