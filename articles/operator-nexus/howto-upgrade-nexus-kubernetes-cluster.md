@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 
 # Upgrade an Azure Operator Nexus Kubernetes cluster
 
-This article provides instructions on how to upgrade an Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
+This article provides instructions on how to upgrade a Nexus Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
 
 > [!NOTE]
 > Individual node pool upgrades are not supported. Instead, Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
@@ -19,7 +19,7 @@ This article provides instructions on how to upgrade an Kubernetes cluster to ge
 > [!IMPORTANT]
 > No automatic cluster upgrades are performed, users must manually trigger the upgrade operation. For more information, see [Upgrade the cluster](#upgrade-the-cluster).
 
-When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is significantly out of date, we recommend you recreate your cluster.
+When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is out of date, we recommend you recreate your cluster.
 
 ## Before you begin
 
@@ -32,7 +32,7 @@ When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't b
 
 ## Check for available upgrades
 
-The availability of Kubernetes versions for tenant cluster upgrades is relies on the management bundle of the on-prem Nexus instance. Check which Kubernetes releases are available for your cluster using the following steps:
+The availability of Kubernetes versions for tenant cluster upgrades relies on the management bundle of the on-premises Nexus instance. Check which Kubernetes releases are available for your cluster using the following steps:
 
 ### Azure CLI
 
@@ -66,11 +66,11 @@ Sample output:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your Nexus Kubernetes cluster.
 3. Under **Overview**, select **Available upgrades** tab.
-:::image type="content" source="media/nexus-kubernetes/search-kubernetes-service.png" lightbox="media/nexus-kubernetes/search-kubernetes-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service.":::
+:::image type="content" source="media/nexus-kubernetes/available-upgrades.png" lightbox="media/nexus-kubernetes/available-upgrades.png" alt-text="Screenshot of available upgrades.":::
 
 ### Choose a version to upgrade to
 
-The available Nexus Kubernetes upgrade output indicate that there are multiple versions to choose from for upgrading. In this specific scenario, the current cluster is operating on version "v1.25.4-3" Consequently, the available upgrade options include "v1.25.4-4" as well as the latest patch release "v1.25.6-1." Furthermore, a new minor version is also available.
+The available Nexus Kubernetes upgrade output indicates that there are multiple versions to choose from for upgrading. In this specific scenario, the current cluster is operating on version "v1.25.4-3." As a result, the available upgrade options include "v1.25.4-4" and the latest patch release "v1.25.6-1." Furthermore, a new minor version is also available.
 
 You have the flexibility to upgrade to any of the available versions. However, the recommended course of action is to perform the upgrade to the most recent available `major-minor-patch-versionbundle` version.
 
@@ -80,11 +80,11 @@ During the cluster upgrade process, Nexus performs the following operations:
 
 * Add a new buffer control plane node with the specified Kubernetes version to the cluster.
 * After the new node has been added, cordon and drain one of the old control plane nodes, ensuring that the workloads running on it are gracefully moved to other healthy control plane nodes.
-* After the old control plane node has been completely drained, it is removed, and a new buffer control plane node is added to the cluster.
+* After the old control plane node has been drained, it's removed, and a new buffer control plane node is added to the cluster.
 * This process repeats until all control plane nodes in the cluster have been upgraded.
-* After control plane upgrage, add a new buffer worker node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. In cases where there are multiple agent pools, each agent pool undergoes a scale-out upgrade independently.
+* After control plane upgrade, add a new buffer worker node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. In cases where there are multiple agent pools, each agent pool undergoes a scale-out upgrade independently.
 * [Cordon and drain][kubernetes-drain] one of the old worker nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many worker nodes at the same time as the number of buffer nodes specified.
-* After the old worker node has been completely drained, it is removed, and a new buffer worker node is added to the cluster (or as many nodes as configured in [max surge](#customize-node-surge-upgrade))
+* After the old worker node has been drained, it's removed, and a new buffer worker node is added to the cluster (or as many nodes as configured in [max surge](#customize-node-surge-upgrade))
 * This process repeats until all worker nodes in the cluster have been upgraded.
 
 > [!NOTE]
