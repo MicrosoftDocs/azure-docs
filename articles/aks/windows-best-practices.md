@@ -9,7 +9,7 @@ ms.date: 10/06/2023
 
 # Best practices for Windows containers on Azure Kubernetes Service (AKS)
 
-In AKS, you can create node pools that run Linux as the operating system (OS) on the nodes or Windows Server as the guest OS. Windows Server nodes can run native Windows container applications, such as .NET Framework. The Linux OS and Windows OS have different container support and configuration considerations.
+In AKS, you can create node pools that run Linux as the operating system (OS) on the nodes or Windows Server as the guest OS. Windows Server nodes can run native Windows container applications, such as .NET Framework. The Linux OS and Windows OS have different container support and configuration considerations. For more information, see [Windows container considerations in Kubernetes][windows-vs-linux].
 
 This article outlines best practices for running Windows containers on AKS.
 
@@ -108,7 +108,7 @@ To learn more about Windows containers on AKS, see the following resources:
 [azure-cni-dynamic-ip-allocation]: ./azure-cni-dynamic-ip-allocation.md
 [azure-cni-choose-network-model]: ./azure-cni-overlay.md#choosing-a-network-model-to-use
 [network-concepts-for-aks-applications]: ./concepts-network.md
-[windows-vs-linux]: ./windows-vs-linux.md
+[windows-vs-linux]: ./windows-vs-linux-containers.md
 [azurenpm-vs-calico]: ./use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities
 [network-policies-aks]: ./use-network-policies.md
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
