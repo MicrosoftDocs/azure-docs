@@ -83,16 +83,16 @@
       items:
         - name: Understand agent pools
           href: howto-kubernetes-cluster-agent-pools.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
+        - name: Configure role-based access control
+          href: howto-kubernetes-cluster-aad-rbac.md
         - name: Upgrade cluster version
           href: howto-upgrade-nexus-kubernetes-cluster.md
         - name: Configure huge-pages for cluster virtual machines
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
           href: howto-kubernetes-service-load-balancer.md
-        - name: Configure role-based access control
-          href: howto-kubernetes-cluster-aad-rbac.md
-        - name: Connect to the cluster
-          href: howto-kubernetes-cluster-connect.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
