@@ -29,14 +29,16 @@ In order to ensure compatibility between models and the container, re-download t
 
 ## Run the disconnected container with `docker run`
 
+
 | Placeholder                     | Value                                                                                                                                    | Format or example                                                            |
-|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `{IMAGE}`                       | The container image you want to use.                                                                                                     | `mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu` |
 | `{LICENSE_MOUNT}`               | The path where the license will be downloaded, and mounted.                                                                              | `/host/license:/path/to/license/directory`                                   |
-| `{HOST_MODELS_PATH}`            | The path where the models were downloaded, and mounted.                                                                                  | `/host/models:/models                                                        |
+| `{HOST_MODELS_PATH}`            | The path where the models were downloaded, and mounted.                                                                                  | `/host/models:/models`                                                       |
 | `{ENDPOINT_URI}`                | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com`                |
-| `{API_KEY}`                     | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal.             |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                            |
+| `{API_KEY}`                     | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal.             | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                           |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.                                                                      | `/path/to/license/directory`                                                 |
+
 
 ```bash
 docker run --rm -it -p 5000:5000 \ 
@@ -55,16 +57,18 @@ Once the license file has been downloaded, you can run the container in a discon
 
 Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
 
-|Placeholder                      | Value                                                                                                      | Format or example                                                            |
-|---------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+
+| Placeholder                     | Value                                                                                                      | Format or example                                                            |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `{IMAGE}`                       | The container image you want to use.                                                                       | `mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu` |
 | `{MEMORY_SIZE}`                 | The appropriate size of memory to allocate for your container.                                             | `4g`                                                                         |
 | `{NUMBER_CPUS}`                 | The appropriate number of CPUs to allocate for your container.                                             | `4`                                                                          |
 | `{LICENSE_MOUNT}`               | The path where the license will be located and mounted.                                                    | `/host/license:/path/to/license/directory`                                   |
-| `{HOST_MODELS_PATH}`            | The path where the models were downloaded, and mounted.                                                    | `/host/models:/models                                                        |
+| `{HOST_MODELS_PATH}`            | The path where the models were downloaded, and mounted.                                                    | `/host/models:/models`                                                       |
 | `{OUTPUT_PATH}`                 | The output path for logging [usage records](../../../containers/disconnected-containers.md#usage-records). | `/host/output:/path/to/output/directory`                                     |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.                                        | `/path/to/license/directory`                                                 |
 | `{CONTAINER_OUTPUT_DIRECTORY}`  | Location of the output folder on the container's local filesystem.                                         | `/path/to/output/directory`                                                  |
+
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
