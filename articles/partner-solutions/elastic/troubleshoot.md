@@ -52,6 +52,14 @@ In the Elastic site, open a support request.
 
 :::image type="content" source="media/troubleshoot/elastic-support.png" alt-text="Open Elastic support":::
 
+## Suggest a feature
+
+To suggest a new feature for the Elastic integration with Azure, select the **Suggest a feature** link on top of the resource overview experience.
+
+:::image type="content" source="media/troubleshoot/suggest-a-feature.png" alt-text="Suggest a feature for Elastic integration with Azure":::
+
+This link redirects to the **Developer community forum** where you suggest a new feature and view/ upvote or comment on feature suggestions from other customers.
+
 ## Next steps
 
 - Learn about [managing your instance](manage.md) of Elastic
