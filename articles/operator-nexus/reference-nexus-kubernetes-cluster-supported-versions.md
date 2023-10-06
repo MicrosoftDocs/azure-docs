@@ -76,11 +76,7 @@ When we follow these principles, it becomes easier to predict and manage the pro
 
 We can easily upgrade from any small update in one Nexus Kubernetes version to any small update in the next version, giving you flexibility. For example, an upgrade from 1.24.1-x to 1.25.5-x would be allowed, regardless of the presence of an intermediate 1.24.2-x version.
 
-## Upgrading Kubernetes versions
-
-For more information on upgrading your cluster, see [Upgrade an Azure Operator Nexus Kubernetes Service cluster](./howto-upgrade-nexus-kubernetes-cluster.md).
-
-## Components version and breaking changes
+### Components version and breaking changes
 
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
@@ -101,6 +97,10 @@ Note the following important changes to make before you upgrade to any of the av
 | 1.26.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
 | 1.27.1             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5   | Mariner 2.0 (2023-09-21) with *cgroupv2* |              cgroupv2                             |                 |
 | 1.27.1             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5   | Mariner 2.0 (2023-09-22) with *cgroupv2* |              cgroupv2                             |                 |
+
+## Upgrading Kubernetes versions
+
+For more information on upgrading your cluster, see [Upgrade an Azure Operator Nexus Kubernetes Service cluster](./howto-upgrade-nexus-kubernetes-cluster.md).
 
 ## Kubernetes version support policy
 
