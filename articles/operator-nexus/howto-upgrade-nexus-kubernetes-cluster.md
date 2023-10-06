@@ -13,8 +13,6 @@ ms.custom: template-how-to-pattern
 
 This article provides instructions on how to upgrade a Nexus Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
 
-When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is out of date, we recommend you recreate your cluster.
-
 ## Limitations
 
 * The cluster upgrade process is a scale-out approach, meaning that at least one extra node is added (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)). If there isn't sufficient capacity available, the upgrade might not succeed.
@@ -22,6 +20,7 @@ When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't b
 * Individual node pool upgrades aren't supported. Instead, Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
 * Any customizations made to agent nodes will be lost as the nodes undergo reimaging.
 * Any modifications made to core addon configurations are overwritten, as Nexus restores the addon configuration as part of the cluster upgrade process. It's crucial to avoid attempting to customize the addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures, making it advisable not to modify these configurations
+* When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is out of date, we recommend you recreate your cluster.
 
 ## Before you begin
 
