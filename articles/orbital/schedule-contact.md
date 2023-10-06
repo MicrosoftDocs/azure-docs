@@ -12,7 +12,7 @@ ms.author: apoorvanori
 
 # Quickstart: Schedule a contact
 
-Schedule a contact with the selected satellite for data retrieval and delivery on Azure Orbital Ground Station. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the contact profile.
+Schedule a contact with your satellite for data retrieval and delivery on Azure Orbital Ground Station. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the designated contact profile.
 
 ## Prerequisites
 
