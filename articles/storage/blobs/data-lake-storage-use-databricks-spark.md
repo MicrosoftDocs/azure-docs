@@ -78,7 +78,7 @@ In the following steps, you need to enter names for the container you want to cr
 1. To create a container in your storage account to store the flight data, enter the following command:
 
    ```bash
-   azcopy create  "https://<storage-account-name>.dfs.core.windows.net/<container-name>" 
+   azcopy make  "https://<storage-account-name>.dfs.core.windows.net/<container-name>" 
    ```
 
    - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
@@ -111,9 +111,9 @@ To run the commands, you need:
 - The application ID, tenant ID, and client secret you copied when you created the service principal and granted it access to your storage account in the prerequisites.
 - The name of the container and the directory that you created when you uploaded the flight data to your storage account.
 
-1. In the **Cluster** drop-down list, make sure that the cluster you created earlier is selected.
+1. In your notebook, select **Connect** in the upper right corner. In the **Cluster** drop-down list, select the cluster you created earlier.
 
-2. Click **Create**. The notebook opens with an empty cell at the top.
+2. The **Connect** button now shows the cluster startup status. Wait for your cluster to finish starting up.
 
 3. Copy and paste the following code block into the first cell, but don't run this code yet.
 
@@ -174,13 +174,14 @@ To create a new file and list files in the *parquet/flights* folder, paste the f
 
 ```python
 dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)
+dbutils.fs.ls("/mnt/flightdata")
 dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 ```
 
 Since you won't use the *1.txt* file in this tutorial, you can paste the following script into a cell and run it to delete the file:
 
 ```python
-dbutils.fs.delete("/mnt/flightdata/1.txt")
+dbutils.fs.rm("/mnt/flightdata/1.txt")
 dbutils.fs.ls("/mnt/flightdata")
 ```
 
@@ -205,11 +206,11 @@ flight_df.printSchema()
 # print the flight database size
 print("Number of flights in the database: ", flight_df.count())
 
-# show the first 20 rows (20 is the default)
+# show the first 100 rows (20 is the default)
 # to show the first n rows, run: df.show(n)
 flight_df.show(100, False)
 
-# Display to run visualizations
+# display to run visualizations
 # preferably run this in a separate cmd cell
 display(flight_df)
 ```
@@ -227,9 +228,10 @@ jan2016_flights = spark.sql("SELECT * FROM FlightTable WHERE Month=1 and Year= 2
 num_jan2016_flights = jan2016_flights.count()
 feb2016_flights = spark.sql("SELECT * FROM FlightTable WHERE Month=2 and Year= 2016")
 num_feb2016_flights = feb2016_flights.count()
-print("Jan 2016: ", num_jan2016_flights, " Feb 2016: ", num_feb2016_flights)
+print("Jan 2016 flights: ", num_jan2016_flights, " Feb 2016 flights: ", num_feb2016_flights)
 total = num_jan2016_flights+num_feb2016_flights
 print("Total flights combined: ", total)
+print() 
 
 # List out all the airports in Texas
 airports_in_texas = spark.sql(
