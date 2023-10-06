@@ -25,37 +25,6 @@ HDInsight on AKS runs on Azure Kubernetes Service (AKS). The top-level resource 
 
 Clusters are individual open source compute workloads, such as Apache Spark, Apache Flink, and Trino, which can be created rapidly in few minutes with preset configurations and few clicks. Though running on the same cluster pool, each cluster can have its own configurations, such as cluster type, version, node VM size, node count. Clusters are running on separated compute resources with its own DNS and endpoints.
 
-## Coming soon
-
-* **Core Platform**
-  * RBAC support using Ranger
-  * Workload Identity support
-  * In Place Upgrade support
-  * Multi tenancy in cluster 
-  * BCDR & AZ support
-  * ADF for cluster CRUD operations
-  * Configurable VM SKUs for Headnode, SSH
-  * Data Plane RBAC using ARM roles
-  * Private AKS cluster and private end point support
-  * Script action support after cluster creation
-  * Service management support
-
-* **Apache Flink** 
-  * Flink App mode clusters
-  * SQL gateway support
-  * Autoscale with Load Based for Flink
-
-* **Apache Spark**
-  * Shuffle aware Autoscale
-  * Spark Ranger support - ADLS driver
-  * Spark ACID support
-  * Iceberg format support
-  * JupyterHub support
-
-* **Trino**
-  * Support for Add or remove plugins/connectors
-  * Support sharded data sources
-
 ## Features currently in preview
 
 The following table list shows the features of HDInsight on AKS that are currently in preview. Preview features are sorted alphabetically.
@@ -107,4 +76,34 @@ The following table list shows the features of HDInsight on AKS that are current
 |		|	Job submission using SSH	|		|
 |		|	Job submission using SDK	|		|
 
+## Coming soon
+
+* **Core Platform**
+  * RBAC support using Ranger
+  * Workload Identity support
+  * In Place Upgrade support
+  * Multi tenancy in cluster 
+  * BCDR & AZ support
+  * ADF for cluster CRUD operations
+  * Configurable VM SKUs for Headnode, SSH
+  * Data Plane RBAC using ARM roles
+  * Private AKS cluster and private end point support
+  * Script action support after cluster creation
+  * Service management support
+
+* **Apache Flink** 
+  * Flink App mode clusters
+  * SQL gateway support
+  * Autoscale with Load Based for Flink
+
+* **Apache Spark**
+  * Shuffle aware Autoscale
+  * Spark Ranger support - ADLS driver
+  * Spark ACID support
+  * Iceberg format support
+  * JupyterHub support
+
+* **Trino**
+  * Support for Add or remove plugins/connectors
+  * Support sharded data sources
 
