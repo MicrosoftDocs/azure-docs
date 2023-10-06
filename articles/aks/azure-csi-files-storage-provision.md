@@ -425,8 +425,8 @@ Kubernetes needs credentials to access the file share created in the previous st
 ### Mount file share as an inline volume
 
 > [!NOTE]
-> To avoid performance issue, use persistent volume instead of inline volume when numerous pods are accessing the same file share.
-> Inline volume can only access secrets in the same namespace as the pod. To specify a different secret namespace, instead use the [persistent volume example][persistent-volume-example].
+> To avoid performance issue, we recommend you use a persistent volume instead of an inline volume when numerous pods are accessing the same file share.
+> Inline volume can only access secrets in the same namespace as the pod. To specify a different secret namespace, use a [persistent volume][persistent-volume].
 
 To mount the Azure Files file share into your pod, you configure the volume in the container spec.
 
@@ -500,7 +500,7 @@ For associated best practices, see [Best practices for storage and backups in AK
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
-[persistent-volume-example]: #mount-file-share-as-a-persistent-volume
+[persistent-volume]: #mount-file-share-as-a-persistent-volume
 [use-tags]: use-tags.md
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
