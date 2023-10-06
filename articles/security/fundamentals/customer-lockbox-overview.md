@@ -35,7 +35,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 1. If the support engineer can't troubleshoot the issue by using standard tools and service generated data, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
 1. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
     - The scope of the resource
-    - Whether the requester is an isolated identity or using multi-factor authentication
+    - Whether the requester is an isolated identity or using multifactor authentication
     - Permissions levels
     Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
