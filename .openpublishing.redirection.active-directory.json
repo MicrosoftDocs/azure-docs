@@ -2266,1605 +2266,1607 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/access-token-claims-reference.md",
+      "source_path_from_root": "/articles/active-directory/develop/access-token-claims-reference.md",
       "redirect_url": "/entra/identity-platform/access-token-claims-reference",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/access-tokens.md",
+      "source_path_from_root": "/articles/active-directory/develop/access-tokens.md",
       "redirect_url": "/entra/identity-platform/access-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/accounts-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/accounts-overview.md",
       "redirect_url": "/entra/identity-platform/accounts-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/app-objects-and-service-principals.md",
+      "source_path_from_root": "/articles/active-directory/develop/app-objects-and-service-principals.md",
       "redirect_url": "/entra/identity-platform/app-objects-and-service-principals",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/app-only-access-primer.md",
+      "source_path_from_root": "/articles/active-directory/develop/app-only-access-primer.md",
       "redirect_url": "/entra/identity-platform/app-only-access-primer",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/app-resilience-continuous-access-evaluation.md",
+      "source_path_from_root": "/articles/active-directory/develop/app-resilience-continuous-access-evaluation.md",
       "redirect_url": "/entra/identity-platform/app-resilience-continuous-access-evaluation",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/app-sign-in-flow.md",
+      "source_path_from_root": "/articles/active-directory/develop/app-sign-in-flow.md",
       "redirect_url": "/entra/identity-platform/app-sign-in-flow",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/apple-sso-plugin.md",
+      "source_path_from_root": "/articles/active-directory/develop/apple-sso-plugin.md",
       "redirect_url": "/entra/identity-platform/apple-sso-plugin",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/application-consent-experience.md",
+      "source_path_from_root": "/articles/active-directory/develop/application-consent-experience.md",
       "redirect_url": "/entra/identity-platform/application-consent-experience",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/application-model.md",
+      "source_path_from_root": "/articles/active-directory/develop/application-model.md",
       "redirect_url": "/entra/identity-platform/application-model",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/authentication-flows-app-scenarios.md",
+      "source_path_from_root": "/articles/active-directory/develop/authentication-flows-app-scenarios.md",
       "redirect_url": "/entra/identity-platform/authentication-flows-app-scenarios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/authentication-national-cloud.md",
+      "source_path_from_root": "/articles/active-directory/develop/authentication-national-cloud.md",
       "redirect_url": "/entra/identity-platform/authentication-national-cloud",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/authentication-vs-authorization.md",
+      "source_path_from_root": "/articles/active-directory/develop/authentication-vs-authorization.md",
       "redirect_url": "/entra/identity-platform/authentication-vs-authorization",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/authorization-basics.md",
+      "source_path_from_root": "/articles/active-directory/develop/authorization-basics.md",
       "redirect_url": "/entra/identity-platform/authorization-basics",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/certificate-credentials.md",
+      "source_path_from_root": "/articles/active-directory/develop/certificate-credentials.md",
       "redirect_url": "/entra/identity-platform/certificate-credentials",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/claims-challenge.md",
+      "source_path_from_root": "/articles/active-directory/develop/claims-challenge.md",
       "redirect_url": "/entra/identity-platform/claims-challenge",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/claims-validation.md",
+      "source_path_from_root": "/articles/active-directory/develop/claims-validation.md",
       "redirect_url": "/entra/identity-platform/claims-validation",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/config-authority.md",
+      "source_path_from_root": "/articles/active-directory/develop/config-authority.md",
       "redirect_url": "/entra/identity-platform/config-authority",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/configurable-token-lifetimes.md",
+      "source_path_from_root": "/articles/active-directory/develop/configurable-token-lifetimes.md",
       "redirect_url": "/entra/identity-platform/configurable-token-lifetimes",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/configure-app-multi-instancing.md",
+      "source_path_from_root": "/articles/active-directory/develop/configure-app-multi-instancing.md",
       "redirect_url": "/entra/identity-platform/configure-app-multi-instancing",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/configure-token-lifetimes.md",
+      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
       "redirect_url": "/entra/identity-platform/configure-token-lifetimes",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/consent-types-developer.md",
+      "source_path_from_root": "/articles/active-directory/develop/consent-types-developer.md",
       "redirect_url": "/entra/identity-platform/consent-types-developer",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/console-quickstart-portal-nodejs.md",
+      "source_path_from_root": "/articles/active-directory/develop/console-quickstart-portal-nodejs.md",
       "redirect_url": "/entra/identity-platform/console-quickstart-portal-nodejs",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-claims-provider-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-claims-provider-overview.md",
       "redirect_url": "/entra/identity-platform/custom-claims-provider-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-claims-provider-reference.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-claims-provider-reference.md",
       "redirect_url": "/entra/identity-platform/custom-claims-provider-reference",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-extension-configure-saml-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-extension-configure-saml-app.md",
       "redirect_url": "/entra/identity-platform/custom-extension-configure-saml-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-extension-get-started.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-extension-get-started.md",
       "redirect_url": "/entra/identity-platform/custom-extension-get-started",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-extension-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-extension-overview.md",
       "redirect_url": "/entra/identity-platform/custom-extension-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-extension-troubleshoot.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-extension-troubleshoot.md",
       "redirect_url": "/entra/identity-platform/custom-extension-troubleshoot",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/custom-rbac-for-developers.md",
+      "source_path_from_root": "/articles/active-directory/develop/custom-rbac-for-developers.md",
       "redirect_url": "/entra/identity-platform/custom-rbac-for-developers",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/customize-webviews.md",
+      "source_path_from_root": "/articles/active-directory/develop/customize-webviews.md",
       "redirect_url": "/entra/identity-platform/customize-webviews",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/daemon-quickstart-portal-java.md",
+      "source_path_from_root": "/articles/active-directory/develop/daemon-quickstart-portal-java.md",
       "redirect_url": "/entra/identity-platform/daemon-quickstart-portal-java",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/daemon-quickstart-portal-netcore.md",
+      "source_path_from_root": "/articles/active-directory/develop/daemon-quickstart-portal-netcore.md",
       "redirect_url": "/entra/identity-platform/daemon-quickstart-portal-netcore",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/daemon-quickstart-portal-python.md",
+      "source_path_from_root": "/articles/active-directory/develop/daemon-quickstart-portal-python.md",
       "redirect_url": "/entra/identity-platform/daemon-quickstart-portal-python",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/delegated-access-primer.md",
+      "source_path_from_root": "/articles/active-directory/develop/delegated-access-primer.md",
       "redirect_url": "/entra/identity-platform/delegated-access-primer",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/deploy-web-app-authentication-pipeline.md",
+      "source_path_from_root": "/articles/active-directory/develop/deploy-web-app-authentication-pipeline.md",
       "redirect_url": "/entra/identity-platform/deploy-web-app-authentication-pipeline",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/desktop-quickstart-portal-nodejs-desktop.md",
+      "source_path_from_root": "/articles/active-directory/develop/desktop-quickstart-portal-nodejs-desktop.md",
       "redirect_url": "/entra/identity-platform/desktop-quickstart-portal-nodejs-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/desktop-quickstart-portal-uwp.md",
+      "source_path_from_root": "/articles/active-directory/develop/desktop-quickstart-portal-uwp.md",
       "redirect_url": "/entra/identity-platform/desktop-quickstart-portal-uwp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/desktop-quickstart-portal-wpf.md",
+      "source_path_from_root": "/articles/active-directory/develop/desktop-quickstart-portal-wpf.md",
       "redirect_url": "/entra/identity-platform/desktop-quickstart-portal-wpf",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/developer-glossary.md",
+      "source_path_from_root": "/articles/active-directory/develop/developer-glossary.md",
       "redirect_url": "/entra/identity-platform/developer-glossary",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/developer-guide-conditional-access-authentication-context.md",
+      "source_path_from_root": "/articles/active-directory/develop/developer-guide-conditional-access-authentication-context.md",
       "redirect_url": "/entra/identity-platform/developer-guide-conditional-access-authentication-context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/developer-support-help-options.md",
+      "source_path_from_root": "/articles/active-directory/develop/developer-support-help-options.md",
       "redirect_url": "/entra/identity-platform/developer-support-help-options",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/enterprise-app-role-management.md",
+      "source_path_from_root": "/articles/active-directory/develop/enterprise-app-role-management.md",
       "redirect_url": "/entra/identity-platform/enterprise-app-role-management",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/federation-metadata.md",
+      "source_path_from_root": "/articles/active-directory/develop/federation-metadata.md",
       "redirect_url": "/entra/identity-platform/federation-metadata",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/how-applications-are-added.md",
+      "source_path_from_root": "/articles/active-directory/develop/how-applications-are-added.md",
       "redirect_url": "/entra/identity-platform/how-applications-are-added",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/how-to-integrate.md",
+      "source_path_from_root": "/articles/active-directory/develop/how-to-integrate.md",
       "redirect_url": "/entra/identity-platform/how-to-integrate",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-add-app-roles-in-apps.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-app-roles-in-apps.md",
       "redirect_url": "/entra/identity-platform/howto-add-app-roles-in-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-add-branding-in-apps.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-branding-in-apps.md",
       "redirect_url": "/entra/identity-platform/howto-add-branding-in-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-add-terms-of-service-privacy-statement.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-terms-of-service-privacy-statement.md",
       "redirect_url": "/entra/identity-platform/howto-add-terms-of-service-privacy-statement",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-authenticate-service-principal-powershell.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-authenticate-service-principal-powershell.md",
       "redirect_url": "/entra/identity-platform/howto-authenticate-service-principal-powershell",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-build-services-resilient-to-metadata-refresh.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-build-services-resilient-to-metadata-refresh.md",
       "redirect_url": "/entra/identity-platform/howto-build-services-resilient-to-metadata-refresh",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-call-a-web-api-with-curl.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-call-a-web-api-with-curl.md",
       "redirect_url": "/entra/identity-platform/howto-call-a-web-api-with-curl",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-call-a-web-api-with-postman.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-call-a-web-api-with-postman.md",
       "redirect_url": "/entra/identity-platform/howto-call-a-web-api-with-postman",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-configure-app-instance-property-locks.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-configure-app-instance-property-locks.md",
       "redirect_url": "/entra/identity-platform/howto-configure-app-instance-property-locks",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-configure-publisher-domain.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-configure-publisher-domain.md",
       "redirect_url": "/entra/identity-platform/howto-configure-publisher-domain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-convert-app-to-be-multi-tenant.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-convert-app-to-be-multi-tenant.md",
       "redirect_url": "/entra/identity-platform/howto-convert-app-to-be-multi-tenant",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-create-self-signed-certificate.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-create-self-signed-certificate.md",
       "redirect_url": "/entra/identity-platform/howto-create-self-signed-certificate",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-create-service-principal-portal.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-create-service-principal-portal.md",
       "redirect_url": "/entra/identity-platform/howto-create-service-principal-portal",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-get-list-of-all-auth-library-apps.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-get-list-of-all-auth-library-apps.md",
       "redirect_url": "/entra/identity-platform/howto-get-list-of-all-auth-library-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-handle-samesite-cookie-changes-chrome-browser.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md",
       "redirect_url": "/entra/identity-platform/howto-handle-samesite-cookie-changes-chrome-browser",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-implement-rbac-for-apps.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-implement-rbac-for-apps.md",
       "redirect_url": "/entra/identity-platform/howto-implement-rbac-for-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-modify-supported-accounts.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-modify-supported-accounts.md",
       "redirect_url": "/entra/identity-platform/howto-modify-supported-accounts",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-remove-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-remove-app.md",
       "redirect_url": "/entra/identity-platform/howto-remove-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-restore-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-restore-app.md",
       "redirect_url": "/entra/identity-platform/howto-restore-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-restrict-your-app-to-a-set-of-users.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md",
       "redirect_url": "/entra/identity-platform/howto-restrict-your-app-to-a-set-of-users",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/howto-v2-keychain-objc.md",
+      "source_path_from_root": "/articles/active-directory/develop/howto-v2-keychain-objc.md",
       "redirect_url": "/entra/identity-platform/howto-v2-keychain-objc",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/id-token-claims-reference.md",
+      "source_path_from_root": "/articles/active-directory/develop/id-token-claims-reference.md",
       "redirect_url": "/entra/identity-platform/id-token-claims-reference",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/id-tokens.md",
+      "source_path_from_root": "/articles/active-directory/develop/id-tokens.md",
       "redirect_url": "/entra/identity-platform/id-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/identity-platform-integration-checklist.md",
+      "source_path_from_root": "/articles/active-directory/develop/identity-platform-integration-checklist.md",
       "redirect_url": "/entra/identity-platform/identity-platform-integration-checklist",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/identity-videos.md",
+      "source_path_from_root": "/articles/active-directory/develop/identity-videos.md",
       "redirect_url": "/entra/identity-platform/identity-videos",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-desktop.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index-desktop.yml",
       "redirect_url": "/entra/identity-platform/index-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-mobile.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index-mobile.yml",
       "redirect_url": "/entra/identity-platform/index-mobile",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-service.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index-service.yml",
       "redirect_url": "/entra/identity-platform/index-service",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-spa.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index-spa.yml",
       "redirect_url": "/entra/identity-platform/index-spa",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-web-api.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index-web-api.yml",
       "redirect_url": "/entra/identity-platform/index-web-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-web-app.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index-web-app.yml",
       "redirect_url": "/entra/identity-platform/index-web-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index.yml",
+      "source_path_from_root": "/articles/active-directory/develop/index.yml",
       "redirect_url": "/entra/identity-platform/index",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/jwt-claims-customization.md",
+      "source_path_from_root": "/articles/active-directory/develop/jwt-claims-customization.md",
       "redirect_url": "/entra/identity-platform/jwt-claims-customization",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/mark-app-as-publisher-verified.md",
+      "source_path_from_root": "/articles/active-directory/develop/mark-app-as-publisher-verified.md",
       "redirect_url": "/entra/identity-platform/mark-app-as-publisher-verified",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/migrate-android-adal-msal.md",
+      "source_path_from_root": "/articles/active-directory/develop/migrate-android-adal-msal.md",
       "redirect_url": "/entra/identity-platform/migrate-android-adal-msal",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/migrate-objc-adal-msal.md",
+      "source_path_from_root": "/articles/active-directory/develop/migrate-objc-adal-msal.md",
       "redirect_url": "/entra/identity-platform/migrate-objc-adal-msal",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/migrate-off-email-claim-authorization.md",
+      "source_path_from_root": "/articles/active-directory/develop/migrate-off-email-claim-authorization.md",
       "redirect_url": "/entra/identity-platform/migrate-off-email-claim-authorization",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/migrate-spa-implicit-to-auth-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/migrate-spa-implicit-to-auth-code.md",
       "redirect_url": "/entra/identity-platform/migrate-spa-implicit-to-auth-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/mobile-app-quickstart-portal-android.md",
+      "source_path_from_root": "/articles/active-directory/develop/mobile-app-quickstart-portal-android.md",
       "redirect_url": "/entra/identity-platform/mobile-app-quickstart-portal-android",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/mobile-app-quickstart-portal-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/mobile-app-quickstart-portal-ios.md",
       "redirect_url": "/entra/identity-platform/mobile-app-quickstart-portal-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/mobile-sso-support-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/mobile-sso-support-overview.md",
       "redirect_url": "/entra/identity-platform/mobile-sso-support-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-acquire-cache-tokens.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-acquire-cache-tokens.md",
       "redirect_url": "/entra/identity-platform/msal-acquire-cache-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-android-b2c.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-android-b2c.md",
       "redirect_url": "/entra/identity-platform/msal-android-b2c",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-android-handling-exceptions.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-android-handling-exceptions.md",
       "redirect_url": "/entra/identity-platform/msal-android-handling-exceptions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-android-shared-devices.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-android-shared-devices.md",
       "redirect_url": "/entra/identity-platform/msal-android-shared-devices",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-android-single-sign-on.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-android-single-sign-on.md",
       "redirect_url": "/entra/identity-platform/msal-android-single-sign-on",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-authentication-flows.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-authentication-flows.md",
       "redirect_url": "/entra/identity-platform/msal-authentication-flows",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-b2c-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-b2c-overview.md",
       "redirect_url": "/entra/identity-platform/msal-b2c-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-client-application-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-client-application-configuration.md",
       "redirect_url": "/entra/identity-platform/msal-client-application-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-client-applications.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-client-applications.md",
       "redirect_url": "/entra/identity-platform/msal-client-applications",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-compare-msal-js-and-adal-js.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-compare-msal-js-and-adal-js.md",
       "redirect_url": "/entra/identity-platform/msal-compare-msal-js-and-adal-js",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-configuration.md",
       "redirect_url": "/entra/identity-platform/msal-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-differences-ios-macos.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-differences-ios-macos.md",
       "redirect_url": "/entra/identity-platform/msal-differences-ios-macos",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-error-handling-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-ios.md",
       "redirect_url": "/entra/identity-platform/msal-error-handling-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-error-handling-js.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-js.md",
       "redirect_url": "/entra/identity-platform/msal-error-handling-js",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-ios-shared-devices.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-ios-shared-devices.md",
       "redirect_url": "/entra/identity-platform/msal-ios-shared-devices",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-avoid-page-reloads.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-avoid-page-reloads.md",
       "redirect_url": "/entra/identity-platform/msal-js-avoid-page-reloads",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-initializing-client-applications.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-initializing-client-applications.md",
       "redirect_url": "/entra/identity-platform/msal-js-initializing-client-applications",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-known-issues-ie-edge-browsers.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-known-issues-ie-edge-browsers.md",
       "redirect_url": "/entra/identity-platform/msal-js-known-issues-ie-edge-browsers",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-pass-custom-state-authentication-request.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-pass-custom-state-authentication-request.md",
       "redirect_url": "/entra/identity-platform/msal-js-pass-custom-state-authentication-request",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-prompt-behavior.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-prompt-behavior.md",
       "redirect_url": "/entra/identity-platform/msal-js-prompt-behavior",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-sso.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-sso.md",
       "redirect_url": "/entra/identity-platform/msal-js-sso",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-js-use-ie-browser.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-js-use-ie-browser.md",
       "redirect_url": "/entra/identity-platform/msal-js-use-ie-browser",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-logging-android.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-logging-android.md",
       "redirect_url": "/entra/identity-platform/msal-logging-android",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-logging-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-logging-ios.md",
       "redirect_url": "/entra/identity-platform/msal-logging-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-logging-js.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-logging-js.md",
       "redirect_url": "/entra/identity-platform/msal-logging-js",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-migration.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-migration.md",
       "redirect_url": "/entra/identity-platform/msal-migration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-national-cloud.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-national-cloud.md",
       "redirect_url": "/entra/identity-platform/msal-national-cloud",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-net-migration-android-broker.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-net-migration-android-broker.md",
       "redirect_url": "/entra/identity-platform/msal-net-migration-android-broker",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-net-migration-ios-broker.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-net-migration-ios-broker.md",
       "redirect_url": "/entra/identity-platform/msal-net-migration-ios-broker",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-net-system-browser-android-considerations.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-net-system-browser-android-considerations.md",
       "redirect_url": "/entra/identity-platform/msal-net-system-browser-android-considerations",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-net-use-brokers-with-xamarin-apps.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-net-use-brokers-with-xamarin-apps.md",
       "redirect_url": "/entra/identity-platform/msal-net-use-brokers-with-xamarin-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-net-xamarin-android-considerations.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-net-xamarin-android-considerations.md",
       "redirect_url": "/entra/identity-platform/msal-net-xamarin-android-considerations",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-net-xamarin-ios-considerations.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-net-xamarin-ios-considerations.md",
       "redirect_url": "/entra/identity-platform/msal-net-xamarin-ios-considerations",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-node-extensions.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-node-extensions.md",
       "redirect_url": "/entra/identity-platform/msal-node-extensions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-node-migration.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-node-migration.md",
       "redirect_url": "/entra/identity-platform/msal-node-migration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-overview.md",
       "redirect_url": "/entra/identity-platform/msal-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-shared-devices.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-shared-devices.md",
       "redirect_url": "/entra/identity-platform/msal-shared-devices",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/msal-v1-app-scopes.md",
+      "source_path_from_root": "/articles/active-directory/develop/msal-v1-app-scopes.md",
       "redirect_url": "/entra/identity-platform/msal-v1-app-scopes",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/multi-service-web-app-access-microsoft-graph-as-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/multi-service-web-app-access-microsoft-graph-as-app.md",
       "redirect_url": "/entra/identity-platform/multi-service-web-app-access-microsoft-graph-as-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/multi-service-web-app-access-microsoft-graph-as-user.md",
+      "source_path_from_root": "/articles/active-directory/develop/multi-service-web-app-access-microsoft-graph-as-user.md",
       "redirect_url": "/entra/identity-platform/multi-service-web-app-access-microsoft-graph-as-user",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/multi-service-web-app-access-storage.md",
+      "source_path_from_root": "/articles/active-directory/develop/multi-service-web-app-access-storage.md",
       "redirect_url": "/entra/identity-platform/multi-service-web-app-access-storage",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/multi-service-web-app-authentication-app-service.md",
+      "source_path_from_root": "/articles/active-directory/develop/multi-service-web-app-authentication-app-service.md",
       "redirect_url": "/entra/identity-platform/multi-service-web-app-authentication-app-service",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/multi-service-web-app-clean-up-resources.md",
+      "source_path_from_root": "/articles/active-directory/develop/multi-service-web-app-clean-up-resources.md",
       "redirect_url": "/entra/identity-platform/multi-service-web-app-clean-up-resources",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/multi-service-web-app-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/multi-service-web-app-overview.md",
       "redirect_url": "/entra/identity-platform/multi-service-web-app-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/optional-claims-reference.md",
+      "source_path_from_root": "/articles/active-directory/develop/optional-claims-reference.md",
       "redirect_url": "/entra/identity-platform/optional-claims-reference",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/optional-claims.md",
+      "source_path_from_root": "/articles/active-directory/develop/optional-claims.md",
       "redirect_url": "/entra/identity-platform/optional-claims",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/permissions-consent-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/permissions-consent-overview.md",
       "redirect_url": "/entra/identity-platform/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/publisher-verification-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/publisher-verification-overview.md",
       "redirect_url": "/entra/identity-platform/publisher-verification-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-configure-app-access-web-apis.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md",
       "redirect_url": "/entra/identity-platform/quickstart-configure-app-access-web-apis",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-configure-app-expose-web-apis.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-configure-app-expose-web-apis.md",
       "redirect_url": "/entra/identity-platform/quickstart-configure-app-expose-web-apis",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-console-app-netcore-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-console-app-netcore-acquire-token.md",
       "redirect_url": "/entra/identity-platform/quickstart-console-app-netcore-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-console-app-nodejs-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-console-app-nodejs-acquire-token.md",
       "redirect_url": "/entra/identity-platform/quickstart-console-app-nodejs-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-create-new-tenant.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-create-new-tenant.md",
       "redirect_url": "/entra/identity-platform/quickstart-create-new-tenant",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-daemon-app-java-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-daemon-app-java-acquire-token.md",
       "redirect_url": "/entra/identity-platform/quickstart-daemon-app-java-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-daemon-app-python-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-daemon-app-python-acquire-token.md",
       "redirect_url": "/entra/identity-platform/quickstart-daemon-app-python-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-desktop-app-nodejs-electron-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-desktop-app-nodejs-electron-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-desktop-app-nodejs-electron-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-desktop-app-uwp-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-desktop-app-uwp-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-desktop-app-uwp-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-desktop-app-wpf-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-desktop-app-wpf-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-desktop-app-wpf-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-mobile-app-android-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-mobile-app-android-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-mobile-app-android-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-mobile-app-ios-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-mobile-app-ios-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-mobile-app-ios-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-register-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-register-app.md",
       "redirect_url": "/entra/identity-platform/quickstart-register-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-single-page-app-angular-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-single-page-app-angular-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-single-page-app-angular-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-single-page-app-javascript-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-single-page-app-javascript-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-single-page-app-javascript-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-single-page-app-react-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-single-page-app-react-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-single-page-app-react-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-android.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-android.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-android",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-aspnet-core-web-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-core-web-api.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-aspnet-core-web-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-aspnet-core-webapp-calls-graph.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-core-webapp-calls-graph.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-aspnet-core-webapp-calls-graph",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-aspnet-core-webapp.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-aspnet-core-webapp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-aspnet-webapp.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-aspnet-webapp.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-aspnet-webapp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-dotnet-native-aspnet.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-dotnet-native-aspnet.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-dotnet-native-aspnet",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-ios.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-java-daemon.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-java-daemon.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-java-daemon",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-java-webapp.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-java-webapp.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-java-webapp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-javascript-auth-code-angular.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code-angular.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-javascript-auth-code-angular",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-javascript-auth-code-react.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code-react.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-javascript-auth-code-react",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-javascript-auth-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-javascript-auth-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-javascript.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-javascript",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-netcore-daemon.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-netcore-daemon.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-netcore-daemon",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-nodejs-console.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-console.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-nodejs-console",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-nodejs-desktop.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-desktop.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-nodejs-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-nodejs-webapp-msal.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp-msal.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-nodejs-webapp-msal",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-python-daemon.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-python-daemon.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-python-daemon",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-python-webapp.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-python-webapp.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-python-webapp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-uwp.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-uwp.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-uwp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-v2-windows-desktop.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-windows-desktop.md",
       "redirect_url": "/entra/identity-platform/quickstart-v2-windows-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-api-aspnet-core-protect-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-api-aspnet-core-protect-api.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-api-aspnet-core-protect-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-api-aspnet-protect-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-api-aspnet-protect-api.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-api-aspnet-protect-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-app-aspnet-core-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-app-aspnet-core-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-app-aspnet-core-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-app-aspnet-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-app-aspnet-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-app-aspnet-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-app-java-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-app-java-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-app-java-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-app-nodejs-msal-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/quickstart-web-app-python-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-web-app-python-sign-in.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-app-python-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/redirect-uris-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/redirect-uris-ios.md",
       "redirect_url": "/entra/identity-platform/redirect-uris-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-app-manifest.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-app-manifest.md",
       "redirect_url": "/entra/identity-platform/reference-app-manifest",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-breaking-changes.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-breaking-changes.md",
       "redirect_url": "/entra/identity-platform/reference-breaking-changes",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-claims-mapping-policy-type.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-claims-mapping-policy-type.md",
       "redirect_url": "/entra/identity-platform/reference-claims-mapping-policy-type",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-error-codes.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-error-codes.md",
       "redirect_url": "/entra/identity-platform/reference-error-codes",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-saml-tokens.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-saml-tokens.md",
       "redirect_url": "/entra/identity-platform/reference-saml-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-third-party-cookies-spas.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-third-party-cookies-spas.md",
       "redirect_url": "/entra/identity-platform/reference-third-party-cookies-spas",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reference-v2-libraries.md",
+      "source_path_from_root": "/articles/active-directory/develop/reference-v2-libraries.md",
       "redirect_url": "/entra/identity-platform/reference-v2-libraries",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/refresh-tokens.md",
+      "source_path_from_root": "/articles/active-directory/develop/refresh-tokens.md",
       "redirect_url": "/entra/identity-platform/refresh-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/reply-url.md",
+      "source_path_from_root": "/articles/active-directory/develop/reply-url.md",
       "redirect_url": "/entra/identity-platform/reply-url",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/request-custom-claims.md",
+      "source_path_from_root": "/articles/active-directory/develop/request-custom-claims.md",
       "redirect_url": "/entra/identity-platform/request-custom-claims",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/saml-claims-customization.md",
+      "source_path_from_root": "/articles/active-directory/develop/saml-claims-customization.md",
       "redirect_url": "/entra/identity-platform/saml-claims-customization",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/saml-protocol-reference.md",
+      "source_path_from_root": "/articles/active-directory/develop/saml-protocol-reference.md",
       "redirect_url": "/entra/identity-platform/saml-protocol-reference",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/sample-v2-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/sample-v2-code.md",
       "redirect_url": "/entra/identity-platform/sample-v2-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-daemon-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-daemon-acquire-token.md",
       "redirect_url": "/entra/identity-platform/scenario-daemon-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-daemon-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-daemon-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-daemon-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-daemon-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-daemon-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-daemon-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-daemon-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-daemon-call-api.md",
       "redirect_url": "/entra/identity-platform/scenario-daemon-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-daemon-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-daemon-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-daemon-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-daemon-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-daemon-production.md",
       "redirect_url": "/entra/identity-platform/scenario-daemon-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-acquire-token-device-code-flow.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-acquire-token-device-code-flow.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-acquire-token-device-code-flow",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-acquire-token-integrated-windows-authentication.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-acquire-token-integrated-windows-authentication.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-acquire-token-integrated-windows-authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-acquire-token-interactive.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-acquire-token-interactive.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-acquire-token-interactive",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-acquire-token-username-password.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-acquire-token-username-password.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-acquire-token-username-password",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-acquire-token-wam.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-acquire-token-wam.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-acquire-token-wam",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-acquire-token.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-call-api.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-desktop-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-desktop-production.md",
       "redirect_url": "/entra/identity-platform/scenario-desktop-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-mobile-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-mobile-acquire-token.md",
       "redirect_url": "/entra/identity-platform/scenario-mobile-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-mobile-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-mobile-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-mobile-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-mobile-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-mobile-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-mobile-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-mobile-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-mobile-call-api.md",
       "redirect_url": "/entra/identity-platform/scenario-mobile-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-mobile-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-mobile-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-mobile-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-mobile-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-mobile-production.md",
       "redirect_url": "/entra/identity-platform/scenario-mobile-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-protected-web-api-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-protected-web-api-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-protected-web-api-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-protected-web-api-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-protected-web-api-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-protected-web-api-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-protected-web-api-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-protected-web-api-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-protected-web-api-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-protected-web-api-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-protected-web-api-production.md",
       "redirect_url": "/entra/identity-platform/scenario-protected-web-api-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-protected-web-api-verification-scope-app-roles.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-protected-web-api-verification-scope-app-roles.md",
       "redirect_url": "/entra/identity-platform/scenario-protected-web-api-verification-scope-app-roles",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-acquire-token.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-call-api.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-production.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-spa-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-spa-sign-in.md",
       "redirect_url": "/entra/identity-platform/scenario-spa-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-token-exchange-saml-oauth.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-token-exchange-saml-oauth.md",
       "redirect_url": "/entra/identity-platform/scenario-token-exchange-saml-oauth",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-api-call-api-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-api-call-api-acquire-token.md",
       "redirect_url": "/entra/identity-platform/scenario-web-api-call-api-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-api-call-api-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-api-call-api-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-web-api-call-api-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-api-call-api-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-api-call-api-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-web-api-call-api-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-api-call-api-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-api-call-api-call-api.md",
       "redirect_url": "/entra/identity-platform/scenario-web-api-call-api-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-api-call-api-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-api-call-api-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-web-api-call-api-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-api-call-api-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-api-call-api-production.md",
       "redirect_url": "/entra/identity-platform/scenario-web-api-call-api-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-acquire-token.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-acquire-token.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-acquire-token",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-call-api.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-production.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-call-api-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-call-api-sign-in.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-call-api-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-sign-user-app-configuration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-sign-user-app-configuration.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-sign-user-app-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-sign-user-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-sign-user-app-registration.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-sign-user-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-sign-user-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-sign-user-overview.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-sign-user-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-sign-user-production.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-sign-user-production.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-sign-user-production",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scenario-web-app-sign-user-sign-in.md",
+      "source_path_from_root": "/articles/active-directory/develop/scenario-web-app-sign-user-sign-in.md",
       "redirect_url": "/entra/identity-platform/scenario-web-app-sign-user-sign-in",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/schema-extensions.md",
+      "source_path_from_root": "/articles/active-directory/develop/schema-extensions.md",
       "redirect_url": "/entra/identity-platform/schema-extensions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/scopes-oidc.md",
+      "source_path_from_root": "/articles/active-directory/develop/scopes-oidc.md",
       "redirect_url": "/entra/identity-platform/scopes-oidc",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/secure-group-access-control.md",
+      "source_path_from_root": "/articles/active-directory/develop/secure-group-access-control.md",
       "redirect_url": "/entra/identity-platform/secure-group-access-control",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/secure-least-privileged-access.md",
+      "source_path_from_root": "/articles/active-directory/develop/secure-least-privileged-access.md",
       "redirect_url": "/entra/identity-platform/secure-least-privileged-access",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/security-best-practices-for-app-registration.md",
+      "source_path_from_root": "/articles/active-directory/develop/security-best-practices-for-app-registration.md",
       "redirect_url": "/entra/identity-platform/security-best-practices-for-app-registration",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/security-tokens.md",
+      "source_path_from_root": "/articles/active-directory/develop/security-tokens.md",
       "redirect_url": "/entra/identity-platform/security-tokens",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/signing-key-rollover.md",
+      "source_path_from_root": "/articles/active-directory/develop/signing-key-rollover.md",
       "redirect_url": "/entra/identity-platform/signing-key-rollover",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/single-and-multi-tenant-apps.md",
+      "source_path_from_root": "/articles/active-directory/develop/single-and-multi-tenant-apps.md",
       "redirect_url": "/entra/identity-platform/single-and-multi-tenant-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/single-multi-account.md",
+      "source_path_from_root": "/articles/active-directory/develop/single-multi-account.md",
       "redirect_url": "/entra/identity-platform/single-multi-account",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/single-sign-on-macos-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/single-sign-on-macos-ios.md",
       "redirect_url": "/entra/identity-platform/single-sign-on-macos-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/single-sign-on-saml-protocol.md",
+      "source_path_from_root": "/articles/active-directory/develop/single-sign-on-saml-protocol.md",
       "redirect_url": "/entra/identity-platform/single-sign-on-saml-protocol",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/single-sign-out-saml-protocol.md",
+      "source_path_from_root": "/articles/active-directory/develop/single-sign-out-saml-protocol.md",
       "redirect_url": "/entra/identity-platform/single-sign-out-saml-protocol",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/spa-quickstart-portal-javascript-auth-code-angular.md",
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-javascript-auth-code-angular.md",
       "redirect_url": "/entra/identity-platform/spa-quickstart-portal-javascript-auth-code-angular",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/spa-quickstart-portal-javascript-auth-code-react.md",
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-javascript-auth-code-react.md",
       "redirect_url": "/entra/identity-platform/spa-quickstart-portal-javascript-auth-code-react",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/spa-quickstart-portal-javascript-auth-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-javascript-auth-code.md",
       "redirect_url": "/entra/identity-platform/spa-quickstart-portal-javascript-auth-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/ssl-issues.md",
+      "source_path_from_root": "/articles/active-directory/develop/ssl-issues.md",
       "redirect_url": "/entra/identity-platform/ssl-issues",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/sso-between-adal-msal-apps-macos-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/sso-between-adal-msal-apps-macos-ios.md",
       "redirect_url": "/entra/identity-platform/sso-between-adal-msal-apps-macos-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/support-fido2-authentication.md",
+      "source_path_from_root": "/articles/active-directory/develop/support-fido2-authentication.md",
       "redirect_url": "/entra/identity-platform/support-fido2-authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/supported-accounts-validation.md",
+      "source_path_from_root": "/articles/active-directory/develop/supported-accounts-validation.md",
       "redirect_url": "/entra/identity-platform/supported-accounts-validation",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/test-automate-integration-testing.md",
+      "source_path_from_root": "/articles/active-directory/develop/test-automate-integration-testing.md",
       "redirect_url": "/entra/identity-platform/test-automate-integration-testing",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/test-setup-environment.md",
+      "source_path_from_root": "/articles/active-directory/develop/test-setup-environment.md",
       "redirect_url": "/entra/identity-platform/test-setup-environment",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/test-throttle-service-limits.md",
+      "source_path_from_root": "/articles/active-directory/develop/test-throttle-service-limits.md",
       "redirect_url": "/entra/identity-platform/test-throttle-service-limits",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/troubleshoot-publisher-verification.md",
+      "source_path_from_root": "/articles/active-directory/develop/troubleshoot-publisher-verification.md",
       "redirect_url": "/entra/identity-platform/troubleshoot-publisher-verification",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/troubleshoot-required-resource-access-limits.md",
+      "source_path_from_root": "/articles/active-directory/develop/troubleshoot-required-resource-access-limits.md",
       "redirect_url": "/entra/identity-platform/troubleshoot-required-resource-access-limits",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-blazor-server.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-blazor-server.md",
       "redirect_url": "/entra/identity-platform/tutorial-blazor-server",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-blazor-webassembly.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-blazor-webassembly.md",
       "redirect_url": "/entra/identity-platform/tutorial-blazor-webassembly",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-single-page-app-react-call-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-single-page-app-react-call-api.md",
       "redirect_url": "/entra/identity-platform/tutorial-single-page-app-react-call-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-single-page-app-react-prepare-spa.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-single-page-app-react-prepare-spa.md",
       "redirect_url": "/entra/identity-platform/tutorial-single-page-app-react-prepare-spa",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-single-page-app-react-register-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-single-page-app-react-register-app.md",
       "redirect_url": "/entra/identity-platform/tutorial-single-page-app-react-register-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-single-page-app-react-sign-in-users.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-single-page-app-react-sign-in-users.md",
       "redirect_url": "/entra/identity-platform/tutorial-single-page-app-react-sign-in-users",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-android.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-android.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-android",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-angular-auth-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-angular-auth-code.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-angular-auth-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-aspnet-daemon-web-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-aspnet-daemon-web-app.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-aspnet-daemon-web-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-ios.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-ios.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-ios",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-javascript-auth-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-javascript-auth-code.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-javascript-auth-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-javascript-spa.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-javascript-spa.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-javascript-spa",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-nodejs-console.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-nodejs-console.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-nodejs-console",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-nodejs-desktop.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-nodejs-desktop.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-nodejs-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-nodejs-webapp-msal.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-nodejs-webapp-msal.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-nodejs-webapp-msal",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-shared-device-mode.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-shared-device-mode.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-shared-device-mode",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-windows-desktop.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-windows-desktop.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-windows-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/tutorial-v2-windows-uwp.md",
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-windows-uwp.md",
       "redirect_url": "/entra/identity-platform/tutorial-v2-windows-uwp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/userinfo.md",
+      "source_path_from_root": "/articles/active-directory/develop/userinfo.md",
       "redirect_url": "/entra/identity-platform/userinfo",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-admin-consent.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-admin-consent.md",
       "redirect_url": "/entra/identity-platform/v2-admin-consent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-app-types.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-app-types.md",
       "redirect_url": "/entra/identity-platform/v2-app-types",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-conditional-access-dev-guide.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-conditional-access-dev-guide.md",
       "redirect_url": "/entra/identity-platform/v2-conditional-access-dev-guide",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-howto-get-appsource-certified.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-howto-get-appsource-certified.md",
       "redirect_url": "/entra/identity-platform/v2-howto-get-appsource-certified",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-oauth-ropc.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-oauth-ropc.md",
       "redirect_url": "/entra/identity-platform/v2-oauth-ropc",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-oauth2-auth-code-flow.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-oauth2-auth-code-flow.md",
       "redirect_url": "/entra/identity-platform/v2-oauth2-auth-code-flow",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-oauth2-client-creds-grant-flow.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md",
       "redirect_url": "/entra/identity-platform/v2-oauth2-client-creds-grant-flow",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-oauth2-device-code.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-oauth2-device-code.md",
       "redirect_url": "/entra/identity-platform/v2-oauth2-device-code",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-oauth2-implicit-grant-flow.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md",
       "redirect_url": "/entra/identity-platform/v2-oauth2-implicit-grant-flow",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-oauth2-on-behalf-of-flow.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-oauth2-on-behalf-of-flow.md",
       "redirect_url": "/entra/identity-platform/v2-oauth2-on-behalf-of-flow",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-overview.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-overview.md",
       "redirect_url": "/entra/identity-platform/v2-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-protocols-oidc.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-protocols-oidc.md",
       "redirect_url": "/entra/identity-platform/v2-protocols-oidc",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-protocols.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-protocols.md",
       "redirect_url": "/entra/identity-platform/v2-protocols",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-saml-bearer-assertion.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-saml-bearer-assertion.md",
       "redirect_url": "/entra/identity-platform/v2-saml-bearer-assertion",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/v2-supported-account-types.md",
+      "source_path_from_root": "/articles/active-directory/develop/v2-supported-account-types.md",
       "redirect_url": "/entra/identity-platform/v2-supported-account-types",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-api-quickstart-portal-aspnet-core.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-api-quickstart-portal-aspnet-core.md",
       "redirect_url": "/entra/identity-platform/web-api-quickstart-portal-aspnet-core",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-api-quickstart-portal-dotnet-native-aspnet.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-api-quickstart-portal-dotnet-native-aspnet.md",
       "redirect_url": "/entra/identity-platform/web-api-quickstart-portal-dotnet-native-aspnet",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-api-tutorial-01-register-app.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-api-tutorial-01-register-app.md",
       "redirect_url": "/entra/identity-platform/web-api-tutorial-01-register-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-api-tutorial-02-prepare-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-api-tutorial-02-prepare-api.md",
       "redirect_url": "/entra/identity-platform/web-api-tutorial-02-prepare-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-api-tutorial-03-protect-endpoint.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-api-tutorial-03-protect-endpoint.md",
       "redirect_url": "/entra/identity-platform/web-api-tutorial-03-protect-endpoint",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-quickstart-portal-aspnet-core.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-aspnet-core.md",
       "redirect_url": "/entra/identity-platform/web-app-quickstart-portal-aspnet-core",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-quickstart-portal-aspnet.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-aspnet.md",
       "redirect_url": "/entra/identity-platform/web-app-quickstart-portal-aspnet",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-quickstart-portal-java.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-java.md",
       "redirect_url": "/entra/identity-platform/web-app-quickstart-portal-java",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-quickstart-portal-node-js.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js.md",
       "redirect_url": "/entra/identity-platform/web-app-quickstart-portal-node-js",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-quickstart-portal-python.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-python.md",
       "redirect_url": "/entra/identity-platform/web-app-quickstart-portal-python",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-tutorial-01-register-application.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-01-register-application.md",
       "redirect_url": "/entra/identity-platform/web-app-tutorial-01-register-application",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-tutorial-02-prepare-application.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-02-prepare-application.md",
       "redirect_url": "/entra/identity-platform/web-app-tutorial-02-prepare-application",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-tutorial-03-sign-in-users.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-03-sign-in-users.md",
       "redirect_url": "/entra/identity-platform/web-app-tutorial-03-sign-in-users",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/web-app-tutorial-04-call-web-api.md",
+      "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-04-call-web-api.md",
       "redirect_url": "/entra/identity-platform/web-app-tutorial-04-call-web-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/whats-new-docs.md",
+      "source_path_from_root": "/articles/active-directory/develop/whats-new-docs.md",
       "redirect_url": "/entra/identity-platform/whats-new-docs",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/zero-trust-for-developers.md",
+      "source_path_from_root": "/articles/active-directory/develop/zero-trust-for-developers.md",
       "redirect_url": "/entra/identity-platform/zero-trust-for-developers",
       "redirect_document_id": false
-    },
+    },"
+
+
     {
       "source_path_from_root": "/articles/active-directory/devices/assign-local-admin.md",
       "redirect_url": "/entra/identity/devices/assign-local-admin",
