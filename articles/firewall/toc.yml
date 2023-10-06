@@ -13,6 +13,8 @@ items:
   - name: Deploy with IP Groups - Bicep
     displayName: Resource Manager,arm,template
     href: quick-create-ipgroup-bicep.md
+  - name: Deploy with IP Groups - Terraform
+    href: quick-create-ipgroup-terraform.md
   - name: Deploy with IP Groups - ARM template
     displayName: Resource Manager
     href: quick-create-ipgroup-template.md
