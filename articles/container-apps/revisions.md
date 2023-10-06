@@ -123,7 +123,7 @@ In *multiple revision* mode, you can control when revisions are activated or dea
 
 While single revision mode is the default, sometimes you may want to have full control over how your revisions are managed.
 
-The multiple revision mode gives you the flexibility to manage your revision manually. For instance, using multiple revision mode allows you to decide exactly how much traffic is allocated to each revision.
+Multiple revision mode gives you the flexibility to manage your revision manually. For instance, using multiple revision mode allows you to decide exactly how much traffic is allocated to each revision.
 
 ### Traffic splitting
 
@@ -160,7 +160,7 @@ A *revision-scope* change is any change to the parameters in the [`properties.te
 
 These parameters include:
 
-- [Revision suffix](#name suffix)
+- [Revision suffix](#name-suffix)
 - Container configuration and images
 - Scale rules for the container application
 
