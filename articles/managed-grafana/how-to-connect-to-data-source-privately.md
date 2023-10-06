@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 5/18/2023
+ms.date: 10/06/2023
 --- 
 
 # Connect to a data source privately (preview)
@@ -36,7 +36,7 @@ Managed private endpoints work with Azure services that support private link. Us
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance in the Standard tier.. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana instance in the Standard tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
 
 ## Create a managed private endpoint for Azure Monitor workspace
 

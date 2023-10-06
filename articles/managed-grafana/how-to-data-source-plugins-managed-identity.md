@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 10/06/2023
 ---
 
 # How to configure data sources for Azure Managed Grafana
@@ -40,7 +40,7 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 | [PostgreSQL](https://grafana.com/docs/grafana/latest/datasources/postgres/)                                                   | -         | ✔       |
 | [Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/)                                                 | ✔        | ✔       |
 | [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)                                                           | -         | ✔       |
-| [TestData DB](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                  | ✔        | ✔       |
+| [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                  | ✔        | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.

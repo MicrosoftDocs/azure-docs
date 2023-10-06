@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 6/8/2023
+ms.date: 10/06/2023
 --- 
 
 # Use Azure Monitor alerts with Grafana

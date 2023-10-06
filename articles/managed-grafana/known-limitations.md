@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 09/29/2023
+ms.date: 10/06/2023
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -49,7 +49,6 @@ The following quotas apply to the Essential and Standard tiers.
 | Alert rules                          | Maximum number of alert rules that can be created                                                   | Not supported   | 100 per instance |
 | Dashboards                           | Maximum number of dashboards that can be created                                                    | 20 per instance | Unlimited        |
 | Data sources                         | Maximum number of datasources that can be created                                                   | 5 per instance  | Unlimited        |
-| Users                                | Maximum number of users that can be created                                                         | Unlimited       | Unlimited        |
 | API keys                             | Maximum number of API keys that can be created                                                      | 2 per instance  | 100 per instance |
 | Data query timeout                   | Maximum wait duration for the reception of data query response headers, before Grafana times out    | 200 seconds     | 200 seconds      |
 | Data source query size               | Maximum number of bytes that are read/accepted from responses of outgoing HTTP requests             | 80 MB           | 80 MB            |

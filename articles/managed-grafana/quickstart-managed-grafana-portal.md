@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 09/29/2022
+ms.date: 10/06/2023
 ms.custom: engagement-fy23
 --- 
 
@@ -33,13 +33,13 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
 
 1. In the **Basics** pane, enter the following settings.
 
-    | Setting             | Sample value        | Description                                                                                                                                                                                                                                                                                                              |
-    |---------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Subscription ID     | *my-subscription*   | Select the Azure subscription you want to use.                                                                                                                                                                                                                                                                           |
-    | Resource group name | *my-resource-group* | Create a resource group for your Azure Managed Grafana resources.                                                                                                                                                                                                                                                        |
-    | Location            | *(US) East US*      | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you.                                                                                                                                                                                                      |
-    | Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                                                                                                                                   |
-    | Pricing Plan        | *Essential*          | Choose between an Essential and a Standard plan. The Standard tier offers additional features. [More information about pricing plans](overview.md#service-tiers).                                                                                       |
+| Setting             | Sample value        | Description                                                                                                                                                                                                                                                                                                              |
+|---------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Subscription ID     | *my-subscription*   | Select the Azure subscription you want to use.                                                                                                                                                                                                                                                                           |
+| Resource group name | *my-resource-group* | Create a resource group for your Azure Managed Grafana resources.                                                                                                                                                                                                                                                        |
+| Location            | *(US) East US*      | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you.                                                                                                                                                                                                      |
+| Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                                                                                                                                   |
+| Pricing Plan        | *Essential*          | Choose between the Essential or the Standard plan. The Essential plan is the cheapest option you can use to evaluate the service. This plan isn't recommended for production use. For more information about Azure Managed Grafana plans, go to [pricing plans](overview.md#service-tiers).                                                                                       |
 
 1. If you've chosen the Standard plan, optionally enable zone redundancy for your new instance.
 1. Select **Next : Advanced >** to access additional options:

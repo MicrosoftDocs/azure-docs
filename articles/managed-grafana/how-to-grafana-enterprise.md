@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 09/29/2023
+ms.date: 10/06/2023
 ---
 
 # Enable Grafana Enterprise
@@ -14,7 +14,10 @@ In this guide, learn how to activate the Grafana Enterprise add-on in Azure Mana
 
 The Grafana Enterprise plans offered through Azure Managed Grafana enable users to access Grafana Enterprise plugins to do more with Azure Managed Grafana.
 
-Grafana Enterprise plugins, as of September 2023:
+>[!NOTE]
+> To activate the Grafana Enterprise option, your Azure Managed Grafana instance must be using the Standard plan. For more information about plans, go to [pricing plans](overview.md#service-tiers).
+
+Grafana Enterprise plugins, as of October 2023:
 
 - AppDynamics
 - Azure DevOps

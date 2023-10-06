@@ -5,12 +5,15 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 09/29/2023
+ms.date: 10/06/2023
 --- 
 
 # Use deterministic outbound IPs
 
 In this guide, learn how to activate deterministic outbound IP support used by Azure Managed Grafana to communicate with data sources, disable public access and set up a firewall rule to allow inbound requests from your Grafana instance.
+
+>[!NOTE]
+> The deterministic outbound IPs feature is only accessible for customers with a Standard plan. For more information about plans, go to [pricing plans](overview.md#service-tiers).
 
 ## Prerequisites
 
