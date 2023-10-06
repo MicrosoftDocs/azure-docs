@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 10/05/2023
 
 ms.author: justinha
 author: justinha
@@ -73,7 +73,7 @@ To resolve connectivity issues or other transient problems with the service, com
 
 1. As an administrator on the server that runs Microsoft Entra Connect, select **Start**.
 1. Enter *services.msc* in the search field and select **Enter**.
-1. Look for the *Microsoft Entra ID Sync* entry.
+1. Look for the *Azure AD Sync* entry.
 1. Right-click the service entry, select **Restart**, and wait for the operation to finish.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/service-restart.png" alt-text="Restart the Azure AD Sync service using the GUI" border="false":::

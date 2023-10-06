@@ -7,7 +7,7 @@ ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 03/30/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 zone_pivot_groups: ase-pro-version
 ---
 
@@ -275,7 +275,7 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 
 ## Retrieve the Object ID (OID)
 
-You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant. You will need to provide this OID when you configure your ASE to use AKS-HCI. You can obtain the OID using the Azure CLI or the Azure Cloud Shell on the portal. You'll need to be an owner of your Azure subscription.
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant. You will need to provide this OID when you create the Kubernetes service. You can obtain the OID using the Azure CLI or the Azure Cloud Shell on the portal. You'll need to be an owner of your Azure subscription.
 
 1. Sign in to the Azure CLI or Azure Cloud Shell.
 1. Retrieve the OID:

@@ -46,7 +46,7 @@ Search scores can be repeated throughout a result set. When multiple hits have t
 
 To break the tie among repeating scores, you can add an **$orderby** clause to first order by score, then order by another sortable field (for example, `$orderby=search.score() desc,Rating desc`). For more information, see [$orderby](search-query-odata-orderby.md).
 
-Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable`, or fields that are specified in `searchFields` in the query, are returned in search results, along with their search score.
+Only fields marked as `searchable` in the index, or `searchFields` in the query, are used for scoring. Only fields marked as `retrievable`, or fields specified in `select` in the query, are returned in search results, along with their search score.
 
 > [!NOTE]
 > A `@search.score = 1` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`, sometimes paired with filters, where the filter is the primary means for returning a match).

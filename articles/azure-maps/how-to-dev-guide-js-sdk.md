@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the JavaScript REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the JavaScript SDK Developers Guide.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.service: azure-maps

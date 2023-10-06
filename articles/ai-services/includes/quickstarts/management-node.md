@@ -10,7 +10,7 @@ ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (npm)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## JavaScript prerequisites
 
@@ -31,17 +31,17 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init` command to create a node application with a `package.json` file. 
+Run the ` init` command to create a node application with a `package.json` file. 
 
 ```console
-npm init
+ init
 ```
 
 Create a file named _index.js_ before going on.
 
 ### Install the client library
 
-Install the following NPM packages:
+Install the following npm packages:
 
 ```console
 npm install @azure/arm-cognitiveservices
@@ -96,7 +96,7 @@ The following function deletes the specified resource from the given resource gr
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
 
 ## Run the application
 

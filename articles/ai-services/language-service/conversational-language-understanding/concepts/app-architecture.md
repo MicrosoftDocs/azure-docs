@@ -5,8 +5,7 @@ description: Learn when to choose conversational language understanding or orche
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: best-practice
 ms.date: 08/15/2023
 ms.author: aahi

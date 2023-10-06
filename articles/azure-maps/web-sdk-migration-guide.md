@@ -2,8 +2,8 @@
 title: The Azure Maps Web SDK v1 migration guide
 titleSuffix: Microsoft Azure Maps
 description: Find out how to migrate your Azure Maps Web SDK v1 applications to the most recent version of the Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 08/18/2023
 ms.topic: how-to
 ms.service: azure-maps
