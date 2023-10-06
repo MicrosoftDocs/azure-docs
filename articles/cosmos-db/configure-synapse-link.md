@@ -44,7 +44,7 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 
 1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
-1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** under Intergrations in the left pane.
+1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** under Integrations in the left pane.
 
 1. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
