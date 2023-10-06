@@ -122,6 +122,8 @@
               href: cis-ubuntu.md
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
+            - name: CIS Windows Server benchmark
+              href: cis-windows.md
     - name: Networking
       items:
         - name: Concepts
