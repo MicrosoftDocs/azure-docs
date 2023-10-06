@@ -57,6 +57,7 @@ The following example shows how to create a container in a new storage account f
       -Name "<storage-account>" `
       -SkuName Standard_LRS `
       -Location $location `
+      -AllowBlobPublicAccess $false
     ```
 
 1. Get the storage account context that specifies the new storage account by calling [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). When acting on a storage account, you can reference the context instead of repeatedly passing in the credentials. Include the `-UseConnectedAccount` parameter to call any subsequent data operations using your Azure AD credentials:

@@ -1,7 +1,7 @@
 ---
 
-title: What are flagged sign-ins in Azure Active Directory?
-description: Provides a general overview of flagged sign-ins in Azure Active Directory.
+title: What are flagged sign-ins in Microsoft Entra ID?
+description: Provides a general overview of flagged sign-ins in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,10 +13,10 @@ ms.date: 08/25/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
 
-# Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
+# Customer intent: As a Microsoft Entra administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
 ---
 
-# What are flagged sign-ins in Azure Active Directory?
+# What are flagged sign-ins in Microsoft Entra ID?
 
 As an IT admin, when a user failed to sign-in, you want to resolve the issue as soon as possible to unblock your user. Due to the amount of available data in the sign-ins log, locating the right information can be a challenge.
 
@@ -24,11 +24,11 @@ This article gives you an overview of a feature that significantly improves the 
 
 ## What are flagged sign-ins?
 
-Azure AD sign-in events are critical to understanding what went right or wrong with user sign-ins and the authentication configuration in a tenant. However, Azure AD processes over 8 billion authentications a day, which can result in so many sign-in events that admins may find it difficult to find the ones which matter. In other words, the sheer number of sign-in events can make the signal of users who need assistance get lost in the volume of a large number of events.
+Microsoft Entra sign-in events are critical to understanding what went right or wrong with user sign-ins and the authentication configuration in a tenant. However, Microsoft Entra ID processes over 8 billion authentications a day, which can result in so many sign-in events that admins may find it difficult to find the ones which matter. In other words, the sheer number of sign-in events can make the signal of users who need assistance get lost in the volume of a large number of events.
 
 Flagged Sign-ins is a feature intended to increase the signal to noise ratio for user sign-ins requiring help. The functionality is intended to empower users to raise awareness about sign-in errors they want help with. Admins and help desk workers also benefit from finding the right events more efficiently. Flagged Sign-in events contain the same information as other sign-in events contain with one addition: they also indicate that a user flagged the event for review by admins.
  
-Flagged sign-ins give the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event then appears as “Flagged for Review” in the Azure AD sign-ins log.
+Flagged sign-ins give the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event then appears as “Flagged for Review” in the Microsoft Entra sign-ins log.
 
 In summary, you can use flagged sign-ins to:
 
@@ -83,7 +83,7 @@ For more information on using the sign-ins Graph API, see [signIn resource type]
  
 ## Who can create flagged sign-ins?
 
-Any user signing into Azure AD via web page can use flag sign-ins for review. Member and guest users alike can flag sign-in errors for review. 
+Any user signing into Microsoft Entra ID via web page can use flag sign-ins for review. Member and guest users alike can flag sign-in errors for review. 
 
 ## Who can review flagged sign-ins?
 
@@ -105,5 +105,5 @@ While the names are similar, **flagged sign-ins** and **risky sign-ins** are dif
 
 ## Next steps
 
-- [Sign-in logs in Azure Active Directory](concept-sign-ins.md)
-- [Sign-in diagnostics for Azure AD scenarios](concept-sign-in-diagnostics-scenarios.md)
+- [Sign-in logs in Microsoft Entra ID](concept-sign-ins.md)
+- [Sign-in diagnostics for Microsoft Entra scenarios](concept-sign-in-diagnostics-scenarios.md)

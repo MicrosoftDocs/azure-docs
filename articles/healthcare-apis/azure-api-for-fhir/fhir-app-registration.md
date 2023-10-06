@@ -7,10 +7,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
 
 # Register the Azure Active Directory apps for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 You have several configuration options to choose from when you're setting up the Azure API for FHIR or the FHIR Server for Azure (OSS). For open source, you'll need to create your own resource application registration. For Azure API for FHIR, this resource application is created automatically.
 

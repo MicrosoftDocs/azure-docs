@@ -91,7 +91,7 @@ What parameters are configured in your data asset dictates what metrics you can 
     - **Outputs:** In the Outputs _(Step #3 of the PromptFlow deployment wizard)_, confirm you have selected the required outputs listed above (for example, completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
 
 > [!NOTE]
-> If your compute instance is behind a VNet, see [Compute instance behind VNet](how-to-create-manage-runtime.md#compute-instance-behind-vnet).
+> If your compute instance is behind a VNet, see [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
 
 ## Create your monitor 
 

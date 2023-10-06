@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/13/2023
 ---
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM. For an enterprise solution, RAG architecture means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain natural language processing to *your enterprise content* sourced from vectorized documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
@@ -25,7 +25,7 @@ The decision about which information retrieval system to use is critical because
 
 + Integration with LLMs.
 
-Azure Cognitive Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture because it provides compatible indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
+Azure Cognitive Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
 
 > [!NOTE]
 > New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
@@ -38,7 +38,7 @@ Microsoft has several built-in implementations for using Cognitive Search in a R
 
 + Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
-If you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
+If you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Cognitive Search fits into a custom RAG solution.
 
 > [!NOTE]
 > Prefer to look at code? You can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
@@ -52,7 +52,7 @@ A high-level summary of the pattern looks like this:
 + Send the top ranked search results to the LLM.
 + Use the natural language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
 
-Cognitive Search provides data to the LLM but doesn't train the model. In RAG architecture, there's no extra training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
+Cognitive search provides inputs to the LLM prompt, but doesn't train the model. In RAG architecture, there's no extra training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
@@ -67,7 +67,7 @@ The web app provides the user experience, providing the presentation, context, a
 
 The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use [LangChain](https://python.langchain.com/docs/get_started/introduction) to coordinate the workflow. LangChain [integrates with Azure Cognitive Search](https://python.langchain.com/docs/integrations/retrievers/azure_cognitive_search), making it easier to include Cognitive Search as a [retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/) in your workflow.
 
-The information retrieval system provides the searchable index, query logic, and the payload (query response). The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
+The information retrieval system provides the searchable index, query logic, and the payload (query response). The search index can contain vectors or non-vector content. Although most samples and demos include vector fields, it's not a requirement. The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
 
 The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a back and forth conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
@@ -77,7 +77,7 @@ Cognitive Search doesn't provide native LLM integration, web frontends, or vecto
 
 In Cognitive Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores *indexed content*, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of [tokenized text](https://lucene.apache.org/core/7_5_0/test-framework/org/apache/lucene/analysis/Token.html), vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
 
-When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that duplicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a text description of an image.
+When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that duplicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a representation or text description of an image.
 
 Since you probably know what kind of content you want to search over, consider the indexing features that are applicable to each content type:
 
@@ -104,15 +104,15 @@ In a non-RAG pattern, queries make a round trip from a search client. The query 
 
 In a RAG pattern, queries and responses are coordinated between the search engine and the LLM. A user's question or query is forwarded to both the search engine and to the LLM as a prompt. The search results come back from the search engine and are redirected to an LLM. The response that makes it back to the user is generative AI, either a summation or answer from the LLM.
 
-There's no query type in Cognitive Search - not even semantic search or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used to formulate queries:
+There's no query type in Cognitive Search - not even semantic or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used to formulate queries:
 
 | Query feature | Purpose | Why use it |
 |---------------|---------|------------|
 | [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and non-vector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the [BM25 algorithm](index-similarity-and-scoring.md) and support relevance tuning through scoring profiles. It also supports filters and facets. |
 | [Filters](search-filters.md) and [facets](search-faceted-navigation.md) | Applies to text or numeric (non-vector) fields only. Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
-| [Semantic search](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
+| [Semantic ranking](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
-| [Hybrid search](vector-search-ranking.md#hybrid-search) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
+| [Hybrid search](hybrid-search-overview.md) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
 
 ### Structure the query response
 
@@ -196,7 +196,7 @@ if len(history) > 0:
 else:
     search = user_input
 
-# Alternatively simply use search_client.search(q, top=3) if not using semantic search
+# Alternatively simply use search_client.search(q, top=3) if not using semantic ranking
 print("Searching:", search)
 print("-------------------")
 filter = "category ne '{}'".format(exclude_category.replace("'", "''")) if exclude_category else None
@@ -244,10 +244,8 @@ print("\n-------------------\nPrompt:\n" + prompt)
 > [!NOTE]
 > Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specifically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
 
-<!-- Vanity URL for this article, currently used only in the vector search overview doc
-https://aka.ms/what-is-rag -->
-
 ## See also
 
 + [Retrieval Augmented Generation: Streamlining the creation of intelligent natural language processing models](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/)
 + [Retrieval Augmented Generation using Azure Machine Learning prompt flow](/azure/machine-learning/concept-retrieval-augmented-generation)
++ [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)

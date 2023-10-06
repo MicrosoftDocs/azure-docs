@@ -675,7 +675,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
     ```
 
-1. Now that you have created an Azure Active Directory application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
+1. Now that you have created an Azure Active Directory application and service principal, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
 
 ## Migrate to Spark 3 Connector
 

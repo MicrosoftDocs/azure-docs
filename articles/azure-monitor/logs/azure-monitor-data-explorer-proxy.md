@@ -23,7 +23,7 @@ To run a cross-service query, you need:
 
 ## Function supportability
 
-Azure Monitor cross-service queries support functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
+Azure Monitor cross-service queries support **only ".show"** functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
 This capability enables cross-cluster queries to reference an Azure Monitor, Azure Data Explorer, or Azure Resource Graph tabular function directly.
 The following commands are supported with the cross-service query:
 
@@ -48,6 +48,7 @@ For example:
 union customEvents, adx('https://help.kusto.windows.net/Samples').StormEvents
 | take 10
 ```
+
 ```kusto
 let CL1 = adx('https://help.kusto.windows.net/Samples').StormEvents;
 union customEvents, CL1 | take 10
@@ -114,19 +115,19 @@ Here are some sample Azure Log Analytics queries that use the new Azure Resource
        | project name 
        ```
 
-    - Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
+   - Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
     
-        ```kusto
-        InsightsMetrics
-        | where Name == "UtilizationPercentage"
-        | lookup (
-            arg("").Resources 
-            | where type == 'microsoft.compute/virtualmachines' 
-            | project _ResourceId=tolower(id), tags
-            )
-            on _ResourceId
-        | where tostring(tags.Env) == "Prod"
-        ```
+       ```kusto
+       InsightsMetrics
+       | where Name == "UtilizationPercentage"
+       | lookup (
+           arg("").Resources 
+           | where type == 'microsoft.compute/virtualmachines' 
+           | project _ResourceId=tolower(id), tags
+           )
+           on _ResourceId
+       | where tostring(tags.Env) == "Prod"
+       ```
 
 More use cases:
 -	Use a tag to determine whether VMs should be running 24x7 or should be shut down at night.
@@ -162,9 +163,11 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 ## Limitations
 
 * Database names are case sensitive.
-* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
-* The cross-service query ability is used for data retrieval only. 
-* [Private Link](../logs/private-link-security.md) does not support cross-service queries.
+* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass the time filter.
+* Cross-service queries support data retrieval only. 
+* [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) do not support cross-service queries.
+* `mv-expand` is limited to 2000 records.
+* Azure Resource Graph cross-queries do not support these operators: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)

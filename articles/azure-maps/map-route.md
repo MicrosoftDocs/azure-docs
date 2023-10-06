@@ -2,8 +2,8 @@
 title: Show route directions on a map
 titleSuffix: Microsoft Azure Maps
 description: This article demonstrates how to display directions between two locations on a map using the Microsoft Azure Maps Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps

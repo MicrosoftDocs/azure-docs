@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure LDAPS for Azure Active Directory Domain Services | Microsoft Docs
-description: In this tutorial, you learn how to configure secure lightweight directory access protocol (LDAPS) for an Azure Active Directory Domain Services managed domain.
+title: Tutorial - Configure LDAPS for Microsoft Entra Domain Services | Microsoft Docs
+description: In this tutorial, you learn how to configure secure lightweight directory access protocol (LDAPS) for a Microsoft Entra Domain Services managed domain.
 author: justinha
 manager: amycolannino
 
@@ -8,26 +8,26 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/15/2023
+ms.date: 09/15/2023
 ms.author: justinha
 ms.reviewer: xyuan
 
-#Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
+#Customer intent: As an identity administrator, I want to secure access to a Microsoft Entra Domain Services managed domain using secure Lightweight Directory Access Protocol (LDAPS)
 ---
 
-# Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain
+# Tutorial: Configure secure LDAP for a Microsoft Entra Domain Services managed domain
 
-To communicate with your Azure Active Directory Domain Services (Azure AD DS) managed domain, the Lightweight Directory Access Protocol (LDAP) is used. By default, the LDAP traffic isn't encrypted, which is a security concern for many environments.
+To communicate with your Microsoft Entra Domain Services managed domain, the Lightweight Directory Access Protocol (LDAP) is used. By default, the LDAP traffic isn't encrypted, which is a security concern for many environments.
 
-With Azure AD DS, you can configure the managed domain to use secure Lightweight Directory Access Protocol (LDAPS). When you use secure LDAP, the traffic is encrypted. Secure LDAP is also known as LDAP over Secure Sockets Layer (SSL) / Transport Layer Security (TLS).
+With Microsoft Entra Domain Services, you can configure the managed domain to use secure Lightweight Directory Access Protocol (LDAPS). When you use secure LDAP, the traffic is encrypted. Secure LDAP is also known as LDAP over Secure Sockets Layer (SSL) / Transport Layer Security (TLS).
 
-This tutorial shows you how to configure LDAPS for an Azure AD DS managed domain.
+This tutorial shows you how to configure LDAPS for a Domain Services managed domain.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a digital certificate for use with Azure AD DS
-> * Enable secure LDAP for Azure AD DS
+> * Create a digital certificate for use with Microsoft Entra Domain Services
+> * Enable secure LDAP for Microsoft Entra Domain Services
 > * Configure secure LDAP for use over the public internet
 > * Bind and test secure LDAP for a managed domain
 
@@ -39,17 +39,17 @@ To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-  * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-  * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+  * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+  * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * The *LDP.exe* tool installed on your computer.
   * If needed, [install the Remote Server Administration Tools (RSAT)][rsat] for *Active Directory Domain Services and LDAP*.
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable secure LDAP.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable secure LDAP.
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you configure secure LDAP for the managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you configure secure LDAP for the managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Create a certificate for secure LDAP
 
@@ -66,7 +66,7 @@ The certificate you request or create must meet the following requirements. Your
 * **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public CA or an Enterprise CA trusted by these computers.
 * **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
 * **Subject name** - The subject name on the certificate must be your managed domain. For example, if your domain is named *aaddscontoso.com*, the certificate's subject name must be **.aaddscontoso.com*.
-  * The DNS name or subject alternate name of the certificate must be a wildcard certificate to ensure the secure LDAP works properly with the Azure AD Domain Services. Domain Controllers use random names and can be removed or added to ensure the service remains available.
+  * The DNS name or subject alternate name of the certificate must be a wildcard certificate to ensure the secure LDAP works properly with Domain Services. Domain Controllers use random names and can be removed or added to ensure the service remains available.
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
 * **Certificate purpose** - The certificate must be valid for TLS server authentication.
 
@@ -119,7 +119,10 @@ These two keys, the *private* and *public* keys, make sure that only the appropr
 
 In this tutorial, you created a self-signed certificate with the private key, so you need to export the appropriate private and public components.
 
-### Export a certificate for Azure AD DS
+<a name='export-a-certificate-for-azure-ad-ds'></a>
+
+
+### Export a certificate for Microsoft Entra Domain Services
 
 Before you can use the digital certificate created in the previous step with your managed domain, export the certificate to a *.PFX* certificate file that includes the private key.
 
@@ -156,13 +159,13 @@ Before you can use the digital certificate created in the previous step with you
 
     ![Screenshot of how to encrypt the password](./media/tutorial-configure-ldaps/encrypt.png)
 
-1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
+1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as `C:\Users\<account-name>\azure-ad-ds.pfx`. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
 
 ### Export a certificate for client computers
 
-Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a certificate to successfully encrypt data that is decrypted by Azure AD DS. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding certificate.
+Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a certificate to successfully encrypt data that is decrypted by Domain Services. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding certificate.
 
 In this tutorial you use a self-signed certificate, and generated a certificate that includes the private key in the previous step. Now let's export and then install the self-signed certificate into the trusted certificate store on the client computer:
 
@@ -173,12 +176,12 @@ In this tutorial you use a self-signed certificate, and generated a certificate 
 
     ![Choose the option to export the certificate in the Base-64 encoded X.509 (.CER) file format](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
-1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
+1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as `C:\Users\<account-name>\azure-ad-ds-client.cer`.
 1. On the review page, select **Finish** to export the certificate to a *.CER* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 
 The *.CER* certificate file can now be distributed to client computers that need to trust the secure LDAP connection to the managed domain. Let's install the certificate on the local computer.
 
-1. Open File Explorer and browse to the location where you saved the *.CER* certificate file, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
+1. Open File Explorer and browse to the location where you saved the *.CER* certificate file, such as `C:\Users\<account-name>\azure-ad-ds-client.cer`.
 1. Right-select the *.CER* certificate file, then choose **Install Certificate**.
 1. In the **Certificate Import Wizard**, choose to store the certificate in the *Local machine*, then select **Next**:
 
@@ -188,13 +191,17 @@ The *.CER* certificate file can now be distributed to client computers that need
 1. Choose to **Automatically select the certificate store based on the type of certificate**, then select **Next**.
 1. On the review page, select **Finish** to import the *.CER* certificate. file A confirmation dialog is displayed when the certificate has been successfully imported.
 
-## Enable secure LDAP for Azure AD DS
+<a name='enable-secure-ldap-for-azure-ad-ds'></a>
+
+<a name='enable-secure-ldap-for-microsoft-entra-ds'></a>
+
+## Enable secure LDAP for Microsoft Entra Domain Services
 
 With a digital certificate created and exported that includes the private key, and the client computer set to trust the connection, now enable secure LDAP on your managed domain. To enable secure LDAP on a managed domain, perform the following configuration steps:
 
-1. In the [Azure portal](https://portal.azure.com), enter *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), enter *domain services* in the **Search resources** box. Select **Microsoft Entra Domain Services** from the search result.
 1. Choose your managed domain, such as *aaddscontoso.com*.
-1. On the left-hand side of the Azure AD DS window, choose **Secure LDAP**.
+1. On the left-hand side of the Microsoft Entra Domain Services window, choose **Secure LDAP**.
 1. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 1. Secure LDAP access to your managed domain over the internet is disabled by default. When you enable public secure LDAP access, your domain is susceptible to password brute force attacks over the internet. In the next step, a network security group is configured to lock down access to only the required source IP address ranges.
 
@@ -210,7 +217,7 @@ With a digital certificate created and exported that includes the private key, a
 1. Enter the **Password to decrypt .PFX file** set in a previous step when the certificate was exported to a *.PFX* file.
 1. Select **Save** to enable secure LDAP.
 
-    ![Enable secure LDAP for a managed domain in the Azure portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Enable secure LDAP for a managed domain in the Microsoft Entra admin center](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
 A notification is displayed that secure LDAP is being configured for the managed domain. You can't modify other settings for the managed domain until this operation is complete.
 
@@ -221,7 +228,7 @@ Some common reasons for failure are if the domain name is incorrect, the encrypt
 ## Change an expiring certificate
 
 1. Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](#create-a-certificate-for-secure-ldap).
-1. To apply the replacement certificate to Azure AD DS, in the left menu for Azure AD DS in the Azure portal, select **Secure LDAP**, and then select **Change Certificate**.
+1. To apply the replacement certificate to Domain Services, in the left menu for **Microsoft Entra Domain Services** in the Microsoft Entra admin center, select **Secure LDAP**, and then select **Change Certificate**.
 1. Distribute the certificate to any clients that connect by using secure LDAP.
 
 ## Lock down secure LDAP access over the internet
@@ -230,7 +237,7 @@ When you enable secure LDAP access over the internet to your managed domain, it 
 
 Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a specified set of IP addresses. A default *DenyAll* rule with a lower priority applies to all other inbound traffic from the internet, so only the specified addresses can reach your managed domain using secure LDAP.
 
-1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select *Resource groups*.
 1. Choose your resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
 1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group window, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
@@ -255,11 +262,11 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
 With secure LDAP access enabled over the internet, update the DNS zone so that client computers can find this managed domain. The *Secure LDAP external IP address* is listed on the **Properties** tab for your managed domain:
 
-![View the secure LDAP external IP address for your managed domain in the Azure portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![View the secure LDAP external IP address for your managed domain in the Microsoft Entra admin center](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc\hosts*
+Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file `C:\Windows\System32\drivers\etc\hosts`.
 
-The following example DNS entry, either with your external DNS provider or in the local hosts file, resolves traffic for *ldaps.aaddscontoso.com* to the external IP address of *168.62.205.103*:
+The following example DNS entry, either with your external DNS provider or in the local hosts file, resolves traffic for `ldaps.aaddscontoso.com` to the external IP address of `168.62.205.103`:
 
 ```
 168.62.205.103    ldaps.aaddscontoso.com
@@ -299,7 +306,7 @@ To directly query a specific container, from the **View > Tree** menu, you can s
 If you added a DNS entry to the local hosts file of your computer to test connectivity for this tutorial, remove this entry and add a formal record in your DNS zone. To remove the entry from the local hosts file, complete the following steps:
 
 1. On your local machine, open *Notepad* as an administrator
-1. Browse to and open the file *C:\Windows\System32\drivers\etc\hosts*
+1. Browse to and open the file `C:\Windows\System32\drivers\etc\hosts`.
 1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## Troubleshooting
@@ -311,7 +318,7 @@ If you see an error stating that LDAP.exe cannot connect, try working through th
 1. Networking
 1. Establishing the TLS session
 
-For the certificate subject name match, the DC will use the Azure AD DS domain name (not the Azure AD domain name) to search its certificate store for the certificate. Spelling mistakes, for example, prevent the DC from selecting the right certificate.
+For the certificate subject name match, the DC will use the Domain Services domain name (not the Microsoft Entra domain name) to search its certificate store for the certificate. Spelling mistakes, for example, prevent the DC from selecting the right certificate.
 
 The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. You can check for any problems in that chain in the System log in Event Viewer, and filter the events where source equals Schannel. Once those pieces are in place, they form a session key.  
 
@@ -322,21 +329,21 @@ For more information, see [TLS Handshake](/windows/win32/secauthn/tls-handshake-
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a digital certificate for use with Azure AD DS
-> * Enable secure LDAP for Azure AD DS
+> * Create a digital certificate for use with Microsoft Entra Domain Services
+> * Enable secure LDAP for Microsoft Entra Domain Services
 > * Configure secure LDAP for use over the public internet
 > * Bind and test secure LDAP for a managed domain
 
 > [!div class="nextstepaction"]
-> [Configure password hash synchronization for a hybrid Azure AD environment](tutorial-configure-password-hash-sync.md)
+> [Configure password hash synchronization for a hybrid Microsoft Entra environment](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [secure-domain]: secure-your-domain.md
 
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
-[ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[ldap-query-basics]: /windows/win32/ad/creating-a-query-filter
 [New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

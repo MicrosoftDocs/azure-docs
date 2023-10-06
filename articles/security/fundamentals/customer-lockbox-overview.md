@@ -44,6 +44,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Kubernetes Service
 - Azure Logic Apps
 - Azure Monitor
+- Azure OpenAI
 - Azure Spring Apps
 - Azure SQL Database
 - Azure SQL managed Instance
@@ -53,7 +54,6 @@ The following services are generally available for Customer Lockbox:
 - Azure Unified Vision Service
 - Microsoft Azure Attestation
 - Azure Data Manager for Energy Preview
-- OpenAI
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
 

@@ -2,7 +2,7 @@
 title: Telemetry processors (preview) - Azure Monitor Application Insights for Java
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 05/13/2023
+ms.date: 09/12/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -30,7 +30,7 @@ Some use cases:
 
 Before you learn about telemetry processors, you should understand the terms *span* and *log*.
 
-A span is a type of telemetry that represent one of:
+A span is a type of telemetry that represents one of:
 
 * An incoming request.
 * An outgoing dependency (for example, a remote call to another service).
@@ -479,7 +479,7 @@ The log processor modifies either the log message body or attributes of a log ba
 
 ### Update Log message body
 
-The `body` section requires the `fromAttributes` setting. The values from these attributes are used to create a new body, concatenated in the order that the configuration specifies. The processor will change the log body only if all of these attributes are present on the log.
+The `body` section requires the `fromAttributes` setting. The values from these attributes are used to create a new body, concatenated in the order that the configuration specifies. The processor changes the log body only if all of these attributes are present on the log.
 
 The `separator` setting is optional. This setting is a string. It's specified to split values.
 > [!NOTE]
@@ -604,7 +604,7 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 
 Metric filter are used to exclude some metrics in order to help control ingestion cost.
 
-Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria will not be exported.
+Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria won't be exported.
 
 To configure this option, under `exclude`, specify the `matchType` one or more `metricNames`.
 
@@ -640,8 +640,14 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 | `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionTime()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html).| yes |
 | `Heap Memory Used (MB)` | custom metrics | See [MemoryMXBean.getHeapMemoryUsage().getUsed()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--). | yes |
 | `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes. See [MemoryUsage](https://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryUsage.html)| yes |
-| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks())(Only User and System) divided by the number of [logical processors count](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors—) in a given interval of time | no |
+| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://www.oshi.ooo/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks()) (Only User and System) divided by the number of [logical processors count](https://www.oshi.ooo/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors()) in a given interval of time | no |
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | See [OperatingSystemMXBean.getProcessCpuTime()](https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getProcessCpuTime--) (diff since last reported, normalized by time and number of CPUs). | no |
 | `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | Sum of [MemoryMXBean.getHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--) and [MemoryMXBean.getNonHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getNonHeapMemoryUsage--). | no |
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | `/proc/[pid]/io` Sum of bytes read and written by the process (diff since last reported). See [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html). | no |
 | `\Memory\Available Bytes` | default metrics | See [OperatingSystemMXBean.getFreePhysicalMemorySize()](https://docs.oracle.com/javase/7/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getFreePhysicalMemorySize()). | no |
+
+## Frequently asked questions
+
+### Why doesn't the log processor process logs using TelemetryClient.trackTrace()?
+
+TelemetryClient.trackTrace() is part of the Application Insights Classic SDK bridge, and the log processors only work with the new [OpenTelemetry-based instrumentation](opentelemetry-enable.md).

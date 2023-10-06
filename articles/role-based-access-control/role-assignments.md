@@ -153,4 +153,5 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Next steps
 
-* [Understand role definitions](role-definitions.md)
+- [Delegate Azure access management to others](delegate-role-assignments-overview.md)
+- [Steps to assign an Azure role](role-assignments-steps.md)

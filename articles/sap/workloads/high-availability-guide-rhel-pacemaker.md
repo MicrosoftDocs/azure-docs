@@ -429,6 +429,72 @@ sudo pcs property set stonith-enabled=true
 > [!TIP]
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
+## Configure Pacemaker for Azure scheduled events
+
+Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events. Pacemaker resource agent azure-events-az monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
+
+1. **[A]** Make sure that the package for the azure-events-az agent is already installed and up to date.
+
+   ```bash
+   sudo dnf info resource-agents
+   ```
+
+   Minimum version requirements:
+   - RHEL 8.4: `resource-agents-4.1.1-90.13`
+   - RHEL 8.6: `resource-agents-4.9.0-16.9`
+   - RHEL 8.8 and newer: `resource-agents-4.9.0-40.1`
+   - RHEL 9.0 and newer: `resource-agents-cloud-4.10.0-34.2`
+
+2. **[1]** Configure the resources in Pacemaker.
+
+   ```bash
+   #Place the cluster in maintenance mode
+   sudo pcs property set maintenance-mode=true
+
+3. **[1]** Set the pacemaker cluster health node strategy and constraint
+
+   ```bash
+   sudo pcs property set node-health-strategy=custom
+   sudo pcs constraint location 'regexp%!health-.*' \
+   rule score-attribute='#health-azure' \
+   defined '#uname'
+   ```
+
+   > [!IMPORTANT]
+   >
+   > Don't define any other resources in the cluster starting with “health-”, besides the resources described in the next steps of the documentation.
+
+4. **[1]** Set initial value of the cluster attributes.
+   Run for each cluster node. For scale-out environments including majority maker VM.
+
+   ```bash
+   sudo crm_attribute --node prod-cl1-0 --name '#health-azure' --update 0
+   sudo crm_attribute --node prod-cl1-1 --name '#health-azure' --update 0
+   ```
+
+5. **[1]** Configure the resources in Pacemaker.  
+   Important: The resources must start with ‘health-azure’.
+
+   ```bash
+   sudo pcs resource create health-azure-events \
+   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   ```
+
+6. Take the Pacemaker cluster out of maintenance mode
+
+   ```bash
+   sudo pcs property set maintenance-mode=false
+   ```
+
+7. Clear any errors during enablement and verify that the health-azure-events resources have started successfully on all cluster nodes.
+
+   ```bash
+   sudo pcs resource cleanup
+   ```
+
+   First time query execution for scheduled events [can take up to 2 minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](../../virtual-machines/linux/scheduled-events.md) documentation.
+
 ## Optional fencing configuration  
 
 > [!TIP]

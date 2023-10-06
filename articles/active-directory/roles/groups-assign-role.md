@@ -1,6 +1,6 @@
 ---
-title: Assign Azure AD roles to groups
-description: Assign Azure AD roles to role-assignable groups in the Azure portal, PowerShell, or Microsoft Graph API.
+title: Assign Microsoft Entra roles to groups
+description: Assign Microsoft Entra roles to role-assignable groups in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -16,34 +16,34 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Assign Azure AD roles to groups
+# Assign Microsoft Entra roles to groups
 
-To simplify role management, you can assign Azure AD roles to a group instead of individuals. This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell, or Microsoft Graph API.
+To simplify role management, you can assign Microsoft Entra roles to a group instead of individuals. This article describes how to assign Microsoft Entra roles to [role-assignable groups](groups-concept.md) using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 
 ## Prerequisites
 
-- Azure AD Premium P1 license
+- Microsoft Entra ID P1 license
 - [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator) role
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
-- AzureAD module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
+- Azure AD PowerShell module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Assigning an Azure AD role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
+Assigning a Microsoft Entra role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
 
 > [!TIP]
-> These steps apply to customers that have an Azure AD Premium P1 license. If you have an Azure AD Premium P2 license in your tenant, you should instead follow steps in [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+> These steps apply to customers that have a Microsoft Entra ID P1 license. If you have a Microsoft Entra ID P2 license in your tenant, you should instead follow steps in [Assign Microsoft Entra roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
-    :::image type="content" source="media/common/roles-and-administrators.png" alt-text="Screenshot of Roles and administrators page in Azure Active Directory." lightbox="media/common/roles-and-administrators.png":::
+    :::image type="content" source="media/common/roles-and-administrators.png" alt-text="Screenshot of Roles and administrators page in Microsoft Entra ID." lightbox="media/common/roles-and-administrators.png":::
 
 1. Select the role name to open the role. Don't add a check mark next to the role.
 
@@ -51,13 +51,13 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 
 1. Select **Add assignments**.
 
-    If you see something different from the following screenshot, you might have Azure AD Premium P2. For more information, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+    If you see something different from the following screenshot, you might have Microsoft Entra ID P2. For more information, see [Assign Microsoft Entra roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
     :::image type="content" source="media/groups-assign-role/add-assignments.png" alt-text="Screenshot of Add assignments pane to assign role to users or groups." lightbox="media/groups-assign-role/add-assignments.png":::
 
 1. Select the group you want to assign to this role. Only role-assignable groups are displayed.
 
-    If group isn't listed, you will need to create a role-assignable group. For more information, see [Create a role-assignable group in Azure Active Directory](groups-create-eligible.md).
+    If group isn't listed, you will need to create a role-assignable group. For more information, see [Create a role-assignable group in Microsoft Entra ID](groups-create-eligible.md).
 
 1. Select **Add** to assign the role to the group.
 
@@ -214,5 +214,5 @@ Content-type: application/json
 
 ## Next steps
 
-- [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
+- [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Microsoft Entra roles assigned to groups](groups-faq-troubleshooting.yml)

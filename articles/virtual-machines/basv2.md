@@ -10,7 +10,7 @@ ms.date: 06/20/2022 #Required; mm/dd/yyyy format. Date the article was created o
 
 ---
 
-# Basv2-series (Public Preview)
+# Basv2-series
 
 Basv2-series virtual machines run on the AMD's 3rd Generation EPYCTM 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache configuration, providing low cost CPU burstable general purpose virtual machines. Basv2-series virtual machines utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumulates CPU credits when a workload is operating below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold, until all of its credits are consumed. Upon consuming all the CPU credits, a Basv2-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
 

@@ -27,6 +27,8 @@ landingContent:
             url: search-what-is-azure-search.md
           - text: What is vector search?
             url: vector-search-overview.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: retrieval-augmented-generation-overview.md
           - text: What is semantic search?
             url: semantic-search-overview.md
       - linkListType: learn

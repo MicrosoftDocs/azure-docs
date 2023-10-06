@@ -1,6 +1,6 @@
 ---
-title: Secure external access with groups in Azure Active Directory and Microsoft 365 
-description: Azure Active Directory and Microsoft 365 Groups can be used to increase security when external users access your resources.
+title: Secure external access with groups in Microsoft Entra ID and Microsoft 365 
+description: Microsoft Entra ID and Microsoft 365 Groups can be used to increase security when external users access your resources.
 services: active-directory
 author: jricketts
 manager: martinco
@@ -15,9 +15,9 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Secure external access with groups in Azure Active Directory and Microsoft 365  
+# Secure external access with groups in Microsoft Entra ID and Microsoft 365  
 
-Groups are part of an access control strategy. You can use Azure Active Directory (Azure AD) security groups and Microsoft 365 Groups as the basis for securing access to resources. Use groups for the following access-control mechanisms:
+Groups are part of an access control strategy. You can use Microsoft Entra security groups and Microsoft 365 Groups as the basis for securing access to resources. Use groups for the following access-control mechanisms:
 
 * Conditional Access policies
   * [What is Conditional Access?](../conditional-access/overview.md)
@@ -45,13 +45,13 @@ Learn more: [Determine your security posture for external access](1-secure-acces
 
 Determine who is granted permissions to create groups: Administrators, employees, and/or external users. Consider the following scenarios:
 
-* Tenant members can create Azure AD security groups
+* Tenant members can create Microsoft Entra security groups
 * Internal and external users can join groups in your tenant
 * Users can create Microsoft 365 Groups
 * [Manage who can create Microsoft 365 Groups](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide&preserve-view=true) 
-  * Use Windows PowerShell to configure this setting 
-* [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md)
-* [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md) 
+  * Use PowerShell to configure this setting
+* [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md)
+* [Set up self-service group management in Microsoft Entra ID](../enterprise-users/groups-self-service-management.md) 
 * [Troubleshoot and resolve groups issues](../enterprise-users/groups-troubleshooting.md) 
 
 ### Invitations to groups
@@ -74,7 +74,7 @@ Dynamic groups have users or devices, but not both. To assign users to the dynam
 
    ![Screenshot of options and entries under Dynamic membership rules.](media/secure-external-access/4-dynamic-membership-rules.png)
 
-Learn more: [Create or update a dynamic group in Azure AD](../enterprise-users/groups-create-rule.md)
+Learn more: [Create or update a dynamic group in Microsoft Entra ID](../enterprise-users/groups-create-rule.md)
 
 ### Use groups for one function
 
@@ -86,9 +86,9 @@ When using groups, it's important they have a single function. If a group is use
 
 ### Group types
 
-You can create Azure AD security groups and Microsoft 365 Groups in the Azure portal or the Microsoft 365 Admin portal. Use either group type for securing external access.
+You can create Microsoft Entra security groups and Microsoft 365 Groups in the Azure portal or the Microsoft 365 Admin portal. Use either group type for securing external access.
 
-| Considerations |Manual and dynamic Azure AD security groups| Microsoft 365 Groups |
+| Considerations |Manual and dynamic Microsoft Entra security groups| Microsoft 365 Groups |
 | - | - | - |
 | The group contains| Users<br>Groups<br>Service principals<br>Devices| Users only |
 | Where the group is created| Azure portal<br>Microsoft 365 portal, if mail-enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
@@ -100,9 +100,11 @@ You can create Azure AD security groups and Microsoft 365 Groups in the Azure po
 > [!NOTE]
 > Use Microsoft 365 Groups to create and manage a set of Microsoft 365 resources, such as a Team and its associated sites and content. 
 
-## Azure AD security groups 
+<a name='azure-ad-security-groups-'></a>
 
-Azure AD security groups can have users or devices. Use these groups to manage access to:
+## Microsoft Entra security groups 
+
+Microsoft Entra security groups can have users or devices. Use these groups to manage access to:
 
 * Azure resources
   * Microsoft 365 apps
@@ -111,20 +113,20 @@ Azure AD security groups can have users or devices. Use these groups to manage a
 * Azure data and subscriptions
 * Azure services
 
-Use Azure AD security groups to assign:
+Use Microsoft Entra security groups to assign:
 
 * Licenses for services
   * Microsoft 365
   * Dynamics 365
   * Enterprise mobility and security
-  * See, [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
+  * See, [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
 * Elevated permissions
-  * See, [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
+  * See, [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md)
 
 Learn more:
 
-* [Manage Azure AD groups and group membership](../fundamentals/how-to-manage-groups.md)
-* [Azure AD version 2 cmdlets for group management](../enterprise-users/groups-settings-v2-cmdlets.md). 
+* [Manage Microsoft Entra groups and group membership](../fundamentals/how-to-manage-groups.md)
+* [Microsoft Entra version 2 cmdlets for group management](../enterprise-users/groups-settings-v2-cmdlets.md). 
 
 > [!NOTE]
 > Use security groups to assign up to 1,500 applications. 
@@ -135,9 +137,11 @@ Learn more:
 
 To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure portal. 
 
-### Hybrid organizations and Azure AD security groups
+<a name='hybrid-organizations-and-azure-ad-security-groups'></a>
 
-Hybrid organizations have infrastructure for on-premises and an Azure AD. Hybrid organizations that use Active Directory can create security groups on-premises and sync them to the cloud. Therefore, only users in the on-premises environment can be added to the security groups.
+### Hybrid organizations and Microsoft Entra security groups
+
+Hybrid organizations have infrastructure for on-premises and a Microsoft Entra ID. Hybrid organizations that use Active Directory can create security groups on-premises and sync them to the cloud. Therefore, only users in the on-premises environment can be added to the security groups.
 
 > [!IMPORTANT]
 > Protect your on-premises infrastructure from compromise. See, [Protecting Microsoft 365 from on-premises attacks](./protect-m365-from-on-premises-attacks.md).
@@ -150,7 +154,7 @@ Learn more:
 
 * [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
 * [Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide&preserve-view=true)
-* [Azure portal](https://portal.azure.com/)
+* [Microsoft Entra admin center](https://entra.microsoft.com)
 * [Microsoft 365 admin center](https://admin.microsoft.com/)
 
 ### Microsoft 365 Groups roles
@@ -182,22 +186,22 @@ After setup, add members, and configure settings for email usage, etc.
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) (You're here)
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md) (You're here)
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md)
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md)
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

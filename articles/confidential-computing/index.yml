@@ -98,6 +98,8 @@ landingContent:
             url: harden-the-linux-image-to-remove-sudo-users.md
           - text: Harden a Linux image to remove azure guest agent
             url: harden-a-linux-image-to-remove-azure-guest-agent.md
+          - text: Deploy a virtual machine scale set using hardened image
+            url: vmss-deployment-from-hardened-linux-image.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 

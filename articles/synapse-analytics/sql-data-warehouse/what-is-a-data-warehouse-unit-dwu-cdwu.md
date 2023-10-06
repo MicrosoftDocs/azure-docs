@@ -1,13 +1,12 @@
 ---
 title: Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
-author: WilliamDAssafMSFT 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/22/2019
+author: WilliamDAssafMSFT
 ms.author: wiassaf
+ms.date: 11/22/2019
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: seo-lt-2019
 ---
 

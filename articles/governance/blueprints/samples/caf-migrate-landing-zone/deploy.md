@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure migrate landing zone blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 To deploy the Azure Blueprints CAF Migration landing zone blueprint sample, the following steps must
 be taken:
 

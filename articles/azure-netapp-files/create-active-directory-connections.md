@@ -46,7 +46,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * Alternatively, an AD domain user account with `msDS-SupportedEncryptionTypes` write permission on the AD connection admin account can also be used to set the Kerberos encryption type property on the AD connection admin account. 
 
     >[!NOTE]
-    >It's _not_ recommended nor required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the Azure NetApp Files AD admin account.  
+    >When you modify the setting to enable AES on the AD connection admin account, it is a best practice to use a user account that has write permission to the AD object that is not the Azure NetApp Files AD admin. You can do so with another domain admin account or by delegating control to an account. For more information, see [Delegating Administration by Using OU Objects](/windows-server/identity/ad-ds/plan/delegating-administration-by-using-ou-objects). 
 
     If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used.
 
@@ -324,3 +324,5 @@ Alternately, navigate to the **Volumes** menu. Identify the volume for which you
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
 * [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
 * [AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Access SMB volumes from Azure AD joined Windows virtual machines](access-smb-volume-from-windows-client.md)
+

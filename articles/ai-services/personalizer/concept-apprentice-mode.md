@@ -4,8 +4,7 @@ description: Learn how to use apprentice mode to gain confidence in a model with
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 07/26/2022
 ---

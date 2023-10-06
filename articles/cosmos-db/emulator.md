@@ -44,39 +44,16 @@ Every request made against the emulator must be authenticated using a key over T
 | --- | --- |
 | **Endpoint** | `localhost:8081` |
 | **Key** | `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` |
-| **Connection string** | `` |
+| **Connection string** | `AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;` |
 
 > [!TIP]
-> With the Windows (local) emulator, you can also customize the key used by the emulator. For more information, see [Windows emulator arguments](emulator-command-line-parameters.md#manage-the-emulator-with-command-line-syntax).
+> With the Windows (local) emulator, you can also customize the key used by the emulator. For more information, see [Windows emulator arguments](emulator-windows-arguments.md).
 
 ## Import emulator certificate
 
-In some cases, you may wish to manually import the TLS/SS certificate from the emulator's running container into your host machine. This step avoids bad practices like disabling TLS/SSL validation in the SDK.
-
-### [Docker (container)](#tab/docker)
-
-The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
-
-```bash
-curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
-```
-
-> [!NOTE]
-> You may need to change the host (or IP address) and port number if you have previously modified those values.
-
-Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificats/` path.
-
-```bash
-cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
-```
-
-### [Windows (local)](#tab/windows)
-
-The Windows local installation of the emulator automatically imports the TLS/SSL certificates. No further action is necessary.
-
----
+In some cases, you may wish to manually import the TLS/SS certificate from the emulator's running container into your host machine. This step avoids bad practices like disabling TLS/SSL validation in the SDK. For more information, see [import certificate](how-to-develop-emulator.md#export-the-emulators-tlsssl-certificate).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB](../index.yml)
+> [Get started using the Azure Comsos DB emulator for development](how-to-develop-emulator.md)

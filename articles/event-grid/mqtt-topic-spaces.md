@@ -13,7 +13,7 @@ A topic space represents multiple topics through a set of topic templates. Topic
 
 [!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
-Topic spaces are used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of managing access for each individual topic. To publish or subscribe to any MQTT topic, you need to:
+Topic spaces are used to simplify access control management by enabling you to scope publish or subscribe access for a client group, to a group of topics at once instead of managing access for each individual topic. To publish or subscribe to any MQTT topic, you need to:
 
 1. Create a **client** resource for each client that needs to communicate over MQTT.
 2. Create a **client group** that includes the clients that need access to publish or subscribe on the same MQTT topic. 

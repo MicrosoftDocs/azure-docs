@@ -6,7 +6,7 @@ services: storage
 author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: quickstart
-ms.date: 03/31/2022
+ms.date: 06/26/2023
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -31,11 +31,11 @@ This quickstart requires the Azure PowerShell module Az version 0.7 or later. Ru
 
 Blobs are always uploaded into a container. You can organize groups of blobs like the way you organize your files on your computer in folders.
 
-Set the container name, then create the container by using [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Set the permissions to `blob` to allow public access of the files. The container name in this example is *quickstartblobs*.
+Set the container name, then create the container by using [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). The container name in this example is *quickstartblobs*.
 
 ```azurepowershell-interactive
 $ContainerName = 'quickstartblobs'
-New-AzStorageContainer -Name $ContainerName -Context $Context -Permission Blob
+New-AzStorageContainer -Name $ContainerName -Context $Context
 ```
 
 ## Upload blobs to the container

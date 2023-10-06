@@ -1,11 +1,11 @@
 ---
-title: Azure Communications Gateway's role in your network
+title: Azure Communications Gateway and your network
 description: Azure Communication Gateway sits on the edge of your network. Its interoperability features allow it to adapt to your requirements.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: concept-article
-ms.date: 07/25/2023
+ms.date: 09/11/2023
 ms.custom: template-concept
 ---
 
@@ -33,9 +33,20 @@ Azure Communications Gateway provides all the features of a traditional session 
 
 Azure Communications Gateway also offers metrics for monitoring your deployment.
 
-You must provide the networking connection between Azure Communications Gateway and your core networks.
+## Network requirements
 
-## SIP signaling
+We expect your network to have two geographically redundant sites. You must provide networking connections between each site and:
+
+* The other site in your deployment, as cross-connects.
+* The two Azure Regions in which you deploy Azure Communications Gateway.
+
+Connectivity between your networks and Azure Communications Gateway must meet the Microsoft Teams _Network Connectivity Specification_.
+
+[!INCLUDE [communications-gateway-maps-or-expressroute](includes/communications-gateway-maps-or-expressroute.md)]
+
+For more information on how to route calls between Azure Communications Gateway and your network, see [Call routing requirements](reliability-communications-gateway.md#call-routing-requirements).
+
+## SIP signaling support
 
 Azure Communications Gateway includes SIP trunks to your own network and can interwork between your existing core networks and the requirements of your chosen communications service.
 
@@ -48,7 +59,7 @@ You can arrange more interworking function as part of your initial network desig
 - Interworking between early and late media
 - Interworking away from inband DTMF tones
 
-## RTP and SRTP media
+## RTP and SRTP media support
 
 Azure Communications Gateway supports both RTP and SRTP, and can interwork between them. Azure Communications Gateway offers other media manipulation features to allow your networks to interoperate with your chosen communications services. For example, you can use Azure Communications for:
 

@@ -286,24 +286,18 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 
 ## Cross origin resource sharing (CORS)
 
-[!INCLUDE [preview features callout](./includes/preview-callout.md)]
-
-Cross Origin Resource Sharing (CORS) is in preview.
-
-### Prerequisites
-
-To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain.
-
-- If you're unfamiliar with CORS, see [Cross-origin resource sharing (CORS)], it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol isn't specific to Azure Maps.
-
-### Account CORS
-
 [CORS] is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy] that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Using the Azure Maps account resource, you can configure which origins are allowed to access the Azure Maps REST API from your applications.
 
 > [!IMPORTANT]
 > CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Azure AD, or SAS token.
 >
 > CORS is supported for all map account pricing tiers, data-plane endpoints, and locations.
+
+### Prerequisites
+
+To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain.
+
+- If you're unfamiliar with CORS, see [Cross-origin resource sharing (CORS)], it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol isn't specific to Azure Maps.
 
 ### CORS requests
 

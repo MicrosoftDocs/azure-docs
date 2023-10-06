@@ -130,6 +130,34 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
 )
 ```
+
+### Custom voice models
+If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](../../../../ai-services/speech-service/how-to-custom-voice.md).
+
+**Custom voice names regular text exmaple**
+``` python
+text_to_play = "Welcome to Contoso"
+
+# Provide VoiceName to select a specific voice. 
+play_source = TextSource(text=text_to_play, voice_name="YourCustomVoiceName", custom_voice_endpoint_id = "YourCustomEndpointId")
+play_to = [target_participant]
+call_automation_client.get_call_connection(call_connection_id).play_media(
+    play_source=play_source, play_to=play_to
+)
+```
+**Custom voice names SSML example**
+``` python
+ssmlToPlay = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US"><voice name="YourCustomVoiceName">Hello World!</voice></speak>'
+
+play_source = SsmlSource(ssml_text=ssmlToPlay, custom_voice_endpoint_id="YourCustomEndpointId")
+
+play_to = [target_participant]
+
+call_automation_client.get_call_connection(call_connection_id).play_media(
+    play_source=play_source, play_to=play_to
+)
+```
+
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio - All participants

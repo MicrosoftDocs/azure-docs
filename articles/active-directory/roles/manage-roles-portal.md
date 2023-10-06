@@ -1,6 +1,6 @@
 ---
-title: Assign Azure AD roles to users
-description: Learn how to grant access to users in Azure Active Directory by assigning Azure AD roles.
+title: Assign Microsoft Entra roles to users
+description: Learn how to grant access to users in Microsoft Entra ID by assigning Microsoft Entra roles.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -15,32 +15,32 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
-# Assign Azure AD roles to users
+# Assign Microsoft Entra roles to users
 
-To grant access to users in Azure Active Directory (Azure AD), you assign Azure AD roles. A role is a collection of permissions. This article describes how to assign Azure AD roles using the Azure portal and PowerShell.
+To grant access to users in Microsoft Entra ID, you assign Microsoft Entra roles. A role is a collection of permissions. This article describes how to assign Microsoft Entra roles using the Microsoft Entra admin center and PowerShell.
 
 ## Prerequisites
 
-- Privileged Role Administrator or Global Administrator. To know who your Privileged Role Administrator or Global Administrator is, see [List Azure AD role assignments](view-assignments.md)
-- Azure AD Premium P2 license when using Privileged Identity Management (PIM)
+- Privileged Role Administrator or Global Administrator. To know who your Privileged Role Administrator or Global Administrator is, see [List Microsoft Entra role assignments](view-assignments.md)
+- Microsoft Entra ID P2 license when using Privileged Identity Management (PIM)
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-Follow these steps to assign Azure AD roles using the Azure portal. Your experience will be different depending on whether you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
+Follow these steps to assign Microsoft Entra roles using the Microsoft Entra admin center. Your experience will be different depending on whether you have [Microsoft Entra Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
 
 ### Assign a role
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
-    ![Screenshot of Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
+    ![Screenshot of Roles and administrators page in Microsoft Entra ID.](./media/common/roles-and-administrators.png)
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
@@ -58,15 +58,15 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 ### Assign a role using PIM
 
-If you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled, you have additional role assignment capabilities. For example, you can make a user eligible for a role or set the duration. When PIM is enabled, there are two ways that you can assign roles using the Azure portal. You can use the Roles and administrators page or the PIM experience. Either way uses the same PIM service.
+If you have [Microsoft Entra Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled, you have additional role assignment capabilities. For example, you can make a user eligible for a role or set the duration. When PIM is enabled, there are two ways that you can assign roles using the Microsoft Entra admin center. You can use the Roles and administrators page or the PIM experience. Either way uses the same PIM service.
 
-Follow these steps to assign roles using the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) page. If you want to assign roles using the [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) page, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+Follow these steps to assign roles using the **Roles and administrators** page. If you want to assign roles using Privileged Identity Management, see [Assign Microsoft Entra roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
-    ![Screenshot of Roles and administrators page in Azure Active Directory when PIM enabled.](./media/common/roles-and-administrators.png)
+    ![Screenshot of Roles and administrators page in Microsoft Entra ID when PIM enabled.](./media/common/roles-and-administrators.png)
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
@@ -94,7 +94,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 ## PowerShell
 
-Follow these steps to assign Azure AD roles using PowerShell.
+Follow these steps to assign Microsoft Entra roles using PowerShell.
 
 ### Setup
 
@@ -132,7 +132,7 @@ Follow these steps to assign Azure AD roles using PowerShell.
 
 ### Assign a role as eligible using PIM
 
-If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md).
+If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see [PowerShell for Microsoft Entra roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md).
 
 
 1. Use [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0&preserve-view=true) to get the role you want to assign.
@@ -160,7 +160,7 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
        }
     ```
 
-1. Use [New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleeligibilityschedulerequest?view=graph-powershell-1.0&preserve-view=true) to assign the role as eligible. Once the role has been assigned, it will reflect on the Azure portal under **Privileged Identity Management -> Azure AD Roles -> Assignments -> Eligible Assignments** section.
+1. Use [New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleeligibilityschedulerequest?view=graph-powershell-1.0&preserve-view=true) to assign the role as eligible. Once the role has been assigned, it will reflect in the Microsoft Entra admin center under **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles** > **Assignments** > **Eligible Assignments** section.
 
     ```powershell
     New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest -BodyParameter $params | Format-List Id, Status, Action, AppScopeId, DirectoryScopeId, RoleDefinitionId, IsValidationOnly, Justification, PrincipalId, CompletedDateTime, CreatedDateTime
@@ -172,7 +172,7 @@ Follow these instructions to assign a role using the Microsoft Graph API.
 
 ### Assign a role
 
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. To see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. To see the list of immutable role template IDs of all built-in roles, see [Microsoft Entra built-in roles](permissions-reference.md).
 
 ```http
 POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
@@ -252,10 +252,10 @@ Content-type: application/json
 }
 ```
 
-For more information about managing Azure AD roles through the PIM API in Microsoft Graph, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
+For more information about managing Microsoft Entra roles through the PIM API in Microsoft Graph, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
 ## Next steps
 
-- [List Azure AD role assignments](view-assignments.md)
+- [List Microsoft Entra role assignments](view-assignments.md)
 - [Assign custom roles with resource scope using PowerShell](custom-assign-powershell.md)
-- [Azure AD built-in roles](permissions-reference.md)
+- [Microsoft Entra built-in roles](permissions-reference.md)
