@@ -80,7 +80,7 @@ The Dev Box service requires a configured and working Active Directory join, whi
 
 - **Azure AD join**: If your organization uses Azure AD, you can use an Azure AD join (sometimes called a native Azure AD join). Dev box users sign in to Azure AD-joined dev boxes by using their Azure AD account and access resources based on the permissions assigned to that account. Azure AD join enables access to cloud-based and on-premises apps and resources. 
 
-  For more information, see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
+  For more information, see [Plan your Azure Active Directory join deployment](../active-directory/devices/device-join-plan.md).
 - **Hybrid Azure AD join**: If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Azure AD by using hybrid Azure AD-joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Azure AD.
 
   Hybrid Azure AD-joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable.
