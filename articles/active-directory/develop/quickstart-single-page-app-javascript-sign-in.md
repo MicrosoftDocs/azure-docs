@@ -81,9 +81,7 @@ Run the project with a web server by using Node.js:
 
 1. Copy the `https` URL that appears in the terminal, for example, `https://localhost:3000`, and paste it into a browser. We recommend using a private or incognito browser session.
 1. Follow the steps and enter the necessary details to sign in with your Microsoft account. You'll be requested an email address so a one time passcode can be sent to you. Enter the code when prompted.
-1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
-
-The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
+1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
     :::image type="content" source="./media/quickstarts/js-spa/quickstart-js-spa-sign-in.png" alt-text="Screenshot of JavaScript App depicting the results of the API call.":::
 
