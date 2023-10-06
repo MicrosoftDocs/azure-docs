@@ -34,7 +34,7 @@ Each number in the version indicates general compatibility with the previous ver
 * **Minor versions** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch versions** change when backwards-compatible bug fixes are made.
 
-It's considered best practice and recommended staying up to date with the latest available patches. For example, if your production cluster is on **`1.24.4`**, and **`1.24.7`** is the latest available patch version available for the *1.24* series. You should upgrade to **`1.24.7`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](#upgrading-kubernetes-versions) section.
+It's considered best practice and recommended staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](#upgrading-kubernetes-versions) section.
 
 ## Nexus Kubernetes release calendar
 
@@ -50,7 +50,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.24         | Jul 2022  | Jul 2023    | Jun 2024              |
 | 1.25         | Dec 2022  | Dec 2023    | Nov 2024              |
 | 1.26         | Apr 2023  | Mar 2024    | Feb 2025              |
-| 1.27*        | Sep 2023  | Jul 2025*   | Jul 2025              |
+| 1.27*        | Sep 2023  | Jul 2025*   | Jun 2026              |
 | 1.28         | Nov 2023  |             |                       |
 
 *\* Indicates the version is designated for Long Term Support*
@@ -60,7 +60,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 A Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
 
 * The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Azure Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Azure Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](../aks/supported-kubernetes-versions.md)
-* The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Azure Operator Nexus Kubernetes cluster, as a single number. For example, 4.
+* The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Azure Operator Nexus Kubernetes cluster, as a single number. For example, 2.
 The combination of these values is represented in the API as the single kubernetesVersion. For example, 1.25.4-2 or the alternatively supported “v” notation: v1.25.4-2.
 
 ### Version bundles
@@ -78,29 +78,7 @@ We can easily upgrade from any small update in one Nexus Kubernetes version to a
 
 ## Upgrading Kubernetes versions
 
-New versions of the Nexus Kubernetes Service are made available during management bundle upgrades and the available versions are dependent on the cluster's current management bundle. To trigger an update, the `kubernetesVersion` property on the `Microsoft.NetworkCloud/kubernetesClusters` resource is modified.
-Input can be in the form of:
-
-* 1.1.1, meaning the latest 1.1.1 version that is, 1.1.1-2.
-* 1.1.1-1, which is fully qualified.
-
-> [!NOTE]
-> If the current version of the `KubernetesCluster` resource matches the input version’s pattern, no update occurs, meaning that an input of 1.1.1 doesn't trigger the change from 1.1.1-1 to 1.1.1-2, because 1.1.1-1 is already congruent with 1.1.1. To upgrade to 1.1.1-2, it can be fully specified as input.
-
-### Upgrade experience
-
-During a version upgrade, there are two stages: Control plane and Agent pools. These stages attempt to minimize the effect to running workloads by following safe Kubernetes practices.
-
-#### Control plane
-
-The control plane nodes are cycled to the new version one node at a time in a scale-out upgrade process. This means that no interruption to the Kubernetes API or cluster operation is expected during the upgrade.
-
-#### Agent pools
-
-The agent pool nodes undergo a scale-out upgrade process, which involves cordoning, draining, and tearing down one node at a time by default. However, the process can be accelerated using the `maxSurge` option to allow for more rapid replacement of the agent pool. In cases where there are multiple agent pools, each agent pool undergoes a scale-out upgrade independently.
-
-> [!IMPORTANT]
-> It's important to note that standard Kubernetes workloads natively cycle to the new nodes when they are drained from the nodes being torn down. Please keep in mind that Nexus Kubernetes service cannot make workload promises for nonstandard Kubernetes behaviors.
+For more information on upgrading your cluster, see [Upgrade an Azure Operator Nexus Kubernetes Service cluster](./howto-upgrade-nexus-kubernetes-cluster.md).
 
 ## Kubernetes version support policy
 

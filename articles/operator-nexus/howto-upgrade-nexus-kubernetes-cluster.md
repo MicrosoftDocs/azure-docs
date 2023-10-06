@@ -74,6 +74,9 @@ The available upgrade output indicates that there are multiple versions to choos
 
 You have the flexibility to upgrade to any of the available versions. However, the recommended course of action is to perform the upgrade to the most recent available `major-minor-patch-versionbundle` version.
 
+> [!NOTE]
+> The input format for the version is `major.minor.patch` or `major.minor.patch-versionbundle`. The version input must be one of the available upgrade versions. For example, if the current version of the cluster is `1.1.1-1`, valid version inputs are `1.1.1-2` or `1.1.1-x`. While `1.1.1` is a valid format, it won't trigger any update because the current version is already `1.1.1`. To initiate an update, you can specify the complete version with the version bundle, such as `1.1.1-2`. However, `1.1.2` and `1.2.x` are a valid input and will use the latest version bundle available for `1.1.2` or `1.2.x`.
+
 ## Upgrade the cluster
 
 During the cluster upgrade process, Nexus performs the following operations:
@@ -86,9 +89,6 @@ During the cluster upgrade process, Nexus performs the following operations:
 * [Cordon and drain][kubernetes-drain] one of the old worker nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many worker nodes at the same time as the number of buffer nodes specified.
 * After the old worker node has been drained, it's removed, and a new buffer worker node is added to the cluster (or as many nodes as configured in [max surge](#customize-node-surge-upgrade))
 * This process repeats until all worker nodes in the cluster have been upgraded.
-
-> [!NOTE]
-> The input format for the version is `major.minor.patch` or `major.minor.patch-versionbundle`. The version input must be one of the available upgrade versions. For example, if the current version of the cluster is `1.1.1-1`, valid version inputs are `1.1.1-2` or `1.1.1-x`. While `1.1.1` is a valid format, it won't trigger any update because the current version is already `1.1.1`. To initiate an update, you can specify the complete version with the version bundle, such as `1.1.1-2`. However, `1.1.2` and `1.2.x` are a valid input and will use the latest version bundle available for `1.1.2` or `1.2.x`.
 
 > [!IMPORTANT]
 > Ensure that any `PodDisruptionBudgets` (PDBs) allow for at least *one* pod replica to be moved at a time otherwise the drain/evict operation will fail.
