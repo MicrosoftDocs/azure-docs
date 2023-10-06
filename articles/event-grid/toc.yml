@@ -34,9 +34,11 @@ items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
         - name: MQTT client authentication
-          href: mqtt-client-authentication.md      
+          href: mqtt-client-authentication.md                
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
+        - name: Network security (MQTT)
+          href: network-security-mqtt.md
         - name: MQTT clients
           href: mqtt-clients.md
         - name: Client groups
