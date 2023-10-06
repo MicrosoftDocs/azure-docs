@@ -51,6 +51,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "terraform_samples_test",
+      "url": "https://github.com/cshea15/terraform-fork",
+      "branch": "chashea-patch-02",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "quickstart-templates",
       "url": "https://github.com/Azure/azure-quickstart-templates",
       "branch": "master",
