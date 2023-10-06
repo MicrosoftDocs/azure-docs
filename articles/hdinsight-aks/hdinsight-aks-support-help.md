@@ -34,7 +34,7 @@ The following table lists the tags for HDInsight on AKS and related services:
 | Area | Tag |
 |-------|----------------------|
 | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
-| [Azure HDInsight on AKS](/azure/hdinsight-aks/overview) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
+| [Azure HDInsight on AKS](./overview.md) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
 | [Azure storage accounts](/azure/storage/common/storage-account-overview) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
 | [Azure Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
 | [Azure RBAC](/azure/role-based-access-control/overview) | [azure-rbac](/answers/topics/azure-rbac.html)|
