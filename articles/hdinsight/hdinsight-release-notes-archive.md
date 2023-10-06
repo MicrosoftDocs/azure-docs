@@ -203,7 +203,7 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 * Autoscale
   * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
-  * The max length of cluster name changes to 45 from 59 in Public, Mooncake and Azure Government. 
+  * The max length of cluster name changes to 45 from 59 in Public, Azure China, and Azure Government. 
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
@@ -701,7 +701,7 @@ The OS versions for this release are:
 Azure HDInsight now supports restricted public connectivity in all regions. Below are some of the key highlights of this capability: 
 
 - Ability to reverse resource provider to cluster communication such that it's outbound from the cluster to the resource provider 
-- Support for bringing your own Private Link enabled resources (For example, storage, SQL, key vault) for HDinsight cluster to access the resources over private network only 
+- Support for bringing your own Private Link enabled resources (For example, storage, SQL, key vault) for HDInsight cluster to access the resources over private network only 
 - No public IP addresses are resource provisioned 
 
 By using this new capability, you can also skip the inbound network security group (NSG) service tag rules for HDInsight management IPs. Learn more about [restricting public connectivity](./hdinsight-restrict-public-connectivity.md)
@@ -977,7 +977,7 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 #### HDInsight Identity Broker (HIB) is now GA
 HDInsight Identity Broker (HIB) that enables OAuth authentication for ESP clusters is now generally available with this release. HIB Clusters created after this release will have the latest HIB features:
 - High Availability (HA)
-- Support for Multi-Factor Authentication (MFA)
+- Support for Multifactor Authentication (MFA)
 - Federated users sign in with no password hash synchronization to AAD-DS
 For more information, see [HIB documentation](./domain-joined/identity-broker.md).
 
@@ -1366,7 +1366,7 @@ This release applies both for HDInsight 3.6 and 4.0.
 
 #### HDInsight Identity Broker (HIB) (Preview)
 
-HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through Azure Resource Management (ARM) template.
+HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multifactor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through Azure Resource Management (ARM) template.
 
 #### Kafka REST API Proxy (Preview)
 
