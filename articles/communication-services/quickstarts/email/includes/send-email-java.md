@@ -173,6 +173,7 @@ try
     PollResponse<EmailSendResult> pollResponse = null;
 
     Duration timeElapsed = Duration.ofSeconds(0);
+    Duration POLLER_WAIT_TIME = Duration.ofSeconds(10);
 
     while (pollResponse == null
             || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
