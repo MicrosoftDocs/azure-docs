@@ -447,7 +447,7 @@ Example attack values:
 |Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
 |Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
 
->!NOTE
+> [!NOTE]
 > - For more information on using BreakingPoint Cloud with your Azure environment, see this [BreakingPoint Cloud blog](https://www.keysight.com/blogs/tech/nwvs/2020/11/17/six-simple-steps-to-understand-how-microsoft-azure-ddos-protection-works).
 > - For a video demonstration of utilizing BreakingPoint Cloud, see [DDoS Attack Simulation](https://www.youtube.com/watch?v=xFJS7RnX-Sw).
 
