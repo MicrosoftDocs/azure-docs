@@ -101,7 +101,7 @@ You can delete your environment completely when you don't need it anymore.
 
 The Azure CLI provides a command-line interface for speed and efficiency when you create multiple similar environments, or for platforms where resources like memory are limited. You can use the following commands to create, list, deploy, or delete an environment.
 
-To learn how to use the Deployment Environments Azure CLI extension, see [Configure Azure Deployment Environments by using the Azure CLI](how-to-configure-use-cli.md).
+To learn how to use the Deployment Environments Azure CLI extension, see [Configure Azure Deployment Environments by using the Azure CLI](https://aka.ms/CLI-reference).
 
 ### Create an environment
 
