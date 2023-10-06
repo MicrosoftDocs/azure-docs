@@ -820,9 +820,9 @@ errorHandling: {
 ---
 
 - **onCustomizerError**: Specifies the action to take when an error occurs during the customizer phase of image creation.
-    - The value `cleanup` indicates that the VM should be cleaned up and the image creation process should be aborted.
-    - The value `abort` indicates that the image creation process should be aborted without cleaning up the VM.
-- **onValidationError**: Specifies the action to take when an error occurs during validation of the image template. The value `cleanup` indicates that the VM should be cleaned up and the image creation process should be aborted.
+- **onValidationError**: Specifies the action to take when an error occurs during validation of the image template.
+
+Both `cleanup` and `abort` values are valid for both `onCustomizerError` and `onValidationError`. The distinction is that `onCustomizerError` handles errors during the customizer phase of image creation, while `onValidationError` handles errors during validation of the image template.
 
 ## Properties: distribute
 
