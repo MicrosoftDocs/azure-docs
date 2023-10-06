@@ -1423,6 +1423,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+
+::: zone-end
 :::zone pivot="azure-arc"
 When deploying functions to Azure Arc, the value you set for the `kind` field of the function app resource depends on the type of deployment:
 
