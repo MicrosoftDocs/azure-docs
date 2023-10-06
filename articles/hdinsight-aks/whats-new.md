@@ -46,16 +46,16 @@ The following table list shows the features of HDInsight on AKS that are current
 
 |	Feature	|	Estimated release timeline	|
 | --- | --- |
-|	Autoscale - Load Based - Trino	|	Q2 2024	|
+|	Autoscale - Load Based - Trino	|	Q1 2024	|
 |	Shuffle aware load based auto scale for Spark	|	Q2 2024	|
 |	In Place Upgrade	|	Q2 2024	|
 |	Reserved Instance Support 	|	Q2 2024	|
-|	MSI based authentication for Metastore(SQL)	|	Q2 2024	|
+|	MSI based authentication for Metastore (SQL)	|	Q1 2024	|
 |	Spark 3.4 Support	|	Q2 2024	|
-|	Trino 426 Support	|	Q2 2024	|
+|	Trino 426 Support	|	Q1 2024	|
 |	Ranger for RBAC	|	Q2 2024	|
 |	App mode support for Flink	|	Q2 2024	|
-|	Flink 1.17 Support	|	Q2 2024	|
+|	Flink 1.17 Support	|	Q1 2024	|
 |	Spark ACID Support	|	Q1 2024	|
 |	Configurable SKUs for Headnode, SSH	|	Q2 2024	|
 |	Flink SQL Gateway Support	|	Q2 2024	|
