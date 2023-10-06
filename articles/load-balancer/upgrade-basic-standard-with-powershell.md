@@ -44,7 +44,6 @@ The PowerShell module performs the following functions:
 
 ### Unsupported Scenarios
 
-- Basic Load Balancers with a Virtual Machine Scale Set or Virtual Machine backend pool member that is also a member of a backend pool on a different load balancer
 - Basic Load Balancers with IPV6 frontend IP configurations
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
@@ -107,6 +106,23 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <load balancer resou
 
 ```powershell
 PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+```
+
+### Example: migrate multiple Load Balancers with shared backend members at the same time
+
+```powershell
+# build array of multiple basic load balancers
+PS C:\> $multiLBConfig = @(
+    @{
+        'standardLoadBalancerName' = 'myStandardLB01'
+        'basicLoadBalancer' = (Get-AzLoadBalancer -ResourceGroupName myRG -Name myBasicInternalLB01)
+    },
+        @{
+        'standardLoadBalancerName' = 'myStandardLB02'
+        'basicLoadBalancer' = (Get-AzLoadBalancer -ResourceGroupName myRG -Name myBasicExternalLB02)
+    }
+)
+PS C:\> Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
 ```
 
 ### Example: retry a failed upgrade for a virtual machine scale set's load balancer (due to error or script termination) by providing the Basic Load Balancer and Virtual Machine Scale Set backup state file
@@ -186,6 +202,10 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 >[!NOTE]
 > Network security group are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md)
 
+### How do I migrate when my backend pool members belong to multiple Load Balancers?
+
+In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same script execution using the `-MultiLBConfig` parameter. 
+
 ### How do I validate that a migration was successful?
 
 At the end of its execution, the upgrade module performs the following validations, comparing the Basic Load Balancer to the new Standard Load Balancer. In a failed migration, this same operation can be called using the `-validateCompletedMigration` and `-basicLoadBalancerStatePath` parameters to determine the configuration state of the Standard Load Balancer (if one was created). The log file created during the migration also provides extensive detail on the migration operation and any errors. 
@@ -202,7 +222,11 @@ At the end of its execution, the upgrade module performs the following validatio
 
 ### What happens if my upgrade fails mid-migration?
 
-The module is designed to accommodate failures, either due to unhandled errors or unexpected script termination. The failure design is a 'fail forward' approach, where instead of attempting to move back to the Basic Load Balancer, you should correct the issue causing the failure (see the error output or log file), and retry the migration again, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters. For public load balancers, because the Public IP Address SKU has been updated to Standard, moving the same IP back to a Basic Load Balancer won't be possible. The basic failure recovery procedure is:
+The module is designed to accommodate failures, either due to unhandled errors or unexpected script termination. The failure design is a 'fail forward' approach, where instead of attempting to move back to the Basic Load Balancer, you should correct the issue causing the failure (see the error output or log file), and retry the migration again, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters. For public load balancers, because the Public IP Address SKU has been updated to Standard, moving the same IP back to a Basic Load Balancer won't be possible. 
+
+If your failed migration was targeting multiple load balancers at the same time, using the `-MultiLBConfig` parameter, recover each Load Balancer individually using the same process as below. 
+
+The basic failure recovery procedure is:
 
   1. Address the cause of the migration failure. Check the log file `Start-AzBasicLoadBalancerUpgrade.log` for details
   1. [Remove the new Standard Load Balancer](./update-load-balancer-with-vm-scale-set.md) (if created). Depending on which stage of the migration failed, you may have to remove the Standard Load Balancer reference from the Virtual Machine Scale Set or Virtual Machine network interfaces (IP configurations) and Health Probes in order to remove the Standard Load Balancer.
