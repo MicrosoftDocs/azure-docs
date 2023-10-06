@@ -2,13 +2,13 @@
 title: Routing preference in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about how you can choose how your traffic routes between Azure and the Internet with routing preference.
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.topic: conceptual
-ms.date: 05/08/2023
-ms.author: allensu
 ms.custom: references_regions
 ---
 
@@ -80,23 +80,53 @@ The price difference between both options is reflected in the internet egress da
 
 ### Regional availability
 
-Internet routing preference is available in all regions except:
+Internet routing preference is available in all regions listed below:
 
-* Australia Central
-
-* Austria East
-
-* Brazil Southeast
-
-* Germany Central
-
-* Germany NorthEast
-
-* Norway West
-
-* Sweden Central
-
-* West US 3
+- Australia Central
+- Australia Central 2
+- Australia East 
+- Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- Central US EUAP
+- East Asia
+- East US
+- East US 2
+- East US 2 EUAP
+- France Central
+- France South
+- Germany North
+- Germany West Central
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- North Central US
+- North Europe
+- Norway East
+- Norway West
+- South Africa North
+- South Africa West
+- South Central US
+- South India
+- Southeast Asia
+- Sweden Central
+- Switzerland North
+- Switzerland West
+- UAE Central
+- UAE North
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West India
+- West US
+- West US 2
+- West US 3
 
 ## Next steps
 

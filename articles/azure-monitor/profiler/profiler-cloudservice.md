@@ -3,7 +3,7 @@ title: Enable Profiler for Azure Cloud Services | Microsoft Docs
 description: Profile Azure Cloud Services in real time with Application Insights Profiler.
 ms.topic: conceptual
 ms.custom: engagement
-ms.date: 07/07/2023
+ms.date: 09/22/2023
 ---
 
 # Enable Profiler for Azure Cloud Services

@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.0 
+description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.1 or v3.0 
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/17/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)| [Supported REST API versions](../../sdk-overview.md)
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview-v3-1.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -55,14 +54,14 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 ### Create a new Gradle project
 
-1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **doc-intel-app**, and navigate to it.
 
     ```console
-    mkdir form-recognizer-app && form-recognizer-app
+    mkdir doc-intel-app && doc-intel-app
     ```
 
     ```powershell
-    mkdir translator-text-app; cd translator-text-app
+    mkdir doc-intel-app; cd doc-intel-app
     ```
 
 1. Run the `gradle init` command from your working directory. This command creates essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
@@ -73,7 +72,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
-1. Accept the default project name (form-recognizer-app) by selecting **Return** or **Enter**.
+1. Accept the default project name (doc-intel-app) by selecting **Return** or **Enter**.
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=create-gradle-project) -->
@@ -90,13 +89,14 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         application
     }
     application {
-        mainClass.set("FormRecognizer")
+        mainClass.set("DocIntelligence")
     }
     repositories {
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.1.0-beta.2")
+        implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '4.1.0'
+
     }
     ```
 
@@ -107,7 +107,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
 To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
 
-1. From the form-recognizer-app directory, run the following command:
+1. From the doc-intel-app directory, run the following command:
 
     ```console
     mkdir -p src/main/java
@@ -117,15 +117,15 @@ To interact with the Document Intelligence service, you need to create an instan
 
     :::image type="content" source="../../media/quickstarts/java-directories-2.png" alt-text="Screenshot of Java directory structure":::
 
-1. Navigate to the `java` directory and create a file named **`FormRecognizer.java`**.
+1. Navigate to the `java` directory and create a file named **`DocIntelligence.java`**.
 
     > [!TIP]
     >
     > * You can create a new file using PowerShell.
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
-    > * Type the following command **New-Item FormRecognizer.java**.
+    > * Type the following command **New-Item DocIntelligence.java**.
 
-1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste into your application:
+1. Open the `DocIntelligence.java` file and select one of the following code samples to copy and paste into your application:
 
     * [**General document**](#general-document-model)
 
@@ -142,11 +142,11 @@ Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-document` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
 
@@ -240,7 +240,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+Once you've added a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
 
 1. Build your application with the `build` command:
 
@@ -285,11 +285,11 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
 
@@ -383,7 +383,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+Once you've added a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
 
 1. Build your application with the `build` command:
 
@@ -439,7 +439,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
 
@@ -597,7 +597,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+Once you've added a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
 
 1. Build your application with the `build` command:
 

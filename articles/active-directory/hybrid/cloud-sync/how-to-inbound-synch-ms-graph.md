@@ -6,6 +6,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 01/11/2023
 ms.subservice: hybrid
@@ -33,7 +34,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Review status](#review-status)
   - [Next steps](#next-steps)
 
-Use these [Microsoft Azure Active Directory Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
+Use these [Azure AD PowerShell module](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 
@@ -44,7 +45,7 @@ Connect-MsolService ('-AzureEnvironment <AzureEnvironmnet>')
  Set-MsolDirSyncEnabled -EnableDirSync $true
 ```
 
-The first of those two commands, require Azure Active Directory credentials. These cmdlets implicitly identify the tenant and enable it for synchronization.
+The first of those two commands, require Microsoft Entra credentials. These cmdlets implicitly identify the tenant and enable it for synchronization.
 
 ## Create service principals
 
@@ -163,7 +164,7 @@ Request body –
 The expected response is … 
 HTTP 204/No content
 
-Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Azure Active Directory.
+Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Microsoft Entra ID.
 
 ## Enable Sync password hashes on configuration blade
 
@@ -392,6 +393,6 @@ Look under the 'status' section of the return object for relevant details
 
 ## Next steps
 
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
 - [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

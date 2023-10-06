@@ -1,6 +1,6 @@
 ---
-title: Browser support of FIDO2 passwordless authentication | Azure Active Directory
-description: Browsers and operating system combinations support FIDO2 passwordless authentication for apps using Azure Active Directory
+title: Browser support of FIDO2 passwordless authentication | Microsoft Entra ID
+description: Browsers and operating system combinations support FIDO2 passwordless authentication for apps using Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # Browser support of FIDO2 passwordless authentication
 
-Azure Active Directory allows [FIDO2 security keys](./concept-authentication-passwordless.md#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910), and it became [generally available](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/passwordless-authentication-is-now-generally-available/ba-p/1994700) in March 2021. The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory. Azure AD currently supports only hardware FIDO2 keys and doesn't support passkeys for any platform.
+Microsoft Entra ID allows [FIDO2 security keys](./concept-authentication-passwordless.md#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910), and it became [generally available](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/passwordless-authentication-is-now-generally-available/ba-p/1994700) in March 2021. The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Microsoft Entra ID. Microsoft Entra ID currently supports only hardware FIDO2 keys and doesn't support passkeys for any platform.
 
 ## Supported browsers
 
-This table shows support for authenticating Azure Active Directory (Azure AD) and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. 
+This table shows support for authenticating Microsoft Entra ID and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. 
 
 | OS  | Chrome | Edge | Firefox | Safari |
 |:---:|:------:|:----:|:-------:|:------:|
@@ -74,7 +74,7 @@ The following tables show which transports are supported for each platform. Supp
 |---------|------|-----|-----|
 | Edge    | &#10060; | &#10060; | &#10060; |
 | Chrome  | &#x2705; | &#10060; | &#10060; |
-| Firefox | &#10060; | &#10060; | &#10060; |
+| Firefox | &#x2705; | &#10060; | &#10060; |
 
 
 ### iOS
@@ -98,7 +98,7 @@ The following tables show which transports are supported for each platform. Supp
 | Chrome  | &#10060;  | &#10060; | &#10060; |
 | Firefox | &#10060;  | &#10060; | &#10060; |
 
-<sup>1</sup>Security key biometrics or PIN for user verficiation isn't currently supported on Android by Google. Azure AD requires user verification for all FIDO2 authentications.
+<sup>1</sup>Security key biometrics or PIN for user verficiation are currently supported on Android by Google. Microsoft Entra ID requires user verification for all FIDO2 authentications.
 
 ## Minimum browser version
 

@@ -141,8 +141,6 @@ items:
       href: how-to-manage-creator.md
     - name: Drawing package guide
       href: drawing-package-guide.md
-    - name: Create indoor map with onboarding tool
-      href: creator-onboarding-tool.md
     - name: Query datasets with WFS API
       href: how-to-creator-wfs.md
     - name: Custom styling for indoor maps
@@ -181,6 +179,8 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
+    - name: Web SDK v1 migration guide
+      href: web-sdk-migration-guide.md
     - name: Map control
       items:
       - name: Use the Azure Maps map control

@@ -95,6 +95,8 @@ The same considerations as in scenario 2 above apply. In this scenario, there ar
 
 ## Next steps
 
-In this article, you explored different scenarios that you can use to restrict traffic between a virtual machine and a private endpoint using Azure Firewall. 
+In this article, you explored different scenarios that you can use to restrict traffic between a virtual machine and a private endpoint using Azure Firewall.
+
+For a tutorial on how to configure Azure Firewall to inspect traffic destined to a private endpoint, see [Tutorial: Inspect private endpoint traffic with Azure Firewall](tutorial-inspect-traffic-azure-firewall.md)
 
 To learn more about private endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).

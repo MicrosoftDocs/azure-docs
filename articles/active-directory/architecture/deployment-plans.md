@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory deployment plans
-description: Guidance on Azure Active Directory deployment, such as authentication, devices, hybrid scenarios, governance, and more.
+title: Microsoft Entra deployment plans
+description: Guidance on Microsoft Entra deployment, such as authentication, devices, hybrid scenarios, governance, and more.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -14,9 +14,9 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory deployment plans
+# Microsoft Entra deployment plans
 
-Use the following guidance to help deploy Azure Active Directory (Azure AD). Learn about business value, planning considerations, and operational procedures. You can use a browser Print to PDF function to create offline documentation.
+Use the following guidance to help deploy Microsoft Entra ID. Learn about business value, planning considerations, and operational procedures. You can use a browser Print to PDF function to create offline documentation.
 
 ## Your stakeholders
 
@@ -47,54 +47,54 @@ Use these terms to clarify and define roles and responsibilities in your project
 
 Use the following list to plan for authentication deployment. 
 
-* **Azure AD multi-factor authentication (MFA)** - Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process: 
-  * See the video, [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)
-  * See, [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md) 
+* **Microsoft Entra multifactor authentication** - Using admin-approved authentication methods, Microsoft Entra multifactor authentication helps safeguard access to your data and applications while meeting the demand for a simple sign-in process: 
+  * See the video, [How to configure and enforce multifactor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)
+  * See, [Plan a Microsoft Entra multifactor authentication deployment](../authentication/howto-mfa-getstarted.md) 
 * **Conditional Access** - Implement automated access-control decisions for users to access cloud apps, based on conditions: 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
   * See, [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md)
-* **Azure AD self-service password reset (SSPR)** - Help users reset a password without administrator intervention:
-  * See, [Passwordless authentication options for Azure AD](../authentication/concept-authentication-passwordless.md)
-  * See, [Plan an Azure Active Directory self-service password reset deployment](../authentication/howto-sspr-deployment.md) 
+* **Microsoft Entra self-service password reset (SSPR)** - Help users reset a password without administrator intervention:
+  * See, [Passwordless authentication options for Microsoft Entra ID](../authentication/concept-authentication-passwordless.md)
+  * See, [Plan a Microsoft Entra self-service password reset deployment](../authentication/howto-sspr-deployment.md) 
 * **Passwordless authentication** - Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys:
   * See, [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md)
-  * See, [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md)
+  * See, [Plan a passwordless authentication deployment in Microsoft Entra ID](../authentication/howto-authentication-passwordless-deployment.md)
 
 ## Applications and devices
 
 Use the following list to help deploy applications and devices.
 
 * **Single sign-on (SSO)** - Enable user access to apps and resources while signing in once, without being required to enter credentials again: 
-  * See, [What is SSO in Azure AD?](../manage-apps/what-is-single-sign-on.md)
+  * See, [What is SSO in Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
   * See, [Plan a SSO deployment](../manage-apps/plan-sso-deployment.md)
 * **My Apps portal** - A web-based portal to discover and access applications. Enable user productivity with self-service, for instance requesting access to groups, or managing access to resources on behalf of others. 
   * See, [My Apps portal overview](../manage-apps/myapps-overview.md)
-* **Devices** - Evaluate device integration methods with Azure AD, choose the implementation plan, and more.
-  * See, [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)  
+* **Devices** - Evaluate device integration methods with Microsoft Entra ID, choose the implementation plan, and more.
+  * See, [Plan your Microsoft Entra device deployment](../devices/plan-device-deployment.md)  
 
 ## Hybrid scenarios  
 
 The following list describes features and services for productivity gains in hybrid scenarios.
 
 * **Active Directory Federation Services (AD FS)** - Migrate user authentication from federation to cloud with pass-through authentication or password hash sync:
-  *  See, [What is federation with Azure AD?](../hybrid/connect/whatis-fed.md)
+  *  See, [What is federation with Microsoft Entra ID?](../hybrid/connect/whatis-fed.md)
   *  See, [Migrate from federation to cloud authentication](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md)
-* **Azure AD Application Proxy** - Enable employees to be productive at any place or time, and from a device. Learn about software as a service (SaaS) apps in the cloud and corporate apps on-premises. Azure AD Application Proxy enables access without virtual private networks (VPNs) or demilitarized zones (DMZs):
-  * See, [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
-  * See, [Plan an Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
-* **Seamless single sign-on (Seamless SSO)** - Use Seamless SSO for user sign-in, on corporate devices connected to a corporate network. Users don't need to enter passwords to sign in to Azure AD, and usually don't need to enter usernames. Authorized users access cloud-based apps without extra on-premises components:
-  * See, [Azure Active Directory SSO: Quickstart](../hybrid/connect/how-to-connect-sso-quick-start.md) 
-  * See, [Azure Active Directory Seamless SSO: Technical deep dive](../hybrid/connect/how-to-connect-sso-how-it-works.md)
+* **Microsoft Entra application proxy** - Enable employees to be productive at any place or time, and from a device. Learn about software as a service (SaaS) apps in the cloud and corporate apps on-premises. Microsoft Entra application proxy enables access without virtual private networks (VPNs) or demilitarized zones (DMZs):
+  * See, [Remote access to on-premises applications through Microsoft Entra application proxy](../app-proxy/application-proxy.md)
+  * See, [Plan a Microsoft Entra application proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
+* **Seamless single sign-on (Seamless SSO)** - Use Seamless SSO for user sign-in, on corporate devices connected to a corporate network. Users don't need to enter passwords to sign in to Microsoft Entra ID, and usually don't need to enter usernames. Authorized users access cloud-based apps without extra on-premises components:
+  * See, [Microsoft Entra SSO: Quickstart](../hybrid/connect/how-to-connect-sso-quick-start.md) 
+  * See, [Microsoft Entra seamless SSO: Technical deep dive](../hybrid/connect/how-to-connect-sso-how-it-works.md)
 
 ## Users
 
 * **User identities** - Learn about automation to create, maintain, and remove user identities in cloud apps, such as Dropbox, Salesforce, ServiceNow, and more. 
-  * See, [Plan an automatic user provisioning deployment in Azure Active Directory](../app-provisioning/plan-auto-user-provisioning.md)
+  * See, [Plan an automatic user provisioning deployment in Microsoft Entra ID](../app-provisioning/plan-auto-user-provisioning.md)
 * **Identity governance** - Create identity governance and enhance business processes that rely on identity data. With HR products, such as Workday or Successfactors, manage employee and contingent-staff identity lifecycle with rules. These rules map Joiner-Mover-Leaver processes, such as New Hire, Terminate, Transfer, to IT actions such as Create, Enable, Disable.
-  * See, [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) 
-* **Azure AD B2B collaboration** - Improve external-user collaboration with secure access to applications: 
+  * See, [Plan cloud HR application to Microsoft Entra user provisioning](../app-provisioning/plan-cloud-hr-provision.md) 
+* **Microsoft Entra B2B collaboration** - Improve external-user collaboration with secure access to applications: 
   * See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
-  * See, [Plan an Azure Active Directory B2B collaboration deployment](secure-external-access-resources.md)
+  * See, [Plan a Microsoft Entra B2B collaboration deployment](secure-external-access-resources.md)
 
 ## Identity Governance and reporting
 
@@ -102,11 +102,11 @@ Use the following list to learn about identity governance and reporting. Items i
 
 Learn more: [Secure access for a connected world—meet Microsoft Entra](https://www.microsoft.com/en-us/security/blog/?p=114039)
 
-* **Privileged identity management (PIM)** - Manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. Use it for just-in-time access, request approval workflows, and fully integrated access reviews to help prevent malicious activities: 
+* **Privileged identity management (PIM)** - Manage privileged administrative roles across Microsoft Entra ID, Azure resources, and other Microsoft Online Services. Use it for just-in-time access, request approval workflows, and fully integrated access reviews to help prevent malicious activities: 
   * See, [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)
   * See, [Plan a Privileged Identity Management deployment](../privileged-identity-management/pim-deployment-plan.md) 
-* **Reporting and monitoring** - Your Azure AD reporting and monitoring solution design has dependencies and constraints: legal, security, operations, environment, and processes. 
-  * See, [Azure Active Directory reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
+* **Reporting and monitoring** - Your Microsoft Entra reporting and monitoring solution design has dependencies and constraints: legal, security, operations, environment, and processes. 
+  * See, [Microsoft Entra reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
 * **Access reviews** - Understand and manage access to resources:
   * See, [What are access reviews?](../governance/access-reviews-overview.md)
   * See, [Plan a Microsoft Entra access reviews deployment](../governance/deploy-access-reviews.md)  
@@ -125,4 +125,4 @@ In your first phase, target IT, usability, and other users who can test and prov
 
 Widen the pilot to larger groups of users by using dynamic membership, or by manually adding users to the targeted group(s).
 
-Learn more: [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
+Learn more: [Dynamic membership rules for groups in Microsoft Entra ID](../enterprise-users/groups-dynamic-membership.md)

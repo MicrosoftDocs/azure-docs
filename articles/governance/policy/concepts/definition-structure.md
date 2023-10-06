@@ -1,11 +1,12 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/29/2022
+ms.date: 08/15/2023
 ms.topic: conceptual
 ms.author: davidsmatlak
 author: davidsmatlak
 ---
+
 # Azure Policy definition structure
 
 Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
@@ -186,13 +187,11 @@ always stay the same, however their values change based on the individual fillin
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
 
-> [!NOTE]
-> Parameters may be added to an existing and assigned definition. The new parameter must include the
-> **defaultValue** property. This prevents existing assignments of the policy or initiative from
-> indirectly being made invalid.
+Parameters may be added to an existing and assigned definition. The new parameter must include the
+**defaultValue** property. This prevents existing assignments of the policy or initiative from
+indirectly being made invalid.
 
-> [!NOTE]
-> Parameters can't be removed from a policy definition that's been assigned.
+Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Instead of removing, you can classify the parameter as deprecated in the parameter metadata.
 
 ### Parameter properties
 
@@ -406,7 +405,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | denyAction | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```

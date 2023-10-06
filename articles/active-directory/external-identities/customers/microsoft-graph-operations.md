@@ -1,6 +1,6 @@
 ---
 title: Manage resources with Microsoft Graph
-description: Learn how to manage user resources in an Azure AD for customers tenant by calling the Microsoft Graph API and using an application identity to automate the process.
+description: Learn how to manage user resources in a Microsoft Entra ID for customers tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: active-directory
 author: garrodonnell
 manager: celested
@@ -9,36 +9,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 09/04/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn how to use the Microsoft Graph to manage operations in my Azure AD customer tenant.
+#Customer intent: As a dev, devops, I want to learn how to use the Microsoft Graph to manage operations in my Microsoft Entra ID for customers tenant.
 ---
 
-# Manage Azure Active Directory for customers resources with Microsoft Graph
-Using the Microsoft Graph API allows you to manage resources in your Azure Active Directory (AD) for customers directory. The following Microsoft Graph API operations are supported for the management of resources related to user flows, custom extensions and custom branding. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation.
+# Manage Microsoft Entra ID for customers resources with Microsoft Graph
+Using the Microsoft Graph API allows you to manage resources in your Microsoft Entra ID for customers directory. The following Microsoft Graph API operations are supported for the management of resources related to user flows, custom extensions and custom branding. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation.
 
 > [!NOTE]
-> You can also programmatically create an Azure AD for customers directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [Directory Tenants - Create Or Update](/rest/api/azurestack/directory-tenants/create-or-update).
+> You can also programmatically create a Microsoft Entra ID for customers directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [Directory Tenants - Create Or Update](/rest/api/azurestack/directory-tenants/create-or-update).
 
 ### Register a Microsoft Graph API application
-In order to use the Microsoft Graph API, you need to register an application in your Azure AD for customers tenant. This application will be used to authenticate and authorize your application to call the Microsoft Graph API.
+In order to use the Microsoft Graph API, you need to register an application in your Microsoft Entra ID for customers tenant. This application will be used to authenticate and authorize your application to call the Microsoft Graph API.
 
-During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Azure Active Directory. The app registration process also generates a unique identifier known as an **Application (client) ID**. 
+During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Microsoft Entra External ID. The app registration process also generates a unique identifier known as an **Application (client) ID**. 
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
-
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**.
-
-1. On the sidebar menu, select **Azure Active Directory**.
-
-1. Select **Applications**, then select **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 
@@ -54,7 +48,7 @@ The following steps show you how to register your app in the Microsoft Entra adm
 
 ### Grant API Access to your application
 
-For your application to access data in Microsoft Graph API, grant the registered application the relevant application permissions. The effective permissions of your application are the full level of privileges implied by the permission. For example, to create, read, update, and delete every user in your Azure AD for customers tenant, add the User.ReadWrite.All permission.
+For your application to access data in Microsoft Graph API, grant the registered application the relevant application permissions. The effective permissions of your application are the full level of privileges implied by the permission. For example, to create, read, update, and delete every user in your Microsoft Entra ID for customers tenant, add the User.ReadWrite.All permission.
 
 1. Under **Manage**, select **API permissions**.
 
@@ -78,7 +72,7 @@ For your application to access data in Microsoft Graph API, grant the registered
 
 1. Select **Grant admin consent for (your tenant name)**.
 
-1. If you are not currently signed-in with Global Administrator account, sign in with an account in your Azure AD for customers tenant that's been assigned at least the *Cloud application administrator* role and then select **Grant admin consent for (your tenant name)**.
+1. If you are not currently signed-in with Global Administrator account, sign in with an account in your Microsoft Entra ID for customers tenant that's been assigned at least the *Cloud application administrator* role and then select **Grant admin consent for (your tenant name)**.
 
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.
 
@@ -103,7 +97,7 @@ The application uses the client secret to prove its identity when it requests fo
 
 ## User flows (Preview)
 
-User flows are used to enable a self-service sign-up experience for users within an Azure AD customer tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
+User flows are used to enable a self-service sign-up experience for users within a Microsoft Entra ID for customers tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
 
 Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 
@@ -111,6 +105,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 - [Create a user flow](/graph/api/identitycontainer-post-authenticationeventsflows)
 - [Get a user flow](/graph/api/authenticationeventsflow-get)
 - [Delete a user flow](/graph/api/authenticationeventsflow-delete)
+- [Update a user flow](/graph/api/authenticationeventsflow-update)
 
 ## Identity providers (Preview)
 

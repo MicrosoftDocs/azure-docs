@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 For organizations with a conservative cloud migration approach, the block all policy is an option that can be used. 
 
 > [!CAUTION]
-> Misconfiguration of a block policy can lead to organizations being locked out of the Azure portal.
+> Misconfiguration of a block policy can lead to organizations being locked out.
 
 Policies like these can have unintended side effects. Proper testing and validation are vital before enabling. Administrators should utilize tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 
@@ -33,8 +33,8 @@ The following steps will help create Conditional Access policies to block access
 
 The first policy blocks access to all apps except for Microsoft 365 applications if not on a trusted location.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.

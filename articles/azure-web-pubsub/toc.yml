@@ -84,7 +84,7 @@
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
-        - name: Configure Azure AD Authorizations
+        - name: Configure Microsoft Entra authorizations
           items:
             - name: Authorize from Azure applications
               href: howto-authorize-from-application.md
@@ -130,11 +130,7 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-    - name: Scale
-      items:
-        - name: Autoscale
-          href: howto-scale-autoscale.md
-- name: Socket.IO
+- name: Socket.IO (preview)
   expanded: false
   items: 
     - name: Overview
@@ -150,6 +146,8 @@
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
           href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
         - name: Troubleshoot
           items: 
             - name: Common issues
@@ -188,7 +186,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Azure AD Authorization
+    - name: Microsoft Entra ID Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md

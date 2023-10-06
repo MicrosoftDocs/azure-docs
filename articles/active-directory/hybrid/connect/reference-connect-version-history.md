@@ -10,7 +10,7 @@ ms.workload: identity
 ms.date: 7/6/2022
 ms.subservice: hybrid
 ms.author: billmath
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 

@@ -4,7 +4,9 @@ description: Learn how to configure Facebook authentication as an identity provi
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: [seodec18, fasttrack-edit]
+ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure your App Service or Azure Functions app to use Facebook login

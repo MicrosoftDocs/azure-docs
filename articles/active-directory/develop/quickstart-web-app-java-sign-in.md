@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.date: 01/18/2023
 ms.author: cwerner 
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.custom: aaddev, 'scenarios:getting-started', 'languages:Java', devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from a Java web app
 
-In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
+In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Microsoft Entra organization can sign in to the application.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -35,7 +35,7 @@ There are two ways to start your quickstart application: express (option 1) and 
 
 ### Option 1: Register and automatically configure your app, and then download the code sample
 
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs) quickstart experience.
+1. Go to the [Microsoft Entra admin center - App registrations](https://entra.microsoft.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs) quickstart experience as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Enter a name for your application, and then select **Register**.
 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 
@@ -45,11 +45,9 @@ There are two ways to start your quickstart application: express (option 1) and 
 
 To register your application and manually add the app's registration information to it, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations**.
-1. Select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a **Name** for your application, for example **java-webapp**. Users of your app might see this name. You can change it later.
 1. Select **Register**.
 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later.
@@ -109,7 +107,7 @@ To run the project, take one of these steps:
 
 To run the web application from an IDE, select run, and then go to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 
-1. On the front page, select the **Login** button to redirect users to Azure Active Directory and prompt them for credentials.
+1. On the front page, select the **Login** button to redirect users to Microsoft Entra ID and prompt them for credentials.
 
 1. After users are authenticated, they're redirected to `https://localhost:8443/msal4jsample/secure/aad`. They're now signed in, and the page will show information about the user account. The sample UI has these buttons:
     - **Sign Out**: Signs the current user out of the application and redirects that user to the home page.

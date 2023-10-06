@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/30/2023
+ms.date: 08/31/2023
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
@@ -57,6 +57,7 @@ When using the private link with modernized experience for VMware VMs, public ac
   | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
   |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Azure Active Directory applications for the appliance to communicate with Azure Site Recovery. |
   | `management.azure.com` | Used for Azure Resource Manager deployments and operations. |
+  | `*.siterecovery.windowsazure.com` | Used to connect to Site Recovery services. | 
 
 Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
 
@@ -65,7 +66,6 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | `login.microsoftonline.us/*` <br> `graph.windows.net ` | `login.microsoftonline.cn` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
   | `*.portal.azure.us`          |    `*.portal.azure.cn`           | Navigate to the Azure portal. | 
   | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Azure Active Directory applications for the appliance to communicate with the Azure Site Recovery service. |
-
 
 ## Create and use private endpoints for site recovery
 
@@ -160,7 +160,7 @@ When the private endpoint is created, five fully qualified domain names (FQDNs) 
 
 The five domain names are formatted in this pattern:
 
-`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
 ### Approve private endpoints for site recovery
 

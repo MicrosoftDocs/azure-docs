@@ -135,6 +135,8 @@
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
+    - name: Inject custom code at runtime
+      href: snippets.md  
     - name: Reset deployment tokens
       href: deployment-token-management.md
     - name: Troubleshoot errors

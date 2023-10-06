@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 02/01/2023
+ms.date: 09/25/2023
 ms.topic: reference
 ---
 
@@ -22,7 +22,7 @@ Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernete
 
 [!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
-For an example, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](kubernetes/quickstart-connect-cluster.md).
+For more information, see [Azure Arc-enabled Kubernetes network requirements](kubernetes/network-requirements.md).
 
 ## Azure Arc-enabled data services
 
@@ -45,13 +45,19 @@ Connectivity to Arc-enabled server endpoints is required for:
 
 [!INCLUDE [network-requirements](servers/includes/network-requirements.md)]
 
-For examples, see [Connected Machine agent network requirements](servers/network-requirements.md)].
+### Subset of endpoints for ESU only
+
+[!INCLUDE [esu-network-requirements](servers/includes/esu-network-requirements.md)]
+
+For more information, see [Connected Machine agent network requirements](servers/network-requirements.md).
 
 ## Azure Arc resource bridge (preview)
 
 This section describes additional networking requirements specific to deploying Azure Arc resource bridge (preview) in your enterprise. These requirements also apply to Azure Arc-enabled VMware vSphere (preview) and Azure Arc-enabled System Center Virtual Machine Manager (preview).
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
+
+For more information, see [Azure Arc resource bridge (preview) network requirements](resource-bridge/network-requirements.md).
 
 ## Azure Arc-enabled System Center Virtual Machine Manager (preview)
 

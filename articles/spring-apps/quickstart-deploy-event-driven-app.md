@@ -18,13 +18,15 @@ zone_pivot_groups: spring-apps-plan-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+
 This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps.
 
 The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
 :::image type="content" source="media/quickstart-deploy-event-driven-app/diagram.png" alt-text="Diagram showing the Azure Spring Apps event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram.png" border="false":::
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-event-driven-app/quickstart-tool-introduction.md)]
 
@@ -32,16 +34,7 @@ The sample project is an event-driven application that subscribes to a [Service 
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-consumption-plan"
-
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
-
-::: zone-end
-
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -54,7 +47,7 @@ The sample project is an event-driven application that subscribes to a [Service 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
+- [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
 
 ---
 
@@ -96,7 +89,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
-::: zone pivot="sc-consumption-plan,sc-enterprise"
+::: zone pivot="sc-enterprise"
 
 3. Use the following command to check the app's log to investigate any deployment issue:
 
@@ -108,7 +101,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ::: zone-end
 
-::: zone pivot="sc-standard"
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 3. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 

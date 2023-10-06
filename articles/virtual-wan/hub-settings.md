@@ -5,7 +5,7 @@ description: This article answers common questions about virtual hub settings an
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
 ---
 

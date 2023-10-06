@@ -1,12 +1,11 @@
 ---
-title: Deploy user-managed glossary in Translator container
+title: Deploy a user-managed glossary in Translator container
 titleSuffix: Azure AI services
 description: How to deploy a user-managed glossary in the Translator container environment.
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.author: lajanuar
@@ -16,7 +15,7 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD046 -->
 
-# Deploy user-managed glossary
+# Deploy a user-managed glossary
 
 Microsoft Translator containers enable you to run several features of the Translator service in your own environment and are great for specific security and data governance requirements.
 
@@ -29,10 +28,6 @@ There may be times when you're running a container with a multi-layered ingestio
 * The **phrase&#8203;fix** and **sent&#8203;fix** files are then included with your translation request and read directly into memory at runtime.
 
 ## Managed glossary workflow
-
-> [!TIP]
-> You can generate template files using the following command in your container environment:
-> **GenerateHotfixTemplate=true**
 
   > [!IMPORTANT]
   > **UTF-16 LE** is the only accepted file format for the managed-glossary folders. For more information about encoding your files, *see* [Encoding](/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2#-encoding&preserve-view=true)
@@ -52,25 +47,25 @@ There may be times when you're running a container with a multi-layered ingestio
    > * The **sent&#8203;fix** solution is more precise and allows you to specify an exact target translation for a source sentence. For a sentence match to occur, the entire submitted sentence must match the **sent&#8203;fix** entry. If only a portion of the sentence matches, the entry won't match.
    > * If you're hesitant about making sweeping find-and-replace changes, we recommend, at the outset, solely using the **sent&#8203;fix** solution.
 
-1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters:
+1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters: **VersionId**. An integer value.
 
-    * **VersionId**. An integer value.
-      ***Sample version.json file***
+    ***Sample version.json file***
 
-        ```json
-        {
+    ```json
+       {
 
-            "VersionId": 5
+        "VersionId": 5
 
         }
-        ```
 
-    > [!TIP]
-    >
-    > Reload can be controlled by setting the following environmental variables when starting the container:
-    >
-    > * **HotfixReloadInterval=**. Default value is 5 minutes.
-    > * **HotfixReloadEnabled=**. Default value is true.
+    ```
+
+      > [!TIP]
+      >
+      > Reload can be controlled by setting the following environmental variables when starting the container:
+      >
+      > * **HotfixReloadInterval=**. Default value is 5 minutes.
+      > * **HotfixReloadEnabled=**. Default value is true.
 
 1. Use the **docker run** command
 
@@ -110,4 +105,4 @@ There may be times when you're running a container with a multi-layered ingestio
 ## Learn more
 
 > [!div class="nextstepaction"]
-> [Create dynamic dictionary](../dynamic-dictionary.md)   [Use custom dictionary](../custom-translator/concepts/dictionaries.md)
+> [Create a dynamic dictionary](../dynamic-dictionary.md)   [Use a custom dictionary](../custom-translator/concepts/dictionaries.md)

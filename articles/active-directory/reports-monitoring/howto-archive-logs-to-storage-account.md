@@ -1,6 +1,6 @@
 ---
 title: How to archive activity logs to a storage account
-description: Learn how to archive Azure Active Directory logs to a storage account 
+description: Learn how to archive Microsoft Entra activity logs to a storage account through Diagnostic settings.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,23 +8,24 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/09/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
-# Customer intent: As an IT administrator, I want to learn how to archive Azure AD logs to an Azure storage account so I can retain it for longer than the default retention period.
+# Customer intent: As an IT administrator, I want to learn how to archive Microsoft Entra logs to an Azure storage account so I can retain it for longer than the default retention period.
 
 ---
-# How to archive Azure AD logs to an Azure storage account
+# How to archive Microsoft Entra activity logs to an Azure storage account
 
-If you need to store Azure Active Directory (Azure AD) activity logs for longer than the [default retention period](reference-reports-data-retention.md), you can archive your logs to a storage account. 
+If you need to store Microsoft Entra activity logs for longer than the [default retention period](reference-reports-data-retention.md), you can archive your logs to a storage account. 
 
 ## Prerequisites 
 
 To use this feature, you need:
 
-* An Azure subscription with an Azure storage account. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* A user who's a *Security Administrator* or *Global Administrator* for the Azure AD tenant.
+* An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
+* An Azure storage account. 
+* A user who's a *Security Administrator* or *Global Administrator* for the Microsoft Entra tenant.
 
 ## Archive logs to an Azure storage account
 

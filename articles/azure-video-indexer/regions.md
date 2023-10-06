@@ -1,14 +1,15 @@
 ---
 title: Regions in which Azure AI Video Indexer is available  
 description: This article talks about Azure regions in which Azure AI Video Indexer is available.
-author: Juliako
-manager: femila
 ms.topic: article
 ms.date: 09/14/2020
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Azure regions in which Azure AI Video Indexer exists
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Azure AI Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 

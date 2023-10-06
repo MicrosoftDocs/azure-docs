@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
-ms.date: 07/15/2023
+ms.date: 09/07/2023
 ms.custom: template-tutorial
 ---
 
@@ -17,6 +17,11 @@ In this tutorial, you learn how to integrate a NAT gateway with an Azure Firewal
 Azure Firewall provides [2,496 SNAT ports per public IP address](../firewall/integrate-with-nat-gateway.md) configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
 
 NAT gateway can be integrated with Azure Firewall by configuring NAT gateway directly to the Azure Firewall subnet in order to provide a more scalable method of outbound connectivity. For production deployments, a hub and spoke network is recommended, where the firewall is in its own virtual network. The workload servers are peered virtual networks in the same region as the hub virtual network where the firewall resides. In this architectural setup, NAT gateway can provide outbound connectivity from the hub virtual network for all spoke virtual networks peered.
+
+:::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png":::
+
+>[!NOTE]
+>Azure NAT Gateway is not currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture as described in this tutorial. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](/azure/firewall-manager/vhubs-and-vnets).
 
 In this tutorial, you learn how to:
 
@@ -39,11 +44,11 @@ The hub virtual network contains the firewall subnet that is associated with the
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **+ Create**.
+1. Select **+ Create**.
 
-4. In the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. In the **Basics** tab of **Create virtual network**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -52,46 +57,36 @@ The hub virtual network contains the firewall subnet that is associated with the
     | Resource group | Select **Create new**. </br> Enter **test-rg**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **vnet-hub**. |
-    | Region | Select **South Central US**. |
+    | Region | Select **(US) South Central US**. |
 
-5. Select **Next: IP Addresses**.
+1. Select **Next** to proceed to the **Security** tab.
 
-6. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
 
-7. In **IPv4 address space** enter **10.0.0.0/16**.
+    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview)
 
-8. Select **+ Add subnet**.
+    >[!NOTE]
+    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
-9. In **Add subnet** enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.0.0.0/24**. |
-
-10. Select **Add**.
-
-11. Select **Next: Security**.
-
-12. In the **Security** tab in **BastionHost**, select **Enable**.
-
-13. Enter or select the following information:
+1. Enter or select the following information in **Azure Bastion**:
 
     | Setting | Value |
-    | ------- | ----- |
-    | Bastion name | Enter **bastion**. |
-    | AzureBastionSubnet address space | Enter **10.0.1.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip**. </br> Select **OK**. |
+    |---|---|
+    | Azure Bastion host name | Enter **bastion**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in Name. </br> Select **OK**. |
 
-14. In **Firewall** select **Enable**.
+1. Select **Enable Azure Firewall** in the **Azure Firewall** section of the **Security** tab.
 
-15. Enter or select the following information:
+    Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. For more information about Azure Firewall, see [Azure Firewall](/azure/firewall/overview).
+
+1. Enter or select the following information in **Azure Firewall**:
 
     | Setting | Value |
-    | ------- | ----- |
-    | Firewall name | Enter **firewall**. |
-    | Firewall subnet address space | Enter **10.0.2.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip-firewall**. </br> Select **OK**. |
+    |---|---|
+    | Azure Firewall name | Enter **firewall**. |
+    | Tier | Select **Standard**. |
+    | Policy | Select **Create new**. </br> Enter **firewall-policy** in Name. </br> Select **OK**. |
+    | Azure Firewall public IP address | Select **Create a public IP address**. </br> Enter **public-ip-firewall** in Name. </br> Select **OK**. |
 
 16. Select **Review + create**.
 
@@ -146,9 +141,9 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **+ Create**.
+1. Select **+ Create**.
 
-3. In the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. In the **Basics** tab of **Create virtual network**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -159,26 +154,31 @@ The spoke virtual network contains the test virtual machine used to test the rou
     | Name | Enter **vnet-spoke**. |
     | Region | Select **South Central US**. |
 
-4. Select **Next: IP Addresses**.
+1. Select **Next** to proceed to the **Security** tab.
 
-5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. Select **Next** to proceed to the **IP addresses** tab.
 
-6. In **IPv4 address space** enter **10.1.0.0/16**.
+1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-7. Select **+ Add subnet**.
+1. In **IPv4 address space** enter **10.1.0.0**. Leave the default of **/16 (65,536 addresses)** in the mask selection.
 
-8. In **Add subnet** enter or select the following information:
+1. Select **+ Add a subnet**.
+
+1. In **Add a subnet** enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-private**. |
+    | Starting address | Enter **10.1.0.0**. |
+    | Subnet size | Leave the default of **/24(256 addresses)**. |
 
-9. Select **Add**.
+1. Select **Add**.
 
-10. Select **Review + create**. 
+1. Select **Review + create**.
 
-12. Select **Create**.
+1. Select **Create**.
 
 ## Create peering between the hub and spoke
 
@@ -186,33 +186,35 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **vnet-hub**.
+1. Select **vnet-hub**.
 
-3. Select **Peerings** in **Settings**.
+1. Select **Peerings** in **Settings**.
 
-4. Select **+ Add**.
+1. Select **+ Add**.
 
-5. Enter or select the following information in **Add peering**:
+1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke**. |
-    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
-    | Virtual network gateway or Route Server | Leave the default of **None**. |
+    | Allow access to remote virtual network | Leave the default of **Selected**. |
+    | Allow traffic to remote virtual network | **Select** the checkbox. |
+    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | **Select** the checkbox.. |
+    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
     | **Remote virtual network** |   |
     | Peering link name | Enter **vnet-spoke-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke**. |
-    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
-    | Virtual network gateway or Route Server | Leave the default of **None**. |
+    | Allow access to current virtual network | Leave the default of **Selected**. |
+    | Allow traffic to current virtual network | **Select** the checkbox. |
+    | Allow traffic forwarded from the current virtual network (allow gateway transit) | **Select** the checkbox. |
+    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    
+1. Select **Add**.
 
-6. Select **Add**.
-
-7. Select **Refresh** and verify **Peering status** is **Connected**.
+1. Select **Refresh** and verify **Peering status** is **Connected**.
 
 ## Create spoke network route table
 
@@ -226,7 +228,7 @@ The private IP address of the firewall is needed for the route table created lat
 
 2. Select **firewall**.
 
-3. In the **Overview** of **firewall**, note the IP address in the field **Firewall private IP**. The IP address should be **10.0.2.4**.
+3. In the **Overview** of **firewall**, note the IP address in the field **Firewall private IP**. The IP address in this example is **10.0.1.68**.
 
 ### Create route table
 
@@ -268,7 +270,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
     | Destination type | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.0.2.4**. |
+    | Next hop address | Enter **10.0.1.68**. |
 
 11. Select **Add**.
 
@@ -288,29 +290,6 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 ## Configure firewall
 
 Traffic from the spoke through the hub must be allowed through and firewall policy and a network rule. Use the following example to create the firewall policy and network rule.
-
-### Create firewall policy
-
-1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
-
-2. Select **firewall**.
-
-3. In the **Overview** select **Migrate to firewall policy**.
-
-4. In **Migrate to firewall policy** enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |  |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **test-rg**. |
-    | **Policy details** |  |
-    | Name | Enter **firewall-policy**. |
-    | Region | Select **South Central US**. |
-
-5. Select **Review + create**.
-
-6. Select **Create**.
 
 ### Configure network rule
 
@@ -415,9 +394,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Select **vm-spoke**.
 
-1. On the **Overview** page, select **Connect**, then select the **Bastion** tab.
-
-1. Select **Use Bastion**.
+1. In **Operations**, select **Bastion**.
 
 1. Enter the username and password entered during VM creation. Select **Connect**.
 
@@ -437,6 +414,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 1. Close the Bastion connection to **vm-spoke**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+
 ## Next steps
 
 Advance to the next article to learn how to integrate a NAT gateway with an Azure Load Balancer:

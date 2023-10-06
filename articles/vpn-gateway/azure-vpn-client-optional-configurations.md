@@ -5,7 +5,7 @@ description: Learn how to configure optional configuration settings for the Azur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 10/05/2023
 ms.author: cherylmc
 
 ---
@@ -124,8 +124,8 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
   ```
 
 > [!NOTE]
-> - The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
-> - A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+> * The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
+> * A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
 
 ### Add custom routes
 
@@ -170,9 +170,13 @@ The ability to completely block routes isn't supported by the Azure VPN Client. 
 ```
 
 > [!NOTE]
-> - To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
-> - If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
+> * To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
+> * If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
 >
+
+## Azure VPN Client version information
+
+For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
 
 ## Next steps
 

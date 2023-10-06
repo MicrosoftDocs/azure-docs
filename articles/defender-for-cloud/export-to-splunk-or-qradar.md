@@ -13,7 +13,7 @@ In order to stream Microsoft Defender for Cloud security alerts to IBM QRadar an
 
 To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
-## Step 1. Create an Event Hubs namespace and event hub with send permissions
+## Step 1: Create an Event Hubs namespace and event hub with send permissions
 
 1. In the [Event Hubs service](../event-hubs/event-hubs-create.md), create an Event Hubs namespace:
     1. Select **Create**.
@@ -33,7 +33,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
     1. Select **Create** to create the policy.
     :::image type="content" source="media/export-to-siem/create-shared-access-policy.png" alt-text="Screenshot of creating a shared policy in Microsoft Event Hubs." lightbox="media/export-to-siem/create-shared-access-policy.png":::
 
-## Step 2. **For streaming to QRadar SIEM** - Create a Listen policy
+## Step 2: **For streaming to QRadar SIEM** - Create a Listen policy
 
 1. Select **Add**, enter a unique policy name, and select **Listen**.
 1. Select **Create** to create the policy.
@@ -41,7 +41,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
     :::image type="content" source="media/export-to-siem/create-shared-listen-policy.png" alt-text="Screenshot of creating a listen policy in Microsoft Event Hubs." lightbox="media/export-to-siem/create-shared-listen-policy.png":::
 
-## Step 3. Create a consumer group, then copy and save the name to use in the SIEM platform
+## Step 3: Create a consumer group, then copy and save the name to use in the SIEM platform
 
 1. In the Entities section of the Event Hubs event hub menu, select **Event Hubs** and select the event hub you created.
 
@@ -49,7 +49,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
 1. Select **Consumer group**.
 
-## Step 4. Enable continuous export for the scope of the alerts
+## Step 4: Enable continuous export for the scope of the alerts
 
 1. In the Azure search box, search for "policy" and go to the Policy.
 1. In the Policy menu, select **Definitions**.
@@ -79,7 +79,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 1. Select **Review and Create** and **Create** to finish the process of defining the continuous export to Event Hubs.
     - Notice that when you activate continuous export policy on the tenant (root management group level), it automatically streams your alerts on any **new** subscription that will be created under this tenant.
 
-## Step 5. **For streaming alerts to QRadar SIEM** - Create a storage account
+## Step 5: **For streaming alerts to QRadar SIEM** - Create a storage account
 
 1. Go to the Azure portal, select **Create a resource**, and select **Storage account**. If that option isn't shown, search for "storage account".
 1. Select **Create**.
@@ -92,7 +92,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
     :::image type="content" source="media/export-to-siem/copy-storage-account-key.png" alt-text="Screenshot of copying storage account key." lightbox="media/export-to-siem/copy-storage-account-key.png":::
 
-## Step 6. **For streaming alerts to Splunk SIEM** - Create an Azure AD application
+## Step 6: **For streaming alerts to Splunk SIEM** - Create an Azure AD application
 
 1. In the menu search box, search for "Azure Active Directory" and go to Azure Active Directory.
 1. Go to the Azure portal, select **Create a resource**, and select **Azure Active Directory**. If that option isn't shown, search for "active directory".
@@ -113,7 +113,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
 1. After the secret is created, copy the Secret ID and save it for later use together with the Application ID and Directory (tenant) ID.
 
-## Step 7. **For streaming alerts to Splunk SIEM** - Allow Azure AD to read from the event hub
+## Step 7: **For streaming alerts to Splunk SIEM** - Allow Azure AD to read from the event hub
 
 1. Go to the Event Hubs namespace you created.
 1. In the menu, go to **Access control**.

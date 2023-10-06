@@ -1,6 +1,6 @@
 ---
 title: Users and groups in Conditional Access policy
-description: Who are users and groups in an Azure AD Conditional Access policy
+description: Who are users and groups in a Microsoft Entra Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Users, groups, and workload identities
 
-A Conditional Access policy must include a user, group, or workload identity assignment as one of the signals in the decision process. These identities can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access. 
+A Conditional Access policy must include a user, group, or workload identity assignment as one of the signals in the decision process. These identities can be included or excluded from Conditional Access policies. Microsoft Entra ID evaluates all policies and ensures that all requirements are met before granting access. 
 
 > [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
@@ -42,9 +42,9 @@ The following options are available to include when creating a Conditional Acces
          - Other external users, or users not represented by the other user type selections
       - One or more tenants can be specified for the selected user type(s), or you can specify all tenants. 
    - Directory roles
-      - Allows administrators to select specific [built-in Azure AD directory roles](../roles/permissions-reference.md) used to determine policy assignment. For example, organizations may create a more restrictive policy on users actively assigned the Global Administrator role. Other role types aren't supported, including administrative unit-scoped roles and custom roles.
+      - Allows administrators to select specific [built-in Microsoft Entra directory roles](../roles/permissions-reference.md) used to determine policy assignment. For example, organizations may create a more restrictive policy on users actively assigned the Global Administrator role. Other role types aren't supported, including administrative unit-scoped roles and custom roles.
    - Users and groups
-      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of user group in Azure AD, including dynamic or assigned security and distribution groups. Policy is applied to nested users and groups.
+      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of user group in Microsoft Entra ID, including dynamic or assigned security and distribution groups. Policy is applied to nested users and groups.
 
 > [!IMPORTANT]
 > When selecting which users and groups are included in a Conditional Access Policy, there is a limit to the number of individual users that can be added directly to a Conditional Access policy. If there are a large amount of individual users that are needed to be added to directly to a Conditional Access policy, we recommend placing the users in a group, and assigning the group to the Conditional Access policy instead.
@@ -62,8 +62,8 @@ The following options are available to include when creating a Conditional Acces
 
 When organizations both include and exclude a user or group, the user or group is excluded from the policy. The exclude action overrides the include action in policy. Exclusions are commonly used for emergency access or break-glass accounts. More information about emergency access accounts and why they're important can be found in the following articles: 
 
-* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
-* [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
+* [Manage emergency access accounts in Microsoft Entra ID](../roles/security-emergency-access.md)
+* [Create a resilient access control management strategy with Microsoft Entra ID](../authentication/concept-resilient-controls.md)
 
 The following options are available to exclude when creating a Conditional Access policy.
 
@@ -77,9 +77,9 @@ The following options are available to exclude when creating a Conditional Acces
        - Other external users, or users not represented by the other user type selections
     - One or more tenants can be specified for the selected user type(s), or you can specify all tenants.
 - Directory roles
-   - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the Global Administrator role.
+   - Allows administrators to select specific Microsoft Entra directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the Global Administrator role.
 - Users and groups
-   - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy is applied to nested users and groups.
+   - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Microsoft Entra ID, including dynamic or assigned security and distribution groups. Policy is applied to nested users and groups.
 
 ### Preventing administrator lockout
 
@@ -91,7 +91,7 @@ By default the policy provides an option to exclude the current user from the po
 
 ![Warning, don't lock yourself out!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-If you do find yourself locked out, see [What to do if you're locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-youre-locked-out-of-the-azure-portal)
+If you do find yourself locked out, see [What to do if you're locked out?](troubleshoot-conditional-access.md#what-to-do-if-youre-locked-out)
 
 ### External partner access
 

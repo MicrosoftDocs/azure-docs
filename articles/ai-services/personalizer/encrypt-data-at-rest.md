@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn about the keys that you use for data-at-rest encryption in Personalizer. See how to use Azure Key Vault to configure customer-managed keys.
 author: jcodella
 manager: venkyv
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 06/02/2022
 ms.author: jacodel

@@ -1,10 +1,11 @@
+items:
 - name: Oracle on Azure VMs
   href: index.yml
 - name: Overview 
   items:
   - name: Oracle applications and solutions on Azure
     href: oracle-overview.md
-- name: Getting started
+- name: Get started
   items:
   - name: Create an Oracle DB in an Azure VM 
     href: oracle-database-quick-create.md
@@ -40,22 +41,31 @@
     href: oracle-disaster-recovery.md
 - name: Solution architecture
   items:
-  - name: Architectures to deploy Oracle applications on Azure 
+  - name: Architectures for Oracle applications with database on Azure Virtual Machines
+    href: deploy-application-oracle-database-azure.md
+  - name: Architectures for Oracle applications with Azure Virtual Machines and database on OCI
     href: oracle-oci-applications.md
-  - name: Reference architectures for Oracle Database Enterprise Edition on Azure
+  - name: Architectures for Oracle database on Azure Virtual Machines
     href: oracle-reference-architecture.md
+  - name: Architectures for Oracle Database Enterprise Edition on Azure
+    href: oracle-design.md
 - name: Reference
   items:
+<<<<<<< HEAD
   - name: Oracle on Azure VMs landing zone accelerator
     href: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/
     href: oracle-database-azure-vm.md
+=======
+  - name: Oracle on Azure Virtual Machines landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
+>>>>>>> 9082a1915ce4d9a3f1110e5d522bf0001451ee5f
   - name: Cloud Adoption Framework for Azure
     href: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
   - name: Azure Architecture Center
-    href: https://learn.microsoft.com/azure/architecture/
+    href: /azure/architecture/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Azure DevOps Roadmap
-    href: https://learn.microsoft.com/azure/devops/release-notes/features-timeline
+    href: /azure/devops/release-notes/features-timeline
 - name: FAQs
   href: oracle-azure-vms-faq.md

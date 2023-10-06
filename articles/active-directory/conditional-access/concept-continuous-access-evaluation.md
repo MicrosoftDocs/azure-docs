@@ -1,6 +1,6 @@
 ---
-title: Continuous access evaluation in Azure AD
-description: Responding to changes in user state faster with continuous access evaluation in Azure AD
+title: Continuous access evaluation in Microsoft Entra ID
+description: Responding to changes in user state faster with continuous access evaluation in Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # Continuous access evaluation
 
-Token expiration and refresh are a standard mechanism in the industry. When a client application like Outlook connects to a service like Exchange Online, the API requests are authorized using OAuth 2.0 access tokens. By default, access tokens are valid for one hour, when they expire the client is redirected to Azure AD to refresh them. That refresh period provides an opportunity to reevaluate policies for user access. For example: we might choose not to refresh the token because of a Conditional Access policy, or because the user has been disabled in the directory. 
+Token expiration and refresh are a standard mechanism in the industry. When a client application like Outlook connects to a service like Exchange Online, the API requests are authorized using OAuth 2.0 access tokens. By default, access tokens are valid for one hour, when they expire the client is redirected to Microsoft Entra ID to refresh them. That refresh period provides an opportunity to reevaluate policies for user access. For example: we might choose not to refresh the token because of a Conditional Access policy, or because the user has been disabled in the directory. 
 
-Customers have expressed concerns about the lag between when conditions change for a user, and when policy changes are enforced. Azure AD has experimented with the "blunt object" approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
+Customers have expressed concerns about the lag between when conditions change for a user, and when policy changes are enforced. Microsoft Entra ID has experimented with the "blunt object" approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
 
-Timely response to policy violations or security issues really requires a "conversation" between the token issuer (Azure AD), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE), an industry standard based on [Open ID Continuous Access Evaluation Profile (CAEP)](https://openid.net/specs/openid-caep-specification-1_0-01.html). The goal for critical event evaluation is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time; however, IP locations policy enforcement is instant.
+Timely response to policy violations or security issues really requires a "conversation" between the token issuer (Microsoft Entra ID), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE), an industry standard based on [Open ID Continuous Access Evaluation Profile (CAEP)](https://openid.net/specs/openid-caep-specification-1_0-01.html). The goal for critical event evaluation is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time; however, IP locations policy enforcement is instant.
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
@@ -39,13 +39,13 @@ There are two scenarios that make up continuous access evaluation, critical even
 
 ### Critical event evaluation
 
-Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it's available in any tenant. The following events are currently evaluated:
+Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Microsoft Entra events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it's available in any tenant. The following events are currently evaluated:
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
-- Multifactor Authentication is enabled for the user
+- Multifactor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- High user risk detected by Azure AD Identity Protection
+- High user risk detected by Microsoft Entra ID Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after a critical event. 
 
@@ -92,7 +92,7 @@ Continuous access evaluation is also available in Azure Government tenants (GCC 
 
 ### Client-side claim challenge
 
-Before continuous access evaluation, clients would replay the access token from its cache as long as it wasn't expired. With CAE, we introduce a new case where a resource provider can reject a token when it isn't expired. To inform clients to bypass their cache even though the cached tokens haven't expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest versions of the following applications support claim challenge:
+Before continuous access evaluation, clients would replay the access token from its cache as long as it wasn't expired. With CAE, we introduce a new case where a resource provider can reject a token when it isn't expired. To inform clients to bypass their cache even though the cached tokens haven't expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Microsoft Entra ID. CAE requires a client update to understand claim challenge. The latest versions of the following applications support claim challenge:
 
 | | Web | Win32 | iOS | Android | Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -115,12 +115,12 @@ If you aren't using CAE-capable clients, your default access token lifetime rema
 
 ![User revocation event flow](./media/concept-continuous-access-evaluation/user-revocation-event-flow.png)
 
-1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
+1. A CAE-capable client presents credentials or a refresh token to Microsoft Entra ID asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession), then a revocation event is sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession), then a revocation event is sent to the resource provider from Microsoft Entra ID.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there's any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
-1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD then reevaluates all the conditions and prompt the user to reauthenticate in this case.
+1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Microsoft Entra ID. Microsoft Entra ID then reevaluates all the conditions and prompt the user to reauthenticate in this case.
 
 ### User condition change flow
 
@@ -128,20 +128,20 @@ In the following example, a Conditional Access Administrator has configured a lo
 
 ![User condition event flow](./media/concept-continuous-access-evaluation/user-condition-change-flow.png)
 
-1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
-1. Azure AD evaluates all Conditional Access policies to see whether the user and client meet the conditions.
+1. A CAE-capable client presents credentials or a refresh token to Microsoft Entra ID asking for an access token for some resource.
+1. Microsoft Entra ID evaluates all Conditional Access policies to see whether the user and client meet the conditions.
 1. An access token is returned along with other artifacts to the client.
 1. User moves out of an allowed IP range.
 1. The client presents an access token to the resource provider from outside of an allowed IP range.
-1. The resource provider evaluates the validity of the token and checks the location policy synced from Azure AD.
+1. The resource provider evaluates the validity of the token and checks the location policy synced from Microsoft Entra ID.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client. The client is challenged because it isn't coming from an allowed IP range.
-1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD reevaluates all the conditions and denies access in this case.
+1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Microsoft Entra ID. Microsoft Entra ID reevaluates all the conditions and denies access in this case.
 
 ## Exception for IP address variations and how to turn off the exception 
 
-In step 8 above, when Azure AD reevaluates the conditions, it denies access because the new location detected by Azure AD is outside the allowed IP range. This isn't always the case. Due to [some complex network topologies](concept-continuous-access-evaluation.md#ip-address-variation-and-networks-with-ip-address-shared-or-unknown-egress-ips), the authentication request can arrive from an allowed egress IP address even after the access request received by the resource provider arrived from an IP address that isn't allowed. Under these conditions, Azure AD interprets that the client continues to be in an allowed location and should be granted access.  Therefore, Azure AD issues a one-hour token that suspends IP address checks at the resource until token expiration. Azure AD continues to enforce IP address checks. 
+In step 8 above, when Microsoft Entra ID reevaluates the conditions, it denies access because the new location detected by Microsoft Entra ID is outside the allowed IP range. This isn't always the case. Due to [some complex network topologies](concept-continuous-access-evaluation.md#ip-address-variation-and-networks-with-ip-address-shared-or-unknown-egress-ips), the authentication request can arrive from an allowed egress IP address even after the access request received by the resource provider arrived from an IP address that isn't allowed. Under these conditions, Microsoft Entra ID interprets that the client continues to be in an allowed location and should be granted access.  Therefore, Microsoft Entra ID issues a one-hour token that suspends IP address checks at the resource until token expiration. Microsoft Entra ID continues to enforce IP address checks. 
 
-Standard vs. Strict mode. The granting of access under this exception (that is, an allowed location detected between Azure AD with a disallowed location detected by the resource provider) protects user productivity by maintaining access to critical resources. This is standard location enforcement. On the other hand, Administrators who operate under stable network topologies and wish remove this exception can use [Strict Location Enforcement (Public Preview)](concept-continuous-access-evaluation-strict-enforcement.md).
+Standard vs. Strict mode. The granting of access under this exception (that is, an allowed location detected between Microsoft Entra ID with a disallowed location detected by the resource provider) protects user productivity by maintaining access to critical resources. This is standard location enforcement. On the other hand, Administrators who operate under stable network topologies and wish remove this exception can use [Strict Location Enforcement (Public Preview)](concept-continuous-access-evaluation-strict-enforcement.md).
 
 ## Enable or disable CAE
 
@@ -149,14 +149,7 @@ The CAE setting has been moved to under the Conditional Access blade. New CAE cu
 
 #### Migration
 
-Customers who have configured CAE settings under Security before have to migrate settings to a new Conditional Access policy. Use the steps that follow to migrate your CAE settings to a Conditional Access policy.
-
-:::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
-
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
-1. You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
-1. Browse to **Conditional Access** and you find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+Customers who have configured CAE settings under Security before have to migrate settings to a new Conditional Access policy.
 
 The following table describes the migration experience of each customer group based on previously configured CAE settings. 
 
@@ -173,12 +166,12 @@ More information about continuous access evaluation as a session control can be 
 
 ### Group membership and Policy update effective time
 
-Changes made to Conditional Access policies and group membership made by administrators could take up to one day to be effective. The delay is from replication between Azure AD and resource providers like Exchange Online and SharePoint Online. Some optimization has been done for policy updates, which reduce the delay to two hours. However, it doesn't cover all the scenarios yet.  
+Changes made to Conditional Access policies and group membership made by administrators could take up to one day to be effective. The delay is from replication between Microsoft Entra ID and resource providers like Exchange Online and SharePoint Online. Some optimization has been done for policy updates, which reduce the delay to two hours. However, it doesn't cover all the scenarios yet.  
 
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
 - Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession) to revoke all refresh tokens of a specified user.
-- Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies are applied immediately.
+- Select "Revoke Session" on the user profile page to revoke the user's session to ensure that the updated policies are applied immediately.
 
 ### IP address variation and networks with IP address shared or unknown egress IPs 
 
@@ -197,29 +190,29 @@ In addition to IP variations, customers also may employ network solutions and se
 - Use IP addresses that may be shared with other customers. For example, cloud-based proxy services where egress IP addresses are shared between customers.
 - Use easily varied or undefinable IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios or [split VPN](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel) and local egress network traffic.
 
-Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work and their recommended configurations. Split Tunneling may also cause unexpected blocks when an environment is configured using [Split Tunneling VPN Best Practices](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel). Routing [Optimized IPs](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel#optimize-ip-address-ranges) through a Trusted IP/VPN may be required to prevent blocks related to *insufficient_claims* or *Instant IP Enforcement check failed*.
+Networks where egress IP addresses may change frequently or are shared may affect Microsoft Entra Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work and their recommended configurations. Split Tunneling may also cause unexpected blocks when an environment is configured using [Split Tunneling VPN Best Practices](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel). Routing [Optimized IPs](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel#optimize-ip-address-ranges) through a Trusted IP/VPN may be required to prevent blocks related to *insufficient_claims* or *Instant IP Enforcement check failed*.
 
 
 The following table summarizes Conditional Access and CAE feature behaviors and recommendations for different types of network deployments: 
 
-| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable Conditional Access Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
+| Network Type | Example | IPs seen by Microsoft Entra ID | IPs seen by RP | Applicable Conditional Access Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
 |---|---|---|---|---|---|---|---|
-| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If Conditional Access Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
-| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x) into Trusted Named Location Conditional Access rules as it can weaken security |
-| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP Conditional Access policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location Conditional Access rules as it can weaken security |
+| 1. Egress IPs are dedicated and enumerable for both Microsoft Entra ID and all RPs traffic | All to network traffic to Microsoft Entra ID and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If Conditional Access Named Locations are defined, ensure that they contain all possible egress IPs (seen by Microsoft Entra ID and all RPs) |
+| 2. Egress IPs are dedicated and enumerable for Microsoft Entra ID, but not for RPs traffic | Network traffic to Microsoft Entra egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x) into Trusted Named Location Conditional Access rules as it can weaken security |
+| 3. Egress IPs are non-dedicated/shared or not enumerable for both Microsoft Entra ID and RPs traffic | Network traffic to Microsoft Entra egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP Conditional Access policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location Conditional Access rules as it can weaken security |
 
 Networks and network services used by clients connecting to identity and resource providers continue to evolve and change in response to modern trends. These changes may affect Conditional Access and CAE configurations that rely on the underlying IP addresses. When deciding on these configurations, factor in future changes in technology and upkeep of the defined list of addresses in your plan.
 
 ### Supported location policies
 
-CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ipv4-and-ipv6-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country/region-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country/region location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD issues a one-hour access token without instant IP enforcement check. 
+CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ipv4-and-ipv6-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country/region-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country/region location, CAE won't be enforced after that user moves to a different location. In those cases, Microsoft Entra ID issues a one-hour access token without instant IP enforcement check. 
 
 > [!IMPORTANT]
-> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country/region location conditions or the trusted ips feature that is available in Azure AD Multifactor Authentication's service settings page.
+> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country/region location conditions or the trusted ips feature that is available in Microsoft Entra multifactor authentication's service settings page.
 
 ### Named location limitations
 
-When the sum of all IP ranges specified in location policies exceeds 5,000, user change location flow isn't enforced by CAE in real time. In this case, Azure AD issues a one-hour CAE token. CAE continues enforcing [all other events and policies](#critical-event-evaluation) besides client location change events. With this change, you still maintain stronger security posture compared to traditional one-hour tokens, since [other events](#critical-event-evaluation) are still evaluated in near real time.
+When the sum of all IP ranges specified in location policies exceeds 5,000, user change location flow isn't enforced by CAE in real time. In this case, Microsoft Entra ID issues a one-hour CAE token. CAE continues enforcing [all other events and policies](#critical-event-evaluation) besides client location change events. With this change, you still maintain stronger security posture compared to traditional one-hour tokens, since [other events](#critical-event-evaluation) are still evaluated in near real time.
 
 ### Office and Web Account Manager settings
 

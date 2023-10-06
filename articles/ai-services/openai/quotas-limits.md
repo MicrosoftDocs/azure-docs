@@ -5,10 +5,9 @@ description: Quick reference, detailed description, and best practices on the qu
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 10/06/2023
 ms.author: mbullwin
 ---
 
@@ -23,7 +22,6 @@ The following sections provide you with a quick guide to the default quotas and 
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region per Azure subscription | 30 |
-| Default quota per model and region (in tokens-per-minute)<sup>1</sup> |Text-Davinci-003: 120 K <br> GPT-4: 20 K <br> GPT-4-32K: 60 K  <br> All others: 240 K |
 | Default DALL-E quota limits | 2 concurrent requests |
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
 | Max fine-tuned model deployments | 2 |
@@ -34,8 +32,75 @@ The following sections provide you with a quick guide to the default quotas and 
 | Total size of all files per resource | 1 GB | 
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
+| Max size of all files per upload (Azure OpenAI on your data) | 16 MB |
 
-<sup>1</sup> Default quota limits are subject to change.
+## Regional quota limits
+
+The default quota for models varies by model and region. Default quota limits are subject to change.
+
+<table>  
+  <tr>  
+    <th>Model</th>  
+    <th>Regions</th>  
+    <th>Tokens per minute</th>  
+  </tr>  
+  <tr>  
+    <td rowspan="2">gpt-35-turbo</td>  
+    <td>East US, South Central US, West Europe, France Central, UK South</td>  
+    <td>240 K</td>  
+  </tr>  
+  <tr>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
+    <td>300 K</td>  
+  </tr>  
+  <tr>  
+    <td rowspan="2">gpt-35-turbo-16k</td>  
+    <td>East US, South Central US, West Europe, France Central, UK South</td>  
+    <td>240 K</td>  
+  </tr>  
+  <tr>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
+    <td>300 K</td>  
+  </tr> 
+   <tr>  
+    <td>gpt-35-turbo-instruct</td>  
+    <td>East US, Sweden Central</td>  
+    <td>240 K</td>  
+  </tr>  
+  <tr>  
+    <td rowspan="2">gpt-4</td>  
+    <td>East US, South Central US, West Europe, France Central</td>  
+    <td>20 K</td>  
+  </tr>  
+  <tr>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Sweden Central, Switzerland North</td>  
+    <td>40 K</td>  
+  </tr>  
+  <tr>  
+    <td rowspan="2">gpt-4-32k</td>  
+    <td>East US, South Central US, West Europe, France Central</td>  
+    <td>60 K</td>  
+  </tr>  
+  <tr>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  
+    <td>80 K</td>  
+  </tr>  
+  <tr>  
+    <td rowspan="2">text-embedding-ada-002</td>  
+    <td>East US, South Central US, West Europe, France Central</td>  
+    <td>240 K</td>  
+  </tr>  
+  <tr>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Switzerland North</td>  
+    <td>350 K</td>  
+  </tr>  
+  <tr>  
+    <td>all other models</td>  
+    <td>East US, South Central US, West Europe, France Central</td>  
+    <td>120 K</td>  
+  </tr>  
+</table>  
+
 
 ### General best practices to remain within rate limits
 

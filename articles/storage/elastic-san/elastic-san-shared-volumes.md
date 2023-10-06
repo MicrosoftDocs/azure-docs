@@ -6,6 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 08/15/2023
 ms.author: rogarana
+ms.custom: references_regions
 ---
 
 # Use clustered applications on Azure Elastic SAN
@@ -22,6 +23,10 @@ When used as a shared volume, elastic SAN volumes can be shared across availabil
     - An individual client can create multiple sessions to an individual volume for increased performance. For example, if you create 32 sessions on each of your clients, only four clients could connect to a single volume.
 
 See [Support for Azure Storage features](elastic-san-introduction.md#support-for-azure-storage-features) for other limitations of Elastic SAN.
+
+## Regional availability
+
+All regions that Elastic SAN is available in can use shared volumes.
 
 ## How it works
 

@@ -183,7 +183,7 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 ---
 
 > [!TIP]
-> In this example, the pipeline doesn't have inputs or outputs. However, they can be indicated at invocation time if any. To learn more about how to indicate inputs and outputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
+> In this example, the pipeline doesn't have inputs or outputs. However, if the pipeline component requires some, they can be indicated at invocation time. To learn about how to indicate inputs and outputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md) or see the tutorial [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md).
 
 You can monitor the progress of the show and stream the logs using:
 
@@ -237,5 +237,5 @@ ml_client.compute.begin_delete(name="batch-cluster")
 - [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)
 - [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
 - [Create batch endpoints from pipeline jobs (preview)](how-to-use-batch-pipeline-from-job.md)
-- [Access data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
+- [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

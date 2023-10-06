@@ -16,7 +16,7 @@ Database protection includes:
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
 
-Defender for Databases protects four database protection plans at their own cost. You can learn more about Defender for Clouds pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
+These four database protection plans are priced separately. Get more info about Defender for Cloud's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Defender for Databases protects four database protection plans at their own cost
 
 When you enable database protection, you enable all four of the Defender plans and protect all of the supported databases on your subscription.
 
-**To enable Defender for App Service on your subscription**:
+**To enable Defender for Databases on your subscription**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -85,3 +85,4 @@ These plans protect all of the supported databases in your subscription.
 - [Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)
 - [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Overview of Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
+

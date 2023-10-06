@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: how-to
 ---
 

@@ -1,22 +1,22 @@
 ---
-title: PowerShell sample - Assign user to an Azure Active Directory Application Proxy app
-description: PowerShell example that assigns a user to an Azure Active Directory (Azure AD) Application Proxy application.
+title: PowerShell sample - Assign user to a Microsoft Entra application proxy app
+description: PowerShell example that assigns a user to a Microsoft Entra application proxy application.
 services: active-directory
 author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ms.topic: sample
 ms.date: 08/29/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Assign a user to a specific Azure Active Directory Application Proxy application
+# Assign a user to a specific Microsoft Entra application proxy application
 
-This PowerShell script example allows you to assign a user to a specific Azure AD Application Proxy application.
+This PowerShell script example allows you to assign a user to a specific Microsoft Entra application proxy application.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,7 +24,7 @@ This PowerShell script example allows you to assign a user to a specific Azure A
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
+This sample requires the [Azure Active Directory PowerShell 2.0 for Graph module](/powershell/azure/active-directory/install-adv2) or the [Azure Active Directory PowerShell 2.0 for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 
@@ -40,4 +40,4 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](/powershell/azure/active-directory/overview).
 
-For other PowerShell examples for Application Proxy, see [Azure AD PowerShell examples for Azure AD Application Proxy](../application-proxy-powershell-samples.md).
+For other PowerShell examples for Application Proxy, see [Azure AD PowerShell examples for Microsoft Entra application proxy](../application-proxy-powershell-samples.md).

@@ -3,7 +3,7 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.date: 04/13/2023
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
@@ -97,7 +97,7 @@ az aks nodepool add \
     --name $NODEPOOL_NAME \
     --max-pods 3
 ```
-For more details, see the [`--max-pods` documentation](https://learn.microsoft.com/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number).
+For more details, see the [`--max-pods` documentation](/cli/azure/aks/nodepool#az-aks-nodepool-add:~:text=for%20system%20nodepool.-,%2D%2Dmax%2Dpods%20%2Dm,-The%20maximum%20number).
 
 ## Why is there an unexpected user named "sshd" on my VM node?
 
@@ -274,7 +274,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: create-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
-[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [upgrade-node-image]: node-image-upgrade.md

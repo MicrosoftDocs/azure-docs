@@ -78,7 +78,7 @@ Open the link in a browser. The result will be similar to this example:
 
 ## Troubleshooting guide
 1. If the Azure Function extension failed to deploy the local function to the Azure cloud, it's likely due to the version of Visual Studio Code and the Azure Function extension being used having a bug. This version combination has been tested to work: Visual Studio Code version `1.68.1` and Azure Function extension version `1.2.1`.
-2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started). More specifically, the highlight note in the section "Set up application constants", and compare with the sample app of the version you are consuming.
+2. The place to initialize application constants is tricky but important. Double check the [chat Android quick-start](/azure/communication-services/quickstarts/chat/get-started). More specifically, the highlight note in the section "Set up application constants", and compare with the sample app of the version you are consuming.
 
 ## (Optional) secure the Azure Function endpoint
 For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, one option is to use your own secured endpoint to provision your own tokens.

@@ -1,7 +1,7 @@
 ---
 
-title: Azure Active Directory (Azure AD) audit activity reference
-description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
+title: Microsoft Entra audit log activity reference
+description: Get an overview of the audit activities that can be logged in your audit logs in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,28 +9,68 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/02/2022
+ms.date: 09/14/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
-ms.collection: M365-identity-device-management
 ---
-# Azure AD audit log categories and activities
+# Microsoft Entra audit log categories and activities
 
-Azure Active Directory (Azure AD) audit logs collect all traceable activities within your Azure AD tenant. Audit logs can be used to determine who made a change to service, user, group, or other item.
+Microsoft Entra audit logs collect all traceable activities within your Microsoft Entra tenant. Audit logs can be used to determine who made a change to service, user, group, or other item.
 
 This article provides a comprehensive list of the audit categories and their related activities. Use the "In this article" section to jump to a specific audit category. 
 
-Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Azure AD. Provide us feedback if you think there's a missing audit category or activity.
+Audit log activities and categories change periodically. The tables are updated regularly, but may not be in sync with what is available in Microsoft Entra ID. Provide us with feedback if you think there's a missing audit category or activity.
 
-1. Sign in to the **Azure portal** using one of the [required roles](concept-audit-logs.md#how-do-i-access-it).
-1. Browse to **Azure Active Directory** > **Audit logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**.
 1. Adjust the filters accordingly.
 1. Select a row from the resulting table to view the details.
 
+<a name='aad-management-ux'></a>
+
+## Microsoft Entra Management UX
+
+|Audit Category|Activity|
+|---|---|
+|AdministrativeUnit|Bulk add members to administrative unit - finished (bulk)|
+|AdministrativeUnit|Bulk remove members to administrative unit - finished (bulk)|
+|AdministrativeUnit|started (bulk)|
+|DeviceManagement|Bulk add authentication devices - finished (bulk)|
+|DeviceManagement|Download devices - finished (bulk)|
+|DeviceManagement|started (bulk)|
+|DirectoryManagement|Bulk download hardware tokens - finished (bulk)|
+|DirectoryManagement|Download registration and reset events - finished (bulk)|
+|DirectoryManagement|Download role assignments - finished (bulk)|
+|DirectoryManagement|Download service principals - finished (bulk)|
+|DirectoryManagement|Download user registration details - finished (bulk)|
+|DirectoryManagement|Download users - finished (bulk)|
+|DirectoryManagement|Export summary data - finished (bulk)|
+|DirectoryManagement|Export summary data new - finished (bulk)|
+|DirectoryManagement|started (bulk)|
+|GroupManagement|Bulk import group members - finished (bulk)|
+|GroupManagement|Bulk remove group members - finished (bulk)|
+|GroupManagement|Download group members - finished (bulk)|
+|GroupManagement|Download groups - finished (bulk)|
+|GroupManagement|started (bulk)|
+|Policy|Add blocked user|
+|Policy|Add bypass user|
+|Policy|Clear block on user|
+|Policy|Remove bypassed user|
+|Policy|Update Sign-In Risk Policy|
+|Policy|Update User RIsk and MFA Registration Policy|
+|UserManagement|Bulk create users - finished (bulk)|
+|UserManagement|Bulk delete users - finished (bulk)|
+|UserManagement|Bulk invite users - finished (bulk)|
+|UserManagement|Bulk restore deleted users - finished (bulk)|
+|UserManagement|Download users - finished (bulk)|
+|UserManagement|Bulk create users - finished (bulk)|
+|UserManagement|started (bulk)|
+
+
 ## Access reviews
 
-With [Azure AD Identity Governance access reviews](../governance/manage-user-access-with-access-reviews.md), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
+With [Microsoft Entra ID Governance access reviews](../governance/manage-user-access-with-access-reviews.md), you can ensure users have the appropriate access. Access review audit logs can tell you who initiated or ended an access review. These logs can also tell you if any access review settings were changed.
 
 |Audit Category|Activity|
 |---|---|
@@ -74,7 +114,7 @@ With [Azure AD Identity Governance access reviews](../governance/manage-user-acc
 
 ## Account provisioning
 
-Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category in the logs.
+Each time an account is provisioned in your Microsoft Entra tenant, a log for that account is captured. Automated provisioning, such as with [Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), is found in this log. The Account provisioning service only has one audit category in the logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -115,7 +155,7 @@ If you're utilizing [Application Proxy](../app-proxy/what-is-application-proxy.m
 |DirectoryManagement|Enable Desktop Sso|
 |DirectoryManagement|Enable Desktop Sso for a specific domain|
 |DirectoryManagement|Enable application proxy|
-|DirectoryManagement|Enable passthrough authentication
+|DirectoryManagement|Enable passthrough authentication|
 |ResourceManagement|Add connector Group|
 |ResourceManagement|Add a Connector to Connector Group|
 |ResourceManagement|Add application SSL certificate|
@@ -126,7 +166,7 @@ If you're utilizing [Application Proxy](../app-proxy/what-is-application-proxy.m
 
 ## Authentication Methods
 
-The Audit logs for Authentication Methods can be used to make sure that your users have registered their mobile device properly to enable multi-factor authentication (MFA).
+The Audit logs for Authentication Methods can be used to make sure that your users have registered their mobile device properly to enable multifactor authentication.
 
 |Audit Category|Activity|
 |---|---|
@@ -179,9 +219,11 @@ The Audit logs for Authentication Methods can be used to make sure that your use
 |UserManagement|user started password reset|
 |UserManagement|User started security info registration|
 
-## Azure AD Recommendations
+<a name='azure-ad-recommendations'></a>
 
-[Azure AD Recommendations](overview-recommendations.md) monitors your Azure AD tenant and provides personalized insights and actionable guidance to implement best practices for Azure AD features and optimize your tenant configurations. These logs provide a history of the changes made to the status of a recommendation.
+## Microsoft Entra Recommendations
+
+[Microsoft Entra Recommendations](overview-recommendations.md) monitors your Microsoft Entra tenant and provides personalized insights and actionable guidance to implement best practices for Microsoft Entra features and optimize your tenant configurations. These logs provide a history of the changes made to the status of a recommendation.
 
 |Audit Category|Activity|
 |---|---|
@@ -189,9 +231,11 @@ The Audit logs for Authentication Methods can be used to make sure that your use
 |DirectoryManagement|Mark recommendation as complete|
 |DirectoryManagement|Postpone recommendation|
 
-## Azure AD MFA (Azure MFA)
+<a name='azure-ad-mfa-azure-mfa'></a>
 
-The Azure AD MFA audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Azure AD sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
+## Microsoft Entra multifactor authentication (Azure MFA)
+
+The Microsoft Entra multifactor authentication audit logs can help you track trends in suspicious activity or when fraud was reported. Use the [Microsoft Entra sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns) to see each time a user signs in when MFA is required.
 
 |Audit Category|Activity|
 |---|---|
@@ -199,6 +243,12 @@ The Azure AD MFA audit logs can help you track trends in suspicious activity or 
 |UserManagement|Fraud reported - user is blocked for MFA|
 |UserManagement|Suspicious activity reported|
 |UserManagement|User registered security info|
+
+## B2B Auth
+
+|Audit Category|Activity|
+|---|---|
+|UserManagement|Redeem extern user invite|
 
 ## B2C
 
@@ -219,7 +269,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |ApplicationManagement|Retrieve V2 application service principals|
 |ApplicationManagement|Update V2 application|
 |ApplicationManagement|Update V2 application permission grant|
-|Authentication|A self-service sign up request was completed|
+|Authentication|A self-service sign-up request was completed|
 |Authentication|An API was called as part of a user flow|
 |Authentication|Delete all available strong authentication devices|
 |Authentication|Evaluate Conditional Access policies|
@@ -311,7 +361,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |Authorization|Get custom policy|
 |Authorization|Get custom policy metadata|
 |Authorization|Get customAuthenticationExtension|
-|Authorization|Get customAuthenticationExtensions
+|Authorization|Get customAuthenticationExtensions|
 |Authorization|Get identity provider|
 |Authorization|Get identity provider types|
 |Authorization|Get identity providers|
@@ -351,7 +401,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |Authorization|Update a CIAM directory resource|
 |Authorization|Update a Guest Usages resource|
 |Authorization|Update age gating configuration|
-|Authorization|Update authentication flows policy
+|Authorization|Update authentication flows policy|
 |Authorization|Update authenticationEventListener|
 |Authorization|Update authenticationEventsFlow|
 |Authorization|Update authenticationEventsPolicy|
@@ -683,6 +733,25 @@ Logs captured in the Core Directory service cover a wide variety of scenarios. C
 |Label|Add label|
 |Label|Delete label|
 |Label|Update label|
+|MicrosoftSupportAccessManagement|Approval approved|
+|MicrosoftSupportAccessManagement|Approval removed|
+|MicrosoftSupportAccessManagement|Request approved|
+|MicrosoftSupportAccessManagement|Request canceled|
+|MicrosoftSupportAccessManagement|Request created|
+|MicrosoftSupportAccessManagement|Request created|
+|MicrosoftSupportAccessManagement|Request rejected|
+|MultiTenantOrg|Create a MultiTenantOrg|
+|MultiTenantOrg|Hard Delete MultiTenantOrg|
+|MultiTenantOrg|Update a MultiTenantOrg|
+|MultiTenantOrgIdentitySyncPolicyUpdate|Reset a multi tenant org identity sync policy template|
+|MultiTenantOrgIdentitySyncPolicyUpdate|Update a multi tenant org identity sync policy template|
+|MultiTenantOrgPartnerConfigurationTemplate|Reset a multi tenant org partner configuration template|
+|MultiTenantOrgPartnerConfigurationTemplate|Update a multi tenant org partner configuration template|
+|MultiTenantOrgTenant|Add MultiTenantOrg tenant|
+|MultiTenantOrgTenant|Delete MultiTenantOrg tenant|
+|MultiTenantOrgTenant|Hard Delete MultiTenantOrg tenant|
+|MultiTenantOrgTenant|Tenant joining MultiTenantOrg tenant|
+|MultiTenantOrgTenant|Update MultiTenantOrg tenant|
 |PendingExternalUserProfile|Create PendingExternalUserProfile|
 |PendingExternalUserProfile|Delete PendingExternalUserProfile|
 |PendingExternalUserProfile|Hard Delete PendingExternalUserProfile|
@@ -718,6 +787,7 @@ Logs captured in the Core Directory service cover a wide variety of scenarios. C
 |RoleManagement|Remove scoped member from role|
 |RoleManagement|Update role|
 |RoleManagement|Update role definition|
+|SourceOfAuthorityPolicy|Add SOA policy|
 |UserManagement|Add a deletion-marked app role assignment grant to group as part of link removal|
 |UserManagement|Add app role assignment to group|
 |UserManagement|Add user|
@@ -746,7 +816,7 @@ Logs captured in the Core Directory service cover a wide variety of scenarios. C
 
 ## Device Registration Service
 
-If you need to manage [Azure AD and Hybrid Azure AD joined devices](../devices/overview.md), use the logs captured in the Device Registration Service to review changes to devices.
+If you need to manage [Microsoft Entra ID and Microsoft Entra hybrid joined devices](../devices/overview.md), use the logs captured in the Device Registration Service to review changes to devices.
 
 |Audit Category|Activity|
 |---|---|
@@ -763,13 +833,15 @@ If you need to manage [Azure AD and Hybrid Azure AD joined devices](../devices/o
 |UserManagement|Add FIDO2 security key|
 |UserManagement|Add Windows Hello for Business credential|
 |UserManagement|Add passwordless phone sign-in credential|
-|UserManagement|Delete FIDO2 security key|
+|UserManagement|Add platform credential|
+|UserManagement|Delete FIDO2 security key(s)|
 |UserManagement|Delete Windows Hello for Business credential|
 |UserManagement|Delete passwordless phone sign-in credential|
+|UserManagement|Delete platform credential|
 
 ## Entitlement Management
 
-If you're using Entitlement Management to streamline how you assign members of Azure AD security groups, grant licenses for Microsoft 365, or provide access to applications, you can use these logs to monitor changes to those settings. [Access reviews](#access-reviews) and [Lifecycle workflows](#lifecycle-workflows) have separate logs.
+If you're using Entitlement Management to streamline how you assign members of Microsoft Entra security groups, grant licenses for Microsoft 365, or provide access to applications, you can use these logs to monitor changes to those settings. [Access reviews](#access-reviews) and [Lifecycle workflows](#lifecycle-workflows) have separate logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -831,6 +903,29 @@ If you're using Entitlement Management to streamline how you assign members of A
 |EntitlementManagement|User requests to extend access package assignment|
 |EntitlementManagement|User requests to remove access package assignment|
 
+## Global Secure Access (preview)
+
+If you're using Microsoft Entra Internet Access or Microsoft Entra Private Access to acquire and secure network traffic to your corporate resources, these logs can help identify when changes were made to your network policies. These logs capture changes to traffic forwarding policies and remote networks, such as branch office locations. For more information, see [What is Global Secure Access](../../global-secure-access/overview-what-is-global-secure-access.md).
+
+|Audit Category|Activity|
+|---|---|
+|ObjectManagement|Onboarding Process Started|
+|ObjectManagement|Update Adaptive Access Policy|
+|ObjectManagement|Update Enriched Audit Logs Settings|
+|PolicyManagement|Create Branch|
+|PolicyManagement|Create Filtering Policy|
+|PolicyManagement|Create Filtering Policy Profile|
+|PolicyManagement|Delete Filtering Policy|
+|PolicyManagement|Delete Filtering Policy Profile|
+|PolicyManagement|Create Forwarding Policy|
+|PolicyManagement|Update Branch|
+|PolicyManagement|Update Filtering Policy|
+|PolicyManagement|Update Filtering Policy Profile|
+|PolicyManagement|Update Filtering Profile|
+|PolicyManagement|Update Forwarding Options Policy|
+|PolicyManagement|Update Forwarding Policy|
+|PolicyManagement|Update Forwarding Profile|
+
 ## Hybrid Authentication
 
 |Audit Category|Activity|
@@ -842,6 +937,7 @@ If you're using Entitlement Management to streamline how you assign members of A
 
 |Audit Category|Activity|
 |---|---|
+|IdentityProtection|Update IdentityProtectionPolicy|
 |IdentityProtection|Update NotificationSettings|
 |Other|ConfirmAccountCompromised|
 |Other|ConfirmCompromised|
@@ -937,7 +1033,7 @@ Use the [MyApps](../manage-apps/myapps-overview.md) audit logs to identify when 
 
 ## Privileged Identity Management (PIM)
 
-Many of the activities captured in the PIM audit logs are similar, so take note of details like *renew*, *timebound*, and *permanent*. PIM activities can generate many logs in a 24 hour period, so utilize the filters to narrow things down. For more information on the audit capabilities within the PIM service, see [View audit history for Azure AD roles in PIM](../privileged-identity-management/pim-how-to-use-audit-log.md)
+Many of the activities captured in the PIM audit logs are similar, so take note of details like *renew*, *timebound*, and *permanent*. PIM activities can generate many logs in a 24 hour period, so utilize the filters to narrow things down. For more information on the audit capabilities within the PIM service, see [View audit history for Microsoft Entra roles in PIM](../privileged-identity-management/pim-how-to-use-audit-log.md)
 
 |Audit Category|Activity|
 |---|---|
@@ -945,7 +1041,10 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |ApplicationManagement|Add member to role in PIM completed (timebound)|
 |ApplicationManagement|Add member to role in PIM requested (timebound)|
 |ApplicationManagement|Approve request - direct role assignment|
+|ApplicationManagement|PIM activation request expired|
+|ApplicationManagement|PIM policy removed|
 |ApplicationManagement|Remove member from role in PIM completed (timebound)|
+|ApplicationManagement|Remove request|
 |ApplicationManagement|Role definition created|
 |ApplicationManagement|Update role setting in PIM|
 |GroupManagement|Add eligible member to role in PIM canceled (renew)|
@@ -969,10 +1068,13 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |GroupManagement|Add member to role request approved (PIM activation)|
 |GroupManagement|Add member to role request denied (PIM activation)|
 |GroupManagement|Add member to role requested (PIM activation)|
+|GroupManagement|Cancel request|
+|GroupManagement|Cancel request for role removal|
 |GroupManagement|Cancel request for role update|
 |GroupManagement|Offboarded resource from PIM|
 |GroupManagement|Onboarded resource to PIM|
 |GroupManagement|PIM activation request expired|
+|GroupManagement|PIM policy removed|
 |GroupManagement|Process request|
 |GroupManagement|Process role removal request|
 |GroupManagement|Remove eligible member from role in PIM completed (permanent)|
@@ -988,6 +1090,12 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |GroupManagement|Remove member from role requested (PIM deactivate)|
 |GroupManagement|Remove permanent direct role assignment|
 |GroupManagement|Remove permanent eligible role assignment|
+|GroupManagement|Remove request|
+|GroupManagement|Resource updated|
+|GroupManagement|Restore eligible member from role in PIM comleted|
+|GroupManagement|Restore member from role|
+|GroupManagement|Restore member from role in PIM completed|
+|GroupManagement|Restore permanent direct role assignment|
 |GroupManagement|Update eligible member in PIM canceled (extend)|
 |GroupManagement|Update eligible member in PIM requested (extend)|
 |GroupManagement|Update member in PIM approved by admin (extend/renew)|
@@ -1018,6 +1126,7 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |ResourceManagement|Add member to role request denied (PIM activation)|
 |ResourceManagement|Add member to role requested (PIM activation)|
 |ResourceManagement|Cancel request|
+|ResourceManagement|Cancel request for role removal|
 |ResourceManagement|Cancel request for role update|
 |ResourceManagement|Deactivate PIM alert|
 |ResourceManagement|Disable PIM alert|
@@ -1025,6 +1134,7 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |ResourceManagement|Offboarded resource from PIM|
 |ResourceManagement|Onboarded resource from PIM|
 |ResourceManagement|PIM activation request expired|
+|ResourceManagement|PIM policy removed|
 |ResourceManagement|Process request|
 |ResourceManagement|Process role removal request|
 |ResourceManagement|Process role update request|
@@ -1041,7 +1151,14 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |ResourceManagement|Remove member from role requested (PIM deactivate)|
 |ResourceManagement|Remove permanent direct role assignment|
 |ResourceManagement|Remove permanent eligible role assignment|
+|ResourceManagement|Remove request|
 |ResourceManagement|Resolve PIM alert|
+|ResourceManagement|Resource updated|
+|ResourceManagement|Restore eligible member from role in PIM completed|
+|ResourceManagement|Restore member from role|
+|ResourceManagement|Restore member from role in PIM completed|
+|ResourceManagement|Restore permanent direct role assignment|
+|ResourceManagement|Restore permanent eligible role assignment|
 |ResourceManagement|Tenant offboarded from PIM|
 |ResourceManagement|Triggered PIM alert|
 |ResourceManagement|Update eligible member in PIM canceled (extend)|
@@ -1073,7 +1190,7 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |RoleManagement|Add member to role request approved (PIM activation)|
 |RoleManagement|Add member to role request denied (PIM activation)|
 |RoleManagement|Add member to role requested (PIM activation)|
-|RoleManagement|Cancel request|
+|RoleManagement|Cancel request for role removal|
 |RoleManagement|Cancel request for role update|
 |RoleManagement|Deactivate PIM alert|
 |RoleManagement|Disable PIM alert|
@@ -1081,6 +1198,7 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |RoleManagement|Offboarded resource from PIM|
 |RoleManagement|Onboarded resource from PIM|
 |RoleManagement|PIM activation request expired|
+|RoleManagement|PIM policy removed|
 |RoleManagement|Process request|
 |RoleManagement|Process role removal request|
 |RoleManagement|Process role update request|
@@ -1098,7 +1216,13 @@ Many of the activities captured in the PIM audit logs are similar, so take note 
 |RoleManagement|Remove member from role requested (PIM deactivate)|
 |RoleManagement|Remove permanent direct role assignment|
 |RoleManagement|Remove permanent eligible role assignment|
+|RoleManagement|Remove request|
 |RoleManagement|Resolve PIM alert|
+|RoleManagement|Restore eligible member from role in PIM completed|
+|RoleManagement|Restore member from role|
+|RoleManagement|Restore member from role in PIM completed|
+|RoleManagement|Restore permanent direct role assignment|
+|RoleManagement|Restore permanent eligible role assignment|
 |RoleManagement|Tenant offboarded from PIM|
 |RoleManagement|Triggered PIM alert|
 |RoleManagement|Update PIM alert setting|
@@ -1116,17 +1240,68 @@ Users in your tenant can manage many aspects of their group memberships on their
 
 |Audit Category|Activity|
 |---|---|
+|GroupManagement|ApprovalNotification_Create
+|
+|GroupManagement|Autorenew group|
+|GroupManagement|Approval_Act|
+|GroupManagement|Approval_Get|
+|GroupManagement|Approval_GetAll|
+|GroupManagement|Approvals_ActOnApproval|
+|GroupManagement|Approvals_Post|
 |GroupManagement|Approve a pending request to join a group|
 |GroupManagement|Autorenew group|
 |GroupManagement|Cancel a pending request to join a group|
 |GroupManagement|Create lifecycle management policy|
 |GroupManagement|Delete a pending request to join a group|
 |GroupManagement|Delete lifecycle management policy|
+|GroupManagement|Device_Create|
+|GroupManagement|Device_Delete|
+|GroupManagement|Device_Get|
+|GroupManagement|Device_GetAll|
+|GroupManagement|Features_GetFeaturesAsync|
+|GroupManagement|Features_IsFeatureEnabledAsync|
+|GroupManagement|Features_UpdateFeaturesAsync|
+|GroupManagement|GroupLifecyclePolicies_Get|
+|GroupManagement|GroupLifecyclePolicies_addGroup|
+|GroupManagement|GroupLifecyclePolicies_removeGroup|
+|GroupManagement|Group_AddMember|
+|GroupManagement|Group_AddOwner|
+|GroupManagement|Group_BatchValidateDynamicMembership|
+|GroupManagement|Group_Create|
+|GroupManagement|Group_Delete|
+|GroupManagement|Group_Get|
+|GroupManagement|Group_GetAll|
+|GroupManagement|Group_GetDynamicGroupProperties|
+|GroupManagement|Group_GetDynamicMembershipDeviceAttributes|
+|GroupManagement|Group_GetDynamicMembershipOperators|
+|GroupManagement|Group_GetDynamicMembershipUserBaseAttributes|
+|GroupManagement|Group_GetExpiryNotificationDate|
+|GroupManagement|Group_GetMembers|
+|GroupManagement|Group_GetOwners|
+|GroupManagement|Group_RemoveMember|
+|GroupManagement|Group_RemoveOwner|
+|GroupManagement|Group_Restore|
+|GroupManagement|Group_Update|
+|GroupManagement|Group_ValidateDynamicMembership|
+|GroupManagement|GroupsODataV4_Get|
+|GroupManagement|GroupsODataV4_GetgroupLifecyclePolicies|
+|GroupManagement|GroupsODataV4_evaluateDynamicMembership|
+|GroupManagement|Groups_CreateLink|
+|GroupManagement|Groups_Get|
+|GroupManagement|LcmPolicy_Get|
+|GroupManagement|LcmPolicy_RenewGroup|
 |GroupManagement|Reject a pending request to join a group|
 |GroupManagement|Renew group|
 |GroupManagement|Request to join a group|
-|GroupManagement|Set dynamic group properties|
+|GroupManagement|Settings_GetSettingsAsync|
 |GroupManagement|Update lifecycle management policy|
+|GroupManagement|User_Create|
+|GroupManagement|User_Delete|
+|GroupManagement|User_Get|
+|GroupManagement|User_GetAll|
+|GroupManagement|User_GetMemberOf|
+|GroupManagement|User_GetOwnedObjects|
+|Other|ApprovalNotification_Create|
 |UserManagement|Updated ConvergedUXV2 feature value|
 |UserManagement|Updated MyApps feature value|
 |UserManagement|Update MyStaff feature value|
@@ -1149,8 +1324,6 @@ The Self-service password management logs provide insight into changes made to p
 |UserManagement|Security info saved for self-service password reset|
 |UserManagement|Self-service password reset flow activity progress|
 |UserManagement|Unlock user account (self-service)|
-|UserManagement|User completed security info registration for self-service password reset|
-|UserManagement|User started security info registration for self-service password reset|
 
 ## Terms of use
 
@@ -1162,9 +1335,31 @@ The Self-service password management logs provide insight into changes made to p
 |Policy|Delete Consent|
 |Policy|Delete Terms Of Use|
 |Policy|Edit Terms Of Use|
+|Policy|Publish Terms Of Use|
+
+## Verified ID
+
+|Audit Category|Activity|
+|---|---|
+|ResourceManagement|Create authority|
+|ResourceManagement|Create contract|
+|ResourceManagement|Create issuance policy|
+|ResourceManagement|Delete issuance policy|
+|ResourceManagement|Process POST /authorities/:issuerId/didInfo/signingKeys/rotate request|
+|ResourceManagement|Process POST /authorities/:issuerId/didInfo/signingKeys/synchronizeWithDidDocument request|
+|ResourceManagement|Revoke credential|
+|ResourceManagement|Rotate signing key|
+|ResourceManagement|Tenant onboarding|
+|ResourceManagement|Tenant opt-out|
+|ResourceManagement|Update MyAccount settings|
+|ResourceManagement|Update authority|
+|ResourceManagement|Update contract|
+|ResourceManagement|Update issuance policy|
+|ResourceManagement|Update linked domains|
+
 
 ## Next steps
 
-- [Azure AD reports overview](overview-reports.md).
+- [Microsoft Entra monitoring and health overview](overview-monitoring-health.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)
+- [Programmatic access to Microsoft Entra ID reports](./howto-configure-prerequisites-for-reporting-api.md)

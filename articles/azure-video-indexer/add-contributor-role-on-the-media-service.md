@@ -1,13 +1,16 @@
 ---
 title: Add Contributor role on the Media Services account
 description: This topic explains how to add contributor role on the Media Services account.
-ms.author: itnorman
 ms.topic: how-to
 ms.date: 10/13/2021
 ms.custom: ignite-fall-2021
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
 # Add contributor role to Media Services
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article describes how to assign contributor role on the Media Services account.
 

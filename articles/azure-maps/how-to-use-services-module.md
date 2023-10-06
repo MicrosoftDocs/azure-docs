@@ -2,8 +2,8 @@
 title: Use the Azure Maps Services module
 titleSuffix:  Microsoft Azure Maps
 description: Learn about the Azure Maps services module. See how to load and use this helper library to access Azure Maps REST services in web or Node.js applications.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/26/2023
 ms.topic: how-to
 ms.service: azure-maps

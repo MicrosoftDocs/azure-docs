@@ -22,6 +22,8 @@ You use a workflow that features three branches: main, dev, and test.
 
 This workflow is a small example for the purposes of this tutorial. Real world workflows may be more complex.
 
+Before beginning this tutorial, you can familiarize yourself with Deployment Environments resources and concepts by reviewing [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

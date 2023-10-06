@@ -66,12 +66,12 @@ Follow these steps to create a new console application and install the Speech SD
         std::promise<void> recognitionEnd;
 
         // Subscribes to events.
-        conversationTranscriber->Transcribing.Connect([](const SpeechRecognitionEventArgs& e)
+        conversationTranscriber->Transcribing.Connect([](const ConversationTranscriptionEventArgs& e)
             {
                 std::cout << "TRANSCRIBING:" << e.Result->Text << std::endl;
             });
 
-        conversationTranscriber->Transcribed.Connect([](const SpeechRecognitionEventArgs& e)
+        conversationTranscriber->Transcribed.Connect([](const ConversationTranscriptionEventArgs& e)
             {
                 if (e.Result->Reason == ResultReason::RecognizedSpeech)
                 {
@@ -84,7 +84,7 @@ Follow these steps to create a new console application and install the Speech SD
                 }
             });
 
-        conversationTranscriber->Canceled.Connect([&recognitionEnd](const SpeechRecognitionCanceledEventArgs& e)
+        conversationTranscriber->Canceled.Connect([&recognitionEnd](const ConversationTranscriptionCanceledEventArgs& e)
             {
                 auto cancellation = CancellationDetails::FromResult(e.Result);
                 std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
@@ -143,7 +143,7 @@ Follow these steps to create a new console application and install the Speech SD
 [Build and run](/cpp/build/vscpp-step-2-build) your application to start conversation transcription:
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 The transcribed conversation should be output as text: 
 

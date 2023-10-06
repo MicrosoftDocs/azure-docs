@@ -5,8 +5,7 @@ description: Best practices for using the Anomaly Detector Multivariate API's to
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: best-practice
 ms.date: 06/07/2022
 ms.custom: cogserv-non-critical-anomaly-detector

@@ -5,8 +5,7 @@ description: An overview of the features, capabilities, and restrictions for aud
 services: cognitive-services
 author: hasyashah
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: hasshah

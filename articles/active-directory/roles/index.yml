@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
-title: Azure AD roles documentation
-summary: Azure AD role-based access control manages access to Azure AD resources. Create custom roles, assign roles that use administrative units to restrict scope of control, assign application access to groups or users, manage eligibility with Privileged Identity Management (PIM), or delegate permissions to distribute identity management tasks. 
+title: Microsoft Entra roles documentation
+summary: Microsoft Entra role-based access control manages access to Microsoft Entra resources. Create custom roles, assign roles that use administrative units to restrict scope of control, assign application access to groups or users, manage eligibility with Privileged Identity Management (PIM), or delegate permissions to distribute identity management tasks. 
 
 
 metadata:
-  title: Azure Active Directory roles documentation
-  description: Learn how to use Azure AD roles to manage access in your organization.
+  title: Microsoft Entra roles documentation
+  description: Learn how to use Microsoft Entra roles to manage access in your organization.
   services: active-directory
   ms.service: active-directory
   ms.subservice: roles
@@ -21,15 +21,15 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure AD roles
+  - title: About Microsoft Entra roles
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD RBAC?
+          - text: What is Microsoft Entra RBAC?
             url: custom-overview.md
       - linkListType: concept
         links:
-          - text: Understand Azure AD roles
+          - text: Understand Microsoft Entra roles
             url: concept-understand-roles.md
           - text: Understand administrative units
             url: administrative-units.md

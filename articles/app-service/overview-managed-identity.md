@@ -5,7 +5,9 @@ description: Learn how managed identities work in Azure App Service and Azure Fu
 ms.topic: article
 ms.date: 06/27/2023
 ms.reviewer: yevbronsh,mahender
-ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # How to use managed identities for App Service and Azure Functions

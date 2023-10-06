@@ -3,8 +3,7 @@ title: Metrics Advisor anomaly notification e-mails with Azure Logic Apps
 description: Learn how to automate sending e-mail alerts in response to Metric Advisor anomalies
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: tutorial 
 ms.date: 05/20/2021
 ---
@@ -64,7 +63,7 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 <!-- Introduction paragraph -->
 There are two common options to send email notifications that are supported in Metrics Advisor. One is to use webhooks and Azure Logic Apps to send email alerts, the other is to set up an SMTP server and use it to send email alerts directly. This section will focus on the first option, which is easier for customers who don't have an available SMTP server.
 
-**Step 1.** Create a webhook in Metrics Advisor
+**Step 1:** Create a webhook in Metrics Advisor
 
 A webhook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided API when an alert is triggered. All alerts can be sent through a webhook.
 
@@ -73,12 +72,12 @@ Select the **Hooks** tab in your Metrics Advisor workspace, and select the **Cre
 There's one extra parameter of **Endpoint** that needs to be filled out, this could be done after completing Step 3 below. 
 
 
-**Step 2.** Create a Consumption logic app resource
+**Step 2:** Create a Consumption logic app resource
 
 In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource with a blank workflow by following the instructions in [Create an example Consumption logic app workflow](../../../logic-apps/quickstart-create-example-consumption-workflow.md). When you see the workflow designer opens, return to this tutorial.
 
 
-**Step 3.** Add a trigger of **When an HTTP request is received**
+**Step 3:** Add a trigger of **When an HTTP request is received**
 
 - Azure Logic Apps uses various actions to trigger workflows that are defined. For this use case, it uses the trigger named **When an HTTP request is received**. 
 
@@ -143,7 +142,7 @@ In the [Azure portal](https://portal.azure.com), create a Consumption logic app 
 
     ![Screenshot that highlights the copy icon to copy the URL of your HTTP request trigger.](../media/tutorial/logic-apps-copy-url.png)
 
-**Step 4.** Add a next step using 'HTTP' action
+**Step 4:** Add a next step using 'HTTP' action
 
 Signals that are pushed through the webhook only contain limited information like timestamp, alertID, configurationID, etc. Detailed information needs to be queried using the callback URL provided in the signal. This step is to query detailed alert info.  
 
@@ -154,7 +153,7 @@ Signals that are pushed through the webhook only contain limited information lik
 
     ![Screenshot that highlights the api-keys](../media/tutorial/logic-apps-api-key.png)
 
-**Step 5.** Add a next step to ‘parse JSON’ 
+**Step 5:** Add a next step to ‘parse JSON’ 
 
 You need to parse the response of the API for easier formatting of email content. 
  
@@ -236,7 +235,7 @@ You need to parse the response of the API for easier formatting of email content
 }
 ```
 
-**Step 6.** Add a next step to ‘create HTML table’
+**Step 6:** Add a next step to ‘create HTML table’
 
 A bunch of information has been returned from the API call, however, depending on your scenarios not all of the information may be useful. Choose the items that you care about and would like included in the alert email. 
 
@@ -244,7 +243,7 @@ Below is an example of an HTML table that chooses 'timestamp', 'metricGUID' and 
 
 ![Screenshot of html table example](../media/tutorial/logic-apps-html-table.png)
 
-**Step 7.** Add the final step to ‘send an email’
+**Step 7:** Add the final step to ‘send an email’
 
 There are several options to send email, both Microsoft hosted and 3rd-party offerings. Customer may need to have a tenant/account for their chosen option. For example, when choosing ‘Office 365 Outlook’ as the server. Sign in process will be pumped for building connection and authorization. An API connection will be established to use email server to send alert. 
 
@@ -257,7 +256,7 @@ Fill in the content that you'd like to include to 'Body', 'Subject' in the email
 ### Send anomaly notification through a Microsoft Teams channel
 This section will walk through the practice of sending anomaly notifications through a Microsoft Teams channel. This can help enable scenarios where team members are collaborating on analyzing anomalies that are detected by Metrics Advisor. The workflow is easy to configure and doesn't have a large number of prerequisites. 
 
-**Step 1.** Add a 'Incoming Webhook' connector to your Teams channel
+**Step 1:** Add a 'Incoming Webhook' connector to your Teams channel
 
 - Navigate to the Teams channel that you'd like to send notification to, select '•••'(More options). 
 - In the dropdown list, select 'Connectors'. Within the new dialog, search for 'Incoming Webhook' and click 'Add'.
@@ -272,7 +271,7 @@ This section will walk through the practice of sending anomaly notifications thr
 
     ![Screenshot to copy URL](../media/tutorial/webhook-url.png) 
 
-**Step 2.** Create a new 'Teams hook' in Metrics Advisor
+**Step 2:** Create a new 'Teams hook' in Metrics Advisor
 
 - Select 'Hooks' tab in left navigation bar, and select the 'Create hook' button at top right of the page. 
 - Choose hook type of 'Teams', then input a name and paste the URL that you copied from the above step. 
@@ -280,7 +279,7 @@ This section will walk through the practice of sending anomaly notifications thr
 
     ![Screenshot to create a Teams hook](../media/tutorial/teams-hook.png) 
 
-**Step 3.** Apply the Teams hook to an alert configuration
+**Step 3:** Apply the Teams hook to an alert configuration
 
 Go and select one of the data feeds that you have onboarded. Select a metric within the feed and open the metrics detail page. You can create an 'alerting configuration' to subscribe to anomalies that are detected and notify through a Teams channel. 
 
@@ -295,7 +294,7 @@ Select the '+' button and choose the hook that you created, fill in other fields
 
 This section will share the practice of using an SMTP server to send email notifications on anomalies that are detected. Make sure you have a usable SMTP server and have sufficient permission to get parameters like account name and password.
 
-**Step 1.** Assign your account as the 'Cognitive Services Metrics Advisor Administrator' role
+**Step 1:** Assign your account as the 'Cognitive Services Metrics Advisor Administrator' role
 
 - A user with the subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that was created in the Azure portal, and select the Access control (IAM) tab.
 - Select 'Add role assignments'.
@@ -304,7 +303,7 @@ This section will share the practice of using an SMTP server to send email notif
 
 ![Screenshot that shows how to assign admin role to a specific role](../media/tutorial/access-control.png)
 
-**Step 2.** Configure SMTP server in Metrics Advisor workspace
+**Step 2:** Configure SMTP server in Metrics Advisor workspace
 
 After you've completed the above steps and have been successfully added as an administrator of the Metrics Advisor resource. Wait several minutes for the permissions to propagate. Then sign in to your Metrics Advisor workspace, you should be able to view a new tab named 'Email setting' on the left navigation panel. Select it and to continue configuration. 
 
@@ -320,11 +319,11 @@ Below is an example of a configured SMTP server:
 
 ![Screenshot that shows an example of a configured SMTP server](../media/tutorial/email-setting.png)
 
-**Step 3.** Create an email hook in Metrics Advisor
+**Step 3:** Create an email hook in Metrics Advisor
 
 After successfully configuring an SMTP server, you're set to create an 'email hook' in the 'Hooks' tab in Metrics Advisor. For more about creating an 'email hook', refer to [article on alerts](../how-tos/alerts.md#email-hook) and follow the steps to completion.
 
-**Step 4.** Apply the email hook to an alert configuration
+**Step 4:** Apply the email hook to an alert configuration
 
  Go and select one of the data feeds that you on-boarded, select a metric within the feed  and open the metrics detail page. You can create an 'alerting configuration' to subscribe to the anomalies that have been detected and sent through emails. 
 

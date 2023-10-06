@@ -16,7 +16,7 @@ You have the flexibility to choose between managed modem or virtual RF functiona
 
 ### Prerequisites
 - Managed modem: a modem configuration file
-- Virtual RF: GNU radio or your own software radio
+- Virtual RF: GNU radio or software radio
 
 ## Managed modems vs virtual RF delivery
 

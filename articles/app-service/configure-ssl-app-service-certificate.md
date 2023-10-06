@@ -7,6 +7,8 @@ ms.topic: tutorial
 ms.date: 07/28/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Create and manage an App Service certificate for your web app

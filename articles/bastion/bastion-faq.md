@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 10/03/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -137,6 +137,10 @@ No. You don't need to install an agent or any software on your browser or your A
 
 See [About VM connections and features](vm-about.md) for supported features.
 
+### <a name="shareable-links-passwords"></a>Is Reset Password available for local users connecting via shareable link?
+
+No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button may appear.
+
 ### <a name="audio"></a>Is remote audio available for VMs?
 
 Yes. See [About VM connections and features](vm-about.md#audio).
@@ -149,9 +153,9 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Sign in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
-### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 
-No, access to Windows Server VMs by Azure Bastion doesn't require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+Bastion does not support connecting to a VM that is set up as an RDS session host.
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 

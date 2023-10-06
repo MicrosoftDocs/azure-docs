@@ -40,8 +40,7 @@ ms.author: anfdocs
     :::image type="content" source="../media/azure-netapp-files/snapshot-restore-new-volume.png" alt-text="Screenshot showing the Create a Volume window for restoring a volume from a snapshot."::: 
 
 4. Select **Review+create**. Select **Create**.   
-    The Volumes page displays the new volume that the snapshot restores to.   
-
+    The Volumes page displays the new volume to which the snapshot restores. Refer to the **Originated from** field to see the name of the snapshot used to create the volume. 
 
 ## Next steps
 

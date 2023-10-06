@@ -127,11 +127,11 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
-|		|	VM Insights	|	X (Public preview)	|	X	|		|
+|		|	VM Insights	|	X |	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
 |   | Azure Stack HCI | X |  |  |
-|		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
+|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 |       |   SQL Best Practices Assessment | X |     |       |
 
@@ -154,10 +154,10 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
-|		|	VM Insights	|	X (Public preview)	|	X 	|		|
+|		|	VM Insights	|	X	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|		|	X	|		|
-|		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
+|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
@@ -183,14 +183,15 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows Server 2008 R2                                   |   |   | X |
 | Windows Server 2008 SP2                                  |   | X |   |
 | Windows 11 Client and Pro                                | X<sup>2</sup>, <sup>3</sup> |  |  |
-| Windows 11 Enterprise<br>(including multi-session)       | X<sup>1</sup> |  |  |
+| Windows 11 Enterprise<br>(including multi-session)       | X |  |  |
 | Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
-| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
-| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only   |   | X<sup>1</sup>) |   |
+| Windows 7 SP1<br>(Server scenarios only)                 |   | X<sup>1</sup>) |   |
 | Azure Stack HCI                                          | X | X |   |
+| Windows IoT Enterprise                                          | X |   |   |
 
-<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
+<sup>1</sup> Running the OS on server hardware that is always connected, always on.<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
 <sup>3</sup> Also supported on Arm64-based machines.
 
@@ -212,9 +213,9 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6.4+                                           |   |  | X |
-| Red Hat Enterprise Linux Server 9+                         | X |  |   |
-| Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X<sup>2</sup> | X<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8+                           | X | X<sup>2</sup> | X<sup>2</sup> |
+| Red Hat Enterprise Linux Server 9+                          | X |  |   |
+| Red Hat Enterprise Linux Server 8.6+                        | X<sup>3</sup> | X<sup>2</sup> | X<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | X | X<sup>2</sup> | X<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6.7+                        |   |  | X |
 | Rocky Linux 8                                               | X | X |   |

@@ -1,6 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes system requirements"
-ms.date: 04/27/2023
+ms.date: 08/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 description: Learn about the system requirements to connect Kubernetes clusters to Azure Arc.
@@ -34,9 +34,7 @@ For a multi-node Kubernetes cluster environment, pods can get scheduled on diffe
 
 ## Management tool requirements
 
-Connecting a cluster to Azure Arc requires [Helm 3](https://helm.sh/docs/intro/install), version 3.7.0 or earlier.
-
-You'll also need to use either Azure CLI or Azure PowerShell.
+To connect a cluster to Azure Arc, you'll need to use either Azure CLI or Azure PowerShell.
 
 For Azure CLI:
 
@@ -55,6 +53,9 @@ For Azure PowerShell:
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
+
+> [!NOTE]
+> When you deploy the Azure Arc agents to a cluster,  Helm v. 3.6.3 will be installed in the `.azure` folder of the deployment machine. This [Helm 3](https://helm.sh/docs/) installation is only used for Azure Arc, and it doesn't remove or change any previously installed versions of Helm on the machine.
 
 ## Azure AD identity requirements
 

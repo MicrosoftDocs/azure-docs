@@ -5,8 +5,8 @@ services: cognitive-services
 ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 12/08/2020
 ms.topic: include
 ---

@@ -79,7 +79,7 @@ Before you set up the Azure services for exporting alerts, make sure you have:
     - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
     - if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action` -->
 
-### Step 1. Set up the Azure services
+### Step 1: Set up the Azure services
 
 You can set up your Azure environment to support continuous export using either:
 
@@ -106,7 +106,7 @@ You can set up your Azure environment to support continuous export using either:
 
     For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 
-### Step 2. Connect the event hub to your preferred solution using the built-in connectors
+### Step 2: Connect the event hub to your preferred solution using the built-in connectors
 
 Each SIEM platform has a tool to enable it to receive alerts from Azure Event Hubs. Install the tool for your platform to start receiving alerts.
 
@@ -140,7 +140,7 @@ To view the event schemas of the exported data types, visit the [Event Hubs even
 
 ## Use the Microsoft Graph Security API to stream alerts to third-party applications
 
-As an alternative to Microsoft Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api). No configuration is required.
+As an alternative to Microsoft Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](/graph/security-concept-overview/). No configuration is required.
 
 You can use this API to stream alerts from your **entire tenant** (and data from many Microsoft Security products) into third-party SIEMs and other popular platforms:
 
@@ -149,6 +149,9 @@ You can use this API to stream alerts from your **entire tenant** (and data from
 - **ServiceNow** - [Install and configure the Microsoft Graph Security API application from the ServiceNow Store](https://docs.servicenow.com/bundle/sandiego-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html?cshalt=yes).
 - **QRadar** - [Use IBM's Device Support Module for Microsoft Defender for Cloud via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html).
 - **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Use the Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji).
+
+> [!NOTE]
+> The preferred way to export alerts is through [Continuously export Microsoft Defender for Cloud data](continuous-export.md).
 
 ## Next steps
 

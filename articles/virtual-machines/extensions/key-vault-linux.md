@@ -124,7 +124,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | It is ignored on Linux | string |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
+| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
 | requireInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |

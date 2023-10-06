@@ -51,7 +51,7 @@ Always follow the principle of least privilege: you should never request app rol
  
 ## Designing and publishing app roles for a resource service
 
-If you're building a service on Azure AD that exposes APIs for other clients to call, you may wish to support automated access with app roles (app-only permissions). You can define the app roles for your application in the **App roles** section of your app registration in Azure AD portal. For more information on how to create app roles, see [Declare roles for an application](./howto-add-app-roles-in-apps.md#declare-roles-for-an-application).
+If you're building a service on Microsoft Entra ID that exposes APIs for other clients to call, you may wish to support automated access with app roles (app-only permissions). You can define the app roles for your application in the **App roles** section of your app registration in Microsoft Entra admin center. For more information on how to create app roles, see [Declare roles for an application](./howto-add-app-roles-in-apps.md#declare-roles-for-an-application).
 
 When exposing app roles for others to use, provide clear descriptions of the scenario to the admin who is going to assign them. App roles should generally be as narrow as possible and support specific functional scenarios, since app-only access isn't constrained by user rights. Avoid exposing a single role that grants full `read` or full `read/write` access to all APIs and resources your service contains.
 
@@ -62,7 +62,7 @@ When exposing app roles for others to use, provide clear descriptions of the sce
 
 The most important thing to remember about app-only access is that the calling app acts on its own behalf and as its own identity. There's no user interaction. If the app has been assigned to a given app role for a resource, then the app has fully unconstrained access to all resources and operations governed by that app role.
 
-Once an app has been assigned to one or more app roles (app-only permissions), it can request an app-only token from Azure AD using the [client credentials flow](v2-oauth2-client-creds-grant-flow.md) or any other supported authentication flow. The assigned roles are added to the `roles` claim of the app's access token.
+Once an app has been assigned to one or more app roles (app-only permissions), it can request an app-only token from Microsoft Entra ID using the [client credentials flow](v2-oauth2-client-creds-grant-flow.md) or any other supported authentication flow. The assigned roles are added to the `roles` claim of the app's access token.
  
 In some scenarios, the application identity may determine whether access is granted, similarly to user rights in a delegated call. For example, the `Application.ReadWrite.OwnedBy` app role grants an app the ability to manage service principals that the app itself owns. 
 
@@ -83,6 +83,6 @@ The example given is a simple illustration of application authorization. The pro
 
 ## Next steps
 
-- [Learn how to create and assign app roles in Azure AD](./howto-add-app-roles-in-apps.md)
+- [Learn how to create and assign app roles in Microsoft Entra ID](./howto-add-app-roles-in-apps.md)
 - [Overview of permissions in Microsoft Graph](/graph/permissions-overview)
 - [Microsoft Graph permissions reference](/graph/permissions-reference)
