@@ -1,6 +1,6 @@
 ---
-title: What is Astronomer?
-description: Learn about using the Astronomer in the Azure Marketplace.
+title: What is Apache Airflow on Astro - An Azure Native ISV Service?
+description: Learn about using the Apache Airflow on Astro - An Azure Native ISV Service in the Azure Marketplace.
 author: flang-msft
 
 ms.topic: conceptual
