@@ -1,6 +1,6 @@
 ---
-title: Attach virtual machine to a Virtual Machine Scale Set
-description: How to attach a virtual machine to a Virtual Machine Scale Set
+title: Attach or detach a virtual machine to or from a Virtual Machine Scale Set
+description: How to attach or detach a virtual machine to or from a Virtual Machine Scale Set
 author: fitzgeraldsteele 
 ms.author: fisteele 
 ms.topic: overview
@@ -86,8 +86,11 @@ New-AzVm `
 ### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
-2. Select the virtual machine you'd like to attach to your scale set.
-2.<BRITTANY TO DO ONCE PORTAL FLOW IS LOCKED DOWN>
+2. Select the Name of the virtual machine you'd like to attach to your scale set.
+3. Under **Settings** select **Availability + scaling**.
+4. In the **Scaling** section, select the **Get started** button. If the button is grayed out, your VM currently does not meet the requirements to be attached to a scale set.
+5. The **Attach to a VMSS** blade will appear on the right side of the page. Select the VMSS you'd like to attach the VM to in the **Select a VMSS dropdown**. 
+6. Select the **Attach** button at the bottom to attach the VM.
 
 ### [Azure CLI](#tab/cli)
 
@@ -137,8 +140,12 @@ Should you need to detach a VM from a scale set, you can follow the below steps 
 ### [Azure portal](#tab/portal)
 
 1. Go to **Virtual Machines**.
-2. Select the virtual machine you'd like to detach from your scale set.
-2.<BRITTANY TO DO ONCE PORTAL FLOW IS LOCKED DOWN>
+2. If your VM was created by the scale set, please ensure the VM is `Stopped`. If the VM was created as a standalone VM, you do not need to do this.
+3. Select the Name of the virtual machine you'd like to attach to your scale set.
+4. Under **Settings** select **Availability + scaling**.
+5. Select the **Detach from the VMSS** button at the top of the page.
+6. When prompted to confirm, press the blue **Detach** button.
+7. Portal will send a notification when the VM has successfully detached.
 
 ### [Azure CLI](#tab/cli)
 
