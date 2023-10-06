@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 10/05/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -26,7 +26,7 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Feature | SMB | NFS |
 |---------|-----|---------------|
 | Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
-| Recommended OS | <ul><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
+| Recommended OS | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
 | [Available tiers](storage-files-planning.md#storage-tiers)  | Premium, transaction optimized, hot, and cool | Premium |
 | Billing model | <ul><li>[Provisioned capacity for premium file shares](./understanding-billing.md#provisioned-model)</li><li>[Pay-as-you-go for standard file shares](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Provisioned capacity](./understanding-billing.md#provisioned-model) |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | Supported | Supported |
