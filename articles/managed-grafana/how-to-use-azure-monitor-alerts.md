@@ -10,7 +10,12 @@ ms.date: 10/06/2023
 
 # Use Azure Monitor alerts with Grafana
 
-In this guide, you learn how to set up Azure Monitor alerts and use them with Azure Managed Grafana. Both Azure Monitor and Grafana provide alerting functions. Grafana alerts work with any supported data source. Alert rules are processed in your Managed Grafana workspace. Because of that, Grafana alerts need to share the same compute resources and query throttling limits with dashboard rendering. Azure Monitor has its own [alert system](../azure-monitor/alerts/alerts-overview.md). It offers many advantages:
+In this guide, you learn how to set up Azure Monitor alerts and use them with Azure Managed Grafana.
+
+> [!NOTE]
+> Grafana alerts are only available for instances in the Standard plan.
+
+Both Azure Monitor and Grafana provide alerting functions. Grafana alerts work with any supported data source. Alert rules are processed in your Managed Grafana workspace. Because of that, Grafana alerts need to share the same compute resources and query throttling limits with dashboard rendering. Azure Monitor has its own [alert system](../azure-monitor/alerts/alerts-overview.md). It offers many advantages:
 
 * Scalability - Azure Monitor alerts are evaluated in the Azure Monitor platform that's been architected to autoscale to your needs.
 * Compliance - Azure Monitor alerts and [action groups](../azure-monitor/alerts/action-groups.md) are governed by Azure's compliance standards on privacy, including unsubscribe support.
