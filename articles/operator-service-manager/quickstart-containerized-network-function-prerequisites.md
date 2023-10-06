@@ -111,6 +111,10 @@ For this quickstart, you  download docker to your local repository. The Azure Op
 
 Issue the following command: `docker pull nginx:stable`
 
+### Download sample Helm chart
+
+Download the sample Helm chart from here [Sample Helm chart](https://download.microsoft.com/download/8/3/d/83dd3dd3-7208-41c1-bd46-f616fb712084/nginxdemo-0.1.0.tgz) for use with this quickstart.
+
 ## Dive into Helm charts
 
 This section introduces you to a basic Helm chart that sets up nginx and configures it to listen on a specified port. The Helm chart furnished in this section already incorporates a `values.schema.json` file.
