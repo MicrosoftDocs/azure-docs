@@ -40,13 +40,13 @@ Add the following key-value to the App Configuration store. For more information
 |----------------|-------------------|-------------|--------------------|
 | *Sentinel*     | *1*               | Leave empty | Leave empty        |
 
-## Reload data from App Configuration
+## Console applications
 
 1. Add the following key-values to the App Configuration store.
 
     | Key            | Value             | Label       | Content type       |
     |----------------|-------------------|-------------|--------------------|
-    | *message*      | *Hello*           | Leave empty | Leave empty        |
+    | *message*      | *Hello World!*           | Leave empty | Leave empty        |
 
 1. Create a new Python file named *app.py* and add the following code:
 
@@ -70,15 +70,15 @@ Add the following key-value to the App Configuration store. For more information
 
     print("Update the configuration setting values now! First update message value, then update the sentinel key value.")
 
-    # Waiting for the refresh interval to pass
-    time.sleep(120)
+    while (config.get("message") == "Hello"):
+        # Waiting for the refresh interval to pass
+        time.sleep(11)
 
-    # Refreshing the configuration setting
-    config.refresh()
+        # Refreshing the configuration setting
+        config.refresh()
 
-    # Printing the updated value
-    print("Updated configuration values:")
-    print(config["message"])
+        # Current value of message
+        print(config["message"])
     ```
 
 1. Run your script:
@@ -110,24 +110,40 @@ Add the following key-value to the App Configuration store. For more information
 
 ## Web applications
 
-The following examples show how to update an existing flask app to use refreshable configuration values.
+The following examples show how to update an existing web application to use refreshable configuration values, with the setup already done in the quick start.
 
 ### [Flask](#tab/flask)
 
-Update your view endpoints to check for updated configuration values.
+In `app.py`, setup Azure App Configuration to load your configuration values. Then update your endpoints to check for updated configuration values.
 
 ```python
+from azure.appconfiguration.provider import SentinelKey
+from azure.appconfiguration.provider.aio import load
+
+async with await load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")) as azure_app_config:
+    # NOTE: This will override all existing configuration settings with the same key name.
+    app.config.update(azure_app_config)
+
 @app.route('/')
  def index():
-    # Refresh the configuration from App Configuration service.
+    # Refresh the configuration from Azure App Configuration.
     azure_app_config.refresh()
     # Update Flask config mapping with loaded values in the App Configuration provider.
     app.config.update(azure_app_config)
+
+    # Access a configuration setting directly from within Flask configuration
+    message = app.config.get("message")
 ```
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
 
 ### [Django](#tab/django)
+
+Setup App Configuration in your Django settings file, `settings.py`.
+
+```python
+CONFIG = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+```
 
 Update your view endpoints to check for updated configuration values.
 
@@ -135,8 +151,10 @@ Update your view endpoints to check for updated configuration values.
 from django.conf import settings
 
 def index(request):
-    settings.AZURE_APPCONFIGURATION.refresh()
-    # Once this returns AZURE_APPCONFIGURATION will be updated with the latest values
+    # Refresh the configuration from Azure App Configuration.
+    settings.CONFIG.refresh()
+
+    # Once this returns CONFIG will be updated with the latest values
     ...
 ```
 
@@ -144,7 +162,7 @@ You can find a full sample project [here](https://github.com/Azure/AppConfigurat
 
 ---
 
-Now whenever those endpoints are triggered, a refresh check can be made to ensure the latest configuration values are being used. This check can returns immediately if the refresh interval hasn't passed, or it something else is currently checking for or triggering a refresh.
+Whenever these endpoints are triggered, a refresh check can be performed to ensure the latest configuration values are used. The check can return immediately if the refresh interval has not passed or a refresh is already in progress.
 
 When a refresh is complete all values are updated at once, so the configuration is always consistent within the object.
 
