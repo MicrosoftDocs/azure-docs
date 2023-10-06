@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure NetApp Files using Diagnose and Solve Problems tool 
+title: Troubleshoot Azure NetApp Files using diagnose and solve problems tool 
 description: Describes how to use the Azure diagnose and solve problems tool to troubleshoot issues of Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.date: 10/20/2023
 ms.author: anfdocs
 ---
 
-# Troubleshoot Azure NetApp Files using Diagnose and Solve Problems tool 
+# Troubleshoot Azure NetApp Files using diagnose and solve problems tool 
 
 You can use Azure **diagnose and solve problems** tool to troubleshoot issues of Azure NetApp Files. 
 
 ## Steps
 
-1. From the Azure portal, select **Diagnose and solve problems** in the navigation pane. 
+1. From the Azure portal, select **diagnose and solve problems** in the navigation pane. 
 
 2. Choose a problem type for the issue you are experiencing, for example, **Capacity Pools**.   
-    You can select the problem type by clicking the corresponding tile on the Diagnose and Solve Problems page or using the search bar above the tiles. 
+    You can select the problem type by clicking the corresponding tile on the diagnose and solve problems page or using the search bar above the tiles. 
 
     The following screenshot shows an example of issue types that you can troubleshoot for Azure NetApp Files: 
 
-    :::image type="content" source="../media/azure-netapp-files/troubleshoot-issue-types.png" alt-text="Screenshot that shows an example of issue types in Diagnose and Solve Problems page." lightbox="../media/azure-netapp-files/troubleshoot-issue-types.png":::
+    :::image type="content" source="../media/azure-netapp-files/troubleshoot-issue-types.png" alt-text="Screenshot that shows an example of issue types in diagnose and solve problems page." lightbox="../media/azure-netapp-files/troubleshoot-issue-types.png":::
 
 3. After specifying the problem type, select an option (problem subtype) from the pull-down menu to describe the specific problem you are experiencing. Then follow the on-screen directions to troubleshoot the problem. 
 

@@ -21,9 +21,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Troubleshoot Azure NetApp Files using Diagnose and Solve Problems tool](troubleshoot-diagnose-solve-problems.md) 
+* [Troubleshoot Azure NetApp Files using diagnose and solve problems tool](troubleshoot-diagnose-solve-problems.md) 
 
-    You can now use Azure diagnose and solve problems tool to troubleshoot issues of Azure NetApp Files.
+    The **diagnose and solve problems** tool simplifies the troubleshooting process, making it effortless to identify and resolve any issues affecting your Azure NetApp Files deployment. With the tool's proactive troubleshooting, user-friendly guidance, and seamless integration with Azure Support, you can more easily manage and maintain a reliable and high-performance Azure NetApp Files storage environment. Experience enhanced issue resolution and optimization capabilities today, ensuring a smoother Azure NetApp Files management experience.
 
 ## October 2023
 
