@@ -255,7 +255,7 @@ az ml online-deployment create --file blue-deployment.yml --all-traffic
 ```
 
 This deployment might take up to 20 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
-You need to give following permissions to the system assigned identity after the endpoint is created:
+You need to give the following permissions to the system-assigned identity after the endpoint is created:
 
 - AzureML Data Scientist role or a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" permission to workspace
 - Storage Blob Data Contributor permission, and Storage Table Data Contributor to the default storage of the workspace
@@ -307,7 +307,7 @@ ENDPOINT_URI=<your-endpoint-uri>
 curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
 ```
 
-Note that you can get your endpoint key and your endpoint uri from the AzureML workspace in Endpoints > Consume > Basic consumption info.
+Note that you can get your endpoint key and your endpoint URI from the AzureML workspace in **Endpoints** > **Consume** > **Basic consumption info**.
 
 ## Next steps
 
