@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL**..
 
-    b. For **Sign-out page URL** value, in the Azure portal, navigate to **Identity** > **App registrations**> **Endpoints**.
+    b. For **Sign-out page URL** value, in the Microsoft Entra admin center, navigate to **Identity** > **App registrations**> **Endpoints**.
 
 	![Screenshot of The Endpoints button.](./media/zoom-tutorial/endpoint.png)
 
