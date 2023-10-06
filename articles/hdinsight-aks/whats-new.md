@@ -58,7 +58,7 @@ Clusters are individual open source compute workloads, such as Apache Spark, Apa
 
 ## Features currently in preview
 
-The following table lists shows the features of HDInsight on AKS that are currently in preview. Preview features are sorted alphabetically.
+The following table list shows the features of HDInsight on AKS that are currently in preview. Preview features are sorted alphabetically.
 
 |	Area	|	Features	|	Remarks	|
 |	---	|	---	|	---	|
