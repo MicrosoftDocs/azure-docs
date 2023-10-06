@@ -16,9 +16,36 @@ Starting from Service Fabric version 10.1, CRM introduced sensitivity feature, w
 When `IsMaximumSensitivity` is set to true, the Max Sensitivity Replica (MSR) can only be moved or swapped in the following cases:
 * FD/UD constraint violation only if FD/UD is set to hard constraint
 * replica swap during upgrade
-* Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR should not be movable.)
+* Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR is not movable.)
 
-The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Sensitivity feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric.
+For instance, in the scenario as listed in the table below, Node 1 is under node capacity violation when three replicas (each has a load of 50) coexist on this node while Node 2 is completely empty. In this case, both the two MRSs are immovable as the Non-MSR will be moved to Node 2 to fix the violation.  
+
+|       |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
+|:------|:------|:------|:------|:------|:------|
+|Node 1 |150/100       |50                |50                |50                  |
+|Node 2 |0/100         |                  |                  |                    |
+
+While in the following case, two MSRs with load of 60 each collocates on Node 1, leading to the Node 1 capacity violation. The Node 2 has space of 80 with only one Non-MSR (load = 20) placed on it. One of the MSRs on node 1 has to be moved to node 2 as there is no Non-MSR present on node 1.
+|       |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
+|:------|:------|:------|:------|:------|:------|
+|Node 1 |120/100       |60                |60                |                  |
+|Node 2 |20/100         |                  |                 |20                |
+
+The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Thus, the feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric. With this upper bound set, PLB can safely collocate multiple MSRs on the same node, avoiding the scenario that the only way to fix node capacity violation is to move a max sensitivity replica.
+
+Let's say that two customer metrics are defined for cluster node: ACU (Application CPU Usage) and IDSU (Instance Disk Usage). The node capacities for ACU and IDSU are **100 vCores** and **4 TB** respectively.
+
+The table below shows a few examples regarding the collocation of maximum sensitivity replicas. For the three scenarios listed in the table, assume there already exists one max sensitivity replica on a node. Whether more MSR(s) can be placed on this node depends on space left on the node and resources needed for new MSR(s).
+1. More MSR(s) can be placed on this node as long as it does not cause node load or MaxLoad capacity violation. (i.e., `ACU (Max)Load <= 50 vCores && IDSU (Max)Load <= 2 TB`).
+2. No other MSR can be placed on this node as the MaxLoads for both ACU and IDSU have reached to their node MaxLoad capacities.  
+3. No other MSR can be placed on this node as the MaxLoad for IDSU has reached to its node MaxLoad capacity though there exists room from the perspective of ACU. 
+
+
+|Scenario # |ACU Load |IDSU Load|IsMaximumSensitivity |ACU MaxLoad |IDSU MaxLoad |Can another MSR be placed on this node?|
+|:---|:---|:---|:---|:---|:---|:---|:---|
+|1 |50 |2 | true |50 |2 |Yes |
+|2 |100 |2 | true |100 |4 |No |
+|3 |50 |2 | true |50 |4 |No |
 
 > [!NOTE]
 Current sensitivity feature only provides MSR functionality. For non-MSR but with different sensitivity values, CRM does not treat them differently from the perspective of sensitivity.
