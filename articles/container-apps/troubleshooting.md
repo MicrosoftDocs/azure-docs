@@ -38,15 +38,13 @@ If your container app or revision is configured incorrectly, you might see the f
 
 The following sections describe how to diagnose and resolve these issues.
 
-## View Logs
-
-# [Azure Portal](#tab/azure-portal)
+## View Logs (Azure Portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
 1. In the search results, under *Resources*, select your container app name.
 
-You can view your container app's console logs as follows.
+Your container app's console logs capture the app's `stdout` and `stderr` streams. You can view the console logs as follows.
 
 1. In the navigation bar at the left, expand *Application* and select **Revisions**.
 1. In the *Revisions* page, make sure **Active revisions** is selected, then select the revision whose console logs you want to view. The *Revision details* pane appears at the right.
@@ -65,51 +63,38 @@ You can view your container app's console logs as follows.
         | where RevisionName_s == "<YOUR_REVISION_NAME>"
         and Stream_s == "stdout"
         ```
-	Then select **Run**.
+	    Then select **Run**.
 	- To view `stderr`, change your query to the following.
 	    ```
         ContainerAppConsoleLogs_CL
         | where RevisionName_s == "<YOUR_REVISION_NAME>"
         and Stream_s == "stderr"
         ```
-    Then select **Run**.
+        Then select **Run**.
 1. When you type in a query, after you enter the `where` keyword, a drop-down list appears that shows you the columns available to query. You can also expand the *Schema and Filter* pane to the left, expand **Custom Logs**, and expand **ContainerAppConsoleLogs_CL**.
 
-# [Azure PowerShell](#tab/azure-powershell)
+TODO1 Show how to view system logs.
 
-
-
----
-
-*
-
-1. Review your container app's console logs.
-1. Review your container app's system logs.
-1. Review your container app's [Ingress configuration](#review-ingress-configuration).
-1. Use **Diagnose and solve problems** in Azure Portal.
-
-    1. Sign in to the [Azure portal](https://portal.azure.com).
-    1. In the **Search** bar at the top, enter your Azure Container Apps application name.
-    1. In the search results, under *Resources*, select your container app name.
-    1. In the navigation bar at the left, select **Diagnose and solve problems**.
-
-TODO1 Question - does creating a new revision pull the Github repo again? If not, how to make it do so?
-
-TODO1 Would help to distinguish between settings that are revision-specific and those that aren't. Those that aren't, are specific to the Container?
-
-## My Revision Won't Provision
-
-TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
-
-### Examine Logs
-
-1. Examine your container app console logs, which capture the `stdout` and `stderr` streams from your container app.
+Your container app's system logs capture TODO1.
 
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-### Review Ingress Configuration
+## View logs (Azure PowerShell)
 
-TODO1 Add command line version/pivot table.
+TODO1 Add.
+
+For more information, see [Observability in Azure Container Apps](./observability.md).
+
+## Use **Diagnose and solve problems** (Azure Portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** bar at the top, enter your Azure Container Apps application name.
+1. In the search results, under *Resources*, select your container app name.
+1. In the navigation bar at the left, select **Diagnose and solve problems**.
+
+## Review Ingress Configuration
+
+TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -125,16 +110,16 @@ TODO1 Add command line version/pivot table.
 - Verify **Target port** is set to the same port your container app is listening on. TODO1 Link to where we configure that.
 - If **IP Security Restrictions Mode** is not set to **Allow all traffic**, verify your client does not have an IP address that is denied.
 
-TODO1 Verify you are not directing traffic to wrong revision. Expand **Application** and select **Revisions**.
-
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
 
-### Verify Health Probes are Configured Correctly
+TODO1 Add command line version if possible.
+
+## Verify Health Probes are Configured Correctly
 
 - If you are using TCP probes, verify their port numbers match the ingress target port you have configured for your container app.
 - If your container app takes an extended amount of time to start, verify you have configured your liveness and readiness probes' *initialDelaySeconds* settings accordingly.
 
-For more information, see [Use Health Probes](./health-probes).
+For more information, see [Use Health Probes](./health-probes.md).
 
 
 
