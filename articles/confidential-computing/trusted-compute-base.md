@@ -1,5 +1,5 @@
 ---
-title: Trusted compute base (TCB)
+title: Trusted compute base (TCB) in Azure confidential computing
 description: Understanding what the TCB is and what it includes
 author: vinfnet
 ms.author: sgallagher
@@ -16,7 +16,7 @@ The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware,
 The following diagram shows what is "in" and what is "outside' of the trusted compute base. The workload and data that the customer operator manages is inside the TCB, and the elements managed by the cloud provider (Microsoft Azure) are outside. 
 
 
-:::image type="content" source="./media/trusted-compute-base/acc-zero-trust-architecture.jpg" alt-text="Image showing the Trusted Compute Base (TCB) concept.":::
+:::image type="content" source="./media/trusted-compute-base/azure-confidential-computing-zero-trust-architecture" alt-text="Diagram showing the Trusted Compute Base (TCB) concept.":::
 
 
 ## Hardware Root of Trust
@@ -39,6 +39,6 @@ Intel SGX, for example offers the most granular TCB definition down to individua
 
 Confidential Virtual Machines (CVM) using the AMD SEV-SNP (and, in future Intel TDX) technologies can run an entire virtual machine inside the TEE to support lift & shift scenarios of existing workloads, in this case, the guest OS is also inside the TCB.
 
-:::image type="content" source="./media/trusted-compute-base/app-enclave-vs-virtual-machine.jpg " alt-text="Image showing the Trusted Compute Base (TCB) concept mapped to Intel SGX and AMD SEV-SNP Trusted Execution Environments":::
+:::image type="content" source="./media/trusted-compute-base/app-enclave-vs-virtual-machine.jpg " alt-text="Diagram showing the Trusted Compute Base (TCB) concept mapped to Intel SGX and AMD SEV-SNP Trusted Execution Environments":::
 
 

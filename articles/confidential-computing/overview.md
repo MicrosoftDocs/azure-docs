@@ -1,5 +1,5 @@
 ---
-title: Azure Confidential Computing Overview
+title: Azure confidential computing Overview
 description: Overview of Azure Confidential (ACC) Computing
 services: virtual-machines
 author: mamccrea
@@ -23,7 +23,7 @@ These TEEs prevent unauthorized access or modification of applications and data 
 
 Any code outside TEE can't read or tamper with data inside the TEE. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed.
 
-:::image type="content" source="media/overview/three-states-and-ccc-definition.png" alt-text="Graphic of three states of data protection, with confidential computing's data in use highlighted.":::
+:::image type="content" source="media/overview/three-states-and-confidential-computing-consortium-definition.png" alt-text="Diagram of three states of data protection, with confidential computing's data in use highlighted.":::
 
 When used with data encryption at rest and in transit, confidential computing eliminates the single largest barrier of encryption - encryption while in use - by protecting sensitive or highly regulated data sets and application workloads in a secure public cloud platform. Confidential computing extends beyond generic data protection. TEEs are also being used to protect proprietary business logic, analytics functions, machine learning algorithms, or entire applications.
 

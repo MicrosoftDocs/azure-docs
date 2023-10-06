@@ -1,5 +1,5 @@
 ---
-title: Trusted Execution Environment (TEE)
+title: Trusted execution environment (TEE)
 description: Understanding what the TEE is and what it includes
 author: vinfnet
 ms.author: sgallagher

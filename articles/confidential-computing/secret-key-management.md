@@ -1,5 +1,5 @@
 ---
-title: Secret and key management
+title: Secret and key management in Azure confidential computing
 description: Understanding how confidential computing handles secrets and keys
 author: vinfnet
 ms.author: sgallagher
