@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs – A real-time data streaming platform with native Apache Kafka support 
+title: Azure Event Hubs – A data streaming platform with Apache Kafka support 
 description: Learn about Azure Event Hubs, A real-time data streaming platform with native Apache Kafka support.
 ms.topic: overview
 ms.date: 03/07/2023
@@ -13,7 +13,7 @@ Using Event Hubs to ingest and store streaming data, businesses can harness the 
 
 Azure Event Hubs is the preferred event ingestion layer of any event streaming solution that you build on top of Azure. It seamlessly integrates with data and analytics services inside and outside Azure to build your complete data streaming pipeline to serve following use cases. 
 
-- [Real-time analytics with Azure Stream Analytics](./process-data-azure-stream-analytics) to generate real-time insights from streaming data. 
+- [Real-time analytics with Azure Stream Analytics](./process-data-azure-stream-analytics.md) to generate real-time insights from streaming data. 
 - Analyze and explore streaming data with Azure Data Explorer. 
 - Create your own cloud native applications, functions, or microservices that run on streaming data from Event Hubs.
 - Stream events with schema validation using a built-in schema registry to ensure quality and compatibility of streaming data. 
@@ -44,7 +44,7 @@ Alternatively, developers can use the SQL-based Stream Analytics query language 
 ### Exploring streaming data with Azure Data Explorer
 Azure Data Explorer is a fully managed platform for big data analytics that delivers high performance and allows for the analysis of large volumes of data in near real time. By integrating Event Hubs with Azure Data Explorer, you can easily perform near real-time analytics and exploration of streaming data. 
 
-:::image type="content" source="./media/event-hubs-about/data-explorer-integration.png" alt-text="Image showing Schema Registry and Event Hubs integration.":::
+:::image type="content" source="./media/event-hubs-about/data-explorer-integration.png" alt-text="Image showing Azure Data explorer query and output.":::
 
 
 ### Rich ecosystem– Azure functions, SDKs and Kafka ecosystem
@@ -100,5 +100,5 @@ You can use following samples to stream data from your Kafka applications to Eve
 ### Schema validation with Schema Registry 
 You can use Event Hubs Schema Registry to perform schema validation for your event streaming applications. 
 
-- [Schema validation for Kafka applications](schema-registry-kafka-java-send-receive-quickstart)
+- [Schema validation for Kafka applications](schema-registry-kafka-java-send-receive-quickstart.md)
 
