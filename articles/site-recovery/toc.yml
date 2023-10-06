@@ -19,6 +19,8 @@
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
+  - name: Enable replication - Modernized
+    href: quickstart-enable-replication.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -163,7 +165,7 @@
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM Disaster Recovery - High Churn Support (Public Preview)
+    - name: Azure VM Disaster Recovery - High Churn Support
       href: concepts-azure-to-azure-high-churn-support.md
   - name: About moving Azure VMs to another region
     href: azure-to-azure-move-overview.md
@@ -534,28 +536,6 @@
       href: site-recovery-citrix-xenapp-and-xendesktop.md
     - name: Other workloads
       href: site-recovery-workload.md#workload-summary
-  - name: Disaster recovery to a secondary site
-    items:
-    - name: VMware VMs/physical servers
-      items:
-      - name: Walkthrough-Disaster recovery of VMware VMs and physical servers to a secondary site
-        href: vmware-physical-secondary-disaster-recovery.md
-    - name: Hyper-V VMs
-      items:
-      - name: Deprecation of site-to-site scenario for Hyper-V VMs
-        href: site-to-site-deprecation.md
-      - name: Walkthrough-Disaster recovery of Hyper-V VMs in VMM clouds to a secondary site
-        href: hyper-v-vmm-disaster-recovery.md
-      - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site
-        href: hyper-v-vmm-test-failover.md
-      - name: Set up IP addressing for failover
-        href: hyper-v-vmm-networking.md
-      - name: Add VMM scripts to recovery plans
-        href: hyper-v-vmm-recovery-script.md
-      - name: Run a failover and failback between on-premises sites
-        href: hyper-v-vmm-failover-failback.md
-      - name: Performance scale tests for disaster recovery to a secondary site
-        href: hyper-v-vmm-performance-results.md
 - name: Automation
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
@@ -588,37 +568,37 @@
   items:
   - name: Troubleshoot Azure VMs
     items:
-    - name: Troubleshoot Azure VM replication
+    - name: Azure VM replication errors
       href: azure-to-azure-troubleshoot-errors.md
-    - name: Troubleshoot Azure VM connectivity issues
+    - name: Azure VM connectivity issues
       href: azure-to-azure-troubleshoot-network-connectivity.md
-    - name: Troubleshoot ongoing replication
+    - name: Azure VM disaster recovery replication errors
       href: azure-to-azure-troubleshoot-replication.md
-    - name: Troubleshoot Mobility service issues
+    - name: Azure VM extension issues
       href: site-recovery-extension-troubleshoot.md
   - name: Troubleshoot VMware VMs/physical servers
     items:
-    - name: Troubleshoot VMware VM/physical server replication
+    - name: VMware VM/physical server replication errors
       href: vmware-azure-troubleshoot-replication.md
-    - name: Troubleshoot configuration servers
+    - name: Configuration server errors
       href: vmware-azure-troubleshoot-configuration-server.md
-    - name: Troubleshoot process servers
+    - name: Process server errors
       href: vmware-physical-azure-troubleshoot-process-server.md
-    - name: Troubleshoot push installation of the Mobility service
+    - name: Mobility service - push installation errors
       href: vmware-azure-troubleshoot-push-install.md
-    - name: Troubleshoot failover to Azure
+    - name: Failover to Azure errors
       href: site-recovery-failover-to-azure-troubleshoot.md
-    - name: Troubleshoot reprotection and failback of VMware VMs
+    - name: Reprotection and failback of VMware VMs errors
       href: vmware-azure-troubleshoot-failback-reprotect.md
-    - name: Troubleshoot Provider upgrade failures
+    - name: Azure Site Recovery Provider upgrade failures
       href: vmware-azure-troubleshoot-upgrade-failures.md
-    - name: Troubleshoot vCenter discovery failures
+    - name: VMware vCenter discovery failures
       href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Troubleshoot Hyper-V
     items:
-    - name: Troubleshoot Hyper-V replication
+    - name: Hyper-V replication errors
       href: hyper-v-azure-troubleshoot.md
-    - name: Troubleshoot failover to Azure
+    - name: Failover VMware VM/ physical machine to Azure errors
       href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Reference
   items:

@@ -19,13 +19,13 @@ First, you learn how to replicate the existing experience in Microsoft Teams Vir
 ## Prerequisites
 The reader of this article is expected to be familiar with: 
 -	[Microsoft Teams Virtual appointments](https://www.microsoft.com/microsoft-teams/premium/virtual-appointments) product and provided [user experience](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1) 
--	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-overview?view=graph-rest-1.0) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
--	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
+-	[Microsoft Graph Booking API](/graph/api/resources/booking-api-overview) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](/graph/overview)
+-	[Microsoft Graph Online meeting API](/graph/api/resources/onlinemeeting) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](/graph/overview)
 
 ## Microsoft 365 scheduling system
 Microsoft Teams Virtual appointments use Microsoft Booking APIs to manage them. In the Teams application, you see the Booking appointments for Booking staff members, and it provides the [Booking page](https://support.microsoft.com/office/customize-and-publish-a-booking-page-for-customers-to-schedule-appointments-72fc8c8c-325b-4a16-b7ab-87bc1f324e4f) for customers to allow them to select appropriate times for consultation. 
 Follow the next steps to build your own user interface for scheduling or to integrate Microsoft 365 scheduling system into your solution.
-1.	Use the following HTTP request to list available Booking businesses and select business for Virtual appointments via [Microsoft Graph Booking businesses API](https://learn.microsoft.com/graph/api/resources/bookingbusiness?view=graph-rest-1.0).
+1.	Use the following HTTP request to list available Booking businesses and select business for Virtual appointments via [Microsoft Graph Booking businesses API](/graph/api/resources/bookingbusiness).
 
 ```
 GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses
@@ -33,28 +33,28 @@ Permissions: Bookings.Read.All (delegated)
 Response: response.body.value[0].displayName; // ”Contoso lunch delivery”
 	        response.body.value[0].id; // "Contosolunchdelivery@contoso.onmicrosoft.com"
 ```
-2.	List available Booking services and select service for Virtual appointments via [Microsoft Graph Booking services API](https://learn.microsoft.com/graph/api/resources/bookingservice?view=graph-rest-1.0).
+2.	List available Booking services and select service for Virtual appointments via [Microsoft Graph Booking services API](/graph/api/resources/bookingservice).
 ```
 GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/ Contosolunchdelivery@contoso.onmicrosoft.com/services
 Permissions: Bookings.Read.All (delegated)
 Response: response.body.value[0].displayName; // ” Initial service”
 	    response.body.value[0].id; // " f9b9121f-aed7-4c8c-bb3a-a1796a0b0b2d"
 ```
-3.	[Optional] List available Booking staff members and select staff members for Virtual appointment via [Microsoft Graph Booking staff member API](https://learn.microsoft.com/graph/api/resources/bookingstaffmember?view=graph-rest-1.0). If no staff member is selected, then created appointment is labeled as “Unassigned”.
+3.	[Optional] List available Booking staff members and select staff members for Virtual appointment via [Microsoft Graph Booking staff member API](/graph/api/resources/bookingstaffmember). If no staff member is selected, then created appointment is labeled as “Unassigned”.
 ```
 GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/ Contosolunchdelivery@contoso.onmicrosoft.com/staffMembers
 Permissions: Bookings.Read.All (delegated)
 Response: response.body.value[0].displayName; // ”Dana Swope”
 	    response.body.value[0].id; // "8ee1c803-a1fa-406d-8259-7ab53233f148"
 ```
-4.	[Optional] Select or create Booking customer that for Virtual appointment via [Microsoft Graph Booking customer API](https://learn.microsoft.com/graph/api/resources/bookingcustomer?view=graph-rest-1.0). No reminders are sent if there are no customers.
+4.	[Optional] Select or create Booking customer that for Virtual appointment via [Microsoft Graph Booking customer API](/graph/api/resources/bookingcustomer). No reminders are sent if there are no customers.
 ```
 GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/ Contosolunchdelivery@contoso.onmicrosoft.com/customers
 Permissions: Bookings.Read.All (delegated)
 Response: response.body.value[0].displayName; // ”Adele Vance”
 	    response.body.value[0].id; // "80b5ddda-1e3b-4c9d-abe2-d606cc075e2e"
 ```
-5.	Create Booking appointments for selected business, service, and optionally staff members and guests via [Microsoft Graph Booking appointment API](https://learn.microsoft.com/graph/api/resources/bookingappointment?view=graph-rest-1.0). In the following example, we create an online meeting that is associated with the booking. Additionally, you can provide [notes and reminders](https://learn.microsoft.com/graph/api/resources/bookingappointment?view=graph-rest-1.0).
+5.	Create Booking appointments for selected business, service, and optionally staff members and guests via [Microsoft Graph Booking appointment API](/graph/api/resources/bookingappointment). In the following example, we create an online meeting that is associated with the booking. Additionally, you can provide [notes and reminders](/graph/api/resources/bookingappointment).
 ```
 POST https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/ Contosolunchdelivery@contoso.onmicrosoft.com/appointments
 Body: {
@@ -97,9 +97,9 @@ In the response, you see a new Booking appointment was created. Virtual appointm
 ## Bring your own scheduling system
 
 If you have an existing scheduling system and would like to extend it with the Virtual appointment experience provided by Microsoft Teams, follow the steps below: 
-1.	Create an online meeting for Virtual appointment via [Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). 
+1.	Create an online meeting for Virtual appointment via [Microsoft Graph Online meeting API](/graph/api/resources/onlinemeeting). 
    > [!NOTE]
-   > This operation doesn't create a calendar event in Microsoft Booking, Outlook, or Microsoft Teams. If you would like to create a calendar event, use [Microsoft Graph Calendar event API](https://learn.microsoft.com/graph/api/resources/event?view=graph-rest-1.0).
+   > This operation doesn't create a calendar event in Microsoft Booking, Outlook, or Microsoft Teams. If you would like to create a calendar event, use [Microsoft Graph Calendar event API](/graph/api/resources/event).
 ```
 POST https://graph.microsoft.com/v1.0/ me/onlineMeetings
 Body: {
@@ -112,7 +112,7 @@ Response: response.body.value.id; // "MSpkYzE3NjctYmZiMi04ZdFpHRTNaR1F6WGhyZWFkL
           response.body.value.joinWebUrl; // "https://teams.microsoft.com/l/meetup-join/..."
 ```
 
-2.	Create [Virtual appointment experience](https://learn.microsoft.com/graph/api/virtualappointment-getvirtualappointmentjoinweburl?view=graph-rest-1.0&tabs=http) for an [onlinemeeting resource](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0) created in previous step via 
+2.	Create [Virtual appointment experience](/graph/api/virtualappointment-getvirtualappointmentjoinweburl?tabs=http) for an [onlinemeeting resource](/graph/api/resources/onlinemeeting) created in previous step via 
 
 ```
 GET https://graph.microsoft.com/v1.0/ me/onlineMeetings/ MSpkYzE3NjctYmZiMi04ZdFpHRTNaR1F6WGhyZWFkLnYy/getVirtualAppointmentJoinWebUrl

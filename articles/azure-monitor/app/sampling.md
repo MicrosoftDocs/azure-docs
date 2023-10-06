@@ -268,13 +268,15 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
 1. **Enable the fixed-rate sampling module.** Add this snippet to [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md):
+
+    In this example, SamplingPercentage is 20, so **20%** of all items will be sampled. Values in Metrics Explorer will be multiplied by (100/20) = **5** to compensate.
    
     ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
             <!-- Set a percentage close to 100/N where N is an integer. -->
             <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-            <SamplingPercentage>10</SamplingPercentage>
+            <SamplingPercentage>20</SamplingPercentage>
         </Add>
     </TelemetryProcessors>
     ```
@@ -355,7 +357,7 @@ By default no sampling is enabled in the Java autoinstrumentation and SDK. Curre
 
 ### Configuring fixed-rate sampling for OpenCensus Python applications
 
-Instrument your application with the latest [OpenCensus Azure Monitor exporters](./opencensus-python.md).
+Instrument your application with the latest [OpenCensus Azure Monitor exporters](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 > [!NOTE]
 > Fixed-rate sampling is not available for the metrics exporter. This means custom metrics are the only types of telemetry where sampling can NOT be configured. The metrics exporter will send all telemetry that it tracks.

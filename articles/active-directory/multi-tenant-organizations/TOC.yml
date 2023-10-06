@@ -35,7 +35,7 @@
     items:
     - name: Configure cross-tenant synchronization
       items:
-      - name: Portal
+      - name: Admin center
         href: cross-tenant-synchronization-configure.md
       - name: PowerShell or Graph API
         href: cross-tenant-synchronization-configure-graph.md

@@ -121,6 +121,19 @@ When you query directly from the Log Analytics workspace, you only see data that
 > [!NOTE]
 > If you rename your Application Insights resource after you migrate to the workspace-based model, the Application Insights **Logs** tab no longer shows the telemetry collected before renaming. You can see all old and new data on the **Logs** tab of the associated Log Analytics resource.
 
+
+## Identifying the Application Insights resources by ingestion type
+
+Use the following script to identify your Application Insights resources by ingestion type.
+
+#### Example
+
+```azurecli
+
+Get-AzApplicationInsights -SubscriptionId '7faeaa41-541f-48da-82b4-3dc10c594b85' | Format-Table -Property Name, IngestionMode, WorkspaceResourceId, @{label='Type';expression={if ($_.ingestionMode -eq 'LogAnalytics') {'Workspace-based'} elseif ($_.IngestionMode -eq 'ApplicatonInsights') {'Classic'}}}
+
+```
+
 ## Programmatic resource migration
 
 This section helps you migrate your resources.

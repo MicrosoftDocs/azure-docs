@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to manage data feeds that you've added to Metrics Advisor.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 10/25/2022
 ms.author: mbullwin

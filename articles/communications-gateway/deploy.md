@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
-ms.date: 08/01/2023
+ms.date: 09/06/2023
 ---
 
 # Deploy Azure Communications Gateway
@@ -144,13 +144,12 @@ When your resource has been provisioned, you can connect Azure Communications Ga
                 </SPT>
             </TriggerPoint>
             <ApplicationServer>
-                <ServerName>sips:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
+                <ServerName>sip:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
                 <DefaultHandling>0</DefaultHandling>
             </ApplicationServer>
-            <ProfilePartIndicator>0</ProfilePartIndicator>
         </InitialFilterCriteria>
         ```
-1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice).
+1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice) or ExpressRoute Microsoft Peering.
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
     - With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).

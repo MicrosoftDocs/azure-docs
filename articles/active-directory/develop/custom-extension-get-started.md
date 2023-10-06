@@ -1,7 +1,7 @@
 ---
 title: Get started with custom claims providers (preview)
 titleSuffix: Microsoft identity platform
-description: Learn how to develop and register an Azure Active Directory custom authentication extensions REST API. The custom authentication extension allows you to source claims from a data store that is external to Azure Active Directory.  
+description: Learn how to develop and register a Microsoft Entra custom authentication extensions REST API. The custom authentication extension allows you to source claims from a data store that is external to Microsoft Entra ID.  
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -14,14 +14,14 @@ ms.date: 08/16/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
-#Customer intent: As an application developer, I want to create and register a custom authentication extensions API so I can source claims from a data store that is external to Azure Active Directory.
+#Customer intent: As an application developer, I want to create and register a custom authentication extensions API so I can source claims from a data store that is external to Microsoft Entra ID.
 ---
 
 # Configure a custom claim provider token issuance event (preview)
 
 This article describes how to configure and set up a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
 
-This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
+This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Microsoft Entra custom claims provider with Function App:
 
 > [!VIDEO https://www.youtube.com/embed/fxQGVIwX8_4]
 
@@ -31,7 +31,7 @@ This how-to guide demonstrates the token issuance start event with a REST API ru
 
 - To use Azure services, including Azure Functions, you need an Azure subscription. If you don't have an existing Azure account, you may sign up for a [free trial](https://azure.microsoft.com/free/dotnet/) or use your [Visual Studio Subscription](https://visualstudio.microsoft.com/subscriptions/) benefits when you [create an account](https://account.windowsazure.com/Home/Index).
 
-## Step 1. Create an Azure Function app
+## Step 1: Create an Azure Function app
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -60,7 +60,7 @@ In this step, you create an HTTP trigger function API in the Azure portal. The f
 
 ### 1.1 Create an HTTP trigger function
 
-After the Azure Function app is created, create an HTTP trigger function. The HTTP trigger lets you invoke a function with an HTTP request. This HTTP trigger will be referenced and called by your Azure AD custom authentication extension.
+After the Azure Function app is created, create an HTTP trigger function. The HTTP trigger lets you invoke a function with an HTTP request. This HTTP trigger will be referenced and called by your Microsoft Entra custom authentication extension.
 
 1. Within your **Function App**, from the menu select **Functions**.
 1. From the top menu, select **+ Create**.
@@ -149,13 +149,13 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
     }
     ```
 
-    The code starts with reading the incoming JSON object. Azure AD sends the [JSON object](./custom-claims-provider-reference.md) to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
+    The code starts with reading the incoming JSON object. Microsoft Entra ID sends the [JSON object](./custom-claims-provider-reference.md) to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Microsoft Entra ID.
 
 1. From the top menu, select **Get Function Url**, and copy the URL. In the next step, the function URL will be used and referred to as `{Function_Url}`.
 
-## Step 2. Register a custom authentication extension
+## Step 2: Register a custom authentication extension
 
-In this step, you configure a custom authentication extension, which will be used by Azure AD to call your Azure function. The custom authentication extension contains information about your REST API endpoint, the claims that it parses from your REST API, and how to authenticate to your REST API. Follow these steps to register a custom authentication extension:
+In this step, you configure a custom authentication extension, which will be used by Microsoft Entra ID to call your Azure function. The custom authentication extension contains information about your REST API endpoint, the claims that it parses from your REST API, and how to authenticate to your REST API. Follow these steps to register a custom authentication extension:
 
 # [Microsoft Entra admin center](#tab/entra-admin-center)
 
@@ -350,7 +350,7 @@ The following screenshot shows how to grant permissions.
 
 :::image type="content" border="false"source="./media/custom-extension-get-started/custom-extensions-overview.png" alt-text="Screenshot that shows how grant admin consent." lightbox="media/custom-extension-get-started/custom-extensions-overview.png":::
 
-## Step 3. Configure an OpenID Connect app to receive enriched tokens
+## Step 3: Configure an OpenID Connect app to receive enriched tokens
 
 To get a token and test the custom authentication extension, you can use the <https://jwt.ms> app. It's a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser).
 
@@ -406,9 +406,9 @@ The following JSON snippet demonstrates how to configure these properties.
 > [!WARNING]
 > Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](/graph/application-saml-sso-configure-api#option-2-create-a-custom-signing-certificate).
 
-## Step 4. Assign a custom claims provider to your app
+## Step 4: Assign a custom claims provider to your app
 
-For tokens to be issued with claims incoming from the custom authentication extension, you must assign a custom claims provider to your application. The custom claims provider relies on the custom authentication extension configured with the **token issuance start** event listener. You can choose whether all, or a subset of claims, from the custom claims provider are mapped into the token.
+For tokens to be issued with claims incoming from the custom authentication extension, you must assign a custom claims provider to your application. This is based on the token audience, so the provider must be assigned to the client application to receive claims in an ID token, and to the resource application to receive claims in an access token. The custom claims provider relies on the custom authentication extension configured with the **token issuance start** event listener. You can choose whether all, or a subset of claims, from the custom claims provider are mapped into the token.
 
 Follow these steps to connect the *My Test application* with your custom authentication extension:
 
@@ -590,11 +590,11 @@ Assign the claims mapping policy to the service principal of *My Test Applicatio
 
 ---
 
-## Step 5. Protect your Azure Function
+## Step 5: Protect your Azure Function
 
-Azure AD custom authentication extension uses server to server flow to obtain an access token that is sent in the HTTP `Authorization` header to your Azure function. When publishing your function to Azure, especially in a production environment, you need to validate the token sent in the authorization header.
+Microsoft Entra custom authentication extension uses server to server flow to obtain an access token that is sent in the HTTP `Authorization` header to your Azure function. When publishing your function to Azure, especially in a production environment, you need to validate the token sent in the authorization header.
 
-To protect your Azure function, follow these steps to integrate Azure AD authentication, for validating incoming tokens with your *Azure Functions authentication events API* application registration.
+To protect your Azure function, follow these steps to integrate Microsoft Entra authentication, for validating incoming tokens with your *Azure Functions authentication events API* application registration.
 
 > [!NOTE]
 > If the Azure function app is hosted in a different Azure tenant than the tenant in which your custom authentication extension is registered, skip to [using OpenID Connect identity provider](#51-using-openid-connect-identity-provider) step.
@@ -619,8 +619,8 @@ If you configured the [Microsoft identity provider](#step-5-protect-your-azure-f
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **OpenID Connect** as the identity provider.
-1. Provide a name, such as *Contoso Azure AD*.
-1. Under the **Metadata entry**, enter the following URL to the **Document URL**. Replace the `{tenantId}` with your Azure AD tenant ID.
+1. Provide a name, such as *Contoso Microsoft Entra ID*.
+1. Under the **Metadata entry**, enter the following URL to the **Document URL**. Replace the `{tenantId}` with your Microsoft Entra tenant ID.
 
     ```http
     https://login.microsoftonline.com/{tenantId}/v2.0/.well-known/openid-configuration
@@ -639,7 +639,7 @@ If you configured the [Microsoft identity provider](#step-5-protect-your-azure-f
 1. Unselect the **Token store** option.
 1. Select **Add** to add the OpenID Connect identity provider.
 
-## Step 6. Test the application
+## Step 6: Test the application
 
 To test your custom claim provider, follow these steps:
 

@@ -5,8 +5,7 @@ description: This article describes the timelines for models and model versions 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 11/29/2022
@@ -39,18 +38,18 @@ By default, API and SDK requests will use the latest Generally Available model. 
 
 Use the table below to find which model versions are supported by each feature:
 
-| Feature                                             | Supported versions         |
-|-----------------------------------------------------|-----------------------------|
-| Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01`,`2022-10-01`,`2022-11-01*` |
-| Language Detection                                  | `2021-11-20`, `2022-10-01*` |
-| Entity Linking                                      | `2021-06-01*`               |
-| Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`, `2023-02-01-preview**`               |
-| Personally Identifiable Information (PII) detection | `2021-01-15*`, `2023-01-01-preview**`  | 
-| PII detection for conversations (Preview)           | `2022-05-15-preview**`      |  
-| Question answering                                  | `2021-10-01*`               |
-| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview`, `2023-01-01-preview**` |
-| Key phrase extraction                               | `2021-06-01`, `2022-07-01`,`2022-10-01*` | 
-| Document summarization - extractive only (preview)     | `2022-08-31-preview**`               |
+| Feature                                             | Supported versions                                                       |
+|-----------------------------------------------------|--------------------------------------------------------------------------|
+| Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01`,`2022-10-01`,`2022-11-01*`                    |
+| Language Detection                                  | `2021-11-20`, `2022-10-01*`                                              |
+| Entity Linking                                      | `2021-06-01*`                                                            |
+| Named Entity Recognition (NER)                      | `2021-06-01`, `2022-10-01-preview`, `2023-02-01-preview**`, `2023-04-15*`|
+| Personally Identifiable Information (PII) detection | `2021-01-15`, `2023-01-01-preview**`, `2023-04-15*`                      | 
+| PII detection for conversations (Preview)           | `2022-05-15-preview**`, `2023-04-15*`                                    |  
+| Question answering                                  | `2021-10-01*`                                                            |
+| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview`, `2023-01-01-preview**`|
+| Key phrase extraction                               | `2021-06-01`, `2022-07-01`,`2022-10-01*`                                 | 
+| Document summarization - extractive only (preview)  | `2022-08-31-preview**`                                                   |
 
 \* Latest Generally Available (GA) model version
 
@@ -94,12 +93,12 @@ If you're using [Language Studio](https://aka.ms/languageStudio) for your projec
 
 Use the following table to find which API versions are supported by each feature:
 
-| Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
-|-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Custom text classification                  | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2022-05-01`            | `2022-10-01-preview`           |
-| Conversational language understanding       | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2023-04-01`            | `2022-10-01-preview`           |
-| Custom named entity recognition             | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2023-04-01`            |  `2022-10-01-preview`          |
-| Orchestration workflow                      | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                        |      `2023-04-01`            |   `2022-10-01-preview`         |
+|Feature                               |Supported versions                                                                   |Latest Generally Available version                           |Latest preview version|
+|--------------------------------------|-------------------------------------------------------------------------------------|----------------------------------|----------------------|
+| Custom text classification           |`2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                     |`2022-05-01`                      |`2022-10-01-preview`  |
+| Conversational language understanding| `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                    |`2023-04-01`                      |`2022-10-01-preview`  |
+| Custom named entity recognition      | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`, `2023-04-15`, `2023-04-15-preview`|`2023-04-15`                      |`2023-04-15-preview`  |
+| Orchestration workflow               | `2022-05-01`, `2022-10-01-preview`, `2023-04-01`                                    |`2023-04-01`                      |`2022-10-01-preview`  |
 
 ## Next steps
 

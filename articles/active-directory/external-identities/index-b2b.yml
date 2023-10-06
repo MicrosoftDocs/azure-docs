@@ -22,9 +22,9 @@ landingContent:
         links:
           - text: Compare External Identities solutions
             url: external-identities-overview.md
-          - text: What is Azure AD B2B collaboration?
+          - text: What is Microsoft Entra B2B collaboration?
             url: what-is-b2b.md
-          - text: What is Azure AD B2B direct connect?
+          - text: What is Microsoft Entra B2B direct connect?
             url: b2b-direct-connect-overview.md
           - text: What is Azure AD B2C (business-to-consumer) identity?
             url: ../../active-directory-b2c/overview.md
@@ -90,7 +90,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is a multi-tenant organization in Azure AD?
+          - text: What is a multi-tenant organization in Microsoft Entra ID?
             url: ../../active-directory/multi-tenant-organizations/overview.md
       - linkListType: concept
         links:

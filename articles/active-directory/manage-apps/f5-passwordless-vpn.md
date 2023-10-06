@@ -1,6 +1,6 @@
 ---
-title: Configure F5 BIG-IP SSL-VPN solution in Azure AD
-description: Tutorial to configure F5's BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA) 
+title: Configure F5 BIG-IP SSL-VPN solution in Microsoft Entra ID
+description: Tutorial to configure F5's BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Microsoft Entra ID for Secure Hybrid Access (SHA) 
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -15,28 +15,28 @@ ms.reviewer: v-nisba
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO
+# Tutorial: Configure F5 BIG-IP SSL-VPN for Microsoft Entra SSO
 
-In this tutorial, learn how to integrate F5 BIG-IP based secure socket layer virtual private network (SSL-VPN) with Azure Active Directory (Azure AD) for secure hybrid access (SHA).
+In this tutorial, learn how to integrate F5 BIG-IP based secure socket layer virtual private network (SSL-VPN) with Microsoft Entra ID for secure hybrid access (SHA).
 
-Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefits, including:
+Enabling a BIG-IP SSL-VPN for Microsoft Entra single sign-on (SSO) provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and Conditional Access.
+- Improved Zero trust governance through Microsoft Entra pre-authentication and Conditional Access.
   - [What is Conditional Access?](../conditional-access/overview.md)
 - [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) to the VPN service
-- Manage identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
+- Manage identities and access from a single control plane, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 To learn about more benefits, see 
 
-* [Integrate F5 BIG-IP with Azure Active Directory](./f5-integration.md)
-* [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Integrate F5 BIG-IP with Microsoft Entra ID](./f5-integration.md)
+* [What is single sign-on in Microsoft Entra ID?](/azure/active-directory/active-directory-appssoaccess-whatis)
 
 >[!NOTE]
->Classic VPNs remain network orientated, often providing little to no fine-grained access to corporate applications. We encourage a more identity-centric approach to achieve Zero Trust. Learn more: [Five steps for integrating all your apps with Azure AD](../fundamentals/five-steps-to-full-application-integration.md).
+>Classic VPNs remain network orientated, often providing little to no fine-grained access to corporate applications. We encourage a more identity-centric approach to achieve Zero Trust. Learn more: [Five steps for integrating all your apps with Microsoft Entra ID](../fundamentals/five-steps-to-full-application-integration.md).
 
 ## Scenario description
 
-In this scenario, the BIG-IP APM instance of the SSL-VPN service is configured as a SAML service provider (SP) and Azure AD is the trusted SAML IDP. SSO from Azure AD is provided through claims-based authentication to the BIG-IP APM, a seamless VPN access experience.
+In this scenario, the BIG-IP APM instance of the SSL-VPN service is configured as a SAML service provider (SP) and Microsoft Entra ID is the trusted SAML IDP. SSO from Microsoft Entra ID is provided through claims-based authentication to the BIG-IP APM, a seamless VPN access experience.
 
    ![Diagram of integration architecture.](media/f5-passwordless-vpn/ssl-vpn-architecture.png)
 
@@ -47,10 +47,10 @@ In this scenario, the BIG-IP APM instance of the SSL-VPN service is configured a
 
 Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need:
 
-- An Azure AD subscription
+- A Microsoft Entra subscription
   -  If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/trial/get-started-active-directory/) or above
-- User identities [synchronized from their on-premises directory](../hybrid/connect/how-to-connect-sync-whatis.md) to Azure AD.
-- An account with Azure AD application admin [permissions](../roles/permissions-reference.md#application-administrator)
+- User identities [synchronized from their on-premises directory](../hybrid/connect/how-to-connect-sync-whatis.md) to Microsoft Entra ID.
+- One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 - BIG-IP infrastructure with client traffic routing to and from the BIG-IP 
   - Or [deploy a BIG-IP Virtual Edition into Azure](f5-bigip-deployment-guide.md)
 - A record for the BIG-IP published VPN service in public DNS
@@ -58,25 +58,26 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 - The BIG-IP provisioned with the needed SSL certificates for publishing services over HTTPS
 
 To improve the tutorial experience, you can learn industry-standard terminology on the F5 BIG-IP [Glossary](https://www.f5.com/services/resources/glossary).
+ 
 
->[!NOTE]
->Some instructions might vary slightly from the Azure portal. 
+<a name='add-f5-big-ip-from-the-azure-ad-gallery'></a>
 
-## Add F5 BIG-IP from the Azure AD gallery
+## Add F5 BIG-IP from the Microsoft Entra gallery
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../conditional-access/overview.md) to Azure AD, before it grants access to the published VPN service.
+Set up a SAML federation trust between the BIG-IP to allow the Microsoft Entra BIG-IP to hand off the pre-authentication and [Conditional Access](../conditional-access/overview.md) to Microsoft Entra ID, before it grants access to the published VPN service.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with application admin rights.
-2. From the left navigation pane, select the **Azure Active Directory service**.
-3. Go to **Enterprise Applications** and from the top ribbon select **New application**.
-4. In the gallery, search for F5 and select **F5 BIG-IP APM Azure AD integration**.
-5. Enter a name for the application.
-6. Select **Add** then **Create**. 
-7. The name, as an icon, appears in the Azure portal and Office 365 portal. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
+3. In the gallery, search for *F5* and select **F5 BIG-IP APM Azure AD integration**.
+4. Enter a name for the application.
+5. Select **Add** then **Create**. 
+6. The name, as an icon, appears in the Microsoft Entra admin center and Office 365 portal. 
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
+
+## Configure Microsoft Entra SSO
 
 1. With F5 application properties, go to **Manage** > **Single sign-on**.
 2. On the **Select a single sign-on method** page, select **SAML**. 
@@ -86,13 +87,13 @@ Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP t
 6. Replace the **Reply URL**, and the SAML endpoint path. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/post/acs`.
 
 >[!NOTE]
->In this configuration, the application operates in an IdP-initiated mode: Azure AD issues a SAML assertion before redirecting to the BIG-IP SAML service. 
+>In this configuration, the application operates in an IdP-initiated mode: Microsoft Entra ID issues a SAML assertion before redirecting to the BIG-IP SAML service. 
 
 7. For apps that don't support IdP-initiated mode, for the BIG-IP SAML service, specify the **Sign-on URL**, for example, `https://ssl-vpn.contoso.com`.
 8. For the Logout URL, enter the BIG-IP APM Single logout (SLO) endpoint pre-pended by the host header of the service being published. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
 
 >[!NOTE]
->An SLO URL ensures a user session terminates, at BIG-IP and Azure AD, after the user signs out. BIG-IP APM has an option to terminate all sessions when calling an application URL. Learn more on the F5 article, [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+>An SLO URL ensures a user session terminates, at BIG-IP and Microsoft Entra ID, after the user signs out. BIG-IP APM has an option to terminate all sessions when calling an application URL. Learn more on the F5 article, [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
 
   ![Screenshot of basic SAML configuration URLs.](media/f5-passwordless-vpn/basic-saml-configuration.png).
 
@@ -105,15 +106,17 @@ Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP t
 
     ![Screenshot of user attributes and claims properties.](media/f5-passwordless-vpn/user-attributes-claims.png)
 
-You can add other claims to your BIG-IP published service. Claims defined in addition to the default set are issued if they're in Azure AD. Define directory [roles or group](../hybrid/connect/how-to-connect-fed-group-claims.md) memberships against a user object in Azure AD, before they can be issued as a claim.
+You can add other claims to your BIG-IP published service. Claims defined in addition to the default set are issued if they're in Microsoft Entra ID. Define directory [roles or group](../hybrid/connect/how-to-connect-fed-group-claims.md) memberships against a user object in Microsoft Entra ID, before they can be issued as a claim.
 
    ![Screenshot of Federation Metadata XML Download option.](media/f5-passwordless-vpn/saml-signing-certificate.png)
 
-SAML signing certificates created by Azure AD have a lifespan of three years.
+SAML signing certificates created by Microsoft Entra ID have a lifespan of three years.
 
-### Azure AD authorization
+<a name='azure-ad-authorization'></a>
 
-By default, Azure AD issues tokens to users with granted access to a service.
+### Microsoft Entra authorization
+
+By default, Microsoft Entra ID issues tokens to users with granted access to a service.
 
 1. In the application configuration view, select **Users and groups**.
 2. Select **+ Add user**.
@@ -129,14 +132,14 @@ You can set up BIG-IP APM to publish the SSL-VPN service. Configure it with corr
 
 ### SAML federation
 
-To complete federating the VPN service with Azure AD, create the BIG-IP SAML service provider and corresponding SAML IDP objects.
+To complete federating the VPN service with Microsoft Entra ID, create the BIG-IP SAML service provider and corresponding SAML IDP objects.
 
 1. Go to **Access** > **Federation** > **SAML Service Provider** > **Local SP Services**.
 2. Select **Create**.
 
     ![Screenshot of the Create option on the Local SP Services page.](media/f5-passwordless-vpn/bigip-saml-configuration.png)
 
-3. Enter a **Name** and the **Entity ID** defined in Azure AD.
+3. Enter a **Name** and the **Entity ID** defined in Microsoft Entra ID.
 4. Enter the Host FQDN to connect to the application.
 
     ![Screenshot of Name and Entity entries.](media/f5-passwordless-vpn/create-new-saml-sp.png)
@@ -156,7 +159,7 @@ To complete federating the VPN service with Azure AD, create the BIG-IP SAML ser
 
 9. Browse to the federation metadata XML file you downloaded. 
 10. For the APM object,provide an **Identity Provider Name** that represents the external SAML IdP.
-11. To select the new Azure AD external IdP connector, select **Add New Row**.
+11. To select the new Microsoft Entra external IdP connector, select **Add New Row**.
 
     ![Screenshot of SAML IdP Connectors option on the Edit SAML IdP page.](media/f5-passwordless-vpn/external-idp-connector.png)
 
@@ -323,11 +326,11 @@ Your SSL-VPN service is published and accessible via SHA, either with its URL or
     ![Screenshot of the Contoso Network Portal page with network access indicator.](media/f5-passwordless-vpn/vpn-launcher.png)
 
 >[!NOTE]
->Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [Conditional Access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
+>Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Microsoft Entra Conditional Access. See [Conditional Access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Microsoft Entra ID [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
 
 
 ## Resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
-- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration.md)
+- [Five steps to full application integration with Microsoft Entra ID](../fundamentals/five-steps-to-full-application-integration.md)
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

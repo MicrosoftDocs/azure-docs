@@ -123,7 +123,10 @@ If your container could grow to more than a few physical partitions, then you sh
 
 ## Use item ID as the partition key
 
-If your container has a property that has a wide range of possible values, it's likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
+> [!NOTE]
+> This section primarily applies to the API for NoSQL. Other APIs, such as the API for Gremlin, do not support the unique identifier as the partition key.
+
+If your container has a property that has a wide range of possible values, it's likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* (`/id`) is naturally a great choice for the partition key.
 
 The system property *item ID* exists in every item in your container. You may have other properties that represent a logical ID of your item. In many cases, these IDs are also great partition key choices for the same reasons as the *item ID*.
 

@@ -5,8 +5,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 11/01/2021
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions
 ---

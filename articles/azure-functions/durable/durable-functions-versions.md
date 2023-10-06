@@ -50,14 +50,14 @@ Durable Functions 2.x is available starting in version 2.x of the [Azure Functio
 
 Python support in Durable Functions requires Durable Functions 2.x or greater.
 
-To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 3.x (`[3.*, 4.0.0)`).
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`).
 
 ```json
 {
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[3.*, 4.0.0)"
+        "version": "[4.*, 5.0.0)"
     }
 }
 ```
@@ -65,17 +65,16 @@ To update the extension bundle version in your project, open host.json and updat
 > [!NOTE]
 > If Visual Studio Code is not displaying the correct templates after you change the extension bundle version, reload the window by running the *Developer: Reload Window* command (<kbd>Ctrl+R</kbd> on Windows and Linux, <kbd>Command+R</kbd> on macOS).
 
-#### Java (preview)
+#### Java 
 
-Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must use the Azure Functions 3.0 runtime or greater to execute Java functions.
+Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must use the Azure Functions 4.0 runtime to execute Java functions.
 
-To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`). Because Java support is currently in preview, you must also use the `Microsoft.Azure.Functions.ExtensionBundle.Preview` bundle, which is different from product-ready bundles.
-
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`). 
 ```json
 {
     "version": "2.0",
     "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
         "version": "[4.*, 5.0.0)"
     }
 }

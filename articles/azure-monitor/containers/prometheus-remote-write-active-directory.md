@@ -3,6 +3,7 @@ title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure 
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
 author: EdB-MSFT
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 11/01/2022
 ---
 
@@ -28,7 +29,7 @@ Follow the procedure at [Register an application with Azure AD and create a serv
 
 ## Get the client ID of the Azure Active Directory application.
 
-1. From the **Azure Active Directory** menu in Azure Portal, select **App registrations**.
+1. From the **Azure Active Directory** menu in the Azure Portal, select **App registrations**.
 2. Locate your application and note the client ID.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/application-client-id.png" alt-text="Screenshot showing client ID of Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/application-client-id.png":::
@@ -36,27 +37,27 @@ Follow the procedure at [Register an application with Azure AD and create a serv
 ## Assign Monitoring Metrics Publisher role on the data collection rule to the application
 The application requires the *Monitoring Metrics Publisher* role on the data collection rule associated with your Azure Monitor workspace.
 
-1. From the menu of your Azure Monitor Workspace account, click the **Data collection rule** to open the **Overview** page for the data collection rule.
+1. From the menu of your Azure Monitor Workspace account, select the **Data collection rule** to open the **Overview** page for the data collection rule.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png" alt-text="Screenshot showing data collection rule used by Azure Monitor workspace." lightbox="media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png":::
 
-2. Click on **Access control (IAM)** in the **Overview** page for the data collection rule.
+2. Select **Access control (IAM)** in the **Overview** page for the data collection rule.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/azure-monitor-account-access-control.png" alt-text="Screenshot showing Access control (IAM) menu item on the data collection rule Overview page." lightbox="media/prometheus-remote-write-managed-identity/azure-monitor-account-access-control.png":::
 
-3. Click **Add** and then **Add role assignment**.
+3. Select **Add** and then **Add role assignment**.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/data-collection-rule-add-role-assignment.png" alt-text="Screenshot showing adding a role assignment on Access control pages." lightbox="media/prometheus-remote-write-managed-identity/data-collection-rule-add-role-assignment.png":::
 
-4. Select **Monitoring Metrics Publisher** role and click **Next**.
+4. Select **Monitoring Metrics Publisher** role and select **Next**.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/add-role-assignment.png" alt-text="Screenshot showing list of role assignments." lightbox="media/prometheus-remote-write-managed-identity/add-role-assignment.png":::
 
-5. Select **User, group, or service principal** and then click **Select members**. Select the application that you created and click **Select**.
+5. Select **User, group, or service principal** and then select **Select members**. Select the application that you created and click **Select**.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/select-application.png" alt-text="Screenshot showing selection of application." lightbox="media/prometheus-remote-write-active-directory/select-application.png":::
 
-6. Click **Review + assign** to complete the role assignment.
+6. Select **Review + assign** to complete the role assignment.
 
 
 ## Create an Azure key vault and generate certificate
@@ -68,7 +69,7 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 ## Add certificate to the Azure Active Directory application
 
 1. From the menu for your Azure Active Directory application, select **Certificates & secrets**.
-2. Click **Upload certificate** and select the certificate that you downloaded.
+2. Select **Upload certificate** and select the certificate that you downloaded.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot showing upload of certificate for Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
@@ -111,25 +112,25 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     apiVersion: secrets-store.csi.x-k8s.io/v1
     kind: SecretProviderClass
     metadata:
-    name: azure-kvname-user-msi
+      name: azure-kvname-user-msi
     spec:
-    provider: azure
-    parameters:
+      provider: azure
+      parameters:
         usePodIdentity: "false"
         useVMManagedIdentity: "true"          # Set to true for using managed identity
-        userAssignedIdentityID:  <client-id> # Set the clientID of the user-assigned managed identity to use
-        keyvaultName: <key-vault-name> # Set to the name of your key vault
+        userAssignedIdentityID: <client-id>   # Set the clientID of the user-assigned managed identity to use
+        keyvaultName: <key-vault-name>        # Set to the name of your key vault
         cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
         objects:  |
-        array:
+          array:
             - |
-            objectName: <name-of-cert>
-            objectType: secret        # object types: secret, key, or cert
-            objectFormat: pfx
-            objectEncoding: base64
-            objectVersion: ""
-        tenantId: <tenant-id> # The tenant ID of the key vault
-    ```
+              objectName: <name-of-cert>
+              objectType: secret              # object types: secret, key, or cert
+              objectFormat: pfx
+              objectEncoding: base64
+              objectVersion: ""
+        tenantId: <tenant-id>                 # The tenant ID of the key vault
+    ``````
 
 4. Apply the *SecretProviderClass* by running the following command on your cluster.
 
@@ -221,13 +222,12 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
                 value: '<CLUSTER-NAME>'
     ```
 
-
 2. Replace the following values in the YAML.
 
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br>The remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |
@@ -254,5 +254,9 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 
 ## Next steps
 
-= [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
+- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+- [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Azure Workload Identity (preview)](./prometheus-remote-write-azure-workload-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)

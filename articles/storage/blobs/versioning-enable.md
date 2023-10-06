@@ -5,7 +5,7 @@ description: Learn how to enable blob versioning in the Azure portal or by using
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: normesta

@@ -1,15 +1,14 @@
 ---
 title: "Document Translation C#/.NET or Python client library"
 titleSuffix: Azure AI services
-description: Use the Translator C#/.NET or Python client library (SDK) for cloud-based batch document translation service and process
+description: Use the Document Translator C#/.NET or Python client library (SDK) for cloud-based batch document translation service and process
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
-ms.custom: build-2023, devx-track-dotnet, devx-track-python
-ms.topic: reference
-ms.date: 07/18/2023
+ms.service: azure-ai-translator
+ms.custom: devx-track-dotnet, devx-track-python
+ms.topic: quickstart
+ms.date: 09/28/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---

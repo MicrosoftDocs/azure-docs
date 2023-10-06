@@ -8,6 +8,8 @@ ms.reviewer: randolphwest
 ms.date: 01/31/2023
 ms.service: dms
 ms.topic: tutorial
+ms.custom:
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server logins (preview) to Azure SQL in Azure Data Studio

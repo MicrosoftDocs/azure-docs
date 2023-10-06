@@ -5,8 +5,7 @@ description: This article shows you how to create a new Immersive Reader resourc
 services: cognitive-services
 author: rwallerms
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/31/2023

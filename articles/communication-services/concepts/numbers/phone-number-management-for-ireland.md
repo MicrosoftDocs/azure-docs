@@ -45,14 +45,11 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Ireland phone numbers are available
 | Country/Region |
 | :---------- |
-|Canada|
 |Denmark|
 |Ireland|
 |Italy|
-|Puerto Rico|
 |Sweden|
-|United Kingdom|
-|United States|
+
 
 
 ## Find information about other countries/regions

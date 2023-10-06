@@ -5,8 +5,7 @@ description: Text Analytics for health containers uses a common configuration fr
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: jboback

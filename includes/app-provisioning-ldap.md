@@ -73,7 +73,7 @@ Before deploying the connector to an existing directory server, you'll need to d
  | account for the connector to identify itself to the directory server |Configuration wizard **Connectivity** page | For AD LDS, `CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab` and for OpenLDAP, `cn=admin,dc=contoso,dc=lab` |
  | password for the connector to authenticate itself to the directory server |Configuration wizard **Connectivity** page | |
  | structural object class for a user in the directory server | Configuration wizard **Object Types** page | For AD LDS `User` and for OpenLDAP `inetOrgPerson` |
- | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | For OpenLDAP, `posixAccount`,`shadowAccount` and `sshUser` |
+ | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | For OpenLDAP with the POSIX schema, `posixAccount` and`shadowAccount` |
  | attributes to populate on a new user | Configuration wizard  **Select Attributes** page and Azure portal **Provisioning** page attribute mappings | For AD LDS `msDS-UserAccountDisabled`, `userPrincipalName`, `displayName` and for OpenLDAP `cn`, `gidNumber`, `homeDirectory`, `mail`, `objectClass`, `sn`, `uid`, `uidNumber`, `userPassword` |
  | naming hierarchy required by the directory server | Azure portal **Provisioning** page attribute mappings | Set the DN of a newly created user to be immediately below `CN=CloudUsers,CN=App,DC=Contoso,DC=lab` for AD LDS and `DC=Contoso,DC=lab` for OpenLDAP |
  | attributes for correlating users across Azure AD and the directory server | Azure portal **Provisioning** page attribute mappings | For AD LDS, not configured as this example is for an initially empty directory, and or OpenLDAP, `mail` |
@@ -90,7 +90,6 @@ dn: cn=bsimon,dc=Contoso,dc=lab
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
-objectClass: sshUser
 cn: bsimon
 gidNumber: 10000
 homeDirectory: /home/bsimon
@@ -98,6 +97,7 @@ sn: simon
 uid: bsimon
 uidNumber: 10011
 mail: bsimon@contoso.com
+userPassword: initial-password
 ```
 
 The directory hierarchy rules implemented by a directory server describe how the objects for each user relate to each other and to existing objects in the directory.  In most deployments, the organization chose to have a flat hierarchy in their directory server, in which each object for a user is located immediately below a common base object.  For example, if the base distinguished name for the naming context in a directory server is `dc=contoso,dc=com` then a new user would have a distinguished name like `cn=alice,dc=contoso,dc=com`.  However, some organizations may have a more complex directory hierarchy, in which case you'll need to implement the rules when specifying the distinguished name mapping for the connector. For example, a directory server may expect users to be in organizational units by department, so a new user would have a distinguished name like `cn=alice,ou=London,dc=contoso,dc=com`. Since the connector does not create intermediate objects for organizational units, any intermediate objects the directory server rule hierarchy expects must already exist in the directory server.
@@ -263,7 +263,7 @@ Depending on the options you select, some of the wizard screens might not be ava
      | mail| Y |
      | objectClass| |
      | sn | Y |
-     | userPassword | |
+     | userPassword | Y |
 
      If you're using OpenLDAP with the POSIX schema, please configure visibility for the following attributes.
 
@@ -363,7 +363,6 @@ In this section, you'll configure the mapping between the Azure AD user's attrib
     - Mapping type: expression
     - Expression, if provisioning the inetOrgPerson schema: `Split("inetOrgPerson",",")`
     - Expression, if provisioning the POSIX schema: `Split("inetOrgPerson,posixAccount,shadowAccount",",")`
-    - Expression, if provisioning the POSIX schema and SSH: `Split("inetOrgPerson,posixAccount,shadowAccount,sshUser",",")`
     - Target attribute: `urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:objectClass`
     - Apply this mapping: only during object creation
  1. If you are provisioning into AD LDS, and there is a mapping from **userPrincipalName** to **PLACEHOLDER**, then click on that mapping and edit it.  Use the values below to update the mapping.

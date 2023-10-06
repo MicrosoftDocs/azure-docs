@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to increase service limit capacity with add-on capabilities.
 author: jaep3347
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 08/25/2023
 ms.author: lajanuar

@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 07/15/2022
+  ms.date: 09/14/2023
 
 highlightedContent:
   items:
@@ -175,8 +175,9 @@ additionalContent:
               text: Overview
             - url: ../defender-for-cloud/tutorial-protect-resources.md
               text: Protect your resources
-            - url: /training/modules/microsoft-cloud-app-security/
-              text: "Learn: Secure your cloud apps and services"
+            - url: /training/paths/sc-200-mitigate-threats-using-azure-defender/
+              text: "Learn: Mitigate threats using Microsoft Defender for Cloud"
+
 
         - title: Microsoft Defender for Identity
           summary: Improve security of hybrid environments from cyber attacks and insider threats                 
@@ -213,6 +214,8 @@ additionalContent:
               text: Get started 
             - url: /defender-cloud-apps/tutorial-suspicious-activity
               text: Detect and manage suspicious activity
+            - url: /training/modules/microsoft-cloud-app-security/
+              text: "Learn: Secure your cloud apps and services"
 
         - title: Microsoft Defender for IoT
           summary: Threat detection for IoT/OT environments

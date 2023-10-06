@@ -6,6 +6,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: akashdubey
@@ -303,7 +304,7 @@ az storage container create \
 ```
 
 > [!NOTE]
-> Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
+> Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous read access. For more information, see [Configure anonymous read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
 
 ## Monitor the Azure Policy for compliance
 

@@ -40,7 +40,7 @@ MSAL Angular v2 improves on MSAL Angular v1 by supporting the authorization code
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
 
-The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular v2, a wrapper of the MSAL.js v2 library. MSAL Angular enables Angular 9+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
+The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular v2, a wrapper of the MSAL.js v2 library. MSAL Angular enables Angular 9+ applications to authenticate enterprise users by using Microsoft Entra ID, and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
@@ -53,7 +53,7 @@ This tutorial uses the following libraries:
 | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) | Microsoft Authentication Library for JavaScript Angular Wrapper    |
 | [MSAL Browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Microsoft Authentication Library for JavaScript v2 browser package |
 
-You can find the source code for all of the MSAL.js libraries in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
+You can find the source code for all of the MSAL.js libraries in the [`microsoft-authentication-library-for-js`](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
 ### Get the completed code sample
 
@@ -86,7 +86,7 @@ To complete registration, provide the application a name, specify the supported 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
    1. You may need to switch terminal types. Select the down arrow next to the **+** icon in the terminal and select **Command Prompt**.
-1. Run the following commands to create a new Angular project with the name _msal-angular-tutorial_, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
+1. Run the following commands to create a new Angular project with the name `msal-angular-tutorial`, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
 
    ```cmd
    npm install -g @angular/cli

@@ -15,7 +15,7 @@ In this article, you learn how the automatic node repair functionality behaves f
 
 AKS uses the following rules to determine if a node is unhealthy and needs repair:
 
-* The node reports the [**NotReady**]((https://kubernetes.io/docs/reference/node/node-status/#condition) status on consecutive checks within a 10-minute time frame.
+* The node reports the [**NotReady**](https://kubernetes.io/docs/reference/node/node-status/#condition) status on consecutive checks within a 10-minute time frame.
 * The node doesn't report any status within 10 minutes.
 
 You can manually check the health state of your nodes with the `kubectl get nodes` command.
@@ -34,7 +34,8 @@ If AKS identifies an unhealthy node that remains unhealthy for *five* minutes, A
 AKS engineers investigate alternative remediations if auto-repair is unsuccessful.
 
 > [!NOTE]
-> Auto-repair is not triggered if the following taints are present on the node:` node.cloudprovider.kubernetes.io/shutdown`, `ToBeDeletedByClusterAutoscaler`
+> Auto-repair is not triggered if the following taints are present on the node:` node.cloudprovider.kubernetes.io/shutdown`, `ToBeDeletedByClusterAutoscaler`.
+> 
 > The overall auto repair process can take up to an hour to complete. AKS retries for a max of 3 times for each step. 
 
 ## Node auto-drain

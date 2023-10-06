@@ -1,6 +1,6 @@
 ---
 title: Add and manage customer accounts
-description: Learn how to add and manage customer accounts in Microsoft Entra for customers.
+description: Learn how to add and manage customer accounts in Microsoft Entra ID for customers.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -15,14 +15,14 @@ ms.custom: it-pro
 ---
 # Add and manage customer accounts (preview)
 
-There might be scenarios in which you want to manually create customer accounts in your Azure Active Directory customer tenant. Although customer accounts are most commonly created when users sign up to use one of your applications, you can create them programmatically and by using the Microsoft Entra admin center. This article focuses on the Microsoft Entra admin center method of user creation and deletion.
+There might be scenarios in which you want to manually create customer accounts in your Microsoft Entra customer tenant. Although customer accounts are most commonly created when users sign up to use one of your applications, you can create them programmatically and by using the Microsoft Entra admin center. This article focuses on the Microsoft Entra admin center method of user creation and deletion.
 
 To add or delete users, your account must be assigned the *User administrator* or *Global administrator* role.
 
 ## Prerequisites
 
-- If you haven't already created your own Azure AD customer tenant, create one now.
-- Understand user accounts in Azure AD for customers.
+- If you haven't already created your own Microsoft Entra customer tenant, create one now.
+- Understand user accounts in Microsoft Entra ID for customers.
 - Understand user roles to control resource access.
 
 [!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
@@ -65,4 +65,4 @@ To reset a customer's password:
 1. Search for and select the user to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../../fundamentals/users-restore.md).
+For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Microsoft Entra ID](../../fundamentals/users-restore.md).

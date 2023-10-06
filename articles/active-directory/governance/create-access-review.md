@@ -1,6 +1,6 @@
 ---
 title: Create an access review of groups and applications
-description: Learn how to create an access review of group members or application access in Azure Active Directory. 
+description: Learn how to create an access review of group members or application access in Microsoft Entra ID. 
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -16,11 +16,11 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
  
-# Create an access review of groups and applications in Azure AD
+# Create an access review of groups and applications in Microsoft Entra ID
 
-Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access.
+Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Microsoft Entra ID to create access reviews for group members or application access.
 
-Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User administrator enables the setting via the **Access Reviews Settings** pane. For more information about these scenarios, see [Manage access reviews](manage-access-review.md).
+Microsoft 365 and Security group owners can also use Microsoft Entra ID to create access reviews for group members as long as the Global or Identity Governance Administrator enables the setting via the **Access Reviews Settings** pane. For more information about these scenarios, see [Manage access reviews](manage-access-review.md).
 
 Watch a short video that talks about enabling access reviews.
 
@@ -30,15 +30,15 @@ This article describes how to create one or more access reviews for group member
 
 ## Prerequisites
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses.  
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance licenses.  
 - Creating a review on inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
-- Global administrator, User administrator, or Identity Governance administrator to create reviews on groups or applications.
-- Global administrators and Privileged Role administrators can create reviews on role-assignable groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
+- Global administrator or Identity Governance administrator to create reviews on groups or applications.
+- Global administrators and Privileged Role administrators can create reviews on role-assignable groups. For more information, see [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md).
 - Microsoft 365 and Security group owner.
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-If you're reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
+If you're reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Microsoft Entra ID.
 
 ## Create a single-stage access review
 
@@ -71,7 +71,7 @@ If you're reviewing access to an application, then before creating the review, s
 > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
 7. Now you can select a scope for the review. Your options are:
-    - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
+    - **Guest users only**: This option limits the access review to only the Microsoft Entra B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
     > [!NOTE]  
@@ -138,7 +138,7 @@ If you're reviewing access to an application, then before creating the review, s
        - **Remove user's membership from the resource**: This option removes a denied guest user's access to the group or application being reviewed. They can still sign in to the tenant and won't lose any other access.
        - **Block user from signing-in for 30 days, then remove user from the tenant**: This option blocks a denied guest user from signing in to the tenant, no matter if they have access to other resources. If this action was taken in error, admins can reenable the guest user's access within 30 days after the guest user was disabled. If no action is taken on the disabled guest user after 30 days, they're deleted from the tenant.
 
-    To learn more about best practices for removing guest users who no longer have access to resources in your organization, see [Use Azure AD Identity Governance to review and remove external users who no longer have resource access](access-reviews-external-users.md).
+    To learn more about best practices for removing guest users who no longer have access to resources in your organization, see [Use Microsoft Entra ID Governance to review and remove external users who no longer have resource access](access-reviews-external-users.md).
 
     > [!NOTE]
     > **Action to apply on denied guest users** isn't configurable on reviews scoped to more than guest users. It's also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing a user's membership from the resource is used on denied users.
@@ -157,8 +157,8 @@ If you're reviewing access to an application, then before creating the review, s
 1. In the **Advanced settings** section, you can choose the following:
 
     - **Justification required**: Select this checkbox to require the reviewer to supply a reason for approval or denial.
-    - **Email notifications**: Select this checkbox to have Azure AD send email notifications to reviewers when an access review starts and to administrators when a review finishes.
-    - **Reminders**: Select this checkbox to have Azure AD send reminders of access reviews in progress to all reviewers. Reviewers receive the reminders halfway through the review, no matter if they've finished their review or not.
+    - **Email notifications**: Select this checkbox to have Microsoft Entra ID send email notifications to reviewers when an access review starts and to administrators when a review finishes.
+    - **Reminders**: Select this checkbox to have Microsoft Entra ID send reminders of access reviews in progress to all reviewers. Reviewers receive the reminders halfway through the review, no matter if they've finished their review or not.
     - **Additional content for reviewer email**: The content of the email sent to reviewers is autogenerated based on the review details, such as review name, resource name, and due date. If you need to communicate more information, you can specify details such as instructions or contact information in the box. The information that you enter is included in the invitation, and reminder emails are sent to assigned reviewers. The section highlighted in the following image shows where this information appears.
 
       ![Screenshot that shows additional content for reviewers.](./media/create-access-review/additional-content-reviewer.png)
@@ -220,7 +220,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 ## Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews
 
-You can create access reviews for B2B direct connect users via shared channels in Microsoft Teams. As you collaborate externally, you can use Azure AD access reviews to make sure external access to shared channels stays current. To learn more about Teams Shared Channels and B2B direct connect users, read the [B2B direct connect](../external-identities/b2b-direct-connect-overview.md) article.
+You can create access reviews for B2B direct connect users via shared channels in Microsoft Teams. As you collaborate externally, you can use Microsoft Entra access reviews to make sure external access to shared channels stays current. To learn more about Teams Shared Channels and B2B direct connect users, read the [B2B direct connect](../external-identities/b2b-direct-connect-overview.md) article.
 
 When you create an access review on a Team with shared channels, your reviewers can review continued need for access of those external users and Teams in the shared channels. External users in the shared channels are called B2B direct connect users. You can review access of B2B connect users and other supported B2B collaboration users and non-B2B internal users in the same review.
 
@@ -267,7 +267,7 @@ Use the following instructions to create an access review on a team with shared 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-The prerequisite role is a Global or User administrator.
+The prerequisite role is a Global or Identity Governance Administrator.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -286,7 +286,7 @@ After you've specified the settings for an access review, select **Start**. The 
 
 ![Screenshot that shows a list of access reviews and their status.](./media/create-access-review/access-reviews-list.png)
 
-By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
+By default, Microsoft Entra ID sends an email to reviewers shortly after the review starts. If you choose not to have Microsoft Entra ID send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
 If you've assigned guests as reviewers and they haven't accepted their invitation to the tenant, they won't receive an email from access reviews. They must first accept the invitation before they can begin reviewing.
 

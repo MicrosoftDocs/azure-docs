@@ -5,8 +5,7 @@ description: The Image Analysis service uses pretrained AI models to extract man
 services: cognitive-services 
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services 
-ms.subservice: computer-vision 
+ms.service: azure-ai-vision
 ms.custom: ignite-2022, references_regions, build-2023, build-2023-dataai
 ms.topic: overview
 ms.date: 07/04/2023

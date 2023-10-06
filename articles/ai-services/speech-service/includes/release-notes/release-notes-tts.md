@@ -5,6 +5,21 @@ ms.topic: include
 ms.date: 02/28/2023
 ms.author: eur
 ---
+### September 2023 release
+
+#### Prebuilt neural voice
+- Introducing new multilingual voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `en-US` | English (United States) | `en-US-EmmaNeural` (Female) |
+| `en-US` | English (United States) | `en-US-AndrewNeural` (Male) |
+| `en-US` | English (United States) | `en-US-BrianNeural` (Male) |
+
+See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
+#### Embedded neural voice
+- All 147 locales here (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices.
 
 ### August 2023 release
 
@@ -79,7 +94,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### New features
 
-Speech Synthesis Markup Language (SSML) has been updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#voice-element).
+Speech Synthesis Markup Language (SSML) has been updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#use-voice-elements).
 
 #### Custom neural voice
 
@@ -197,11 +212,11 @@ For more information, see the [language and voice list](../../language-support.m
 
 | Language | Locale  | Gender | Voice name| Style support|
 |---|---|---|---|---|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyiNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaozhenNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyiNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaozhenNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles)  |
 | English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|
 
 *  Supported styles and roles for the added neural voices.
@@ -613,7 +628,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 ### October 2020 release
 
 #### New features
-- Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
+- Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
 - **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
 - **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms.
@@ -631,7 +646,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 * **Neural text to speech**
     * **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
     * **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](../../language-support.md?tabs=tts).
-    * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
+    * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
 
 * **Containers: Neural text to speech Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural text to speech](../../speech-container-howto.md)
 

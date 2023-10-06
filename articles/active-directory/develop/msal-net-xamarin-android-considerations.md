@@ -256,7 +256,7 @@ For more information, see the sample of a [Xamarin mobile application that uses 
 
 | Sample | Platform | Description |
 | ------ | -------- | ----------- |
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.iOS, Android, UWP | A simple Xamarin.Forms app that shows how to use MSAL to authenticate Microsoft personal accounts and Azure AD through the Azure AD 2.0 endpoint. The app also shows how to access Microsoft Graph and shows the resulting token. <br>![Diagram of authentication flow](media/msal-net-xamarin-android-considerations/topology.png) |
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.iOS, Android, UWP | A Xamarin mobile application that shows how to use MSAL.NET to authenticate work or school and Microsoft personal accounts with the Microsoft identity platform, and access the Microsoft Graph API with the resulting token. <br>![Diagram of authentication flow](media/msal-net-xamarin-android-considerations/topology.png) |
 
 <!-- REF LINKS -->
 [PublicClientApplication]: /dotnet/api/microsoft.identity.client.publicclientapplication

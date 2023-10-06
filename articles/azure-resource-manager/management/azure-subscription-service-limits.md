@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 09/26/2023
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -62,7 +62,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 ## API Center (preview) limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
-
 
 ## API Management limits
 
@@ -127,6 +126,8 @@ Azure Communications Gateway also has limits on the SIP signaling.
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
+[!INCLUDE [container-apps-limits](../../../includes/container-apps/container-apps-limits.md)]
 
 ## Azure Cosmos DB limits
 

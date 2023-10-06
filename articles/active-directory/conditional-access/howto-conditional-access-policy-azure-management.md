@@ -29,7 +29,7 @@ These tools can provide highly privileged access to resources that can make the 
 - Service settings
 - Subscription billing
 
-To protect these privileged resources, Microsoft recommends requiring multifactor authentication for any user accessing these resources. In Azure AD, these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). For Azure Government, this suite should be the Azure Government Cloud Management API app. 
+To protect these privileged resources, Microsoft recommends requiring multifactor authentication for any user accessing these resources. In Microsoft Entra ID, these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). For Azure Government, this suite should be the Azure Government Cloud Management API app. 
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]

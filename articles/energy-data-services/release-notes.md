@@ -23,6 +23,12 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## August 2023
+
+### General Availability Fixed Pricing for Azure Data Manager for Energy
+Starting September 2023, the General Availability pricing changes for Azure Data Manager for Energy will be effective. You can visit the [Product Pricing Page](https://azure.microsoft.com/pricing/details/energy-data-services/) to learn more.
+
+
 ## June 2023
 
 ### Service Level Agreement (SLA) for Azure Data Manager for Energy

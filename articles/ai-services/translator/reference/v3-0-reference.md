@@ -1,14 +1,13 @@
 ---
 title: Translator V3.0 Reference
 titleSuffix: Azure AI services
-description: Reference documentation for the Translator V3.0. Version 3 of the Translator provides a modern JSON-based Web API.
+description: Reference documentation for the Translator V3.0. Version 3.0 of the Translator provides a modern JSON-based Web API.
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/19/2023
 ms.author: lajanuar
 ---
 
@@ -16,7 +15,7 @@ ms.author: lajanuar
 
 ## What's new?
 
-Version 3 of the Translator provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
+Version 3.0 of the Translator provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
 
 * Transliteration to convert text in one language from one script to another script.
 * Translation to multiple languages in one request.
@@ -37,7 +36,8 @@ To force the request to be handled within a specific geography, use the desired 
 |Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
 |United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
 
-<sup>`1`</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or 'Switzerland West', then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is 'my-swiss-n', then your custom endpoint is "https://my-swiss-n.cognitiveservices.azure.com". And a sample request to translate is:
+<sup>`1`</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or `Switzerland West`, then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is `my-swiss-n`, then your custom endpoint is `https&#8203;://my-swiss-n.cognitiveservices.azure.com`. And a sample request to translate is:
+
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -46,6 +46,7 @@ curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
+
 <sup>`2`</sup> Custom Translator isn't currently available in Switzerland.
 
 ## Authentication

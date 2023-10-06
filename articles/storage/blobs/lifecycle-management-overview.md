@@ -6,8 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/30/2023
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: references_regions, engagement-fy23
@@ -138,7 +137,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).

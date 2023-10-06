@@ -1,6 +1,6 @@
 ---
-title: Find and address gaps in strong authentication coverage for your administrators in Azure Active Directory 
-description: Learn how to find and address gaps in strong authentication coverage for your administrators in Azure Active Directory
+title: Find and address gaps in strong authentication coverage for your administrators in Microsoft Entra ID 
+description: Learn how to find and address gaps in strong authentication coverage for your administrators in Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
@@ -19,9 +19,11 @@ ms.collection: M365-identity-device-management
 
 Requiring multifactor authentication (MFA) for the administrators in your tenant is one of the first steps you can take to increase the security of your tenant. In this article, we'll cover how to make sure all of your administrators are covered by multifactor authentication.
 
-## Detect current usage for Azure AD Built-in administrator roles
+<a name='detect-current-usage-for-azure-ad-built-in-administrator-roles'></a>
 
-The [Azure AD Secure Score](../fundamentals/identity-secure-score.md) provides a score for **Require MFA for administrative roles** in your tenant. This improvement action tracks the MFA usage of Global administrator, Security administrator, Exchange administrator, and SharePoint administrator. 
+## Detect current usage for Microsoft Entra Built-in administrator roles
+
+The [Microsoft Entra ID Secure Score](../fundamentals/identity-secure-score.md) provides a score for **Require MFA for administrative roles** in your tenant. This improvement action tracks the MFA usage of Global administrator, Security administrator, Exchange administrator, and SharePoint administrator. 
 
 There are different ways to check if your admins are covered by an MFA policy. 
 
@@ -43,7 +45,7 @@ There are different ways to check if your admins are covered by an MFA policy.
 
 If you find administrators who aren't protected by multifactor authentication, you can protect them in one of the following ways:
 
-- If your administrators are licensed for Azure AD Premium, you can [create a Conditional Access policy](tutorial-enable-azure-mfa.md) to enforce MFA for administrators. You can also update this policy to require MFA from users who are in custom roles.  
+- If your administrators are licensed for Microsoft Entra ID P1 or P2, you can [create a Conditional Access policy](tutorial-enable-azure-mfa.md) to enforce MFA for administrators. You can also update this policy to require MFA from users who are in custom roles.  
 
 - Run the [MFA enablement wizard](https://aka.ms/MFASetupGuide) to choose your MFA policy.
 
@@ -57,4 +59,8 @@ After your admins are enforced for multifactor authentication and have been usin
 - [FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
-You can read more about these authentication methods and their security considerations in [Azure AD authentication methods](concept-authentication-methods.md).
+You can read more about these authentication methods and their security considerations in [Microsoft Entra authentication methods](concept-authentication-methods.md).
+
+## Next steps
+
+[Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)

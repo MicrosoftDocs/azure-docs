@@ -19,7 +19,7 @@ This guide provides information on how to apply policy definitions to your clust
 
 If you're new to Azure Policy, here are some helpful resources that you can use to become more familiar with Azure Policy, how it can be used to secure your AKS clusters, and the built-in policy definitions that are available for you to use for AKS resource protection:
 
-- [Azure Policy documentation](https://learn.microsoft.com/azure/governance/policy/)
+- [Azure Policy documentation](/azure/governance/policy/)
 - [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md)
 - [Azure Policy Built-in definitions for AKS](../aks/policy-reference.md) 
 

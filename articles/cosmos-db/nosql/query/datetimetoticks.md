@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -53,7 +53,7 @@ The following example measures the ticks since the date and time **May 19, 2015 
 - This function returns `undefined` if the date and time isn't a valid ISO 8601 date and time string.
 - This function doesn't use the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`DateTimeToTimestamp`](datetimetotimestamp.md)

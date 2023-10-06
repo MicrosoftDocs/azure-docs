@@ -24,7 +24,7 @@ You can investigate moving your service an Azure service account, such as a mana
 Learn more:
 
 * [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
-* [Securing service principals in Azure Active Directory](service-accounts-principal.md)
+* [Securing service principals in Microsoft Entra ID](service-accounts-principal.md)
 
 You can create on-premises user accounts to provide security for services and permissions the accounts use to access local and network resources. On-premises user accounts require manual password management, like other Active Directory (AD) user accounts. Service and domain administrators are required to maintain strong password management processes to help keep accounts secure.
 

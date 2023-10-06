@@ -6,7 +6,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/12/2023
+ms.date: 09/26/2023
 ---
 
 # Conditional deployment in Bicep
@@ -20,9 +20,9 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 
 If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
-## Deploy condition
+## Define condition for deployment
 
-You can pass in a parameter value that indicates whether a resource is deployed. The following example conditionally deploys a DNS zone.
+In Bicep, you can conditionally deploy a resource by passing in a parameter that specifies whether the resource is deployed. You test the condition with an `if` statement in the resource declaration. The following example shows a Bicep file that conditionally deploys a DNS zone. When `deployZone` is `true`, it deploys the DNS zone. When `deployZone` is `false`, it skips deploying the DNS zone.
 
 ```bicep
 param deployZone bool
