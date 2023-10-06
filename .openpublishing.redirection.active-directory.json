@@ -176,8 +176,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/app-provisioning/index.yml.md",
-      "redirect_url": "/entra/identity/app-provisioning/index.yml",
+      "source_path_from_root": "/articles/active-directory/app-provisioning/index.yml",
+      "redirect_url": "/entra/identity/app-provisioning/index",
       "redirect_document_id": false
     },
     {
@@ -491,8 +491,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/app-proxy/application-proxy-faq.yml.md",
-      "redirect_url": "/entra/identity/app-proxy/application-proxy-faq.yml",
+      "source_path_from_root": "/articles/active-directory/app-proxy/application-proxy-faq.yml",
+      "redirect_url": "/entra/identity/app-proxy/application-proxy-faq",
       "redirect_document_id": false
     },
     {
@@ -636,8 +636,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/app-proxy/index.yml.md",
-      "redirect_url": "/entra/identity/app-proxy/index.yml",
+      "source_path_from_root": "/articles/active-directory/app-proxy/index.yml",
+      "redirect_url": "/entra/identity/app-proxy/index",
       "redirect_document_id": false
     },
     {
@@ -816,8 +816,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/architecture/index.yml.md",
-      "redirect_url": "/entra/architecture/index.yml",
+      "source_path_from_root": "/articles/active-directory/architecture/index.yml",
+      "redirect_url": "/entra/architecture/index",
       "redirect_document_id": false
     },
     {
@@ -1331,8 +1331,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/index.yml.md",
-      "redirect_url": "/entra/identity/authentication/index.yml",
+      "source_path_from_root": "/articles/active-directory/authentication/index.yml",
+      "redirect_url": "/entra/identity/authentication/index",
       "redirect_document_id": false
     },
     {
@@ -1791,8 +1791,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/index.yml.md",
-      "redirect_url": "/entra/permissions-management/index.yml",
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/index.yml",
+      "redirect_url": "/entra/permissions-management/index",
       "redirect_document_id": false
     },
     {
@@ -2211,8 +2211,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index.yml.md",
-      "redirect_url": "/entra/identity/conditional-access/index.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index.yml",
+      "redirect_url": "/entra/identity/conditional-access/index",
       "redirect_document_id": false
     },
     {
@@ -2616,38 +2616,38 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-desktop.yml.md",
-      "redirect_url": "/entra/identity-platform/index-desktop.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index-desktop.yml",
+      "redirect_url": "/entra/identity-platform/index-desktop",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-mobile.yml.md",
-      "redirect_url": "/entra/identity-platform/index-mobile.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index-mobile.yml",
+      "redirect_url": "/entra/identity-platform/index-mobile",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-service.yml.md",
-      "redirect_url": "/entra/identity-platform/index-service.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index-service.yml",
+      "redirect_url": "/entra/identity-platform/index-service",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-spa.yml.md",
-      "redirect_url": "/entra/identity-platform/index-spa.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index-spa.yml",
+      "redirect_url": "/entra/identity-platform/index-spa",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-web-api.yml.md",
-      "redirect_url": "/entra/identity-platform/index-web-api.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index-web-api.yml",
+      "redirect_url": "/entra/identity-platform/index-web-api",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index-web-app.yml.md",
-      "redirect_url": "/entra/identity-platform/index-web-app.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index-web-app.yml",
+      "redirect_url": "/entra/identity-platform/index-web-app",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/conditional-access/index.yml.md",
-      "redirect_url": "/entra/identity-platform/index.yml",
+      "source_path_from_root": "/articles/active-directory/conditional-access/index.yml",
+      "redirect_url": "/entra/identity-platform/index",
       "redirect_document_id": false
     },
     {
@@ -3916,8 +3916,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/devices/enterprise-state-roaming-faqs.yml.md",
-      "redirect_url": "/entra/identity/devices/enterprise-state-roaming-faqs.yml",
+      "source_path_from_root": "/articles/active-directory/devices/enterprise-state-roaming-faqs.yml",
+      "redirect_url": "/entra/identity/devices/enterprise-state-roaming-faqs",
       "redirect_document_id": false
     },
     {
@@ -3936,8 +3936,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/devices/faq.yml.md",
-      "redirect_url": "/entra/identity/devices/faq.yml",
+      "source_path_from_root": "/articles/active-directory/devices/faq.yml",
+      "redirect_url": "/entra/identity/devices/faq",
       "redirect_document_id": false
     },
     {
@@ -3991,8 +3991,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/devices/index.yml.md",
-      "redirect_url": "/entra/identity/devices/index.yml",
+      "source_path_from_root": "/articles/active-directory/devices/index.yml",
+      "redirect_url": "/entra/identity/devices/index",
       "redirect_document_id": false
     },
     {
@@ -4221,8 +4221,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/enterprise-users/index.yml.md",
-      "redirect_url": "/entra/identity/users/index.yml",
+      "source_path_from_root": "/articles/active-directory/enterprise-users/index.yml",
+      "redirect_url": "/entra/identity/users/index",
       "redirect_document_id": false
     },
     {
@@ -4441,8 +4441,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/fundamentals/faq.yml.md",
-      "redirect_url": "/entra/fundamentals/faq.yml",
+      "source_path_from_root": "/articles/active-directory/fundamentals/faq.yml",
+      "redirect_url": "/entra/fundamentals/faq",
       "redirect_document_id": false
     },
     {
@@ -4531,8 +4531,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/fundamentals/index.yml.md",
-      "redirect_url": "/entra/fundamentals/index.yml",
+      "source_path_from_root": "/articles/active-directory/fundamentals/index.yml",
+      "redirect_url": "/entra/fundamentals/index",
       "redirect_document_id": false
     },
     {
@@ -4966,8 +4966,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/governance/index.yml.md",
-      "redirect_url": "/entra/id-governance/index.yml",
+      "source_path_from_root": "/articles/active-directory/governance/index.yml",
+      "redirect_url": "/entra/id-governance/index",
       "redirect_document_id": false
     },
     {
@@ -5161,8 +5161,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/index.yml.md",
-      "redirect_url": "/entra/identity/hybrid/index.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/index.yml",
+      "redirect_url": "/entra/identity/hybrid/index",
       "redirect_document_id": false
     },
     {
@@ -5316,8 +5316,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/cloud-sync/index.yml.md",
-      "redirect_url": "/entra/identity/hybrid/cloud-sync/index.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/cloud-sync/index.yml",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/index",
       "redirect_document_id": false
     },
     {
@@ -5331,8 +5331,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq.yml.md",
-      "redirect_url": "/entra/identity/hybrid/cloud-sync/reference-cloud-sync-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq.yml",
+      "redirect_url": "/entra/identity/hybrid/cloud-sync/reference-cloud-sync-faq",
       "redirect_document_id": false
     },
     {
@@ -5711,8 +5711,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/connect/how-to-connect-pta-faq.yml.md",
-      "redirect_url": "/entra/identity/hybrid/connect/how-to-connect-pta-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/how-to-connect-pta-faq.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/how-to-connect-pta-faq",
       "redirect_document_id": false
     },
     {
@@ -5756,8 +5756,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/connect/how-to-connect-sso-faq.yml.md",
-      "redirect_url": "/entra/identity/hybrid/connect/how-to-connect-sso-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/how-to-connect-sso-faq.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/how-to-connect-sso-faq",
       "redirect_document_id": false
     },
     {
@@ -5916,8 +5916,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/connect/index.yml.md",
-      "redirect_url": "/entra/identity/hybrid/connect/index.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/index.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/index",
       "redirect_document_id": false
     },
     {
@@ -5981,8 +5981,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/connect/reference-connect-faq.yml.md",
-      "redirect_url": "/entra/identity/hybrid/connect/reference-connect-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/reference-connect-faq.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/reference-connect-faq",
       "redirect_document_id": false
     },
     {
@@ -5991,8 +5991,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/connect/reference-connect-health-faq.yml.md",
-      "redirect_url": "/entra/identity/hybrid/connect/reference-connect-health-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/reference-connect-health-faq.yml",
+      "redirect_url": "/entra/identity/hybrid/connect/reference-connect-health-faq",
       "redirect_document_id": false
     },
     {
@@ -6251,8 +6251,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/identity-protection/index.yml.md",
-      "redirect_url": "/entra/id-protection/index.yml",
+      "source_path_from_root": "/articles/active-directory/identity-protection/index.yml",
+      "redirect_url": "/entra/id-protection/index",
       "redirect_document_id": false
     },
     {
@@ -6266,8 +6266,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/identity-protection/troubleshooting-identity-protection-faq.yml.md",
-      "redirect_url": "/entra/id-protection/troubleshooting-identity-protection-faq.yml",
+      "source_path_from_root": "/articles/active-directory/identity-protection/troubleshooting-identity-protection-faq.yml",
+      "redirect_url": "/entra/id-protection/troubleshooting-identity-protection-faq",
       "redirect_document_id": false
     },
     {
@@ -6476,8 +6476,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/delete-recover-faq.yml.md",
-      "redirect_url": "/entra/identity/enterprise-apps/delete-recover-faq.yml",
+      "source_path_from_root": "/articles/active-directory/manage-apps/delete-recover-faq.yml",
+      "redirect_url": "/entra/identity/enterprise-apps/delete-recover-faq",
       "redirect_document_id": false
     },
     {
@@ -6586,8 +6586,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/index.yml.md",
-      "redirect_url": "/entra/identity/enterprise-apps/index.yml",
+      "source_path_from_root": "/articles/active-directory/manage-apps/index.yml",
+      "redirect_url": "/entra/identity/enterprise-apps/index",
       "redirect_document_id": false
     },
     {
@@ -6921,8 +6921,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/index.yml.md",
-      "redirect_url": "/entra/identity/managed-identities/index.yml",
+      "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/index.yml",
+      "redirect_url": "/entra/identity/managed-identities/index",
       "redirect_document_id": false
     },
     {
@@ -7121,8 +7121,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/multi-tenant-organizations/index.yml.md",
-      "redirect_url": "/entra/identity/multi-tenant-organizations/index.yml",
+      "source_path_from_root": "/articles/active-directory/multi-tenant-organizations/index.yml",
+      "redirect_url": "/entra/identity/multi-tenant-organizations/index",
       "redirect_document_id": false
     },
     {
@@ -7206,8 +7206,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/privileged-identity-management/index.yml.md",
-      "redirect_url": "/entra/id-governance/privileged-identity-management/index.yml",
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/index.yml",
+      "redirect_url": "/entra/id-governance/privileged-identity-management/index",
       "redirect_document_id": false
     },
     {
@@ -7471,8 +7471,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/index.yml.md",
-      "redirect_url": "/entra/identity/monitoring-health/index.yml",
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/index.yml",
+      "redirect_url": "/entra/identity/monitoring-health/index",
       "redirect_document_id": false
     },
     {
@@ -7581,8 +7581,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/reports-faq.yml.md",
-      "redirect_url": "/entra/identity/monitoring-health/reports-faq.yml",
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reports-faq.yml",
+      "redirect_url": "/entra/identity/monitoring-health/reports-faq",
       "redirect_document_id": false
     },
     {
@@ -7636,8 +7636,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/roles/admin-units-faq-troubleshoot.yml.md",
-      "redirect_url": "/entra/identity/role-based-access-control/admin-units-faq-troubleshoot.yml",
+      "source_path_from_root": "/articles/active-directory/roles/admin-units-faq-troubleshoot.yml",
+      "redirect_url": "/entra/identity/role-based-access-control/admin-units-faq-troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -7771,8 +7771,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/roles/groups-faq-troubleshooting.yml.md",
-      "redirect_url": "/entra/identity/role-based-access-control/groups-faq-troubleshooting.yml",
+      "source_path_from_root": "/articles/active-directory/roles/groups-faq-troubleshooting.yml",
+      "redirect_url": "/entra/identity/role-based-access-control/groups-faq-troubleshooting",
       "redirect_document_id": false
     },
     {
@@ -7786,8 +7786,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/roles/index.yml.md",
-      "redirect_url": "/entra/identity/role-based-access-control/index.yml",
+      "source_path_from_root": "/articles/active-directory/roles/index.yml",
+      "redirect_url": "/entra/identity/role-based-access-control/index",
       "redirect_document_id": false
     },
     {
@@ -17011,8 +17011,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/standards/index.yml.md",
-      "redirect_url": "/entra/identity/standards/index.yml",
+      "source_path_from_root": "/articles/active-directory/standards/index.yml",
+      "redirect_url": "/entra/identity/standards/index",
       "redirect_document_id": false
     },
     {
@@ -17226,8 +17226,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/verifiable-credentials/index.yml.md",
-      "redirect_url": "/entra/identity/verified-id/index.yml",
+      "source_path_from_root": "/articles/active-directory/verifiable-credentials/index.yml",
+      "redirect_url": "/entra/identity/verified-id/index",
       "redirect_document_id": false
     },
     {
@@ -17336,8 +17336,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/workload-identities/index.yml.md",
-      "redirect_url": "/entra/identity/workload-id/index.yml",
+      "source_path_from_root": "/articles/active-directory/workload-identities/index.yml",
+      "redirect_url": "/entra/identity/workload-id/index",
       "redirect_document_id": false
     },
     {
@@ -17466,7 +17466,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory-domain-services/faqs.yml",
+      "source_path_from_root": "/articles/active-directory-domain-services/faqs",
       "redirect_url": "/entra/identity/domain-services/faqs",
       "redirect_document_id": false
     },
@@ -17486,7 +17486,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory-domain-services/index.yml",
+      "source_path_from_root": "/articles/active-directory-domain-services/index",
       "redirect_url": "/entra/identity/domain-services/index",
       "redirect_document_id": false
     },
@@ -17841,7 +17841,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/index.yml",
+      "source_path_from_root": "/articles/global-secure-access/index",
       "redirect_url": "/entra/global-secure-access/index",
       "redirect_document_id": false
     },
@@ -17861,7 +17861,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/resource-faq.yml",
+      "source_path_from_root": "/articles/global-secure-access/resource-faq",
       "redirect_url": "/entra/global-secure-access/resource-faq",
       "redirect_document_id": false
     },
@@ -17921,7 +17921,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq.yml",
+      "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq",
       "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
       "redirect_document_id": false
     },
@@ -18746,7 +18746,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/user-help/index.yml",
+      "source_path": "articles/active-directory/user-help/index",
       "redirect_url": "https://support.microsoft.com/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
       "redirect_document_id": false
     },
@@ -20176,7 +20176,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq.yml",
+      "source_path_from_root": "/articles/active-directory/active-directory-passwords-faq",
       "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-faq",
       "redirect_document_id": true
     },
@@ -22836,7 +22836,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/b2b/index.yml",
+      "source_path_from_root": "/articles/active-directory/b2b/index",
       "redirect_url": "/azure/active-directory/external-identities/index",
       "redirect_document_id": true
     },
@@ -23491,7 +23491,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-provisioning/index.yml",
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/index",
       "redirect_url": "/azure/active-directory/cloud-sync/index",
       "redirect_document_id": false
     },
@@ -24876,7 +24876,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq.yml",
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-faq",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-faq",
       "redirect_document_id": false
     },
@@ -30216,7 +30216,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-sync/index.yml",
+      "source_path_from_root": "/articles/active-directory/cloud-sync/index",
       "redirect_url": "/azure/active-directory/hybrid/cloud-sync/",
       "redirect_document_id": false
     },
@@ -30231,7 +30231,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq.yml",
+      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq",
       "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq",
       "redirect_document_id": false
     },
@@ -30611,7 +30611,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq",
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq",
       "redirect_document_id": false
     },
@@ -30656,7 +30656,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq",
       "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq",
       "redirect_document_id": false
     },
@@ -30951,7 +30951,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq",
       "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq",
       "redirect_document_id": false
     },
@@ -30966,7 +30966,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq.yml",
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq",
       "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq",
       "redirect_document_id": false
     },
@@ -31331,7 +31331,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq.yml",
+      "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq",
       "redirect_url": "/azure/active-directory/authentication/passwords-faq",
       "redirect_document_id": false
     },
@@ -31376,7 +31376,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-faq.yml",
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-faq",
       "redirect_url": "/azure/active-directory/fundamentals/faq",
       "redirect_document_id": false
     },
