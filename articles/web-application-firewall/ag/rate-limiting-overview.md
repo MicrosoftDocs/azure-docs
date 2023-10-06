@@ -43,10 +43,6 @@ The rate limit thresholds aren't always enforced exactly as defined, so it shoul
 
 The  sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttles traffic in future windows.  Use caution when defining thresholds for configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
 
-## Availability
-
-Currently, Rate limiting is not available in the Azure Government and Azure China sovereign regions.
-
 ## Next step
 
 - [Create rate limiting custom rules for Application Gateway WAF v2 (preview)](rate-limiting-configure.md)
