@@ -52,7 +52,7 @@
     },
     {
       "path_to_root": "terraform_samples_test",
-      "url": "https://github.com/Azure/terraform",
+      "url": "https://github.com/cshea15/terraform-fork",
       "branch": "chashea-patch-1",
       "branch_mapping": {}
     },
