@@ -3,6 +3,8 @@ title: Configure private endpoints for namespaces with MQTT
 description: This article describes how to configure private endpoints for Azure Event Grid namespaces that have MQTT enabled.
 ms.topic: how-to
 ms.date: 10/04/2023 
+author: veyaddan
+ms.author: veyaddan
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces with MQTT enabled
@@ -11,7 +13,11 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 This article shows you how to enable private network access for an Event Grid namespace. For complete steps for creating a namespace, see [Create and manage namespaces](create-view-manage-namespaces.md).
 
 ## Create a private endpoint
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Event Grid namespace.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. In the **search box**, enter **Event Grid Namespaces** and select **Event Grid Namespaces** from the results.
+
+    :::image type="content" source="./media/create-view-manage-namespaces/portal-search-box-namespaces.png" alt-text="Screenshot showing Event Grid Namespaces in the search results.":::
+1. Select your Event Grid namespace in the list to open the **Event Grid Namespace** page for your namespace.
 1. On the **Event Grid Namespace** page, select **Networking** on the left menu.
 1. In the **Public network access** tab, select **Private endpoints only**.
 1. Select **Save** on the toolbar.

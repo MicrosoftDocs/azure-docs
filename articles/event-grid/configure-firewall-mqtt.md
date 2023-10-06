@@ -3,6 +3,8 @@ title: Configure IP firewall for Azure Event Grid namespaces
 description: This article describes how to configure firewall settings for Azure Event Grid namespaces that have MQTT enabled. 
 ms.topic: how-to
 ms.date: 10/04/2023
+author: veyaddan
+ms.author: veyaddan
 ---
 
 # Configure IP firewall for Azure Event Grid namespaces
@@ -19,8 +21,12 @@ This article describes how to configure IP firewall settings for an Event Grid n
 
 ## Update a namespace with IP firewall settings
 
-1. Navigate to your Event Grid namespace in the Azure portal. 
-1. On the **Event Grid namespace** page, select **Networking** on the left menu. 
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. In the **search box**, enter **Event Grid Namespaces** and select **Event Grid Namespaces** from the results.
+
+    :::image type="content" source="./media/create-view-manage-namespaces/portal-search-box-namespaces.png" alt-text="Screenshot showing Event Grid Namespaces in the search results.":::
+1. Select your Event Grid namespace in the list to open the **Event Grid Namespace** page for your namespace.
+1. On the **Event Grid Namespace** page, select **Networking** on the left menu. 
 1. Specify values for the **Address range** field. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
 
     :::image type="content" source="./media/configure-firewall-mqtt/namespace-ip-firewall-settings.png" alt-text="Screenshot that shows IP firewall settings on the Networking page of an existing namespace.":::
