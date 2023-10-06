@@ -141,7 +141,7 @@ Your container app's console logs capture the app's `stdout` and `stderr` stream
 	| where RevisionName_s == "<YOUR_REVISION_NAME>"
 	```
 1. In the results pane at the bottom, make sure *Results* is selected. By default, the results are sorted by time in descending order. The time range defaults to **Last 24 hours**.
-1. Scroll to the right until you find the *Log_s* column. This column shows the console log output from your container app revision.
+1. Examine the *Log_s* column, which shows the console log output from your container app revision.
 
 You might also want to narrow your query to view your container app revision's output to `stdout` or `stderr`.
 
@@ -160,9 +160,9 @@ You might also want to narrow your query to view your container app revision's o
 	```
 	Then select **Run**.
 
-When you type in a query, after you enter the `where` keyword, a drop-down list appears that shows the columns available to query. You can also expand the *Schema and Filter* pane to the left, expand **Custom Logs**, and expand **ContainerAppConsoleLogs_CL**.
+When you type in a query, after you enter the `where` keyword, a drop-down list appears that shows the columns available to query. You can also expand the *Schema and Filter* pane at the left, expand **Custom Logs**, and expand **ContainerAppConsoleLogs_CL**.
 
-Container Apps generates [system logs](./logging.md#system-logs) for service level events. You can view these system logs as follows.
+Container Apps generates [system logs](./logging.md#system-logs) for service level events. You can view the system logs as follows.
 
 1. Browse to the *Revisions* page for your container app as described previously.
 1. In the *Revisions* page, make sure **Active revisions** is selected, then select the revision whose console logs you want to view. The *Revision details* pane appears at the right.
@@ -179,7 +179,7 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 
 ## View logs (Console)
 
-Get a list of revisions for your container app with the [`containerapp revision list`](https://learn.microsoft.com/cli/azure/containerapp/revision?view=azure-cli-latest.md#az-containerapp-revision-list(containerapp)) command.
+Get a list of revisions for your container app with the [`containerapp revision list`](/cli/azure/containerapp/revision#az-containerapp-revision-list(containerapp)) command.
 
 # [Bash](#tab/bash)
 
@@ -220,7 +220,7 @@ You can expect a response like the following example:
 ]
 ```
 
-Your container app's console logs capture the app's `stdout` and `stderr` streams. You can view the console logs for your revision with the [`az containerapp logs show`](https://learn.microsoft.com/en-us/cli/azure/containerapp/logs?view=azure-cli-latest#az-containerapp-logs-show(containerapp)) command:
+Your container app's console logs capture the app's `stdout` and `stderr` streams. You can view the console logs for your revision with the [`az containerapp logs show`](/cli/azure/containerapp/logs#az-containerapp-logs-show(containerapp)) command:
 
 # [Bash](#tab/bash)
 
@@ -259,7 +259,7 @@ You can expect a response like the following example:
 {"TimeStamp":"2023-10-06T21:41:03.9153166+00:00","Log":"Content root path: /app/"}
 ```
 
-Container Apps generates [system logs](./logging.md#system-logs) for service level events. To view these system logs, remove the `--revision` parameter and change the `--type` parameter value to `system`:
+Container Apps generates [system logs](./logging.md#system-logs) for service level events. To view the system logs, remove the `--revision` parameter and change the `--type` parameter value to `system`:
 
 # [Bash](#tab/bash)
 
@@ -316,9 +316,9 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 1. In the navigation bar at the left, expand **Settings** and select **Ingress**.
 
 - Verify the **Enabled** checkbox is checked.
-- If you want to allow external ingress:
-	- Verify **Ingress Traffic** is set to **Accepting traffic from anywhere**.
-	- Verify your Container Apps environment has *internalOnly* set to *false*.
+- If you want to allow external ingress, verify that:
+	- **Ingress Traffic** is set to **Accepting traffic from anywhere**.
+	- Your Container Apps environment has *internalOnly* set to *false*.
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) you want to use to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - Verify **Target port** is set to the same port your container app is listening on. TODO1 Link to where we configure that.
