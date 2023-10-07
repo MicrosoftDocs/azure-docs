@@ -137,7 +137,7 @@ It's because you're cloning a flow from others that is using compute instance as
 
 ### How to find python packages installed in runtime?
 
-You can add python node in your flow and run follow python code to output packages to `packages.txt`.
+Please follow below steps to find python packages installed in runtime:
 
 - Add python node in your flow.
 - Put following code to the code section.
