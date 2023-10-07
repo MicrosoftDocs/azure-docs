@@ -1,6 +1,6 @@
 ---
-title: Guidance to move Change Tracking and Analytics using Log Analytics to Change Tracking and Analytics using Azure Monitoring Agent
-description: Guidance overview on migration from Change Tracking and Analytics using LA Change Tracking and Analytics using AMA.
+title: Guidance to move from Change Tracking and Analytics using Log Analytics to Azure Monitoring Agent
+description: An overview on how to migrate from Change Tracking and Analytics using Log Analytics to Azure Monitoring Agent.
 author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
@@ -26,7 +26,7 @@ This article provides guidance to move from Change Tracking and Inventory using 
 
 ### Limitations
 
-Currently, the following are not supported:
+Currently, the following aren't supported:
 - For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
 - Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
@@ -35,13 +35,13 @@ Currently, the following are not supported:
 Follow these steps to migrate using scripts.
 
 1. Install the script to run to conduct migrations.
-1. Ensure that the new workspace resource Id is different to the one with which it is associated to in the Change Tracking and Inventory using the LA version.
+1. Ensure that the new workspace resource ID is different to the one with which it's associated to in the Change Tracking and Inventory using the LA version.
 1. Migrate settings for the following data types:
     - Windows Services
     - Linux Files
     - Windows Files
     - Windows Registry
-1. Generate and assocaite a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
+1. Generate and associates a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
 
 #### Parameters
  
@@ -50,11 +50,11 @@ Follow these steps to migrate using scripts.
 
 **Parameter** | **Required** | **Description** |
 --- | --- | --- | 
-`InputWorkspaceResourceId`| Yes | Resource Id of the workspace associated to Change Tracking & Inventory with Log Analytics. |
-`OutputWorkspaceResourceId`| Yes | Resource Id of the workspace associated to Change Tracking & Inventory with Azure Monitoring Agent. |
+`InputWorkspaceResourceId`| Yes | Resource ID of the workspace associated to Change Tracking & Inventory with Log Analytics. |
+`OutputWorkspaceResourceId`| Yes | Resource ID of the workspace associated to Change Tracking & Inventory with Azure Monitoring Agent. |
 `OutputDCRName`| Yes | Custom name of the new DCR created. |
-`OutputDCRLocation`| Yes | Azure location of the output workspace Id. |
-`OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates will be created. | 
+`OutputDCRLocation`| Yes | Azure location of the output workspace ID. |
+`OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. | 
 
  
 ## Next steps
