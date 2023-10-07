@@ -43,7 +43,7 @@ To resolve the issue, you have two options:
   - Update your runtime to latest version.
   - Remove the old tool and re-create a new tool.
 
-## Why can't I upgrade my old flow?
+## No such file or directory error
 Prompt flow relies on fileshare to store snapshot of flow. If fileshare has some issue, you may encounter this issue. Here are some workarounds you can try:
 - If you're using private storage account, please see follow [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your storage account can be accessed by your workspace.
 - If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.

@@ -31,6 +31,8 @@ To create and use runtime to author prompt flow, you need to have `AzureML Data 
 ### Prerequisites
 
 - You need `AzureML Data Scientist` role in the workspace to create a runtime.
+- Make sure the default data store in your workspace is blob type. 
+- If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to learn more detail.
 
 > [!IMPORTANT]
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
