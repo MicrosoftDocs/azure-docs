@@ -23,8 +23,8 @@ The following tables show the licensing requirements for Microsoft Entra ID Gove
 The following licenses are available for use with Microsoft Entra ID Governance.  The choice of licenses you need in a tenant depends on the features you're using in that tenant.
 
 - **Free** - Included with Microsoft cloud subscriptions such as Microsoft Azure, Microsoft 365, and others.
-- **Microsoft Entra ID P1** - Microsoft Entra ID P1 (becoming Microsoft Entra ID P1) is available as a standalone product or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
-- **Microsoft Entra ID P2** - Microsoft Entra ID P2 (becoming Microsoft Entra ID P2) is available as a standalone product or included with Microsoft 365 E5 for enterprise customers.
+- **Microsoft Entra ID P1** - Microsoft Entra ID P1 is available as a standalone product or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
+- **Microsoft Entra ID P2** - Microsoft Entra ID P2 is available as a standalone product or included with Microsoft 365 E5 for enterprise customers.
 - **Microsoft Entra ID Governance** - Microsoft Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers, as two products **Microsoft Entra ID Governance** and **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2**.
 
 >[!NOTE]
