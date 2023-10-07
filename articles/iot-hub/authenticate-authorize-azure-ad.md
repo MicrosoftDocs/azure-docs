@@ -8,7 +8,7 @@ services: iot-hub
 ms.author: kgremban
 ms.topic: conceptual
 ms.date: 09/01/2023
-ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
+ms.custom: ["Role: Cloud Development", "Role: IoT Device", "Role: System Architecture", devx-track-azurecli]
 ---
 
 # Control access to IoT Hub by using Azure Active Directory
