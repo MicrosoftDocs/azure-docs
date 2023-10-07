@@ -26,10 +26,13 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 | GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
-### Setup (Console)
+### Setup (Console only)
 
-> [!NOTE]
-> This section only applies to the console. If you are using the [Azure portal](https://portal.azure.com), you can skip this section.
+# [Azure Portal](#tab/azure-portal)
+
+This section only applies to the console. If you are using the [Azure portal](https://portal.azure.com), you can skip this section.
+
+# [Console](#tab/console)
 
 TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
 
@@ -106,6 +109,8 @@ az provider register --namespace Microsoft.OperationalInsights
 
 ---
 
+---
+
 ## Symptoms
 
 If your container app or revision is configured incorrectly, you might see the following issues.
@@ -118,13 +123,9 @@ If your container app or revision is configured incorrectly, you might see the f
 
 The following sections describe how to diagnose and resolve these issues.
 
-## View logs (Azure Portal)
+## View logs
 
-### Setup
-
-
-
-### View logs
+# [Azure Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -177,7 +178,7 @@ Container Apps generates [system logs](./logging.md#system-logs) for service lev
 
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-## View logs (Console)
+# [Console](#tab/console)
 
 Get a list of revisions for your container app with the [`containerapp revision list`](/cli/azure/containerapp/revision#az-containerapp-revision-list(containerapp)) command.
 
@@ -297,9 +298,11 @@ You can expect a response like the following example:
 {"TimeStamp":"2023-10-06 21:46:30 +0000 UTC","Type":"Normal","ContainerAppName":"<YOUR_CONTAINER_APP_NAME>","RevisionName":"<YOUR_REVISION_NAME>","ReplicaName":"","Msg":"Deactivated apps/v1.Deployment k8se-apps/<YOUR_REVISION_NAME> from 1 to 0","Reason":"KEDAScaleTargetDeactivated","EventSource":"KEDA","Count":3}
 ```
 
+---
+
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-## Use **Diagnose and solve problems** (Azure Portal)
+## Use **Diagnose and solve problems** (Azure Portal only)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -309,6 +312,8 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 ## Review Ingress Configuration
 
 TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
+
+# [Azure Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -326,16 +331,24 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
 
-TODO1 Add command line version if possible.
+# [Console](#tab/console)
+
+TODO1 Add command line version.
+
+---
 
 ## Verify Health Probes are Configured Correctly
+
+TODO1 Add pivot.
 
 - If you are using TCP probes, verify their port numbers match the ingress target port you have configured for your container app.
 - If your container app takes an extended amount of time to start, verify you have configured your liveness and readiness probes' *initialDelaySeconds* settings accordingly.
 
 For more information, see [Use Health Probes](./health-probes.md).
 
+## Conclusion
 
+TODO1 Add?
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
