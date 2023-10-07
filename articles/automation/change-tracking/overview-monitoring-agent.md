@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 > [!Important]
 > Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
-> Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available.
+> Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available. [Learn more](guidance-migration-log-analytics-monitoring-agent.md).
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
