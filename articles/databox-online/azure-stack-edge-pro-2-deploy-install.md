@@ -218,7 +218,7 @@ Before you start cabling your device, you need the following things:
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
 
-    For a full list of supported cables, modules, and switches, see [Compatible firmware](https://docs.nvidia.com/networking/display/connectx4lxfirmwarev14321010/firmware+compatible+products).
+    For a full list of supported cables, modules, and switches, see [Firmware compatible products](https://docs.nvidia.com/networking/display/connectx6dxfirmwarev22361010/firmware+compatible+products).
 - Access to one power distribution unit.
 - At least one 100-GbE network switch to connect a 10/1-GbE or a 100-GbE network interface to the internet for data. At least one data network interface from among Port 2, Port 3, and Port 4 needs to be connected to the Internet (with connectivity to Azure).
 - A pair of Wi-Fi antennas (included in the accessory box).
@@ -239,7 +239,7 @@ Before you start cabling your device, you need the following things:
 
     ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
 
-    For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/connectx6dxfirmwarev22361010). 
+    For a full list of supported cables, modules, and switches, see [Firmware compatible products](https://docs.nvidia.com/networking/display/connectx6dxfirmwarev22361010/firmware+compatible+products).
 - At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the internet for data for each device.
 - A pair of Wi-Fi antennas (included in the accessory box).
     > [!NOTE]
