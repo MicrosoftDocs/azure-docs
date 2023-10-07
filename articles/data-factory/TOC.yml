@@ -511,6 +511,10 @@ items:
       displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
+    - name: Microsoft Fabric Lakehouse Files
+      href: connector-microsoft-fabric-lakehouse-files.md
+    - name: Microsoft Fabric Lakehouse Table
+      href: connector-microsoft-fabric-lakehouse-table.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
