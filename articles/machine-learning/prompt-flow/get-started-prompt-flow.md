@@ -33,7 +33,7 @@ This article walks you through the main user journey of using Prompt flow in Azu
 
 - Make sure the default data store in your workspace is blob type. 
 
-- If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to learn more detail.
+- If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.
 
 
 ## Setup
