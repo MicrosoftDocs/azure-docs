@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/22/2023
 ms.author: v-wellsjason
 ms.custom: devx-track-azurecli
+zone_pivot_groups: azure-interface
 ---
 
 # Troubleshoot a container app
@@ -26,68 +27,69 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 | GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
-### Setup (Console only)
+::: zone pivot="bash,powershell"
 
-# [Azure Portal](#tab/azure-portal)
-
-This section only applies to the console. If you are using the [Azure portal](https://portal.azure.com), you can skip this section.
-
-# [Console](#tab/console)
+## Setup
 
 TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
 
 Run the following command and follow the prompts to sign in to Azure from the CLI and complete the authentication process.
 
-# [Bash](#tab/bash)
+::: zone pivot="bash"
 
 ```azurecli
 az login
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+::: zone-end
+
+::: zone pivot="powershell"
 
 ```azurepowershell
 az login
 ```
 
----
+::: zone-end
 
 Ensure you're running the latest version of the CLI via the `az upgrade` command.
 
-# [Bash](#tab/bash)
+::: zone pivot="bash"
 
 ```azurecli
 az upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+::: zone-end
+
+::: zone pivot="powershell"
 
 ```azurepowershell
 az upgrade
 ```
 
----
+::: zone-end
 
 Install or update the Azure Container Apps extension for the CLI.
 
-# [Bash](#tab/bash)
+::: zone pivot="bash"
 
 ```azurecli
 az extension add --name containerapp --upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+::: zone-end
 
+::: zone pivot="powershell"
 
 ```azurepowershell
 az extension add --name containerapp --upgrade
 ```
 
----
+::: zone-end
 
 Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
-# [Bash](#tab/bash)
+::: zone pivot="bash"
 
 ```azurecli
 az provider register --namespace Microsoft.App
@@ -97,7 +99,9 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+::: zone-end
+
+::: zone pivot="powershell"
 
 ```azurepowershell
 az provider register --namespace Microsoft.App
@@ -107,9 +111,9 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
----
+::: zone-end
 
----
+::: zone-end
 
 ## Symptoms
 
@@ -118,14 +122,14 @@ If your container app or revision is configured incorrectly, you might see the f
 - You receive an error message when you try to deploy a new revision.
 - After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely.
 - A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.`
-- The container app endpoint does not respond to requests.
+- The container app endpoint doesn't respond to requests.
 - The container app endpoint responds to requests with HTTP error 403 (access denied).
 
 The following sections describe how to diagnose and resolve these issues.
 
 ## View logs
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -302,7 +306,7 @@ You can expect a response like the following example:
 
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-## Use **Diagnose and solve problems** (Azure Portal only)
+## Use **Diagnose and solve problems** (Azure portal only)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -313,7 +317,7 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 
 TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -327,7 +331,7 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) you want to use to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - Verify **Target port** is set to the same port your container app is listening on. TODO1 Link to where we configure that.
-- If **IP Security Restrictions Mode** is not set to **Allow all traffic**, verify your client does not have an IP address that is denied.
+- If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
 
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
 
@@ -341,7 +345,7 @@ TODO1 Add command line version.
 
 TODO1 Add pivot.
 
-- If you are using TCP probes, verify their port numbers match the ingress target port you have configured for your container app.
+- If you're using TCP probes, verify their port numbers match the ingress target port you have configured for your container app.
 - If your container app takes an extended amount of time to start, verify you have configured your liveness and readiness probes' *initialDelaySeconds* settings accordingly.
 
 For more information, see [Use Health Probes](./health-probes.md).
