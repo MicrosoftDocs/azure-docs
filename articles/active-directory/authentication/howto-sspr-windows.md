@@ -45,6 +45,8 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
     - *EnableLostMode* is set on the device
     - Explorer.exe is replaced with a custom shell
     - Interactive logon: Require smart card is set to enabled or 1
+    - the HKEYLOCALMACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DelayedDesktopSwitchTimeout (if the path exists esp in Windows 10) should be set to 0.
+
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled (only for Windows 10 version 1710 and earlier)
     - *DisableLockScreenAppNotifications* = 1 or Enabled
