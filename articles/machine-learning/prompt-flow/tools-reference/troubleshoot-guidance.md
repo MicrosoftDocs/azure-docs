@@ -134,3 +134,24 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 :::image type="content" source="../media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of don't have access error on the flow page. " lightbox = "../media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
 It's because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others. 
+
+### How to find python packages installed in runtime?
+
+You can add python node in your flow and run follow python code to output packages to `packages.txt`.
+
+- Add python node in your flow.
+- Put following code to the code section.
+
+    ```python
+    from promptflow import tool
+    import subprocess
+    
+    @tool
+    def list_packages(input: str) -> str: 
+        # Run the pip list command and save the output to a file
+        with open('packages.txt', 'w') as f:
+            subprocess.run(['pip', 'list'], stdout=f)    
+    
+    ```
+- Run the flow, then you can find `packages.txt` in the flow folder.
+  :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot of finding python packages installed in runtime. " lightbox = "../media/faq/list-packages.png":::
