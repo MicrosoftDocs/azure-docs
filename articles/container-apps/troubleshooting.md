@@ -31,10 +31,12 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 
 ## Setup
 
-TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
+TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file. That might also reduce the zone pivot complexity. We could put the include within the zone pivot, then the include could use tabs.
 
 Run the following command and follow the prompts to sign in to Azure from the CLI and complete the authentication process.
 
+::: zone-end
+
 ::: zone pivot="bash"
 
 ```azurecli
@@ -50,9 +52,13 @@ az login
 ```
 
 ::: zone-end
+
+::: zone pivot="bash,powershell"
 
 Ensure you're running the latest version of the CLI via the `az upgrade` command.
 
+::: zone-end
+
 ::: zone pivot="bash"
 
 ```azurecli
@@ -68,9 +74,13 @@ az upgrade
 ```
 
 ::: zone-end
+
+::: zone pivot="bash,powershell"
 
 Install or update the Azure Container Apps extension for the CLI.
 
+::: zone-end
+
 ::: zone pivot="bash"
 
 ```azurecli
@@ -86,9 +96,13 @@ az extension add --name containerapp --upgrade
 ```
 
 ::: zone-end
+
+::: zone pivot="bash,powershell"
 
 Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
+::: zone-end
+
 ::: zone pivot="bash"
 
 ```azurecli
@@ -110,8 +124,6 @@ az provider register --namespace Microsoft.App
 ```azurepowershell
 az provider register --namespace Microsoft.OperationalInsights
 ```
-
-::: zone-end
 
 ::: zone-end
 
