@@ -88,16 +88,16 @@ You can view the details related to the Maintenance configuration from Azure Res
 
 Invoke Cancellation API as mentioned below:
     
-    ```rest
+  ```rest
     C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/<your-c-id-obtained-from-above>?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose 
-    ```
+  ```
 > [!NOTE]
 > You must replace the **Coorelation ID** received from the above ARG query and replace it in the Cancellation API.
     
-    ```rest
+  ```rest
     C:\ProgramData\chocolatey\bin\ARMClient.exe put https://management.azure.com/subscriptions/eee2cef4-bc47-4278-b4f8-cfc65f25dfd8/resourcegroups/fp02centraluseuap/providers/microsoft.maintenance/maintenanceconfigurations/prepostdemo7/providers/microsoft.maintenance/applyupdates/20230810085400?api-version=2023-09-01-preview "{\"Properties\":{\"Status\": \"Cancel\"}}" -Verbose
        
-    ```
+   ```
   :::image type="content" source="./media/manage-pre-post-events/cancellation-api-user.png" alt-text="Screenshot for cancellation done by the user.":::
 
 - If the maintenance job is cancelled by the system due to any reason, the error message in the JSON obtained from Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance schedule cancelled due to internal platform failure**.
