@@ -61,11 +61,11 @@ Keep your notebook open. You use it in the following sections.
 
 ## Ingest data
 
-In this section, you upload the *.csv* flight data into your ADLS Gen2 storage account and then mount your storage account to your DataBricks cluster. Finally, you use Databricks to read the *.csv* flight data and write it back to storage in Apache parquet format.
+In this section, you upload the *.csv* flight data into your Azure Data Lake Storage (ADLS) Gen2 storage account and then mount your storage account to your Databricks cluster. Finally, you use Databricks to read the *.csv* flight data and write it back to storage in Apache parquet format.
 
 ### Upload the flight data into your storage account
 
-Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account. You use the `azcopy make` command to create a container in your storage account. Then you use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
+Use AzCopy to copy your *.csv* file into your ADLS Gen2 account. You use the `azcopy make` command to create a container in your storage account. Then you use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
 
 In the following steps, you need to enter names for the container you want to create, and the directory and blob that you want to upload the flight data to in the container. You can use the suggested names in each step or specify your own observing the [naming conventions for containers, directories, and blobs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -101,23 +101,21 @@ In the following steps, you need to enter names for the container you want to cr
 
    - Replace the `<directory-name>` placeholder with the name of a directory to store your data in the container; for example, *jan2016*.
 
-### Mount your Azure Datalake Gen2 storage account to your Databricks cluster
+### Mount your storage account to your Databricks cluster
 
-In this section, you mount your ADLS Gen 2 cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account.
+In this section, you mount your ADLS Gen2 cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account.
 
 The commands in this section make the container and directory in your storage account accessible in your cluster through the mount point */mnt/flightdata*. For more information, see [Mounting cloud object storage on Azure Databricks](/azure/databricks/dbfs/mounts).
 
 1. Attach your notebook to your cluster.
 
-   1. In the notebook you created previously, select the **Connect** button in the upper right corner of the [notebook toolbar](/azure/databricks/notebooks/notebook-ui#--notebook-toolbar-icons-and-buttons). This button opens the compute selector. If you've aleady connected your notebook to a cluster, the name of that cluster is shown in the button text rather than "Connect".
+   1. In the notebook you created previously, select the **Connect** button in the upper right corner of the [notebook toolbar](/azure/databricks/notebooks/notebook-ui#--notebook-toolbar-icons-and-buttons). This button opens the compute selector. (If you've aleady connected your notebook to a cluster, the name of that cluster is shown in the button text rather than **Connect**).
 
    1. In the cluster dropdown menu, select the cluster you previously created.
 
    1. Notice that the text in the cluster selector changes to *starting*. Wait for the cluster to finish starting and for the name of the cluster to appear in the button before continuing.
 
-2. Make sure your cluster has finished starting up before proceeding.
-
-3. Copy and paste the following code block into the first cell, but don't run this code yet.
+1. Copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
@@ -133,21 +131,27 @@ The commands in this section make the container and directory in your storage ac
     extra_configs = configs)
     ```
 
-4. In this code block:
+1. In this code block:
    - In `configs`, replace the `<appId>`, `<clientSecret>`, and `<tenantId>` placeholder values with the application ID, client secret, and tenant ID you copied when you created the service principal in the prequisites.
 
-   - In the `source` URI , replace the `<storage-account-name>`, `<container-name>`, and `<directory-name>` placeholder values with the name of your ADLS Gen 2 storage account and the name of the container and directory you specified when you uploaded the flight data to the storage account.
+   - In the `source` URI , replace the `<storage-account-name>`, `<container-name>`, and `<directory-name>` placeholder values with the name of your ADLS Gen2 storage account and the name of the container and directory you specified when you uploaded the flight data to the storage account.
 
       > [!NOTE]
-      > The scheme identifier in the URI, `abfss`, tells DataBricks to use the Azure Blob File System driver with Transport Layer Security (TLS). To learn more about the URI, see [Use the Azure Data Lake Storage Gen2 URI](/azure/storage/blobs/data-lake-storage-introduction-abfs-uri#uri-syntax).
+      > The scheme identifier in the URI, `abfss`, tells Databricks to use the Azure Blob File System driver with Transport Layer Security (TLS). To learn more about the URI, see [Use the Azure Data Lake Storage Gen2 URI](/azure/storage/blobs/data-lake-storage-introduction-abfs-uri#uri-syntax).
 
-5. Press the **SHIFT + ENTER** keys to run the code in this block.
+1. Make sure your cluster has finished starting up before proceeding.
+
+1. Press the **SHIFT + ENTER** keys to run the code in this block.
+
+The container and directory where you uploaded the flight data in your storage account is now accessible in your nobebook through the mount point, */mnt/flightdata*.
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-Now that our *csv* flight data is accessible through a DBFS mount point, we'll use an Apache DataFrame to load it into our workspace and write it back to our ADLs Gen 2 object store in parquet format.
+Now that our *csv* flight data is accessible through a DBFS mount point, we'll use an Apache Spark DataFrame to load it into our workspace and write it back to our ADLs Gen2 object store in Apache parquet format.
 
-In this section you use a Spark DataFrame to read the *csv* flight data and write it back to storage in parquet. A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
+- A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformation it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it back. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
+
+- Apache parquet is a columnar file format with optimizations that speed up queries. It's a more efficient file format than CSC or JSON. To learn more, see [Parquet Files](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html).
 
 In the notebook, add a new cell, and paste the following code into that cell.
 
@@ -168,7 +172,7 @@ Before proceeding to the next, make sure that all of the parquet data has been w
 
 ## Explore data
 
-In this section you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your ADLS Gen 2 object storage using the DBFS mount point you created in the previous section.
+In this section you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your ADLS Gen2 object storage using the DBFS mount point you created in the previous section.
 
 In a new cell, paste the following code to get a list of the files at the mount point. This includes the *.csv* file you uploaded using AzCopy. The first command outputs a list of files and directories. The second command displays the output in tabular format for easier reading.
 
@@ -273,17 +277,17 @@ airlines_flying_from_texas.show(100)
 
 In this tutorial, you did the following:
 
-- Created Azure resources including an ADLS Gen 2 storage account and Azure AD service principal and assigned permissions to access the storage account.
+- Created Azure resources including an ADLS Gen2 storage account and Azure AD service principal and assigned permissions to access the storage account.
 
 - Created an Azure Databricks workspace, notebook and compute cluster.
 
-- Used AzCopy to upload unstructered *.csv* flight data to an ADLS Gen 2 storage account.
+- Used AzCopy to upload unstructered *.csv* flight data to an ADLS Gen2 storage account.
 
 - Ran sample Python code in your Databricks notebook that:
 
-  - Used DataBricks File System utility functions to mount your ADLS Gen 2 storage account and explore its hierarchical file system.
+  - Used Databricks File System utility functions to mount your ADLS Gen2 storage account and explore its hierarchical file system.
 
-  - Used Apache Spark DataFrames to transform your *.csv* flight data to Apache parquet format and store it back to your ADLS Gen 2 storage account.
+  - Used Apache Spark DataFrames to transform your *.csv* flight data to Apache parquet format and store it back to your ADLS Gen2 storage account.
 
   - Used DataFrames to explore the flight data and perform a simple query.
 
