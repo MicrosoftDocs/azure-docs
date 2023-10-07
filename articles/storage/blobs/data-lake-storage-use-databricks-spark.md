@@ -15,7 +15,7 @@ ms.custom: py-fresh-zinc
 
 # Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
-This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
+This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage (ADLS) Gen2 enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
 
 In this tutorial, you will:
 
@@ -61,7 +61,7 @@ Keep your notebook open. You use it in the following sections.
 
 ## Ingest data
 
-In this section, you upload the *.csv* flight data into your Azure Data Lake Storage (ADLS) Gen2 storage account and then mount your storage account to your Databricks cluster. Finally, you use Databricks to read the *.csv* flight data and write it back to storage in Apache parquet format.
+In this section, you upload the *.csv* flight data into your ADLS Gen2 storage account and then mount your storage account to your Databricks cluster. Finally, you use Databricks to read the *.csv* flight data and write it back to storage in Apache parquet format.
 
 ### Upload the flight data into your storage account
 
@@ -103,9 +103,7 @@ In the following steps, you need to enter names for the container you want to cr
 
 ### Mount your storage account to your Databricks cluster
 
-In this section, you mount your ADLS Gen2 cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account.
-
-The commands in this section make the container and directory in your storage account accessible in your cluster through the mount point */mnt/flightdata*. For more information, see [Mounting cloud object storage on Azure Databricks](/azure/databricks/dbfs/mounts).
+In this section, you mount your ADLS Gen2 cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account.For more information, see [Mounting cloud object storage on Azure Databricks](/azure/databricks/dbfs/mounts).
 
 1. Attach your notebook to your cluster.
 
@@ -147,11 +145,11 @@ The container and directory where you uploaded the flight data in your storage a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-Now that our *csv* flight data is accessible through a DBFS mount point, we'll use an Apache Spark DataFrame to load it into our workspace and write it back to our ADLs Gen2 object store in Apache parquet format.
+Now that our *csv* flight data is accessible through a DBFS mount point, we'll use an Apache Spark DataFrame to load it into our workspace and write it back in Apache parquet format to our ADLS Gen2 object store.
 
-- A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformation it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it back. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
+- A Spark DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformation it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
 
-- Apache parquet is a columnar file format with optimizations that speed up queries. It's a more efficient file format than CSC or JSON. To learn more, see [Parquet Files](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html).
+- Apache parquet is a columnar file format with optimizations that speed up queries. It's a more efficient file format than CSV or JSON. To learn more, see [Parquet Files](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html).
 
 In the notebook, add a new cell, and paste the following code into that cell.
 
@@ -168,11 +166,11 @@ print("Done")
 
 Press the **SHIFT + ENTER** keys to run the code in this block.
 
-Before proceeding to the next, make sure that all of the parquet data has been written and "done" appears in the output.
+Before proceeding to the next section, make sure that all of the parquet data has been written, and "Done" appears in the output.
 
 ## Explore data
 
-In this section you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your ADLS Gen2 object storage using the DBFS mount point you created in the previous section.
+In this section, you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your ADLS Gen2 object storage using the DBFS mount point you created in the previous section.
 
 In a new cell, paste the following code to get a list of the files at the mount point. This includes the *.csv* file you uploaded using AzCopy. The first command outputs a list of files and directories. The second command displays the output in tabular format for easier reading.
 
@@ -208,7 +206,7 @@ As a convenience, you can use the help command to learn detail about other comma
 dbutils.fs.help("rm")
 ```
 
-With these code samples, you've explored the hierarchical nature of HDFS using data stored in a storage account with Data Lake Storage Gen2 enabled.
+With these code samples, you've explored the hierarchical nature of HDFS using data stored in a storage account with ADLS Gen2 enabled.
 
 ## Query the data
 
