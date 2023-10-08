@@ -4,8 +4,7 @@ metadata:
   description: Frequently asked questions about Document Intelligence service.
   author: laujan
   manager: nitinme
-  ms.service: applied-ai-services
-  ms.subservice: forms-recognizer
+  ms.service: azure-ai-document-intelligence
   ms.topic: faq
   ms.date: 08/17/2023
   ms.author: lajanuar
@@ -196,7 +195,7 @@ sections:
 
           - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
-          - [Java](https://oss.sonatype.org/#nexus-search; quick-azure-ai-formrecognizer)
+          - [Java](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
 
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 

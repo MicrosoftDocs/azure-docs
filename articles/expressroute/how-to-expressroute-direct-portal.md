@@ -131,7 +131,10 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
     * **ExpressRoute Direct resource**: Select the ExpressRoute Direct resource you created in the previous section.
     * **Circuit bandwidth**: Select the bandwidth for the circuit. Ensure to keep track of the bandwidth utilization for the ExpressRoute Direct port.
     * **SKU**: Select the SKU type for the ExpressRoute circuit that best suits your environment.
-    * **Billing model**: Only **Metered** billing model circuits are supported with ExpressRoute Direct.
+    * **Billing model**: Only **Metered** billing model circuits are supported with ExpressRoute Direct at creation.
+  
+    > [!NOTE]
+    > You can change from **Metered** to **Unlimited** after the creation of the circuit. This change is irreversible once completed. To change the billing model, go to the **configuration** page of the ExpressRoute Direct circuit. 
 
 1. Specify any resource tags, then select **Review + Create** to validate the settings before creating the resource.
 

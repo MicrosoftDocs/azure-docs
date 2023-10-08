@@ -2,13 +2,13 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/11/2022
+ms.date: 09/05/2023
 ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/cpp.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C++. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C++.
 
 ## Platform requirements
 
@@ -16,11 +16,11 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
 
 ## Install the Speech SDK for C++
 
-The Speech SDK for C++ is available as a NuGet package. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
+The Speech SDK for C++ is available as a NuGet package. For more information, see [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
 # [Terminal](#tab/dotnetcli)
 
-The Speech SDK for C# can be installed from the .NET CLI with the following `dotnet add` command:
+The Speech SDK for C# can be installed from the .NET CLI by using the following `dotnet add` command:
 
 ```dotnetcli
 dotnet add package Microsoft.CognitiveServices.Speech
@@ -28,7 +28,7 @@ dotnet add package Microsoft.CognitiveServices.Speech
 
 # [PowerShell](#tab/powershell)
 
-The Speech SDK for C# can be installed with the following `Install-Package` command:
+The Speech SDK for C# can be installed by using the following `Install-Package` command:
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
@@ -36,9 +36,7 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 ---
 
-You can follow a guide below for additional options.
-
-**Choose your target environment**
+You can follow these guides for more options.
 
 # [Linux](#tab/linux)
 
@@ -52,4 +50,4 @@ You can follow a guide below for additional options.
 
 [!INCLUDE [windows](cpp-windows.md)]
 
-* * *
+---

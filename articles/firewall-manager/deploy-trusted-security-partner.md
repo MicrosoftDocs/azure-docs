@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 09/28/2023
 ms.author: victorh
 ---
 
@@ -24,13 +24,13 @@ Integrated third-party Security as a service (SECaaS) partners are now available
 
 ## Deploy a third-party security provider in a new hub
 
-Skip this section if you are deploying a third-party provider into an existing hub.
+Skip this section if you're deploying a third-party provider into an existing hub.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In **Search**, type **Firewall Manager** and select it under **Services**.
-3. Navigate to **Getting Started**. Select **View secured virtual hubs**.
+3. Navigate to **Overview**. Select **View secured virtual hubs**.
 4. Select **Create new secured virtual hub**.
-5. Enter you subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
+5. Enter your subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
 6. Select **Include VPN gateway to enable Security Partner Providers**.
 7. Select the **Gateway scale units** appropriate for your requirements.
 8. Select **Next: Azure Firewall**
@@ -46,7 +46,7 @@ Skip this section if you are deploying a third-party provider into an existing h
 
 The VPN gateway deployment can take more than 30 minutes.
 
-To verify that the hub has been created, navigate to Azure Firewall Manager->Secured Hubs. Select the hub->Overview page to show the partner name and the status as **Security Connection Pending**.
+To verify that the hub has been created, navigate to Azure Firewall Manager->Overview->View secured virtual hubs. You see the security partner provider name and the security partner status as **Security Connection Pending**.
 
 Once the hub is created and the security partner is set up, continue on to connect the security provider to the hub.
 
@@ -54,7 +54,7 @@ Once the hub is created and the security partner is set up, continue on to conne
 
 You can also select an existing hub in a Virtual WAN and convert that to a *secured virtual hub*.
 
-1. In **Getting Started**, select **View secured virtual hubs**.
+1. In **Getting Started**, **Overview**, select **View secured virtual hubs**.
 2. Select **Convert existing hubs**.
 3. Select a subscription and an existing hub. Follow rest of the steps to deploy a third-party provider in a new hub.
 
@@ -96,7 +96,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
    Ensure the third-party provider can connect to the hub. The tunnels on the VPN gateway should be in a **Connected** state. This state is more reflective of the connection health between the hub and the third-party partner, compared to previous status.
 3. Select the hub, and navigate to **Security Configurations**.
 
-   When you deploy a third-party provider into the hub, it converts the hub into a *secured virtual hub*. This ensures that the third-party provider is advertising a 0.0.0.0/0 (default) route to the hub. However, VNet connections and sites connected to the hub don’t get this route unless you opt-in on which connections should get this default route.
+   When you deploy a third-party provider into the hub, it converts the hub into a *secured virtual hub*. This ensures that the third-party provider is advertising a 0.0.0.0/0 (default) route to the hub. However, virtual network connections and sites connected to the hub don’t get this route unless you opt-in on which connections should get this default route.
 
    > [!NOTE]
    > Do not manually create a 0.0.0.0/0 (default) route over BGP for branch advertisements. This is automatically done for secure virtual hub deployments with 3rd party security providers. Doing so may break the deployment process.
@@ -108,17 +108,17 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
    If you use non-RFC1918 addresses for your private traffic prefixes, you may need to configure SNAT policies for your firewall to disable SNAT for non-RFC1918 private traffic. By default, Azure Firewall SNATs all non-RFC1918 traffic.
 
-## Branch or VNet Internet traffic via third-party service
+## Branch or virtual network Internet traffic via third-party service
 
-Next, you can check if VNet virtual machines or the branch site can access the Internet and validate that the traffic is flowing to the third-party service.
+Next, you can check if virtual network virtual machines or the branch site can access the Internet and validate that the traffic is flowing to the third-party service.
 
-After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to the third-party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
+After you finish the route setting steps, the virtual network virtual machines and the branch sites are sent a 0/0 to the third-party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered virtual network.
 
 ## Rule configuration
 
 Use the partner portal to configure firewall rules. Azure Firewall passes the traffic through.
 
-For example, you may observe allowed traffic through the Azure Firewall, even though there is no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar, CheckPoint, or iBoss). Azure Firewall still has rules to allow outbound traffic, but the rule name is not logged.
+For example, you may observe allowed traffic through the Azure Firewall, even though there's no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar, CheckPoint, or iBoss). Azure Firewall still has rules to allow outbound traffic, but the rule name isn't logged.
 
 For more information, see the partner documentation.
 

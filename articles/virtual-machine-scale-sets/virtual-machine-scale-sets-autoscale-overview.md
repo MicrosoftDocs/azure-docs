@@ -158,6 +158,9 @@ The following examples are scenarios that may benefit the use of schedule-based 
 - If a department uses an application heavily at certain parts of the month or fiscal cycle, automatically scale the number of VM instances to accommodate their additional demands.
 - When there is a marketing event, promotion, or holiday sale, you can automatically scale the number of VM instances ahead of anticipated customer demand. 
 
+## Limitations
+- You can have up to 20 Autoscale rules for a given scale set.
+
 ## Next steps
 You can create autoscale rules that use host-based metrics with one of the following tools:
 

@@ -354,6 +354,8 @@
       items:
       - name: Troubleshooting Front Door issues
         href: troubleshoot-issues.md
+      - name: Troubleshooting Front Door performance issues
+        href: troubleshoot-performance-issues.md
       - name: Allowed certificate authorities
         href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
       - name: File compression

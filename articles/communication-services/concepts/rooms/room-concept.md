@@ -115,10 +115,6 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Render remote video stream | ✔️ | ✔️ | ✔️ |
-| **Captions (Public Preview)** | | |
-| - Start captions | ✔️ | ❌ | ❌ |
-| - Toggle local captions | ✔️ | ✔️ | ✔️ |
-| - Set spoken language of live captions | ✔️ | ✔️ | ✔️ |
 
 *) Only available on the web calling SDK. Not available on iOS and Android calling SDKs
 

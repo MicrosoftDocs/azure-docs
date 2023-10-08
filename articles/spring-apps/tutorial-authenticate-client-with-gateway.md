@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 08/31/2023
 ms.author: v-shilichen
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
 # Tutorial: Authenticate client with Spring Cloud Gateway on Azure Spring Apps

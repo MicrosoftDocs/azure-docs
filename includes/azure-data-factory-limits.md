@@ -33,6 +33,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Maximum queued runs per pipeline | 100 | 100 |
 | Characters per expression | 8,192 | 8,192 |
 | Minimum tumbling window trigger interval | 5 min | 15 min |
+| Minimum timeout for pipeline activity runs | 10 min | 10 min |
 | Maximum timeout for pipeline activity runs | 7 days | 7 days |
 | Bytes per object for pipeline objects<sup>3</sup> | 200 KB | 200 KB |
 | Bytes per object for dataset and linked service objects<sup>3</sup> | 100 KB | 2,000 KB |

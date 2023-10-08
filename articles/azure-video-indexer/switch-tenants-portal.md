@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Switch between multiple tenants
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 When working with multiple tenants/directories in the Azure environment user might need to switch between the different directories. 
 
 When logging in the Azure AI Video Indexer website, a default directory will load and the relevant accounts and list them in the **Account list**.

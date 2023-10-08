@@ -51,6 +51,8 @@ There are different types and sizes of workload profiles available by region. By
 
 Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 
+In addition to different core and memory sizes, workload profiles also have varying image size limits available. To learn more about the image size limits for your container apps, see [hardware reference](hardware.md#image-size-limit).
+
 The availability of different workload profiles varies by region.
 
 ## Resource consumption

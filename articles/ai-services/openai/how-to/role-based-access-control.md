@@ -5,8 +5,7 @@ description: Learn how to use Azure RBAC for managing individual access to Azure
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: mbullwin
@@ -144,7 +143,7 @@ When selecting an existing Cognitive Search resource the search indices don't lo
 
 To make a generic API call for listing Azure Cognitive Search services, the following call is made:
 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-Preview
+``` https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-Preview ```
   
 Replace {subscriptionId} with your actual subscription ID.
 
@@ -164,7 +163,7 @@ For this API call, you need a **subscription-level scope** role. You can use the
 
 **Root cause:**
 
-Insufficient subscription-level access for the user attempting to access the blob storage in Azure OpenAI Studio. The user may **not** have the necessary permissions to call the Azure Management API endpoint: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listAccountSas?api-version=2022-09-01
+Insufficient subscription-level access for the user attempting to access the blob storage in Azure OpenAI Studio. The user may **not** have the necessary permissions to call the Azure Management API endpoint: ```https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listAccountSas?api-version=2022-09-01```
 
 Public access to the blob storage is disabled by the owner of the Azure subscription for security reasons.
 

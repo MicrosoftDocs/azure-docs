@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Migrate groups from one forest to another'
-description: This article describes the steps needed to successfully migrate groups from one forest to another for Azure AD Connect.
+title: 'Microsoft Entra Connect: Migrate groups from one forest to another'
+description: This article describes the steps needed to successfully migrate groups from one forest to another for Microsoft Entra Connect.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,18 +14,18 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Migrate groups from one forest to another for Azure AD Connect
+# Migrate groups from one forest to another for Microsoft Entra Connect
 
 This article describes how to migrate groups from one forest to another so that the migrated group objects match the existing objects in the cloud.
 
 ## Prerequisites
 
-- Azure AD Connect version 1.5.18.0 or later
+- Microsoft Entra Connect version 1.5.18.0 or later
 - Source anchor attribute set to `mS-DS-ConsistencyGuid`
 
 ## Migrate groups
 
-Starting in version 1.5.18.0, Azure AD Connect supports the use of the `mS-DS-ConsistencyGuid` attribute for groups. If you choose `mS-DS-ConsistencyGuid` as the source anchor attribute and the value is populated in Active Directory, Azure AD Connect uses the value of `mS-DS-ConsistencyGuid` as the `immutableId`. Otherwise, it falls back to using `objectGUID`. But note that Azure AD Connect doesn't write the value back to the `mS-DS-ConsistencyGuid` attribute in Active Directory.
+Starting in version 1.5.18.0, Microsoft Entra Connect supports the use of the `mS-DS-ConsistencyGuid` attribute for groups. If you choose `mS-DS-ConsistencyGuid` as the source anchor attribute and the value is populated in Active Directory, Microsoft Entra Connect uses the value of `mS-DS-ConsistencyGuid` as the `immutableId`. Otherwise, it falls back to using `objectGUID`. But note that Microsoft Entra Connect doesn't write the value back to the `mS-DS-ConsistencyGuid` attribute in Active Directory.
 
 During a cross-forest move, when a group object is moving from one forest (say F1) to another forest (say F2), you need to copy either the `mS-DS-ConsistencyGuid` value (if it's present) or the `objectGUID` value from the object in forest F1 to the `mS-DS-ConsistencyGuid` attribute of the object in F2.
 
@@ -121,4 +121,4 @@ Set-ADGroup -Identity $dn -Replace @{'mS-DS-ConsistencyGuid'=$targetGuid} -Error
 ```
 
 ## Next steps
-Learn more about [integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

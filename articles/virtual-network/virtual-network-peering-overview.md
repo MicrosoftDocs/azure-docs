@@ -68,7 +68,6 @@ Synching of virtual network peers can be performed through the Azure portal or w
 > [!IMPORTANT]
 > This feature doesn't support scenarios where the virtual network to be updated is peered with: 
 > * A classic virtual network
-> * A managed virtual network such as the Azure VWAN hub
 
 ## Service chaining
 

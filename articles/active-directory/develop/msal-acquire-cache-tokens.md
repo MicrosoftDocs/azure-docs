@@ -26,7 +26,7 @@ You can also clear the token cache, which is achieved by removing the accounts f
 
 ## Scopes when acquiring tokens
 
-[Scopes](./permissions-consent-overview.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and the Microsoft identity platform APIs. v2.0 protocol uses scopes instead of resource in the requests. Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
+[Scopes](./permissions-consent-overview.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure Active Directory (Azure AD) for developers (v1.0) and the Microsoft identity platform APIs. The v2.0 protocol uses scopes instead of resource in the requests. Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
 
 Several of MSAL's token acquisition methods require a `scopes` parameter. The `scopes` parameter is a list of strings that declare the desired permissions and the resources requested. Well-known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
@@ -91,7 +91,7 @@ In public client applications like desktop and mobile apps, you can:
 - Get tokens interactively by having the user sign in through a UI or pop-up window.
 - Get a token silently for the signed-in user using [integrated Windows authentication](msal-authentication-flows.md#integrated-windows-authentication-iwa) (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
 - Get a token with a [username and password](msal-authentication-flows.md#usernamepassword-ropc) in .NET framework desktop client applications (not recommended). Do not use username/password in confidential client applications.
-- Get a token through the [device code flow](msal-authentication-flows.md#device-code) in applications running on devices that don't have a web browser. The user is provided with a URL and a code, who then goes to a web browser on another device and enters the code and signs in. Azure AD then sends a token back to the browser-less device.
+- Get a token through the [device code flow](msal-authentication-flows.md#device-code) in applications running on devices that don't have a web browser. The user is provided with a URL and a code, who then goes to a web browser on another device and enters the code and signs in. Microsoft Entra ID then sends a token back to the browser-less device.
 
 ### Confidential client applications
 
@@ -99,16 +99,16 @@ For confidential client applications (web app, web API, or a daemon application 
 
 - Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](msal-authentication-flows.md#client-credentials). This technique can be used for syncing tools, or tools that process users in general and not a specific user.
 - Use the [on-behalf-of (OBO) flow](msal-authentication-flows.md#on-behalf-of-obo) for a web API to call an API on behalf of the user. The application is identified with client credentials in order to acquire a token based on a user assertion (SAML, for example, or a JWT token). This flow is used by applications that need to access resources of a particular user in service-to-service calls.
-- Acquire tokens using the [authorization code flow](msal-authentication-flows.md#authorization-code) in web apps after the user signs in through the authorization request URL. OpenID Connect application typically use this mechanism, which lets the user sign in using Open ID connect and then access web APIs on behalf of the user.
+- Acquire tokens using the [authorization code flow](msal-authentication-flows.md#authorization-code) in web apps after the user signs in through the authorization request URL. OpenID Connect application typically use this mechanism, which lets the user sign in using OpenID Connect and then access web APIs on behalf of the user.
 
 ## Authentication results
 
-When your client requests an access token, Azure AD also returns an authentication result that includes metadata about the access token. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself. The authentication result exposes:
+When your client requests an access token, Microsoft Entra ID also returns an authentication result that includes metadata about the access token. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself. The authentication result exposes:
 
 - The [access token](access-tokens.md) for the web API to access resources. This string is usually a Base64-encoded JWT, but the client should never look inside the access token. The format isn't guaranteed to remain stable, and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the most common sources of errors and client logic breakage.
 - The [ID token](id-tokens.md) for the user (a JWT).
 - The token expiration, which tells the date/time when the token expires.
-- The tenant ID contains the tenant in which the user was found. For guest users (Azure AD B2B scenarios), the tenant ID is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, the authentication result also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this user information is null.
+- The tenant ID contains the tenant in which the user was found. For guest users (Microsoft Entra B2B scenarios), the tenant ID is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, the authentication result also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this user information is null.
 - The scopes for which the token was issued.
 - The unique ID for the user.
 
@@ -121,5 +121,5 @@ When your client requests an access token, Azure AD also returns an authenticati
 Several of the platforms supported by MSAL have additional token cache-related information in the documentation for that platform's library. For example:
 - [Get a token from the token cache using MSAL.NET](msal-net-acquire-token-silently.md)
 - [Single sign-on with MSAL.js](msal-js-sso.md)
-- [Custom token cache serialization in MSAL for Python](msal-python-token-cache-serialization.md)
-- [Custom token cache serialization in MSAL for Java](msal-java-token-cache-serialization.md)
+- [Custom token cache serialization in MSAL for Python](/entra/msal/python/advanced/msal-python-token-cache-serialization)
+- [Custom token cache serialization in MSAL for Java](/entra/msal/java/advanced/msal-java-token-cache-serialization)

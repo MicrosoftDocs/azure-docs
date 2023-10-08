@@ -5,6 +5,7 @@ description: Learn how to configure rate limit custom rules for Application Gate
 services: web-application-firewall
 author: joeolerich
 ms.service: web-application-firewall
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 08/16/2023
 ms.author: victorh
 ms.topic: how-to 

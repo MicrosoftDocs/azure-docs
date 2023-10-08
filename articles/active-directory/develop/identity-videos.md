@@ -40,7 +40,7 @@ ___
 :::row-end:::
 :::row:::
   :::column:::
-        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform</a> (20:30)
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft identity platform</a> (20:30)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/JpeMeTjQJ04]
@@ -192,7 +192,7 @@ ___
 
 ## Microsoft identity platform basics
 
-Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Azure Active Directory. The One Dev Question videos are 1-2 minutes in length.
+Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Microsoft Entra ID. The One Dev Question videos are 1-2 minutes in length.
 ___
 
 :::row:::
@@ -239,13 +239,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Role of Azure AD </a>
+        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Role of Microsoft Entra ID </a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Role of Azure AD app objects</a>
+        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Role of Microsoft Entra app objects</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/HEpq_YSmuWw]
@@ -281,7 +281,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Azure Active Directory app types and how do they compare?</a>
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Microsoft Entra app types and how do they compare?</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/NrydwrckYaw]

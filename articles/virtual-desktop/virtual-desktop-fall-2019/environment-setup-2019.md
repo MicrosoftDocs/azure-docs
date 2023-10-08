@@ -1,13 +1,13 @@
 ---
-title: Azure Virtual Desktop (classic) environment - Azure
-description: The basic elements of a Azure Virtual Desktop (classic) environment.
+title: Azure Virtual Desktop (classic) terminology - Azure
+description: The terminology used for basic elements of a Azure Virtual Desktop (classic) environment.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
 ---
-# Azure Virtual Desktop (classic) environment
+# Azure Virtual Desktop (classic) terminology
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../environment-setup.md).

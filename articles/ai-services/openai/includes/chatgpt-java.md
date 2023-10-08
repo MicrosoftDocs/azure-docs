@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first chat completions call with the Java SDK. 
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
@@ -20,134 +19,145 @@ keywords:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- [Java Development Kit (JDK)](/java/azure/jdk/) with version 8 or above.
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
-
-<sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+* The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
+- The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
-1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation. The `README.txt` file from the installation has instructions on adding the Maven bin directory to your PATH variable. If you don't set this the `mvn` command will instead need to run like `c:\apache-maven-3.9.2-bin\apache-maven-3.9.2\mvn -v`.
-
-2. Create the directory structure for your project.
-
-```console
-mkdir "quickstart/src/main/java/com/azure/ai/openai/usage"  
-```
-
-3. At the root of the quickstart directory, create a file named `pom.xml` with the following content:
-
-```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.azure.ai.openai.usage.GetChatCompletionsSample</groupId>
-    <artifactId>quickstart-eclipse</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <plugins>
-        <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.7.0</version>
-            <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-            </configuration>
-        </plugin>
-        </plugins>
-    </build>
-<dependencies>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-ai-openai</artifactId>
-        <version>1.0.0-beta.3</version>
-    </dependency>
-</dependencies>
-</project>
-```
-
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
 [!INCLUDE [environment-variables](environment-variables.md)]
+
+## Create a new Java application
+
+Create a new Gradle project.
+
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+
+```console
+mkdir myapp && cd myapp
+```
+
+Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+
+```console
+gradle init --type basic
+```
+
+When prompted to choose a **DSL**, select **Kotlin**.
 
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up-the-environment)
 
+## Install the Java SDK
+
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
+
+Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **OpenAIQuickstart**. It imports the Azure AI Vision library.
+
+```kotlin
+plugins {
+    java
+    application
+}
+application { 
+    mainClass.set("OpenAIQuickstart")
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation(group = "com.azure", name = "azure-ai-openai", version = "1.0.0-beta.3")
+    implementation("org.slf4j:slf4j-simple:1.7.9")
+}
+```
+
 ## Create a sample application
 
-Create a new file named `GetChatCompletionsSample.java` and place it in `quickstart/src/main/java/com/azure/ai/openai/usage` folder. Copy the following code into the file.
+1. Create a Java file.
 
-```java
-package com.azure.ai.openai.usage;
+    From your working directory, run the following command to create a project source folder:
 
-import com.azure.ai.openai.OpenAIClient;
-import com.azure.ai.openai.OpenAIClientBuilder;
-import com.azure.ai.openai.models.ChatChoice;
-import com.azure.ai.openai.models.ChatCompletions;
-import com.azure.ai.openai.models.ChatCompletionsOptions;
-import com.azure.ai.openai.models.ChatMessage;
-import com.azure.ai.openai.models.ChatRole;
-import com.azure.ai.openai.models.CompletionsUsage;
-import com.azure.core.credential.AzureKeyCredential;
+    ```console
+    mkdir -p src/main/java
+    ```
 
-import java.util.ArrayList;
-import java.util.List;
+    Navigate to the new folder and create a file called *OpenAIQuickstart.java*. 
 
-public class GetChatCompletionsSample {
 
-    public static void main(String[] args) {
-        String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
-        String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
-        String deploymentOrModelId = "gpt-35-turbo";
+1. Open *OpenAIQuickstart.java* in your preferred editor or IDE and paste in the following code.
 
-      OpenAIClient client = new OpenAIClientBuilder()
-            .endpoint(endpoint)
-            .credential(new AzureKeyCredential(azureOpenaiKey))
-            .buildClient();
-
-        List<ChatMessage> chatMessages = new ArrayList<>();
-        chatMessages.add(new ChatMessage(ChatRole.SYSTEM, "You are a helpful assistant"));
-        chatMessages.add(new ChatMessage(ChatRole.USER, "Does Azure OpenAI support customer managed keys?"));
-        chatMessages.add(new ChatMessage(ChatRole.ASSISTANT, "Yes, customer managed keys are supported by Azure OpenAI?"));
-        chatMessages.add(new ChatMessage(ChatRole.USER, "Do other Azure AI services support this too?"));
-
-        ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
-
-        System.out.printf("Model ID=%s is created at %s.%n", chatCompletions.getId(), chatCompletions.getCreatedAt());
-        for (ChatChoice choice : chatCompletions.getChoices()) {
-            ChatMessage message = choice.getMessage();
-            System.out.printf("Index: %d, Chat Role: %s.%n", choice.getIndex(), message.getRole());
-            System.out.println("Message:");
-            System.out.println(message.getContent());
+    ```java    
+    import com.azure.ai.openai.OpenAIClient;
+    import com.azure.ai.openai.OpenAIClientBuilder;
+    import com.azure.ai.openai.models.ChatChoice;
+    import com.azure.ai.openai.models.ChatCompletions;
+    import com.azure.ai.openai.models.ChatCompletionsOptions;
+    import com.azure.ai.openai.models.ChatMessage;
+    import com.azure.ai.openai.models.ChatRole;
+    import com.azure.ai.openai.models.CompletionsUsage;
+    import com.azure.core.credential.AzureKeyCredential;
+    
+    import java.util.ArrayList;
+    import java.util.List;
+    
+    public class GetChatCompletionsSample {
+    
+        public static void main(String[] args) {
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
+            String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
+            String deploymentOrModelId = "gpt-35-turbo";
+    
+          OpenAIClient client = new OpenAIClientBuilder()
+                .endpoint(endpoint)
+                .credential(new AzureKeyCredential(azureOpenaiKey))
+                .buildClient();
+    
+            List<ChatMessage> chatMessages = new ArrayList<>();
+            chatMessages.add(new ChatMessage(ChatRole.SYSTEM, "You are a helpful assistant"));
+            chatMessages.add(new ChatMessage(ChatRole.USER, "Does Azure OpenAI support customer managed keys?"));
+            chatMessages.add(new ChatMessage(ChatRole.ASSISTANT, "Yes, customer managed keys are supported by Azure OpenAI?"));
+            chatMessages.add(new ChatMessage(ChatRole.USER, "Do other Azure AI services support this too?"));
+    
+            ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
+    
+            System.out.printf("Model ID=%s is created at %s.%n", chatCompletions.getId(), chatCompletions.getCreatedAt());
+            for (ChatChoice choice : chatCompletions.getChoices()) {
+                ChatMessage message = choice.getMessage();
+                System.out.printf("Index: %d, Chat Role: %s.%n", choice.getIndex(), message.getRole());
+                System.out.println("Message:");
+                System.out.println(message.getContent());
+            }
+    
+            System.out.println();
+            CompletionsUsage usage = chatCompletions.getUsage();
+            System.out.printf("Usage: number of prompt token is %d, "
+                    + "number of completion token is %d, and number of total tokens in request and response is %d.%n",
+                usage.getPromptTokens(), usage.getCompletionTokens(), usage.getTotalTokens());
         }
+    }  
+    ```
 
-        System.out.println();
-        CompletionsUsage usage = chatCompletions.getUsage();
-        System.out.printf("Usage: number of prompt token is %d, "
-                + "number of completion token is %d, and number of total tokens in request and response is %d.%n",
-            usage.getPromptTokens(), usage.getCompletionTokens(), usage.getTotalTokens());
-    }
-}  
-```
+    > [!IMPORTANT]
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-> [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+1. Navigate back to the project root folder, and build the app with:
 
-From the top level quickstart directory where your `pom.xml` is located run:
+   ```console
+   gradle build
+   ```
+   
+   Then, run it with the `gradle run` command:
+   
+   ```console
+   gradle run
+   ```
 
-```console
-mvn compile
-```
-
-Now run the sample:
-
-```console
-mvn exec:java -Dexec.mainClass="com.azure.ai.openai.usage.GetChatCompletionsSample"
-```
 
 ## Output
 

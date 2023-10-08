@@ -43,18 +43,21 @@ View the upcoming version releases on the AKS Kubernetes release calendar. To se
 
 For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
-|  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
-|--------------|-------------------|--------------|---------|-------------|
-| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
-| 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
-| 1.27 | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024
-| 1.28 | Aug 2023 | Sep 2023 | Oct 2023 ||
+|  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life | Platform support |
+|--------------|-------------------|--------------|---------|-------------|-----------------------|
+| 1.24 | Apr 2022 | May 2022 | Jul 2022	| Jul 2023 | Until 1.28 GA |
+| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023 | Until 1.29 GA |
+| 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024 | Until 1.30 GA |
+| 1.27* | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024, LTS until Jul 2025 | Until 1.31 GA |
+| 1.28 | Aug 2023 | Sep 2023 | Oct 2023 || Until 1.32 GA|
+
+*\* Indicates the version is designated for Long Term Support*
 
 ### AKS Kubernetes release schedule Gantt chart
 
 If you prefer to see this information visually, here's a Gantt chart with all the current releases displayed:
 
-:::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.svg" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.svg":::
+:::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png":::
 
 ## AKS Components Breaking Changes by Version
 
@@ -123,8 +126,6 @@ When a new minor version is introduced, the oldest supported minor version and p
 
 When AKS releases 1.18.\*, all the 1.15.\* versions go out of support 30 days later.
 
-> [!NOTE]
-> If you're running an unsupported Kubernetes version, you'll be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases aren't covered by the [AKS support policies](./support-policies.md).
 
 AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
 
@@ -146,7 +147,7 @@ New Supported Version List
 
 Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components aren't supported. 
 
-Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 is considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then auto-upgrade to v1.26.
+Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 is considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then auto-upgrade to v1.26. If you are a running an n-2 version, the moment it becomes n-3 it also becomes deprecated, and you enter into the platform support policy. 
 
 AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. AKS can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
 

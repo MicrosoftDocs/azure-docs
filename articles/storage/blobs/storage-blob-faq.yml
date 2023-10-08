@@ -3,7 +3,7 @@ metadata:
   title: Frequently asked questions - Azure Blob Storage | Microsoft Docs
   description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
   ms.topic: faq
-  ms.service: azure-storage
+  ms.service: azure-blob-storage
   ms.date: 08/10/2023
   ms.author: normesta
   author: normesta

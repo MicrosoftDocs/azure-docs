@@ -38,13 +38,14 @@ The Key Vault VM extension supports the following certificate content types:
 > [!NOTE]
 > The Key Vault VM extension downloads all certificates to the Windows certificate store or to the location specified in the `certificateStoreLocation` property in the VM extension settings. 
 
-## Updates in Version 3.0
+## Updates in Version 3.0+
 
 Version 3.0 of the Key Vault VM extension for Windows adds support for the following features:
 
 - Add ACL permissions to downloaded certificates
 - Enable Certificate Store configuration per certificate
 - Export private keys
+- IIS Certificate Rebind support
 
 ## Prerequisites
 

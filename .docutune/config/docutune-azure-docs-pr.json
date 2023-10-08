@@ -1,0 +1,40 @@
+{
+  "BaseConfiguration": "docutune-default.json",
+  "Docsets": [
+    {
+      "DocsetName": "azure-documents",
+      "BuildSourceFolder": "articles",
+      "BasePath": "/azure"
+  } ],
+  "MetadataDelimiter": "\"",
+  "Exclude": [
+    "licensing-service-plan-reference.md",
+    "policy-reference.md",
+    "security-controls-policy.md",
+    "articles/defender-for-cloud/alerts-reference.md",
+    "articles/defender-for-cloud/windows-admin-center-integration.md",
+    "articles/governance/",
+    "includes/policy/",
+    "includes/defender-for-cloud-alerts-schema-log-analytics-workspace.md",
+    "third-party-notices.md",
+    "*whats-new*",
+    "*release-notes*",
+    "*third-party-notices*",
+    "*change-log*",
+    "*changelog*",
+    "*reference-breaking-changes*",
+    "*version-history*",
+    "banner.md"
+  ],
+  "PreloadTOCFiles": [
+    "articles/cloud-services/toc.yml",
+    "articles/storage/blobs/TOC.yml",
+    "articles/storage/queues/TOC.yml"
+  ],
+  "TermFiles": [
+    "Dictionary-Onboard.ps1",
+    "Bundle-Standard.txt",
+    "Bundle-Cloud.txt"
+  ],
+  "ApplyPolicies": []
+}

@@ -46,7 +46,7 @@ In addition, you can also double select on your dev box  in the list of VMs you 
 You can use the CLI to hibernate your dev box:
 
 ```azurecli-interactive
-az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate false
+az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate true
 ```
 
 To learn more about managing your dev box from the CLI, see: [devcenter reference](/cli/azure/devcenter/dev/dev-box?view=azure-cli-latest&preserve-view=true). 

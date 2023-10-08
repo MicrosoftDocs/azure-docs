@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use password hash sync for hybrid identity in a single Active Directory forest'
-description: Learn how to set up a hybrid identity environment by using password hash sync to integrate a Windows Server Active Directory forest with Azure Active Directory.
+description: Learn how to set up a hybrid identity environment by using password hash sync to integrate a Windows Server Active Directory forest with Microsoft Entra ID.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -28,9 +28,9 @@ In this tutorial, you learn how to:
 > - Create a virtual machine.
 > - Create a Windows Server Active Directory environment.
 > - Create a Windows Server Active Directory user.
-> - Create an Azure Active Directory tenant.
+> - Create a Microsoft Entra tenant.
 > - Create a Hybrid Identity Administrator account in Azure.
-> - Set up Azure AD Connect.
+> - Set up Microsoft Entra Connect.
 > - Test and verify that users are synced.
 
 ## Prerequisites
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > This tutorial uses PowerShell scripts to quickly create the tutorial environment. Each script uses variables that are declared at the beginning of the script. Be sure to change the variables to reflect your environment.
 >
-> The scripts in the tutorial create a general Windows Server Active Directory (Windows Server AD) environment before they install Azure AD Connect. The scripts are also used in related tutorials.
+> The scripts in the tutorial create a general Windows Server Active Directory (Windows Server AD) environment before they install Microsoft Entra Connect. The scripts are also used in related tutorials.
 >
 > The PowerShell scripts that are used in this tutorial are available on [GitHub](https://github.com/billmath/tutorial-phs).
 
@@ -171,7 +171,7 @@ Now, install and configure Active Directory Domain Services to create the enviro
 
 ## Create a Windows Server AD user
 
-Next, create a test user account. Create this account in your on-premises Active Directory environment. The account is then synced to Azure Active Directory (Azure AD).
+Next, create a test user account. Create this account in your on-premises Active Directory environment. The account is then synced to Microsoft Entra ID.
 
 1. Open Windows PowerShell ISE as administrator.
 1. Run the following script:
@@ -193,49 +193,41 @@ Next, create a test user account. Create this account in your on-premises Active
     Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
     ```
 
-## Create an Azure AD tenant
+<a name='create-an-azure-ad-tenant'></a>
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+## Create a Microsoft Entra tenant
 
-Now, create an Azure AD tenant, so you can sync your users in Azure:
+If you dont have one, follow the steps in the article [Create a new tenant in Microsoft Entra ID](../../fundamentals/create-new-tenant.md) to create a new tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the account that's associated with your Azure subscription.
-1. Search for and then select **Azure Active Directory**.
-1. Select **Create**.
+<a name='create-a-hybrid-identity-administrator-in-azure-ad'></a>
 
-   :::image type="content" source="media/tutorial-password-hash-sync/create1.png" alt-text="Screenshot that shows how to create an Azure AD tenant.":::
-1. Enter a name for the organization and an initial domain name. Then select **Create** to create your directory.
-1. To manage the directory, select the **here** link.
+## Create a Hybrid Identity Administrator in Microsoft Entra ID
 
-## Create a Hybrid Identity Administrator in Azure AD
-
-The next task is to create a Hybrid Identity Administrator account. This account is used to create the Azure AD Connector account during Azure AD Connect installation. The Azure AD Connector account is used to write information to Azure AD.
+The next task is to create a Hybrid Identity Administrator account. This account is used to create the Microsoft Entra Connector account during Microsoft Entra Connect installation. The Microsoft Entra Connector account is used to write information to Microsoft Entra ID.
 
 To create the Hybrid Identity Administrator account:
 
-1. In the left menu under **Manage**, select **Users**.
-
-   :::image type="content" source="media/tutorial-password-hash-sync/gadmin1.png" alt-text="Screenshot that shows Users selected under Manage in the resource menu to create a Hybrid Identity Administrator in Azure AD.":::
-1. Select **All users**, and then select **New user**.
-1. In the **User** pane, enter a name and a username for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
-
-   In the **Directory role** pane, select **Hybrid Identity Administrator**. Then select **Create**.
-
-   :::image type="content" source="media/tutorial-password-hash-sync/gadmin2.png" alt-text="Screenshot that shows the Create button you select when you create a Hybrid Identity Administrator account in Azure AD.":::
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Users** > **All users**
+1. Select **New user** > **Create new user**.
+1. In the **Create new user** pane, enter a **Display name** and a **User principal name** for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
+   1. Under **Assignments**, select **Add role**, and select **Hybrid Identity Administrator**. 
+1. Then select **Review + create** > **Create**.
 1. In a new web browser window, sign in to `myapps.microsoft.com` by using the new Hybrid Identity Administrator account and the temporary password.
-1. Choose a new password for the Hybrid Identity Administrator account and change the password.
 
-## Download and install Azure AD Connect
+<a name='download-and-install-azure-ad-connect'></a>
 
-Now it's time to download and install Azure AD Connect. After it's installed, you'll use the express installation.
+## Download and install Microsoft Entra Connect
 
-1. Download [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+Now it's time to download and install Microsoft Entra Connect. After it's installed, you'll use the express installation.
+
+1. Download [Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 1. Go to *AzureADConnect.msi* and double-click to open the installation file.
 1. In **Welcome**, select the checkbox to agree to the licensing terms and select **Continue**.
 1. In **Express settings**, select **Use express settings**.
 
    :::image type="content" source="media/tutorial-password-hash-sync/express1.png" alt-text="Screenshot that shows the Express settings screen and the Use express settings button.":::
-1. In **Connect to Azure AD**, enter the username and password for the Hybrid Identity Administrator account for Azure AD. Select **Next**.  
+1. In **Connect to Microsoft Entra ID**, enter the username and password for the Hybrid Identity Administrator account for Microsoft Entra ID. Select **Next**.  
 1. In **Connect to AD DS**, enter the username and password for an enterprise admin account. Select **Next**.  
 1. In **Ready to configure**, select **Install**.
 1. When the installation is finished, select **Exit**.
@@ -243,20 +235,19 @@ Now it's time to download and install Azure AD Connect. After it's installed, yo
 
 ## Check for users in the portal
 
-Now you'll verify that the users in your on-premises Active Directory tenant have synced and are now in your Azure AD tenant. This section might take a few hours to complete.
+Now you'll verify that the users in your on-premises Active Directory tenant have synced and are now in your Microsoft Entra tenant. This section might take a few hours to complete.
 
 To verify that the users are synced:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the account that's associated with your Azure subscription.
-1. In the portal menu, select **Azure Active Directory**.
-1. In the resource menu under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Browse to **Identity** > **Users** > **All users**
 1. Verify that the new users appear in your tenant.
 
-   :::image type="content" source="media/tutorial-password-hash-sync/sync1.png" alt-text="Screenshot that shows verifying that users were synced in Azure Active Directory.":::
+   :::image type="content" source="media/tutorial-password-hash-sync/sync1.png" alt-text="Screenshot that shows verifying that users were synced in Microsoft Entra ID.":::
   
 ## Sign in with a user account to test sync
 
-To test that users from your Windows Server AD tenant are synced with your Azure AD tenant, sign in as one of the users:
+To test that users from your Windows Server AD tenant are synced with your Microsoft Entra tenant, sign in as one of the users:
 
 1. Go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Sign in with a user account that was created in your new tenant.
@@ -267,6 +258,6 @@ You've successfully set up a hybrid identity environment that you can use to tes
 
 ## Next steps
 
-- Review [Azure AD Connect hardware and prerequisites](how-to-connect-install-prerequisites.md).
-- Learn how to use [Express settings](how-to-connect-install-express.md) in Azure AD Connect.
-- Learn more about [password hash sync](how-to-connect-password-hash-synchronization.md) with Azure AD Connect.
+- Review [Microsoft Entra Connect hardware and prerequisites](how-to-connect-install-prerequisites.md).
+- Learn how to use [Express settings](how-to-connect-install-express.md) in Microsoft Entra Connect.
+- Learn more about [password hash sync](how-to-connect-password-hash-synchronization.md) with Microsoft Entra Connect.

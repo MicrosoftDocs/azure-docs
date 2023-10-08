@@ -5,7 +5,7 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/03/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Event Hubs output binding for Azure Functions
@@ -18,6 +18,9 @@ Use the Event Hubs output binding to write events to an event stream. You must h
 
 Make sure the required package references are in place before you try to implement an output binding.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -38,7 +41,13 @@ This article supports both programming models.
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
 
@@ -78,22 +87,45 @@ public static async Task Run(
     }
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
-
 ---
 
 ::: zone-end 
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that sends a single message to an event hub:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubOutput1.ts" :::
+
+To output multiple messages, return an array instead of a single object. For example:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubOutput2.ts" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that sends a single message to an event hub:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubOutput1.js" :::
+
+To output multiple messages, return an array instead of a single object. For example:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubOutput2.js" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an event hub trigger binding in a *function.json* file and a function that uses the binding. The function writes an output message to an event hub.
 
 The following example shows an Event Hubs binding data in the *function.json* file, which is different for version 1.x of the Functions runtime compared to later versions. 
-
-# [Functions 2.x+](#tab/functionsv2)
 
 ```json
 {
@@ -104,20 +136,6 @@ The following example shows an Event Hubs binding data in the *function.json* fi
     "direction": "out"
 }
 ```
-
-# [Functions 1.x](#tab/functionsv1)
-
-```json
-{
-    "type": "eventHub",
-    "name": "outputEventHubMessage",
-    "path": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-
----
 
 Here's JavaScript code that sends a single message:
 
@@ -144,6 +162,8 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
@@ -226,18 +246,18 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#event-hubs-output).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
-Use the [EventHubAttribute] to define an output binding to an event hub, which supports the following properties.
+Use the [EventHubOutputAttribute] to define an output binding to an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
 |**EventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
-# [Isolated process](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
-Use the [EventHubOutputAttribute] to define an output binding to an event hub, which supports the following properties.
+Use the [EventHubAttribute] to define an output binding to an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
@@ -274,7 +294,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 + [connection](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.connection)
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 ::: zone-end
@@ -283,7 +303,33 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.eventHub()` method.
+
+| Property | Description |
+|---------|------------------------|
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|------------------------|
+|**type** |  Must be set to `eventHub`. |
+|**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
+|**name** |  The variable name used in function code that represents the event. |
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version.
 
@@ -365,9 +411,17 @@ There are two options for outputting an Event Hubs message from a function by us
  
 Complete PowerShell examples are pending.
 ::: zone-end 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+
+Access the output message by returning the value directly or using `context.extraOutputs.set()`.
+
+# [Model v3](#tab/nodejs-v3)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  

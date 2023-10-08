@@ -138,7 +138,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image RHEL \
+  --image RHELRaw8LVMGen2 \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \

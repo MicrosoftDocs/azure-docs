@@ -4,7 +4,7 @@ description: Learn how to quickly create a lab in Azure DevTest Labs by using th
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/22/2023
+ms.date: 09/30/2023
 ms.custom: mode-ui, UpdateFrequency2
 ---
 

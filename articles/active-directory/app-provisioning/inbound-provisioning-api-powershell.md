@@ -2,20 +2,20 @@
 title: API-driven inbound provisioning with PowerShell script (Public preview)
 description: Learn how to implement API-driven inbound provisioning with a PowerShell script.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/18/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
 # API-driven inbound provisioning with PowerShell script (Public preview)
 
-This tutorial describes how to use a PowerShell script to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. The article also provides guidance on how the same integration pattern can be used with any system of record. 
+This tutorial describes how to use a PowerShell script to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. The article also provides guidance on how the same integration pattern can be used with any system of record. 
 
 ## Integration scenario
 
@@ -29,7 +29,7 @@ From an implementation perspective:
 
 * You want to use an unattended PowerShell script to read data from the CSV file exports and send it to the inbound provisioning API endpoint. 
 * In your PowerShell script, you don't want to implement the complex logic of comparing identity data between your system of record and target directory. 
-* You want to use Microsoft Entra ID provisioning service to apply your IT managed provisioning rules to automatically create/update/enable/disable accounts in the target directory (on-premises Active Directory or Microsoft Entra ID).
+* You want to use Microsoft Entra provisioning service to apply your IT managed provisioning rules to automatically create/update/enable/disable accounts in the target directory (on-premises Active Directory or Microsoft Entra ID).
 
 :::image type="content" source="media/inbound-provisioning-api-powershell/powershell-integration-overview.png" alt-text="Graphic of PowerShell-based integration." lightbox="media/inbound-provisioning-api-powershell/powershell-integration-overview.png":::
 
@@ -44,14 +44,14 @@ While this tutorial uses a CSV file as a system of record, you can customize the
 |3     |  Any system that exposes REST APIs   | To read data from a REST API endpoint using PowerShell, you can use the [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) cmdlet from the `Microsoft.PowerShell.Utility` module. Check the documentation of your REST API and find out what parameters and headers it expects, what format it returns, and what authentication method it uses. You can then adjust your `Invoke-RestMethod` command accordingly.    |
 |4     |  Any system that exposes SOAP APIs   | To read data from a SOAP API endpoint using PowerShell, you can use the [New-WebServiceProxy](/powershell/module/microsoft.powershell.management/new-webserviceproxy) cmdlet from the `Microsoft.PowerShell.Management` module. Check the documentation of your SOAP API and find out what parameters and headers it expects, what format it returns, and what authentication method it uses. You can then adjust your `New-WebServiceProxy` command accordingly.  |
 
-After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra ID provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
+After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
 
 > [!IMPORTANT]
-> If you'd like to share your PowerShell integration script with the community, publish it on [PowerShell Gallery](https://www.powershellgallery.com/) and notify us on the GitHub repository [Entra-ID-Inbound-Provisioning](https://github.com/AzureAD/entra-id-inbound-provisioning), so we can add a reference it. 
+> If you'd like to share your PowerShell integration script with the community, publish it on [PowerShell Gallery](https://www.powershellgallery.com/) and notify us on the GitHub repository [`entra-id-inbound-provisioning`](https://github.com/AzureAD/entra-id-inbound-provisioning), so we can add a reference it. 
 
 ## How to use this tutorial
 
-The PowerShell sample script published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM) automates several tasks. It has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. Here's how you can test it and customize it per your integration requirements. 
+The PowerShell sample script published in the [Microsoft Entra inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM) automates several tasks. It has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. Here's how you can test it and customize it per your integration requirements. 
 
 > [!NOTE]
 > The sample PowerShell script is provided "as-is" for implementation reference. If you have questions related to the script or if you'd like to enhance it, please use the [GitHub project repository](https://github.com/AzureAD/entra-id-inbound-provisioning).
@@ -60,7 +60,7 @@ The PowerShell sample script published in the [Microsoft Entra ID inbound provis
 |---------|---------|---------|----------|
 |1 | Read worker data from the CSV file. | [Download the PowerShell script](#download-the-powershell-script). It has out-of-the-box logic to read data from any CSV file. Refer to [CSV2SCIM PowerShell usage details](#csv2scim-powershell-usage-details) to get familiar with the different execution modes of this script.  | If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how you can customize the PowerShell script. |
 |2 | Pre-process and convert data to SCIM format.  | By default, the PowerShell script converts each record in the CSV file to a SCIM Core User + Enterprise User representation. Follow the steps in the section [Generate bulk request payload with standard schema](#generate-bulk-request-payload-with-standard-schema) to get familiar with this process.  | If your CSV file has different fields, tweak the [AttributeMapping.psd file](#attributemappingpsd-file) to generate a valid SCIM user. You can also [generate bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema). Update the PowerShell script to include any custom CSV data validation logic.|
-|3 | Use a certificate for authentication to Entra ID. | [Create a service principal that can access](inbound-provisioning-api-grant-access.md) the inbound provisioning API. Refer to steps in the section [Configure client certificate for service principal authentication](#configure-client-certificate-for-service-principal-authentication) to learn how to use client certificate for authentication. | If you'd like to use managed identity instead of a service principal for authentication, then review the use of `Connect-MgGraph` in the sample script and update it to use [managed identities](/powershell/microsoftgraph/authentication-commands#using-managed-identity). |
+|3 | Use a certificate for authentication to Microsoft Entra ID. | [Create a service principal that can access](inbound-provisioning-api-grant-access.md) the inbound provisioning API. Refer to steps in the section [Configure client certificate for service principal authentication](#configure-client-certificate-for-service-principal-authentication) to learn how to use client certificate for authentication. | If you'd like to use managed identity instead of a service principal for authentication, then review the use of `Connect-MgGraph` in the sample script and update it to use [managed identities](/powershell/microsoftgraph/authentication-commands#using-managed-identity). |
 |4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This generates a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Refer to the steps in the section [Generate and upload bulk request payload as admin user](#generate-and-upload-bulk-request-payload-as-admin-user) to learn how to upload data to this endpoint. Validate the attribute flow and customize the attribute mappings per your integration requirements. To run the script using a service principal with certificate-based authentication, refer to the steps in the section [Upload bulk request payload using client certificate authentication](#upload-bulk-request-payload-using-client-certificate-authentication) | If you plan to [use bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema), then [extend the provisioning app schema](#extending-provisioning-job-schema) to include your custom SCIM schema elements.|
 |5 | Scan the provisioning logs and retry provisioning for failed records.  |  Refer to the steps in the section [Get provisioning logs of the latest sync cycles](#get-provisioning-logs-of-the-latest-sync-cycles)  to learn how to fetch and analyze provisioning log data. Identify failed user records and include them in the next upload cycle.  | - |
 |6 | Deploy your PowerShell based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the PowerShell script to meet your requirements, you can deploy the automation as a [PowerShell Workflow runbook in Azure Automation](../../automation/learn/automation-tutorial-runbook-textual.md) or as a server process [scheduled to run on a Windows server](/troubleshoot/windows-server/system-management-components/schedule-server-process). | - |
@@ -68,7 +68,7 @@ The PowerShell sample script published in the [Microsoft Entra ID inbound provis
 
 ## Download the PowerShell script
 
-1. Access the GitHub repository https://github.com/AzureAD/entra-id-inbound-provisioning. 
+1. Access the GitHub repository [`entra-id-inbound-provisioning`](https://github.com/AzureAD/entra-id-inbound-provisioning). 
 1. Use the **Code** -> **Clone**  or **Code** -> **Download ZIP** option to copy contents of this repository into your local folder. 
 1. Navigate to the folder **PowerShell/CSV2SCIM**. It has the following directory structure:
    - src
@@ -180,12 +180,12 @@ To illustrate the procedure, let's use the CSV file `Samples/csv-with-2-records.
 
 This section explains how to send the generated bulk request payload to your inbound provisioning API endpoint. 
 
-1. Log in to your Microsoft Entra admin center as *Application Administrator* or *Global Administrator*.
-1. Copy the `ServicePrincipalId` associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
+1. Log in to your [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
+1. Browse to **Provisioning App** > **Properties** > **Object ID** and copy the `ServicePrincipalId` associated with your provisioning app.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID." lightbox="./media/inbound-provisioning-api-powershell/object-id.png":::
 
-1. As user with *Global Administrator* role, run the following command by providing the correct values for `ServicePrincipalId` and `TenantId`. It will prompt you for authentication if an authenticated session doesn't already exist for this tenant. Provide your consent to permissions prompted during authentication.  
+1. As user with Global Administrator role, run the following command by providing the correct values for `ServicePrincipalId` and `TenantId`. It will prompt you for authentication if an authenticated session doesn't already exist for this tenant. Provide your consent to permissions prompted during authentication.  
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ServicePrincipalId <servicePrincipalId> -TenantId "contoso.onmicrosoft.com"
@@ -204,7 +204,7 @@ This section explains how to send the generated bulk request payload to your inb
     $ThumbPrint = $ClientCertificate.ThumbPrint
     ```
     The generated certificate is stored **Current User\Personal\Certificates**. You can view it using the **Control Panel** -> **Manage user certificates** option. 
-1. To associate this certificate with a valid service principal, log in to your Microsoft Entra admin center as *Application Administrator*.
+1. To associate this certificate with a valid service principal, log in to your Microsoft Entra admin center as Application Administrator.
 1. Open [the service principal you configured](inbound-provisioning-api-grant-access.md#configure-a-service-principal) under **App Registrations**.
 1. Copy the **Object ID** from the **Overview** blade. Use the value to replace the string `<AppObjectId>`. Copy the **Application (client) Id**. We will use it later and it is referenced as `<AppClientId>`.
 1. Run the following command to upload your certificate to the registered service principal. 
@@ -296,7 +296,7 @@ To illustrate the procedure, we'll use the CSV file ```Samples/csv-with-2-record
 
 ## Get provisioning logs of the latest sync cycles
 
-After sending the bulk request, you can query the logs of the latest sync cycles processed by Azure AD. You can retrieve the sync statistics and processing details with the PowerShell script and save it for analysis. 
+After sending the bulk request, you can query the logs of the latest sync cycles processed by Microsoft Entra ID. You can retrieve the sync statistics and processing details with the PowerShell script and save it for analysis. 
 
 1. To view the log details and sync statistics on the console, run the following command:
 
@@ -368,7 +368,7 @@ It doesn't refer to the attribute mappings that you perform in the Microsoft Ent
 | ValidateAttributeMapping |Use this Switch flag to validate that the AttributeMapping file contains attributes that comply with the SCIM Core and Enterprise user schema. | Mandatory: No</br>  Recommend using it to ensure compliance. |
 | ServicePrincipalId |The GUID value of your provisioning app's service principal ID that you can retrieve from the **Provisioning App** > **Properties** > **Object ID**| Mandatory: Only when you want to: </br>- Update the provisioning app schema, or</br>- Send the generated bulk request to the API endpoint. |
 | UpdateSchema |Use this switch to instruct the script to read the CSV columns and add them as custom SCIM attributes in your provisioning app schema.|    
-| ClientId |The Client ID of an Azure AD registered app to use for OAuth authentication flow. This app must have valid certificate credentials. | Mandatory: Only when performing certificate-based authentication. |
+| ClientId |The Client ID of a Microsoft Entra registered app to use for OAuth authentication flow. This app must have valid certificate credentials. | Mandatory: Only when performing certificate-based authentication. |
 | ClientCertificate |The Client Authentication Certificate to use during OAuth flow. | Mandatory: Only when performing certificate-based authentication.|
 | GetPreviousCycleLogs |To get the provisioning logs of the latest sync cycles. |    
 | NumberOfCycles | To specify how many sync cycles should be retrieved. This value is 1 by default.|

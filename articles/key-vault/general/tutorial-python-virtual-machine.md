@@ -68,7 +68,7 @@ To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) 
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

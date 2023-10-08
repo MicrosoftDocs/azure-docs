@@ -42,6 +42,12 @@ Wait for confirmation that Azure Communications Gateway is enabled before moving
 
 ## 5. Create a network design
 
+You must use Microsoft Azure Peering Service (MAPS) or ExpressRoute Microsoft Peering to connect your on-premises network to Azure Communications Gateway. 
+
+[!INCLUDE [communications-gateway-maps-or-expressroute](includes/communications-gateway-maps-or-expressroute.md)]
+
+If you want to use ExpressRoute Microsoft Peering, consult with your onboarding team and ensure that it's available in your region.
+
 Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* that you've been issued. You must have two Azure Regions with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
 :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
@@ -56,9 +62,12 @@ For more information on these options, see [Call control integration for Teams P
 
 If you plan to route emergency calls through Azure Communications Gateway, read [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calling-operator-connect.md) to learn about your options.
 
-## 6. Configure MAPS
+## 6. Configure MAPS or ExpressRoute
 
-To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](../internet-peering/walkthrough-communications-services-partner.md).
+Connect your network to Azure Communications Gateway:
+
+- To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](../internet-peering/walkthrough-communications-services-partner.md).
+- To configure ExpressRoute Microsoft Peering, follow the instructions in [Tutorial: Configure peering for ExpressRoute circuit](../../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md).
 
 ## Next step
 
