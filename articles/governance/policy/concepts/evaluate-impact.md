@@ -63,7 +63,7 @@ resources before full implementation of the new policy. This cleanup can be done
 a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is
 _DeployIfNotExists_ or _Modify_.
 
-##TODO- need to talk about how remediation tasks and deploy if not exist arm templates should be tested before!!!!!!!!!!!!!!!!!!!!!!!!
+Policy definitions with a _DeployIfNotExist_ should leverage the [Azure Resource Manager template what if](../../../azure-resource-manager/templates/deploy-what-if.md) to validate and test the changes that will happen when deploying the ARM template. 
 
 ## Audit new or updated resources
 

@@ -13,7 +13,7 @@ the safe deployment practices (SDP) framework. The
 safe deployment of Azure Policy definitions and assignments helps limiting the impact of
 unintended behaviors of policy resources.
 
-The high-level approach of implementing SDP with Azure Policy is to roll out policy assignments
+The high-level approach of implementing SDP with Azure Policy is to graudally roll out policy assignments
 by rings to detect policy changes that affect the environment in early stages before it
 affects the critical cloud infrastructure.
 
@@ -33,9 +33,7 @@ Policy assignments that use the `deny` or `append` policy effects.
 
 Flowchart step numbers: 
 
-1. Begin the release by creating a policy definition at the highest designated Azure management scope. We recommend storing Azure Policy definitions at the management group scope for maximum flexibility.
-
-2. Once you've created your policy definition, assign the policy at the highest-level scope inclusive
+1. Once you've selected your policy definition, assign the policy at the highest-level scope inclusive
 of all deployment rings. Apply _resource selectors_ to narrow the applicability to the least
 critical ring by using the `"kind": "resource location"` property. Configure the `audit` effect type
 by using _assignment overrides_. Sample selector with `eastUS` location and effect as `audit`:
@@ -54,7 +52,7 @@ by using _assignment overrides_. Sample selector with `eastUS` location and effe
     }] 
     ```
 
-3. Once the assignment is deployed and the initial compliance scan has completed,
+2. Once the assignment is deployed and the initial compliance scan has completed,
 validate that the compliance result is as expected.
 
     You should also configure automated tests that run compliance checks. A compliance check should
@@ -71,7 +69,7 @@ validate that the compliance result is as expected.
     and impact of the policy. If the results aren't as expected due to application configuration,
     refactor the application as appropriate.
 
-4. Repeat by expanding the resource selector property values to include the next rings'
+3. Repeat by expanding the resource selector property values to include the next rings'
 locations and validating the expected compliance results and application health. Example selector with an added location value:
 
     ```json
@@ -84,7 +82,7 @@ locations and validating the expected compliance results and application health.
     }]
     ```
 
-5. Once you have successfully assigned the policy to all rings using `audit` mode,
+4. Once you have successfully assigned the policy to all rings using `audit` mode,
 the pipeline should trigger a task that changes the policy effect to `deny` and reset
 the resource selectors to the location associated with _Ring 0_. Example selector with one region and effect set to deny:
 
@@ -102,40 +100,94 @@ the resource selectors to the location associated with _Ring 0_. Example selecto
     }] 
     ```
 
-6. Once the effect is changed, automated tests should check whether enforcement is taking place as
+5. Once the effect is changed, automated tests should check whether enforcement is taking place as
 expected.
 
-7. Repeat by including more rings in your resource selector configuration.
+6. Repeat by including more rings in your resource selector configuration.
 
-8. Repeat this process for all production rings.
+7. Repeat this process for all production rings.
 
 ## Steps for safe deployment of Azure Policy assignments with modify or deployIfNotExists effects
 
-Steps 1-4 for policies using the `modify` or `deployIfNotExists` effects are the same as steps previously explained.
+The steps for policies using the `modify` or `deployIfNotExists` effects are similar as steps previously explained with the additional action of using _enforcement mode_ and triggering a remediation task.
 Review the following flowchart with modified steps 5-9:
 
 :::image type="content" source="../media/policy-safe-deployment-practices/safe-deployment-practices-flowchart-2.png" alt-text="Flowchart showing steps 5 through 9 in the Azure Policy safe deployment practices workflow." border="true":::
 
 Flowchart step numbers:  
 
-5. Once you've assigned the policy to all rings using `audit` mode, the pipeline should trigger
-a task that changes the policy effect to `modify` or `deployIfNotExists` and resets
-the resource selectors to _Ring 0_.
+1. Once you've selected your policy definition, assign the policy at the highest-level scope inclusive
+of all deployment rings. Apply _resource selectors_ to narrow the applicability to the least
+critical ring by using the `"kind": "resource location"` property. Configure the _enforcement mode_ of the assignment to _DoNotEnforce_. Sample selector with `eastUS` location and _enforcementMode_ as  _DoNotEnforce_:
 
-6. Automated tests should then check whether the enforcement works as expected.
+    ```json
+    "resourceSelectors": [{ 
+      "name": "SDPRegions", 
+      "selectors": [{
+          "kind": "resourceLocation",
+          "in": [ "eastUS" ] 
+      }]
+    }], 
+   "enforcementMode": "DoNotEnforce"
+    ```
 
-7. The pipeline should trigger a remediation task that corrects existing resources in that given ring.
+2. Once the assignment is deployed and the initial compliance scan has completed,
+validate that the compliance result is as expected.
 
-8. After the remediation task is complete, automated tests should verify the remediation works
-as expected using compliance and application health checks.
+    You should also configure automated tests that run compliance checks. A compliance check should
+    encompass the following logic:
+    
+    - Gather compliance results
+    - If compliance results are as expected, the pipeline should continue
+    - If compliance results aren't as expected, the pipeline should fail and you should start debugging
+    
+    For example, you can configure the compliance check by using other tools within
+    your particular continuous integration/continuous deployment (CI/CD) pipeline.
+    
+    At each rollout stage, the application health checks should confirm the stability of the service
+    and impact of the policy. If the results aren't as expected due to application configuration,
+    refactor the application as appropriate.
 
-9. Repeat by including more locations in your resource selector configuration. Then repeat all for production rings.
+    You may also [trigger remediation tasks](../how-to/remediate-resources.md) to remediate existing non-compliant resources. Ensure the remediation tasks are bringing resouces into compliance as expected.
 
-> [!NOTE]
-> For more information on Azure policy remediation tasks, read [Remediate non-compliant resources with Azure Policy](./remediate-resources.md).
+3. Repeat by expanding the resource selector property values to include the next rings'
+locations and validating the expected compliance results and application health. Example selector with an added location value:
+
+    ```json
+    "resourceSelectors": [{ 
+      "name": "SDPRegions", 
+      "selectors": [{
+          "kind": "resourceLocation",
+          "in": [ "eastUS", "westUS"] 
+      }]
+    }]
+    ```
+
+4. Once you have successfully assigned the policy to all rings using _DoNotEnforce_ mode,
+the pipeline should trigger a task that changes the policy `enforcementMode` to _Default_ enablement and reset
+the resource selectors to the location associated with _Ring 0_. Example selector with one region and effect set to deny:
+
+    ```json
+    "resourceSelectors": [{ 
+      "name": "SDPRegions", 
+      "selectors": [{
+          "kind": "resourceLocation",
+          "in": [ "eastUS" ] 
+      }]
+    }], 
+   "enforcementMode": "Default",
+    ```
+
+5. Once the effect is changed, automated tests should check whether enforcement is taking place as
+expected.
+
+6. Repeat by including more rings in your resource selector configuration.
+
+7. Repeat this process for all production rings.
 
 ## Next steps
 
 - Learn how to [programmatically create policies](./programmatically-create.md).
 - Review [Azure Policy as code workflows](../concepts/policy-as-code.md).
 - Study Microsoft's guidance concerning [safe deployment practices](/devops/operate/safe-deployment-practices).
+- Review [Remediate non-compliant resources with Azure Policy](./remediate-resources.md).
