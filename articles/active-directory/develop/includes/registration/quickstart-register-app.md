@@ -80,7 +80,7 @@ Settings for each application type, including redirect URIs, are configured in *
 
 To configure application settings based on the platform or device you're targeting, follow these steps:
 
-1. In the Microsoft Entra Admin Center portal, in **App registrations**, select your application.
+1. In the Microsoft Entra admin center, in **App registrations**, select your application.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**.
 1. Under **Configure platforms**, select the tile for your application type (platform) to configure its settings.

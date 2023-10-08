@@ -96,7 +96,7 @@ if (authResult != null)
   //Use the Access Token to access the Proxy Application
 
   HttpClient httpClient = new HttpClient();
-  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+  httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
   HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
  }
 ```
@@ -105,7 +105,7 @@ The required info in the sample code can be found in the Microsoft Entra admin c
 
 | Info required | How to find it in the Microsoft Entra admin center |
 | --- | --- |
-| \<Tenant ID> | **Microsoft Entra ID** > **Properties** > **Directory ID** |
+| \<Tenant ID> | **Identity** > **Overview** > **Properties** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
 | \<Scope> | **Application registration** > *your native application* > **API permissions** > Click on the Permission API (user_impersonation) > A panel with the caption **user_impersonation** appears on the right hand side. > The scope is the URL in the edit box.
 | \<Proxy App URL> | the External URL and path to the API

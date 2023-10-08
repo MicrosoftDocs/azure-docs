@@ -83,18 +83,18 @@
         href: windows-multisession-faq.yml
       - name: Fair Share technologies
         displayName: virtual machines, vms, cpu, processor
-        href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        href: /windows-server/remote/remote-desktop-services/fair-share-enabled-by-default-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Network connectivity
       items:
       - name: Understanding network connectivity
         displayName: connections
         href: network-connectivity.md
       - name: RDP Shortpath
-        displayName: network, udp
+        displayName: network connectivity, connections, udp
         href: rdp-shortpath.md
-      - name: Implement Quality of Service
-        displayName: network, qos
-        href: rdp-quality-of-service-qos.md
+      - name: Azure Private Link
+        displayName: network connectivity, connections, private endpoints
+        href: private-link-overview.md
       - name: Required URL list
         displayName: network, urls, firewall, connections, connectivity
         href: safe-url-list.md
@@ -103,9 +103,9 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Azure Private Link
-        displayName: network, private endpoints
-        href: private-link-overview.md
+      - name: Implement Quality of Service
+        displayName: network, qos
+        href: rdp-quality-of-service-qos.md
     - name: Identity and access management
       items:
       - name: Identities and authentication
@@ -284,12 +284,17 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, applications, apps
             href: msixmgr-tool-syntax-description.md 
-        - name: Use Microsoft Teams
-          displayName: applications, apps, webrtc
-          href: teams-on-avd.md
-        - name: Set up Windows Sandbox
-          displayName: applications, apps
-          href: sandbox.md
+        - name: Specific applications
+          items:
+          - name: Use Microsoft Teams
+            displayName: applications, apps, webrtc
+            href: teams-on-avd.md
+          - name: Use OneDrive with RemoteApp
+            displayName: applications, apps
+            href: onedrive-remoteapp.md
+          - name: Set up Windows Sandbox
+            displayName: applications, apps
+            href: sandbox.md
       - name: Customize session host images
         items:
         - name: Create custom images with Custom image templates
@@ -617,9 +622,6 @@
   - name: RDP Shortpath
     displayName: troubleshooting, network, udp
     href: troubleshoot-rdp-shortpath.md
-  - name: Sign-in screen is blank
-    displayName: troubleshooting, logon
-    href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     displayName: troubleshooting, mmr
     href: troubleshoot-multimedia-redirection.md
@@ -676,6 +678,8 @@
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
   - name: Terraform samples
     href: /azure/developer/terraform/configure-azure-virtual-desktop
+  - name: App Assure for Azure Virtual Desktop
+    href: /microsoft-365/fasttrack/windows-and-other-services#app-assure
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Azure Virtual Desktop (classic) documentation

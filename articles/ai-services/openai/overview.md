@@ -5,8 +5,7 @@ description: Apply advanced language models to variety of use cases with Azure O
 manager: nitinme
 author: mrbullwinkle    
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: overview
 ms.date: 09/15/2023
 ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
@@ -99,8 +98,6 @@ Prompt construction can be difficult. In practice, the prompt acts to configure 
 ### Models
 
 The service provides users access to several different models. Each model provides a different capability and price point.
-
-GPT-4 models are the latest available models. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
 
 The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 

@@ -1,15 +1,15 @@
 ---
-title: Overview of enhanced soft delete for Azure Backup (preview)
+title: Overview of enhanced soft delete for Azure Backup
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/27/2023
+ms.date: 09/11/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# About Enhanced soft delete for Azure Backup (preview)
+# About enhanced soft delete for Azure Backup
 
 [Soft delete](backup-azure-security-feature-cloud.md) for Azure Backup enables you to recover your backup data even after it's deleted. This is useful when:
 
@@ -17,6 +17,9 @@ ms.author: v-abhmallick
 - Backup data is maliciously deleted by ransomware or bad actors.
 
 *Basic soft delete* is available for Recovery Services vaults for a while; *enhanced soft delete* now provides additional data protection capabilities.
+
+>[!Note]
+>Once you enable enhanced soft delete by enabling soft delete state to *always-on*, you can't disable it for that vault.
 
 ## What's soft delete?
 
@@ -42,15 +45,9 @@ The key benefits of enhanced soft delete are:
 - **Soft delete across workloads**: Enhanced soft delete applies to all vaulted datasources alike and is supported for Recovery Services vaults and Backup vaults. Enhanced soft delete also applies to operational backups of disks and VM backup snapshots used for instant restores. However, unlike vaulted backups, these snapshots can be directly accessed and deleted before the soft delete period expires. Enhanced soft delete is currently not supported for operational backup for Blobs and Azure Files.
 - **Soft delete of recovery points**: This feature allows you to recover data from recovery points that might have been deleted due to making changes in a backup policy or changing the backup policy associated with a backup item. Soft delete of recovery points isn't supported for log recovery points in SQL and SAP HANA workloads. [Learn more](manage-recovery-points.md#impact-of-expired-recovery-points-for-items-in-soft-deleted-state).
 
-## Supported regions
-
-- Enhanced soft delete is available in all Azure public regions.
-- Soft delete of recovery points is now available in all Azure public regions.
-
 ## Supported scenarios
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
-- All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
 - Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
 
 ## States of soft delete settings
@@ -111,4 +108,4 @@ You can also use multi-user authorization (MUA) to add an additional layer of pr
 
 ## Next steps
 
-[Configure and manage enhanced soft delete for Azure Backup (preview)](backup-azure-enhanced-soft-delete-configure-manage.md).
+[Configure and manage enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-configure-manage.md).

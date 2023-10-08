@@ -3,8 +3,7 @@ title: "Use Document Intelligence (formerly Form Recognizer) SDK for Java (REST 
 description: 'Use the Document Intelligence SDK for Java (REST API v3.0) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/21/2023
 ms.author: lajanuar

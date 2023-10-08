@@ -27,15 +27,15 @@ If you use Microsoft Entra B2B collaboration to work with external partners, you
 > * Run a PowerShell script to send invitations
 > * Verify the users were added to the directory
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
 ### Install the latest AzureADPreview module
 
-Make sure that you install the latest version of the Azure AD PowerShell for Graph module (AzureADPreview).
+Make sure that you install the latest version of the Azure AD PowerShell for Graph module (`AzureADPreview`).
 
-First, check which modules you've' installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
+First, check which modules you've installed. Open PowerShell as an elevated user (Run as administrator), and run the following command:
 
 ```powershell
 Get-Module -ListAvailable AzureAD*
@@ -43,31 +43,31 @@ Get-Module -ListAvailable AzureAD*
 
 Based on the output, do one of the following:
 
-- If no results are returned, run the following command to install the AzureADPreview module:
+- If no results are returned, run the following command to install the `AzureADPreview` module:
   
    ```powershell
    Install-Module AzureADPreview
    ```
 
-- If only the Microsoft Entra ID module shows up in the results, run the following commands to install the AzureADPreview module: 
+- If only the `AzureAD` module shows up in the results, run the following commands to install the `AzureADPreview` module:
 
    ```powershell
    Uninstall-Module AzureAD
    Install-Module AzureADPreview
    ```
 
-- If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module:
+- If only the `AzureADPreview` module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module:
 
    ```powershell
    Uninstall-Module AzureADPreview
    Install-Module AzureADPreview
    ```
 
-You may receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
+You may receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press `Y` to install the module.
 
 ### Get test email accounts
 
-You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
+You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as `gmail.com` or `outlook.com` addresses.
 
 ## Prepare the CSV file
 
@@ -126,7 +126,7 @@ To verify that the invited users were added to Microsoft Entra ID, run the follo
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *msullivan_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *msullivan_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where `contoso.onmicrosoft.com` is the organization from which you sent the invitations.
 
 ## Clean up resources
 

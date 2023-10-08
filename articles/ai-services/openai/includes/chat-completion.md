@@ -16,8 +16,6 @@ keywords: ChatGPT
 
 The following code snippet shows the most basic way to use the GPT-35-Turbo and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [GPT-35-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
-
 ```python
 import os
 import openai
@@ -85,7 +83,7 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-You can find the model retirement dates for these models on our [models](../concepts/models.md#gpt-35-turbo-0301-and-gpt-4-0314-retirement) page.
+You can find the model retirement dates for these models on our [models](../how-to/working-with-models.md#gpt-35-turbo-0301-and-gpt-4-0314-retirement) page.
 
 ## Working with the Chat Completion API
 

@@ -6,8 +6,8 @@ metadata:
   ms.author: halkazwini
   ms.service: peering-service
   ms.topic: faq
-  ms.date: 09/20/2023
-title: Peering Service frequently asked questions (FAQ)
+  ms.date: 09/27/2023
+title: Azure Peering Service frequently asked questions (FAQ)
 summary: |
 
 
@@ -54,6 +54,6 @@ additionalContent: |
 
   ## Related content
   
-  - To learn about Peering Service, see [Peering Service overview](about.md).
-  - To find a service provider, see [Peering Service partners and locations](location-partners.md).
+  - To learn about Peering Service, see [Azure Peering Service overview](about.md).
+  - To find a service provider, see [Peering Service partners](location-partners.md).
   - To register a Peering Service connection, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).

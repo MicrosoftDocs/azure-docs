@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 07/24/2023
+ms.date: 09/22/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.custom: references_regions
@@ -316,10 +316,10 @@ Each inventory rule generates a set of files in the specified inventory destinat
 
 Each inventory run for a rule generates the following files:
 
-- **Inventory file:** An inventory run for a rule generates multiple CSV or Apache Parquet formatted files. Each such file contains matched objects and their metadata. 
+- **Inventory file:** An inventory run for a rule generates a CSV or Apache Parquet formatted file. Each such file contains matched objects and their metadata. 
 
   > [!IMPORTANT]
-  > Until September 8, 2023, runs can produce a singe inventory file in cases where the matched object count is small. After September 8, 2023, all runs will produce multiple files regardless of the matched object count. To learn more, see [Multiple inventory file output FAQ](storage-blob-faq.yml#multiple-inventory-file-output).   
+  > Starting in October 2023, inventory runs will produce multiple files if the object count is large. To learn more, see [Multiple inventory file output FAQ](storage-blob-faq.yml#multiple-inventory-file-output).   
   
   Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`]. For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 

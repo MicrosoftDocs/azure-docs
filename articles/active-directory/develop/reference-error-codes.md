@@ -200,6 +200,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS53001 | DeviceNotDomainJoined - Conditional Access policy requires a domain joined device, and the device isn't domain joined. Have the user use a domain joined device. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used isn't an approved app for Conditional Access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
 | AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. If this is unexpected, see the Conditional Access policy that applied to this request or contact your administrator. For additional information, please visit [troubleshooting sign-in with Conditional Access](../conditional-access/troubleshoot-conditional-access.md). |
+| AADSTS530035 |BlockedBySecurityDefaults - Access has been blocked by security defaults. This is due to the request using legacy auth or being deemed unsafe by security defaults policies. For additional information, please visit [enforced security policies](../fundamentals/security-defaults.md#enforced-security-policies).|
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
 | AADSTS53010 | ProofUpBlockedDueToSecurityInfoAcr - Cannot configure multi-factor authentication methods because the organization requires this information to be set from specific locations or devices. |
 | AADSTS53011 | User blocked due to risk on home tenant. |
@@ -235,7 +236,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 device flow error. Authorization is pending. The device will retry polling the request. |
 | AADSTS70018 | BadVerificationCode - Invalid verification code due to User typing in wrong user code for device code flow. Authorization isn't approved. |
 | AADSTS70019 | CodeExpired - Verification code expired. Have the user retry the sign-in. |
-| AADSTS70043 | The refresh token has expired or is invalid due to sign-in frequency checks by Conditional Access. The token was issued on {issueDate} and the maximum allowed lifetime for this request is {time}. |
+| AADSTS70043 | BadTokenDueToSignInFrequency - The refresh token has expired or is invalid due to sign-in frequency checks by Conditional Access. The token was issued on {issueDate} and the maximum allowed lifetime for this request is {time}. |
 | AADSTS75001 | BindingSerializationError - An error occurred during SAML message binding. |
 | AADSTS75003 | UnsupportedBindingError - The app returned an error related to unsupported binding (SAML protocol response can't be sent via bindings other than HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - Microsoft Entra doesn’t support the SAML request sent by the app for SSO. To learn more, see the troubleshooting article for error [AADSTS75005](/troubleshoot/azure/active-directory/error-code-aadsts75005-not-a-valid-saml-request). |

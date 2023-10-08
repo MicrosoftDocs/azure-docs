@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 09/21/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
@@ -16,6 +16,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Create an account SAS with Java
+
+[!INCLUDE [storage-dev-guide-selector-account-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-account-sas.md)]
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 

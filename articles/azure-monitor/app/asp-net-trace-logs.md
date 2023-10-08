@@ -172,7 +172,7 @@ Now you can easily filter out in **Transaction Search** all the messages of a pa
 
 The Azure Monitor Log Handler allows you to export Python logs to Azure Monitor.
 
-Instrument your application with the [OpenCensus Python SDK](./opencensus-python.md) for Azure Monitor.
+Instrument your application with the [OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor.
 
 This example shows how to send a warning level log to Azure Monitor.
 

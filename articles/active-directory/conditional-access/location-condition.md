@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/26/2023
+ms.date: 10/06/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,10 +21,9 @@ Conditional Access policies are at their most basic an if-then statement combini
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-> [!IMPORTANT]
-> [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451). We will begin introducing IPv6 support into Microsoft Entra services in a phased approach, starting April 3, 2023. Organizations that use named locations in Conditional Access or Identity Protection must [take action to avoid possible service impact](/troubleshoot/azure/active-directory/azure-ad-ipv6-support#what-does-my-organization-have-to-do).
+As mentioned in the blog post [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451) we now support IPv6 in Microsoft Entra services.
 
-Organizations can use this location for common tasks like: 
+Organizations can use these locations for common tasks like: 
 
 - Requiring multifactor authentication for users accessing a service when they're off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions your organization never operates from.
@@ -36,7 +35,7 @@ The location found using the public IP address a client provides to Microsoft En
 
 ## Named locations
 
-Locations exist under **Microsoft Entra ID** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
+Locations exist under **Protection** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
 > [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
@@ -90,7 +89,7 @@ The first time the user must share their location from the Microsoft Authenticat
 - After 24 hours, the user must open the app and approve the notification.
 - Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve notifications.
  
-Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. The Microsoft Authenticator app on Android uses the Google Play Integrity API to facilitate jailbreak detection. If the Google Play Integrity API is unavailable, the request is denied and the user isn't be able to access the requested resource unless the Conditional Access policy is disabled.
+Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. The Microsoft Authenticator app on Android uses the Google Play Integrity API to facilitate jailbreak detection. If the Google Play Integrity API is unavailable, the request is denied and the user isn't able to access the requested resource unless the Conditional Access policy is disabled.
 
 > [!NOTE]
 > A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
@@ -106,9 +105,28 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
+### Configure MFA trusted IPs
+
+You can also configure IP address ranges representing your organization's local intranet in the [multifactor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+
+If you have Trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
+
+#### Skipping multifactor authentication
+
+On the multifactor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multifactor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using Conditional Access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+
+After checking this option, including the named location **MFA Trusted IPs** will apply to any policies with this option selected.
+
+For mobile and desktop applications, which have long lived session lifetimes, Conditional Access is periodically reevaluated. The default is once an hour. When the inside corporate network claim is only issued at the time of the initial authentication, we may not have a list of trusted IP ranges. In this case, it's more difficult to determine if the user is still on the corporate network:
+
+1. Check if the user’s IP address is in one of the trusted IP ranges.
+1. Check whether the first three octets of the user’s IP address match the first three octets of the IP address of the initial authentication. The IP address is compared with the initial authentication when the inside corporate network claim was originally issued and the user location was validated.
+
+If both steps fail, a user is considered to be no longer on a trusted IP.
+
 ## Define locations
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
@@ -145,7 +163,7 @@ If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in
 
 ### All Network Access locations of my tenant
 
-Organizations with access to Global Secure Access preview features have an another location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
+Organizations with access to Global Secure Access preview features have another location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 

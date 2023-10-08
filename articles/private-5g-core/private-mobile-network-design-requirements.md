@@ -8,6 +8,7 @@ ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 03/30/2023
 ms.custom: template-concept 
+zone_pivot_groups: ase-pro-version
 ---
 
 # Private mobile network design requirements
@@ -29,6 +30,7 @@ The following capabilities must be present to allow user equipment (UEs) to atta
 - There must be a RAN, sending and receiving the cellular signal, to all parts of the enterprise site that contain UEs needing service.
 - There must be a packet core instance connected to the RAN and to an upstream network. The packet core is responsible for authenticating the UE's SIMs as they connect across the RAN and request service from the network. It applies policy to the resulting data flows to and from the UEs; for example, to set a quality of service.
 - The RAN, packet core, and upstream network infrastructure must be connected via Ethernet so that they can pass IP traffic to one another.
+- The site hosting the packet core must have a continuous, high speed connection to the internet (100 Mbps minimum) to allow for service management, telemetry, diagnostics, and upgrades.
 
 ## Designing a private mobile network
 
@@ -43,26 +45,38 @@ This section outlines some decisions you should consider when designing your net
 
 #### Design considerations
 
-When deployed on Azure Stack Edge (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
+:::zone pivot="ase-pro-gpu"
+When deployed on Azure Stack Edge Pro GPU (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points). If more than six data networks are configured, port 5 is also used for core data.
 
 AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. This is useful for avoiding extra hardware at smaller edge sites.
 
 - It is possible to connect ASE port 5 to RAN nodes directly (back-to-back) or via a layer 2 switch. When using this topology, you must configure the eNodeB/gNodeB address as the default gateway on the ASE network interface.
 - Similarly, it is possible to connect ASE port 6 to your core network via a layer 2 switch. When using this topology, you must set up an application or an arbitrary address on the subnet as gateway on the ASE side.  
 - Alternatively, you can combine these approaches. For example, you could use a router on ASE port 6 with a flat layer 2 network on ASE port 5. If a layer 3 router is present in the local network, you must configure it to match the ASE's configuration.
+:::zone-end
+:::zone pivot="ase-pro-2"
+When deployed on Azure Stack Edge 2 (ASE 2), AP5GC uses physical port 3 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 4 for core data (5G N6/4G SGi reference points). If more than six data networks are configured, port 3 is also used for core data.
+
+AP5GC supports deployments with or without layer 3 routers on ports 3 and 4. This is useful for avoiding extra hardware at smaller edge sites.
+
+- It is possible to connect ASE port 3 to RAN nodes directly (back-to-back) or via a layer 2 switch. When using this topology, you must configure the eNodeB/gNodeB address as the default gateway on the ASE network interface.
+- Similarly, it is possible to connect ASE port 4 to your core network via a layer 2 switch. When using this topology, you must set up an application or an arbitrary address on the subnet as gateway on the ASE side.  
+- Alternatively, you can combine these approaches. For example, you could use a router on ASE port 4 with a flat layer 2 network on ASE port 3. If a layer 3 router is present in the local network, you must configure it to match the ASE's configuration.
+:::zone-end
 
 Unless your packet core has Network Address Translation (NAT) enabled, a local layer 3 network device must be configured with static routes to the UE IP pools via the appropriate N6 IP address for the corresponding attached data network.
 
 #### Sample network topologies
 
+:::zone pivot="ase-pro-gpu"
 There are multiple ways to set up your network for use with AP5GC. The exact setup varies depending on your needs and hardware. This section provides some sample network topologies on ASE Pro GPU hardware.
 
 - Layer 3 network with N6 Network Address Translation (NAT)  
-  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used because it supports layer 3 routing when required.  
+  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This topology supports up to six data networks. This solution is commonly used because it simplifies layer 3 routing.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
 
 - Layer 3 network without Network Address Translation (NAT)  
-  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address.  
+  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address. As with the previous solution, this topology supports up to six data networks.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png" alt-text="Diagram of a layer 3 network without Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png":::
 
 - Flat layer 2 network  
@@ -70,16 +84,58 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support up to three attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
-- Layer 3 network with VLAN separation
+- Layer 3 network with VLAN and physical access/core separation
   - You can also separate ASE traffic into VLANs, whether or not you choose to add layer 3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
-  
+
+- Layer 3 network with 7-10 data networks
+  - If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 5. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
+  - No more than six data networks can be configured on the same port.
+  - For optimal performance, the data networks with the highest expected load should be configured on port 6.
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-additional-dns.png" alt-text="Diagram of layer 3 network topology with 10 data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
+:::zone-end
+:::zone pivot="ase-pro-2"
+There are multiple ways to set up your network for use with AP5GC. The exact setup varies depending on your needs and hardware. This section provides some sample network topologies on ASE Pro 2 hardware.
+
+- Layer 3 network with N6 Network Address Translation (NAT)  
+  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This topology supports up to six data networks. This solution is commonly used because it simplifies layer 3 routing.  
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
+
+- Layer 3 network without Network Address Translation (NAT)  
+  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address. As with the the previous solution, this topology supports up to six data networks.
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png" alt-text="Diagram of a layer 3 network without Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png":::
+
+- Flat layer 2 network  
+  The packet core does not require layer 3 routers or any router-like functionality. An alternative topology could forgo the use of layer 3 gateway routers entirely and instead construct a layer 2 network in which the ASE is in the same subnet as the data and access networks. This network topology can be a cheaper alternative when you don’t require layer 3 routing. This requires Network Address Port Translation (NAPT) to be enabled on the packet core.  
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
+
+- Layer 3 network with multiple data networks
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
+
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns-azure-stack-edge-2.png":::
+
+- Layer 3 network with VLAN and physical access/core separation
+  - You can also separate ASE traffic into VLANs, whether or not you choose to add layer 3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
+  - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
+  - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 3 (access network) and/or 4 (core network), so you must configure each of those links as a VLAN trunk.
+
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png":::
+
+- Layer 3 network with 7-10 data networks
+  - If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 3. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
+  - No more than six data networks can be configured on the same port.
+  - For optimal performance, the data networks with the highest expected load should be configured on port 4.
+
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-additional-dns-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with 10 data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png":::
+:::zone-end
+
 ### Subnets and IP addresses
 
 You may have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:

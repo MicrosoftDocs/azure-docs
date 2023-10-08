@@ -26,6 +26,10 @@ Azure Cosmos DB provides three ways to control access to your data.
 
 Primary/secondary keys provide access to all the administrative resources for the database account. Each account consists of two keys: a primary key and secondary key. The purpose of dual keys is to let you regenerate, or roll keys, providing continuous access to your account and data. To learn more about primary/secondary keys, see the [Database security](database-security.md#primary-keys) article.
 
+To see your account keys, navigate to Keys from the left menu. Then, click on the “view” icon at the right of each key. Click on the copy button to copy the selected key. You can hide them afterwards by clicking the same icon per key, which will be updated as a “hide” button.
+
+:::image type="content" source="./media/database-security/view-account-key.png" alt-text="Screenshot of view account key for Azure Cosmos DB.":::
+
 ### <a id="key-rotation"></a> Key rotation and regeneration
 
 > [!NOTE]

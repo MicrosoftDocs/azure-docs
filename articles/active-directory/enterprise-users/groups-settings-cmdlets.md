@@ -33,7 +33,7 @@ The cmdlets are part of the Azure Active Directory PowerShell V2 module. For ins
 
 ## Install PowerShell cmdlets
 
-Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release (later than 2.0.0.137)](https://www.powershellgallery.com/packages/AzureADPreview) before you run the PowerShell commands.
+Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph module and install [Azure Active Directory PowerShell for Graph - Public Preview Release (later than 2.0.0.137)](https://www.powershellgallery.com/packages/AzureADPreview) before you run the PowerShell commands.
 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.

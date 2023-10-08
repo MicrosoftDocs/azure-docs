@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare your customer tenant to authenticate users in a React single-page app (SPA)
-description: Learn how to configure your Microsoft Entra External ID for customers tenant for authentication with a React single-page app (SPA).
+description: Learn how to configure your Microsoft Entra ID for customers tenant for authentication with a React single-page app (SPA).
 services: active-directory
 author: garrodonnell
 manager: celestedg
@@ -16,7 +16,7 @@ ms.author: godonnell
 
 # Tutorial: Prepare your customer tenant to authenticate users in a React single-page app (SPA)
 
-This tutorial series demonstrates how to build a React single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Microsoft Entra External ID for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+This tutorial series demonstrates how to build a React single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Microsoft Entra ID for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
 In this tutorial;
 
@@ -36,7 +36,7 @@ In this tutorial;
     * Application developer
     * Cloud application administrator
 
-- A Microsoft Entra External ID for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
+- A Microsoft Entra ID for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
 
 ## Register the SPA and record identifiers
 

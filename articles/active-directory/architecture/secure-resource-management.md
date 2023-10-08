@@ -165,7 +165,7 @@ Internally, managed identities are service principals of a special type, to only
 
 ## Microsoft Entra Domain Services
 
-Microsoft Entra Domain Services (Microsoft Entra DS) provides a managed domain to facilitate authentication for Azure workloads using legacy protocols. Supported servers are moved from an on-premises AD DS forest and joined to a Microsoft Entra DS managed domain and continue to use legacy protocols for authentication (for example, Kerberos authentication).
+Microsoft Entra Domain Services provides a managed domain to facilitate authentication for Azure workloads using legacy protocols. Supported servers are moved from an on-premises AD DS forest and joined to a Microsoft Entra Domain Services managed domain and continue to use legacy protocols for authentication (for example, Kerberos authentication).
 
 ## Azure AD B2C directories and Azure
 
@@ -183,13 +183,13 @@ There are three key options regarding isolation management of IaaS workloads:
 
 * Virtual machines joined to stand-alone Active Directory Domain Services (AD DS)
 
-* Microsoft Entra Domain Services (Microsoft Entra DS) joined virtual machines
+* Microsoft Entra Domain Services joined virtual machines
 
 * Sign-in to virtual machines in Azure using Microsoft Entra authentication
 
 A key concept to address with the first two options is that there are two identity realms that are involved in these scenarios.
 
-* When you sign in to an Azure Windows Server VM via remote desktop protocol (RDP), you're generally logging on to the server using your domain credentials, which performs a Kerberos authentication against an on-premises AD DS domain controller or Microsoft Entra DS. Alternatively, if the server isn't domain-joined then a local account can be used to sign in to the virtual machines.
+* When you sign in to an Azure Windows Server VM via remote desktop protocol (RDP), you're generally logging on to the server using your domain credentials, which performs a Kerberos authentication against an on-premises AD DS domain controller or Microsoft Entra Domain Services. Alternatively, if the server isn't domain-joined then a local account can be used to sign in to the virtual machines.
 
 * When you sign in to the Azure portal to create or manage a VM, you're authenticating against Microsoft Entra ID (potentially using the same credentials if you've synchronized the correct accounts), and this could result in an authentication against your domain controllers should you be using Active Directory Federation Services (AD FS) or PassThrough Authentication.
 
@@ -252,59 +252,59 @@ AD DS domain controllers: a minimum of two AD DS domain controllers must be depl
 
 ### Microsoft Entra Domain Services joined virtual machines
 
-When a requirement exists to deploy IaaS workloads to Azure that require identity isolation from AD DS administrators and users in another forest, then a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain can be deployed. Microsoft Entra DS is a service that provides a managed domain to facilitate authentication for Azure workloads using legacy protocols. This provides an isolated domain without the technical complexities of building and managing your own AD DS. The following considerations need to be made.
+When a requirement exists to deploy IaaS workloads to Azure that require identity isolation from AD DS administrators and users in another forest, then a Microsoft Entra Domain Services managed domain can be deployed. Microsoft Entra Domain Services is a service that provides a managed domain to facilitate authentication for Azure workloads using legacy protocols. This provides an isolated domain without the technical complexities of building and managing your own AD DS. The following considerations need to be made.
 
-![Diagram that shows Microsoft Entra DS virtual machine management.](media/secure-resource-management/vm-to-domain-services.png)
+![Diagram that shows Microsoft Entra Domain Services virtual machine management.](media/secure-resource-management/vm-to-domain-services.png)
 
-**Microsoft Entra DS managed domain** - Only one Microsoft Entra DS managed domain can be deployed per Microsoft Entra tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Microsoft Entra DS authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Microsoft Entra DS joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
+**Microsoft Entra Domain Services managed domain** - Only one Microsoft Entra Domain Services managed domain can be deployed per Microsoft Entra tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Microsoft Entra Domain Services authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Microsoft Entra Domain Services joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
 
-**Managed domain location** - A location must be set when deploying a Microsoft Entra DS managed domain. The location is a physical region (data center) where the managed domain is deployed. It's recommended you:
+**Managed domain location** - A location must be set when deploying a Microsoft Entra Domain Services managed domain. The location is a physical region (data center) where the managed domain is deployed. It's recommended you:
 
-* Consider a location that is geographically closed to the servers and applications that require Microsoft Entra DS services.
+* Consider a location that is geographically closed to the servers and applications that require Microsoft Entra Domain Services services.
 
 * Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-service-support.md).
 
-**Object provisioning** - Microsoft Entra DS synchronizes identities from the Microsoft Entra ID that is associated with the subscription that Microsoft Entra DS is deployed into. It's also worth noting that if the associated Microsoft Entra ID has synchronization set up with Microsoft Entra Connect (user forest scenario) then the life cycle of these identities can also be reflected in Microsoft Entra DS. This service has two modes that can be used for provisioning user and group objects from Microsoft Entra ID.
+**Object provisioning** - Microsoft Entra Domain Services synchronizes identities from the Microsoft Entra ID that is associated with the subscription that Microsoft Entra Domain Services is deployed into. It's also worth noting that if the associated Microsoft Entra ID has synchronization set up with Microsoft Entra Connect (user forest scenario) then the life cycle of these identities can also be reflected in Microsoft Entra Domain Services. This service has two modes that can be used for provisioning user and group objects from Microsoft Entra ID.
 
-* **All**: All users and groups are synchronized from Microsoft Entra ID into Microsoft Entra DS.
+* **All**: All users and groups are synchronized from Microsoft Entra ID into Microsoft Entra Domain Services.
 
-* **Scoped**: Only users in scope of a group(s) are synchronized from Microsoft Entra ID into Microsoft Entra DS.
+* **Scoped**: Only users in scope of a group(s) are synchronized from Microsoft Entra ID into Microsoft Entra Domain Services.
 
-When you first deploy Microsoft Entra DS, an automatic one-way synchronization is configured to replicate the objects from Microsoft Entra ID. This one-way synchronization continues to run in the background to keep the Microsoft Entra DS managed domain up to date with any changes from Microsoft Entra ID. No synchronization occurs from Microsoft Entra DS back to Microsoft Entra ID. For more information, see [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/synchronization.md).
+When you first deploy Microsoft Entra Domain Services, an automatic one-way synchronization is configured to replicate the objects from Microsoft Entra ID. This one-way synchronization continues to run in the background to keep the Microsoft Entra Domain Services managed domain up to date with any changes from Microsoft Entra ID. No synchronization occurs from Microsoft Entra Domain Services back to Microsoft Entra ID. For more information, see [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/synchronization.md).
 
-It's worth noting that if you need to change the type of synchronization from All to Scoped (or vice versa), then the Microsoft Entra DS managed domain will need to be deleted, recreated and configured. In addition, organizations should consider the use of "scoped" provisioning to reduce the identities to only those that need access to Microsoft Entra DS resources as a good practice.
+It's worth noting that if you need to change the type of synchronization from All to Scoped (or vice versa), then the Microsoft Entra Domain Services managed domain will need to be deleted, recreated and configured. In addition, organizations should consider the use of "scoped" provisioning to reduce the identities to only those that need access to Microsoft Entra Domain Services resources as a good practice.
 
-**Group Policy Objects (GPO)** - To configure GPO in a Microsoft Entra DS managed domain you must use Group Policy Management tools on a server that has been domain joined to the Microsoft Entra DS managed domain. For more information, see [Administer Group Policy in a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/manage-group-policy.md).
+**Group Policy Objects (GPO)** - To configure GPO in a Microsoft Entra Domain Services managed domain you must use Group Policy Management tools on a server that has been domain joined to the Microsoft Entra Domain Services managed domain. For more information, see [Administer Group Policy in a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/manage-group-policy.md).
 
-**Secure LDAP** - Microsoft Entra DS provides a secure LDAP service that can be used by applications that require it. This setting is disabled by default and to enable secure LDAP a certificate needs to be uploaded, in addition, the NSG that secures the VNet that Microsoft Entra DS is deployed on to must allow port 636 connectivity to the Microsoft Entra DS managed domains. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
+**Secure LDAP** - Microsoft Entra Domain Services provides a secure LDAP service that can be used by applications that require it. This setting is disabled by default and to enable secure LDAP a certificate needs to be uploaded, in addition, the NSG that secures the VNet that Microsoft Entra Domain Services is deployed on to must allow port 636 connectivity to the Microsoft Entra Domain Services managed domains. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
-**Administration** - To perform administration duties on Microsoft Entra DS (for example, domain join machines or edit GPO), the account used for this task needs to be part of the Microsoft Entra DC Administrators group. Accounts that are members of this group can't directly sign-in to domain controllers to perform management tasks. Instead, you create a management VM that is joined to the Microsoft Entra DS managed domain, then install your regular AD DS management tools. For more information, see [Management concepts for user accounts, passwords, and administration in Microsoft Entra Domain Services](../../active-directory-domain-services/administration-concepts.md).
+**Administration** - To perform administration duties on Microsoft Entra Domain Services (for example, domain join machines or edit GPO), the account used for this task needs to be part of the Microsoft Entra DC Administrators group. Accounts that are members of this group can't directly sign-in to domain controllers to perform management tasks. Instead, you create a management VM that is joined to the Microsoft Entra Domain Services managed domain, then install your regular AD DS management tools. For more information, see [Management concepts for user accounts, passwords, and administration in Microsoft Entra Domain Services](../../active-directory-domain-services/administration-concepts.md).
 
-**Password hashes** - For authentication with Microsoft Entra DS to work, password hashes for all users need to be in a format that is suitable for NT LAN Manager (NTLM) and Kerberos authentication. To ensure authentication with Microsoft Entra DS works as expected, the following prerequisites need to be performed.
+**Password hashes** - For authentication with Microsoft Entra Domain Services to work, password hashes for all users need to be in a format that is suitable for NT LAN Manager (NTLM) and Kerberos authentication. To ensure authentication with Microsoft Entra Domain Services works as expected, the following prerequisites need to be performed.
 
 * **Users synchronized with Microsoft Entra Connect (from AD DS)** - The legacy password hashes need to be synchronized from on-premises AD DS to Microsoft Entra ID.
 
-* **Users created in Microsoft Entra ID** - Need to reset their password for the correct hashes to be generated for usage with Microsoft Entra DS. For more information, see [Enable synchronization of password hashes](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md).
+* **Users created in Microsoft Entra ID** - Need to reset their password for the correct hashes to be generated for usage with Microsoft Entra Domain Services. For more information, see [Enable synchronization of password hashes](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md).
 
-**Network** - Microsoft Entra DS is deployed on to an Azure VNet so considerations need to be made to ensure that servers and applications are secured and can access the managed domain correctly. For more information, see [Virtual network design considerations and configuration options for Microsoft Entra Domain Services](../../active-directory-domain-services/network-considerations.md).
+**Network** - Microsoft Entra Domain Services is deployed on to an Azure VNet so considerations need to be made to ensure that servers and applications are secured and can access the managed domain correctly. For more information, see [Virtual network design considerations and configuration options for Microsoft Entra Domain Services](../../active-directory-domain-services/network-considerations.md).
 
-* Microsoft Entra DS must be deployed in its own subnet: Don't use an existing subnet or a gateway subnet.
+* Microsoft Entra Domain Services must be deployed in its own subnet: Don't use an existing subnet or a gateway subnet.
 
-* **A network security group (NSG)** - is created during the deployment of a Microsoft Entra DS managed domain. This network security group contains the required rules for correct service communication. Don't create or use an existing network security group with your own custom rules.
+* **A network security group (NSG)** - is created during the deployment of a Microsoft Entra Domain Services managed domain. This network security group contains the required rules for correct service communication. Don't create or use an existing network security group with your own custom rules.
 
-* **Microsoft Entra DS requires 3-5 IP addresses** - Make sure that your subnet IP address range can provide this number of addresses. Restricting the available IP addresses can prevent Microsoft Entra DS from maintaining two domain controllers.
+* **Microsoft Entra Domain Services requires 3-5 IP addresses** - Make sure that your subnet IP address range can provide this number of addresses. Restricting the available IP addresses can prevent Microsoft Entra Domain Services from maintaining two domain controllers.
 
-* **VNet DNS Server** - As previously discussed about the "hub and spoke" model, it's important to have DNS configured correctly on the VNets to ensure that servers joined to the Microsoft Entra DS managed domain have the correct DNS settings to resolve the Microsoft Entra DS managed domain. Each VNet has a DNS server entry that is passed to servers as they obtain an IP address and these DNS entries need to be the IP addresses of the Microsoft Entra DS managed domain. For more information, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md).
+* **VNet DNS Server** - As previously discussed about the "hub and spoke" model, it's important to have DNS configured correctly on the VNets to ensure that servers joined to the Microsoft Entra Domain Services managed domain have the correct DNS settings to resolve the Microsoft Entra Domain Services managed domain. Each VNet has a DNS server entry that is passed to servers as they obtain an IP address and these DNS entries need to be the IP addresses of the Microsoft Entra Domain Services managed domain. For more information, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md).
 
 **Challenges** - The following list highlights key challenges with using this option for Identity Isolation.
 
-* Some Microsoft Entra DS configuration can only be administered from a Microsoft Entra DS joined server.
+* Some Microsoft Entra Domain Services configuration can only be administered from a Microsoft Entra Domain Services joined server.
 
-* Only one Microsoft Entra DS managed domain can be deployed per Microsoft Entra tenant. As we describe in this section the hub and spoke model is recommended to provide Microsoft Entra DS authentication to services on other VNets.
+* Only one Microsoft Entra Domain Services managed domain can be deployed per Microsoft Entra tenant. As we describe in this section the hub and spoke model is recommended to provide Microsoft Entra Domain Services authentication to services on other VNets.
 
 * Further infrastructure maybe required for management of patching and software deployments. Organizations should consider deploying Azure Update Management, Group Policy (GPO) or System Center Configuration Manager (SCCM) to manage these servers.
 
-For this isolated model, it's assumed that there's no connectivity to the VNet that hosts the Microsoft Entra DS managed domain from the customer's corporate network and that there are no trusts configured with other forests. A jumpbox or management server should be created to allow a point from which the Microsoft Entra DS can be managed and administered.
+For this isolated model, it's assumed that there's no connectivity to the VNet that hosts the Microsoft Entra Domain Services managed domain from the customer's corporate network and that there are no trusts configured with other forests. A jumpbox or management server should be created to allow a point from which the Microsoft Entra Domain Services can be managed and administered.
 
 <a name='sign-into-virtual-machines-in-azure-using-azure-active-directory-authentication'></a>
 

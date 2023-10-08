@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.custom: event-tier1-build-2022, build-2023
 ms.topic: overview
 ms.date: 09/12/2023

@@ -185,7 +185,7 @@ Learn more: [How to use the Microsoft Authenticator app](https://support.microso
 
 Microsoft Authenticator app has four main functions:
 
-* **multifactor authentication** with push notification or verification code
+* **Multifactor authentication** with push notification or verification code
 * **Authentication broker** on iOS and Android devices fir SSO for applications using brokered authentication
   * [Enable cross-app SSO on Android using MSAL](../../develop/msal-android-single-sign-on.md)
 * **Device registration** or workplace join, to Microsoft Entra ID, which is a requirement for Intune App Protection and Device Enrolment/Management

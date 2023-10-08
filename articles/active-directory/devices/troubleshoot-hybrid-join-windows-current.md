@@ -419,7 +419,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 > [!NOTE]
 >  The output is available from the Windows 10 May 2021 update (version 21H1).
 
-The "Attempt Status" field under the "AzureAdPrt" field will provide the status of the previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the Microsoft Entra analytics and operational logs.
+The "Attempt Status" field under the "AzureAdPrt" field will provide the status of the previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the [Microsoft Entra analytics and operational logs](/troubleshoot/windows-server/networking/diagnostic-logging-troubleshoot-workplace-join-issues#enable-workplace-join-debug-logging-by-using-event-viewer).
 
 ```
 +----------------------------------------------------------------------+
@@ -451,7 +451,7 @@ Use Event Viewer to look for the log entries that are logged by the Microsoft En
    > [!NOTE]
    > The CloudAP plug-in logs error events in the operational logs, and it logs the info events in the analytics logs. The analytics and operational log events are both required to troubleshoot issues. 
 
-1. Event 1006 in the analytics logs denotes the start of the PRT acquisition flow, and event 1007 in the analytics logs denotes the end of the PRT acquisition flow. All events in the Microsoft Entra ID logs (analytics and operational) that are logged between events 1006 and 1007 were logged as part of the PRT acquisition flow. 
+1. Event 1006 in the analytics logs denotes the start of the PRT acquisition flow, and event 1007 in the analytics logs denotes the end of the PRT acquisition flow. All events in the Microsoft Entra logs (analytics and operational) that are logged between events 1006 and 1007 were logged as part of the PRT acquisition flow.
 
 1. Event 1007 logs the final error code.
 

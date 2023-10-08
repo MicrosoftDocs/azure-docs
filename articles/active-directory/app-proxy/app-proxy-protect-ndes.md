@@ -55,7 +55,7 @@ Microsoft Entra application proxy is built on Azure. It gives you a massive amou
     ![The new Microsoft Entra application proxy connector shown as active in the Microsoft Entra admin center](./media/app-proxy-protect-ndes/connected-app-proxy.png)
 
     > [!NOTE]
-    > To provide high availability for applications authenticating through the Microsoft Entra application proxy, you can install connectors on multiple VMs. Repeat the same steps listed in the previous section to install the connector on other servers joined to the Microsoft Entra DS managed domain.
+    > To provide high availability for applications authenticating through the Microsoft Entra application proxy, you can install connectors on multiple VMs. Repeat the same steps listed in the previous section to install the connector on other servers joined to the Microsoft Entra Domain Services managed domain.
 
 1. After successful installation, go back to the Microsoft Entra admin center.
 

@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Automatically identify the spoken language with language identification model
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 Azure AI Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language from audio content. The media file is transcribed in the dominant identified language.
 
 See the list of supported by Azure AI Video Indexer languages in [supported languages](language-support.md).

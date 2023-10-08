@@ -53,7 +53,7 @@ Selecting this checkbox requires users to perform Microsoft Entra multifactor au
 
 ### Require authentication strength
 
-Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Azure portal** > **Microsoft Entra ID** > **Security** > **Authentication methods** > **Authentication strengths**. Administrators can choose to create their own or use the built-in versions.
+Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Microsoft Entra admin center** > **Protection** > **Authentication methods** > **Authentication strengths**. Administrators can choose to create their own or use the built-in versions.
 
 ### Require device to be marked as compliant
 
@@ -147,7 +147,7 @@ The following client apps support this setting. This list isn't exhaustive and i
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Flow Mobile
+- Microsoft Power Automate
 - Microsoft Launcher
 - Microsoft Lists
 - Microsoft Office
@@ -169,7 +169,7 @@ The following client apps support this setting. This list isn't exhaustive and i
 - Nine Mail - Email and Calendar
 - Notate for Intune
 - Provectus - Secure Contacts
-- Yammer (Android, iOS, and iPadOS)
+- Viva Engage (Android, iOS, and iPadOS)
 
 > [!NOTE]
 > Kaizala, Skype for Business, and Visio don't support the **Require app protection policy** grant. If you require these apps to work, use the **Require approved apps** grant exclusively. Using the "or" clause between the two grants will not work for these three applications.

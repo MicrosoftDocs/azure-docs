@@ -158,7 +158,7 @@ az group create --name AzureADLinuxVM --location southcentralus
 az vm create \
     --resource-group AzureADLinuxVM \
     --name myVM \	
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --assign-identity \
     --admin-username azureuser \
     --generate-ssh-keys
@@ -188,7 +188,7 @@ An Azure user who has the Owner or Contributor role assigned for a VM doesn't au
 
 There are two ways to configure role assignments for a VM:
 
-- Microsoft Entra portal experience
+- Azure portal experience
 - Azure Cloud Shell experience
 
 > [!NOTE]
@@ -196,7 +196,7 @@ There are two ways to configure role assignments for a VM:
 
 <a name='azure-ad-portal'></a>
 
-### Microsoft Entra portal
+### Azure portal
 
 To configure role assignments for your Microsoft Entra ID-enabled Linux VMs:
 

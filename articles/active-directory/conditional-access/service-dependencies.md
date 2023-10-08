@@ -25,6 +25,8 @@ When you access a site or service directly, the impact of a related policy is ty
 > [!TIP]
 > Using the [Office 365](concept-conditional-access-cloud-apps.md#office-365) app will target all Office apps to avoid issues with service dependencies in the Office stack.
 
+<!-- docutune:ignore "Windows Azure Active Directory" -->
+
 ## Policy enforcement 
 
 If you have a service dependency configured, the policy may be applied using early-bound or late-bound enforcement. 
@@ -58,7 +60,7 @@ The below table lists some more service dependencies, where the client apps must
 | Outlook groups      | Exchange                                    | Early-bound |
 |                     | SharePoint                                  | Early-bound |
 | Power Apps          | Microsoft Azure Management (portal and API) | Early-bound |
-|                     | Windows Microsoft Entra ID              | Early-bound |
+|                     | Windows Azure Active Directory              | Early-bound |
 |                     | SharePoint                                  | Early-bound |
 |                     | Exchange                                    | Early-bound |
 | Power Automate      | Power Apps                                  | Early-bound |

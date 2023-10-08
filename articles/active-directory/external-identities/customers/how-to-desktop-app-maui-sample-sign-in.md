@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample .NET MAUI desktop application
-description: Learn how to configure a sample .NET MAUI desktop application to sign in and sign out users by using Microsoft Entra External ID for customers tenant.
+description: Learn how to configure a sample .NET MAUI desktop application to sign in and sign out users by using Microsoft Entra ID for customers tenant.
 services: active-directory
 author: henrymbuguakiarie
 manager: mwongerapk

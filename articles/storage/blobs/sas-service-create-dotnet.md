@@ -15,6 +15,8 @@ ms.custom: devx-track-csharp, devguide-csharp, engagement-fy23, devx-track-dotne
 
 # Create a service SAS for a blob with .NET
 
+[!INCLUDE [storage-dev-guide-selector-service-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-service-sas.md)]
+
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
 This article shows how to use the storage account key to create a service SAS for a blob with the Azure Blob Storage client library for .NET.

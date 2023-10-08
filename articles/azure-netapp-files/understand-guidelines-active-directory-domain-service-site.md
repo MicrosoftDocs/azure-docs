@@ -25,6 +25,16 @@ This article provides recommendations to help you develop an AD DS deployment st
 
 Before you deploy Azure NetApp Files volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. _Incorrect or incomplete AD DS integration with Azure NetApp Files might cause client access interruptions or outages for SMB, dual-protocol, or Kerberos NFSv4.1 volumes_.  
 
+### Supported authentication scenarios
+
+Azure NetApp Files supports identity-based authentication over SMB through the following methods.   
+
+* **AD DS authentication**:  AD DS-joined Windows machines can access Azure NetApp Files shares with Active Directory credentials over SMB. Your client must have line of sight to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD DS, you should use AD DS for Azure NetApp Files file share authentication.
+* **Azure AD DS authentication**: Cloud-based, Azure AD DS-joined Windows VMs can access Azure NetApp Files file shares with Azure AD DS credentials. In this solution, Azure AD DS runs a traditional Windows Server AD domain on behalf of the customer.
+* **Azure AD Kerberos for hybrid identities**: Using Azure AD for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Azure AD users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
+* **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
+
+
 ### <a name="network-requirements"></a>Network requirements 
 
 Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable and low-latency network connectivity (less than 10 ms RTT) to AD DS domain controllers. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.

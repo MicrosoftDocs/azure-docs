@@ -119,9 +119,9 @@ Once you've started using these identity governance features, you can easily aut
 | Creating, updating and deleting AD and Microsoft Entra user accounts automatically for employees |[Plan cloud HR to Microsoft Entra user provisioning](../app-provisioning/plan-cloud-hr-provision.md)|
 | Updating the membership of a group, based on changes to the member user's attributes | [Create a dynamic group](../enterprise-users/groups-create-rule.md)|
 | Assigning licenses | [group-based licensing](../enterprise-users/licensing-groups-assign.md) |
-| Adding and removing a user's group memberships, application roles, and SharePoint site roles, based on changes to the user's attributes | [Configure an automatic assignment policy for an access package in entitlement management](entitlement-management-access-package-auto-assignment-policy.md) (preview)|
+| Adding and removing a user's group memberships, application roles, and SharePoint site roles, based on changes to the user's attributes | [Configure an automatic assignment policy for an access package in entitlement management](entitlement-management-access-package-auto-assignment-policy.md)|
 | Adding and removing a user's group memberships, application roles, and SharePoint site roles, on a specific date | [Configure lifecycle settings for an access package in entitlement management](entitlement-management-access-package-lifecycle-policy.md)|
-| Running custom workflows when a user requests or receives access, or access is removed | [Trigger Logic Apps in entitlement management](entitlement-management-logic-apps-integration.md) (preview) |
+| Running custom workflows when a user requests or receives access, or access is removed | [Trigger Logic Apps in entitlement management](entitlement-management-logic-apps-integration.md) |
 | Regularly having memberships of guests in Microsoft groups and Teams reviewed, and removing guest memberships that are denied |[Create an access review](create-access-review.md) |
 | Removing guest accounts that were denied by a reviewer |[Review and remove external users who no longer have resource access](access-reviews-external-users.md) |
 | Removing guest accounts that have no access package assignments |[Manage the lifecycle of external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users) |

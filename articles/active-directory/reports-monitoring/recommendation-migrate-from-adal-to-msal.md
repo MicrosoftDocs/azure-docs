@@ -1,6 +1,6 @@
 ---
 title: Migrate from ADAL to MSAL recommendation
-description: Learn why you should migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries.
+description: Learn why you should migrate from the Azure Active Directory Authentication Library to the Microsoft Authentication Libraries.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identityr
 ms.subservice: report-monitor
-ms.date: 08/15/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 ---
 
-# Microsoft Entra recommendation: Migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries
+# Microsoft Entra recommendation: Migrate from the Azure Active Directory Authentication Library to the Microsoft Authentication Libraries
 
 [Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
-This article covers the recommendation to migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries. This recommendation is called `AdalToMsalMigration` in the recommendations API in Microsoft Graph. 
+This article covers the recommendation to migrate from the Azure Active Directory Authentication Library (ADAL) to the Microsoft Authentication Libraries. This recommendation is called `AdalToMsalMigration` in the recommendations API in Microsoft Graph. 
 
 ## Description
 
-The Azure Active Directory Authentication Library (ADAL) is currently slated for end-of-support on June 30, 2023. We recommend that customers migrate to Microsoft Authentication Libraries (MSAL), which replaces ADAL. 
+ADAL is currently slated for end-of-support on June 30, 2023. We recommend that customers migrate to Microsoft Authentication Libraries (MSAL), which replaces ADAL. 
 
 This recommendation shows up if your tenant has applications that still use ADAL. The service marks any application in your tenant that makes a token request from the ADAL as an ADAL application. Applications that use both ADAL and MSAL are marked as ADAL applications.
 
@@ -45,10 +45,8 @@ You can use Microsoft Graph to identify apps that need to be migrated to MSAL. T
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
 1. Run the following query in Microsoft Graph, replacing the `<TENANT_ID>` placeholder with your tenant ID. This query returns a list of the impacted resources in your tenant.
+    -  `https://graph.microsoft.com/beta/directory/recommendations/<TENANT_ID>_Microsoft.Identity.IAM.Insights.AdalToMsalMigration/impactedResources`
 
-```http
-https://graph.microsoft.com/beta/directory/recommendations/<TENANT_ID>_Microsoft.Identity.IAM.Insights.AdalToMsalMigration/impactedResources
-```
 
 The following response provides the details of the impacted resources using ADAL:
 
@@ -99,6 +97,8 @@ You can run the following set of commands in Windows PowerShell. These commands 
 
 
 ## Frequently asked questions
+
+Review the following common questions as you work with the ADAL to MSAL recommendation.
 
 ### Why does it take 30 days to change the status to completed?
 

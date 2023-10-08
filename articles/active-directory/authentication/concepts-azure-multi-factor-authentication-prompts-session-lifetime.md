@@ -116,7 +116,7 @@ To configure or review the *Remain signed-in* option, complete the following ste
 To remember multifactor authentication settings on trusted devices, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
-1. Browse to **Protection** > then **multifactor authentication**.
+1. Browse to **Protection** > **Multifactor authentication**.
 1. Under **Configure**, select **Additional cloud-based MFA settings**.
 1. In the *multifactor authentication service settings* page, scroll to **remember multifactor authentication settings**. Disable the setting by unchecking the checkbox.
 

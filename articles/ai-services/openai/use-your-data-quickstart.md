@@ -4,8 +4,8 @@ titleSuffix: Azure OpenAI
 description: Use this article to import and use your data in Azure OpenAI.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
@@ -34,7 +34,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - An Azure OpenAI resource with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
 
-    - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./concepts/models.md#model-updates).
+    - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource. 
 

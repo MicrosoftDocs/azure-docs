@@ -5,8 +5,7 @@ description: In this quickstart, learn how to transcribe meetings. You can add, 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 05/06/2023
 ms.author: eur
