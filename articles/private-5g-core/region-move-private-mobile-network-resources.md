@@ -22,7 +22,7 @@ You might move your resources to another region for a number of reasons. For exa
 - Ensure Azure Private 5G Core supports the region to which you want to move your resources. Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core).
 - Verify pricing and charges associated with the target region to which you want to move your resources.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## Back up deployment information
 

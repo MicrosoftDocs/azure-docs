@@ -66,6 +66,14 @@ The state is displayed only when the device is Microsoft Entra joined or Microso
   * *FAILED. ERROR* if the test was unable to run. This test requires network connectivity to Microsoft Entra ID under the system context.
     > [!NOTE]
     > The **DeviceAuthStatus** field was added in the Windows 10 May 2021 update (version 21H1).  
+- **Virtual Desktop**: There are three cases where this appears.
+   - NOT SET - VDI device metadata is not present on the device.
+   - YES - VDI device metadata is present and dsregcmd outputs associated metadata including:
+      - Provider: Name of the VDI vendor.
+      - Type: Persistent VDI or non-persistent VDI.
+      - User mode: Single user or multi-user.
+      - Extensions: Number of key value pairs in optional vendor specific metadata, followed by key value pairs.
+    - INVALID - The VDI device metadata is present but not set correctly. In this case, dsregcmd outputs the incorrect metadata.
 
 ### Sample device details output
 

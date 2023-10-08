@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2, moe-wsvnet
+ms.custom: devplatv2
 ms.date: 09/13/2023
 
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.

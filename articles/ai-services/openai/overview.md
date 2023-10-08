@@ -99,8 +99,6 @@ Prompt construction can be difficult. In practice, the prompt acts to configure 
 
 The service provides users access to several different models. Each model provides a different capability and price point.
 
-GPT-4 models are the latest available models. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
-
 The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
 The Whisper models, currently in preview, can be used to transcribe and translate speech to text.

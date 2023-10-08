@@ -1,7 +1,7 @@
 ---
-title: Query vector data in a search index
+title: Vector query how-to
 titleSuffix: Azure Cognitive Search
-description: Build queries for vector-only fields and hybrid search scenarios that combine vectors with semantic and standard search syntax.
+description: Learn how to build queries for vector search.
 
 author: HeidiSteen
 ms.author: heidist
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/10/2023
 ---
 
-# Query vector data in a search index
+# How to query vector data in a search index
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -28,7 +28,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there is a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
@@ -46,7 +46,7 @@ All results are returned in plain text, including vectors. If you use Search Exp
 
 If you aren't sure whether your search index already has vector fields, look for:
 
-+ A `vectorSearch` algorithm configuration embedded in the index schema.
++ A non-empty `vectorSearch` property containing algorithms and other vector-related configurations embedded in the index schema.
 
 + In the fields collection, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute and a `vectorSearchConfiguration` set to the name of the `vectorSearch` algorithm configuration used by the field.
 
@@ -54,7 +54,7 @@ You can also send an empty query (`search=*`) against the index. If the vector f
 
 ## Convert query input into a vector
 
-To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability. Use the same embedding library that you used to generate embeddings in the source documents.
+To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library or API endpoint that provides this capability. **Use the same embedding that you used to generate embeddings in the source documents.**
 
 You can find multiple instances of query string conversion in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
 

@@ -76,9 +76,9 @@ In this scenario, you can deactivate or decommission the ESU Licenses associated
 
 In this scenario, you should provision a Windows Server 2012 Datacenter license associated with 128 physical cores and link this license to the Arc-enabled Windows Server 2012 R2 VMs running on it. The deletion of the underlying VM also deletes the corresponding Arc-enabled server resource, enabling you to link another Arc-enabled server.
 
-### Scenario 8: A insurance customer is running a 16 node VMware cluster with 1024 cores, licensed with Windows Server Datacenter for maximum virtualization use rights. There are 120 Windows VMs ranging from 4 to 12 cores, with 44 Windows Server 2012 R2 machines with a total of 506 cores.
+### Scenario 8: An insurance customer is running a 16 node VMware cluster with 1024 cores, licensed with Windows Server Datacenter for maximum virtualization use rights. There are 120 Windows VMs ranging from 4 to 12 cores, with 44 Windows Server 2012 R2 machines with a total of 506 cores.
 
-In this scenario, you should purchase an Arc ESU Windows Server 2012 Datacenter edition license associated with 506 physical cores and link this license to their 44 machines. Each of the 44 machines should be onboarded to Azure Arc, and can be onboarded at scale with Arc-enabled VMware vSphere (AVS). If you migrate to AVS, these servers are eligible for free WS2012 ESUs.
+In this scenario, you should purchase an Arc ESU Windows Server 2012 Datacenter edition license associated with 506 physical cores and link this license to your 44 machines. Each of the 44 machines should be onboarded to Azure Arc, and can be onboarded at scale with Arc-enabled VMware vSphere (AVS). If you migrate to AVS, these servers are eligible for free WS2012 ESUs.
 
 ## Next steps
 

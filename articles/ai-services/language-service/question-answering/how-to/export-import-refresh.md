@@ -1,8 +1,8 @@
 ---
 title: Export/import/refresh | question answering projects and projects
 description: Learn about backing up your question answering projects and projects
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 author: jboback
 ms.author: jboback

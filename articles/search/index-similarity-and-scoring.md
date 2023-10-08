@@ -2,42 +2,21 @@
 title: BM25 relevance scoring
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of BM25 relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
+
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 09/27/2023
 ---
 
-# BM25 relevance and scoring for full text search
+# Relevance scoring for full text search (BM25)
 
 This article explains the BM25 relevance scoring algorithm used to compute search scores for [full text search](search-lucene-query-architecture.md). BM25 relevance is exclusive to full text search. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries aren't scored or ranked for relevance.
 
-In Azure Cognitive Search, you can configure algorithm parameters, and tune search relevance and boost search scores through these mechanisms:
+## Scoring algorithms used in full text search
 
-+ Scoring algorithm configuration
-+ Scoring profiles
-+ [Semantic ranking](semantic-search-overview.md)
-+ Custom scoring logic enabled through the *featuresMode* parameter
-
-## Relevance scoring
-
-Relevance scoring refers to the computation of a search score (**@search.score**) that serves as an indicator of an item's relevance in the context of the current query. The range is unbounded. However, the higher the score, the more relevant the item. 
-
-By default, the top 50 highest scoring matches are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
-
-The search score is computed based on statistical properties of the string input and the query itself. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
-
-Search scores can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is undefined and not stable. Run the query again, and you might see items shift position, especially if you're using the free service or a billable service with multiple replicas. Given two items with an identical score, there's no guarantee that one appears first.
-
-To break the tie among repeating scores, you can add an **$orderby** clause to first order by score, then order by another sortable field (for example, `$orderby=search.score() desc,Rating desc`). For more information, see [$orderby](search-query-odata-orderby.md).
-
-> [!NOTE]
-> A `@search.score = 1` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`, sometimes paired with filters, where the filter is the primary means for returning a match).
-
-## Scoring algorithms in Search
-
-Azure Cognitive Search provides the following scoring algorithms:
+Azure Cognitive Search provides the following scoring algorithms for full text search:
 
 | Algorithm | Usage | Range |
 |-----------|-------------|-------|
@@ -55,7 +34,34 @@ The following video segment fast-forwards to an explanation of the generally ava
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
-## Score variation
+## How BM25 ranking works
+
+Relevance scoring refers to the computation of a search score (**@search.score**) that serves as an indicator of an item's relevance in the context of the current query. The range is unbounded. However, the higher the score, the more relevant the item. 
+
+By default, the top 50 highest scoring matches are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
+
+The search score is computed based on statistical properties of the string input and the query itself. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
+
+Search scores can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is undefined and not stable. Run the query again, and you might see items shift position, especially if you're using the free service or a billable service with multiple replicas. Given two items with an identical score, there's no guarantee that one appears first.
+
+To break the tie among repeating scores, you can add an **$orderby** clause to first order by score, then order by another sortable field (for example, `$orderby=search.score() desc,Rating desc`). For more information, see [$orderby](search-query-odata-orderby.md).
+
+Only fields marked as `searchable` in the index, or `searchFields` in the query, are used for scoring. Only fields marked as `retrievable`, or fields specified in `select` in the query, are returned in search results, along with their search score.
+
+> [!NOTE]
+> A `@search.score = 1` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`, sometimes paired with filters, where the filter is the primary means for returning a match).
+
+## Scores in a text results
+
+Whenever results are ranked, **`@search.score`** property contains the value used to order the results. 
+
+The following table identifies the scoring property returned on each match, algorithm, and range. 
+
+| Search method | Parameter | Scoring algorithm | Range |
+|---------------|-----------|-------------------|-------|
+| full text search | `@search.score` | BM25 algorithm, using the [parameters specified in the index](index-ranking-similarity.md#set-bm25-parameters). | Unbounded. |
+
+### Score variation
 
 Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
@@ -67,7 +73,7 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 <a name="scoring-statistics"></a>
 
-## Scoring statistics and sticky sessions
+### Scoring statistics and sticky sessions
 
 For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
@@ -98,11 +104,16 @@ As long as the same `sessionId` is used, a best-effort attempt is made to target
 > [!NOTE]
 > Reusing the same `sessionId` values repeatedly can interfere with the load balancing of the requests across replicas and adversely affect the performance of the search service. The value used as sessionId cannot start with a '_' character.
 
-## Scoring profiles
+## Relevance tuning
 
-You can customize the way different fields are ranked by defining a *scoring profile*. Scoring profiles provide criteria for boosting the search score of a match based on content characteristics. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
+In Azure Cognitive Search, you can configure BM25 algorithm parameters, and tune search relevance and boost search scores through these mechanisms:
 
-A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
+| Approach | Implementation | Description |
+|----------|----------------|-------------|
+| [Scoring algorithm configuration](index-ranking-similarity.md) | Search index |  |
+| [Scoring profiles](index-add-scoring-profiles.md) | Search index | Provide criteria for boosting the search score of a match based on content characteristics. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. You can update an existing index with scoring profile changes, without incurring an index rebuild.|
+| [Semantic ranking](semantic-search-overview.md) | Query request | Applies machine reading comprehension to search results, promoting more semantically relevant results to the top. |
+| [featuresMode parameter](#featuresmode-parameter-preview) | Query request | This parameter is mostly used for unpacking a score, but it can be used for in code that provides a [custom scoring solution](https://github.com/Azure-Samples/search-ranking-tutorial). |
 
 <a name="featuresMode-param"></a>
 

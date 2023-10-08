@@ -108,18 +108,6 @@ In Azure, VNet peering and connected groups are two methods of establishing conn
 
 Currently, security admin rules don't apply to Azure Private Endpoints that fall under the scope of a virtual network managed by Azure Virtual Network Manager.
 
-### How can I explicitly allow Azure SQL Managed Instance traffic before having deny rules?
-
-Azure SQL Managed Instance has some network requirements. If your security admin rules can block the network requirements, you can use the below sample rules to allow SQLMI traffic with higher priority than the deny rules that can block the traffic of SQL Managed Instance.
-
-#### Inbound rules
-
-| Port | Protocol | Source | Destination | Action |
-| ---- | -------- | ------ | ----------- | ------ |
-| 9000, 9003, 1438, 1440, 1452 | TCP | SqlManagement | **VirtualNetwork** | Allow |
-| Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
-| Any | Any | **AzureLoadBalancer** | **VirtualNetwork** | Allow |
-
 #### Outbound rules
 
 | Port | Protocol | Source | Destination | Action |
