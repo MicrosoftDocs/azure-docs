@@ -26,8 +26,6 @@ For a list to PaaS services that support Private Link functionality, review the 
 
 The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they belong to different users/subscriptions (including within differing Azure Active Directory (AAD) tenants) or if they have overlapping address spaces.
 
-:::image type="content""content" source="./media/concepts-networking/azure-private-link.png" alt-text="Diagram that shows how Azure Private Link works with Private Endpoints." :::
-
 
 
 ## Key Benefits of Azure Private Link
