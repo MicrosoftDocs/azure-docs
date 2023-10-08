@@ -78,7 +78,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 
     <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
-    <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
+    <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos ✓G, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
 
     > [!NOTE]
     > On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
@@ -107,58 +107,58 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	Category |	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
 |:---|:---|:---|:---|:---|
 |	**Environments supported**	|		|		|		|		|
-|		|	Azure	|	X	|	X	|	X	|
-|		|	Other cloud (Azure Arc)	|	X	|	X	|		|
-|		|	On-premises (Azure Arc)	|	X	|	X	|		|
-|		|	Windows Client OS	|	X	|		|		|
+|		|	Azure	| ✓ | ✓ | ✓ |
+|		|	Other cloud (Azure Arc)	| ✓ | ✓ |		|
+|		|	On-premises (Azure Arc)	| ✓ | ✓ |		|
+|		|	Windows Client OS	| ✓ |		|		|
 |	**Data collected**	|		|		|		|		|
-|		|	Event Logs	|	X	|	X	|	X	|
-|		|	Performance	|	X	|	X	|	X	|
-|		|	File based logs	|	X 	|	X	|	X	|
-|		|	IIS logs	|	X 	|	X	|	X	|
-|		|	ETW events	|		|		|	X	|
-|		|	.NET app logs	|		|		|	X	|
-|		|	Crash dumps	|		|		|	X	|
-|		|	Agent diagnostics logs	|		|		|	X	|
+|		|	Event Logs	| ✓ | ✓ | ✓ |
+|		|	Performance	| ✓ | ✓ | ✓ |
+|		|	File based logs	|	X 	| ✓ | ✓ |
+|		|	IIS logs	|	X 	| ✓ | ✓ |
+|		|	ETW events	|		|		| ✓ |
+|		|	.NET app logs	|		|		| ✓ |
+|		|	Crash dumps	|		|		| ✓ |
+|		|	Agent diagnostics logs	|		|		| ✓ |
 |	**Data sent to**	|		|		|		|		|
-|		|	Azure Monitor Logs	|	X	|	X	|		|
+|		|	Azure Monitor Logs	| ✓ | ✓ |		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|	X (Public preview)	|
-|		|	Azure Storage	|		|		|	X	|
-|		|	Event Hub	|		|		|	X	|
+|		|	Azure Storage	|		|		| ✓ |
+|		|	Event Hub	|		|		| ✓ |
 |	**Services and features supported**	|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
-|		|	VM Insights	|	X |	X	|		|
-|		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
-|		|	Automation Update Management	|	|	X	|		|
-|   | Azure Stack HCI | X |  |  |
+|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
+|		|	VM Insights	|	X | ✓ |		|
+|		|	Microsoft Defender for Cloud	|	X (Public preview)	| ✓ |		|
+|		|	Automation Update Management	|	| ✓ |		|
+|   | Azure Stack HCI | ✓ |  |  |
 |		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
-|		|	Change Tracking	| X (Public preview) |	X	|		|
-|       |   SQL Best Practices Assessment | X |     |       |
+|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
+|       |   SQL Best Practices Assessment | ✓ |     |       |
 
 ### Linux agents
 
 |	Category	|	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
 |:---|:---|:---|:---|:---|:---|
 |	**Environments supported**	|		|		|		|		|		|
-|		|	Azure	|	X	|	X	|	X	|	X	|
-|		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
-|		|	On-premises (Azure Arc)	|	X	|	X	|		|	X	|
+|		|	Azure	| ✓ | ✓ | ✓ | ✓ |
+|		|	Other cloud (Azure Arc)	| ✓ | ✓ |		| ✓ |
+|		|	On-premises (Azure Arc)	| ✓ | ✓ |		| ✓ |
 |	**Data collected**	|		|		|		|		|		|
-|		|	Syslog	|	X	|	X	|	X	|		|
-|		|	Performance	|	X	|	X	|	X	|	X	|
-|		|	File based logs	|	X	|		|		|		|
+|		|	Syslog	| ✓ | ✓ | ✓ |		|
+|		|	Performance	| ✓ | ✓ | ✓ | ✓ |
+|		|	File based logs	| ✓ |		|		|		|
 |	**Data sent to**	|		|		|		|		|		|
-|		|	Azure Monitor Logs	|	X	|	X	|		|		|
+|		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|		|	X (Public preview)	|
-|		|	Azure Storage	|		|		|	X	|		|
-|		|	Event Hub	|		|		|	X	|		|
+|		|	Azure Storage	|		|		| ✓ |		|
+|		|	Event Hub	|		|		| ✓ |		|
 |	**Services and features supported**	|		|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
-|		|	VM Insights	|	X	|	X 	|		|
-|		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
-|		|	Automation Update Management	|		|	X	|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
+|		|	VM Insights	| ✓ |	X 	|		|
+|		|	Microsoft Defender for Cloud	|	X (Public preview)	| ✓ |		|
+|		|	Automation Update Management	|		| ✓ |		|
 |		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
-|		|	Change Tracking	| X (Public preview) |	X	|		|
+|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
@@ -171,25 +171,25 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 | Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension | 
 |:---|:---:|:---:|:---:|
-| Windows Server 2022                                      | X | X |   |
-| Windows Server 2022 Core                                 | X |   |   |
-| Windows Server 2019                                      | X | X | X |
-| Windows Server 2019 Core                                 | X |   |   |
-| Windows Server 2016                                      | X | X | X |
-| Windows Server 2016 Core                                 | X |   | X |
-| Windows Server 2012 R2                                   | X | X | X |
-| Windows Server 2012                                      | X | X | X |
-| Windows Server 2008 R2 SP1                               | X | X | X |
-| Windows Server 2008 R2                                   |   |   | X |
-| Windows Server 2008 SP2                                  |   | X |   |
-| Windows 11 Client and Pro                                | X<sup>2</sup>, <sup>3</sup> |  |  |
-| Windows 11 Enterprise<br>(including multi-session)       | X |  |  |
-| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | 
-| Windows 8 Enterprise and Pro<br>(Server scenarios only   |   | X<sup>1</sup>) |   |
-| Windows 7 SP1<br>(Server scenarios only)                 |   | X<sup>1</sup>) |   |
-| Azure Stack HCI                                          | X | X |   |
-| Windows IoT Enterprise                                          | X |   |   |
+| Windows Server 2022                                      | ✓ | ✓ |   |
+| Windows Server 2022 Core                                 | ✓ |   |   |
+| Windows Server 2019                                      | ✓ | ✓ | ✓ |
+| Windows Server 2019 Core                                 | ✓ |   |   |
+| Windows Server 2016                                      | ✓ | ✓ | ✓ |
+| Windows Server 2016 Core                                 | ✓ |   | ✓ |
+| Windows Server 2012 R2                                   | ✓ | ✓ | ✓ |
+| Windows Server 2012                                      | ✓ | ✓ | ✓ |
+| Windows Server 2008 R2 SP1                               | ✓ | ✓ | ✓ |
+| Windows Server 2008 R2                                   |   |   | ✓ |
+| Windows Server 2008 SP2                                  |   | ✓ |   |
+| Windows 11 Client and Pro                                | ✓<sup>2</sup>, <sup>3</sup> |  |  |
+| Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
+| Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ | ✓ | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only   |   | ✓<sup>1</sup>) |   |
+| Windows 7 SP1<br>(Server scenarios only)                 |   | ✓<sup>1</sup>) |   |
+| Azure Stack HCI                                          | ✓ | ✓ |   |
+| Windows IoT Enterprise                                          | ✓ |   |   |
 
 <sup>1</sup> Running the OS on server hardware that is always connected, always on.<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
@@ -199,37 +199,37 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
-| AlmaLinux 8                                                 | X<sup>3</sup> | X |   |
-| Amazon Linux 2017.09                                        |  | X |   |
-| Amazon Linux 2                                              | X | X |   |
-| CentOS Linux 8                                              | X | X |   |
-| CentOS Linux 7                                              | X<sup>3</sup> | X | X |
-| CBL-Mariner 2.0                                             | X<sup>3,4</sup> |   |   |
-| Debian 11                                                   | X<sup>3</sup> |   |   |
-| Debian 10                                                   | X | X |   |
-| Debian 9                                                    | X | X | X |
-| Debian 8                                                    |   | X |   |
-| OpenSUSE 15                                                 | X |   |   |
-| Oracle Linux 8                                              | X | X |   |
-| Oracle Linux 7                                              | X | X | X |
-| Oracle Linux 6.4+                                           |   |  | X |
-| Red Hat Enterprise Linux Server 9+                          | X |  |   |
-| Red Hat Enterprise Linux Server 8.6+                        | X<sup>3</sup> | X<sup>2</sup> | X<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8.0-8.5                     | X | X<sup>2</sup> | X<sup>2</sup> |
-| Red Hat Enterprise Linux Server 7                           | X | X | X |
-| Red Hat Enterprise Linux Server 6.7+                        |   |  | X |
-| Rocky Linux 8                                               | X | X |   |
-| SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
-| SUSE Linux Enterprise Server 15 SP3                         | X |   |   |
-| SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
-| SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
-| SUSE Linux Enterprise Server 15                             | X | X |   |
-| SUSE Linux Enterprise Server 12                             | X | X | X |
-| Ubuntu 22.04 LTS                                            | X |   |   |
-| Ubuntu 20.04 LTS                                            | X<sup>3</sup> | X | X |
-| Ubuntu 18.04 LTS                                            | X<sup>3</sup> | X | X |
-| Ubuntu 16.04 LTS                                            | X | X | X |
-| Ubuntu 14.04 LTS                                            |   | X | X |
+| AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
+| Amazon Linux 2017.09                                        |  | ✓ |   |
+| Amazon Linux 2                                              | ✓ | ✓ |   |
+| CentOS Linux 8                                              | ✓ | ✓ |   |
+| CentOS Linux 7                                              | ✓<sup>3</sup> | ✓ | ✓ |
+| CBL-Mariner 2.0                                             | ✓<sup>3,4</sup> |   |   |
+| Debian 11                                                   | ✓<sup>3</sup> |   |   |
+| Debian 10                                                   | ✓ | ✓ |   |
+| Debian 9                                                    | ✓ | ✓ | ✓ |
+| Debian 8                                                    |   | ✓ |   |
+| OpenSUSE 15                                                 | ✓ |   |   |
+| Oracle Linux 8                                              | ✓ | ✓ |   |
+| Oracle Linux 7                                              | ✓ | ✓ | ✓ |
+| Oracle Linux 6.4+                                           |   |  | ✓ |
+| Red Hat Enterprise Linux Server 9+                          | ✓ |  |   |
+| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
+| Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
+| Rocky Linux 8                                               | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15 SP3                         | ✓ |   |   |
+| SUSE Linux Enterprise Server 15 SP2                         | ✓ |   |   |
+| SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
+| SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
+| Ubuntu 22.04 LTS                                            | ✓ |   |   |
+| Ubuntu 20.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
+| Ubuntu 18.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
+| Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
+| Ubuntu 14.04 LTS                                            |   | ✓ | ✓ |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
@@ -258,12 +258,12 @@ On the roadmap
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
-| CentOS Linux 7                                                 | X |   |   |
-| Debian 10                                      | X |   |   |
-| Ubuntu 18                                             | X |   |   |
-| Ubuntu 20                                              | X |   |   |
-| Red Hat Enterprise Linux Server 7                                              | X |   |   |
-| Red Hat Enterprise Linux Server 8                                              | X |   |   |
+| CentOS Linux 7                                                 | ✓ |   |   |
+| Debian 10                                      | ✓ |   |   |
+| Ubuntu 18                                             | ✓ |   |   |
+| Ubuntu 20                                              | ✓ |   |   |
+| Red Hat Enterprise Linux Server 7                                              | ✓ |   |   |
+| Red Hat Enterprise Linux Server 8                                              | ✓ |   |   |
 
 <sup>1</sup> Supports only the above distros and versions
 
