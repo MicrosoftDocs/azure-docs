@@ -7,38 +7,38 @@ ms.date: 10/09/2023
 
 # Application Insights overview :::image type="content" source="media/app-insights-overview/app-insights-icon.svg" alt-text="The official logo of Azure Monitor Application Insights":::
 
-Azure Monitor Application Insights, a feature of Azure Monitor, excels in Application Performance Management (APM) for live web applications. It enhances the performance, reliability, and quality of your applications.
+Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md), excels in Application Performance Management (APM) for live web applications. It enhances the performance, reliability, and quality of your applications.
 
 :::image type="content" source="media/overview-dashboard/0001-dashboard-small.png" alt-text="A screenshot of the Application Insights dashboard" lightbox="media/overview-dashboard/0001-dashboard.png":::
 
 ## Experiences:
 
 ### Investigate
-- [Application dashboard](overview-dashboard.md): An overview pane to allow quick, at-a-glance assessment of your application's health and performance.
-- [Application map](app-map.md): Provides a visual overview of application architecture and components' interactions.
-- [Live metrics](live-stream.md): Offers a real-time analytics dashboard for immediate insight into application activity and performance.
+- [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
+- [Application map](app-map.md): A visual overview of application architecture and components' interactions.
+- [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
 - [Transaction search](diagnostic-search.md): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
-- Performance view: Enables detailed insights into application performance metrics and potential bottlenecks.
-- Failures view: Quickly identify and analyze failures in your application to minimize downtime.
+- Performance view: Review application performance metrics and potential bottlenecks.
+- Failures view: Identify and analyze failures in your application to minimize downtime.
 
 ### Monitoring
 - [Alerts](../alerts/alerts-overview.md): Monitor a wide range of aspects of your application and trigger various actions.
 - [Metrics](../essentials/metrics-getting-started.md): Dive deep into metrics data to understand usage patterns and trends.
-- [Diagnostic settings](../essentials/diagnostic-settings.md): Diagnostic settings are used to configure streaming export of platform logs and metrics for a resource to the destination of your choice. 
-- [Logs](../logs/log-analytics-overview.md): Quickly retrieve, consolidate, and analyze all data collected into Azure Monitoring Logs.
-- [Workbooks](../visualize/workbooks-overview.md): Create interactive reports and dashboards that visualize application monitoring data, providing insights into performance, availability, and health.
+- [Diagnostic settings](../essentials/diagnostic-settings.md): Configure streaming export of platform logs and metrics to the destination of your choice. 
+- [Logs](../logs/log-analytics-overview.md): Retrieve, consolidate, and analyze all data collected into Azure Monitoring Logs.
+- [Workbooks](../visualize/workbooks-overview.md): Create interactive reports and dashboards that visualize application monitoring data.
 
 ### Usage
-- [Users, sessions, and events](usage-segmentation.md): Find out when people use your web app and what pages they're most interested in. Discover where your users are located and what browsers and operating systems they use.
-- [Funnels](usage-funnels.md): Monitor the step-by-step conversion rates in a web application, helping you understand where users progress or drop off in a series of steps known as a funnel.
-- [Flows](usage-flows.md): Visualize user navigation between pages and features of your site. It highlights areas where users engage repeatedly or where they likely exit.
-- [Cohorts](usage-cohorts.md): Identifying trends, segmenting users, and troubleshooting performance issues becomes easier by grouping users based on shared characteristics.
+- [Users, sessions, and events](usage-segmentation.md): Determine when, where, and how users interact with your web app.
+- [Funnels](usage-funnels.md): Analyze conversion rates to identify where users progress or drop off in the funnel.
+- [Flows](usage-flows.md): Visualize user paths on your site to identify high engagement areas and exit points.
+- [Cohorts](usage-cohorts.md): Group users by shared characteristics to simplify trend identification, segmentation, and performance troubleshooting.
 
 ### Code analysis
 - [Profiler](../profiler/profiler-overview.md): Capture, identify, and view performance traces for your application.
 - [Code optimizations](../insights/code-optimizations.md): Harness AI to create better and more efficient applications.
-- [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect a debug snapshots when exceptions occur in .NET application
+- [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect debug snapshots when exceptions occur in .NET application
 
 ## Logic map
 
@@ -51,6 +51,8 @@ Azure Monitor Application Insights, a feature of Azure Monitor, excels in Applic
 ## Supported languages
 
 This section outlines supported scenarios.
+
+For detailed information about enabling Application Insights, see [Data collection basics](opentelemetry-overview.md).
 
 ### Automatic instrumentation (enable without code changes)
 * [Autoinstrumentation supported environments and languages](codeless-overview.md#supported-environments-languages-and-resource-providers)
@@ -185,10 +187,6 @@ We recommend that you use our SDKs and use the [SDK API](./api-custom-events-met
 
 Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).    
           
-## Troubleshooting
-
-Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
-
 ## Help and support
 
 ### Azure technical support
@@ -207,10 +205,18 @@ Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/ta
 
 Leave product feedback for the engineering team in the [Feedback Community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
+### Troubleshooting
+
+Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
+
 ## Next steps
 
+- [Data collection basics](opentelemetry-overview.md)
 - [Create a resource](create-workspace-resource.md)
-- [Autoinstrumentation overview](codeless-overview.md)
-- [Overview dashboard](overview-dashboard.md)
-- [Availability overview](availability-overview.md)
+- [Automatic instrumentation overview](codeless-overview.md)
+- [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
+- [Live metrics](live-stream.md)
+- [Transaction search](diagnostic-search.md)
+- [Availability overview](availability-overview.md)
+- [Users, sessions, and events](usage-segmentation.md)
