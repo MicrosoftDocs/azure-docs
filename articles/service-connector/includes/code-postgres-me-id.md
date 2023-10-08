@@ -573,7 +573,8 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
     ::: zone-end
 
     ::: zone pivot="service-principal"
-    Refer to [the Azure AD service-to-service access token request](azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
+
+    Refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
 
     ::: zone-end
 
@@ -673,7 +674,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     )
     ```
 
-    Refer to [the Azure AD service-to-service access token request](azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token.
+    Refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token.
 
     ::: zone-end
 
