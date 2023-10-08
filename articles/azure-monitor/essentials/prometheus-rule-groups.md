@@ -122,7 +122,7 @@ On the rule group  **Details** tab:
    * Select the **For** value for the period between the alert expression first becomes true and until the alert is fired.
    * You can enter optional **Annotations** key/value pairs for the rule. These annotations are added to alerts fired by the rule.
    * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the alerts fired by the rule.
-   * Select the [action groups](../essentials/action-groups.md) that the rule triggers.
+   * Select the [action groups](../alerts/action-groups.md) that the rule triggers.
    * Select **Automatically resolve alert** to resolve alerts after a period when the rule condition is no longer true.
    * Select the auto resolution period using **Time to auto-resolve**.
    * Select if the rule is to be enabled when created.
@@ -132,10 +132,10 @@ On the rule group  **Details** tab:
 
 #### Finish creating the rule group
 1. On the **Tags** tab, set any required tags on the rule group resource.
-   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
+   :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-tags.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
 1. On the **Review + create** tab, the rule group is validated, and lets you know about any issues.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
+    :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
 1. You can follow up on the rule group deployment to make sure it completes successfully or be notified on any error.
 
 ### Creating Prometheus rule group using Resource Manager template
