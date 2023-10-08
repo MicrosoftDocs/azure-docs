@@ -35,16 +35,32 @@ At the pipeline level, inputs and outputs are useful for submitting pipeline job
 
 ### Types of Inputs and Outputs
 
-Inputs could be either of below types:
+The following types are supported as outputs of a component or a pipeline.
+ 
+- Data types. Check [data types in Azure Machine Learning](./concept-data.md#data-types) to learn more about data types. 
+     - `uri_file`
+     - `uri_folder`
+     - `mltable`
+ 
+- Model types. Check [log mlflow models](./how-to-log-mlflow-models.md) to learn how to log your trained model as mlflow model. 
+     - `mlflow_model`
+     - `custom_model`
 
- - Primitive types: `string`, `number`, `integer`, or `boolean`.
+Using data or model type output requires customer to serilize the output to corresponding type (file, folder or mlflow_model in most scenarios) in the component's source code. Below are a few examples to help you understand how this works. 
 
- - Asset types: used for passing data or a model between components
-     - Data asset types: `uri_file`, `uri_folder`, `mltable`.
-     - Model asset types: `mlflow_model`, `custom_model`
+- [train component] has an mlflow_model output,  in the component source code, it use ``
 
-Outputs need to be asset types. 
 
+In addition to above data or model types, input can aslo be following primitive types. 
+ - `string`
+ - `number`
+ - `integer`
+ - `boolean`.
+
+
+> [!NOTE]
+>Primitive types output is not supported. 
+ 
 ### Path and mode for data inputs/outputs
 
 For data asset input/output, you must specify a `path` parameter that points to the data location. This table shows the different data locations that Azure Machine Learning pipeline supports, and also shows path parameter examples:
