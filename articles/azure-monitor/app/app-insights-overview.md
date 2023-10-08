@@ -9,6 +9,8 @@ ms.date: 10/09/2023
 
 Azure Monitor Application Insights, a feature of Azure Monitor, excels in Application Performance Management (APM) for live web applications. It enhances the performance, reliability, and quality of your applications.
 
+:::image type="content" source="media/overview-dashboard/0001-dashboard-small.png" alt-text="A screenshot of the Application Insights dashboard" lightbox="media/overview-dashboard/0001-dashboard.png":::
+
 ## Experiences:
 
 ### Investigate
