@@ -95,6 +95,7 @@ Here's an example that shows how to use Microsoft Graph PowerShell to add a user
 
 
 ```powershell
+
 Import-Module Microsoft.Graph.Identity.DirectoryManagement
 
 $roleName = "Guest Inviter"
@@ -106,6 +107,7 @@ $DirObject = @{
   }
 
 New-MgDirectoryRoleMemberByRef -DirectoryRoleId $role.Id -BodyParameter $DirObject
+
 ```
 
 ## Sign-in logs for B2B users
