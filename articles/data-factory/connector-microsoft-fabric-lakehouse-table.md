@@ -77,10 +77,7 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission. 
-
-    - **As source**: In Microsoft Fabric workspace, grant at least the **Contributor** role.
-    - **As sink**: In Microsoft Fabric workspace, grant at least the **Contributor** role.
+2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. 
 
 These properties are supported for the linked service:
 
