@@ -114,21 +114,21 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data collected**	|		|		|		|		|
 |		|	Event Logs	| ✓ | ✓ | ✓ |
 |		|	Performance	| ✓ | ✓ | ✓ |
-|		|	File based logs	|	X 	| ✓ | ✓ |
-|		|	IIS logs	|	X 	| ✓ | ✓ |
+|		|	File based logs	|	✓ 	| ✓ | ✓ |
+|		|	IIS logs	|	✓ 	| ✓ | ✓ |
 |		|	ETW events	|		|		| ✓ |
 |		|	.NET app logs	|		|		| ✓ |
 |		|	Crash dumps	|		|		| ✓ |
 |		|	Agent diagnostics logs	|		|		| ✓ |
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|
-|		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|	X (Public preview)	|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
 |		|	Azure Storage	|		|		| ✓ |
 |		|	Event Hub	|		|		| ✓ |
 |	**Services and features supported**	|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
-|		|	VM Insights	|	X | ✓ |		|
-|		|	Microsoft Defender for Cloud	|	X (Public preview)	| ✓ |		|
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
+|		|	VM Insights	|	✓ | ✓ |		|
+|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
 |		|	Automation Update Management	|	| ✓ |		|
 |   | Azure Stack HCI | ✓ |  |  |
 |		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
@@ -149,13 +149,13 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	File based logs	| ✓ |		|		|		|
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
-|		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|		|	X (Public preview)	|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
 |		|	Azure Storage	|		|		| ✓ |		|
 |		|	Event Hub	|		|		| ✓ |		|
 |	**Services and features supported**	|		|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
-|		|	VM Insights	| ✓ |	X 	|		|
-|		|	Microsoft Defender for Cloud	|	X (Public preview)	| ✓ |		|
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
+|		|	VM Insights	| ✓ |	✓ 	|		|
+|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
 |		|	Automation Update Management	|		| ✓ |		|
 |		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
