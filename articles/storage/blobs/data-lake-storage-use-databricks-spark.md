@@ -147,11 +147,11 @@ The container and directory where you uploaded the flight data in your storage a
 
 Now that the *csv* flight data is accessible through a DBFS mount point, you can use an Apache Spark DataFrame to load it into your workspace and write it back in Apache parquet format to your ADLS Gen2 object store.
 
-- A Spark DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in various supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformation it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
+- A Spark DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in various supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformations on it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
 
 - Apache parquet is a columnar file format with optimizations that speed up queries. It's a more efficient file format than CSV or JSON. To learn more, see [Parquet Files](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html).
 
-In the notebook, add a new cell, and paste the following code into that cell.
+In the notebook, add a new cell, and paste the following code into it.
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -174,7 +174,7 @@ Before proceeding to the next section, make sure that all of the parquet data ha
 
 In this section, you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your ADLS Gen2 object storage using the DBFS mount point you created in the previous section.
 
-In a new cell, paste the following code to get a list of the files at the mount point. This includes the *.csv* file you uploaded using AzCopy. The first command outputs a list of files and directories. The second command displays the output in tabular format for easier reading.
+In a new cell, paste the following code to get a list of the files at the mount point. The first command outputs a list of files and directories. The second command displays the output in tabular format for easier reading.
 
 ```python
 dbutils.fs.ls("/mnt/flightdata")
@@ -277,21 +277,19 @@ airlines_flying_from_texas.show(100)
 
 In this tutorial, you did the following:
 
-- Created Azure resources including an ADLS Gen2 storage account and Azure AD service principal and assigned permissions to access the storage account.
+- Created Azure resources, including an ADLS Gen2 storage account and Azure AD service principal, and assigned permissions to access the storage account.
 
-- Created an Azure Databricks workspace, notebook and compute cluster.
+- Created an Azure Databricks workspace, notebook, and compute cluster.
 
-- Used AzCopy to upload unstructered *.csv* flight data to an ADLS Gen2 storage account.
+- Used AzCopy to upload unstructered *.csv* flight data to the ADLS Gen2 storage account.
 
-- Ran sample Python code in your Databricks notebook that:
+- Used Databricks File System utility functions to mount your ADLS Gen2 storage account and explore its hierarchical file system.
 
-  - Used Databricks File System utility functions to mount your ADLS Gen2 storage account and explore its hierarchical file system.
+- Used Apache Spark DataFrames to transform your *.csv* flight data to Apache parquet format and store it back to your ADLS Gen2 storage account.
 
-  - Used Apache Spark DataFrames to transform your *.csv* flight data to Apache parquet format and store it back to your ADLS Gen2 storage account.
+- Used DataFrames to explore the flight data and perform a simple query.
 
-  - Used DataFrames to explore the flight data and perform a simple query.
-
-  - Used Apache Spark SQL to query the flight data for the number of total flights in month, the airports in Texas, and the airlines that fly from Texas.
+- Used Apache Spark SQL to query the flight data for the number of total flights in month, the airports in Texas, and the airlines that fly from Texas.
 
 ## Clean up resources
 
@@ -299,7 +297,7 @@ If you want to preserve the notebook and come back to it later, it's a good idea
 
 If you want to delete individual workspace resources like notebooks and clusters, you can do so from the left sidebar of the workspace. For detailed instructions, see [Delete a cluster](/azure/databricks/clusters/clusters-manage#--delete-a-cluster) or [Delete a notebook](/azure/databricks/notebooks/notebooks-manage#delete-a-notebook).
 
-When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and workspace and select **Delete**.
+When they're no longer needed, delete the resource group and all related resources. To do so in Azure portal, select the resource group for the storage account and workspace and select **Delete**.
 
 ## Next steps
 
