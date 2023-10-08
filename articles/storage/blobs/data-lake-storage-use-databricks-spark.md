@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Create a service principal, create a client secret, and then grant the service principal access to the storage account.
 
-  See [Tutorial: Connect to Azure Data Lake Storage Gen2](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
+  See [Tutorial: Connect to Azure Data Lake Storage Gen2](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You'll use them later in this tutorial.
 
 ## Download the flight data
 
@@ -145,9 +145,9 @@ The container and directory where you uploaded the flight data in your storage a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-Now that our *csv* flight data is accessible through a DBFS mount point, we'll use an Apache Spark DataFrame to load it into our workspace and write it back in Apache parquet format to our ADLS Gen2 object store.
+Now that the *csv* flight data is accessible through a DBFS mount point, you can use an Apache Spark DataFrame to load it into your workspace and write it back in Apache parquet format to your ADLS Gen2 object store.
 
-- A Spark DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in a variety of supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformation it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
+- A Spark DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in various supported formats. With a DataFrame you can load data from cloud object storage and perform analysis and transformation it inside your compute cluster without affecting the underlying data in cloud object storage unless you choose to explicitly write it. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
 
 - Apache parquet is a columnar file format with optimizations that speed up queries. It's a more efficient file format than CSV or JSON. To learn more, see [Parquet Files](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html).
 
@@ -155,11 +155,13 @@ In the notebook, add a new cell, and paste the following code into that cell.
 
 ```python
 # Use the previously established DBFS mount point to read the data.
-# create a DataFrame to read the csv data
+# Create a DataFrame to read the csv data.
+# The header option specifies that the first row of data should be used as the DataFrame column names
+# The inferschema option specifies that the column data types should be inferred from the data in the file
 flight_df = spark.read.format('csv').options(
     header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
-# read the airline csv file and write the output to parquet format for easy query.
+# Read the airline csv file and write the output to parquet format for easy query.
 flight_df.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
 print("Done")
 ```
