@@ -4,7 +4,7 @@ description: This article shows how to use the VM insights Map feature. It disco
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 
 ---
 

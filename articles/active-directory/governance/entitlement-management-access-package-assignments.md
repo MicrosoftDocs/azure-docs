@@ -61,18 +61,37 @@ To use entitlement management and assign users to access packages, you must have
 
 ## View assignments programmatically
 ### View assignments with Microsoft Graph
-You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/entitlementmanagement-list-accesspackageassignments?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user or application service principal is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API to retrieve assignments across all catalogs.
+You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/entitlementmanagement-list-accesspackageassignments?view=graph-rest-beta&preserve-view=true).  An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API to retrieve assignments across all catalogs.
+
+Microsoft Graph will return the results in pages, and will continue to return a reference to the next page of results in the `@odata.nextLink` property with each response, until all pages of the results have been read. To read all results, you must continue to call Microsoft Graph with the `@odata.nextLink` property returned in each response until the `@odata.nextLink` property is no longer returned, as described in [paging Microsoft Graph data in your app](/graph/paging).
+
+While an identity governance administrator can retrieve access packages from multiple catalogs, if user or application service principal is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`.
 
 ### View assignments with PowerShell
 
-You can perform this query in PowerShell with the `Get-MgEntitlementManagementAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.x or later module version.  This script illustrates using the Microsoft Graph PowerShell cmdlets module version 2.4.0. This cmdlet takes as a parameter the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet.
+You can also retrieve assignments to an access package in PowerShell with the `Get-MgEntitlementManagementAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.x or later module version.  This script illustrates using the Microsoft Graph PowerShell cmdlets module version 2.4.0 to retrieve all assignments to a particular access package. This cmdlet takes as a parameter the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet.  Be sure when using the `Get-MgEntitlementManagementAccessPackage` cmdlet to include the `-All` flag to cause all pages of assignments to be returned.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayName eq 'Marketing Campaign'"
+if ($null -eq $accesspackage) { throw "no access package"}
 $assignments = @(Get-MgEntitlementManagementAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop)
 $assignments | ft Id,state,{$_.Target.id},{$_.Target.displayName}
 ```
+
+Note that the preceding query will return expired and delivering assignments as well as delivered assignments.  If you wish to exclude expired or delivering assignments, you can use a filter that includes the access package ID as well as the state of the assignments.  This script illustrates using a filter to retrieve only the assignments in state `Delivered` for a particular access package. The script will then generate a CSV file `assignments.csv`, with one row per assignment.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayName eq 'Marketing Campaign'"
+if ($null -eq $accesspackage) { throw "no access package"}
+$accesspackageId = $accesspackage.Id
+$filter = "accessPackage/id eq '" + $accesspackageId + "' and state eq 'Delivered'"
+$assignments = @(Get-MgEntitlementManagementAssignment -Filter $filter -ExpandProperty target -All -ErrorAction Stop)
+$sp = $assignments | select-object -Property Id,{$_.Target.id},{$_.Target.ObjectId},{$_.Target.DisplayName},{$_.Target.PrincipalName}
+$sp | Export-Csv -Encoding UTF8 -NoTypeInformation -Path ".\assignments.csv"
+```
+
 
 ## Directly assign a user 
 
@@ -158,7 +177,8 @@ You can assign a user to an access package in PowerShell with the `New-MgEntitle
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty assignmentpolicies
+$accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentpolicies"
+if ($null -eq $accesspackage) { throw "no access package"}
 $policy = $accesspackage.AssignmentPolicies[0]
 $userid = "cdbdf152-82ce-479c-b5b8-df90f561d5c7"
 $params = @{
@@ -184,6 +204,7 @@ Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
 $members = @(Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15" -All)
 
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentPolicies"
+if ($null -eq $accesspackage) { throw "no access package"}
 $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgBetaEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
 ```
@@ -196,6 +217,7 @@ If you wish to add an assignment for a user who is not yet in your directory, yo
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentPolicies"
+if ($null -eq $accesspackage) { throw "no access package"}
 $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgBetaEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```

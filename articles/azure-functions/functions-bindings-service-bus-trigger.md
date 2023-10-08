@@ -44,9 +44,17 @@ This article supports both programming models.
 
 # [Isolated worker model](#tab/isolated-process)
 
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
+This code defines and initializes the `ILogger`: 
 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
 
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a single Service Bus queue message and writes it to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
+
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages in a single batch and writes each to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
 
 # [In-process model](#tab/in-process)
 

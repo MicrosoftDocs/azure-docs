@@ -1,5 +1,5 @@
 ---
-title: Full-text query
+title: Full-text query how-to
 titleSuffix: Azure Cognitive Search
 description: Learn how to construct a query request for full text search in Azure Cognitive Search.
 
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 09/25/2023
 ---
 
-# Create a full-text query in Azure Cognitive Search
+# How to create a full-text query in Azure Cognitive Search
 
 If you're building a query for [full text search](search-lucene-query-architecture.md), this article provides steps for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
@@ -25,7 +25,7 @@ If you're building a query for [full text search](search-lucene-query-architectu
 
 In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. 
 
-A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
+A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
 
 The following [Search Documents REST API](/rest/api/searchservice/search-documents) call illustrates a query request using the aforementioned parameters.
 
@@ -71,7 +71,7 @@ Notice that you can change the REST API version if you require search behaviors 
 
 [Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/search-documents). 
 
-Start with [Create a search index using REST and Postman](search-get-started-rest.md) for step-by-step instructions for setting up requests.
+[Quickstart: Create a search index using REST and Postman](search-get-started-rest.md) has step-by-step instructions for setting up requests.
 
 The following example calls the REST API for full text search:
 

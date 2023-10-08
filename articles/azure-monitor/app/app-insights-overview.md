@@ -22,7 +22,7 @@ Application Insights provides other features including, but not limited to:
 
 - [Live Metrics](live-stream.md): Observe activity from your deployed application in real time with no effect on the host environment.
 - [Availability](availability-overview.md): Also known as synthetic transaction monitoring. Probe the external endpoints of your applications to test the overall availability and responsiveness over time.
-- [GitHub or Azure DevOps integration](work-item-integration.md): Create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in the context of Application Insights data.
+- [GitHub or Azure DevOps integration](release-and-work-item-insights.md?tabs=work-item-integration): Create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in the context of Application Insights data.
 - [Usage](usage-overview.md): Understand which features are popular with users and how users interact and use your application.
 - [Smart detection](proactive-diagnostics.md): Detect failures and anomalies automatically through proactive telemetry analysis.
 
@@ -129,7 +129,7 @@ This section outlines supported scenarios.
 * [ASP.NET](./asp-net.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 * [ASP.NET Core](./asp-net-core.md)
 
 #### Client-side JavaScript SDK

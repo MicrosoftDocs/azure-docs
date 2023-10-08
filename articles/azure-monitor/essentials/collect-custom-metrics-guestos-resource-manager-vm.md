@@ -6,7 +6,7 @@ services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/04/2020
+ms.date: 09/28/2023
 ms.author: bwren
 ---
 # Send guest OS metrics to the Azure Monitor metrics store by using an ARM template for a Windows VM

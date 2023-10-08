@@ -367,13 +367,13 @@ op monitor interval=3600
 For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 
 ```bash
-# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command: 
+# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command (see Tip box below for details): 
 sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
 subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 
-# If the version of pacemaker is less than 2.0.4-6.el8, then run following command:
+# If the version of pacemaker is less than 2.0.4-6.el8, then run following command (see Tip box below for details):
 sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
 subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
@@ -395,14 +395,14 @@ op monitor interval=3600
 For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 
 ```bash
-# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command: 
+# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command (see Tip box below for details): 
 sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
 resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 
-# If the version of pacemaker is less than 2.0.4-6.el8, then run following command:
+# If the version of pacemaker is less than 2.0.4-6.el8, then run following command (see Tip box below for details):
 sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
 resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
@@ -415,7 +415,7 @@ op monitor interval=3600
 If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
 > [!TIP]
-> Only configure the `pcmk_delay_max` attribute in two node clusters, with pacemaker version less than 2.0.4-6.el8. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829).
+> 'value1' and 'value2' are integer values with a unit of seconds. Replace the values 'value1' and 'value2' with appropriate integer values that are at least 5 seconds apart. For example:`pcmk_delay_base="prod-cl1-0:0;prod-cl1-1:10"`. Only configure the `pcmk_delay_max` attribute in two node clusters, with pacemaker version less than 2.0.4-6.el8. For pacemaker versions greater than 2.0.4-6.el8, use `pcmk_delay_base`.<br> For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829).
 
 > [!IMPORTANT]
 > The monitoring and fencing operations are deserialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  

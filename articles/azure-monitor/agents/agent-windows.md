@@ -71,7 +71,7 @@ Configure .NET Framework 4.6 or later to support secure cryptography because by 
 
 Regardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then in the **Settings** section, select **Agents**.
 
-[![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
+:::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 > [!NOTE]
 > You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#add-or-remove-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
@@ -93,7 +93,7 @@ The following steps install and configure the Log Analytics agent in Azure and A
 6. On the **Azure Log Analytics** page, perform the following:
    1. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier.  If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.  
    2. If the computer needs to communicate through a proxy server to the Log Analytics service, click **Advanced** and provide the URL and port number of the proxy server.  If your proxy server requires authentication, type the username and password to authenticate with the proxy server and then click **Next**.  
-7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> ![paste Workspace ID and Primary Key](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> :::image type="content" source="media/agent-windows/log-analytics-mma-setup-laworkspace.png" lightbox="media/agent-windows/log-analytics-mma-setup-laworkspace.png" alt-text="paste Workspace ID and Primary Key":::<br><br>
 8. On the **Ready to Install** page, review your choices and then click **Install**.
 9. On the **Configuration completed successfully** page, click **Finish**.
 
@@ -207,7 +207,7 @@ To retrieve the product code from the agent install package directly, you can us
 
 After installation of the agent is finished, you can verify that it's successfully connected and reporting in two ways.
 
-From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*<br><br> ![Screenshot that shows the MMA connection status to Log Analytics message.](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*<br><br> :::image type="content" source="media/agent-windows/log-analytics-mma-laworkspace-status.png" lightbox="media/agent-windows/log-analytics-mma-laworkspace-status.png" alt-text="Screenshot that shows the MMA connection status to Log Analytics message.":::
 
 You can also perform a log query in the Azure portal:
 

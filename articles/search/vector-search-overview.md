@@ -1,16 +1,16 @@
 ---
 title: Vector search
 titleSuffix: Azure Cognitive Search
-description: Describes concepts, scenarios, and availability of the vector search feature in Cognitive Search.
+description: Describes concepts, scenarios, and availability of the vector search feature in Azure Cognitive Search.
 
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 09/27/2023
 ---
 
-# Vector search within Azure Cognitive Search
+# Vector search in Azure Cognitive Search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -66,7 +66,7 @@ Scenarios for vector search include:
 
 + **Multi-lingual search**. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
 
-+ **Hybrid search**. Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
++ [**Hybrid search**](hybrid-search-overview.md). Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
 
 + **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter after the vector query executes, trimming search results from query response.
 

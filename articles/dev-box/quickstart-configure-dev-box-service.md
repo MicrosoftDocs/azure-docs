@@ -162,8 +162,8 @@ You now need a [network connection](concept-dev-box-concepts.md#network-connecti
 
 - To determine which type of join is appropriate for your dev boxes, refer to:
    
-   - [Azure AD joined devices](/azure/active-directory/devices/concept-directory-join).
-   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-hybrid-join).
+   - [Azure AD joined devices](../active-directory/devices/concept-directory-join.md).
+   - [Hybrid Azure AD joined devices](../active-directory/devices/concept-hybrid-join.md).
 
 To create the network connection, complete the steps on the relevant tab.
 

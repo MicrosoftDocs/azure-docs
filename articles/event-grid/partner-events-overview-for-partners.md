@@ -112,7 +112,7 @@ You have two options:
   * [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/eventgrid/resource-manager/Microsoft.EventGrid)
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2022-06-15/Microsoft.EventGrid.json)
-  * [REST APIs](/rest/api/eventgrid/controlplane-version2023-06-01-preview/partner-namespaces)
+  * [REST APIs](/rest/api/eventgrid/controlplane-preview/partner-namespaces)
   * [CLI extension](/cli/azure/eventgrid)
 
 ### SDKs

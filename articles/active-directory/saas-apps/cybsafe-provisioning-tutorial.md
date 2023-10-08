@@ -32,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A [CybSafe](https://app.cybsafe.com/login) Administrator account with an enterprise subscription.
+* A [CybSafe](https://www.cybsafe.com/) Administrator account with an enterprise subscription.
 
 ## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

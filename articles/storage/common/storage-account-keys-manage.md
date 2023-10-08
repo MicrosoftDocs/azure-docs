@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/22/2023
 ms.author: akashdubey
 ms.reviewer: nachakra 
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Manage storage account access keys
