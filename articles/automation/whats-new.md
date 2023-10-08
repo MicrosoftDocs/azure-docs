@@ -23,6 +23,11 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## October 2023
 
+
+### General Availability: Change Tracking using Azure Monitoring Agent
+
+Azure Automation announces General Availability of Change Tracking using Azure Monitoring Agent. [Learn more](change-tracking/overview-monitoring-agent.md)
+
 ### Retirement of Run As accounts
 
 **Type: Retirement**
