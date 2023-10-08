@@ -253,6 +253,8 @@
               href: change-tracking/manage-change-tracking-monitoring-agent.md
             - name: Configure alerts
               href: change-tracking/configure-alerts.md
+            - name: Migration from Log Analytics to Azure Monitoring Agent
+              href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
         - name: Use Log Analytics
           items:
             - name: Overview

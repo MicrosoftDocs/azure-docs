@@ -7,13 +7,10 @@ ms.date: 06/28/2023
 ms.topic: conceptual
 ---
 
-# Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)  
+# Enable Change Tracking and Inventory using Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-
-> [!IMPORTANT]
-> Currently, the policies to enable Change tracking and inventory with Azure monitoring Agent are in preview. For a seamless policy experience, we recommend that you begin by enabling the *Microsoft.Compute/AutomaticExtensionUpgradePreview* feature flag for your specific subscription. To register for this feature flag, go to **Azure portal** > **Subscriptions** > *Select specific subscription name*. In the **Preview features**, select **Automatic Extension Upgrade Preview** and then select **Register**. :::image type="content" source="media/enable-vms-monitoring-agent/enable-feature-flag.png" alt-text="Screenshot to register the feature flag.":::
 
 This article describes how you can enable [Change Tracking and Inventory](overview.md) for single and multiple Azure Virtual Machines (VMs) from the Azure portal. 
 
