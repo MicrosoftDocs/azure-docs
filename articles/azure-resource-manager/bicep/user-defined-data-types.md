@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/20/2023
+ms.date: 09/26/2023
 ---
 
 # User-defined data types in Bicep
@@ -169,8 +169,6 @@ In addition to be used in the `type` statement, type expressions can also be use
     param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-## An example
-
 A typical Bicep file to create a storage account looks like:
 
 ```bicep
@@ -216,6 +214,39 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   kind: 'StorageV2'
 }
 ```
+
+## Declare tagged union type
+
+To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declartion. [Bicep version 0.21.1 or newer](./install.md) is required to use this decorator. The syntax is: 
+
+```bicep
+@discriminator('<propertyName>')
+```
+
+The discriminator decorator takes a single parameter, which represents a shared property name among all union members. This property name must be a required string literal on all members and is case-sensitive. The values of the discriminated property on the union members must be unique in a case-insensitive manner.
+
+The following example shows how to declare a tagged union type:
+
+```bicep
+type FooConfig = {
+  type: 'foo'
+  value: int
+}
+
+type BarConfig = {
+  type: 'bar'
+  value: bool
+}
+
+@discriminator('type')
+type ServiceConfig = FooConfig | BarConfig | { type: 'baz', *: string }
+
+param serviceConfig ServiceConfig = { type: 'bar', value: true }
+
+output config object = serviceConfig
+```
+
+The parameter value is validated based on the discriminated property value.  In the preceeding example, if the *serviceConfig* parameter value is of type *foo*, it undersoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed usin the *BarConfig* type, and this pattern continues for other types as well.  
 
 ## Import types between Bicep files (Preview)
 

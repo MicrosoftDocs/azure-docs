@@ -23,7 +23,7 @@ Staged Rollout allows you to selectively test groups of users with cloud authent
 
 Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Microsoft Entra hybrid identity solution](./choose-ad-authn.md#comparing-methods).
 
-For an overview of the feature, view this "Microsoft Entra ID: What is Staged Rollout?" video:
+For an overview of the feature, view this "What is Staged Rollout?" video:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
 
@@ -44,24 +44,24 @@ For an overview of the feature, view this "Microsoft Entra ID: What is Staged Ro
 
 -   You have configured all the appropriate tenant-branding and Conditional Access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Microsoft Entra multifactor authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and multifactor authentication](../../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged Rollout, Microsoft Entra Connect needs to sync the new password hash which can take up to 2 minutes after reset.
+-   If you plan to use Microsoft Entra multifactor authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and multifactor authentication](../../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged Rollout, Microsoft Entra Connect needs to sync the new password hash that can take up to 2 minutes after reset.
 
 -   To use the Staged Rollout feature, you need to be a Hybrid Identity Administrator on your tenant.
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
 
--  If you are deploying Hybrid Microsoft Entra ID or Microsoft Entra join, you must upgrade to Windows 10 1903 update.
+-  If you're deploying Hybrid Microsoft Entra ID or Microsoft Entra join, you must upgrade to Windows 10 1903 update.
 
 
 ## Supported scenarios
 
 The following scenarios are supported for Staged Rollout. The feature works only for:
 
-- Users who are provisioned to Microsoft Entra ID by using Microsoft Entra Connect. It does not apply to cloud-only users.
+- Users who are provisioned to Microsoft Entra ID by using Microsoft Entra Connect. It doesn't apply to cloud-only users.
 
-- User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use [legacy authentication](../../conditional-access/block-legacy-authentication.md) will fall back to federated authentication flows. An example of legacy authentication might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
+- User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use [legacy authentication](../../conditional-access/block-legacy-authentication.md) fall back to federated authentication flows. An example of legacy authentication might be Exchange online with modern authentication turned off, or Outlook 2010, which doesn't support modern authentication.
 
-- Group size is currently limited to 50,000 users.  If you have groups that are larger than 50,000 users, it is recommended to split this group over multiple groups for Staged Rollout.
+- Group size is currently limited to 50,000 users.  If you have groups that are larger than 50,000 users, it's recommended to split this group over multiple groups for Staged Rollout.
 
 - Windows 10 Hybrid Join or Microsoft Entra join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user's UPN is routable and domain suffix is verified in Microsoft Entra ID.
 
@@ -69,30 +69,30 @@ The following scenarios are supported for Staged Rollout. The feature works only
 
 ## Unsupported scenarios
 
-The following scenarios are not supported for Staged Rollout:
+The following scenarios aren't supported for Staged Rollout:
 
-- Legacy authentication such as POP3 and SMTP are not supported.
+- Legacy authentication such as POP3 and SMTP aren't supported.
 
-- Certain applications send the "domain_hint" query parameter to Microsoft Entra ID during authentication. These flows will continue, and users who are enabled for Staged Rollout will continue to use federation for authentication.
+- Certain applications send the "domain_hint" query parameter to Microsoft Entra ID during authentication. These flows continue, and users who are enabled for Staged Rollout continue to use federation for authentication.
 
 <!-- -->
 
 - Admins can roll out cloud authentication by using security groups. To avoid sync latency when you're using on-premises Active Directory security groups, we recommend that you use cloud security groups. The following conditions apply:
 
     - You can use a maximum of 10 groups per feature. That is, you can use 10 groups each for *password hash sync*, *pass-through authentication*, and *seamless SSO*.
-    - Nested groups are *not supported*. 
-    - Dynamic groups are *not supported* for Staged Rollout.
-    - Contact objects inside the group will block the group from being added.
+    - Nested groups aren't supported. 
+    - Dynamic groups aren't supported for Staged Rollout.
+    - Contact objects inside the group block the group from being added.
 
 - When you first add a security group for Staged Rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "CloudPasswordPolicyForPasswordSyncedUsersEnabled". When "CloudPasswordPolicyForPasswordSyncedUsersEnabled" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. Programmatically updating PasswordPolicies attribute is not supported while users are in Staged Rollout. To learn how to set 'CloudPasswordPolicyForPasswordSyncedUsersEnabled' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#cloudpasswordpolicyforpasswordsyncedusersenabled).
+- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "CloudPasswordPolicyForPasswordSyncedUsersEnabled". When "CloudPasswordPolicyForPasswordSyncedUsersEnabled" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. Programmatically updating PasswordPolicies attribute isn't supported while users are in Staged Rollout. To learn how to set 'CloudPasswordPolicyForPasswordSyncedUsersEnabled' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#cloudpasswordpolicyforpasswordsyncedusersenabled).
 
-- Windows 10 Hybrid Join or Microsoft Entra join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of Staged Rollout.
+- Windows 10 Hybrid Join or Microsoft Entra join primary refresh token acquisition for Windows 10 version older than 1903. This scenario falls back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of Staged Rollout.
 
-- Windows 10 Hybrid Join or Microsoft Entra join primary refresh token acquisition for all versions, when user's on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in Staged Rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
+- Windows 10 Hybrid Join or Microsoft Entra join primary refresh token acquisition for all versions, when user's on-premises UPN isn't routable. This scenario falls back to the WS-Trust endpoint while in Staged Rollout mode, but stops working when staged migration is complete and user sign-on is no longer relying on federation server.
 
-- If you have a non-persistent VDI setup with Windows 10, version 1903 or later, you must remain on a federated domain. Moving to a managed domain isn't supported on non-persistent VDI. For more information, see [Device identity and desktop virtualization](../../devices/howto-device-identity-virtual-desktop-infrastructure.md).
+- If you have a nonpersistent VDI setup with Windows 10, version 1903 or later, you must remain on a federated domain. Moving to a managed domain isn't supported on nonpersistent VDI. For more information, see [Device identity and desktop virtualization](../../devices/howto-device-identity-virtual-desktop-infrastructure.md).
 
 - If you have a Windows Hello for Business hybrid certificate trust with certs that are issued via your federation server acting as Registration Authority or smartcard users, the scenario isn't supported on a Staged Rollout. 
 
@@ -101,11 +101,11 @@ The following scenarios are not supported for Staged Rollout:
   
 ## Get started with Staged Rollout
 
-To test the *password hash sync* sign-in by using Staged Rollout, follow the pre-work instructions in the next section.
+To test the *password hash sync* sign-in by using Staged Rollout, follow the prework instructions in the next section.
 
 For information about which PowerShell cmdlets to use, see [Microsoft Entra ID 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
-## Pre-work for password hash sync
+## Prework for password hash sync
 
 1. Enable *password hash sync* from the [Optional features](how-to-connect-install-custom.md#optional-features) page in Microsoft Entra Connect. 
 
@@ -115,27 +115,27 @@ For information about which PowerShell cmdlets to use, see [Microsoft Entra ID 2
 
    ![Screenshot of the AADConnect Troubleshooting log](./media/how-to-connect-staged-rollout/staged-2.png)
 
-If you want to test *pass-through authentication* sign-in by using Staged Rollout, enable it by following the pre-work instructions in the next section.
+If you want to test *pass-through authentication* sign-in by using Staged Rollout, enable it by following the prework instructions in the next section.
 
-## Pre-work for pass-through authentication
+## Prework for pass-through authentication
 
 1. Identify a server that's running Windows Server 2012 R2 or later where you want the *pass-through authentication* agent to run. 
 
-   *Do not* choose the Microsoft Entra Connect server. Ensure that the server is domain-joined, can authenticate selected users with Active Directory, and can communicate with Microsoft Entra ID on outbound ports and URLs. For more information, see the "Step 1: Check the prerequisites" section of [Quickstart: Microsoft Entra seamless single sign-on](how-to-connect-sso-quick-start.md).
+   **Don't** choose the Microsoft Entra Connect server. Ensure that the server is domain-joined, can authenticate selected users with Active Directory, and can communicate with Microsoft Entra ID on outbound ports and URLs. For more information, see the "Step 1: Check the prerequisites" section of [Quickstart: Microsoft Entra seamless single sign-on](how-to-connect-sso-quick-start.md).
 
 1. [Download the Microsoft Entra Connect authentication agent](https://aka.ms/getauthagent), and install it on the server. 
 
-1. To enable [high availability](how-to-connect-sso-quick-start.md), install additional authentication agents on other servers.
+1. To enable [high availability](how-to-connect-sso-quick-start.md), install extra authentication agents on other servers.
 
 1. Make sure that you've configured your [Smart Lockout settings](../../authentication/howto-password-smart-lockout.md) appropriately. Doing so helps ensure that your users' on-premises Active Directory accounts don't get locked out by bad actors.
 
-We recommend enabling *seamless SSO* irrespective of the sign-in method (*password hash sync* or *pass-through authentication*) you select for Staged Rollout. To enable *seamless SSO*, follow the pre-work instructions in the next section.
+We recommend enabling *seamless SSO* irrespective of the sign-in method (*password hash sync* or *pass-through authentication*) you select for Staged Rollout. To enable *seamless SSO*, follow the prework instructions in the next section.
 
-## Pre-work for seamless SSO
+## Prework for seamless SSO
 
 Enable *seamless SSO* on the Active Directory forests by using PowerShell. If you have more than one Active Directory forest, enable it for each forest individually. *Seamless SSO* is triggered only for users who are selected for Staged Rollout. It doesn't affect your existing federation setup.
 
-Enable *seamless SSO* by doing the following:
+Enable *seamless SSO* by doing the following tasks:
 
 1. Sign in to Microsoft Entra Connect Server.
 
@@ -147,9 +147,9 @@ Enable *seamless SSO* by doing the following:
 
 4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's Hybrid Identity Administrator credentials.
 
-5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
+5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it's set to false at the tenant level.
 
-   ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/staged-3.png)
+   ![Example of the PowerShell output](./media/how-to-connect-staged-rollout/staged-3.png)
 
 6. Call `$creds = Get-Credential`. At the prompt, enter the domain administrator credentials for the intended Active Directory forest.
 
@@ -177,7 +177,7 @@ You can roll out these options:
 
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect sync**.
 
 1. On the *Microsoft Entra Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
@@ -224,11 +224,11 @@ We've enabled audit events for the various actions we perform for Staged Rollout
 
 ## Validation
 
-To test the sign-in with *password hash sync* or *pass-through authentication* (username and password sign-in), do the following:
+To test the sign-in with *password hash sync* or *pass-through authentication* (username and password sign-in), do the following tasks:
 
 1. On the extranet, go to the [Apps page](https://myapps.microsoft.com) in a private browser session, and then enter the UserPrincipalName (UPN) of the user account that's selected for Staged Rollout.
 
-   Users who've been targeted for Staged Rollout are not redirected to your federated login page. Instead, they're asked to sign in on the Microsoft Entra tenant-branded sign-in page.
+   Users who have been targeted for Staged Rollout aren't redirected to your federated login page. Instead, they're asked to sign in on the Microsoft Entra tenant-branded sign-in page.
 
 1. Ensure that the sign-in successfully appears in the [Microsoft Entra sign-in activity report](../../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
@@ -236,7 +236,7 @@ To test sign-in with *seamless SSO*:
 
 1. On the intranet, go to the [Apps page](https://myapps.microsoft.com) in a private browser session, and then enter the UserPrincipalName (UPN) of the user account that's selected for Staged Rollout.
 
-   Users who've been targeted for Staged Rollout of *seamless SSO* are presented with a "Trying to sign you in ..." message before they're silently signed in.
+   Users who have been targeted for Staged Rollout of *seamless SSO* are presented with a "Trying to sign you in ..." message before they're silently signed in.
 
 1. Ensure that the sign-in successfully appears in the [Microsoft Entra sign-in activity report](../../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
@@ -262,7 +262,7 @@ A: Yes, you can use this feature in your production tenant, but we recommend tha
 
 **Q: Can this feature be used to maintain a permanent "co-existence," where some users use federated authentication and others use cloud authentication?**
 
-A: No, this feature is designed for testing cloud authentication. After successful testing a few groups of users you should cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
+A: No, this feature is designed for testing cloud authentication. After successful testing, a few groups of users you should cut over to cloud authentication. We don't recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
 
 **Q: Can I use PowerShell to perform Staged Rollout?**
 

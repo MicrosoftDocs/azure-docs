@@ -37,7 +37,7 @@ You can also get the thumbprint by using AD FS Management. Go to **Service** > *
 ## Determine whether AD FS renews the certificates automatically
 By default, AD FS is configured to generate token signing and token decryption certificates automatically. It does so both during the initial configuration and when the certificates are approaching their expiration date.
 
-You can run the following Windows PowerShell command: `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`.
+You can run the following PowerShell command: `Get-AdfsProperties | FL AutoCert*, Certificate*`.
 
 The `AutoCertificateRollover` property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically. Do either of the following:
 
@@ -124,7 +124,7 @@ Now that you've added the first certificate, made it primary, and removed the ol
 
 ## Update Microsoft Entra ID with the new token-signing certificate
 
-1. Open the Azure AD PowerShell Module for Windows PowerShell. Alternatively, open Windows PowerShell, and then run the `Import-Module msonline` command.
+1. Open the Azure AD PowerShell module. Alternatively, open Windows PowerShell, and then run the `Import-Module msonline` command.
 
 1. Connect to Microsoft Entra ID by running the following command: 
 

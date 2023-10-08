@@ -63,7 +63,7 @@ items:
         href: auth-saml.md
       - name: OpenID Connect authentication
         href: auth-oidc.md
-      - name: OAuth 2.0 authentication
+      - name: OAuth 2.0 with Entra ID authentication
         href: auth-oauth2.md
       - name: Header-based authentication
         href: auth-header-based.md

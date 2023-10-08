@@ -358,6 +358,19 @@ You can either [grant access to your key vault for the identity after cluster cr
 5. Open a web browser to the external IP address of the `gmsa-demo` service.
 6. Authenticate with the `$NETBIOS_DOMAIN_NAME\$AD_USERNAME` and password and confirm you see `Authenticated as $NETBIOS_DOMAIN_NAME\$AD_USERNAME, Type of Authentication: Negotiate`.
 
+### Disable GMSA on an existing cluster
+
+* Disable GMSA on an existing cluster with Windows Server nodes using the [`az aks update`][az-aks-update] command.
+
+    ```azurecli-interactive
+    az aks update \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --disable-windows-gmsa 
+    ```
+> [!NOTE]
+> You can re-enable GMSA on an existing cluster by using the [az aks update][az-aks-update] command.
+
 ## Troubleshooting
 
 ### No authentication is prompted when loading the page

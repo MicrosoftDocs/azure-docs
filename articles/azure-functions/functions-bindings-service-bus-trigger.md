@@ -42,7 +42,21 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+This code defines and initializes the `ILogger`: 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
+
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a single Service Bus queue message and writes it to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
+
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages in a single batch and writes each to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads [message metadata](#message-metadata) and
 logs a Service Bus queue message:
@@ -63,12 +77,6 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
-
-
-
 ---
 
 ::: zone-end
@@ -345,7 +353,20 @@ def main(msg: azf.ServiceBusMessage) -> str:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs) attribute to define the function trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#service-bus-trigger).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following table explains the properties you can set using this trigger attribute:
+
+| Property |Description|
+| --- | --- |
+|**QueueName**|Name of the queue to monitor. Set only if monitoring a queue, not for a topic. |
+|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
+|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+
+# [In-process model](#tab/in-process)
 
 The following table explains the properties you can set using this trigger attribute:
 
@@ -359,19 +380,6 @@ The following table explains the properties you can set using this trigger attri
 |**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 |**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
-
-# [Isolated process](#tab/isolated-process)
-
-The following table explains the properties you can set using this trigger attribute:
-
-| Property |Description|
-| --- | --- |
-|**QueueName**|Name of the queue to monitor. Set only if monitoring a queue, not for a topic. |
-|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
-|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
-|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 
 ---
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

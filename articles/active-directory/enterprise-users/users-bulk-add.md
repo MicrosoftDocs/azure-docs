@@ -32,7 +32,7 @@ Download and fill in the bulk upload CSV template to help you successfully creat
 > [!WARNING]
 > If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
 >
-> Ensure that you add the ".csv" file extension and remove any leading spaces before userPrincipalName, passwordProfile, and accountEnabled.
+> Ensure that you add the `.csv` file extension and remove any leading spaces before `userPrincipalName`, `passwordProfile`, and `accountEnabled`.
 
 ### CSV template structure
 
@@ -71,6 +71,8 @@ The rows in a downloaded CSV template are as follows:
 1. When the import operation completes, you'll see a notification of the bulk operation job status.
 
 If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error. The file submission must match the provided template and include the exact column names.
+
+[!INCLUDE [Bulk update warning](~/articles/active-directory/includes/bulk-export.md)]
 
 ## Check status
 

@@ -206,7 +206,7 @@ It's easy to add a domain to be federated with Microsoft Entra ID by using Micro
 The following sections provide details about some of the common tasks that you might have to perform to customize your AD FS sign-in page.
 
 ## <a name="customlogo"></a>Add a custom company logo or illustration 
-To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
+To change the logo of the company that's displayed on the **Sign-in** page, use the following PowerShell cmdlet and syntax.
 
 > [!NOTE]
 > The recommended dimensions for the logo are 260 x 35 \@ 96 dpi with a file size no greater than 10 KB.
@@ -219,7 +219,7 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 > The *TargetName* parameter is required. The default theme that's released with AD FS is named Default.
 
 ## <a name="addsignindescription"></a>Add a sign-in description 
-To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
+To add a sign-in page description to the **Sign-in page**, use the following PowerShell cmdlet and syntax.
 
 ```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Select <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"

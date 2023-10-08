@@ -32,7 +32,13 @@ The following considerations apply when using a warmup trigger:
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that runs on each new instance when it's added to your app. 
 
@@ -53,42 +59,9 @@ namespace WarmupSample
         {
             //Initialize shared dependencies here
             
-            log.LogInformation("Function App instance is warm 🌞🌞🌞");
+            log.LogInformation("Function App instance is warm.");
         }
     }
-}
-```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that runs on each new instance when it's added to your app.
-
-Here's the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-For more information, see [Attributes](#attributes).
-
-```cs
-public static void Run(WarmupContext warmupContext, ILogger log)
-{
-    log.LogInformation("Function App instance is warm 🌞🌞🌞");  
 }
 ```
 
@@ -102,7 +75,7 @@ The following example shows a warmup trigger that runs when each new instance is
 ```java
 @FunctionName("Warmup")
 public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext context) {
-    context.getLogger().info("Function App instance is warm 🌞🌞🌞");
+    context.getLogger().info("Function App instance is warm.");
 }
 ```
 
@@ -131,7 +104,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, warmupContext) {
-    context.log('Function App instance is warm 🌞🌞🌞');
+    context.log('Function App instance is warm.');
 };
 ```
 
@@ -185,34 +158,22 @@ import azure.functions as func
 
 
 def main(warmupContext: func.Context) -> None:
-    logging.info('Function App instance is warm 🌞🌞🌞')
+    logging.info('Function App instance is warm.')
 ```
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a *function.json* configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
-# [In-process](#tab/in-process)
-
-Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.   
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property |Description |
-|---------|----------------------|
-| **type** | Required - must be set to `warmupTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the name of the binding parameter, which is usually `warmupContext`. |
+Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.   
 
 ---
 
@@ -243,23 +204,19 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The following considerations apply to using a warmup function in C#:
 
-# [In-process](#tab/in-process)
-
-- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
-- A return value attribute isn't required.
-- You must be using version `3.0.5` of the `Microsoft.Azure.WebJobs.Extensions` package, or a later version. 
-- You can pass a `WarmupContext` instance to the function.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 - Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
 - Use the `Microsoft.Azure.Functions.Worker.Extensions.Warmup` package
 - You can pass an object instance to the function.
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Not supported for version 1.x of the Functions runtime.
+- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
+- A return value attribute isn't required.
+- You must be using version `3.0.5` of the `Microsoft.Azure.WebJobs.Extensions` package, or a later version. 
+- You can pass a `WarmupContext` instance to the function.
 
 ---
 

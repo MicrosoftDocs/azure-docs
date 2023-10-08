@@ -2,8 +2,7 @@
 title: Migrate QnA Maker to Azure OpenAI on your data 
 titleSuffix: Azure AI services
 description: Learn how to migrate your QnA Maker projects to Azure OpenAI.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: aahill
 ms.author: aahi
 ms.topic: how-to

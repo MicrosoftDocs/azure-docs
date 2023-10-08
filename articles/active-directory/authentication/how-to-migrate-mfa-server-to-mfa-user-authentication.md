@@ -226,8 +226,8 @@ After you configure the servers, you can add Microsoft Entra multifactor authent
 Now you're ready to enable [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md). Staged Rollout helps you to iteratively move your users to either PHS or PTA while also migrating their on-premises MFA settings.
 
 * Be sure to review the [supported scenarios](../hybrid/connect/how-to-connect-staged-rollout.md#supported-scenarios). 
-* First, you'll need to do either the [prework for PHS](../hybrid/connect/how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or the [prework for PTA](../hybrid/connect/how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication). We  recommend PHS. 
-* Next, you'll do the [prework for seamless SSO](../hybrid/connect/how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
+* First, you'll need to do either the [prework for PHS](../hybrid/connect/how-to-connect-staged-rollout.md#prework-for-password-hash-sync) or the [prework for PTA](../hybrid/connect/how-to-connect-staged-rollout.md#prework-for-pass-through-authentication). We  recommend PHS. 
+* Next, you'll do the [prework for seamless SSO](../hybrid/connect/how-to-connect-staged-rollout.md#prework-for-seamless-sso). 
 * [Enable the Staged Rollout of cloud authentication](../hybrid/connect/how-to-connect-staged-rollout.md#enable-a-staged-rollout-of-a-specific-feature-on-your-tenant) for your selected authentication method. 
 * Add the group(s) you created for Staged Rollout. Remember that you'll add users to groups iteratively, and that they can't be dynamic groups or nested groups. 
 

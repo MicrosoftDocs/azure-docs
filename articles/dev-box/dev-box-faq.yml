@@ -63,7 +63,7 @@ sections:
       - question: Can I use a smart card, or other device that connects to my physical machine with Dev Box?
         answer: Yes. Dev Box supports a broad range of devices that connect to the physical machine via remote desktop redirection. For more information, see [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
 
-      - question: What if I use Linus as my development environment?
+      - question: What if I use Linux as my development environment?
         answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
 
   - name: Dev Box hibernation
@@ -75,7 +75,7 @@ sections:
       - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
         answer: |
           - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
-          - The Windows + OS optimizations image contain optimized power settings, and they can't be used with hibernation.  
+          - The Windows + OS optimizations image contains optimized power settings, and they can't be used with hibernation.  
           - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
           - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
 

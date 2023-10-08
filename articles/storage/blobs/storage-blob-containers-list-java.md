@@ -15,6 +15,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # List blob containers with Java
 
+[!INCLUDE [storage-dev-guide-selector-list-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-container.md)]
+
 When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
 ## Prerequisites

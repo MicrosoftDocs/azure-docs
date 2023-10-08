@@ -237,7 +237,9 @@ The following example demonstrates a callback payload after the verifiable crede
       },
       "domainValidation": {
         "url": "https://contoso.com/"
-      }
+      },
+      "issuanceDate": "yyyy-MM-ddTHH:mm:ssZ",
+      "expirationDate": "yyyy-MM-ddTHH:mm:ssZ"
     }
   ],
   "receipt": {

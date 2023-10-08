@@ -61,7 +61,7 @@ The PRT is issued during user authentication on a Windows 10 or newer device in 
 In Microsoft Entra registered device scenarios, the Microsoft Entra WAM plugin is the primary authority for the PRT since Windows logon isn't happening with this  Microsoft Entra account.
 
 > [!NOTE]
-> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 or newer devices. Without WS-Trust, PRT cannot be issued to users on Microsoft Entra hybrid joined or Microsoft Entra joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy.
+> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 or newer devices. Without WS-Trust, PRT cannot be issued to users on Microsoft Entra hybrid joined or Microsoft Entra joined devices. On ADFS only usernamemixed endpoints are required. On ADFS if Smartcard/certificate is used during Windows sign-in certificatemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy.
 
 > [!NOTE]
 > Microsoft Entra Conditional Access policies are not evaluated when PRTs are issued.

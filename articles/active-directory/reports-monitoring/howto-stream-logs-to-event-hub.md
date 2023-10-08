@@ -87,7 +87,7 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 1. Complete the steps in the **Prerequisites** section of the ArcSight configuration guide. This section includes the following steps:
     * Set user permissions in Azure to ensure there's a user with the **owner** role to deploy and configure the connector.
     * Open ports on the server with Syslog NG Daemon SmartConnector so it's accessible from Azure. 
-    * The deployment runs a Windows PowerShell script, so you must enable PowerShell to run scripts on the machine where you want to deploy the connector.
+    * The deployment runs a PowerShell script, so you must enable PowerShell to run scripts on the machine where you want to deploy the connector.
 
 1. Follow the steps in the **Deploying the Connector** section of the ArcSight configuration guide to deploy the connector. This section walks you through how to download and extract the connector, configure application properties and run the deployment script from the extracted folder. 
 

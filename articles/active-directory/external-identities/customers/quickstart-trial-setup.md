@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 # Quickstart: Get started with Microsoft Entra ID for customers (preview)
 
-Get started with Microsoft Entra External ID for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer configuration features, Microsoft Entra ID for customers can serve as the identity provider and access management service for your customers. 
+Get started with Microsoft Entra ID for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer configuration features, Microsoft Entra ID for customers can serve as the identity provider and access management service for your customers. 
 
 In this quickstart, you'll learn how to set up a customer tenant free trial. If you already have an Azure subscription, you can create a tenant with customer configurations in the Microsoft Entra admin center. For more information about how to create a tenant see [Set up a tenant](quickstart-tenant-setup.md). 
 

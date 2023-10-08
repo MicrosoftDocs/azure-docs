@@ -6,7 +6,7 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 09/19/2023
 ---
 
 # Azure Active Directory and PostgreSQL authentication with Azure Cosmos DB for PostgreSQL
@@ -18,9 +18,6 @@ ms.date: 08/02/2023
 > This preview version is provided without a service level agreement, and it's not recommended
 > for production workloads. Certain features might not be supported or might have constrained 
 > capabilities.
->
-> [Contact us](mailto:askcosmosdb4postgres@microsoft.com) if you're interested in participating in Azure Active Directory authentication 
-> for Azure Cosmos DB for PostgreSQL preview.
 >
 > You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
@@ -106,6 +103,7 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 ## Next steps
 
-- To learn how to configure authentication for Azure Cosmos DB for PostgreSQL clusters, see [Use Azure Active Directory and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL](./how-to-configure-authentication.md).
-- To set up private network access to the cluster nodes, see [Manage private access](./howto-private-access.md).
-- To set up public network access to the cluster nodes, see [Manage public access](./howto-manage-firewall-using-portal.md). 
+- Check out [Azure AD limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#azure-active-directory-authentication)
+- [Learn how to configure authentication for Azure Cosmos DB for PostgreSQL clusters](./how-to-configure-authentication.md)
+- Set up private network access to the cluster nodes, see [Manage private access](./howto-private-access.md)
+- Set up public network access to the cluster nodes, see [Manage public access](./howto-manage-firewall-using-portal.md)

@@ -40,7 +40,7 @@ If you already have activities data with your free license, then you can see it 
 | Sign-ins               | Seven days        | 30 days             | 30 days             |
 | Microsoft Entra multifactor authentication usage        | 30 days       | 30 days             | 30 days             |
 
-You can retain the audit and sign-in activity data for longer than the default retention period outlined in the previous table by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Microsoft Entra ID logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+You can retain the audit and sign-in activity data for longer than the default retention period outlined in the previous table by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Microsoft Entra logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Security signals**
 
@@ -58,4 +58,4 @@ You can retain the audit and sign-in activity data for longer than the default r
 ## Next steps
 
 - [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-- [Learn how to download Microsoft Entra ID logs](howto-download-logs.md)
+- [Learn how to download Microsoft Entra logs](howto-download-logs.md)

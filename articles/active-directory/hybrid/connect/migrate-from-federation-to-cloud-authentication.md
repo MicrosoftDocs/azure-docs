@@ -187,11 +187,11 @@ The version of SSO that you use is dependent on your device OS and join state.
 
 - **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
 
-- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Microsoft Entra ID. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [prework for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
+- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Microsoft Entra ID. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [prework for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#prework-for-seamless-sso).
 
 ### Prework for PHS and PTA
 
-Depending on the choice of sign-in method, complete the [prework for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
+Depending on the choice of sign-in method, complete the [prework for PHS](how-to-connect-staged-rollout.md#prework-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#prework-for-pass-through-authentication).
 
 ## Implement your solution
 
@@ -264,7 +264,7 @@ To choose one of these options, you must know what your current settings are.
 
       ![Check enable single sign-on on User sign-in page](media/deploy-cloud-user-authentication/user-sign-in.png)
 
-   Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
+   Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#prework-for-seamless-sso). 
 5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
     ![Enable single sign-on page](media/deploy-cloud-user-authentication/enable-single-sign-on.png)

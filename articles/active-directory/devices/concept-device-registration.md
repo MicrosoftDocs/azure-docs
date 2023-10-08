@@ -48,7 +48,7 @@ The goal of Microsoft Entra registered - also known as Workplace joined - device
 
 Microsoft Entra registered devices are signed in to using a local account like a Microsoft account on a Windows 10 or newer device. These devices have a Microsoft Entra account for access to organizational resources. Access to resources in the organization can be limited based on that Microsoft Entra account and Conditional Access policies applied to the device identity.
 
-Microsoft Entra Registration is not the same as device enrolment. If Administrators permit users to enrol their devices, organisations can further control these Microsoft Entra registered devices by enrolling the device(s) into Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
+Microsoft Entra Registration is not the same as device enrollment. If Administrators permit users to enroll their devices, organizations can further control these Microsoft Entra registered devices by enrolling the device(s) into Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
 
 Microsoft Entra registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 or Windows 11 Settings menu. 
 
@@ -60,6 +60,6 @@ Another user wants to access their organizational email on their personal Androi
 
 ## Next steps
 
-- [Manage device identities using the Azure portal](manage-device-identities.md)
+- [Manage device identities](manage-device-identities.md)
 - [Manage stale devices in Microsoft Entra ID](manage-stale-devices.md)
 - [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)

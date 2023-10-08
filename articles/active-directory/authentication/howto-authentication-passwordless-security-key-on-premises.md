@@ -73,29 +73,29 @@ The following scenarios aren't supported:
 
 <a name='install-the-azure-ad-kerberos-powershell-module'></a>
 
-## Install the Microsoft Entra Kerberos PowerShell module
+## Install the `AzureADHybridAuthenticationManagement` module
 
-The [Microsoft Entra Kerberos PowerShell module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
+The [`AzureADHybridAuthenticationManagement` module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
 
 1. Open a PowerShell prompt using the Run as administrator option.
-1. Install the Microsoft Entra Kerberos PowerShell module:
+1. Install the `AzureADHybridAuthenticationManagement` module:
 
    ```powershell
    # First, ensure TLS 1.2 for PowerShell gallery access.
    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-   # Install the Azure AD Kerberos PowerShell Module.
+   # Install the AzureADHybridAuthenticationManagement PowerShell module.
    Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    ```
 
 > [!NOTE]
-> - The Microsoft Entra Kerberos PowerShell module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Microsoft Entra management features. If the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
-> - You can install the Microsoft Entra Kerberos PowerShell module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Microsoft Entra Connect solution.
-> - The Microsoft Entra Kerberos PowerShell module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
+> - The `AzureADHybridAuthenticationManagement` module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Microsoft Entra management features. If the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
+> - You can install the `AzureADHybridAuthenticationManagement` module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Microsoft Entra Connect solution.
+> - The `AzureADHybridAuthenticationManagement` module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
 
 ## Create a Kerberos Server object
 
-Administrators use the Microsoft Entra Kerberos PowerShell module to create a Microsoft Entra Kerberos server object in their on-premises directory.
+Administrators use the `AzureADHybridAuthenticationManagement` module to create a Microsoft Entra Kerberos server object in their on-premises directory.
 
 Run the following steps in each domain and forest in your organization that contain Microsoft Entra users:
 
@@ -279,7 +279,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To delete an enrolled security key, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [myaccount.microsoft.com](https://myaccount.microsoft.com/), and then go to the **Security info** page.
 
 <a name='what-can-i-do-if-im-unable-to-use-the-fido-security-key-immediately-after-i-create-a-hybrid-azure-ad-joined-machine'></a>
 

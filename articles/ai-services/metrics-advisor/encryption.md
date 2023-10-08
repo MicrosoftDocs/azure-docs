@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Metrics Advisor service encryption of data at rest.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: how-to
 ms.date: 07/02/2021
@@ -14,6 +13,8 @@ ms.author: mbullwin
 ---
 
 # Metrics Advisor service encryption of data at rest
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Metrics Advisor service automatically encrypts your data when it is persisted to the cloud. The Metrics Advisor service encryption protects your data and helps you to meet your organizational security and compliance commitments.
 

@@ -185,7 +185,7 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 
 ## Resources
 
-- [Microsoft Entra (Microsoft Entra ID) blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity)
+- [Microsoft Entra (`Azure AD`) blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity)
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 - For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
 - For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).

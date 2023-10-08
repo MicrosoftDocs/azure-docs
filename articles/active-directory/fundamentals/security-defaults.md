@@ -92,11 +92,13 @@ After registration is finished, the following administrator roles will be requir
 - Global Administrator
 - Application Administrator
 - Authentication Administrator
+- Authentication Policy Administrator
 - Billing Administrator
 - Cloud Application Administrator
 - Conditional Access Administrator
 - Exchange Administrator
 - Helpdesk Administrator
+- Identity Governance Administrator
 - Password Administrator
 - Privileged Authentication Administrator
 - Privileged Role Administrator
@@ -151,7 +153,7 @@ After you enable security defaults in your tenant, any user accessing the follow
 - Azure PowerShell 
 - Azure CLI 
 
-This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. 
+This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. This applies to ARM APIs such as accessing your subscription, VMs, storage accounts etc. This does not include Microsoft Entra ID or Microsoft Graph.
 
 > [!NOTE]
 > Pre-2017 Exchange Online tenants have modern authentication disabled by default. In order to avoid the possibility of a login loop while authenticating through these tenants, you must [enable modern authentication](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).

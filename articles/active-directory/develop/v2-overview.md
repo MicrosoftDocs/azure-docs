@@ -51,7 +51,7 @@ Choose your preferred [application scenario](authentication-flows-app-scenarios.
 
 For a more in-depth look at building applications using the Microsoft identity platform, see our multipart tutorial series for the following applications:
 
-- [React Single-page app (SPA)](single-page-app-tutorial-01-register-app.md)
+- [React Single-page app (SPA)](tutorial-single-page-app-react-register-app.md)
 - [.NET Web app](web-app-tutorial-01-register-application.md)
 - [.NET Web API](web-api-tutorial-01-register-app.md)
 

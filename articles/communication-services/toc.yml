@@ -47,6 +47,8 @@ items:
       href: tutorials/virtual-visits.md
     - name: Virtual event
       href: tutorials/events-playbook.md
+    - name: Contact center
+      href: tutorials/contact-center.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -396,8 +398,12 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
-    - name: Add file sharing to your application with UI Library
-      href: tutorials/file-sharing-tutorial.md
+    - name: Add file sharing with UI Library in Azure Communication Service Chat
+      href: tutorials/file-sharing-tutorial-acs-chat.md
+    - name: Add file sharing with UI Library in Teams Interoperability Chat
+      href: tutorials/file-sharing-tutorial-interop-chat.md
+    - name: Add inline image support with UI Library in Teams Interoperability Chat
+      href: tutorials/inline-image-tutorial-interop-chat.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Connect to Teams
@@ -1029,6 +1035,8 @@ items:
       href: concepts/numbers/phone-number-management-for-canada.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Czech Republic
+      href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
       href: concepts/numbers/phone-number-management-for-denmark.md
     - name: Phone number management for Estonia
@@ -1075,6 +1083,8 @@ items:
       href: concepts/numbers/phone-number-management-for-singapore.md
     - name: Phone number management for Slovakia
       href: concepts/numbers/phone-number-management-for-slovakia.md
+    - name: Phone number management for Slovenia
+      href: concepts/numbers/phone-number-management-for-slovenia.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

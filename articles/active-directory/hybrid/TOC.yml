@@ -170,7 +170,7 @@
       href: cloud-sync/reference-version-history.md
     - name: Cloud sync FAQ
       href: cloud-sync/reference-cloud-sync-faq.yml
-    - name: AADCloudSyncTools PowerShell Module 
+    - name: AADCloudSyncTools PowerShell module
       href: cloud-sync/reference-powershell.md
     - name: Attributes that are synchronized
       href: connect/reference-connect-sync-attributes-synchronized.md

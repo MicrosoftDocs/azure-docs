@@ -7,7 +7,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/06/2023
 ms.author: kendownie
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 
 # Analyze Azure Files metrics using Azure Monitor

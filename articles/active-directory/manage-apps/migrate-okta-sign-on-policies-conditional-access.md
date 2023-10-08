@@ -133,7 +133,7 @@ Before you convert to Conditional Access, confirm the base MFA tenant settings f
 
     ![Screenshot of the multifactor authentication screen.](media/migrate-okta-sign-on-policies-conditional-access/legacy-portal.png)
 
-5. Confirm there are no users enabled for legacy MFA: On the **multifactor authentication** menu, on **multifactor authentication status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
+5. Confirm there are no users enabled for legacy MFA: On the **Multifactor authentication** menu, on **Multifactor authentication status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
 
     ![Screenshot of the multifactor authentication screen with the search feature highlighted.](media/migrate-okta-sign-on-policies-conditional-access/disable-user-portal.png)
 

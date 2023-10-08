@@ -2,8 +2,8 @@
 title: Show information about a coordinate on a map
 titleSuffix: Microsoft Azure Maps
 description: Learn how to display information about an address on the map when a user selects a coordinate.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps

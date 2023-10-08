@@ -89,9 +89,9 @@ You need to manually install the following library:
 The following libraries are installed automatically with the extension.
 
 - [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Azure AD PowerShell Module for Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [PowerShell module version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
-The Azure AD PowerShell Module for Windows PowerShell is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
+The PowerShell module is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
 
 ### Obtain the directory tenant ID
 
@@ -183,7 +183,7 @@ If you need to create and configure a test account, use the following steps:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account.
 2. Follow the prompts to set up a verification method.
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
-1. Browse to **Protection** >  **multifactor authentication** and enable for the test account.
+1. Browse to **Protection** >  **Multifactor authentication** and enable for the test account.
 
 > [!IMPORTANT]
 >

@@ -3,7 +3,7 @@ author: justinha
 ms.service: active-directory
 ms.custom: has-azure-ad-ps-ref
 ms.topic: include
-ms.date: 02/08/2022
+ms.date: 08/14/2023
 ms.author: justinha
 ---
 
@@ -38,13 +38,13 @@ The schema for a certificate authority looks as follows:
     }
 ```
 
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2):
+For the configuration, you can use [Microsoft Graph PowerShell](/powershell/microsoftgraph):
 
 1. Start Windows PowerShell with administrator privileges.
-2. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.
+2. Install [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation):
 
    ```powershell
-       Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+       Install-Module Microsoft.Graph
    ```
 
 As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.

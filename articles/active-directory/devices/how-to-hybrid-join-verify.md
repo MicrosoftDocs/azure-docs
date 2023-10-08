@@ -25,11 +25,11 @@ Here are three ways to locate and verify the hybrid joined device state:
 1. Open Windows PowerShell.
 2. Enter `dsregcmd /status`.
 3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
-4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
+4. You can use the **DeviceId** and compare the status on the service using either the Microsoft Entra admin center or PowerShell.
 
 For downlevel devices, see the article [Troubleshooting Microsoft Entra hybrid joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status)
 
-## Using the Azure portal
+## Using the Microsoft Entra admin center
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com)ntra.microsoft.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
 1. Browse to **Identity** > **Devices** > **All devices**.

@@ -64,7 +64,7 @@ RUN pip install -r requirements.txt
 ```
 
 > [!NOTE]
-> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
+> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
 ### Step 2: Create custom Azure Machine Learning environment 
 
@@ -144,7 +144,7 @@ from azure.ai.ml.entities import CustomApplications, ImageSettings, EndpointsSet
 
 ml_client = MLClient.from_config(credential=credential)
 
-image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>') 
+image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>') 
 
 endpoints = [EndpointsSettings(published=8081, target=8080)]
 

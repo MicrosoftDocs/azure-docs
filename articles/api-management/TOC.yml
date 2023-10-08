@@ -59,7 +59,7 @@
       - name: Policy snippets
         href: https://github.com/Azure/api-management-policy-snippets
       - name: Azure PowerShell
-        href: powershell-samples.md
+        href: https://github.com/Azure/azure-docs-powershell-samples
 - name: Concepts
   items:
       - name: Terminology

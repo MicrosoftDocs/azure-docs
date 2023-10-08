@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Manage access to an Azure AI Video Indexer account  
+# Manage access to an Azure AI Video Indexer account
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 In this article, you'll learn how to manage access (authorization) to an Azure AI Video Indexer account. As Azure AI Video Indexer’s role management differs depending on the Video Indexer Account type, this document will first cover access management of regular accounts (ARM-based) and then of Classic and Trial accounts.   
 

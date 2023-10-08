@@ -36,7 +36,7 @@ Azure Machine Learning pipeline has holistic logic to calculate whether a compon
 
 Reuse criteria:
 
-- Component definition `is_determinstic` = true
+- Component definition `is_deterministic` = true
 - Pipeline runtime setting `ForceReRun` = false
 - Component code, environment definition, inputs and parameters, output settings, and run settings are all the same.
 

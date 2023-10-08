@@ -408,7 +408,7 @@ The following JSON snippet demonstrates how to configure these properties.
 
 ## Step 4: Assign a custom claims provider to your app
 
-For tokens to be issued with claims incoming from the custom authentication extension, you must assign a custom claims provider to your application. The custom claims provider relies on the custom authentication extension configured with the **token issuance start** event listener. You can choose whether all, or a subset of claims, from the custom claims provider are mapped into the token.
+For tokens to be issued with claims incoming from the custom authentication extension, you must assign a custom claims provider to your application. This is based on the token audience, so the provider must be assigned to the client application to receive claims in an ID token, and to the resource application to receive claims in an access token. The custom claims provider relies on the custom authentication extension configured with the **token issuance start** event listener. You can choose whether all, or a subset of claims, from the custom claims provider are mapped into the token.
 
 Follow these steps to connect the *My Test application* with your custom authentication extension:
 

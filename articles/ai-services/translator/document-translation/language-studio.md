@@ -4,8 +4,7 @@ description: "Document Translation in Azure AI Language Studio."
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 09/19/2023
 ms.author: lajanuar

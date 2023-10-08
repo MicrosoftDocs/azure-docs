@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 09/28/2023
 
 ms.author: justinha
 author: mjsantani
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 You can nudge users to set up Microsoft Authenticator during sign-in. Users go through their regular sign-in, perform multifactor authentication as usual, and then get prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Authenticator.  
 
-You can also define how many days a user can postpone, or "snooze," the nudge. If a user taps **Not now** to postpone the app setup, they get nudged again on the next MFA attempt after the snooze duration has elapsed. Users with free and trial subscriptions can postpone the app setup up to three times.
+You can also define how many days a user can postpone, or "snooze," the nudge. If a user taps **Skip for now** to postpone the app setup, they get nudged again on the next MFA attempt after the snooze duration has elapsed. You can decide whether the user can snooze indefinitely or up to three times (after which registration is required).
 
 >[!NOTE]
 >As users go through their regular sign-in, Conditional Access policies that govern security info registration apply before the user is prompted to set up Authenticator. For example, if a Conditional Access policy requires security info updates can only occur on an internal network, then users won't be prompted to set up Authenticator unless they are on the internal network. 
@@ -40,53 +40,52 @@ You can also define how many days a user can postpone, or "snooze," the nudge. I
 
 1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Only users who are allowed for the Authenticator app push notifications and don't have it currently set up will see the prompt. 
 
-   ![User performs multifactor authentication](./media/how-to-nudge-authenticator-app/user-mfa.png)
+   ![Screenshot of multifactor authentication.](./media/how-to-mfa-registration-campaign/user-prompt.png)
 
 1. User taps **Next** and steps through the Authenticator app setup. 
    1. First download the app.  
-   ![User downloads Microsoft Authenticator](media/how-to-mfa-registration-campaign/user-downloads-microsoft-authenticator.png)
+   ![Screenshot of download for Microsoft Authenticator.](media/how-to-mfa-registration-campaign/user-downloads-microsoft-authenticator.png)
 
    1. See how to set up the Authenticator app. 
    
-      ![User sets up Microsoft Authenticator](./media/how-to-nudge-authenticator-app/setup.png)
+      ![Screenshot of Microsoft Authenticator.](./media/how-to-nudge-authenticator-app/setup.png)
 
    1. Scan the QR Code. 
 
-      ![User scans QR Code](./media/how-to-nudge-authenticator-app/scan.png)
+      ![Screenshot of QR Code.](./media/how-to-nudge-authenticator-app/scan.png)
 
    1. Approve the test notification.
 
-      ![User approves the test notification](./media/how-to-nudge-authenticator-app/test.png)
+      ![Screenshot of test notification.](./media/how-to-nudge-authenticator-app/test.png)
 
    1. Notification approved.
 
-      ![Confirmation of approval](./media/how-to-nudge-authenticator-app/approved.png)
+      ![Screenshot of confirmation of approval.](./media/how-to-nudge-authenticator-app/approved.png)
 
    1. Authenticator app is now successfully set up as the user's default sign-in method.
 
-      ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
+      ![Screenshot of installation complete.](./media/how-to-nudge-authenticator-app/finish.png)
 
-1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for up to 14 days, which can be set by an admin. Users with free and trial subscriptions can snooze the prompt up to three times.
- 
-   ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
+1. If a user wishes to not install the Authenticator app, they can tap **Skip for now** to snooze the prompt for up to 14 days, which can be set by an admin. Users with free and trial subscriptions can snooze the prompt up to three times.
+
+   ![Screenshot of snooze option.](media/how-to-mfa-registration-campaign/snooze.png)
 
 
 ## Enable the registration campaign policy using the Microsoft Entra admin center
 
-
 To enable a registration campaign in the Microsoft Entra admin center, complete the following steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
-1. Browse to **Protection** > **Authentication methods** > **Registration campaign**.
-1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and text message users with free and trial subscriptions. For more information, see [Protecting authentication methods in Microsoft Entra ID](concept-authentication-default-enablement.md).
-   
-   ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) or [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Registration campaign** and click **Edit**.
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. From Sept. 25 to Oct. 20, 2023, the Microsoft managed value for the registration campaign will change to **Enabled** for voice call and text message users across all tenants. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
+
+   :::image type="content" border="true" source="media/how-to-mfa-registration-campaign/admin-experience.png" alt-text="Screenshot of enabling a registration campaign.":::
 
 1. Select any users or groups to exclude from the registration campaign, and then click **Save**. 
 
 ## Enable the registration campaign policy using Graph Explorer
 
-In addition to using the Microsoft Entra admin center, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global Administrators** and **Authentication Method Policy Administrators** can update the policy. 
+In addition to using the Microsoft Entra admin center, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global Administrators** and **Authentication Policy Administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
@@ -94,24 +93,25 @@ To configure the policy using Graph Explorer:
 
    To open the Permissions panel:
 
-   ![Screenshot of Graph Explorer](./media/how-to-nudge-authenticator-app/permissions.png)
+   ![Screenshot of Graph Explorer.](./media/how-to-nudge-authenticator-app/permissions.png)
 
 1. Retrieve the Authentication methods policy: `GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy`
 
 1. Update the registrationEnforcement and authenticationMethodsRegistrationCampaign section of the policy to enable the nudge on a user or group.
 
-   ![Campaign section](./media/how-to-nudge-authenticator-app/campaign.png)
+   ![Screenshot of the API response.](media/how-to-mfa-registration-campaign/response.png)
 
 To update the policy, perform a PATCH on the Authentication Methods Policy with only the updated registrationEnforcement section: `PATCH https://graph.microsoft.com/beta/policies/authenticationmethodspolicy`
 
 The following table lists **authenticationMethodsRegistrationCampaign** properties.
 
-| Name | Possible values | Description |
+|Name|Possible values|Description|
 |------|-----------------|-------------|
-| state | "enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Microsoft Entra ID default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
-| snoozeDurationInDays | Range: 0 – 14 | Defines the number of days before the user is nudged again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
-| includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
-| excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
+|snoozeDurationInDays|Range: 0 - 14|Defines the number of days before the user is nudged again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day|
+|enforceRegistrationAfterAllowedSnoozes|"true"<br>"false"|Dictates whether a user is required to perform setup after 3 snoozes.<br>If true, user is required to register.<br>If false, user can snooze indefinitely.<br>Default: true<br>Please note this property only comes into effect once the Microsoft managed value for the registration campaign will change to Enabled for text message and voice call for your organization.|
+|state|"enabled"<br>"disabled"<br>"default"|Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Microsoft Entra ID default value for this setting. From Sept. 25 to Oct. 20, 2023, the default state will change to enabled for voice call and text message users across all tenants.<br>Change state to enabled (for all users) or disabled as needed.|
+|excludeTargets|N/A|Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
+|includeTargets|N/A|Allows you to include different users and groups that you want the feature to target.|
 
 The following table lists **includeTargets** properties.
 
@@ -134,13 +134,14 @@ Here are a few sample JSONs you can use to get started!
 
 - Include all users 
   
-  If you want to include ALL users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/All%20Users%20Enabled.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
+  If you want to include ALL users in your tenant, update the following JSON example with the relevant GUIDs of your users and groups. Then paste it in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
   "registrationEnforcement": {
           "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
+              "snoozeDurationInDays": 1,
+              "enforceRegistrationAfterAllowedSnoozes": true,
               "state": "enabled",
               "excludeTargets": [],
               "includeTargets": [
@@ -157,13 +158,14 @@ Here are a few sample JSONs you can use to get started!
 
 - Include specific users or groups of users
 
-  If you want to include certain users or groups in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes.json) and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
+  If you want to include certain users or groups in your tenant, update the following JSON example with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
   "registrationEnforcement": {
         "authenticationMethodsRegistrationCampaign": {
-            "snoozeDurationInDays": 0,
+            "snoozeDurationInDays": 1,
+            "enforceRegistrationAfterAllowedSnoozes": true,
             "state": "enabled",
             "excludeTargets": [],
             "includeTargets": [
@@ -180,17 +182,19 @@ Here are a few sample JSONs you can use to get started!
             ]
         }
     }
+  }  
   ```
 
-- Include and exclude specific users/groups of users
+- Include and exclude specific users or groups
 
-  If you want to include AND exclude certain users/groups of users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes%20and%20Excludes.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. Enter the correct GUIDs for your users and groups.
+  If you want to include AND exclude certain users or groups in your tenant, update the following JSON example with the relevant GUIDs of your users and groups. Then paste it in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
   "registrationEnforcement": {
           "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
+              "snoozeDurationInDays": 1,
+              "enforceRegistrationAfterAllowedSnoozes": true,
               "state": "enabled",
               "excludeTargets": [
                   {
@@ -283,13 +287,13 @@ No. The snooze duration for the prompt is a tenant-wide setting and applies to a
 
 The feature aims to empower admins to get users set up with MFA using the Authenticator app and not passwordless phone sign-in.  
 
-**Will a user who has a 3rd party authenticator app setup see the nudge?** 
+**Will a user who signs in with a 3rd party authenticator app see the nudge?** 
 
-If this user doesn’t have the Authenticator app set up for push notifications and is enabled for it by policy, yes, the user will see the nudge. 
+Yes. If a user is enabled for the registration campaign and doesn't have Microsoft Authenticator set up for push notifications, the user is nudged to set up Authenticator. 
 
-**Will a user who has the Authenticator app setup only for TOTP codes see the nudge?** 
+**Will a user who has Authenticator set up only for TOTP codes see the nudge?**
 
-Yes. If the Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
+Yes. If a user is enabled for the registration campaign and Authenticator app isn't set up for push notifications, the user is nudged to set up push notification with Authenticator.
 
 **If a user just went through MFA registration, are they nudged in the same sign-in session?** 
 
@@ -301,7 +305,7 @@ No. The feature, for now, aims to nudge users to set up the Authenticator app on
 
 **Is there a way for me to hide the snooze option and force my users to setup the Authenticator app?**  
 
-Users in organizations with free and trial subscriptions can postpone the app setup up to three times. There is no way to hide the snooze option on the nudge for organizations with paid subscriptions yet. You can set the snoozeDuration to 0, which ensures that users see the nudge during each MFA attempt.  
+Set the **Limited number of snoozes** to **Enabled** such that users can postpone the app setup up to three times, after which setup is required.  
 
 **Will I be able to nudge my users if I am not using Microsoft Entra multifactor authentication?** 
 
@@ -313,9 +317,9 @@ Yes. If they have been scoped for the nudge using the policy.
 
 **What if the user closes the browser?** 
 
-It's the same as snoozing.
+It's the same as snoozing. If setup is required for a user after they snoozed three times, the user is prompted the next time they sign in.
 
-**Why don’t some users see a nudge when there is a Conditional Access policy for "Register security information"?**
+**Why don't some users see a nudge when there is a Conditional Access policy for "Register security information"?**
 
 A nudge won't appear if a user is in scope for a Conditional Access policy that blocks access to the **Register security information** page.
 

@@ -8,7 +8,7 @@ brand: azure
 
 metadata:
   title: Microsoft Entra External ID documentation
-  description: Learn how to use Microsoft Entra External ID, also known as Microsoft Entra External ID for customers and partners to customize and control how they sign up, sign in when using your applications.
+  description: Learn how to use Microsoft Entra External ID for customers to manage how partners and customers sign in to your applications.
   services: active-directory
   ms.service: active-directory
   ms.subservice: ciam

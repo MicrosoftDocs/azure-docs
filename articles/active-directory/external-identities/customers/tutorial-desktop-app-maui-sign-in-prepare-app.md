@@ -43,7 +43,7 @@ Wait for the project to be created and its dependencies to be restored.
 
 ## Add MSAL SDK support using MSAL helper classes
 
-MSAL client enables developers to acquire security tokens from Microsoft Entra External ID for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
+MSAL client enables developers to acquire security tokens from Microsoft Entra ID for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
 Download the following files into a folder in your computer:
 
