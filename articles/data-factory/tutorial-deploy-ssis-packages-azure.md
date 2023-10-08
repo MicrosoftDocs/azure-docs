@@ -120,9 +120,12 @@ On the **Deployment settings** page of **Integration runtime setup** pane, you h
 
 #### Creating SSISDB
 
-On the **Deployment settings** page of **Integration runtime setup** pane, if you want to deploy your packages into SSISDB (Project Deployment Model), select the **Create SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance to store your projects/packages/environments/execution logs** check box. Alternatively, if you want to deploy your packages into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model), no need to create SSISDB nor select the check box.
+On the **Deployment settings** page of **Integration runtime setup** pane, select the **Create SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance to store your projects/packages/environments/execution logs** check box in below scenarios:
+    - Project Deployment Model. You deploy your packages into SSISDB.
+    - Regardless of deployment model, use SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package executions. For more information, see [Schedule SSIS package executions via  Azure SQL Managed Instance Agent](./how-to-invoke-ssis-package-managed-instance-agent.md).
 
-Regardless of your deployment model, if you want to use SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package executions, it's enabled by SSISDB, so select the check box anyway. For more information, see [Schedule SSIS package executions via  Azure SQL Managed Instance Agent](./how-to-invoke-ssis-package-managed-instance-agent.md).
+In below scenario, there is no need to create SSISDB nor select the check box:
+    - Package Deployment Model and not using SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package execution. You deploy your packages into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model), and use Data Factory pipeline to orchestrate/schedule your package executions.
    
 If you select the check box, complete the following steps to bring your own database server to host SSISDB that we'll create and manage on your behalf.
 
