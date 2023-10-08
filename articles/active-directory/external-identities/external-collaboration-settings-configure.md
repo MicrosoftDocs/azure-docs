@@ -93,7 +93,8 @@ With the Guest Inviter role, you can give individual users the ability to invite
 
 Here's an example that shows how to use Microsoft Graph PowerShell to add a user to the `Guest Inviter` role:
 
-```
+
+```powershell
 Import-Module Microsoft.Graph.Identity.DirectoryManagement
 
 $roleName = "Guest Inviter"
