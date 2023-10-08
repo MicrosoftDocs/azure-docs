@@ -5,7 +5,7 @@ description:  Use Azure OpenAI models in Azure Machine Learning
 ms.author: swatig
 author: swatig007
 ms.reviewer: ssalgado
-ms.date: 06/30/2023
+ms.date: 10/12/2023
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
@@ -40,30 +40,28 @@ The model catalog (preview) in Azure Machine Learning studio is your starting po
 > [!TIP] 
 >Supported OpenAI models are published to the AzureML Model Catalog. View a complete list of [Azure OpenAI models](../ai-services/openai/concepts/models.md).
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/model-catalog.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/model-card.png" alt-text="Screenshot showing the Azure OpenAI models collection in the model catalog.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/model-catalog2.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/model-catalog2.png" alt-text="Screenshot showing the Azure OpenAI models collection in the model catalog.":::
 
 You can filter the list of models in the model catalog by inference task, or by finetuning task. Select a specific model name and see the model card for the selected model, which lists detailed information about the model. For example:
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/model-card.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/model-card.png" alt-text="Screenshot showing the Azure OpenAI model card in the Azure Machine Learning model catalog.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/model-card-turbo.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/model-card-turbo.png" alt-text="Screenshot showing the Azure OpenAI model card in the Azure Machine Learning model catalog.":::
 
-> [!NOTE] 
->Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI services resources. You can request access to Azure OpenAI service [here](https://go.microsoft.com/fwlink/?linkid=2222006&clcid=0x409).
 
 
 ### Connect to Azure OpenAI service
-In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI resource](https://azure.microsoft.com/products/cognitive-services/openai-service/). Azure Machine Learning creates a default Azure OpenAI resource on behalf of the user when you deploy any Azure OpenAI model. 
+In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI resource](https://azure.microsoft.com/products/cognitive-services/openai-service/). You can create an Azure OpenAI resource following the instructions [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 ### Deploying Azure OpenAI models
 To deploy an Azure Open Model from Azure Machine Learning, in order to deploy an Azure OpenAI model: 
 
 1. Select on **Model Catalog** in the left pane.
-1. Select on **Azure OpenAI Service** from the options.
 1. Select a model to deploy
 1. Select `Deploy` to deploy the model to the Azure OpenAI service.
 
-    :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
+    :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai-turbo.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai-turbo.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
 
-1. Provide a name for your deployment in **Deployment Name** and select **Finish**.
+1. Select on **Azure OpenAI resource** from the options
+1. Provide a name for your deployment in **Deployment Name** and select **Deploy**.
 1. The find the models deployed to Azure OpenAI service, go to the **Endpoint** section in your workspace.
 1. Select the **Azure OpenAI** tab and find the deployment you created. When you select the deployment, you'll be redirect to the OpenAI resource that is linked to the deployment.
 
@@ -79,26 +77,29 @@ You can invoke the finetune settings form by selecting on the **Finetune** butto
 
 **Finetune Settings:**
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune.png" alt-text="Screenshot showing the finetune settings options in the OpenAI models finetune settings form.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-turbo.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-turbo.png" alt-text="Screenshot showing the finetune settings options in the OpenAI models finetune settings form.":::
 
 
 **Training Data**
     
-1. Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace. The dataset needs to have two fields - prompt and completion.
+1. Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace. 
+For models with completion task type, the training data you use must be formatted as a JSON Lines (JSONL) document in which each line represents a single prompt-completion pair. 
 
 :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" alt-text="Screenshot showing the training data in the finetune wizard.":::
 
+For models with chat task type, each row in the dataset should be a list of JSON objects. Each row corresponds to a conversation and each object in the row is a turn/utterance in the conversation.
+
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" alt-text="Screenshot showing the training data in the finetune wizard.":::
 
 * Validation data: Pass in the data you would like to use to validate your model. Selecting **Automatic split** reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
-* Test data: Pass in the test data you would like to use to evaluate your finetuned model. Selecting **Automatic split** reserves an automatic split of training data for test. 
 
 1. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then deploy this finetuned model to an endpoint for inferencing.
 
 **Customizing finetuning parameters:**
 
-If you would like to customize the finetuning parameters, you can select on the Customize button in the Finetune wizard to configure parameters such as batch size, number of epochs, learning rate multiplier or another desired parameter. Each of these settings has default values, but can be customized via code based samples, if needed.
+If you would like to customize the finetuning parameters, you can select on the Customize button in the Finetune wizard to configure parameters such as batch size, number of epochs and learning rate multiplier. Each of these settings has default values, but can be customized via code based samples, if needed.
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-parameters.png" alt-text="Screenshot showing the finetune parameters in the finetune wizard.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-parameters2.png" alt-text="Screenshot showing the finetune parameters in the finetune wizard.":::
 
 **Deploying finetuned models:**
 To run a deploy fine-tuned model job from Azure Machine Learning, in order to deploy finetuned an Azure OpenAI model:
