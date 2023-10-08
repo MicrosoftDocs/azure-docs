@@ -64,7 +64,7 @@ Existing [policy and initiative definitions can be exported](../how-to/exportres
 ### Create and update policy definitions
 
 The policy definitions are created using JSON, and stored in source control. Each policy has its
-own set of files, such as the parameters, rules, and environment parameters, that should be stored
+own set of files, such as the parameters, rules, and environment parameters that should be stored
 in the same folder. The following structure is a recommended way of keeping your policy definitions
 in source control.
 

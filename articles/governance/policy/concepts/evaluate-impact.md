@@ -46,7 +46,7 @@ and the properties you need to evaluate for compliance as possible.
 ## Test your policy's effectiveness
 
 Before looking to manage new or updated resources with your new policy definition, it's best to see
-how it evaluates a limited subset of existing resources, such as a test resource group. The [Azure Policy VS Code extenstion](../how-to/extension-for-vscode.md#on-demand-evaluation-scan) allows for isolated testing of definitions against exisiting Azure resources using the on demand evaluation scan.
+how it evaluates a limited subset of existing resources, such as a test resource group. The [Azure Policy VS Code extension](../how-to/extension-for-vscode.md#on-demand-evaluation-scan) allows for isolated testing of definitions against existing Azure resources using the on demand evaluation scan.
 You may also assign the definition in a _Dev_ environment using the
 [enforcement mode](./assignment-structure.md#enforcement-mode) _Disabled_ (DoNotEnforce) on your
 policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from
@@ -63,7 +63,7 @@ resources before full implementation of the new policy. This cleanup can be done
 a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is
 _DeployIfNotExists_ or _Modify_.
 
-Policy definitions with a _DeployIfNotExist_ should leverage the [Azure Resource Manager template what if](../../../azure-resource-manager/templates/deploy-what-if.md) to validate and test the changes that will happen when deploying the ARM template. 
+Policy definitions with a _DeployIfNotExist_ should leverage the [Azure Resource Manager template what if](../../../azure-resource-manager/templates/deploy-what-if.md) to validate and test the changes that happen when deploying the ARM template. 
 
 ## Audit new or updated resources
 

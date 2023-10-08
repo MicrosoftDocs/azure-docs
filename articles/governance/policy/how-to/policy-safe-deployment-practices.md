@@ -13,7 +13,7 @@ the safe deployment practices (SDP) framework. The
 safe deployment of Azure Policy definitions and assignments helps limiting the impact of
 unintended behaviors of policy resources.
 
-The high-level approach of implementing SDP with Azure Policy is to graudally roll out policy assignments
+The high-level approach of implementing SDP with Azure Policy is to graudally roll-out policy assignments
 by rings to detect policy changes that affect the environment in early stages before it
 affects the critical cloud infrastructure.
 
@@ -148,7 +148,7 @@ validate that the compliance result is as expected.
     and impact of the policy. If the results aren't as expected due to application configuration,
     refactor the application as appropriate.
 
-    You may also [trigger remediation tasks](../how-to/remediate-resources.md) to remediate existing non-compliant resources. Ensure the remediation tasks are bringing resouces into compliance as expected.
+    You may also [trigger remediation tasks](../how-to/remediate-resources.md) to remediate existing non-compliant resources. Ensure the remediation tasks are bringing resources into compliance as expected.
 
 3. Repeat by expanding the resource selector property values to include the next rings'
 locations and validating the expected compliance results and application health. Example selector with an added location value:
