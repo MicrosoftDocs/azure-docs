@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data in Microsoft Fabric Lakehouse Table (Preview) 
+title: Copy data in Microsoft Fabric Lakehouse Table (Preview) 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Microsoft Fabric Lakehouse Table  (Preview) using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
