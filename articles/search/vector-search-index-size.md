@@ -127,14 +127,16 @@ The memory overhead is higher for larger values of the HNSW parameter `m`, which
   
 The following table summarizes the overhead percentages observed in internal tests:  
   
-| Dimensions (dims) | HNSW Parameter (m) | Overhead Percentage |  
+| Dimensions | HNSW Parameter (m) | Overhead Percentage |  
 |-------------------|--------------------|---------------------|
 | 96               | 4                  | 20%               |    
 | 200               | 4                  | 8%               |  
 | 768               | 4                  | 2%               |  
 | 1536              | 4                  | 1%               |  
-  
 These results demonstrate the relationship between dimensions, HNSW parameter `m`, and memory overhead for the HNSW algorithm.  
+
+
+
 
 
 ### Overhead from deleting or updating documents within the index
