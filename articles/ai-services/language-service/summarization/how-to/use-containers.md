@@ -6,14 +6,13 @@ services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
-ms.subservice: language-service
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.author: jboback
 keywords: on-premises, Docker, container
 ---
 
-# Use summarization Docker containers on-premises 
+# Use summarization Docker containers on-premises
 
 Containers enable you to host the Summarization API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Summarization remotely, then containers might be a good option.
 
