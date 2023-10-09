@@ -7,7 +7,7 @@ author: robece
 ms.author: robece
 ---
 
-# How to send events to Azure monitor alerts (Preview)
+# How to send events to Azure monitor alerts (preview)
 
 This article describes how to deliver Azure Key Vault events as Azure Monitor alerts. 
 
