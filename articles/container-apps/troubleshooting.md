@@ -32,7 +32,7 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 
 ## Setup
 
-TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file. That might also reduce the zone pivot complexity. We could put the include within the zone pivot, then the include could use tabs.
+TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
 
 Run the following command and follow the prompts to sign in to Azure from the CLI and complete the authentication process.
 
@@ -348,7 +348,7 @@ x Where is environment configuration in Portal? Have to know your environment na
 - How to find what env your app belongs to in console?
 x Console does not show setting for HTTP/TCP. Okay, it's --transport.
 - Things to note:
-	- Port mismatch. Note for HTTP ingress your port is always 443. However that is the exposed port, not the target port.
+	- Port mismatch. For HTTP ingress your port is always 443. However that is the exposed port, not the target port.
 	- TCP ingress is only available with custom vnet.
 
 ::: zone-end
@@ -356,6 +356,7 @@ x Console does not show setting for HTTP/TCP. Okay, it's --transport.
 ::: zone pivot="console"
 
 - Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command. If ingress is disabled, `az containerapp ingress show` returns nothing.
+
   TODO1 This is confusing, especially for Linux people (for whom no output means no error), and should be changed so that az container app ingress show explicitly states ingress is disabled.
 
   # [Bash](#tab/bash)
@@ -376,7 +377,7 @@ x Console does not show setting for HTTP/TCP. Okay, it's --transport.
 
   ---
 
-  You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You will need to specify internal or external ingress, and the target port.
+  You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
 
   # [Bash](#tab/bash)
 
@@ -447,6 +448,7 @@ x Console does not show setting for HTTP/TCP. Okay, it's --transport.
   ```
 
 - Use the [`az containerapp access-restriction list`](/cli/azure/containerapp/ingress/access-restriction#az-containerapp-ingress-access-restriction-list(containerapp)) command to verify your client does not have an IP address that is denied.
+
   # [Bash](#tab/bash)
 
   ```azurecli
