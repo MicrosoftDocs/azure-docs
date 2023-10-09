@@ -46,7 +46,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * **Premium_ZRS**: Premium zone-redundant storage
 
 > [!NOTE]
-> Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB. It's recommended to use Azure Premium Storage instead of Standard Storage since Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads.
+> Azure Files supports Azure Premium file shares. The minimum file share capacity is 100 GiB. We recommend using Azure Premium file shares instead of Standard file shares because Premium file shares offers higher performance, low-latency disk support for I/O-intensive workloads.
 
 When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
