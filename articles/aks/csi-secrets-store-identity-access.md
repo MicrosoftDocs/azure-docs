@@ -306,7 +306,7 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Troubleshooting and configuration options for Azure Key Vault Provider with Secrets Store CSI Driver in AKS](./csi-secrets-store-configuration-options.md)
+> [View additional configuration options and troubleshooting resources for Azure Key Vault Provider with Secrets Store CSI Driver in AKS](./csi-secrets-store-configuration-options.md)
 
 <!-- LINKS INTERNAL -->
 

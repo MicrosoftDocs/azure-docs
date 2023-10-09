@@ -453,7 +453,7 @@
                       href: csi-secrets-store-driver.md
                     - name: 2 - Provide Azure Key Vault access
                       href: csi-secrets-store-identity-access.md
-                    - name: 3 - Additional configuration options
+                    - name: 3 - Apply additional configurations or perform troubleshooting
                       href: csi-secrets-store-configuration-options.md
     - name: Configure networking
       items:

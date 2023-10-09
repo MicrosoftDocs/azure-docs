@@ -100,7 +100,7 @@ The following extra add-on is required:
 - **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-configuration-options.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
 ### Enable application routing on a new cluster
 
@@ -126,7 +126,7 @@ The following extra add-ons are required:
 - **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-configuration-options.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
 ### Enable application routing on a new cluster
 
@@ -157,7 +157,7 @@ The following extra add-on is required:
 - **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-configuration-options.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
 ### Enable application routing on a new cluster
 
