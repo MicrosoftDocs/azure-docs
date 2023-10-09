@@ -36,8 +36,8 @@ There are a few different strategies that you can use to upgrade Microsoft Entra
 
 | Method | Description | Pros | Cons |
 | --- | --- | --- | --- |
-| [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) |This is the easiest method for customers with an express installation |No manual intervention |Auto-upgrade version might not include the latest features |
-| [In-place upgrade](#in-place-upgrade) |If you have a single server, you can upgrade the installation in-place on the same server |- Doesn't require another server<br/><br/> - Safest approach and smoother transition to a newer version. Supports Windows OS (Operating Systems) upgrade. Sync is not interrupted and doesn't impose a risk to production |- If there's an issue while in-place upgrading, you can't roll back the new release or configuration and change the active server when you are ready <br/><br/>- Requires another server|
+| [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) |This is the easiest method for customers with an express installation |- No manual intervention |- Auto-upgrade version might not include the latest features |
+| [In-place upgrade](#in-place-upgrade) |If you have a single server, you can upgrade the installation in-place on the same server |- Doesn't require another server<br/><br/> - Safest approach and smoother transition to a newer version. Supports Windows OS (Operating Systems) upgrade. Sync is not interrupted and doesn't impose a risk to production |- If there's an issue while in-place upgrading, you can't roll back the new release or configuration and change the active server when you are ready <br/><br/> |
 
 For permissions information, see the [permissions required for an upgrade](reference-connect-accounts-permissions.md#upgrade).
 
