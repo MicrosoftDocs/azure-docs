@@ -9,7 +9,7 @@ ms.date: 10/09/2023
 ms.custom: template-concept
 ---
 
-# Emergency calling for Microsoft Team Direct Routing with Azure Communications Gateway
+# Emergency calling for Microsoft Teams Direct Routing with Azure Communications Gateway
 
 Azure Communications Gateway supports Microsoft Teams Direct Routing subscribers making emergency calls from Microsoft Teams clients. This article describes how Azure Communications Gateway routes these calls to your network and the key facts you'll need to consider.
 

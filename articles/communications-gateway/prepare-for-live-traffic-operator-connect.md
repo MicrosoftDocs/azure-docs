@@ -107,7 +107,7 @@ You must test typical call flows for your network. Your onboarding team will pro
 
 Before you can launch, Microsoft Teams requires proof that your network is properly connected to Microsoft's network.
 
-1. Provide your onboarding team with proof that BFD is enabled. You should have enabled BFD when you [connected Azure Communications Gateway to your networks](deploy.md#connect-azure-communications-gateway-to-your-networks) sa part of deployment. For example, if you have a Cisco router, you can provide configuration similar to the following.
+1. Provide your onboarding team with proof that BFD is enabled. You should have enabled BFD when you [connected Azure Communications Gateway to your networks](deploy.md#connect-azure-communications-gateway-to-your-networks) as part of deploying. For example, if you have a Cisco router, you can provide configuration similar to the following.
 
     ```text
     interface TenGigabitEthernet2/0/0.150

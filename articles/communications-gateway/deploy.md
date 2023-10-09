@@ -189,7 +189,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
 ## Configure domain delegation with Azure DNS
 
 > [!NOTE]
-> If you decided to use an automatically-allocated `*.commsgw.azure.com` domain name for Azure Communications Gateway, skip this step.
+> If you decided to use an automatically allocated `*.commsgw.azure.com` domain name for Azure Communications Gateway, skip this step.
 
 If you chose to delegate a subdomain when you created Azure Communications Gateway, you must update the name server (NS) records for this subdomain to point to name servers created for you in your Azure Communications Gateway deployment.
 
