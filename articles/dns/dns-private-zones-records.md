@@ -1,6 +1,6 @@
 ---
-title: DNS Zones and Records Overview - Azure Private DNS
-description: Overview of support for hosting DNS zones and records in Azure Private DNS.
+title: Private DNS Records Overview - Azure Private DNS
+description: Overview of suppoort for DNS records in Azure Private DNS.
 author: greg-lindsay
 ms.service: dns
 ms.topic: conceptual
@@ -9,13 +9,9 @@ ms.date: 10/09/2023
 ms.author: greglin
 ---
 
-# Overview of Private DNS zones and records
+# Overview of private DNS records
 
-Private DNS domains, zones, and records work similarly to public zones, except that they are not accessible from the public Internet. Azure Private DNS is a reliable and secure solution to manage DNS names in your virtual networks.  
-
-## DNS zones
-
-When you create a private DNS zone, Azure stores the zone data as a global resource. This means that the private zone is not dependent on a single VNet or region. You can link the same private zone to multiple VNets in different regions. If service is interrupted in one VNet, your private zone is still available.
+This article provides information about support for DNS records in Azure Private DNS zones. For an overiew of private DNS zones, see: [What is an Azure Private DNS zone?](private-dns-privatednszone.md)
 
 ## DNS records
 
