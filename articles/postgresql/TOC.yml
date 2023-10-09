@@ -113,6 +113,8 @@
         href: flexible-server/concepts-networking-private.md
       - name: Networking with Private Endpoint
         href: flexible-server/concepts-networking-private-link.md
+      - name: Secure connectivity with SSL and TLS
+        href: flexible-server/concepts-networking-ssl-tls.md
     - name: Firewall rules
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
