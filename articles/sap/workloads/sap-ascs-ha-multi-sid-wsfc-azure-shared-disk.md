@@ -67,7 +67,7 @@ Windows Server 2016, 2019, and later are supported. Use the latest datacenter im
 We strongly recommend using at least Windows Server 2019 Datacenter, for these reasons:
 
 - WSFC in Windows Server 2019 is Azure aware.
-- It includes integration and awareness of Azure host maintenance and improved experience by monitoring for Azure scheduled events.
+- Windows Server 2019 Datacenter includes integration and awareness of Azure host maintenance and improved experience by monitoring for Azure scheduled events.
 - You can use distributed network names. (It's the default option.) There's no need to have a dedicated IP address for the cluster network name. Also, you don't need to configure an IP address on an Azure internal load balancer.
 
 ## Architecture
