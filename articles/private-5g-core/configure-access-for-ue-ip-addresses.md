@@ -65,6 +65,8 @@ You can see the IP addresses for devices by either
         1. Check the packet capture for expected traffic leaving the N6 interface towards the UE.
 1. Take packet captures to check that the firewall is both receiving and sending traffic destined to the smart camera and to the client device.
 
+:::image type="content" source="media/private-mobile-network-design-requirements/access-ue-example.png" alt-text="Diagram showing a bi-directional user plan." lightbox="media/private-mobile-network-design-requirements/access-ue-example.png":::
+
 ## Result
 
 Your Azure Private 5G Core network can access UE IP addresses from the Data network.
