@@ -44,7 +44,11 @@ sections:
           Can I deploy the OCR (Read) capability on-premises?
         answer: |
           Yes, the Azure AI Vision 3.2 OCR (Read) cloud API is also available as a Docker container for on-premises deployment. Learn [how to deploy](computer-vision-how-to-install-containers.md) 
-
+          
+      - question: |
+          Can I access Azure AI Vision using Azure assigned managed identity?
+        answer: |
+          Yes, please follow the instructions on [this page] (../azure/ai-services/authentication?tabs=powershell#authorize-access-to-managed-identities) on how you can use Azure-assigned managed identity to access Azure AI Services such as Azure AI Vision. 
       - question: |
           Can I train Azure AI Vision API to use custom tags?  For example, I would like to feed in pictures of cat breeds to 'train' the AI, then receive the breed value on an AI request.
         answer: |
