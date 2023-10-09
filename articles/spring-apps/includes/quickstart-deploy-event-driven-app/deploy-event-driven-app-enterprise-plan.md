@@ -20,7 +20,7 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-This section isn't required to prepare the jar package for deployment, the `Deploy to azure` button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
+This section isn't required to prepare the JAR package for deployment. The **Deploy to azure** process downloads the JAR from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -169,7 +169,7 @@ Now the cloud environment is ready. Deploy the app by using the following comman
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+The application deployment process has been integrated into the **Deploy to Azure** step, which you'll complete in the previous section.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

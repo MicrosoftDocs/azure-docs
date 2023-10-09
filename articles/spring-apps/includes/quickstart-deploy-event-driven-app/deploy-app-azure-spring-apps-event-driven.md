@@ -18,7 +18,7 @@ This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
-The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+The application deployment process has been integrated into the **Deploy to Azure** step, which you'll complete in the previous section.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
