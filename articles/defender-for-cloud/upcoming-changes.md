@@ -27,10 +27,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
-| [Deprecate and replace recommendations App Service Client Certificates](#deprecate-and-replace-recommendations-app-service-client-certificates) | August 2023 |
 | [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
-| [Deprecating and replacing "Microsoft Defender for Storage plan should be enabled" recommendation](#deprecating-and-replacing-microsoft-defender-for-storage-plan-should-be-enabled-recommendation) | September 2023|
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | September 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
 
@@ -217,21 +215,6 @@ The following table lists the alerts to be deprecated:
 | Anonymity network activity (Preview) | DNS_DarkWeb |
 | Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
 
-### Deprecate and replace recommendations App Service Client Certificates
-
-**Estimated date for change: August 2023**
-
-App Service policies are set to be deprecated and replaced so that they only monitor apps using HTTP 1.1 since HTTP 2.0 on App Service doesn't support client certificates. The existing policies that enforce client certificates require an additional check to determine if Http 2.0 is being used by the app. Adding this additional check requires a change to the policy "effect" from Audit to AuditIfNotExists. Policy "effect" changes require deprecation of the old version of the policy and the creation of a replacement.
-
-Policies in this scope:
-
-- App Service apps should have Client Certificates (Incoming client certificates) enabled
-- App Service app slots should have Client Certificates (Incoming client certificates) enabled
-- Function apps should have Client Certificates (Incoming client certificates) enabled
-- Function app slots should have Client Certificates (Incoming client certificates) enabled
-
-Customers who are currently using this policy will need to ensure they have the new policies with similar names enabled and assigned to their intended scope.
-
 ### Change to the Log Analytics daily cap
 
 Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
@@ -257,18 +240,6 @@ Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclud
 At that time, all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion.
 
 Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud).
-
-## Deprecating and replacing "Microsoft Defender for Storage plan should be enabled" recommendation
-
-**Estimated date for change: September 2023**
-
-The recommendation `Microsoft Defender for Storage plan should be enabled` will be deprecated on public clouds and will remain available on Azure Government cloud. This recommendation will be replaced by a new recommendation: `Microsoft Defender for Storage plan should be enabled with Malware Scanning and Sensitive Data Threat Detection`. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
-
-| Policy Name | Description | Policy Effect | Version |
-|--|--|--|--|
-| [Microsoft Defender for Storage should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f640d2586-54d2-465f-877f-9ffc1d2109f4) | Microsoft Defender for Storage detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption. The new Defender for Storage plan includes malware scanning and sensitive data threat detection.This plan also provides a predictable pricing structure (per storage account) for control over coverage and costs. | Audit, disabled | 1.0.0 |
-
-Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md).
 
 ### DevOps Resource Deduplication for Defender for DevOps
 
