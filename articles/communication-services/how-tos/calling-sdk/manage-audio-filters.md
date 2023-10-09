@@ -22,7 +22,17 @@ Learn how to manage audio processing features with the Azure Communication Servi
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+::: zone pivot="platform-android"
+[!INCLUDE [Manage Audio Filters Android](./includes/manage-audio-filters/manage-audio-filters-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Manage Audio Filters iOS](./includes/manage-audio-filters/manage-audio-filters-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
 [!INCLUDE [Manage Audio Filters Windows](./includes/manage-audio-filters/manage-audio-filters-windows.md)]
+::: zone-end
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
