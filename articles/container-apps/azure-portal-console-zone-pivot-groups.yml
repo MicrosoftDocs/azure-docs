@@ -1,0 +1,11 @@
+# YamlMime:ZonePivotGroups
+groups:
+# Owner: craigshoemaker
+- id: azure-portal-console
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: console
+    title: Console

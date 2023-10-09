@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.date: 09/22/2023
 ms.author: v-wellsjason
 ms.custom: devx-track-azurecli
-zone_pivot_groups: azure-interface
+zone_pivot_group_filename: container-apps/azure-portal-console-zone-pivot-groups.json
+zone_pivot_groups: azure-portal-console
 ---
 
 # Troubleshoot a container app
@@ -27,7 +28,7 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 | GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
-::: zone pivot="bash,powershell"
+::: zone pivot="console"
 
 ## Setup
 
@@ -35,75 +36,55 @@ TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it fr
 
 Run the following command and follow the prompts to sign in to Azure from the CLI and complete the authentication process.
 
-::: zone-end
-
-::: zone pivot="bash"
+# [Bash](#tab/bash)
 
 ```azurecli
 az login
 ```
 
-::: zone-end
-
-::: zone pivot="powershell"
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 az login
 ```
 
-::: zone-end
-
-::: zone pivot="bash,powershell"
+---
 
 Ensure you're running the latest version of the CLI via the `az upgrade` command.
 
-::: zone-end
-
-::: zone pivot="bash"
+# [Bash](#tab/bash)
 
 ```azurecli
 az upgrade
 ```
 
-::: zone-end
-
-::: zone pivot="powershell"
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 az upgrade
 ```
 
-::: zone-end
-
-::: zone pivot="bash,powershell"
+---
 
 Install or update the Azure Container Apps extension for the CLI.
 
-::: zone-end
-
-::: zone pivot="bash"
+# [Bash](#tab/bash)
 
 ```azurecli
 az extension add --name containerapp --upgrade
 ```
 
-::: zone-end
-
-::: zone pivot="powershell"
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 az extension add --name containerapp --upgrade
 ```
 
-::: zone-end
-
-::: zone pivot="bash,powershell"
+---
 
 Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
-::: zone-end
-
-::: zone pivot="bash"
+# [Bash](#tab/bash)
 
 ```azurecli
 az provider register --namespace Microsoft.App
@@ -113,9 +94,7 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
-::: zone-end
-
-::: zone pivot="powershell"
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 az provider register --namespace Microsoft.App
@@ -125,7 +104,9 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
-::: zone-end
+---
+
+:::zone-end
 
 ## Symptoms
 
@@ -141,7 +122,7 @@ The following sections describe how to diagnose and resolve these issues.
 
 ## View logs
 
-# [Azure portal](#tab/azure-portal)
+:::zone pivot="portal"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -194,7 +175,7 @@ Container Apps generates [system logs](./logging.md#system-logs) for service lev
 
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-# [Console](#tab/console)
+:::zone pivot="console"
 
 Get a list of revisions for your container app with the [`containerapp revision list`](/cli/azure/containerapp/revision#az-containerapp-revision-list(containerapp)) command.
 
@@ -316,20 +297,26 @@ You can expect a response like the following example:
 
 ---
 
+::: zone-end
+
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-## Use **Diagnose and solve problems** (Azure portal only)
+::: zone pivot="portal"
+
+## Use **Diagnose and solve problems**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
 1. In the search results, under *Resources*, select your container app name.
 1. In the navigation bar at the left, select **Diagnose and solve problems**.
 
+::: zone-end
+
 ## Review Ingress Configuration
 
 TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
 
-# [Azure portal](#tab/azure-portal)
+::: zone pivot="portal"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -345,13 +332,13 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 - Verify **Target port** is set to the same port your container app is listening on. TODO1 Link to where we configure that.
 - If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
 
-For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
-
-# [Console](#tab/console)
+::: zone pivot="console"
 
 TODO1 Add command line version.
 
----
+::: zone-end
+
+For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
 
 ## Verify Health Probes are Configured Correctly
 
