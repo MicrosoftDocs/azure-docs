@@ -85,7 +85,7 @@ The zone serial number in the SOA record isn't updated automatically when change
 
 TXT records are used to map domain names to arbitrary text strings. They're used in multiple applications, in particular related to email configuration, such as the [Sender Policy Framework (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
 
-The DNS standards permit a single TXT record to contain multiple strings, each of which may be up to 255 characters in length. Where multiple strings are used, they're concatenated by clients and treated as a single string.
+The DNS standards permit a single TXT record to contain multiple strings, each of which can be up to 255 characters in length. Where multiple strings are used, they're concatenated by clients and treated as a single string.
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When you use the Azure portal, PowerShell, or CLI interfaces, you should specify a single string per record. This string is automatically divided into 255-character segments if necessary.
 
