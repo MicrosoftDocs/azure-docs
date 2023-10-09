@@ -56,7 +56,14 @@ You can *hot* remove a data disk, but make sure nothing is actively using the di
 1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select the detach button to detach.
 1. Select **Save** on the top of the page to save your changes.
 
-The disk stays in storage but is no longer attached to a virtual machine. The disk isn't deleted.
+The disk stays in storage but is no longer attached to a virtual machine. The disk isn't deleted. Kindly note, you would continue to pay for these unattached disks, whether you need them or not.
+
+Find and delete unattached Azure managed and unmanaged disks - Azure portal https://learn.microsoft.com/en-us/azure/virtual-machines/disks-find-unattached-portal
+
+Find and delete unattached Azure managed and unmanaged disks https://learn.microsoft.com/en-us/azure/virtual-machines/windows/find-unattached-disks
+
+You can review the managed disk and snapshot pricing at this page.
+Managed Disks pricing https://azure.microsoft.com/en-us/pricing/details/managed-disks/
 
 ## Next steps
 
