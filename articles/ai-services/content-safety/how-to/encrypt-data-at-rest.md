@@ -4,8 +4,7 @@ description: Learn how Azure AI Content Safety encrypts your data when it's pers
 titleSuffix: Azure AI services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 07/04/2023

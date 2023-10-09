@@ -76,10 +76,13 @@ You can use one of the following libraries to include an Avro serializer, which 
 
 
 ## Limits
-For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md)
+For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md).
 
 ## Azure role-based access control
-When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles:
+To access a schema registry programmatically, follow these steps:
+
+1. [Register your application in Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-register-app.md)
+1. Add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles at the **namespace** level. 
 
 | Role | Description | 
 | ---- | ----------- | 

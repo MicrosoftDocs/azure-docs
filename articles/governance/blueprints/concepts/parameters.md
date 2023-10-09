@@ -6,6 +6,8 @@ ms.topic: conceptual
 ---
 # Creating dynamic blueprints through parameters
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 A fully defined blueprint with various artifacts such as resource groups, Azure Resource Manager
 templates (ARM templates), policies, or role assignments, offers the rapid creation and consistent
 creation of objects within Azure. To enable flexible use of these reusable design patterns and

@@ -6,8 +6,7 @@ services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 03/03/2023
 ms.custom: references_regions
@@ -51,6 +50,12 @@ Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_service_options)]
 
+#### [Java](#tab/java)
+
+Start by creating a [VisionServiceOptions](/java/api/com.azure.ai.vision.common.visionserviceoptions) object using one of the constructors. For example:
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=vision_service_options)]
+
 #### [C++](#tab/cpp)
 
 At the start of your code, use one of the static constructor methods [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions#fromendpoint-1) to create a *VisionServiceOptions* object. For example:
@@ -75,12 +80,12 @@ The code in this guide uses remote images referenced by URL. You may want to try
 
 Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.common.visionsource.fromurl).
 
-**VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
-
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
+**VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile)), or by copying the image into the SDK's input buffer (see [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer))
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile)), or by copying the image into the SDK's input buffer (see [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer)). For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-csharp#select-the-image-to-analyze).
 
 #### [Python](#tab/python)
 
@@ -89,7 +94,18 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL (see argument name **filename**). Alternatively, you can analyze an image in a memory buffer by constructing **VisionSource** using the argument **image_source_buffer**.
+> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL (see argument name **filename**). Alternatively, you can analyze an image in a memory buffer by constructing **VisionSource** using the argument **image_source_buffer**. For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-python#select-the-image-to-analyze).
+
+#### [Java](#tab/java)
+
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.fromUrl](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromurl(java-net-url)).
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=vision_source)]
+
+**VisionSource** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
+
+> [!TIP]
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.fromFile](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromfile(java-lang-string)), or by copying the image into the SDK's input buffer (see [VisionSource.fromImageSourceBuffer](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromimagesourcebuffer(com-azure-ai-vision-common-imagesourcebuffer))). For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-java#select-the-image-to-analyze).
 
 #### [C++](#tab/cpp)
 
@@ -98,7 +114,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name (see [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile)), or by copying the image into the SDK's input buffer (see  [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer)).
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile)), or by copying the image into the SDK's input buffer (see  [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer)). For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-cpp#select-the-image-to-analyze).
 
 #### [REST API](#tab/rest)
 
@@ -112,19 +128,21 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 ### [C#](#tab/csharp)
 
-<!-- TODO: After C# ref-docs get published, add link to SegmentationMode (/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.segmentationmode) & ImageSegmentationMode (/dotnet/api/azure.ai.vision.imageanalysis.imagesegmentationmode) -->
-
-Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the property `SegmentationMode`. This property must be set if you want to do segmentation. See `ImageSegmentationMode` for supported values.
+Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the property [SegmentationMode](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.segmentationmode#azure-ai-vision-imageanalysis-imageanalysisoptions-segmentationmode). This property must be set if you want to do segmentation. See [ImageSegmentationMode](/dotnet/api/azure.ai.vision.imageanalysis.imagesegmentationmode) for supported values.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=segmentation_mode)]
 
 ### [Python](#tab/python)
 
-<!-- TODO: Where Python ref-docs get published, add link to SegmentationMode (/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation-mode) & ImageSegmentationMode (/python/api/azure-ai-vision/azure.ai.vision.enums.imagesegmentationmode)> -->
-
-Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the property `segmentation_mode`. This property must be set if you want to do segmentation. See `ImageSegmentationMode` for supported values.
+Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the property [segmentation_mode](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation-mode). This property must be set if you want to do segmentation. See [ImageSegmentationMode](/python/api/azure-ai-vision/azure.ai.vision.enums.imagesegmentationmode) for supported values.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=segmentation_mode)]
+
+### [Java](#tab/java)
+
+Create a new [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object and call the [setSegmentationMode](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setsegmentationmode()) method. You must call this method if you want to do segmentation. See [ImageSegmentationMode](/java/api/com.azure.ai.vision.imageanalysis.imagesegmentationmode) for supported values.
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/segmentation/ImageAnalysis.java?name=segmentation_mode)]
 
 ### [C++](#tab/cpp)
 
@@ -153,15 +171,23 @@ This section shows you how to make the API call and parse the results.
 
 The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
 
-**SegmentationResult** implements **IDisposable**, therefore  create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
-
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=segment)]
+
+**SegmentationResult** implements **IDisposable**, therefore  create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
 #### [Python](#tab/python)
 
 The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=segment)]
+
+#### [Java](#tab/java)
+
+The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/segmentation/ImageAnalysis.java?name=segment)]
+
+**SegmentationResult** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
 
 #### [C++](#tab/cpp)
 

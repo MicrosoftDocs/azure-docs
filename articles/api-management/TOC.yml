@@ -9,6 +9,8 @@
           href: api-management-key-concepts.md
         - name: API Management features availability
           href: api-management-features.md
+        - name: v2 service tiers
+          href: v2-service-tiers-overview.md
         - name: API gateway
           href: api-management-gateways-overview.md  
         - name: Terminology
@@ -244,9 +246,6 @@
               href: api-management-howto-create-or-invite-developers.md
             - name: Manage groups
               href: api-management-howto-create-groups.md
-      - name: Test and monitor APIs in Postman
-        href: export-api-postman.md
-        displayName: collection
       - name: Export APIs to the Power Platform
         items:
         - name: Export API as custom connector
@@ -314,6 +313,9 @@
     href: api-management-howto-app-insights.md
   - name: Visualize data using Managed Grafana
     href: visualize-using-managed-grafana-dashboard.md
+  - name: Test and monitor APIs in Postman
+    href: export-api-postman.md
+    displayName: collection
 - name: Deploy and configure your instance
   items:
   - name: Provision and scale
@@ -383,14 +385,16 @@
       items:
         - name: Networking options
           href: virtual-network-concepts.md
-        - name: Connect to a virtual network
+        - name: Deploy to a VNet - external
           href: api-management-using-with-vnet.md
-        - name: Connect to an internal virtual network
+        - name: Deploy to a VNet - internal
           href: api-management-using-with-internal-vnet.md
         - name: Integrate Application Gateway in an internal virtual network
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Connect privately using private endpoint
           href: private-endpoint.md
+        - name: Integrate with VNet for outbound requests
+          href: integrate-vnet-outbound.md
         - name: Retrieve IP addresses
           href: api-management-howto-ip-addresses.md
         - name: Defend against DDoS attacks

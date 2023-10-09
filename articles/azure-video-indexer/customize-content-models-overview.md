@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Customizing content models in Azure AI Video Indexer
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 Azure AI Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md). You can easily customize these models using the Azure AI Video Indexer website or API.

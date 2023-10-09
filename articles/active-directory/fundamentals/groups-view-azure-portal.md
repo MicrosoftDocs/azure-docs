@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Before you begin, you’ll need to:
 
-- Create an Azure Active Directory tenant. For more information, see [Access the Azure portal and create a new tenant](./create-new-tenant.md).
+- Create a Microsoft Entra tenant. For more information, see [Access the Azure portal and create a new tenant](./create-new-tenant.md).
 
 ## Create a new group 
 

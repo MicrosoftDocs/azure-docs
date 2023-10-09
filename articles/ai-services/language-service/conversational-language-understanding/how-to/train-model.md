@@ -5,8 +5,7 @@ description: Use this article to train a model and view its evaluation details t
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: aahi

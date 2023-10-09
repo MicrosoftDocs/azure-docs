@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 11/29/2022
 ms.author: eur

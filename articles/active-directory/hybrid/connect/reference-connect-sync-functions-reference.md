@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Functions Reference'
-description: Reference of declarative provisioning expressions in Azure AD Connect sync.
+title: 'Microsoft Entra Connect Sync: Functions Reference'
+description: Reference of declarative provisioning expressions in Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,8 +18,8 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Functions Reference
-In Azure AD Connect, functions are used to manipulate an attribute value during synchronization.  
+# Microsoft Entra Connect Sync: Functions Reference
+In Microsoft Entra Connect, functions are used to manipulate an attribute value during synchronization.  
 The Syntax of the functions is expressed using the following format:  
 `<output type> FunctionName(<input type> <position name>, ..)`
 
@@ -469,7 +469,7 @@ The ConvertFromUTF8Hex function converts the specified UTF8 Hex encoded value to
 
 **Remarks:**  
 The difference between this function and ConvertFromBase64([],UTF8) in that the result is friendly for the DN attribute.  
-This format is used by Azure Active Directory as DN.
+This format is used by Microsoft Entra ID as DN.
 
 **Example:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
@@ -497,7 +497,7 @@ The ConvertToUTF8Hex function converts a string to a UTF8 Hex encoded value.
 `str ConvertToUTF8Hex(str source)`
 
 **Remarks:**  
-The output format of this function is used by Azure Active Directory as DN attribute format.
+The output format of this function is used by Microsoft Entra ID as DN attribute format.
 
 **Example:**  
 `ConvertToUTF8Hex("Hello world!")`  
@@ -710,7 +710,7 @@ Returns the position where the substring was found or 0 if not found.
 
 **Example:**  
 `InStr("The quick brown fox","quick")`  
-Evalues to 5
+Evaluates to 5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Evaluates to 7
@@ -1390,5 +1390,5 @@ Would return "has"
 
 ## Additional Resources
 * [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Configure and access Azure Database for MariaDB slow query logs from the Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 You can configure, list, and download the [Azure Database for MariaDB slow query logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites

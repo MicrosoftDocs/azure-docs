@@ -33,7 +33,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 1. Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
 
-1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online.md#managed-online-endpoints).
+1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
 1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
 1. Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -44,6 +44,12 @@ If you already completed the [get started tutorial](get-started-prompt-flow.md),
 If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
 
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
+
+## Define the environment used by deployment
+
+When you deploy prompt flow to managed online endpoint in UI. You need define the environment used by this flow. By default, it will use the latest prompt image version. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder, which is system generated file.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of Web requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
 ## Create an online endpoint
 
@@ -98,7 +104,7 @@ Select the identity you want to use, and you'll notice a warning message to remi
 |---|---|---|
 || if you select system assigned identity, it will be auto-created by system for this endpoint <br> | created by user. [Learn more about how to create user assigned identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). <br> one user assigned identity can be assigned to multiple endpoints|
 |Pros| Permissions needed to pull image and mount model and code artifacts from workspace storage are auto-granted.| Can be shared by multiple endpoints.|
-|Required permissions|**Workspace**: **AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” <br> |**Workspace**: **AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” <br> **Workspace container registry**: **Acr pull** <br> **Workspace default storage**: **Storage Blob Data Reader**|
+|Required permissions|**Workspace**: **AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" <br> |**Workspace**: **AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" <br> **Workspace container registry**: **Acr pull** <br> **Workspace default storage**: **Storage Blob Data Reader**|
 
 See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
 
@@ -131,7 +137,7 @@ In this step, you can view all connections within your flow, and change connecti
 In this step, you can select the virtual machine size and instance count for your deployment.
 
 > [!NOTE]
-> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it’s better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
+> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it's better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
 >
 > For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
 
@@ -165,14 +171,14 @@ For **System-assigned** identity:
 
 |Resource|Role|Why it's needed|
 |---|---|---|
-|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections. |
+|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections. |
 
 
 For **User-assigned** identity:
 
 |Resource|Role|Why it's needed|
 |---|---|---|
-|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action” | Get workspace connections|
+|Azure Machine Learning Workspace|**AzureML Data Scientist** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
 |Workspace container registry |Acr pull |Pull container image |
 |Workspace default storage| Storage Blob Data Reader| Load model from storage |
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
@@ -192,7 +198,7 @@ To grant permissions to the endpoint identity, there are two ways:
         > [!NOTE]
         > AzureML Data Scientist is a built-in role which has permission to get workspace connections. 
         >
-        > If you want to use a customized role, make sure the customized role has the permission of “Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action”. Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
+        > If you want to use a customized role, make sure the customized role has the permission of "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action". Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
 
     1. Select **Managed identity** and select members.
         For **system-assigned identity**, select **Machine learning online endpoint** under **System-assigned managed identity**, and search by endpoint name.
@@ -256,7 +262,7 @@ If you enable **Application Insights diagnostics** in the UI deploy wizard, or s
 | flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
 | flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
 | node_latency                         | histogram | flow,node,run_status                      | node execution cost                                                             |
-| node_request                         | counter   | flow,node,exception,run_status            | node execution failure count                                                    |
+| node_request                         | counter   | flow,node,exception,run_status            | node execution count                                                    |
 | rpc_latency                          | histogram | flow,node,api_call                        | rpc cost                                                                        |
 | rpc_request                          | counter   | flow,node,api_call,exception              | rpc count                                                                       |
 | flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
@@ -274,6 +280,16 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
 
 ## Troubleshoot endpoints deployed from prompt flow
+
+### Model response taking too long
+
+Sometimes you may notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
+
+- Model is not powerful enough (ex. use gpt over text-ada)
+- Index query is not optimized and taking too long
+- Flow has many steps to process
+
+Consider optimizing the endpoint with above considerations to improve the performance of the model.
 
 ### Unable to fetch deployment schema
 

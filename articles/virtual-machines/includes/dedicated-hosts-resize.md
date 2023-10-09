@@ -6,7 +6,7 @@ author: mattmcinnes
 ms.topic: include
 ms.service: virtual-machines
 ms.subservice: azure-dedicated-host
-ms.date: 07/12/2023
+ms.date: 09/11/2023
 ms.author: mattmcinnes
 ms.reviewer: vamckMS
 ms.custom: include file
@@ -22,7 +22,7 @@ Resize limitations:
 - Host can only be resized to an ADH within the same VM family. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** to an **E**sv3-Type4.
 - You can only resize to newer generation of hardware. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** Dsv3-Type2.
 - Resizing changes the 'Host Asset ID'. The 'Host ID' remains the same.
-- The host and all associated VMs becomes unavailable during the resize operation.
+- The host and all associated VMs become unavailable during the resize operation.
 
 > [!Warning]
 > The resize operation causes the loss of any non-persistent data such as temp disk data. Save all your work to persistent data storage before triggering resize.
@@ -45,7 +45,7 @@ Resize limitations:
 
 ### [CLI](#tab/cli)
 
-First list the sizes that you can resize in case you are unsure which to resize to.
+First list the sizes that you can resize in case you're unsure which to resize to.
 
 Use [az vm host list-resize-options](/cli/azure/vm#az-vm-host-list-resize-options) [Preview]
 
@@ -68,6 +68,22 @@ az vm host resize \
 
 ### [PowerShell](#tab/powershell)
 
-PowerShell support for host resize is coming soon.
+When using PowerShell, the resize feature is referred to as a host 'Update'. Use the following commands to update the host:
+
+```azurepowershell-interactive
+Update-AzHost
+      [-ResourceGroupName] <String>
+      [-HostGroupName] <String>
+      [-Name] <String>
+      [-Sku <String>]
+      [-AutoReplaceOnFailure <Boolean>]
+      [-LicenseType <DedicatedHostLicenseTypes>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+
+For more info on Update-AzHost, check out the [Update-AzHost reference docs](https://learn.microsoft.com/powershell/module/az.compute/update-azhost).
 
 ---

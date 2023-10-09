@@ -36,7 +36,7 @@ There are two different ways to monitor the status the asynchronous operation. Y
 
 If `Azure-AsyncOperation` isn't one of the header values, then look for:
 
-* `Location` - URL for determining when an operation has completed. Only use this value only when `Azure-AsyncOperation` isn't returned.
+* `Location` - URL for determining when an operation has completed. Use this value only when `Azure-AsyncOperation` isn't returned.
 * `Retry-After` - The number of seconds to wait before checking the status of the asynchronous operation.
 
 > [!NOTE]

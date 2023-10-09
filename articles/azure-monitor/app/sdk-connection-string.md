@@ -27,7 +27,7 @@ Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects:
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Azure Monitor FAQ](../faq.yml#can-i-monitor-an-intranet-web-server-). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
+    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Can I monitor an intranet web server?](./ip-addresses.md#can-i-monitor-an-intranet-web-server). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
 
 - Sovereign or hybrid cloud environments:
 
@@ -255,6 +255,18 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 ---
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Do new Azure regions require the use of connection strings?
+
+New Azure regions *require* the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
+
+### Should I use connection strings or instrumentation keys?
+
+We recommend that you use connection strings instead of instrumentation keys.
+
 ## Next steps
 
 Get started at runtime with:
@@ -269,4 +281,4 @@ Get started at development time with:
 * [ASP.NET Core](./asp-net-core.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)

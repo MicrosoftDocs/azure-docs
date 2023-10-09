@@ -12,8 +12,7 @@ ms.custom: references_regions
 # customer-intent: As a DevOps engineer, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
 ---
 
-
-# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Preview)
+# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Public Preview)
 
 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
@@ -54,7 +53,7 @@ Azure Monitor currently supports ingestion from Event Hubs in these regions:
 
 ## Collect required information
 
-You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub resource ID in subsequent steps:
+You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub instance resource ID in subsequent steps:
 
 1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** and copy your **Subscription ID**, **Resource group**, and **Workspace name**. You'll need these details to create resources in this tutorial. 
 
@@ -64,7 +63,7 @@ You need your subscription ID, resource group name, workspace name, workspace re
 
     :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing the Resource JSON screen with the workspace resource ID highlighted.":::
 
-1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub's **Resource ID**. You'll need the event hub's resource ID to associate the data collection rule with the event hub.
+1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub instance's **Resource ID**. You'll need the event hub instance's resource ID to associate the data collection rule with the event hub.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-resource-id.png" lightbox="media/ingest-logs-event-hub/event-hub-resource-id.png" alt-text="Screenshot showing the Resource JSON screen with the event hub resource ID highlighted.":::
 ## Create a destination table in your Log Analytics workspace
@@ -325,6 +324,7 @@ To ingest data into a [supported Azure table](../logs/logs-ingestion-api-overvie
     To: `"outputStream": "outputStream": "[concat(Microsoft-', parameters('tableName'))]"`
     
 1. In `transformKql`, [define a transformation](../essentials/data-collection-transformations-structure.md#transformation-structure) that sends the ingested data into the target columns in the destination Azure table.
+
 ## Grant the event hub permission to the data collection rule
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or Event Hubs namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the Event Hubs namespace, all event hubs within the namespace inherit the permissions. 
@@ -337,15 +337,13 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" alt-text="Screenshot that shows the Add Role Assignment screen for the event hub with the Azure Event Hubs Data Receiver role highlighted.":::
 
-3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your DCR and click **Select**.
+1. Select **Managed identity** for **Assign access to** and click **Select members**. Select **Data collection rule**,  search your DCR by name and click **Select**.
 
-    :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment-select-member.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment-select-member.png" alt-text="Screenshot that shows the Members tab of the Add Role Assignment screen.":::
-
+[ ![Screenshot of how to assign access to managed identity.](media/ingest-logs-event-hub/assign-access-to-managed-identity.png) ](media/ingest-logs-event-hub/assign-access-to-managed-identity.png#lightbox)
 
 4. Select **Review + assign** and verify the details before saving your role assignment.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" alt-text="Screenshot that shows the Review and Assign tab of the Add Role Assignment screen.":::
-
 
 ## Associate the data collection rule with the event hub
 
@@ -406,14 +404,13 @@ To create a data collection rule association in the Azure portal:
 1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule association and then provide values for the parameters defined in the template, including: 
 
     - **Region** - Populated automatically based on the resource group you select.
-    - **Event Hub Resource ID** - See [Collect required information](#collect-required-information).  
+    - **Event Hub Instance Resource ID** - See [Collect required information](#collect-required-information).  
     - **Association Name** - Give the association a name.
     - **Data Collection Rule ID** - Generated when you [create the data collection rule](#create-a-data-collection-rule).
   
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-association-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-association-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule association set up in this tutorial.":::
 
 1. Select **Review + create** and then **Create** when you review the details.
-
 
 ## Check your destination table for ingested events
 
@@ -429,9 +426,8 @@ To check your destination table for ingested events:
     ``` 
     
     You should see events from your event hub.
-`
-    :::image type="content" source="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" lightbox="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" alt-text="Screenshot showing the results of a simple query on a custom table. The results consist of events ingested from an event hub.":::
 
+:::image type="content" source="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" lightbox="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" alt-text="Screenshot showing the results of a simple query on a custom table. The results consist of events ingested from an event hub.":::
 ## Clean up resources
 
 In this tutorial, you created the following resources:
@@ -457,3 +453,5 @@ Learn more about to:
 - [Create a custom table](../logs/create-custom-table.md#create-a-custom-table).
 - [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Update an existing data collection rule](../essentials/data-collection-rule-edit.md).
+
+

@@ -16,7 +16,7 @@ ms.reviewer: jricketts
 ---
 # How to use Continuous Access Evaluation enabled APIs in your applications
 
-[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an Azure AD feature that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens are proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
+[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is a Microsoft Entra feature that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens are proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
 
 This article shows you how to use CAE-enabled APIs in your applications. Applications not using MSAL can add support for [claims challenges, claims requests, and client capabilities](claims-challenge.md) to use CAE.
 
@@ -183,4 +183,3 @@ You can test your application by signing in a user and then using the Azure port
 
 - [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) conceptual overview
 - [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
-

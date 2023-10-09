@@ -968,7 +968,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
+> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/separate-resources.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | **Yes** | **Yes** | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
@@ -1416,11 +1416,11 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
 > | peeringlocations | No | No | No |
-> | peerings | No | No | No |
+> | peerings | **Yes** | **Yes** | No |
 > | peeringservicecountries | No | No | No |
 > | peeringservicelocations | No | No | No |
 > | peeringserviceproviders | No | No | No |
-> | peeringservices | No | No | No |
+> | peeringservices | **Yes** | **Yes** | No |
 
 ## Microsoft.PolicyInsights
 

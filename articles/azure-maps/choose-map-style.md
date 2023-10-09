@@ -21,7 +21,6 @@ Style options can be set during web control initialization. Or, you can update s
 //Set the style options when creating the map.
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
-    showBuildingModels: false,
     showLogo: true,
     showFeedbackLink: true,
     style: 'road'
@@ -32,7 +31,6 @@ var map = new atlas.Map('map', {
 //Update the style options at anytime using `setStyle` function.
 map.setStyle({
     renderWorldCopies: true,
-    showBuildingModels: true,
     showLogo: false,
     showFeedbackLink: false
 });
@@ -103,7 +101,9 @@ The following image shows the style picker control displayed in `list` layout.
 > [!IMPORTANT]
 > By default the style picker control lists all the styles available under the Gen1 (S0) pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen1 (S1) or Gen2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list the base styles to display in the style picker control.
 

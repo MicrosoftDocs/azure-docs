@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/22/2022
+ms.date: 09/28/2023
 ---
 
 # Configure a Log Analytics workspace for VM insights

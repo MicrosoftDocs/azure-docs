@@ -17,13 +17,13 @@ This article is part three of a six-part tutorial series. [Part one](tutorial-ar
 
 ## Configure Artifact Cache - Azure CLI
 
-Follow the steps to create a Cache rule without using a Credential set.
+Follow the steps to create a Cache rule without using the Credentials.
 
 ### Create a Cache rule
 
 1. Run [az acr Cache create][az-acr-cache-create] command to create a Cache rule.
 
-    - For example, to create a Cache rule without a credential set for a given `MyRegistry` Azure Container Registry.
+    - For example, to create a Cache rule without the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr Cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu-

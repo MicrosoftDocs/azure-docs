@@ -1,6 +1,6 @@
 ---
-title: Remove role assignments from a group in Azure Active Directory
-description: Remove role assignments from a group in Azure Active Directory using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
+title: Remove role assignments from a group in Microsoft Entra ID
+description: Remove role assignments from a group in Microsoft Entra ID using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -16,15 +16,15 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Remove role assignments from a group in Azure Active Directory
+# Remove role assignments from a group in Microsoft Entra ID
 
-This article describes how an IT admin can remove Azure AD roles assigned to groups. In the Microsoft Entra admin center, you can now remove both direct and indirect role assignments to a user. If a user is assigned a role by a group membership, remove the user from the group to remove the role assignment.
+This article describes how an IT admin can remove Microsoft Entra roles assigned to groups. In the Microsoft Entra admin center, you can now remove both direct and indirect role assignments to a user. If a user is assigned a role by a group membership, remove the user from the group to remove the role assignment.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
+- Azure AD PowerShell module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -73,7 +73,9 @@ Remove-AzureAdMSRoleAssignment -Id $roleAssignment.Id
 
 ## Microsoft Graph API
 
-### Create a group that can be assigned an Azure AD role
+<a name='create-a-group-that-can-be-assigned-an-azure-ad-role'></a>
+
+### Create a group that can be assigned a Microsoft Entra role
 
 Use the [Create group](/graph/api/group-post-groups) API to create a group.
 
@@ -125,5 +127,5 @@ DELETE https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 
 ## Next steps
 
-- [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
+- [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Microsoft Entra roles assigned to groups](groups-faq-troubleshooting.yml)

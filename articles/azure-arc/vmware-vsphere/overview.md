@@ -4,6 +4,8 @@ description: Azure Arc-enabled VMware vSphere (preview) extends Azure governance
 ms.topic: overview
 ms.date: 08/21/2023
 ms.custom: references_regions
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 ---
 
 # What is Azure Arc-enabled VMware vSphere (preview)?

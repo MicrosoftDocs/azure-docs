@@ -69,14 +69,14 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > 
-> 1. If you're building an app for [Azure AD national clouds](/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
+> 1. If you're building an app for [Microsoft Entra national clouds](/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
 > 
 >    ```swift
 >    let kGraphEndpoint = "https://graph.microsoft.com/"
 >    let kAuthority = "https://login.microsoftonline.com/common"
 >    ```
 > 
-> 1. Other endpoints are documented [here](/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
+> 1. Other endpoints are documented [here](/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Microsoft Entra Germany, use following:
 > 
 >    ```swift
 >    let kGraphEndpoint = "https://graph.microsoft.de/"

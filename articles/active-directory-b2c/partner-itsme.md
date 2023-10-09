@@ -22,7 +22,7 @@ The itsme digital ID app allows you to sign in securely without card-readers, pa
 
 To get started, you'll need:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 * Your Client ID, also known as Partner code, provided by itsme.
 * Your Service code provided by itsme.

@@ -40,12 +40,12 @@ The Nvidia extension always installs the latest driver.
 
 For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
 
-- [GRID 15.2 (528.89)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 16.1 (536.25)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 
 The following links to previous versions are provided to support dependencies on older driver versions.
 
 For Windows 11, Windows 10  and Server 2019/20
-- [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe) 
+- [GRID 15.2 (528.89)](https://download.microsoft.com/download/2/5/a/25ad21ca-ed89-41b4-935f-73023ef6c5af/528.89_grid_win10_win11_server2019_server2022_dch_64bit_international_Azure_swl.exe) (.exe) 
 
 For Windows Server 2016 1607, 1709:
 - [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe)  is the last supported driver from NVIDIA. The newer 15.x and above do not support Windows Server 2016. 

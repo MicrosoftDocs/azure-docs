@@ -5,8 +5,7 @@ description: Embedded Speech is designed for on-device scenarios where cloud con
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 10/31/2022
@@ -166,24 +165,7 @@ For embedded speech, you'll need to download the speech recognition models for [
 
 The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
 
-The following [text to speech](text-to-speech.md) locales and voices are available out of box. We welcome your input to help us gauge demand for additional languages and voices. Check the full text to speech language and voice list [here](language-support.md?tabs=tts). 
-
-| Locale (BCP-47) | Language | Text to speech voices |
-| ----- | ----- | ----- |
-| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
-| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
-| `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male)|
-| `en-GB` | English (United Kingdom) | `en-GB-LibbyNeural` (Female)<br/>`en-GB-RyanNeural` (Male)|
-| `en-US` | English (United States) | `en-US-AriaNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JennyNeural` (Female)|
-| `es-ES` | Spanish (Spain) | `es-ES-ElviraNeural` (Female)<br/>`es-ES-AlvaroNeural` (Male)|
-| `es-MX` | Spanish (Mexico) | `es-MX-DaliaNeural` (Female)<br/>`es-MX-JorgeNeural` (Male)|
-| `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)|
-| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)|
-| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
-| `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
-| `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
-| `pt-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
+All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for additional languages and voices. 
 
 ## Embedded speech configuration
 
@@ -298,6 +280,50 @@ With hybrid speech configuration for [text to speech](text-to-speech.md) (voices
 ## Cloud speech
 
 For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to text quickstart](get-started-speech-to-text.md) and [text to speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
+
+## Embedded voices capabilities
+
+For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, please refer to the table below.
+
+| Level 1            | Level 2        | Sub values                                           | Support in embedded NTTS |
+|-----------------|-----------|-------------------------------------------------------|--------------------------|
+| audio           | src       |                                                       | No                       |
+| bookmark        |           |                                                       | Yes                      |
+| break           | strength  |                                                       | No                       |
+|                 | time      |                                                       | No                       |
+| silence         | type      | Leading, Tailing, Comma-exact, etc.                   | No                       |
+|                 | value     |                                                       | No                       |
+| emphasis        | level     |                                                       | No                       |
+| lang            |           |                                                       | No                       |
+| lexicon         | uri       |                                                       | Yes                      |
+| math            |           |                                                       | No                       |
+| msttsaudioduration | value   |                                                       | No                       |
+| msttsbackgroundaudio | src    |                                                       | No                       |
+|                 | volume    |                                                       | No                       |
+|                 | fadein    |                                                       | No                       |
+|                 | fadeout   |                                                       | No                       |
+| msttsexpress-as | style     |                                                       | No                       |
+|                 | styledegree |                                                     | No                       |
+|                 | role      |                                                       | No                       |
+| msttssilence    |           |                                                       | No                       |
+| msttsviseme     | type      | redlips_front, FacialExpression                       | No                       |
+| p               |           |                                                       | Yes                      |
+| phoneme         | alphabet  | ipa, sapi, ups, etc.                                  | Yes                      |
+|                 | ph        |                                                       | Yes                      |
+| prosody         | contour   | Sentences level support, word level only en-US and zh-CN | Yes                      |
+|                 | pitch     |                                                       | Yes                      |
+|                 | range     |                                                       | Yes                      |
+|                 | rate      |                                                       | Yes                      |
+|                 | volume    |                                                       | Yes                      |
+| s               |           |                                                       | Yes                      |
+| say-as          | interpret-as | characters, spell-out, number_digit, date, etc.     | Yes                      |
+|                 | format    |                                                       | Yes                      |
+|                 | detail    |                                                       | Yes                      |
+| sub             | alias     |                                                       | Yes                      |
+| speak           |           |                                                       | Yes                      |
+| voice           |           |                                                       | No                       |
+
+
 
 
 ## Next steps

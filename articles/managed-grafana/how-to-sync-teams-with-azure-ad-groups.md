@@ -3,8 +3,8 @@ title: Sync Grafana teams with Azure Active Directory groups
 description: Learn how to set up Grafana teams using Azure Active Directory groups in Azure Managed Grafana
 ms.service: managed-grafana
 ms.topic: how-to
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 9/11/2023
 --- 
 

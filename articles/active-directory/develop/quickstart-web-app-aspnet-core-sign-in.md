@@ -15,7 +15,7 @@ ms.author: cwerner
 
 ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
-#Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal Microsoft accounts and work/school accounts from any Azure Active Directory instance,  then access their data in Microsoft Graph on their behalf.
+#Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal Microsoft accounts and work/school accounts from any Microsoft Entra instance,  then access their data in Microsoft Graph on their behalf.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET Core web app
@@ -52,12 +52,12 @@ In this article you register a web application in the Microsoft Entra admin cent
 ## Clone or download the sample application
 
 To obtain the sample application, you can either clone it from GitHub or download it as a *.zip* file.
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 - To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
     
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-dotnet.git
     ```
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-dotnet/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Create and upload a self-signed certificate
 

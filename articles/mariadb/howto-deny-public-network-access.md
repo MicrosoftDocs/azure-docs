@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Deny Public Network Access in Azure Database for MariaDB using Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes how you can configure an Azure Database for MariaDB server to deny all public configurations and allow only connections through private endpoints to further enhance the network security.
 
 ## Prerequisites

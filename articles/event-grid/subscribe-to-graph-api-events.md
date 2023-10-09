@@ -55,7 +55,7 @@ Besides the ability to subscribe to Microsoft Graph API events via Event Grid, y
 You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request should look like the following sample:
 
 ```json
-POST to https://graph.microsoft.com/beta/subscriptions
+POST https://graph.microsoft.com/v1.0/subscriptions
 
 x-ms-enable-features: EventGrid
 
