@@ -407,7 +407,7 @@ These initiatives above comprise individual policies that:
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 
-   ![Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)
+   :::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png" alt-text="Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring Azure Monitor Agent.":::
 
 #### Known issues
 
@@ -420,7 +420,7 @@ These initiatives above comprise individual policies that:
 
 You can choose to use the individual policies from the preceding policy initiative to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative, as shown.
 
-![Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" alt-text="Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.":::
 
 ### Remediation
 
@@ -428,7 +428,7 @@ The initiatives or policies will apply to each virtual machine as it's created. 
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 
-![Screenshot that shows initiative remediation for Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent.":::
 
 ## Next steps
 

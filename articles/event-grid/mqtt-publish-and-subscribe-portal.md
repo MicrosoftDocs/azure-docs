@@ -92,7 +92,7 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png":::
 1. On the **Create client** page, enter a **name** for the client. Client names must be unique in a namespace.
-1. Client authentication name is defaulted to the client name. For this tutorial, change it to `client-authn-ID`. You need to include this name as `Username` in the CONNECT packet.
+1. Client authentication name is defaulted to the client name. For this tutorial, change it to `client1-authn-ID`. You need to include this name as `Username` in the CONNECT packet.
 1. In this tutorial, you use thumbprint based authentication. Include the first client certificate’s thumbprint in the **Primary Thumbprint**. 
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
