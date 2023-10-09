@@ -174,8 +174,6 @@ items:
                 displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
               - name: Performance counters
                 href: app/performance-counters.md
-              - name: Remove Application Insights
-                href: app/remove-application-insights.md
         - name: Node.js
           href: app/nodejs.md
         - name: Python OpenCensus (deprecated)
@@ -270,14 +268,8 @@ items:
           href: app/usage-flows.md
         - name: HEART Framework
           href: app/usage-heart.md
-      - name: GitHub and Azure DevOps integration
-        items:
-        - name: Work Item integration
-          href: app/work-item-integration.md
-        - name: Release annotations
-          href: app/annotations.md
-        - name: Continuous monitoring
-          href: app/continuous-monitoring.md
+      - name: Release and work item insights
+        href: app/release-and-work-item-insights.md
     - name: Code-level diagnostics
       items:
       - name: Profiler

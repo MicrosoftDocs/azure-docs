@@ -537,6 +537,10 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Data type reference
+    href: /rest/api/searchservice/supported-data-types
+  - name: Data types for indexer data sources
+    href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
   - name: Stopwords reference
     href: reference-stopwords.md
   - name: OData language reference
