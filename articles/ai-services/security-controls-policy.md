@@ -5,7 +5,7 @@ ms.date: 09/19/2023
 ms.topic: sample
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure AI services
