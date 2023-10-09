@@ -80,12 +80,8 @@ We can easily upgrade from any small update in one Nexus Kubernetes version to a
 
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
-| Kubernetes Version | Version Bundle | Components                                             | OS components                             | Breaking Changes                           | Notes           |
-|--------------------|----------------|--------------------------------------------------------|-------------------------------------------|-------------------------------------------|-----------------|
-| 1.24.9             | 1              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
-| 1.24.9             | 2              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
-| 1.24.9             | 3              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
-| 1.24.9             | 4              | Calico v3.23.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.0<br>etcd v3.4.13.3   | Mariner 2.0 (2023-05-04) with cgroupv1 |                                           |                 |
+| Kubernetes Version | Version Bundle | Components      | OS components | Breaking Changes | Notes           |
+|--------------------|----------------|-----------------|---------------|------------------|-----------------|
 | 1.25.4             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
 | 1.25.4             | 2              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
 | 1.25.4             | 3              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5   | Mariner 2.0 (2023-06-18) with cgroupv1 |                                           |                 |
@@ -104,13 +100,40 @@ For more information on upgrading your cluster, see [Upgrade an Azure Operator N
 
 ## Kubernetes version support policy
 
+Nexus supports three GA minor versions of Kubernetes:
+
+* The latest GA minor version released in Nexus (which we refer to as *N*).
+* Two previous minor versions.
+  * Each supported minor versions
+
 Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
 
 * Duration of support – How long is a version actively maintained. At the end of the supported period, the version is “End of life.”
-* Duration of extended availability / Platfrom support – How long can a version be selected for deployment after End of life.
+* Platfrom support – How long can a version be selected for deployment after End of life.
 
 > [NOTE]
 > Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
+
+The supported window of Kubernetes versions on AKS is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
+
+For example, if AKS introduces *1.17.a* today, support is provided for the following versions:
+
+New minor version    |    Supported Version List
+-----------------    |    ----------------------
+1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
+
+When a new minor version is introduced, the oldest supported minor version and patch releases are deprecated and removed. For example, the current supported version list is:
+
+```
+1.17.a
+1.17.b
+1.16.c
+1.16.d
+1.15.e
+1.15.f
+```
+
+When AKS releases 1.18.\*, all the 1.15.\* versions go out of support.
 
 ### Support timeline
 
@@ -127,9 +150,7 @@ Supported versions:
 
 ### End of life (EOL)
 
-End of life (EOL) means no more patch or version bundles are produced.
-It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade it's to completely recreate the Nexus Kubernetes cluster using the newer version that is supported.
-Unsupported upgrades through `Extended Availability` may be utilized to return to a supported version.
+End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade it's to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Platfrom Support` may be utilized to return to a supported version.
 
 #### Early Termination of support for a release prior to scheduled EOL
 
@@ -151,7 +172,35 @@ At the end of the Extended Availability of the version, the machine and software
 * Upgrades of Nexus Kubernetes service to that version
 * Scaling requests or other agent pools for the Nexus Kubernetes service running that version
 
-### Supported `kubectl` versions
+## Platform support policy
+
+Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
+
+Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Nexus can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
+
+This table outlines support guidelines for Community Support compared to Platform support.
+
+| Support category                         | Community Support (N-2) | Platform Support (N-3)           |
+|------------------------------------------|-------------------------|----------------------------------|
+| Upgrades from N-3 to a supported version | Supported               | Supported                        |
+| Platform availability                    | Supported               | Supported                        |
+| Node pool scaling                        | Supported               | Supported                        |
+| Cluster or node pool creation            | Supported               | Supported                        |
+| Storage, Networking related issues       | Supported               | Supported except for bug fixes and retired components |
+| Infrastructure SLA                       | Supported               | Supported                        |
+| Platform SLA                             | Supported               | Not supported                    |
+| Kubernetes components (including Add-ons)| Supported               | Not supported                    |
+| Component updates                        | Supported               | Not supported                    |
+| Component hotfixes                       | Supported               | Not supported                    |
+| Applying bug fixes                       | Supported               | Not supported                    |
+| Applying security patches                | Supported               | Not supported                    |
+| Kubernetes API support                   | Supported               | Not supported                    |
+| Node image upgrade                       | Supported               | Not supported                    |
+
+ > [!NOTE]
+  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components aren't supported for N-3.
+
+## Supported `kubectl` versions
 
 You can use one minor version older or newer of `kubectl` relative to your *kube-apiserver* version, consistent with the [Kubernetes support policy for kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
@@ -189,14 +238,66 @@ The upstream community maintains a minor release of Kubernetes for one year from
 
 ## FAQ
 
+### How does Microsoft notify me of new Nexus Kubernetes versions?
+
+The Nexus team publishes announcements with planned dates of the new Kubernetes versions in our documentation.
+
+### How often should I expect to upgrade Kubernetes versions to stay in support?
+
+Starting with Kubernetes 1.19, the [open source community has expanded support to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). Nexus commits to enabling patches and support matching the upstream commitments. For Nexus clusters on 1.19 and greater, you can upgrade at a minimum of once a year to stay on a supported version.
+
+**What happens when you upgrade a Kubernetes cluster with a minor version that isn't supported?**
+
+If you're on the *n-3* version or older, it means you're outside of support. When your upgrade from version n-3 to n-2 succeeds, you're back within our support policies. For example:
+
+* If the oldest supported AKS version is *1.15.a* and you're on *1.14.b* or older, you're outside of support.
+* When you successfully upgrade from *1.14.b* to *1.15.a* or higher, you're back within our support policies.
+* Upgrade from *1.13.c* to *1.15.a* or higher isn't supported; but you may upgrade to *1.14.b* and then to *1.15.a* or higher.
+
+Downgrades aren't supported.
+
 ### What happens if I don't upgrade my cluster?
 
 If you don't upgrade your cluster, you'll continue to receive support for the Kubernetes version you're running until the end of the support period. After that, you'll no longer receive support for your cluster. You'll need to upgrade your cluster to a supported version to continue receiving support.
 
-### What happens if I don't upgrade my cluster before the end of the extended availability period?
-
-If you don't upgrade your cluster before the end of the extended availability period, you'll no longer be able to upgrade your cluster to a supported version. You'll need to recreate your cluster using a supported version to continue receiving support.
-
 ### What happens if I don't upgrade my cluster before the end of the platform support period?
 
-If you don't upgrade your cluster before the end of the platform support period, you'll no longer be able to upgrade your cluster to a supported version. You'll need to recreate your cluster using a supported version to continue receiving support.
+If you don't upgrade your cluster before the end of the platform support period, you'll no longer be able to upgrade your cluster to a supported version or scale-out agent pools. You'll need to recreate your cluster using a supported version to continue receiving support.
+
+### What does 'Outside of Support' mean?
+
+'Outside of Support' means that:
+
+* The version you're running is outside of the supported versions list.
+* You'll be asked to upgrade the cluster to a supported version when requesting support.
+
+Additionally, Nexus doesn't make any runtime or other guarantees for clusters outside of the supported versions list.
+
+### What happens when a user scales a Kubernetes cluster with a minor version that isn't supported?
+
+For minor versions not supported by Nexus, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
+
+### Can I skip multiple AKS versions during cluster upgrade?
+
+When you upgrade a supported Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. Kubernetes control planes [version skew policy](https://kubernetes.io/releases/version-skew-policy/) doesn't support minor version skipping. For example, upgrades between:
+
+* *1.12.x* -> *1.13.x*: allowed.
+* *1.13.x* -> *1.14.x*: allowed.
+* *1.12.x* -> *1.14.x*: not allowed.
+
+To upgrade from *1.12.x* -> *1.14.x*:
+
+1. Upgrade from *1.12.x* -> *1.13.x*.
+2. Upgrade from *1.13.x* -> *1.14.x*.
+
+### Can I create a new cluster during its platform support window?
+
+Yes, you can create a new 1.xx.x cluster during its platform support window. However, we recommend that you create a new cluster with the latest supported version.
+
+### Can I upgrade a cluster to a newer version during its platform support window?
+
+Yes, you can upgrade a N-3 cluster to N-2 during its platform support window. However, N-4 to N-3 upgrades aren't supported.
+
+### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
+
+Yes, You're allowed to add node pools to the the cluster.
