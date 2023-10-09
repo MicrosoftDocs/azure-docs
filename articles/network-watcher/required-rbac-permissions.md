@@ -32,15 +32,15 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 
 ## Connection monitor
 
-> [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Start a connection monitor                                     |
-> | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stop a connection monitor                                      |
-> | Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Query a connection monitor                                     |
-> | Microsoft.Network/networkWatchers/connectionMonitors/read           | Get a connection monitor                                       |
-> | Microsoft.Network/networkWatchers/connectionMonitors/write          | Create a connection monitor                                    |
-> | Microsoft.Network/networkWatchers/connectionMonitors/delete         | Delete a connection monitor                                    |
+
+| Action                                                              | Description                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Start a connection monitor                                     |
+| Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stop a connection monitor                                      |
+| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Query a connection monitor                                     |
+| Microsoft.Network/networkWatchers/connectionMonitors/read           | Get a connection monitor                                       |
+| Microsoft.Network/networkWatchers/connectionMonitors/write          | Create a connection monitor                                    |
+| Microsoft.Network/networkWatchers/connectionMonitors/delete         | Delete a connection monitor                                    |
 
 ## Flow logs
 
@@ -84,24 +84,22 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 
 ## Connection troubleshoot
 
-> [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/connectivityCheck/action          | Initiate a connection troubleshoot test                        |
-> | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Query results of a connection troubleshoot test                |
-> | Microsoft.Network/networkWatchers/troubleshoot/action               | Run a connection troubleshoot test                             |
+| Action                                                              | Description                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Microsoft.Network/networkWatchers/connectivityCheck/action          | Initiate a connection troubleshoot test                        |
+| Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Query results of a connection troubleshoot test                |
+| Microsoft.Network/networkWatchers/troubleshoot/action               | Run a connection troubleshoot test                             |
 
 ## Packet capture
 
-> [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture.                          |
-> | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture.                                         |
-> | Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture.                                          |
-> | Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture.                                       |
-> | Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture.                                       |
-> | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture.                           | 
+| Action                                                              | Description                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture.                          |
+| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture.                                         |
+| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture.                                          |
+| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture.                                       |
+| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture.                                       |
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture.                           | 
 
 ## IP flow verify
 
@@ -134,10 +132,9 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 
 ## Reachability report
 
-> [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Get an Azure reachability report                               |
+| Action                                                              | Description                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Get an Azure reachability report                               |
 
 
 ## Additional actions
