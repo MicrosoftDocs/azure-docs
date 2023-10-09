@@ -18,7 +18,7 @@ ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
-# SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and an Azure shared disk
+# SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and Azure shared disk
 
 > ![Windows OS][Logo_Windows] Windows
 
@@ -92,7 +92,7 @@ The next example also shows two SAP SIDs. Both have an ERS2 architecture where:
 
   SAP SID1 has its own virtual IP address (SID1 (A)SCS IP1), which is configured on the Azure internal load balancer.
 
-  SAP ERS2 has its own (virtual) IP address (SID1 ERS2 IP2), which is configured on the Azure internal load balancer.
+  SAP ERS2 has its own virtual IP address (SID1 ERS2 IP2), which is configured on the Azure internal load balancer.
 
 - SAP SID2 is deployed on a shard disk with ERS2, which is clustered and is deployed on a local drive.  
 
@@ -169,13 +169,13 @@ You need to add configuration to the existing load balancer for the second SAP S
     - 5*nr*14 TCP [50214]
     - 5*nr*16 TCP [50216]
 
-  - Associate load-balancing rules with the PR2 ASCS front-end IP, the health probe, and the existing back-end pool.  
+  - Associate load-balancing rules with the PR2 ASCS front-end IP address, the health probe, and the existing back-end pool.  
 
   - Make sure that idle timeout is set to the maximum value of 30 minutes, and that floating IP (direct server return) is enabled.
 
 #### ERS2 PR2 [instance number 12]
 
-Because ERS2 is clustered, you must configure the ERS2 virtual IP address on an Azure internal load balancer in addition to preceding SAP ASCS/SCS IP address. This section applies only if you're using the ERS2 architecture for PR2.  
+Because ERS2 is clustered, you must configure the ERS2 virtual IP address on an Azure internal load balancer in addition to the preceding SAP ASCS/SCS IP address. This section applies only if you're using the ERS2 architecture for PR2.  
 
 - New front-end configuration:
   - Static SAP ERS2 IP address 10.0.0.46.
@@ -195,7 +195,7 @@ Because ERS2 is clustered, you must configure the ERS2 virtual IP address on an 
     - 5*nr*14 TCP [51212]
     - 5*nr*16 TCP [51212]
   
-  - Associate load-balancing rules with the PR2 ERS2 front-end IP, the health probe, and the existing back-end pool.  
+  - Associate load-balancing rules with the PR2 ERS2 front-end IP address, the health probe, and the existing back-end pool.  
 
   - Make sure that idle timeout is set to the maximum value of 30 minutes, and that floating IP (direct server return) is enabled.
 
@@ -253,7 +253,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
 
    ```
 
-2. Format the disk. In this example, it's disk number 3.
+2. Format the disk. In this example, it's disk number 3:
 
    ```powershell
     # Format SAP ASCS disk number 3, with drive letter S
@@ -514,7 +514,7 @@ The code for the function `Set-AzureLoadBalancerHealthCheckProbePortOnSAPCluster
 
 The outlined failover tests assume that SAP ASCS is active on node A.  
 
-1. Verify that the SAP system can successfully fail over from node A to node B. In this example, the test is done for SAP SID PR2.  
+1. Verify that the SAP system can successfully fail over from node A to node B. In this example, the test is for SAP SID PR2.  
 
    Make sure that each SAP SID can successfully move to the other cluster node. Choose one of these options to initiate a failover of the SAP \<SID\> cluster group from cluster node A to cluster node B:
 

@@ -44,7 +44,7 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 
 The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster's virtual IP address.
 
-Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
+Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port-forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
 
 > [!IMPORTANT]
 > Floating IP addresses are not supported on a secondary IP configuration for a network adapter (NIC) in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need an additional IP address for the VM, deploy a second NIC.  
@@ -119,7 +119,7 @@ When you're selecting the technology for shared disks, keep in mind the followin
 Keep in mind the following considerations about SIOS:
 
 - The SIOS solution provides real-time synchronous data replication between two disks.
-- With the SIOS solution, you operate with two managed disks. If you're using either availability sets or availability zones, the managed disks will be on different storage clusters.
+- With the SIOS solution, you operate with two managed disks. If you're using either availability sets or availability zones, the managed disks are on different storage clusters.
 - Deployment in availability zones is supported.
 - The SIOS solution requires installing and operating third-party software, which you need to purchase separately.
 
