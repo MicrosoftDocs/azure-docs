@@ -112,32 +112,6 @@ Add the following key-value to the App Configuration store. For more information
 
 The following examples show how to update an existing web application to use refreshable configuration values, with the setup already done in the quick start.
 
-### [Flask](#tab/flask)
-
-In `app.py`, setup Azure App Configuration to load your configuration values. Then update your endpoints to check for updated configuration values.
-
-```python
-from azure.appconfiguration.provider import SentinelKey
-from azure.appconfiguration.provider.aio import load
-
-azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")) as 
-
-# NOTE: This will override all existing configuration settings with the same key name.
-app.config.update(azure_app_config)
-
-@app.route('/')
- def index():
-    # Refresh the configuration from Azure App Configuration.
-    azure_app_config.refresh()
-    # Update Flask config mapping with loaded values in the App Configuration provider.
-    app.config.update(azure_app_config)
-
-    # Access a configuration setting directly from within Flask configuration
-    message = app.config.get("message")
-```
-
-You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
-
 ### [Django](#tab/django)
 
 Setup App Configuration in your Django settings file, `settings.py`.
