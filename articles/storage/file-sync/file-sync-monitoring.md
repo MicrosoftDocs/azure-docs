@@ -101,7 +101,7 @@ To view the health of your Azure File Sync deployment in the **Azure portal**, n
 
 To view the **registered server health** in the portal, navigate to the **Registered servers** section of the **Storage Sync Service**.
 
-![Screenshot of registered servers health](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
+:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png" alt-text="Screenshot that shows the server endpoint health in the Azure portal." border="true":::
 
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
 - If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service. See the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity) for guidance.
