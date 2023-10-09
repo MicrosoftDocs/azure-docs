@@ -15,7 +15,7 @@ ms.date: 09/27/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-Vector search is an approach in information retrieval that uses numeric representations of content for search scenarios. Because the content is numeric rather than plain text, queries can match on what's semantically similar, even if there is no match on exact terms.
+Vector search is an approach in information retrieval that uses numeric representations of content for search scenarios. Because the content is numeric rather than plain text, the search engine matches on vectors that are the most similar to the query, with no requirement for matching on exact terms.
 
 This article is a high-level introduction to vector support in Azure Cognitive Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 

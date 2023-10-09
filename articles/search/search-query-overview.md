@@ -23,9 +23,9 @@ This article describes the kinds of queries you can create.
 
 | Query form | Searchable content | Description |
 |------------|--------------------|-------------|
-| Text search | Inverted indexes of tokenized terms, raw alphanumeric content | Full text queries iterate over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. Text is analyzed and tokenized for full text search. Raw content, extracted verbatim from source documents, support filters and pattern matching queries like fuzzy search and wildcards. |
-| Vector search | Vector indexes of generated embeddings | Vector queries iterate over vector fields in a search index. |
-| Hybrid search | All of the above, in a single search index | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
+| Text search | Inverted indexes of tokenized terms, raw alphanumeric content. | Full text queries iterate over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. Text is analyzed and tokenized for full text search. <p>Raw content, extracted verbatim from source documents, support filters and pattern matching queries like fuzzy search and wildcards. |
+| [Vector search](vector-search-overview.md) | Vector indexes of generated embeddings. | Vector queries iterate over vector fields in a search index. |
+| [Hybrid search](hybrid-search-overview.md) | All of the above, in a single search index. | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
 
 ## Text search
 
