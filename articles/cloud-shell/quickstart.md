@@ -66,8 +66,6 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
    ```
    <!-- markdownlint-enable MD023 MD024 MD051-->
 
-   ---
-
 1. Set your preferred subscription:
 
    <!-- markdownlint-disable MD023 MD024 MD051-->
