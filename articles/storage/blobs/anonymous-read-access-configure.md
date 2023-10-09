@@ -59,7 +59,7 @@ Allowing or disallowing anonymous access requires version 2019-04-01 or later of
 
 ### Permissions for disallowing anonymous access
 
-To set the **AllowBlobPublicAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** action. Built-in roles with this action include:
+To set the **AllowBlobAnonymousAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** action. Built-in roles with this action include:
 
 - The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
 - The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role

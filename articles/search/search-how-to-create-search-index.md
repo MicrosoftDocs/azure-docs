@@ -93,8 +93,6 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
-Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
-
 ```json
 POST https://[servicename].search.windows.net/indexes?api-version=[api-version] 
 {

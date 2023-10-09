@@ -5,6 +5,21 @@ ms.topic: include
 ms.date: 02/28/2023
 ms.author: eur
 ---
+### September 2023 release
+
+#### Prebuilt neural voice
+- Introducing new multilingual voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `en-US` | English (United States) | `en-US-EmmaNeural` (Female) |
+| `en-US` | English (United States) | `en-US-AndrewNeural` (Male) |
+| `en-US` | English (United States) | `en-US-BrianNeural` (Male) |
+
+See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
+#### Embedded neural voice
+- All 147 locales here (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices.
 
 ### August 2023 release
 

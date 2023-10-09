@@ -332,7 +332,7 @@ function Update-Terminology {
     foreach ($item in $Terminology.GetEnumerator()) {
         $old = [regex]::Escape($item.Key)
         $new = $item.Value
-        $toReplace = '(?<!(name=\"[^$]*|https?:\/\/aka.ms/[a-z|0-1]*))' + $($old)
+        $toReplace = '(?<!(name=\"[^$]{1,100}|https?://aka.ms/[a-z0-9/-]{1,100}))' + $($old)
 
         # Replace the old terminology with the new one
         $Content.Value = $Content.Value -replace $toReplace, $new

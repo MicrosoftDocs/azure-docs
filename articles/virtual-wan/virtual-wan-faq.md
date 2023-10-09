@@ -456,6 +456,9 @@ The route limit for OpenVPN clients is 1000.
 Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However, Virtual WAN combines many different components such as Azure Firewall, site-to-site VPN, ExpressRoute, point-to-site VPN, and Virtual WAN Hub/Integrated Network Virtual Appliances.
 
 The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute downtime, the availability of ExpressRoute would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100.
+### Can you change the VNet address space in a spoke VNet connected to the hub? 
+
+Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](https://learn.microsoft.com/azure/virtual-network/manage-virtual-network ).  
 
 ## Next steps
 

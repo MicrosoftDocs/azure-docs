@@ -749,6 +749,8 @@
         href: data-connectors/wirex-network-forensics-platform.md
       - name: WithSecure Elements via Connector
         href: data-connectors/withsecure-elements-via-connector.md
+      - name: Wiz
+        href: data-connectors/wiz.md
       - name: Workplace from Facebook (using Azure Functions)
         href: data-connectors/workplace-from-facebook-using-azure-function.md
       - name: Zero Networks Segment Audit

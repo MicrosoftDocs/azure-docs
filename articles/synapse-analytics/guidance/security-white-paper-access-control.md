@@ -43,7 +43,7 @@ In addition to securing SQL tables in Azure Synapse, dedicated SQL pool (formerl
 [Column-level security](../sql-data-warehouse/column-level-security.md) allows security administrators to set permissions that limit who can access sensitive columns in tables. It's set at the database level and can be implemented without the need to change the design of the data model or application tier.
 
 > [!NOTE]
-> Column-level security is supported in Azure Synapse and dedicated SQL pool (formerly SQL DW), but it's not supported for Apache Spark pool and serverless SQL pool.
+> Column-level security is supported in Azure Synapse, serverless SQL pool views and dedicated SQL pool (formerly SQL DW), but it's not supported for serverless SQL pool external tables and Apache Spark pool. In case of a serverless SQL pool external tables workaround can be applied by creating a view on top of an external table. 
 
 ## Dynamic data masking
 

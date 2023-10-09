@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 10/03/2023
 ms.author: greglin
 ---
 
@@ -186,7 +186,7 @@ spec:
             value: /shop
     - filters:
       - type: URLRewrite
-        URLRewrite:
+        urlRewrite:
           path:
             type: ReplacePrefixMatch
             replacePrefixMatch: /ecommerce

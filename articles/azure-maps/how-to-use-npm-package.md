@@ -2,8 +2,8 @@
 title: How to use the Azure Maps map control npm package
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add maps to node.js applications by using the map control npm package in Azure Maps. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/04/2023
 ms.topic: how-to
 ms.service: azure-maps

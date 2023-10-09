@@ -380,6 +380,8 @@
         href: britive-tutorial.md
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
+      - name: Brocade SANnav Management Portal
+        href: brocade-sannav-management-portal-tutorial.md
       - name: Broker groupe Achat Solutions
         href: broker-groupe-tutorial.md
       - name: BrowserStack Single Sign-on
@@ -392,8 +394,6 @@
         href: bullseyetdp-tutorial.md
       - name: Burp Suite Enterprise Edition
         href: burp-suite-enterprise-edition-tutorial.md
-      - name: Bustle B2B Transport Systems
-        href: bustle-b2b-transport-systems-provisioning-tutorial.md
       - name: Buttonwood Central SSO
         href: buttonwood-central-sso-tutorial.md  
       - name: Bynder
@@ -736,6 +736,8 @@
         href: desknets-neo-tutorial.md
       - name: Deskradar
         href: deskradar-tutorial.md
+      - name: Diffchecker
+        href: diffchecker-tutorial.md
       - name: DigiCert
         href: digicert-tutorial.md
       - name: Digital Pigeon
@@ -744,6 +746,8 @@
         href: dining-sidekick-tutorial.md  
       - name: Direct
         href: direct-tutorial.md
+      - name: Directory Services Protector
+        href: directory-services-protector-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
       - name: directprint.io Cloud Print Administration
@@ -1703,6 +1707,8 @@
         href: montageonline-tutorial.md
       - name: Moqups
         href: moqups-tutorial.md
+      - name: Mosaic Project Operations
+        href: mosaic-project-operations-tutorial.md
       - name: Motus
         href: motus-tutorial.md
       - name: MOVEit Transfer - Microsoft Entra integration
@@ -2088,7 +2094,9 @@
       - name: QReserve
         href: qreserve-tutorial.md
       - name: Qualaroo
-        href: qualaroo-tutorial.md  
+        href: qualaroo-tutorial.md
+      - name: Quarem
+        href: quarem-tutorial.md
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -3108,6 +3116,8 @@
         href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-provisioning-tutorial.md
+      - name: Bustle B2B Transport Systems
+        href: bustle-b2b-transport-systems-provisioning-tutorial.md
       - name: Canva
         href: canva-provisioning-tutorial.md
       - name: Cato Networks Provisioning
@@ -3172,6 +3182,8 @@
         href: dialpad-provisioning-tutorial.md
       - name: directprint.io
         href: directprint-io-provisioning-tutorial.md
+      - name: Diffchecker
+        href: diffchecker-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
       - name: embed signage
@@ -3336,6 +3348,8 @@
         href: looop-provisioning-tutorial.md
       - name: LogMeIn
         href: logmein-provisioning-tutorial.md
+      - name: M-Files
+        href: m-files-provisioning-tutorial.md
       - name: Maptician
         href: maptician-provisioning-tutorial.md
       - name: Markit Procurement Service
@@ -3464,6 +3478,8 @@
         href: sap-successfactors-writeback-tutorial.md
       - name: SchoolStream ASA
         href: schoolstream-asa-provisioning-tutorial.md
+      - name: ScreenSteps
+        href: screensteps-provisioning-tutorial.md
       - name: SECURE DELIVER
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
@@ -3528,6 +3544,8 @@
         href: taskize-connect-provisioning-tutorial.md
       - name: Teamgo
         href: teamgo-provisioning-tutorial.md
+      - name: Team Today
+        href: team-today-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: TerraTrue
@@ -3608,6 +3626,8 @@
         href: wrike-provisioning-tutorial.md
       - name: Xledger
         href: xledger-provisioning-tutorial.md
+      - name: XM Fax and XM SendSecure
+        href: xm-fax-and-xm-send-secure-provisioning-tutorial.md
       - name: Yellowbox
         href: yellowbox-provisioning-tutorial.md
       - name: Zapier
