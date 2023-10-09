@@ -24,7 +24,7 @@ The AMD Software: Cloud Edition drivers must be installed to take advantage of t
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 11 64-bit version 21H2, 22H2<br/><br/>Windows 10 64-bit version 21H2, 22H2 <br/><br/>Windows 11 EMS 64-bit 21H2, 22H2<br/><br/> Windows 10 EMS 64-bit 21H2, 22H2<br/><br/>Windows Server 2019 LTSC (version 1909)<br/><br/>Windows Server 2022 64-bit Release 20348 | [23.Q3 (.exe)](https://go.microsoft.com/fwlink/?linkid=2248541) |
+| Windows 11 64-bit version 21H2, 22H2<br/><br/>Windows 10 64-bit version 21H2, 22H2 <br/><br/>Windows 11 EMS 64-bit 21H2, 22H2<br/><br/> Windows 10 EMS 64-bit 21H2, 22H2<br/><br/>Windows Server 2019 LTSC (version 1809)<br/><br/>Windows Server 2022 64-bit Release 20348 | [23.Q3 (.exe)](https://go.microsoft.com/fwlink/?linkid=2248541) |
 
 ### VM Creation
 Create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  V620 Series during preview)
