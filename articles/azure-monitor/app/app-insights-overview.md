@@ -9,7 +9,7 @@ ms.date: 10/09/2023
 
 Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md), excels in Application Performance Management (APM) for live web applications.
 
-:::image type="content" source="media/overview-dashboard/0001-dashboard-small.png" alt-text="A screenshot of the Application Insights dashboard" lightbox="media/overview-dashboard/0001-dashboard.png":::
+:::image type="content" source="media/app-insights-overview/app-insights-overview-screenshot.png" alt-text="A screenshot of the Azure Monitor Application Insights user interface displaying an application map." lightbox="media/app-insights-overview/app-insights-overview-screenshot.png":::
 
 ## Experiences
 
@@ -56,7 +56,7 @@ The logic model diagram visualizes components of Application Insights and how th
 
 This section outlines supported scenarios.
 
-For detailed information about enabling Application Insights, see [Data collection basics](opentelemetry-overview.md).
+For detailed information about instrumenting applications to enable Application Insights, see [data collection basics](opentelemetry-overview.md).
 
 ### Automatic instrumentation (enable without code changes)
 * [Autoinstrumentation supported environments and languages](codeless-overview.md#supported-environments-languages-and-resource-providers)
