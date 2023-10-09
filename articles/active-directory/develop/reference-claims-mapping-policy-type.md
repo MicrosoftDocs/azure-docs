@@ -421,6 +421,9 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |----------------------|----------------|-----------------|-------------|
 | **Join** | string1, string2, separator | output claim | Joins input strings by using a separator in between. For example, string1:`foo@bar.com` , string2:`sandbox` , separator:`.` results in output claim:`foo@bar.com.sandbox`. |
 | **ExtractMailPrefix** | Email or UPN | extracted string | Extension attributes 1-15 or any other directory extensions, which store a UPN or email address value for the user. For example, `johndoe@contoso.com`. Extracts the local part of an email address. For example, mail:`foo@bar.com` results in output claim:`foo`. If no \@ sign is present, then the original input string is returned. |
+| **ToLowercase()** | | | Converts the characters of the selected attribute into lowercase characters. |
+| **ToUppercase()** | | | Converts the characters of the selected attribute into uppercase characters. |
+| **RegexReplace()** |  | | RegexReplace() transformation accepts as input parameters:<br/>- Parameter 1: a user attribute as regex input<br/>- An option to trust the source as multivalued<br/>- Regex pattern<br/>- Replacement pattern. The replacement pattern may contain static text format along with a reference that points to regex output groups and more input parameters. |
 
 - **InputClaims** - Used to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue**.
   - **ClaimTypeReferenceId** - Joined with the ID element of the claim schema entry to find the appropriate input claim.
