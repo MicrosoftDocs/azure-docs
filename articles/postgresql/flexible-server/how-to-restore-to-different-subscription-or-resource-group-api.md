@@ -15,7 +15,7 @@ ms.date: 10/04/2023
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 In this article, you learn how to restore a flexible server to a different subscription or resource group using the REST API [Azure REST API](/rest/api/azure/). To learn more about backup and restore see the [overview](concepts-backup-restore.md).
 
-### Prerequisites
+## Prerequisites
 An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to be the primary server.
 
 ### Restore to a different Subscription or Resource group
