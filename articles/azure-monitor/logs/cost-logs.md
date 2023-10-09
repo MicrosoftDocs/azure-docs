@@ -134,19 +134,19 @@ In some scenarios, combining this data can result in cost savings. Typically, th
 
 ## Workspaces with Microsoft Defender for Cloud
 
-[Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/azure-defender/). It provides 500 MB per server per day of data allocation that's applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
+[Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) [bills by the number of monitored services](https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/). It provides 500 MB per server per day of data allocation that's applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
-- [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)
 - [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
 - [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
 - [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/securitybaselinesummary)
 - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
-- [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
-- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/faq-defender-for-servers.yml).
+- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
+
+If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data. To learn more on how Microsoft Sentinel customers can benefit, please see the [Microsoft Sentinel Pricing page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 The count of monitored servers is calculated on an hourly granularity. The daily data allocation contributions from each monitored server are aggregated at the workspace level. If the workspace is in the legacy Per Node pricing tier, the Microsoft Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
