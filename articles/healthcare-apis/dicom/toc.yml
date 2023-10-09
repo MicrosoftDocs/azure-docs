@@ -57,12 +57,14 @@ items:
         - name: Pull DICOM changes using the change feed
           href: pull-dicom-changes-from-change-feed.md
 - name: Reference
-  expanded: false
+  expanded: true
   items: 
     - name: API versioning
       href: api-versioning-dicom-service.md
     - name: DICOM service API v2 changes
       href: dicom-service-v2-api-changes.md
+    - name: DICOM service open-source projects
+      href: references-for-dicom-service.md
     - name: DICOM conformance statements
       expanded: false
       items: 
@@ -72,5 +74,3 @@ items:
           href: dicom-services-conformance-statement.md
         - name: FAQ
           href: dicom-services-faqs.yml
-        - name: DICOM service open-source projects
-          href: references-for-dicom-service.md
