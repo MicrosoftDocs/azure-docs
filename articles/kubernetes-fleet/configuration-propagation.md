@@ -21,7 +21,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 
-    ```bash
+    ```azurecli-interactive
     export GROUP=<resource-group>
     export FLEET=<fleet-name>
     export MEMBER_CLUSTER_1=aks-member-1
@@ -43,7 +43,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 1. Create a sample namespace by running the following command on the fleet cluster:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl create namespace hello-world
     ```
 
@@ -75,7 +75,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 1. Apply the `ClusterResourcePlacement`:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl apply -f crp.yaml
     ```
 
@@ -87,7 +87,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 1. Check the status of the `ClusterResourcePlacement`:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl get clusterresourceplacements
     ```
 
@@ -100,7 +100,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 1. On each member cluster, check if the namespace has been propagated:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-1 kubectl get namespace hello-world
     ```
 
@@ -111,7 +111,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
     hello-world   Active   96s
     ```
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-2 kubectl get namespace hello-world
     ```
 
@@ -122,7 +122,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
     hello-world   Active   1m16s
     ```
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-3 kubectl get namespace hello-world
     ```
 
@@ -141,7 +141,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 1. Create a sample namespace by running the following command:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl create namespace hello-world-1
     ```
 
@@ -166,14 +166,14 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
     Apply this `ClusterResourcePlacement` to the cluster:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl apply -f crp-1.yaml
     ```
 
 1. Check the status of the `ClusterResourcePlacement`:
 
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl get clusterresourceplacements
     ```
 
@@ -186,7 +186,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
 
 1. On each AKS cluster, run the following command to see if the namespace has been propagated:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-1 kubectl get namespace hello-world-1
     ```
 
@@ -197,7 +197,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
     hello-world-1   Active   70s
     ```
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-2 kubectl get namespace hello-world-1
     ```
 
@@ -207,7 +207,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
     Error from server (NotFound): namespaces "hello-world-1" not found
     ```
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-3 kubectl get namespace hello-world-1
     ```
 

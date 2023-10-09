@@ -21,7 +21,7 @@ Platform admins who are managing Kubernetes fleets with a large number of cluste
 
 * Set the following environment variables:
 
-  ```bash
+  ```azurecli-interactive
   export GROUP=<resource-group>
   export FLEET=<fleet-name>
   ```

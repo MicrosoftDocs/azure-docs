@@ -393,7 +393,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
 
 1. Verify the status of the member clusters:
 
-    ```bash
+    ```azurecli-interactive
     kubectl get memberclusters
     ```
 

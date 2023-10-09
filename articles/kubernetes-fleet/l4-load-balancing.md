@@ -33,7 +33,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 
-    ```bash
+    ```azurecli-interactive
     export GROUP=<resource-group>
     export FLEET=<fleet-name>
     export MEMBER_CLUSTER_1=aks-member-1
@@ -55,7 +55,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Create a namespace on the fleet cluster:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl create namespace kuard-demo
     ```
 
@@ -67,7 +67,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Apply the Deployment, Service, ServiceExport objects:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
     ```
 
@@ -103,7 +103,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Apply the `ClusterResourcePlacement`:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl apply -f crp-2.yaml
     ```
 
@@ -116,7 +116,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 1. Check the status of the `ClusterResourcePlacement`:
 
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=fleet kubectl get clusterresourceplacements
     ```
 
@@ -132,7 +132,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Check the member clusters in `eastus` region to see if the service is successfully exported:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-1 kubectl get serviceexport kuard --namespace kuard-demo
     ```
 
@@ -143,7 +143,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kuard   True       False           25s
     ```
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-2 kubectl get serviceexport kuard --namespace kuard-demo
     ```
 
@@ -161,7 +161,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Apply the MultiClusterService on one of these members to load balance across the service endpoints in these clusters:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-1 kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
     ```
 
@@ -188,7 +188,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Verify the MultiClusterService is valid by running the following command:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-1 kubectl get multiclusterservice kuard --namespace kuard-demo
     ```
 
@@ -203,16 +203,16 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Run the following command multiple times using the External IP address from above:
 
-    ```bash
+    ```azurecli-interactive
     curl <a.b.c.d>:8080 | grep addrs 
     ```
 
     Notice that the IPs of the pods serving the request is changing and that these pods are from member clusters `aks-member-1` and `aks-member-2` from the `eastus` region. You can verify the pod IPs by running the following commands on the clusters from `eastus` region:
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-1 kubectl get pods -n kuard-demo -o wide
     ```
 
-    ```bash
+    ```azurecli-interactive
     KUBECONFIG=aks-member-2 kubectl get pods -n kuard-demo -o wide
     ```
