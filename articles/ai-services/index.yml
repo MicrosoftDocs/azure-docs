@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure AI services documentation
   description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. 
-  ms.service: cognitive-services
+  ms.service: azure-ai-services
   ms.topic: hub-page
   author: eric-urban
   ms.author: eur
