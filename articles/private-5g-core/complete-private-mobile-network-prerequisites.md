@@ -18,6 +18,16 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 > [!TIP]
 > [Private mobile network design requirements](private-mobile-network-design-requirements.md) contains the full network design requirements for a customized network.
 
+## Tools and access
+
+To deploy your private mobile network using Azure Private 5G Core, you will need the following:
+
+- A Windows PC with internet access
+- A Windows Administrator account on that PC
+- [Azure CLI](/cli/azure/install-azure-cli)
+- [PowerShell](/powershell/scripting/install/installing-powershell-on-windows)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
 ## Get access to Azure Private 5G Core for your Azure subscription
 
 Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://forms.office.com/r/4Q1yNRakXe).
