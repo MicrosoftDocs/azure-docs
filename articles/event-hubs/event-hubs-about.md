@@ -67,8 +67,7 @@ Capture your data in near-real time in an Azure Blob storage or Azure Data Lake 
 Event Hubs provides a unified event streaming platform with time retention buffer, decoupling event producers from event consumers. The producers and consumer applications can perform large scale data ingestion through multiple protocols. 
 
 The following figure shows the key components of Event Hubs architecture:
-:::image type="content" source="./media/event-hubs-about/eh-components.png" alt-text="Diagram that shows the main components of Event Hubs.":::
-
+:::image type="content" source="./media/event-hubs-about/components.png" alt-text="Diagram that shows the main components of Event Hubs.":::
 The key functional components of Event Hubs include: 
 - **Event Hub/Kafka topic**: In Event Hubs, you can organize events into event hubs or Kafka topic. It's an append only distributed log, which can comprise of one or more partitions. 
 - **Partitions** are used to scale an event hub. They are like lanes in a freeway. If you need more streaming throughput, you need to add more partitions.
