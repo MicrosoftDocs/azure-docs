@@ -52,9 +52,7 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
 
 1. List subscriptions you have access to.
 
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD051 -->
+   <!-- markdownlint-disable MD023 MD024 MD051-->
    #### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
@@ -66,17 +64,13 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
+   <!-- markdownlint-enable MD023 MD024 MD051-->
 
    ---
 
 1. Set your preferred subscription:
 
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD051 -->
+   <!-- markdownlint-disable MD023 MD024 MD051-->
    #### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
@@ -88,10 +82,7 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
    ```azurepowershell-interactive
    Set-AzContext -Subscription <SubscriptionId>
    ```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
-
+   <!-- markdownlint-enable MD023 MD024 MD051-->
    ---
 
 > [!TIP]
@@ -99,9 +90,7 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
 
 ### Get a list of Azure commands
 
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024-->
-<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD023 MD024 MD051-->
 #### [Azure CLI](#tab/azurecli)
 
 Run the following command to see a list of all Azure CLI commands.
@@ -132,9 +121,7 @@ Run the following commands to get a list the Azure PowerShell commands that appl
 cd 'Azure:/My Subscription/WebApps'
 Get-AzCommand
 ```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
+<!-- markdownlint-enable MD023 MD024 MD051-->
 
 ---
 
