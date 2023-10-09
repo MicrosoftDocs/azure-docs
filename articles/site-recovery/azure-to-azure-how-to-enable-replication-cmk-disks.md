@@ -114,7 +114,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 
     You can add a new CMK enabled disk to an existing replicated item using PowerShell. Find the code snippet for guidance:
    
-      ```powershell
+     ```powershell
      #set vaultname and resource group name for the vault.
      $vaultname="RSVNAME"
      $vaultrgname="RSVRGNAME"
@@ -138,7 +138,8 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 
      #set resource id of recovery resource group
      $RecoveryResourceGroup = "RESOURCEIDOFRG"
-     # set resource id of disk to be replicated
+     
+     #set resource id of disk to be replicated
      $dataDisk =  "RESOURCEIDOFTHEDISKTOBEREPLICATED"
 
      #setdiskconfig
@@ -151,9 +152,10 @@ As an example, the primary Azure region is East Asia, and the secondary region i
                -RecoveryTargetDiskAccountType Standard_LRS `
                -RecoveryDiskEncryptionSetId $diskencryptionset
 
+    
      #get fabric object from the source region.
      $fabric = Get-AzRecoveryServicesAsrFabric
-     # use to fabric name to get the container.
+     #use to fabric name to get the container.
      $primaryContainerName =Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric[1]
 
      #get the context of the protected item
