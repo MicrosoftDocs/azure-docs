@@ -7,13 +7,13 @@ ms.date: 10/09/2023
 
 # Application Insights overview
 
-:::image type="content" source="media/app-insights-overview/app-insights-icon.svg" alt-text="The official logo of Azure Monitor Application Insights":::
-
-Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md), excels in Application Performance Management (APM) for live web applications. It enhances the performance, reliability, and quality of your applications.
+Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md), excels in Application Performance Management (APM) for live web applications.
 
 :::image type="content" source="media/overview-dashboard/0001-dashboard-small.png" alt-text="A screenshot of the Application Insights dashboard" lightbox="media/overview-dashboard/0001-dashboard.png":::
 
-## Experiences:
+## Experiences
+
+Application Insights provides many experiences to enhance the performance, reliability, and quality of your applications.
 
 ### Investigate
 - [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
@@ -42,7 +42,9 @@ Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md)
 - [Code optimizations](../insights/code-optimizations.md): Harness AI to create better and more efficient applications.
 - [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect debug snapshots when exceptions occur in .NET application
 
-## Logic map
+## Logic model
+
+The logic model diagram visualizes components of Application Insights and how they interact.
 
 :::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
@@ -123,7 +125,7 @@ For detailed information about instrumenting applications to enable Application 
 
 ### How do I use Application Insights?
 
-After enabling Application Insights by instrumenting an application, we suggest first checking out [Live metrics](live-stream.md) and the [Application map](app-map.md), as well as the other [built-in experiences](#experiences).
+After enabling Application Insights by [instrumenting an application](opentelemetry-overview.md), we suggest first checking out [Live metrics](live-stream.md) and the [Application map](app-map.md).
 
 ### What telemetry does Application Insights collect?
 
