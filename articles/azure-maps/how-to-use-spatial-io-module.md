@@ -148,7 +148,6 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
     ```html
     <!DOCTYPE html>
-    <html>
 
     <head>
         <title>Spatial IO Module Example</title>
@@ -171,7 +170,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
         <script type='text/javascript'>
             var map, datasource, layer;
 
-            function GetMap() {
+            function InitMap() {
                 //Initialize a map instance.
                 map = new atlas.Map('myMap', {
                     view: 'Auto',
@@ -214,10 +213,10 @@ You can load the Azure Maps spatial IO module using one of the two options:
         </script>
     </head>
 
-    <body onload="GetMap()">
-        <div id="myMap"></div>
-    </body>
-
+    <html style='width:100%;height:100%;'> 
+      <body onload="InitMap()" style='width:100%;height:100%;padding:0;margin:0;'> 
+        <div id='myMap' style='position:relative;width:100%;height:100%;'></div>
+      </body>
     </html>
     ```
 
