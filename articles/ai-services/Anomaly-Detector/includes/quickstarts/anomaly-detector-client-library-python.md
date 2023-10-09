@@ -185,6 +185,7 @@ To visualize the anomalies and change points in relation to the sample data seri
     import pandas as pd
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
+    import os
 
     API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
