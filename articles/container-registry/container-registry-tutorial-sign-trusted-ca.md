@@ -222,15 +222,15 @@ To import the certificate:
 6. View the graph of signed images and associated signatures. 
 
     ```bash
-    notation ls $IMAGE 
+    notation ls $IMAGE
     ```
 
     In the following example of output, a signature of type `application/vnd.cncf.notary.signature` identified by digest `sha256:d7258166ca820f5ab7190247663464f2dcb149df4d1b6c4943dcaac59157de8e` is associated to the `$IMAGE`.
 
     ```
     myregistry.azurecr.io/net-monitor@sha256:17cc5dd7dfb8739e19e33e43680e43071f07497ed716814f3ac80bd4aac1b58f
-└── application/vnd.cncf.notary.signature
-    └── sha256:d7258166ca820f5ab7190247663464f2dcb149df4d1b6c4943dcaac59157de8e
+    └── application/vnd.cncf.notary.signature
+        └── sha256:d7258166ca820f5ab7190247663464f2dcb149df4d1b6c4943dcaac59157de8e
     ```
 
 ## Verify a container image with Notation CLI 
