@@ -12,7 +12,7 @@ ms.date: 11/30/2021
 
 # Azure Database for PostgreSQL Flexible Server Networking with Private Link - Preview
 
-*Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL - Flexible server to bring it inside your Virtual Network (VNet). That functionality is introduced in addition to already [existing networking capabilities provided by VNET injection](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL - Flexible Server. With Private Link,traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+*Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL - Flexible server to bring it inside your Virtual Network (VNet). That functionality is introduced in addition to already [existing networking capabilities provided by VNET injection](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL - Flexible Server. With Private Link, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 Private Link is exposed to users through two  Azure resource types:
 
@@ -62,14 +62,14 @@ Cross Feature Availability Matrix
 | Point in Time Restore (PITR)   | No   |    |
 | Allowing also public/internet access with firewall rules   | No   |    |
 |Major Version Upgrade (MVU)   | Yes   |  Works as designed  |
-| Azure Active Directory Authentocation (AAD Auth)   | Yes   | Works as designed   |
+| Azure Active Directory Authentication (AAD Auth)   | Yes   | Works as designed   |
 | Connection pooling with PGBouncer   | Yes   |  Works as designed  |
 | Private Endpoint DNS  | Yes   |  Works as designed and [documented](../../private-link/private-endpoint-dns.md) |
 
 There are also **following edge case limitations** that are currently not supported in Public Preview:
 - Restore from PITR backup is not supported with PE enabled servers.
 - Private Endpoint Connection description property isn't populated. The description field shown in the PG/Networking blade is empty for the connections. Providing connection description isn't supported and if updated while connection is moved from rejected state to pending, the operation may be blocked
-- Provisioned PE capable servers are not be publicly accessible outside of PE connections. 
+- Provisioned PE capable servers are not to be publicly accessible outside of PE connections. 
 - Currently we have an issue for private endpoint capable servers where there is an A record can't be reused when a server is dropped. This translates into a problem that will **prevent recreating the server with the same name**. This issue is expected to be fixed as soon as possible.
 
 ### Connecting from an Azure VM in Peered Virtual Network (VNet)
@@ -78,7 +78,7 @@ Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks
 
 ### Connecting from an Azure VM in VNet-to-VNet environment
 
-Configure [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) connection to establish connectivity to a Azure Database for PostgreSQL - Flexible server from an Azure VM in a different region or subscription.
+Configure [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) connection to establish connectivity to an Azure Database for PostgreSQL - Flexible server from an Azure VM in a different region or subscription.
 
 
 ### Connecting from an on-premises environment over VPN
