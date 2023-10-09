@@ -3,7 +3,7 @@ title: Create an Azure service principal
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
