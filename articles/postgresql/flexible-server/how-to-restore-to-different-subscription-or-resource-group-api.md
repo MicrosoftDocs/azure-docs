@@ -1,5 +1,5 @@
 ---
-title: Cross Subscription and Cross Resource Group Restore - Azure REST API in Azure Database for PostgreSQL - Flexible Server
+title: Cross Subscription and Cross Resource Group restore - Azure REST API in Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to restore to a different Subscription or resource group server in Azure Database for  PostgreSQL - Flexible Server using  Azure REST API.
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.date: 10/04/2023
 ---
 
-# Cross Subscription and Cross Resource Group Restore in Azure Database for PostgreSQL Flexible Server using Azure REST API
+# Cross Subscription and Cross Resource Group restore in Azure Database for PostgreSQL Flexible Server using Azure REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 In this article, you learn how to restore a flexible server to a different subscription or resource group using the REST API [Azure REST API](/rest/api/azure/). To learn more about backup and restore see the [overview](concepts-backup-restore.md).
@@ -30,7 +30,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
 3. Go to **Request Body** section and paste the following replacing the "location" (e.g. CentralUS, EastUS etc.), "pointInTimeUTC", and ))"SourceServerResourceID", For "pointInTimeUTC", specify a timestamp value  to which you want to restore. Finally, you can use createMode as **PointInTimeRestore** for performing regular restore and **GeoRestore** for restoring geo-redundant backups.
 
-## GeoRestore
+ **GeoRestore**
 
 ```json
    {
@@ -43,7 +43,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
    }
 }
 ```
-## Point In Time Restore
+**Point In Time Restore**
 
 ```json
     {
@@ -68,8 +68,8 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
 ## Common Errors
 
-1. If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-06-01-preview API to avoid such issues.
-2. To avoid potential DNS errors, it's recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
+ - If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-06-01-preview API to avoid such issues.
+ - To avoid potential DNS errors, it's recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
 
 ## Next steps
 
