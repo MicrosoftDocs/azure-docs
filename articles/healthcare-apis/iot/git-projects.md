@@ -22,7 +22,7 @@ Check out our open-source software (OSS) projects on GitHub, which provide sourc
 
 ### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [HL7 FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491).
 
 ### Wearables integration
 
@@ -34,7 +34,7 @@ HealthKit
 
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): Bring Apple&#174; HealthKit&#174; data to a FHIR service.
 
-* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
+* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR resources from HKObjects.
 
 Fit on FHIR
 

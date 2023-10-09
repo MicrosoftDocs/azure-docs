@@ -702,7 +702,6 @@
           href: how-to-secure-rag-workflows.md
         - name: RAG cloud to local 
           href: how-to-retrieval-augmented-generation-cloud-to-local.md
-
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview
@@ -1384,6 +1383,12 @@
             href: ./known-issues/workspace-move-compute-instance-same-name.md
           - name: Application Sharing Policy isn't supported 
             href: ./known-issues/application-sharing-policy-not-supported.md 
+        - name: Inferencing known issues
+          items:
+          - name: Existing Kubernetes compute cannot be updated
+            href: ./known-issues/inferencing-updating-kubernetes-compute-appears-to-succeed.md
+          - name: Invalid certificate error during deployment
+            href: ./known-issues/inferencing-invalid-certificate.md
 - name: Samples
   items:
     - name: Jupyter Notebooks

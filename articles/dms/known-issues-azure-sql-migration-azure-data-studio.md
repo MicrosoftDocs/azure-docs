@@ -7,7 +7,9 @@ ms.author: roblescarlos
 ms.date: 04/21/2023
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Known issues, limitations, and troubleshooting

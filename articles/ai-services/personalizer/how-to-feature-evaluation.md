@@ -12,6 +12,8 @@ ms.date: 09/22/2022
 
 # Evaluate feature importances
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 You can assess how important each feature was to Personalizer's machine learning model by conducting a _feature evaluation_ on your historical log data. Feature evaluations are useful to:
 
 * Understand which features are most or least important to the model.

@@ -33,7 +33,7 @@ An application instance has two properties: the ApplicationID (or ClientID) and 
 
 > [!NOTE] 
 > The terms **application** and **service principal** are used interchangeably, when referring to an application in authentication tasks. However, they are two representations of applications in Microsoft Entra ID.
- 
+
 The ApplicationID represents the global application and is the same for application instances, across tenants. The ObjectID is a unique value for an application object. As with users, groups, and other resources, the ObjectID helps to identify an application instance in Microsoft Entra ID.
 
 To learn more, see [Application and service principal relationship in Microsoft Entra ID](../develop/app-objects-and-service-principals.md)
@@ -43,8 +43,9 @@ To learn more, see [Application and service principal relationship in Microsoft 
 You can create an application and its service principal object (ObjectID) in a tenant using:
 
 * Azure PowerShell
+* Microsoft Graph PowerShell
 * Azure command-line interface (Azure CLI)
-* Microsoft Graph
+* Microsoft Graph API
 * The Azure portal
 * Other tools
 
@@ -85,9 +86,9 @@ When using service principals, use the following table to match challenges and m
 To find accounts, run the following commands using service principals with Azure CLI or PowerShell.
 
 * Azure CLI - `az ad sp list`
-* PowerShell - `Get-AzureADServicePrincipal -All:$true` 
+* PowerShell - `Get-MgServicePrincipal -All:$true` 
 
-For more information, see [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
+For more information, see [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal)
 
 ## Assess service principal security
 
@@ -95,7 +96,7 @@ To assess the security, evaluate privileges and credential storage. Use the foll
 
 |Challenge | Mitigation|
 | - | - |
-| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | - Run the following PowerShell to find multi-tenant apps <br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`</br> - Disable user consent </br> - Allow user consent from verified publishers, for selected permissions (recommended) </br> - Configure them in the user context </br> - Use their tokens to trigger the service principal|
+| Detect the user who consented to a multi-tenant app, and detect illicit consent grants to a multi-tenant app | - Run the following PowerShell to find multi-tenant apps <br>`Get-MgServicePrincipal -All:$true | ? {$_.Tags -eq "WindowsAzureActiveDirectoryIntegratedApp"}`</br> - Disable user consent </br> - Allow user consent from verified publishers, for selected permissions (recommended) </br> - Configure them in the user context </br> - Use their tokens to trigger the service principal|
 |Use of a hard-coded shared secret in a script using a service principal|Use a certificate|
 |Tracking who uses the certificate or the secret| Monitor the service principal sign-ins using the Microsoft Entra sign-in logs|
 |Can't manage service principal sign-in with Conditional Access| Monitor the sign-ins using the Microsoft Entra sign-in logs
@@ -134,3 +135,5 @@ Conditional Access:
 Use Conditional Access to block service principals from untrusted locations. 
 
 See, [Create a location-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy)
+
+

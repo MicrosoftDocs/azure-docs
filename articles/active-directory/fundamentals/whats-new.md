@@ -34,16 +34,6 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 ## September 2023
 
-### Public Preview - Managing and Changing Passwords in My Security Info
-
-**Type:**  New feature            
-**Service category:**  My Profile/Account                              
-**Product capability:**  End User Experiences                      
-
-The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users capable of multifactor authentication (MFA) are able to update their passwords without providing their current password.
-
----
-
 ### Public Preview - Device-bound passkeys as an authentication method
 
 **Type:**  Changed feature            
@@ -54,16 +44,6 @@ Beginning January 2024, Microsoft Entra ID will support [device-bound passkeys](
 
 
 We'll expand the existing FIDO2 authentication methods policy and end user registration experience to support this preview release. If your organization requires or prefers FIDO2 authentication using physical security keys only, then please enforce key restrictions to only allow security key models that you accept in your FIDO2 policy. Otherwise, the new preview capabilities enable your users to register for device-bound passkeys stored on Windows, macOS, iOS, and Android. Learn more about FIDO2 key restrictions [here](../authentication/howto-authentication-passwordless-security-key.md).
-
----
-
-### General Availability - Authenticator on Android is FIPS 140 compliant
-
-**Type:**  New feature            
-**Service category:**  Microsoft Authenticator App                                  
-**Product capability:**  User Authentication                        
-
-Authenticator version and higher on Android version will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP). No changes in configuration are required in the Authenticator app or Azure portal to enable this capability. For more information, see: [Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md).
 
 ---
 
@@ -132,7 +112,7 @@ When a Conditional Access policy targets the Microsoft Admin Portals cloud app, 
 - Microsoft Intune admin center
 - Microsoft Purview compliance portal                   
 
-For more information, see: [Microsoft Admin Portals (preview)](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals-preview).
+For more information, see: [Microsoft Admin Portals](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals).
 
 ---
 
