@@ -56,7 +56,8 @@ Analog automatic gain control is a filter available before a call. By default, t
 Digital automatic gain control is a filter available before a call. By default, this filter is enabled.
 
 ### Music Mode
-Music mode is a filter available before and during a call. Learn more about music mode [here](https://support.microsoft.com/en-us/office/use-high-fidelity-music-mode-to-play-music-in-microsoft-teams-c1550582-2f76-4b31-9f72-e98c7167a18e). Note that music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
+Music mode is a filter available before and during a call. Learn more about music mode [here](https://support.microsoft.com/office/use-high-fidelity-music-mode-to-play-music-in-microsoft-teams-c1550582-2f76-4b31-9f72-e98c7167a18e). Note that music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
+
 
 ### Echo cancellation
 Echo cancellation is a filter available before and during a call. You can only toggle echo cancellation only if music mode is enabled. By default, this filter is enabled. 
