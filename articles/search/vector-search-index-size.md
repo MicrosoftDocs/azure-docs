@@ -129,7 +129,7 @@ The following table summarizes the overhead percentages observed in internal tes
   
 | Dimensions (dims) | HNSW Parameter (m) | Overhead Percentage |  
 |-------------------|--------------------|---------------------|
-| 200               | 4                  | 20%               |    
+| 96               | 4                  | 20%               |    
 | 200               | 4                  | 8%               |  
 | 768               | 4                  | 2%               |  
 | 1536              | 4                  | 1%               |  
