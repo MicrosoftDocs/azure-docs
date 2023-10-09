@@ -1,5 +1,5 @@
 ---
-title: Cross Subscription and Cross Resource Group restore - Azure REST API in Azure Database for PostgreSQL - Flexible Server
+title: Cross subscription and cross resource group restore - Azure REST API in Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to restore to a different Subscription or resource group server in Azure Database for  PostgreSQL - Flexible Server using  Azure REST API.
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.date: 10/04/2023
 ---
 
-# Cross Subscription and Cross Resource Group restore in Azure Database for PostgreSQL Flexible Server using Azure REST API
+# Cross subscription and cross resource group  restore in Azure Database for PostgreSQL Flexible Server using Azure REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 In this article, you learn how to restore a flexible server to a different subscription or resource group using the REST API [Azure REST API](/rest/api/azure/). To learn more about backup and restore see the [overview](concepts-backup-restore.md).
@@ -22,7 +22,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
  1. Browse to the PostgreSQL [Create Server REST API Page](/rest/api/postgresql/flexibleserver/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
 
-2. Provide the **resourceGroupName**(Target Resource group name), **serverName** (Target server name), **subscriptionId** (Target subscription) properties. Please use the latest api-version, that is available. For this example we're using 2023-06-01-preview.
+2. Provide the **resourceGroupName**(Target Resource group name), **serverName** (Target server name), **subscriptionId** (Target subscription) properties. Please use the latest api-version that is available. For this example we're using 2023-06-01-preview.
 
     ![Screenshot showing the REST API Try It page.](./media/how-to-restore-server-portal/geo-restore-different-subscription-or-resource-group-api.png)
 
@@ -68,8 +68,8 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
 ## Common Errors
 
- - If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-06-01-preview API to avoid such issues.
- - To avoid potential DNS errors, it's recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
+ - If you utilize the incorrect API version, you might experience restore failures or timeouts. Please use 2023-06-01-preview API to avoid such issues.
+ - To avoid potential DNS errors, it's recommended to use a different name when initiating the restore process, as some restore operations might fail with the same name.
 
 ## Next steps
 
