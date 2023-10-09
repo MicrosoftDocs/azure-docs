@@ -115,17 +115,27 @@ The storage size of one vector is determined by its dimensionality. Multiply the
 
 For `Edm.Single`, the size of the data type is 4 bytes.
 
-### Overhead from the selected algorithm
+### Memory Overhead from the Selected Algorithm  
+  
+Every approximate nearest neighbor (ANN) algorithm generates additional data structures in memory to enable efficient searching. These structures consume extra space within memory.  
+  
+**For the HNSW algorithm, the memory overhead ranges between 1% and 20%.**  
+  
+The memory overhead is lower for higher dimensions because the raw size of the vectors increases, while the extra data structures remain a fixed size since they store information on the connectivity within the graph. Consequently, the contribution of the extra data structures constitutes a smaller portion of the overall size.  
+  
+The memory overhead is higher for larger values of the HNSW parameter `m`, which determines the number of bi-directional links created for every new vector during index construction. This is because `m` contributes approximately 8 to 10 bytes per document multiplied by `m`.  
+  
+The following table summarizes the overhead percentages observed in internal tests:  
+  
+| Dimensions (dims) | HNSW Parameter (m) | Overhead Percentage |  
+|-------------------|--------------------|---------------------|
+| 200               | 4                  | 20%               |    
+| 200               | 4                  | 8%               |  
+| 768               | 4                  | 2%               |  
+| 1536              | 4                  | 1%               |  
+  
+These results demonstrate the relationship between dimensions, HNSW parameter `m`, and memory overhead for the HNSW algorithm.  
 
-Each approximate-nearest-neighbor algorithm creates other data structures in memory to enable efficient searching. These consume extra space within memory. 
-
-**For HNSW algorithm, this overhead is between 5% to 20%.** 
-
-Overhead is lower for higher dimensions because the raw size of the vectors is larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures makes up a smaller portion of the overall size. 
-
-Overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction. (The reason is because _m_ contributes roughly _m times 8 to 10_ bytes per document.)
-
-Based on internal tests, a model with _m=4_ and _dims=96_ has an overhead of ~17%, and a model with _m=4_ and _dims=768_ has an overhead of ~5%.
 
 ### Overhead from deleting or updating documents within the index
 
