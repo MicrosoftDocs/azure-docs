@@ -91,8 +91,8 @@
     items:
     - name: What is an Azure Private DNS zone?
       href: private-dns-privatednszone.md
-    - name: Private DNS zones and records
-      href: dns-private-zones-records.md
+    - name: Private DNS records
+      href: dns-private-records.md
     - name: Virtual network links
       href: private-dns-virtual-network-links.md
     - name: Autoregistration

@@ -58,7 +58,7 @@ To create a wildcard record set, use the record set name '\*'. You can also use 
 
 CNAME record sets can't coexist with other record sets with the same name. For example, you can't create a CNAME record set with the relative name `www` and an A record with the relative name `www` at the same time.
 
-Since the zone apex (name = '\@') will always contain the NS and SOA record sets during the creation of the zone, you can't create a CNAME record set at the zone apex.
+Since the zone apex (name = '\@') always contains the NS and SOA record sets during the creation of the zone, you can't create a CNAME record set at the zone apex.
 
 These constraints arise from the DNS standards and aren't limitations of Azure DNS.
 
@@ -79,7 +79,7 @@ The zone serial number in the SOA record isn't updated automatically when change
 
 ### TXT records
 
-TXT records are used to map domain names to arbitrary text strings. They're used in multiple applications, in particular related to email configuration, such as the [Sender Policy Framework (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
+TXT records are used to map domain names to arbitrary text strings. They're used in multiple applications.
 
 The DNS standards permit a single TXT record to contain multiple strings, each of which can be up to 255 characters in length. Where multiple strings are used, they're concatenated by clients and treated as a single string.
 
