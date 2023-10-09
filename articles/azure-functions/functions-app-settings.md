@@ -460,6 +460,14 @@ The value for this setting indicates an extra index URL for custom packages for 
 
 To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
+## PROJECT
+
+A [continous deployment](./functions-continuous-deployment.md) setting that tells the Kudu deployment service the folder in a connected repository to location the deployable project. 
+
+|Key|Sample value|
+|---|------------|
+|PROJECT |`WebProject/WebProject.csproj` |
+
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
 
 The configuration is specific to Python function apps. It defines the prioritization of module loading order. By default, this value is set to `0`.

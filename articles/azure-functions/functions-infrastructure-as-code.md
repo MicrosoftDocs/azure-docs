@@ -208,7 +208,7 @@ For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/
 
 The connection  also needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
-You need to set the connection string for this Application Insights instance as the `APPLICATIONINSIGHTS_CONNECTION_STRING` app setting. The templates in this article obtain the connection string value for the created instance. Older template versions may have instead used the `APPINSIGHTS_INSTRUMENTATIONKEY` to set the instrumentation key, which is no longer recommended. For more information, see [Application settings](#application-configuration).
+You need to set the connection string for this Application Insights instance as the `APPLICATIONINSIGHTS_CONNECTION_STRING` app setting. The templates in this article obtain the connection string value for the created instance. Older template versions might instead use `APPINSIGHTS_INSTRUMENTATIONKEY` to set the instrumentation key, which is no longer recommended. For more information, see [Application settings](#application-configuration).
 
 :::zone pivot="premium-plan,dedicated-plan,consumption-plan"  
 ## Create the hosting plan
@@ -224,7 +224,7 @@ A Premium plan is a special type of `serverfarm` resource. You can specify it by
 
 ### [Linux](#tab/linux/bicep)
 
-To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
+To run your app on Linux, you must also set property `"reserved": true` for the `serverfarms` resource:
 
 ```bicep
 resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
@@ -245,7 +245,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ### [Linux](#tab/linux/json)
 
-To run your app on Linux, you must also set property `"reserved": true` for the serverfarms resource:
+To run your app on Linux, you must also set property `"reserved": true` for the `serverfarms` resource:
 
 ```json
 "resources": [
@@ -619,7 +619,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 The function app resource is defined by a resource of type `Microsoft.Web/sites` and `kind` that includes `functionapp`.
 
-The way that you define a function app resource depends on whether you are hosting on Linux or on Windows:
+The way that you define a function app resource depends on whether you're hosting on Linux or on Windows:
 
 ### [Linux](#tab/linux)
 
@@ -1210,7 +1210,9 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 :::zone pivot="dedicated-plan,premium-plan,consumption-plan"  
 ## Deployment source
 
-Your Bicep file or ARM template can also define a deployment option for your function code, such as a [zip deployment file](./deployment-zip-push.md), a [Linux container](./functions-how-to-custom-container.md), or a [continuous deployment source](./functions-continuous-deployment.md). 
+Your Bicep file or ARM template can also define a deployment option for your function code. These deployments could include a [zip deployment file](./deployment-zip-push.md), a [Linux container](./functions-how-to-custom-container.md), or a [continuous deployment source](./functions-continuous-deployment.md). 
+
+To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In most examples, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child `sourcecontrols/web` resource is applied. Although it's possible to configure these settings in the child-level `config/appSettings` resource, in some cases your function app must be deployed *before* `config/appSettings` is applied. 
 
 ### Zip deployment 
 
@@ -1291,6 +1293,133 @@ The `packageUri` must be a location that can be accessed by Functions. Consider 
 
 >![IMPORTANT]  
 >Make sure to always set all required application settings in the `appSettings` collection when adding or updating settings. Existing settings not explicitly set are removed.
+
+### Source control deployment 
+
+Defining a child `sourcecontrols` resource instructs Functions to try and get code from the specified `repoUrl` and `branch`. For more information, see [Continuous deployment for Azure Functions](./functions-continuous-deployment.md).
+
+This example uses the [`PROJECT](./functions-app-settings.md#project) application setting to set the base directory in the connected repository to look for deployable code. In this case, the code is maintained in a subfolder of the `src` folder in the repository. Therefore, you must set the application setting value to `src`. If your functions are in the root of your repository. 
+
+### [Bicep](#tab/bicep)
+
+```bicep
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp'
+  properties: {
+    serverFarmId: hostingPlan.id
+    siteConfig: {
+      alwaysOn: true
+      appSettings: [
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        {
+          name: 'Project'
+          value: 'src'
+        }
+      ]
+    }
+  }
+  dependsOn: [
+    storageAccount
+  ]
+}
+
+resource config 'Microsoft.Web/sites/config@2022-03-01' = {
+  parent: functionApp
+  name: 'appsettings'
+  properties: {
+    AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+    AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+    FUNCTIONS_EXTENSION_VERSION: '~4'
+    FUNCTIONS_WORKER_RUNTIME: 'dotnet'
+    Project: 'src'
+  }
+  dependsOn: [
+    sourcecontrol
+    storageAccount
+  ]
+}
+
+resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
+  parent: functionApp
+  name: 'web'
+  properties: {
+    repoUrl: repoUrl
+    branch: branch
+    isManualIntegration: true
+  }
+}
+```
+
+### [JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[variables('functionAppName')]",
+    "location": "[parameters('location')]",
+    "kind": "functionapp",
+    "properties": {
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+      "siteConfig": {
+        "alwaysOn": true,
+        "appSettings": [
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "Project",
+            "value": "src"
+          }
+        ]
+      }
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ]
+  },
+  {
+    "type": "Microsoft.Web/sites/config",
+    "apiVersion": "2022-03-01",
+    "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
+    "properties": {
+      "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+      "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+      "FUNCTIONS_EXTENSION_VERSION": "~4",
+      "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+      "Project": "src"
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+      "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
+      "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ]
+  },
+  {
+    "type": "Microsoft.Web/sites/sourcecontrols",
+    "apiVersion": "2022-03-01",
+    "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
+    "properties": {
+      "repoUrl": "[parameters('repoURL')]",
+      "branch": "[parameters('branch')]",
+      "isManualIntegration": true
+    },
+    "dependsOn": [
+      "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
+    ]
+  }
+]
+```
+
+---
 
 :::zone-end  
 :::zone pivot="dedicated-plan,premium-plan"
@@ -1520,7 +1649,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 Functions provides the following options for configuring your app: 
 
 | Configuration | `Microsoft.Web/sites` property |  
-| ---- | ---- | ---- |
+| ---- | ---- |
 | Application settings | `siteConfig.appSettings` collection |
 | Site settings | `siteConfig` |
 
@@ -1540,13 +1669,14 @@ The following application settings are required for a given operating system and
 :::zone pivot="consumption-plan,premium-plan"  
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
 ::: zone-end  
 :::zone pivot="dedicated-plan,premium-plan"  
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
 ::: zone-end  
 
 <sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.  
+<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
 
 ### [Windows](#tab/windows)
 
@@ -1562,22 +1692,23 @@ The following application settings are required for a given operating system and
 :::zone pivot="consumption-plan,premium-plan"  
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
 ::: zone-end
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan"   
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
 
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>2</sup>
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>3</sup>
 ::: zone-end  
-<sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.  
-<sup>2</sup>Supported only for Node.js deployments on Windows.
+<sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.    
+<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.   
+<sup>3</sup>Supported only for Node.js deployments on Windows.  
 
 ---
 
 >[!IMPORTANT]  
 >When adding or updating application settings using Bicep or ARM templates, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. You can instead use the Azure CLI, Azure PowerShell, or the Azure portal to more easily modify application settings. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#work-with-application-settings). 
 
-The following site settings may be required on the `siteConfig` property:
+The following site settings might be required on the `siteConfig` property:
 
 ### [Linux](#tab/linux)
 
@@ -1595,141 +1726,6 @@ The following site settings may be required on the `siteConfig` property:
 
 <sup>*</sup>Only required for .NET (C#) apps.
 
-> [!IMPORTANT]
-> You don't need to set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting because it's generated for you when the site is first created.
-
-## Customize deployments
-
-A function app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
-
-
-Considerations for custom deployments: 
-
-+ To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you're using functions with [Logic Apps](.logic-apps/index.yml), your functions are a dependency of another resource.
-
-    # [Bicep](#tab/bicep)
-    
-    ```bicep
-    resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-      name: functionAppName
-      location: location
-      kind: 'functionapp'
-      properties: {
-        serverFarmId: hostingPlan.id
-        siteConfig: {
-          alwaysOn: true
-          appSettings: [
-            {
-              name: 'FUNCTIONS_EXTENSION_VERSION'
-              value: '~4'
-            }
-            {
-              name: 'Project'
-              value: 'src'
-            }
-          ]
-        }
-      }
-      dependsOn: [
-        storageAccount
-      ]
-    }
-    
-    resource config 'Microsoft.Web/sites/config@2022-03-01' = {
-      parent: functionApp
-      name: 'appsettings'
-      properties: {
-        AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        FUNCTIONS_EXTENSION_VERSION: '~4'
-        FUNCTIONS_WORKER_RUNTIME: 'dotnet'
-        Project: 'src'
-      }
-      dependsOn: [
-        sourcecontrol
-        storageAccount
-      ]
-    }
-    
-    resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
-      parent: functionApp
-      name: 'web'
-      properties: {
-        repoUrl: repoUrl
-        branch: branch
-        isManualIntegration: true
-      }
-    }
-    ```
-    
-    # [JSON](#tab/json)
-    
-    ```json
-    "resources": [
-      {
-        "type": "Microsoft.Web/sites",
-        "apiVersion": "2022-03-01",
-        "name": "[variables('functionAppName')]",
-        "location": "[parameters('location')]",
-        "kind": "functionapp",
-        "properties": {
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-          "siteConfig": {
-            "alwaysOn": true,
-            "appSettings": [
-              {
-                "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~4"
-              },
-              {
-                "name": "Project",
-                "value": "src"
-              }
-            ]
-          }
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-        ]
-      },
-      {
-        "type": "Microsoft.Web/sites/config",
-        "apiVersion": "2022-03-01",
-        "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
-        "properties": {
-          "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-          "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~4",
-          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-          "Project": "src"
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
-          "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-        ]
-      },
-      {
-        "type": "Microsoft.Web/sites/sourcecontrols",
-        "apiVersion": "2022-03-01",
-        "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
-        "properties": {
-          "repoUrl": "[parameters('repoURL')]",
-          "branch": "[parameters('branch')]",
-          "isManualIntegration": true
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-        ]
-      }
-    ]
-    ```
-    
-    ---
-
-+ The previous Bicep file and ARM template use the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) application settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you're not deploying from source control, you can remove this app settings value.
-
 ## Validate your template
 
 When you manually create your deployment template file, it's important to validate your template before deployment. All deployment methods validate your template syntax and raise a `validation failed` error message as shown in the following JSON formatted example:
@@ -1742,7 +1738,7 @@ The following methods can be used to validate your template before deployment:
 
 ### [Azure Pipelines](#tab/devops)
 
-Tbe following [Azure resource group deployment v2 task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops) with `deploymentMode: 'Validation'` instructs Azure Pipelines to validate the template. 
+The following [Azure resource group deployment v2 task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops) with `deploymentMode: 'Validation'` instructs Azure Pipelines to validate the template. 
 
 ```yml
 - task: AzureResourceManagerTemplateDeployment@3
