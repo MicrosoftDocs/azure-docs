@@ -1,6 +1,6 @@
 ---
-title: Estimate the cost of AzCopy transfers (Azure Blob Storage)
-description: Learn how to calculate the cost of transferring data by using AzCopy. 
+title: 'Estimate costs: AzCopy with Azure Blob Storage'
+description: Learn how to estimate the cost to transfer data to, from, or between containers in Azure Blob Storage.  
 services: storage
 author: normesta
 ms.service: azure-blob-storage
@@ -10,52 +10,43 @@ ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
 
-# Estimate the cost of AzCopy transfers
+# Estimate the cost to transfer data to, from, or between containers
 
-This article explains how to calculate the cost of using AzCopy to transfer data to, from, or between Azure Blob Storage containers.
+You can estimate the cost of a transfer by knowing the number of blobs, the size of each blob, and the REST operations that AzCopy uses to complete the transfer. Block size impacts only the cost of uploading data and network egress charges impact only the movement of data between regions. 
 
-## Cost components
+This article provides example calculations for common data transfer scenarios.
 
-These components impact cost in all transfer scenarios
+## Uploading
 
-- The number of blobs
+This scenario assumes that you use the `azcopy copy` command to upload 1,000,000 blob, and each blob is 10 Gib in size. 
 
-- The size of each blob
+### Uploading to the Blob Service endpoint
 
-- The REST operations used by AzCopy to complete the transfer
+If you upload data to the Blob Service endpoint (`https://<storage-account>.blob.core.windows.net`), AzCopy uploads each blob in 8 MiB blocks. AzCopy uses the [Put Block](/rest/api/storageservices/put-block-list) operation to upload each block. After the final block of a blob is uploaded, AzCopy commits those blocks to Blob Storage by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. This means that for blobs 8 MiB or smaller, AzCopy makes two requests to the service. Larger files result in more requests. You can configure AzCopy to use a larger block size. For larger files, this can reduce the number of transactions required to upload data. 
 
-- The block size used by AzCopy to upload files. This component impacts only upload scenarios.
+The [Put Block](/rest/api/storageservices/put-block-list) and [Put Block List](/rest/api/storageservices/put-block-list) operations are both billed as write operations. The table below calculates the number of write operations required to upload 1M 10GiB blobs in 8MiB blocks.
 
-- Network egress charges. This component applies only when you copy blobs between regions.
+| Cost element | Value
+|---|---|
+| Number of MiB in 10 Gib | 10,240 |
+| PutBlock operations per per blob (10,240 MiB / 8 MiB) | 1,280 |
+| PutBlockList operations per blob | 1 |
+| Write operations per blob (1,280 + 1) | 1,281 |
+| Total write operations (1,000,000 * 1,281) | **1,281,000,000** |
 
-## Estimate the cost to upload
+Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to upload these blobs to each tier.
 
-You upload blobs by using the `azcopy copy` command. For examples, see [Upload files to Azure Blob storage by using AzCopy](./common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json).
-
-| Cost component | Value |
-|--|---|
-| Number of blobs | 1,000,000 |
-| Size of each blob | 10 GiB |
-| Network egress charge | None |
-
-### Transfers to the Blob Service endpoint
-
-To transfer to the Blob Storage endpoint, you use`blob.core.windows.net` URI in your command (For example: `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'`).
-
-These components apply to transferring to this endpoint.
-
-| Cost component | Value |
-|--|---|
-| REST operations | PutBlock & PutBlockList |
-| Block size | 8 MiB |
-
-Put calculation table here.
+| Price factor                                       | Hot           | Cool        | Cold        | Archive     |
+|----------------------------------------------------|---------------|-------------|-------------|-------------|
+| Price of write transactions (per 10,000)           | $0.055        | $0.10       | $0.18       | $0.10       |
+| Price of a single write operation (price / 10,000) | $0.0000055    | $0.00001    | $0.000018   | $0.00001    |
+| Total cost to upload blobs                         | **$7,045.50** | **$12,810** | **$23,058** | **$12,810** |
 
 ### Transfers to the Data Lake Storage endpoint
 
 Put stuff here.
 
-## Estimate the cost to download
+## Downloading
 
 Scenario description
 
@@ -69,7 +60,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-## Estimate the cost to copy between containers
+## Copying between containers
 
 Scenario description
 
@@ -83,7 +74,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-## Estimate the cost to synchronize changes
+## Synchronizing changes
 
 Scenario description
 
@@ -97,7 +88,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-## Estimate the cost to update tags, metadata, and properties
+## Updating tags, metadata, and properties
 
 Scenario description
 
