@@ -72,20 +72,10 @@ productDirectory:
       summary: Detect and identify people and emotions in images
       url: ./computer-vision/overview-identity.md
     # Card
-    - title: Anomaly Detector
-      imageSrc: ./media/service-icons/anomaly-detector.svg
-      summary: Identify potential problems early on
-      url: ./anomaly-detector/index.yml
-    # Card
     - title: Content Safety
       imageSrc: ./media/service-icons/content-safety.svg
       summary: An AI service that detects unwanted contents
       url: ./content-safety/index.yml
-    # Card
-    - title: Personalizer
-      imageSrc: ./media/service-icons/personalizer.svg
-      summary: Create rich, personalized experiences for each user
-      url: ./personalizer/index.yml
     # Card
     - title: Bot Service
       imageSrc: ./media/service-icons/bot-services.svg
@@ -101,11 +91,6 @@ productDirectory:
       imageSrc: ./media/service-icons/cognitive-search.svg
       summary: Bring AI-powered cloud search to your mobile and web apps
       url: ../search/index.yml
-    # Card
-    - title: Metrics Advisor
-      imageSrc: ./media/service-icons/metrics-advisor.svg
-      summary: Proactively monitor metrics and diagnose issues
-      url: ./metrics-advisor/index.yml
     # Card
     - title: Video Indexer
       imageSrc: ./media/service-icons/video-indexer.svg
@@ -173,4 +158,10 @@ additionalContent:
               url: ./luis/index.yml
             - text: QnA Maker
               url: ./qnamaker/index.yml
+            - text: Metrics Advisor
+              url: ./metrics-advisor/index.yml
+            - text: Anomaly Detector
+              url: ./anomaly-detector/index.yml
+            - text: Personalizer
+              url: ./personalizer/index.yml
 
