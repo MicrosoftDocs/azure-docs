@@ -33,7 +33,7 @@ The reservation lifecycle is independent of an Azure subscription, so the reserv
 
 If you're a billing administrator, use following steps to view and manage all reservations and reservation transactions in the Azure portal.
 
-1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Reservations**.
@@ -137,7 +137,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservations Administrator and Reservations Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
 
 ### Add a Reservations Administrator role or Reservations Reader role at the tenant level
-You can assign these roles from [Azure portal](https://portal.azure.com).
+You can assign these roles from the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. Select a reservation that you have access to.

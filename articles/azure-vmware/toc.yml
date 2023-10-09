@@ -109,15 +109,15 @@ items:
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Prepare Azure VMware Solution
         href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Set up replication
+      - name: Setup replication
         href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Run a disaster recovery drill
         href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Fail over to Azure
+      - name: Failover to Azure
         href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Reprotect VMs
         href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Fail back from Azure
+      - name: Failback from Azure
         href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Create an Azure VMware Solution assessment
     href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -191,12 +191,12 @@ items:
     href: deploy-vsan-stretched-clusters.md
   - name: Migrate Microsoft SQL Server workloads
     items:
-    - name: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
+    - name: Migrate a SQL Server standalone instance to Azure VMware Solution
       href: migrate-sql-server-standalone-cluster.md
     - name: Migrate SQL Server failover cluster to Azure VMware Solution
       href: migrate-sql-server-failover-cluster.md
-    - name: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
-      href: migrate-sql-server-always-on-cluster.md
+    - name: Migrate Microsoft SQL Server Always-On Availability Group to Azure VMware Solution
+      href: migrate-sql-server-always-on-availability-group.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -217,6 +217,8 @@ items:
       href: ecosystem-back-up-vms.md
     - name: Disaster recovery solutions for VMs
       href: ecosystem-disaster-recovery-vms.md
+    - name: External storage solutions
+      href: ecosystem-external-storage-solutions.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
     - name: Security solutions for Azure VMware Solution
@@ -241,6 +243,8 @@ items:
       href: enable-hcx-access-over-internet.md
     - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
       href: enable-sql-azure-hybrid-benefit.md
+    - name: Configure VMware Cloud Director Service in Azure VMware Solution
+      href: configure-vmware-cloud-director-service-azure-vmware-solution.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
     - name: Upgrade VMware HCX on Azure VMware Solution

@@ -3,13 +3,12 @@ title: Performance and scalability checklist for Blob storage
 titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Blob storage in developing high-performance applications.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 06/01/2023
-ms.author: tamram
-ms.subservice: blobs
+ms.author: akashdubey
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
@@ -48,6 +47,7 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Copying blobs |[Are you using the Azure Data Box family for importing large volumes of data?](#use-azure-data-box) |
 | &nbsp; |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
 | &nbsp; |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
+| &nbsp; |Service metadata | [Allow time for account and container metadata propagation](#account-and-container-metadata-updates) |
 | &nbsp; |Performance tuning |[Are you proactively tuning client library options to optimize data transfer performance?](#performance-tuning-for-data-transfers) |
 | &nbsp; |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
 | &nbsp; |Uploading quickly |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#upload-many-blobs-quickly) |
@@ -254,6 +254,13 @@ For more information about Azure Front Door, see [Azure Front Door](../../frontd
 
 The Blob service supports HEAD requests, which can include blob properties or metadata. For example, if your application needs the Exif (exchangeable image format) data from a photo, it can retrieve the photo and extract it. To save bandwidth and improve performance, your application can store the Exif data in the blob's metadata when the application uploads the photo. You can then retrieve the Exif data in metadata using only a HEAD request. Retrieving only metadata and not the full contents of the blob saves significant bandwidth and reduces the processing time required to extract the Exif data. Keep in mind that 8 KiB of metadata can be stored per blob.
 
+## Account and container metadata updates
+
+Account and container metadata is propagated across the storage service in the region where the account resides. Full propagation of this metadata can take up to 60 seconds depending on the operation. For example:
+
+- If you are rapidly creating, deleting, and recreating accounts with the same account name in the same region ensure that you are waiting 60 seconds for the account state to fully propagate, or your requests may fail.
+- When you establish a stored access policy on a container, the policy might take up to 30 seconds to take effect.
+
 ## Performance tuning for data transfers
 
 When an application transfers data using the Azure Storage client library, there are several factors that can affect speed, memory usage, and even the success or failure of the request. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the environment your app runs in. To learn more, see [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
@@ -285,3 +292,4 @@ Page blobs are appropriate if the application needs to perform random writes on 
 - [Scalability and performance targets for Blob storage](scalability-targets.md)
 - [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
+

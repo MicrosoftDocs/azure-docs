@@ -17,27 +17,25 @@ Nexus Kubernetes clusters offer two types of agent pools.
    * System agent pools are designed for hosting critical system pods like CoreDNS and metrics-server. 
    * User agent pools are designed for hosting your application pods.
 
-Application pods can be scheduled on system node pools if you wish to only have one pool in your Kubernetes cluster. Nexus Kubernetes cluster must contain at least one system node pool with at least one node.
+Application pods can be scheduled on system node pools if you wish to only have one pool in your Kubernetes cluster. Nexus Kubernetes cluster must have an initial agent pool that includes at least one system node pool with at least one node.
 
 ## Prerequisites
 
 Before proceeding with this how-to guide, it's recommended that you:
 
-   * Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
+   * Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
    * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 
 ## Limitations
    * You can delete system node pools, provided you have another system node pool to take its place in the Nexus Kubernetes cluster.
    * System pools must contain at least one node.
    * You can't change the VM size of a node pool after you create it.
-   * System node pools require a VM SKU of at least 2 vCPUs and 4-GB memory. 
-   * A minimum of two nodes 4 vCPUs is recommended (for example, NC_G4_v1), especially for large clusters.
    * Each Nexus Kubernetes cluster requires at least one system node pool.
 
 ## System pool
 For a system node pool, Nexus Kubernetes automatically assigns the label `kubernetes.azure.com/mode: system` to its nodes. This label causes Nexus Kubernetes to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
 
-You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
+You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools. If you intend to use the system pool for application pods (not dedicated), do not apply any application specific taints to the pool, as this can cause cluster creation to fail. 
 
 > [!IMPORTANT]
 > If you run a single system node pool for your Nexus Kubernetes cluster in a production environment, we recommend you use at least three nodes for the node pool.
@@ -52,4 +50,4 @@ Choosing how to utilize your system pool and user pool depends largely on your s
 
 Always consider your cluster's resource capacity, the nature of your workloads, and the required level of resiliency when making your decision. By managing and understanding these node pools effectively, you can optimize your Nexus Kubernetes cluster to best fit your operational needs.
 
-Refer to the [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
+Refer to the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.

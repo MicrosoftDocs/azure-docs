@@ -10,8 +10,6 @@ Binding attributes are defined by decorating specific function code in the *func
 
 By using the `queue_output` decorator, the binding direction is implicitly 'out' and type is Azure Storage Queue. Add the following decorator to your function code in *function_app.py*:
 
-```python
-@app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
-```
+:::code language="python" source="~/functions-docs-python-v2/function_app.py" range="7":::
 
 In this code, `arg_name` identifies the binding parameter referenced in your code, `queue_name` is name of the queue that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Storage account. In quickstarts you use the same storage account as the function app, which is in the `AzureWebJobsStorage` setting. When the `queue_name` doesn't exist, the binding creates it on first use. 

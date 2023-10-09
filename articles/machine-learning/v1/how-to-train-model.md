@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, ignite-fall-202
 ---
 # Train models with the Azure Machine Learning Python SDK (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
      
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
@@ -33,7 +33,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 
 To use compute targets managed by Azure Machine Learning, see:
 
-* [Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md)
+* [Azure Machine Learning compute instance](../how-to-create-compute-instance.md)
 * [Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md)
 * [Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md)
 
@@ -70,7 +70,7 @@ When you use your local computer for **inference**, you must have Docker install
 Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](how-to-configure-environment.md).
 
 > [!TIP]
-> Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](../concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+> Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](../concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 1. **Create**: Azure Machine Learning cannot create a remote VM for you. Instead, you must create the VM and then attach it to your Azure Machine Learning workspace. For information on creating a DSVM, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](../data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
@@ -365,7 +365,7 @@ See these notebooks for examples of training with various compute targets:
 * [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 

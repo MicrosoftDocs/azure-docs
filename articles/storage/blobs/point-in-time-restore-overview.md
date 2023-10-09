@@ -5,11 +5,10 @@ description: Point-in-time restore for block blobs provides protection against a
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 09/21/2023
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Point-in-time restore for block blobs
@@ -87,7 +86,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 - If an immutability policy is configured, then a restore operation can be initiated, but any blobs that are protected by the immutability policy won't be modified. A restore operation in this case won't result in the restoration of a consistent state to the date and time given.
 - A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), isn't part of a blob and so isn't restored as part of a restore operation.
 - If a blob with an active lease is included in the range to restore, and if the current version of the leased blob is different from the previous version at the timestamp provided for PITR, the restore operation fails atomically. We recommend breaking any active leases before initiating the restore operation.
-- Performing a customer-managed failover on a storage account resets the earliest possible restore point for the storage account. For more details, see [Point-in-time restore](../common/storage-disaster-recovery-guidance.md#point-in-time-restore).
+- Performing a customer-managed failover on a storage account resets the earliest possible restore point for the storage account. For more details, see [Point-in-time restore](../common/storage-disaster-recovery-guidance.md#point-in-time-restore-inconsistencies).
 - Snapshots aren't created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore isn't supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
 - Point-in-time restore isn't supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Azure AD tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).

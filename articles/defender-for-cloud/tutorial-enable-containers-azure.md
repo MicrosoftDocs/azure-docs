@@ -1,6 +1,5 @@
 ---
-title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription
 description: Learn how to enable the Defender for Containers plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
@@ -9,14 +8,6 @@ ms.date: 06/29/2023
 # Protect your Azure containers with Defender for Containers
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
-
-Defender for Containers assists you with the three core aspects of container security:
-
-- [**Environment hardening**](defender-for-containers-introduction.md#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
-
-- [**Vulnerability assessment**](defender-for-containers-introduction.md#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in ACR registries and running in Azure Kubernetes Service.
-
-- [**Run-time threat protection for nodes and clusters**](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities.
 
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
@@ -28,7 +19,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Ensure the [required Fully Qualified Domain Names (FQDN)/application](../aks/limit-egress-traffic.md) endpoints are configured for outbound access so that the Defender profile can connect to Microsoft Defender for Cloud to send security data and events.
+- Ensure the [required Fully Qualified Domain Names (FQDN)/application](../aks/limit-egress-traffic.md) endpoints are configured for outbound access so the Defender agent can connect to Microsoft Defender for Cloud to send security data and events.
 
     > [!Note]
     > By default, AKS clusters have unrestricted outbound (egress) internet access.
@@ -55,11 +46,14 @@ If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/def
 
 1. Select **Save**.
 
-## Deploy the Defender profile in Azure
+## Deploy the Defender agent in Azure
 
-You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender profile](/azure/defender-for-cloud/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) with REST API, Azure CLI or with a Resource Manager template.
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
-**To deploy the Defender profile in Azure:**
+You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender agent](defender-for-containers-enable.md#deploy-the-defender-agent) with REST API, Azure CLI or with a Resource Manager template.
+
+**To deploy the Defender agent in Azure:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

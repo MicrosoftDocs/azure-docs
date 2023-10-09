@@ -7,8 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/24/2022
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, passwordless-python
 ---
@@ -23,7 +22,7 @@ Get started with the Azure Blob Storage client library for Python to manage blob
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.7+
 
 ## Setting up
 

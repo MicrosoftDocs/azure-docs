@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/26/2023
+ms.date: 10/02/2023
 ---
 
 ## Latest client versions
@@ -11,12 +11,53 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.8.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.3
+
+*Date published: October 2, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue where using workspace refresh deleted the workspace.
+- Resolved a RemoteApp issue where drag operations sometimes didn't work on certain apps.
+- Fixed an incorrect error message displayed for expired passwords.
+- Addressed a number of accessibility bugs.
+
+## Updates for version 10.9.2
+
+*Date published: September 11, 2023*
+
+In this release, we've made the following changes:
+
+- Addressed "Proof Key for Code Exchange is required" message users receive when refreshing AVD workspaces after upgrading from versions 10.9.0 and 10.9.1.
+
+## Updates for version 10.9.1
+
+*Date published: September 5, 2023*
+
+In this release, we've made the following changes:
+
+- Addressed clipboard redirection issue for macOS 11.
+
+## Updates for version 10.9.0
+
+*Date published: August 16, 2023*
+
+In this release,  we added two new features for Azure Virtual Desktop and addressed a number of reported bugs and incidents. 
+
+- Added support for RDP Shortpath for public networks for Azure Virtual Desktop connections.
+- Integrated an Azure Virtual Desktop account profile switcher into the Connection Center.
+- Improved diagnostics sent during Azure Virtual Desktop connections.
+- Added support for video mirroring in Teams redirection.
+
+>[!NOTE]
+>This release isn't compatible with macOS 10.14 and macOS 10.15.
 
 ## Updates for Version 10.8.4
 
-Date published: June 16, 2023
+*Date published: June 16, 2023*
 
 In this release, we've made the following changes:
 
@@ -29,7 +70,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.3
 
-Date published: May 20, 2023
+*Date published: May 20, 2023*
 
 In this release, we've made the following changes:
 
@@ -110,7 +151,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.7
 
-*Date Published: Jun 23, 2022*
+*Date Published: June 23, 2022*
 
 In this release we added the following new features:
 
@@ -182,6 +223,14 @@ In this release, we've made the following changes:
 - Updates and enhancements to Teams redirection (only available in Azure Virtual Desktop scenarios).
 - Addressed reliability issues identified through crash reporting and feedback.
 
+## Updates for version 10.7.1
+
+*Date published: November 4, 2021*
+
+In this release, we've made the following changes:
+
+- Addressed issues that caused the app to crash.
+
 ## Updates for version 10.7.0
 
 *Date published: October 21, 2021*
@@ -191,13 +240,39 @@ In this release, we've made the following changes:
 - Addressed issues brought up by users in crash reports and general feedback.
 - Invertible cursors, such as the text cursor, are now outlined to make them visible on dark backgrounds.
 - Made improvements to the code for the Connection Center for both PCs and workspaces.
-- Added support for moving the local window while using RemoteApps.
+- Added support for moving the local window while using a RemoteApp.
   - By default, local window movement in RemoteApp scenarios is disabled. To enable local window movement, set the **EnableRemoteAppLocalMove** policy to **True**.
 - Updated the Connection Information prompt that appears when you go to **Connections** > **Show Connection Information**.
 - Added [screen capture protection for Azure Virtual Desktop scenarios](/azure/virtual-desktop/screen-capture-protection).
 - Addressed an issue that allowed folders to be redirected multiple times.
 - Added a link to the new support forum at **Help** > **Submit feedback**.
 - Updates improving security, connectivity and performance while connecting to Azure Virtual Desktop.
+
+## Updates for version 10.6.8
+
+*Date published: August 16, 2021*
+
+In this release, we've made the following changes:
+
+- Added background refresh for subscribed workspaces.
+- Addressed issues where the session window may switch to another monitor when auto-reconnecting.
+- Addressed issues where the session window would intermittently enlarge after connecting.
+- Addressed issues where the name of a redirected folder would be incorrect in the remote session.
+- Addressed issues when resizing remote app windows.
+- Improved error messages that are displayed when user accounts fail to update.
+- Addressed issues where window titles in the list of connected remote apps were blank.
+- Addressed multi-monitor issue where the mouse cursor shape would not update correctly when dragging between monitors.
+- Added a checkbox to General Preferences to enable/disable Microsoft Teams optimizations.
+- Added a UI to report if a remote app could not be launched on the server due to not being on the system allowlist.
+- Addressed issues where the session window could not expand when placed at the top or bottom of the screen.
+- Addressed scenarios where the mouse cursor would disappear while connected to a remote PC.
+- Deletion of an Azure Virtual Desktop workspace now correctly removes all associated workspaces.
+- Addressed issues where adding a folder to redirect to a bookmark would enable the "Add" button with an empty PC name.
+- Addressed issues where double-clicking the title bar incorrectly stretches the session window.
+- Updated the mouse to change to a hand glyph when hovering over a red input error indicator.
+- Addressed issues where the session window would flash rapidly in the "Mission Control" or "Application windows" view.
+- Improved connectivity and performance metrics when connecting to Azure Virtual Desktop.
+- Subscribed workspaces are refreshed every six hours, by default, and can be changed using **ClientSettings.WorkspaceAutoRefreshInterval** (minimum interval is 30 minutes and 24 hours is the maximum).
 
 ## Updates for version 10.6.7
 
@@ -315,7 +390,7 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - You can now edit the display, device, and folder redirection settings of published PC connections.
-- Remote app windows now shrink to the dock when minimized.
+- RemoteApp windows now shrink to the dock when minimized.
 - Added a Connection Information dialog that displays the current bandwidth and round-trip time.
 - Added support for Remote Desktop Gateway consent and admin messages.
 - Fixed an issue where an RDP file specifying a gatewayusagemethod value of 0 or 4 was incorrectly imported.
@@ -340,7 +415,7 @@ In this release, we've made the following changes:
 - Corrected the aspect ratio of PC thumbnails displayed in the Connection Center.
 - Improved smart card redirection heuristics to better handle nested transactions.
 - Fixed a bug that prevented bookmark export if the bookmark's display name contained the "/" character.
-- Resolved a bug that caused a 0xD06 protocol error when running Outlook as a remote app.
+- Resolved a bug that caused a 0xD06 protocol error when running Outlook as a RemoteApp.
 - Added support for a new integer RDP file property (ForceHiDpiOptimizations) to enable Retina display optimization.
 
 ## Updates for version 10.4.0
@@ -363,7 +438,7 @@ In this release, we've made substantial updates to the underlying code for the R
 - User account UI that interacts with the macOS keychain will now surface keychain access errors.
 - Hitting cancel during workspace subscription will now result in nothing being added to the Connection Center.
 - Added key mappings for Cmd+Z and Cmd+F to map to Ctrl+Z and Ctrl+F respectively.
-- Fixed a bug that caused remote apps to open behind the Connection Center when launched.
+- Fixed a bug that caused a RemoteApp to open behind the Connection Center when launched.
 - Worked around an issue in macOS 10.15 where AAC audio playback caused the client to stall.
 - Shift+left-click now works in Unicode mode.
 - Fixed a bug where using the Shift key triggered the Sticky Keys alert in Unicode mode.
@@ -482,7 +557,7 @@ In this release, we've made the following changes:
 - Addressed initial flicker that occurred when connecting to a session in windowed mode with dynamic display enabled.
 - Fixed graphics mis-paints that occurred when connected to Windows 7 after toggling fit-to-window with dynamic display enabled.
 - Fixed a bug that caused an incorrect device name to be sent to the remote session (breaking licensing in some third-party apps).
-- Resolved an issue where remote app windows would occupy an entire monitor when maximized.
+- Resolved an issue where RemoteApp windows would occupy an entire monitor when maximized.
 - Addressed an issue where the access permissions UI appeared underneath local windows.
 - Cleaned up some shutdown code to ensure the client closes more reliably.
 
@@ -515,7 +590,7 @@ In this release, we've made the following changes:
 - Clipboard redirection now includes the Rich Text Format (RTF).
 - When entering your password, you can now choose to reveal it by selecting the "Show password" checkbox.
 - Addressed scenarios where the session window was jumping between monitors.
-- The Connection Center displays high-resolution remote app icons (when available).
+- The Connection Center displays high-resolution RemoteApp icons when available.
 - Cmd+A maps to Ctrl+A when Mac clipboard shortcuts are being used.
 - Cmd+R now refreshes all of your subscribed feeds.
 - Added new secondary click options to expand or collapse all groups or feeds in the Connection Center.
@@ -568,7 +643,7 @@ In this release, we've made the following changes:
 
 - Resolved connectivity issues that surfaced when using a Remote Desktop Gateway.
 - Fixed incorrect certificate warnings that were displayed when connecting.
-- Addressed some cases where the menu bar and dock would needlessly hide when launching remote apps.
+- Addressed some cases where the menu bar and dock would needlessly hide when launching a RemoteApp.
 - Reworked the clipboard redirection code to address crashes and hangs that have been plaguing some users.
 - Fixed a bug that caused the Connection Center to needlessly scroll when launching a connection.
 
@@ -614,13 +689,13 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Added support for the "remoteapplicationcmdline" RDP file setting for remote app scenarios.
+- Added support for the *remoteapplicationcmdline* RDP file setting for RemoteApp scenarios.
 - The title of the session window now includes the name of the RDP file (and server name) when launched from an RDP file.
 - Fixed reported Remote Desktop Gateway performance issues.
 - Fixed reported Remote Desktop Gateway crashes.
 - Fixed issues where the connection would hang when connecting through a Remote Desktop Gateway.
-- Better handling of full-screen remote apps by intelligently hiding the menu bar and dock.
-- Fixed scenarios where remote apps remained hidden after being launched.
+- Better handling of a RemoteApp in full-screen by intelligently hiding the menu bar and dock.
+- Fixed scenarios where a RemoteApp remained hidden after being launched.
 - Addressed slow rendering updates when using "Fit to Window" with hardware acceleration disabled.
 - Handled database creation errors caused by incorrect permissions when the client starts up.
 - Fixed an issue where the client was consistently crashing at launch and not starting for some users.

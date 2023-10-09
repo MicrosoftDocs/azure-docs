@@ -4,7 +4,7 @@ description: Sample data collection endpoint below is for virtual machines with 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/16/2022
+ms.date: 07/17/2023
 
 ---
 

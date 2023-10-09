@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.date: 11/16/2022
 author: dem108
 ms.author: sehan
@@ -33,7 +33,7 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 * The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension v1 for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Steps for Docker deployment of machine learning models
 
@@ -56,7 +56,7 @@ The first step in debugging errors is to get your deployment logs. First, follow
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 To get the logs from a deployed webservice, do:
 
@@ -66,7 +66,7 @@ az ml service get-logs --verbose --workspace-name <my workspace name> --name <se
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Assuming you have an object of type `azureml.core.Workspace` called `ws`, you can do the following:
 
@@ -133,7 +133,7 @@ The most common failure for `azureml-fe-aci` is that the provided SSL certificat
 
 Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder can't be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.model import Model

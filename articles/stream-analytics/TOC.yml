@@ -41,7 +41,7 @@
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
-  - name: Integrate 3rd party services using Azure Functions
+  - name: Integrate third party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
   - name: Create a custom .NET deserializer
     href: visual-studio-code-custom-deserializer.md
@@ -51,7 +51,15 @@
 - name: Samples
   items:
   - name: Code samples
-    href: /samples/browse/?products=azure-stream-analytics
+    items:
+    - name: .NET
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/samples/Generated/Samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics/azure-resourcemanager-streamanalytics/src/samples/java/com/azure/resourcemanager/streamanalytics/generated
+    - name: JavaScript and TypeScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics/samples/v4
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics/azure-mgmt-streamanalytics/generated_samples
 - name: Concepts
   items:
   - name: Stream Analytics resource model
@@ -93,6 +101,8 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
+    - name: Kafka input
+      href: stream-analytics-define-kafka-input.md
     - name: Validate input schema
       href: input-validation.md
     - name: Read inputs in any format using custom deserializers
@@ -142,6 +152,8 @@
       href: azure-functions-output.md
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
+    - name: Kafka output
+      href: kafka-output.md
   - name: Extend queries with functions
     items:
     - name: Functions overview
@@ -316,6 +328,10 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
+    - name: Monitor Azure Stream Analytics
+      href: monitor-azure-stream-analytics.md
+    - name: Monitoring data reference
+      href: monitor-azure-stream-analytics-reference.md
     - name: Monitor jobs - Azure portal
       href: stream-analytics-monitoring.md
     - name: Monitor jobs - PowerShell
@@ -332,7 +348,7 @@
       href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Automate
     items:
-    - name: Using PowerShell for auto-pausing
+    - name: Using PowerShell for auto pausing
       href: automation-powershell.md
     - name: Using .NET SDK for management
       href: stream-analytics-dotnet-management-sdk.md

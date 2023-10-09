@@ -1,7 +1,7 @@
 ---
 title:  "Deploy Azure Spring Apps in a virtual network"
 description: Deploy Azure Spring Apps in a virtual network (VNet injection).
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subje
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
 This tutorial explains how to deploy an Azure Spring Apps instance in your virtual network. This deployment is sometimes called VNet injection.
 
@@ -32,7 +32,7 @@ The following video describes how to secure Spring Boot applications using manag
 
 > [!VIDEO https://www.youtube.com/embed/LbHD0jd8DTQ?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
-> [!Note]
+> [!NOTE]
 > You can select your Azure virtual network only when you create a new Azure Spring Apps service instance. You can't change to use another virtual network after Azure Spring Apps has been created.
 
 ## Prerequisites
@@ -57,11 +57,11 @@ The virtual network to which you deploy your Azure Spring Apps instance must mee
 * Address space: CIDR blocks up to */28* for both the service runtime subnet and the Spring applications subnet.
 * Route table: By default the subnets don't need existing route tables associated. You can [bring your own route table](#bring-your-own-route-table).
 
-The following procedures describe how to set up the virtual network to contain the Azure Spring Apps instance.
+Use the following steps to set up the virtual network to contain the Azure Spring Apps instance.
 
 ## Create a virtual network
 
-#### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 If you already have a virtual network to host an Azure Spring Apps instance, skip steps 1, 2, and 3. You can start from step 4 to prepare subnets for the virtual network.
 
@@ -86,18 +86,18 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
-#### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 If you already have a virtual network to host an Azure Spring Apps instance, skip steps 1, 2, 3 and 4. You can start from step 5 to prepare subnets for the virtual network.
 
 1. Use the following command to define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
    ```azurecli
-   SUBSCRIPTION='<subscription-id>'
-   RESOURCE_GROUP='<resource-group-name>'
-   LOCATION='eastus'
-   AZURE_SPRING_APPS_INSTANCE_NAME='<Azure-Spring-Apps-Instance-name>'
-   VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
+   export SUBSCRIPTION='<subscription-id>'
+   export RESOURCE_GROUP='<resource-group-name>'
+   export LOCATION='eastus'
+   export AZURE_SPRING_APPS_INSTANCE_NAME='<Azure-Spring-Apps-Instance-name>'
+   export VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
 1. Use the following command to sign in to the Azure CLI and choose your active subscription.
@@ -142,49 +142,40 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 ## Grant service permission to the virtual network
 
-The following procedures describe how to grant Azure Spring Apps the [Owner](../role-based-access-control/built-in-roles.md#owner) permission on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+This section shows you to grant Azure Spring Apps the [Owner](../role-based-access-control/built-in-roles.md#owner) permission on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
 
 > [!NOTE]
 > The minimal required permissions are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
+>
+> If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [Bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
 
-#### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-Select the virtual network `azure-spring-apps-vnet` you previously created.
+Use the following steps to grant permission:
+
+1. Select the virtual network `azure-spring-apps-vnet` you previously created.
 
 1. Select **Access control (IAM)**, and then select **Add** > **Add role assignment**.
 
-   :::image type="content" source="media/spring-cloud-v-net-injection/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/spring-cloud-v-net-injection/access-control.png":::
+   :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
 1. Assign the `Owner` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
 
-   :::image type="content" source="./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png":::
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png":::
 
-    You can also do this step by running the following Azure CLI command:
+### [Azure CLI](#tab/azure-CLI)
 
-    ```azurecli
-    VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-        --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
-        --name ${NAME_OF_VIRTUAL_NETWORK} \
-        --query "id" \
-        --output tsv`
-
-    az role assignment create \
-        --role "Owner" \
-        --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-        --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
-    ```
-
-#### [Azure CLI](#tab/azure-CLI)
+Use the following commands to grant permission:
 
 ```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+export VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
     --resource-group $RESOURCE_GROUP \
     --name $VIRTUAL_NETWORK_NAME \
     --query "id" \
-    --output tsv`
+    --output tsv)
 
 az role assignment create \
     --role "Owner" \
@@ -192,13 +183,15 @@ az role assignment create \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
+The `--assignee` argument represents the service principal Azure Spring Apps uses to interact with the customer's virtual network.
+
 ---
 
 ## Deploy an Azure Spring Apps instance
 
-#### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-To deploy an Azure Spring Apps instance in the virtual network:
+Use the following steps to deploy an Azure Spring Apps instance in the virtual network:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
@@ -214,22 +207,22 @@ To deploy an Azure Spring Apps instance in the virtual network:
 
 1. Select the **Networking** tab, and select the following values:
 
-    | Setting                              | Value                               |
-    |--------------------------------------|-------------------------------------|
-    | Deploy in your own virtual network   | Select **Yes**.                     |
-    | Virtual network                      | Select **azure-spring-apps-vnet**.  |
-    | Service runtime subnet               | Select **service-runtime-subnet**.  |
-    | Spring Boot microservice apps subnet | Select **apps-subnet**.             |
+   | Setting                              | Value                               |
+   |--------------------------------------|-------------------------------------|
+   | Deploy in your own virtual network   | Select **Yes**.                     |
+   | Virtual network                      | Select **azure-spring-apps-vnet**.  |
+   | Service runtime subnet               | Select **service-runtime-subnet**.  |
+   | Spring Boot microservice apps subnet | Select **apps-subnet**.             |
 
-   :::image type="content" source="./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking tab.":::
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/creation-blade-networking-tab.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking tab.":::
 
 1. Select **Review and create**.
 
 1. Verify your specifications, and select **Create**.
 
-   :::image type="content" source="./media/spring-cloud-v-net-injection/verify-specifications.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking section of the Review and create tab.":::
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/verify-specifications.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking section of the Review and create tab.":::
 
-#### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 To deploy an Azure Spring Apps instance in the virtual network:
 
@@ -253,15 +246,15 @@ After the deployment, two more resource groups are created in your subscription 
 
 The resource group named as `ap-svc-rt_{service instance name}_{service instance region}` contains network resources for the service runtime of the service instance.
 
-![Screenshot that shows the service runtime.](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
+:::image type="content" source="media/how-to-deploy-in-azure-virtual-network/service-runtime-resource-group.png" alt-text="Screenshot of the Azure portal showing the resources for the service runtime." lightbox="media/how-to-deploy-in-azure-virtual-network/service-runtime-resource-group.png":::
 
 The resource group named as `ap-app_{service instance name}_{service instance region}` contains network resources for your Spring applications of the service instance.
 
-![Screenshot that shows apps resource group.](./media/spring-cloud-v-net-injection/apps-resource-group.png)
+:::image type="content" source="media/how-to-deploy-in-azure-virtual-network/apps-resource-group.png" alt-text="Screenshot of the Azure portal showing the resources for the Spring applications." lightbox="media/how-to-deploy-in-azure-virtual-network/apps-resource-group.png":::
 
 Those network resources are connected to your virtual network created in the preceding image.
 
-:::image type="content" source="./media/spring-cloud-v-net-injection/vnet-with-connected-device.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network." lightbox="./media/spring-cloud-v-net-injection/vnet-with-connected-device.png":::
+:::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/vnet-with-connected-device.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network." lightbox="./media/how-to-deploy-in-azure-virtual-network/vnet-with-connected-device.png":::
 
 > [!IMPORTANT]
 > The resource groups are fully managed by the Azure Spring Apps service. Do *not* manually delete or modify any resource inside.
@@ -270,10 +263,10 @@ Those network resources are connected to your virtual network created in the pre
 
 This table shows the maximum number of app instances Azure Spring Apps supports using smaller subnet ranges.
 
-| App subnet CIDR | Total IPs | Available IPs | Maximum app instances                                        |
-| --------------- | --------- | ------------- | ------------------------------------------------------------ |
-| /28             | 16        | 8             | <p>App with 0.5 core:  192 <br/> App with one core:  96 <br/> App with two cores: 48<br/> App with three cores: 32<br/> App with four cores: 24</p> |
-| /27             | 32        | 24            | <p>App with 0.5 core:  456 <br/> App with one core:  228<br/> App with two cores: 144<br/> App with three cores: 96<br/> App with four cores: 72</p> |
+| App subnet CIDR | Total IPs | Available IPs | Maximum app instances                                                                                                                                  |
+|-----------------|-----------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /28             | 16        | 8             | <p>App with 0.5 core:  192 <br/> App with one core:  96 <br/> App with two cores: 48<br/> App with three cores: 32<br/> App with four cores: 24</p>    |
+| /27             | 32        | 24            | <p>App with 0.5 core:  456 <br/> App with one core:  228<br/> App with two cores: 144<br/> App with three cores: 96<br/> App with four cores: 72</p>   |
 | /26             | 64        | 56            | <p>App with 0.5 core:  500 <br/> App with one core:  500<br/> App with two cores: 336<br/> App with three cores: 224<br/> App with four cores: 168</p> |
 | /25             | 128       | 120           | <p>App with 0.5 core:  500 <br/> App with one core:  500<br/> App with two cores: 500<br/> App with three cores:  480<br> App with four cores: 360</p> |
 | /24             | 256       | 248           | <p>App with 0.5 core:  500 <br/> App with one core:  500<br/> App with two cores: 500<br/> App with three cores: 500<br/> App with four cores: 500</p> |
@@ -281,6 +274,9 @@ This table shows the maximum number of app instances Azure Spring Apps supports 
 For subnets, Azure reserves five IP addresses, and Azure Spring Apps requires at least three IP addresses. At least eight IP addresses are required, so /29 and /30 are nonoperational.
 
 For a service runtime subnet, the minimum size is /28.
+
+> [!NOTE]
+> A small subnet range impacts the underlying resource you can use for system components like ingress controller. Azure Spring Apps uses an underlying ingress controller to handle application traffic management. The number of ingress controller instances automatically increases as application traffic increases. Reserve a larger virtual network subnet IP range if application traffic could increase in the future. You typically reserve one IP addresses for traffic of 10000 requests per second.
 
 ## Bring your own route table
 
@@ -300,6 +296,17 @@ The route tables to which your custom vnet is associated must meet the following
 * Permissions must be assigned before instance creation. Be sure to grant Azure Spring Apps Resource Provider the `Owner` permission (or `User Access Administrator` and `Network Contributor` permissions) on your route tables.
 * You can't update the associated route table resource after cluster creation. While you can't update the route table resource, you can modify custom rules on the route table.
 * You can't reuse a route table with multiple instances due to potential conflicting routing rules.
+
+## Using Custom DNS Servers
+
+Azure Spring Apps supports using custom DNS servers in your virtual network.
+
+If you don't specify custom DNS servers in your DNS Server Virtual Network setting, Azure Spring Apps will, by default, use the Azure DNS to resolve IP addresses. If your virtual network is configured with custom DNS settings, add Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server. Azure DNS can resolve IP addresses for all the public FQDNs mentioned in [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md). It can also resolve IP address for `*.svc.private.azuremicroservices.io` in your virtual network.
+
+If your custom DNS server can't add Azure DNS IP `168.63.129.16` as the upstream DNS server, use the following steps:
+
+* Ensure that your custom DNS server can resolve IP addresses for all the public FQDNs. For more information, see [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+* Add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
 
 ## Next steps
 

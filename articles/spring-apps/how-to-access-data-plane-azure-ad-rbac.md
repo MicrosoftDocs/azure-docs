@@ -2,7 +2,7 @@
 title: "Access Config Server and Service Registry"
 titleSuffix: Azure Spring Apps
 description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -52,7 +52,7 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
 
     >[!NOTE]
-    > If you're using Azure China, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Azure China developer guide](/azure/china/resources-developer-guide).
+    > If you're using Microsoft Azure operated by 21Vianet, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Microsoft Azure operated by 21Vianet developer guide](/azure/china/resources-developer-guide).
 
 1. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}'`.
 

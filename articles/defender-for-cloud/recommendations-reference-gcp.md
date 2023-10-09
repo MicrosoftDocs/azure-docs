@@ -1,5 +1,5 @@
 ---
-title: Reference table for all Microsoft Defender for Cloud recommendations for GCP resources
+title: Reference table for all recommendations for GCP resources
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your GCP resources.
 ms.topic: reference
 ms.date: 06/27/2023
@@ -27,8 +27,7 @@ impact on your secure score.
 
 ### Data plane recommendations
 
-All the data plane recommendations listed [here](kubernetes-workload-protections.md#view-and-configure-the-bundle-of-recommendations) are supported under GCP after [enabling the Azure policy extension](kubernetes-workload-protections.md#enable-kubernetes-data-plane-hardening). 
-
+All the data plane recommendations listed [here](kubernetes-workload-protections.md#view-and-configure-the-bundle-of-recommendations) are supported under GCP after [enabling Azure Policy for Kubernetes](kubernetes-workload-protections.md#enable-kubernetes-data-plane-hardening).
 
 ## <a name='recs-gcp-data'></a> GCP Data recommendations
 

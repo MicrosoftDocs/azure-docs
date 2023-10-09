@@ -15,10 +15,9 @@ Arc resource bridge is used with other partner products, such as [Azure Stack HC
 
 [Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
 
-If you're deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
+If deploying Arc resource bridge on VMware, Azure CLI 64-bit is required to be installed on the management machine to run the deployment commands.
 
-If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
-
+If deploying on Azure Stack HCI, then Azure CLI 32-bit should be installed on the management machine.
 
 Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
 
@@ -43,11 +42,11 @@ The IP address prefix is the subnet's IP address range for the virtual network a
 
 Consult your network engineer to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
-## Static configuration
+## Static IP configuration
 
-Static IP configuration is recommended for Arc resource bridge, because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
+If deploying Arc resource bridge to a production environment, static configuration must be used when deploying Arc resource bridge. Static IP configuration is used to assign three static IPs (that are in the same subnet) to the Arc resource bridge control plane, appliance VM, and reserved appliance VM.
 
-If using DHCP, reserve those IP addresses, ensuring the IPs are outside of the assignable DHCP range of IPs (i.e. the control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP). DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+DHCP is only supported in a test environment for testing purposes only for VM management on Azure Stack HCI. DHCP should not be used in a production environment. It is not supported on any other Arc-enabled private cloud, including Arc-enabled VMware, Arc for AVS or Arc-enabled SCVMM. If using DHCP, you must reserve the IP addresses used by the control plane and appliance VM. In addition, these IPs must be outside of the assignable DHCP range of IPs. Ex: The control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP. If the control plane IP or appliance VM IP changes (ex: due to an outage, this impacts the resource bridge availability and functionality.
 
 ## Management machine requirements
 
@@ -199,6 +198,7 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 
 

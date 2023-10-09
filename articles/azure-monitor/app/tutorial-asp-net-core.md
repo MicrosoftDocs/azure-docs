@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Enable Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation uses an SDK-based approach. An [auto-instrumentation approach](./codeless-overview.md) is also available.
+This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation uses an SDK-based approach. An [autoinstrumentation approach](./codeless-overview.md) is also available.
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -25,7 +25,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 For a sample application, we'll use an [ASP.NET Core MVC application](https://github.com/AaronMaxwell/AzureCafe) that targets `net6.0`. However, you can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
-> A preview [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
+> An [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -267,7 +267,7 @@ The sample application makes calls to multiple Azure resources, including Azure 
 
 Application Insights introspects the incoming telemetry data and is able to generate a visual map of the system integrations it detects.
 
-1. Access and log into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the resource group for the sample application, which is `application-insights-azure-cafe`.
 
@@ -463,5 +463,4 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
-* [Auto-instrumentation for Application Insights](./codeless-overview.md)
-
+* [Autoinstrumentation for Application Insights](./codeless-overview.md)

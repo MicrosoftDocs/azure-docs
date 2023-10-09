@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 06/16/2022
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022, devx-track-arm-template
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Azure Chaos Studio Preview fault and action library
@@ -20,7 +20,7 @@ The faults listed in this article are currently available for use. To understand
 |-|-|
 | Fault provider | N/A |
 | Supported OS types | N/A |
-| Description | Adds a time delay before, between, or after other actions. This fault is useful for waiting for the effect of a fault to appear in a service, or for waiting for an activity outside of the experiment to complete. An example is waiting for autohealing to occur before injecting another fault. |
+| Description | Adds a time delay before, between, or after other experiment actions. This is not a fault and is used to synchronize actions within an experiment. Use this action to wait for the impact of a fault to appear in a service, or wait for an activity outside of the experiment to complete. For example, waiting for autohealing to occur before injecting another fault.|
 | Prerequisites | N/A |
 | Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
 | Duration | The duration of the delay in ISO 8601 format (for example, PT10M). |
@@ -48,7 +48,7 @@ The faults listed in this article are currently available for use. To understand
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
-| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
@@ -93,7 +93,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
-| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
@@ -173,14 +173,15 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | DiskIOPressure-1.0 |
+| Capability name | DiskIOPressure-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows |
-| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it's injected during the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to a Virtual Machine. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
+| Urn | urn:csci:microsoft:agent:diskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "D:/Temp". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Pressure modes
@@ -201,11 +202,15 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:diskIOPressure/1.0",
+      "name": "urn:csci:microsoft:agent:diskIOPressure/1.1",
       "parameters": [
         {
           "key": "pressureMode",
           "value": "PremiumStorageP10IOPS"
+        },
+        {
+          "key": "targetTempDirectory",
+          "value": "C:/temp/"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -223,16 +228,17 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | LinuxDiskIOPressure-1.0 |
+| Capability name | LinuxDiskIOPressure-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
-| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
-| Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
+| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
+| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
+| Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4 m for 4 megabytes and 256 g for 256 gigabytes). |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes, kilobytes, or megabytes (for example, 512 k for 512 kilobytes). |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "/tmp/". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
@@ -243,7 +249,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:linuxDiskIOPressure/1.0",
+      "name": "urn:csci:microsoft:agent:linuxDiskIOPressure/1.1",
       "parameters": [
         {
           "key": "workerCount",
@@ -256,6 +262,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
         {
           "key": "blockSize",
           "value": "256k"
+        },
+        {
+          "key": "targetTempDirectory",
+          "value": "/tmp/"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -277,7 +287,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
+| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
 | stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
@@ -349,7 +359,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ```
 
 ### Limitations
-* **Windows**: Service-friendly names aren't supported. Use `sc.exe query` in the command prompt to explore service names.
+* **Windows**: Display names for services aren't supported. Use `sc.exe query` in the command prompt to explore service names.
 * **Linux**: Other service types besides systemd, like sysvinit, aren't supported.
 
 ## Time change
@@ -403,7 +413,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:killProcess/1.0 |
 | Parameters (key, value) |  |
-| processName | Name of a process running on a VM (without the .exe). |
+| processName | Name of a process to continuously kill (without the .exe). The process does not need to be running when the fault begins executing. |
 | killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
@@ -491,20 +501,26 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkLatency-1.0 |
+| Capability name | NetworkLatency-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
-| Description | Increases network latency for a specified port range and network block. |
+| Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
+| Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -514,10 +530,14 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkLatency/1.0",
+      "name": "urn:csci:microsoft:agent:networkLatency/1.1",
       "parameters": [
         {
           "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
         },
         {
@@ -536,23 +556,34 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+
 ## Network disconnect
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkDisconnect-1.0 |
+| Capability name | NetworkDisconnect-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
-| Description | Blocks outbound network traffic for specified port range and network block. |
+| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
+| Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -562,10 +593,14 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkDisconnect/1.0",
+      "name": "urn:csci:microsoft:agent:networkDisconnect/1.1",
       "parameters": [
         {
           "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
         },
         {
@@ -580,8 +615,11 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-> [!WARNING]
-> The network disconnect fault only affects new connections. Existing *active* connections continue to persist. You can restart the service or process to force connections to break.
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+* The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
+* On Windows, the network disconnect fault currently only works with TCP or UDP packets.
 
 ## Network disconnect with firewall rule
 
@@ -627,7 +665,64 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Azure Resource Manager virtual machine shutdown
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+## Network packet loss
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkPacketLoss-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux |
+| Description | Introduces packet loss for outbound traffic at a specified rate, between 0.0 (no packets lost) and 1.0 (all packets lost). This can help simulate scenarios like network congestion or network hardware issues. |
+| Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
+| Parameters (key, value) |  |
+| packetLossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+| destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkPacketLoss/1.0",
+      "parameters": [
+            {
+                "key": "destinationFilters",
+                "value": "[{\"address\":\"23.45.229.97\",\"subnetMask\":\"255.255.255.224\",\"portLow\":5000,\"portHigh\":5200}]"
+            },
+            {
+                "key": "packetLossRate",
+                "value": "0.5"
+            },
+            {
+                "key": "virtualMachineScaleSetInstances",
+                "value": "[0,1,2]"
+            }
+        ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+## Virtual Machine shutdown
 | Property | Value |
 |-|-|
 | Capability name | Shutdown-1.0 |
@@ -661,9 +756,9 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Azure Resource Manager virtual machine scale set instance shutdown
+## Virtual Machine Scale Set instance shutdown
 
-This fault has two available versions that you can use, Version 1.0 and Version 2.0.
+This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
 
 ### Version 1.0
 
@@ -771,6 +866,39 @@ Configure the shutdown fault:
 ### Limitations
 Currently, only virtual machine scale sets configured with the **Uniform** orchestration mode are supported. If your virtual machine scale set uses **Flexible** orchestration, you can use the Azure Resource Manager virtual machine shutdown fault to shut down selected instances.
 
+## Virtual Machine redeploy
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Redeploy-1.0 |
+| Target type | Microsoft-VirtualMachine |
+| Description | Redeploys a VM by shutting it down, moving it to a new node in the Azure infrastructure, and powering it back on. This helps validate your workload's resilience to maintenance events. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachine:redeploy/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | None. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:virtualMachine:redeploy/1.0",
+      "parameters":[],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* The Virtual Machine Redeploy operation is throttled within an interval of 10 hours. If your experiment fails with a "Too many redeploy requests" error, please wait for 10 hours to retry the experiment.
+
+
 ## Azure Cosmos DB failover
 
 | Property | Value |
@@ -864,7 +992,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"duration\":\"30s\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
+            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
         }
     ],
       "selectorid": "myResources"
@@ -932,7 +1060,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50,\"duration\":\"400s\"}"
+            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
         }
     ],
       "selectorid": "myResources"
@@ -1034,7 +1162,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"duration\":\"5m\",\"scheduler\":{\"cron\":\"@every 10m\"}}"
+            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"scheduler\":{\"cron\":\"@every 10m\"}}"
         }
     ],
       "selectorid": "myResources"
@@ -1089,8 +1217,8 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
-| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
+| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
+| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
 | action | Security group access type. Must be either Allow or Deny. |
 | destinationPortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
 | sourcePortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
@@ -1451,6 +1579,35 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 
      ],
       "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## App Service Stop
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AppService |
+| Description | Stops the targeted App Service applications, then restarts them at the end of the fault duration. This applies to resources of the "Microsoft.Web/sites" type, including App Service, API Apps, Mobile Apps, and Azure Functions. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:appService:stop/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) | None. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:appService:stop/1.0",
+      "duration": "PT10M",
+      "parameters":[],
       "selectorid": "myResources"
     }
   ]

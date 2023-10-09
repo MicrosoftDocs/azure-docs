@@ -1,15 +1,15 @@
 ---
 title: OpenID Connect (OIDC) on the Microsoft identity platform
-description: Sign in Azure AD users by using the Microsoft identity platform's implementation of the OpenID Connect extension to OAuth 2.0.
+description: Sign in Microsoft Entra users by using the Microsoft identity platform's implementation of the OpenID Connect extension to OAuth 2.0.
 author: OwenRichards1
 manager: CelesteDG
 ms.custom: aaddev, identityplatformtop40
-ms.date: 05/30/2023
+ms.date: 09/13/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # OpenID Connect on the Microsoft identity platform
@@ -32,19 +32,23 @@ The *ID token* introduced by OpenID Connect is issued by the authorization serve
 
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. ID tokens for an application are enabled by using one of the following methods:
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Under **Platform configurations**, select **Add a platform**. 
+1. In the pane that opens, select the appropriate platform for your application. For example, select **Web** for a web application.
+1. Under Redirect URIs, add the redirect URI of your application. For example, `https://localhost:8080/`.
 1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 
 Or:
 
-1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Manifest**.
+1. Select **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Manifest**.
 1. Set `oauth2AllowIdTokenImplicitFlow` to `true` in the app registration's [application manifest](reference-app-manifest.md).
 
 If ID tokens are not enabled for your app and one is requested, the Microsoft identity platform returns an `unsupported_response` error similar to:
 
 > *The provided value for the input parameter 'response_type' isn't allowed for this client. Expected value is 'code'*.
 
-Requesting an ID token by specifying a `response_type` of `code` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
+Requesting an ID token by specifying a `response_type` of `id_token` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
 
 ## Fetch the OpenID configuration document
 
@@ -54,7 +58,7 @@ Authentication libraries are the most common consumers of the OpenID configurati
 
 ### Find your app's OpenID configuration document URI
 
-Every app registration in Azure AD is provided a publicly accessible endpoint that serves its OpenID configuration document. To determine the URI of the configuration document's endpoint for your app, append the *well-known OpenID configuration* path to your app registration's *authority URL*.
+Every app registration in Microsoft Entra ID is provided a publicly accessible endpoint that serves its OpenID configuration document. To determine the URI of the configuration document's endpoint for your app, append the *well-known OpenID configuration* path to your app registration's *authority URL*.
 
 * Well-known configuration document path: `/.well-known/openid-configuration`
 * Authority URL: `https://login.microsoftonline.com/{tenant}/v2.0`
@@ -63,17 +67,17 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 
 | Value | Description |
 | --- | --- |
-| `common` |Users with both a personal Microsoft account and a work or school account from Azure AD can sign in to the application. |
-| `organizations` |Only users with work or school accounts from Azure AD can sign in to the application. |
+| `common` |Users with both a personal Microsoft account and a work or school account from Microsoft Entra ID can sign in to the application. |
+| `organizations` |Only users with work or school accounts from Microsoft Entra ID can sign in to the application. |
 | `consumers` |Only users with a personal Microsoft account can sign in to the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Azure AD tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Azure AD tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Microsoft Entra tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Microsoft Entra tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
 
 > [!TIP]
 > Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](./supported-accounts-validation.md).
 
-To find the OIDC configuration document in the Azure portal, navigate to the [Azure portal](https://portal.azure.com) and then:
+To find the OIDC configuration document in the Microsoft Entra admin center, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and then:
 
-1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Endpoints**.
+1. Browse to **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Endpoints**.
 1. Locate the URI under **OpenID Connect metadata document**.
 
 ### Sample request
@@ -113,7 +117,7 @@ The configuration metadata is returned in JSON format as shown in the following 
 To authenticate a user and request an ID token for use in your application, direct their user-agent to the Microsoft identity platform's _/authorize_ endpoint. The request is similar to the first leg of the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) but with these distinctions:
 
 * Include the `openid` scope in the `scope` parameter.
-* Specify `code` in the `response_type` parameter.
+* Specify `id_token` in the `response_type` parameter.
 * Include the `nonce` parameter.
 
 Example sign-in request (line breaks included only for readability):
@@ -131,8 +135,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](active-directory-v2-protocols.md#endpoints). Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
-| `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](./v2-protocols.md#endpoints). Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
+| `client_id` | Required | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `response_type` | Required | Must include `id_token` for OpenID Connect sign-in. |
 | `redirect_uri` | Recommended | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL-encoded. If not present, the endpoint will pick one registered `redirect_uri` at random to send the user back to. |
 | `scope` | Required | A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the **Sign you in** permission in the consent UI. You might also include other scopes in this request for requesting consent. |
@@ -140,10 +144,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | Recommended | Specifies the method that should be used to send the resulting authorization code back to your app. Can be `form_post` or `fragment`. For web applications, we recommend using `response_mode=form_post`, to ensure the most secure transfer of tokens to your application. |
 | `state` | Recommended | A value included in the request that also will be returned in the token response. It can be a string of any content you want. A randomly generated unique value typically is used to [prevent cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state also is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view the user was on. |
 | `prompt` | Optional | Indicates the type of user interaction that is required. The only valid values at this time are `login`, `none`, `consent`, and `select_account`. The `prompt=login` claim forces the user to enter their credentials on that request, which negates single sign-on. The `prompt=none` parameter is the opposite, and should be paired with a `login_hint` to indicate which user must be signed in. These parameters ensure that the user isn't presented with any interactive prompt at all. If the request can't be completed silently via single sign-on, the Microsoft identity platform returns an error. Causes include no signed-in user, the hinted user isn't signed in, or multiple users are signed in but no hint was provided. The `prompt=consent` claim triggers the OAuth consent dialog after the user signs in. The dialog asks the user to grant permissions to the app. Finally, `select_account` shows the user an account selector, negating silent SSO but allowing the user to pick which account they intend to sign in with, without requiring credential entry. You can't use both `login_hint` and `select_account`.|
-| `login_hint` | Optional | You can use this parameter to pre-fill the username and email address field of the sign-in page for the user, if you know the username ahead of time. Often, apps use this parameter during reauthentication, after already extracting the `login_hint` [optional claim](active-directory-optional-claims.md) from an earlier sign-in. |
+| `login_hint` | Optional | You can use this parameter to pre-fill the username and email address field of the sign-in page for the user, if you know the username ahead of time. Often, apps use this parameter during reauthentication, after already extracting the `login_hint` [optional claim](./optional-claims.md) from an earlier sign-in. |
 | `domain_hint` | Optional | The realm of the user in a federated directory.  This skips the email-based discovery process that the user goes through on the sign-in page, for a slightly more streamlined user experience. For tenants that are federated through an on-premises directory like AD FS, this often results in a seamless sign-in because of the existing login session. |
 
-At this point, the user is prompted to enter their credentials and complete the authentication. The Microsoft identity platform verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user hasn't consented to any of those permissions, the Microsoft identity platform prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multi-tenant apps](v2-permissions-and-consent.md).
+At this point, the user is prompted to enter their credentials and complete the authentication. The Microsoft identity platform verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user hasn't consented to any of those permissions, the Microsoft identity platform prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multi-tenant apps](./permissions-consent-overview.md).
 
 After the user authenticates and grants consent, the Microsoft identity platform returns a response to your app at the indicated redirect URI by using the method specified in the `response_mode` parameter.
 
@@ -188,12 +192,12 @@ The following table describes error codes that can be returned in the `error` pa
 | Error code | Description | Client action |
 | --- | --- | --- |
 | `invalid_request` | Protocol error like a missing required parameter. |Fix and resubmit the request. This development error should be caught during application testing. |
-| `unauthorized_client` | The client application can't request an authorization code. |This error can occur when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instructions to install the application and add it to Azure AD. |
+| `unauthorized_client` | The client application can't request an authorization code. |This error can occur when the client application isn't registered in Microsoft Entra ID or isn't added to the user's Microsoft Entra tenant. The application can prompt the user with instructions to install the application and add it to Microsoft Entra ID. |
 | `access_denied` | The resource owner denied consent. |The client application can notify the user that it can't proceed unless the user consents. |
 | `unsupported_response_type` |The authorization server doesn't support the response type in the request. |Fix and resubmit the request. This development error should be caught during application testing. |
 | `server_error` | The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed because of a temporary error. |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
-| `invalid_resource` | The target resource is invalid because it doesn't exist, Azure AD can't find it, or it's configured incorrectly. |This error indicates that the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instructions for installing the application and adding it to Azure AD. |
+| `invalid_resource` | The target resource is invalid because it doesn't exist, Microsoft Entra ID can't find it, or it's configured incorrectly. |This error indicates that the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instructions for installing the application and adding it to Microsoft Entra ID. |
 
 ## Validate the ID token
 
@@ -210,7 +214,7 @@ If you validate ID tokens in your application, we recommend *not* doing so manua
 
 ### What to validate in an ID token
 
-In addition to validating ID token's signature, you should validate several of its claims as described in [Validating an ID token](id-tokens.md#validate-tokens). Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
+In addition to validating ID token's signature, you should validate several of its claims as described in [Validating an ID token](id-tokens.md#validate-tokens). Also see [Important information about signing key-rollover](./signing-key-rollover.md).
 
 Several other validations are common and vary by application scenario, including:
 
@@ -317,7 +321,7 @@ To sign out a user, perform both of these operations:
 * Redirect the user's user-agent to the Microsoft identity platform's logout URI
 * Clear your app's cookies or otherwise end the user's session in your application.
 
-If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they user your app.
+If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they use your app.
 
 Redirect the user-agent to the `end_session_endpoint` as shown in the OpenID Connect configuration document. The `end_session_endpoint` supports both HTTP GET and POST requests.
 
@@ -329,7 +333,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | Parameter | Condition | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recommended | The URL that the user is redirected to after successfully signing out. If the parameter isn't included, the user is shown a generic message that's generated by the Microsoft identity platform. This URL must match one of the redirect URIs registered for your application in the app registration portal. |
-| `logout_hint` | Optional | Enables sign-out to occur without prompting the user to select an account. To use `logout_hint`, enable the `login_hint` [optional claim](active-directory-optional-claims.md) in your client application and use the value of the `login_hint` optional claim as the `logout_hint` parameter. Don't use UPNs or phone numbers as the value of the `logout_hint` parameter. 
+| `logout_hint` | Optional | Enables sign-out to occur without prompting the user to select an account. To use `logout_hint`, enable the `login_hint` [optional claim](./optional-claims.md) in your client application and use the value of the `login_hint` optional claim as the `logout_hint` parameter. Don't use UPNs or phone numbers as the value of the `logout_hint` parameter. 
 
 > [!NOTE]
 > After successful sign-out, the active sessions will be set to inactive. If a valid Primary Refresh Token (PRT) exists for the signed-out user and a new sign-in is executed, SSO will be interrupted and user will see a prompt with an account picker. If the option selected is the connected account that refers to the PRT, sign-in will proceed automatically without the need to insert fresh credentials.  
@@ -341,5 +345,5 @@ When you redirect the user to the `end_session_endpoint`, the Microsoft identity
 ## Next steps
 
 * Review the [UserInfo endpoint documentation](userinfo.md).
-* [Populate claim values in a token](active-directory-claims-mapping.md) with data from on-premises systems. 
-* [Include your own claims in tokens](active-directory-optional-claims.md).
+* [Populate claim values in a token](./saml-claims-customization.md) with data from on-premises systems. 
+* [Include your own claims in tokens](./optional-claims.md).

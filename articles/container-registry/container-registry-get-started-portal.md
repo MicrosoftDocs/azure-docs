@@ -25,7 +25,7 @@ You must also have Docker installed locally with the daemon running. Docker prov
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a container registry
 

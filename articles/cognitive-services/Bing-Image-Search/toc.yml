@@ -6,7 +6,7 @@
     - name: What is Bing Image Search?
       href: overview.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/bing-api-comparison.md
+      href: ../bing-web-search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   items:
@@ -83,7 +83,7 @@
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch
   - name: Bing use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:

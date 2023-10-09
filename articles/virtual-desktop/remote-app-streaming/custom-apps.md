@@ -46,7 +46,7 @@ If you must install your apps manually, you'll need to remote into your session 
 
 ## Microsoft Store applications
 
-We don't recommend using Microsoft Store apps for remote app streaming in Azure Virtual Desktop at this time.
+We don't recommend using Microsoft Store apps for RemoteApp streaming in Azure Virtual Desktop at this time.
 
 ## Next steps
 

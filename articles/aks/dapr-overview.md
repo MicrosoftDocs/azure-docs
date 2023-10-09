@@ -3,30 +3,35 @@ title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
 ms.topic: article
-ms.date: 10/11/2022
+ms.date: 07/07/2023
 ms.custom: event-tier1-build-2022
 ---
 
 # Dapr
 
-Distributed Application Runtime (Dapr) offers APIs that simplify microservice development and implementation. Running as a sidecar process in tandem with your applications, Dapr APIs abstract away common complexities developers regularly encounter when building distributed applications, such as service discovery, message broker integration, encryption, observability, and secret management. Whether your inter-application communication is direct service-to-service, or pub/sub messaging, Dapr helps you write simple, portable, resilient, and secured microservices.
+[Distributed Application Runtime (Dapr)][dapr-docs] offers APIs that help you write and implement simple, portable, resilient, and secured microservices. Running as a sidecar process in tandem with your applications, Dapr APIs abstract away common complexities you may encounter when building distributed applications, such as:
+- Service discovery
+- Message broker integration
+- Encryption
+- Observability
+- Secret management 
 
-Dapr is incrementally adoptable – the API building blocks can be used as the need arises. Use one, several, or all to develop your application faster.
+Dapr is incrementally adoptable. You can use any of the API building blocks as needed.
 
-:::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC.":::
+:::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC." lightbox="./media/dapr-overview/dapr-building-blocks.png":::
 
 ## Capabilities and features
 
 Dapr provides the following set of capabilities to help with your microservice development on AKS:
 
-* Easy provisioning of Dapr on AKS through [cluster extensions][cluster-extensions].
-* Portability enabled through HTTP and gRPC APIs which abstract underlying technologies choices
-* Reliable, secure, and resilient service-to-service calls through HTTP and gRPC APIs
-* Publish and subscribe messaging made easy with support for CloudEvent filtering and “at-least-once” semantics for message delivery
-* Pluggable observability and monitoring through Open Telemetry API collector
-* Works independent of language, while also offering language specific SDKs
-* Integration with VS Code through the Dapr extension
-* [More APIs for solving distributed application challenges][dapr-blocks]
+- Easy provisioning of Dapr on AKS through [cluster extensions][cluster-extensions].
+- Portability enabled through HTTP and gRPC APIs which abstract underlying technologies choices
+- Reliable, secure, and resilient service-to-service calls through HTTP and gRPC APIs
+- Publish and subscribe messaging made easy with support for CloudEvent filtering and “at-least-once” semantics for message delivery
+- Pluggable observability and monitoring through Open Telemetry API collector
+- Works independent of language, while also offering language specific SDKs
+- Integration with VS Code through the Dapr extension
+- [More APIs for solving distributed application challenges][dapr-blocks]
 
 ## Frequently asked questions
 
@@ -36,10 +41,10 @@ A: Where a service mesh is defined as a networking service mesh, Dapr is n
 
 Some common capabilities that Dapr shares with service meshes include:
 
-* Secure service-to-service communication with mTLS encryption
-* Service-to-service metric collection
-* Service-to-service distributed tracing
-* Resiliency through retries
+- Secure service-to-service communication with mTLS encryption
+- Service-to-service metric collection
+- Service-to-service distributed tracing
+- Resiliency through retries
 
 In addition, Dapr provides other application-level building blocks for state management, pub/sub messaging, actors, and more. However, Dapr does not provide capabilities for traffic behavior such as routing or traffic splitting. If your solution would benefit from the traffic splitting a service mesh provides, consider using [Open Service Mesh][osm-docs].  
 

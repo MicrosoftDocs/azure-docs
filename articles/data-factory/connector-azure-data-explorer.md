@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 07/24/2023
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
@@ -97,7 +97,7 @@ To use service principal authentication, follow these steps to get a service pri
 2. Grant the service principal the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
     - **As source**, grant at least the **Database viewer** role to your database
-    - **As sink**, grant at least the **Database ingestor** role to your database
+    - **As sink**, grant at least the **Database user** role to your database
 
 >[!NOTE]
 >When you use the UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by clicking the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
@@ -145,8 +145,8 @@ To use system-assigned managed identity authentication, follow these steps to gr
 
 2. Grant the managed identity the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
-    - **As source**, grant at least the **Database viewer** role to your database
-    - **As sink**, grant at least the **Database ingestor** role to your database
+    - **As source**, grant the **Database viewer** role to your database.
+    - **As sink**, grant the **Database ingestor** and **Database viewer** roles to your database.
 
 >[!NOTE]
 >When you use the UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don't have permission for these operations.

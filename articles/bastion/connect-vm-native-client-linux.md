@@ -4,8 +4,9 @@ titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Linux computer by using Bastion and a native client.
 author: cherylmc
 ms.service: bastion
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 08/08/2023
 ms.author: cherylmc
 ---
 
@@ -34,7 +35,7 @@ Verify that the following roles and ports are configured in order to connect to 
 
 ## <a name="ssh"></a>Connect to a Linux VM
 
-The steps in the following sections help you connect to a Linux VM from a Linux native client using the **az network bastion** command.  This extension can be installed by running, `az extension add --name ssh`.
+The steps in the following sections help you connect to a Linux VM from a Linux native client using the **az network bastion** command.  This extension can be installed by running, `az extension add --name bastion`.
 
 When you connect using this command, file transfers aren't supported. If you want to upload files, connect using the [az network bastion tunnel](#tunnel) command instead.
 
@@ -87,6 +88,10 @@ az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupNa
 ### <a name="tunnel-IP"></a>Tunnel to a VM IP address
 
 [!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
+
+### Multi-connection tunnel
+
+[!INCLUDE [multi-connection tunnel](../../includes/bastion-native-connect-multi-tunnel.md)]
 
 ## Next steps
 

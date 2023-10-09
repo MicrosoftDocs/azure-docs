@@ -49,27 +49,27 @@ pip install azure-datalake-store
 
 1. In the IDE of your choice create a new Python application, for example, **mysample.py**.
 
-2. Add the following snippet to import the required modules
+2. Add the following snippet to import the required modules:
 
-	```
-	## Use this for Azure AD authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+    ```
+    ## Use this for Azure AD authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
 
     ## Required for Data Lake Storage Gen1 account management
-	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-	## Required for Data Lake Storage Gen1 filesystem management
-	from azure.datalake.store import core, lib, multithread
+    ## Required for Data Lake Storage Gen1 filesystem management
+    from azure.datalake.store import core, lib, multithread
 
-	# Common Azure imports
+    # Common Azure imports
     import adal
-	from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
-	import logging, getpass, pprint, uuid, time
-	```
+    ## Use these as needed for your application
+    import logging, getpass, pprint, uuid, time
+    ```
 
 3. Save changes to mysample.py.
 

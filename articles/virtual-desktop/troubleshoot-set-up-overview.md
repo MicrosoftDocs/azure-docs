@@ -24,6 +24,10 @@ To report issues or suggest features for Azure Virtual Desktop with Azure Resour
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
 
+## Help with application issues
+
+If you encounter issues with your applications running in Azure Virtual Desktop, App Assure is a service from Microsoft designed to help you resolve them at no additional cost. For more information, go to [App Assure](/microsoft-365/fasttrack/windows-and-other-services#app-assure).
+
 ## Escalation tracks
 
 Before doing anything else, make sure to check the [Azure status page](https://azure.status.microsoft/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.
@@ -41,7 +45,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | Connected but no feed                                                                 | Troubleshoot using the [User connects but nothing is displayed (no feed)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) section of [Azure Virtual Desktop service connections](troubleshoot-service-connection.md). <br> <br> If your users have been assigned to an application group,  [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Azure Virtual Desktop** for the service, then select **Remote Desktop Clients** for the problem type. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
 | Connecting clients                                                                    | See [Azure Virtual Desktop service connections](troubleshoot-service-connection.md) and if that doesn't solve your issue, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md). |
-| Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
+| Responsiveness of desktops or applications                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Issues with third-party authentication methods or tools | Verify that your third-party provider supports Azure Virtual Desktop scenarios and approach them regarding any known issues. |
 | Issues using Log Analytics for Azure Virtual Desktop | For issues with the diagnostics schema, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/).<br><br>For queries, visualization, or other issues in Log Analytics, select the appropriate problem type under Log Analytics. |

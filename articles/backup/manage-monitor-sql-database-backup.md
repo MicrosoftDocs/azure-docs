@@ -4,8 +4,8 @@ description: This article describes how to manage and monitor SQL Server databas
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage and monitor backed up SQL Server databases

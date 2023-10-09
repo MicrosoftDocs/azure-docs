@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -40,39 +40,15 @@ Returns an array expression.
   
 The following example shows how to get different slices of an array using the function.  
   
-```sql
-SELECT VALUE {
-    sliceFromStart: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], 0),
-    sliceFromSecond: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], 1),
-    sliceFromLast: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], -1),
-    sliceFromSecondToLast: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], -2),
-    sliceThreeFromStart: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], 0, 3),
-    sliceTwelveFromStart: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], 0, 12),
-    sliceFiveFromThird: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], 3, 5),
-    sliceOneFromSecondToLast: ARRAY_SLICE([70, 86, 92, 99, 85, 90, 82], -2, 1)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-slice/query.sql" highlight="2-9":::  
 
-```json
-[
-  {
-    "sliceFromStart": [70, 86, 92, 99, 85, 90, 82],
-    "sliceFromSecond": [86, 92, 99, 85, 90, 82],
-    "sliceFromLast": [82],
-    "sliceFromSecondToLast": [90, 82],
-    "sliceThreeFromStart": [70, 86, 92],
-    "sliceTwelveFromStart": [70, 86, 92, 99, 85, 90, 82],
-    "sliceFiveFromThird": [99, 85, 90, 82],
-    "sliceOneFromSecondToLast": [90]
-  }
-]
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-slice/result.json":::
 
 ## Remarks
 
 - This system function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ARRAY_LENGTH`](array-length.md)

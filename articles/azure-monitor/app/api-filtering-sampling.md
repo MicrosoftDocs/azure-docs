@@ -2,7 +2,7 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 07/10/2023
 ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: cithomas
@@ -330,7 +330,7 @@ Insert a telemetry initializer by adding the onInit callback function in the [Ja
 ```html
 <script type="text/javascript">
 !function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
@@ -542,10 +542,10 @@ What's the difference between telemetry processors and telemetry initializers?
 
 ## Azure Monitor Telemetry Data Types Reference
 
- * [ASP.NET Core SDK](https://learn.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts?view=azure-dotnet)
- * [ASP.NET SDK](https://learn.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts?view=azure-dotnet)
+ * [ASP.NET Core SDK](/dotnet/api/microsoft.applicationinsights.datacontracts)
+ * [ASP.NET SDK](/dotnet/api/microsoft.applicationinsights.datacontracts)
  * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes)
- * [Java SDK (via config)](https://learn.microsoft.com/azure/azure-monitor/app/java-in-process-agent#modify-telemetry)
+ * [Java SDK (via config)](/azure/azure-monitor/app/java-in-process-agent#modify-telemetry)
  * [Python SDK](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py)
  * [JavaScript SDK](https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCommon/src/Telemetry)
 
@@ -563,5 +563,4 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 * [Search events and logs](./diagnostic-search.md)
 * [sampling](./sampling.md)
-* [Troubleshooting](../faq.yml)
 

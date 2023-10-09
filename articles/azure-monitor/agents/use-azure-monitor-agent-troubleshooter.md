@@ -2,11 +2,11 @@
 title: Use Azure Monitor Troubleshooter
 description: Detailed instructions on using the on agent monitoring tool to diagnose potential issue.
 ms.topic: conceptual
-author: JeffreyWolford
-ms.author: jeffwo
+author: guywi-ms
+ms.author: guywild
 ms.date: 4/28/2023
 ms.custom: references_regions
-ms.reviewer: guywild
+ms.reviewer: jeffwo
 
 # customer-intent: As an IT manager, I want to investigate agent issue on a particular virtual machine and determine if I can resolve the issue on my own.
 ---
@@ -67,7 +67,7 @@ The detailed data collected by the troubleshooter include system configuration, 
 ### Run Linux Troubleshooter
 1. Log in to the machine to be diagnosed
 2. Go to the location where the troubleshooter is automatically installed: cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ama_tst
-3. Run the Troubleshooter: sudo sh ama_troubleshooter.sh A
+3. Run the Troubleshooter: sudo sh ama_troubleshooter.sh -A
 
 There are six sections that cover different scenarios that customers have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
 
@@ -84,7 +84,7 @@ The details for the covered scenarios are below:
 |Agent custom log collection doesn't work properly|Custom log configuration being pulled / used, Log file paths is valid|
 
 ### Share Linux Logs
-To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh A L.  You'll be asked for a file location to create the zip file.
+To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh -A L.  You'll be asked for a file location to create the zip file.
 
 ## Next steps
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.

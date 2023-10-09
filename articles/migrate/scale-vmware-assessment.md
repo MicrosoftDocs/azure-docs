@@ -4,6 +4,7 @@ description: Describes how to assess large numbers of servers in VMware environm
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.custom: engagement-fy23

@@ -21,37 +21,29 @@ This set of articles explains how to work with [Azure Data Explorer](/azure/data
 
 ::: zone pivot="programming-language-csharp"
 
-## Install extension
+## Install the extension
 
-The extension NuGet package you install depends on the C# mode you're using in your function app:
+The extension NuGet package you install depends on the C# mode you're using in your function app.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
-```
-
-# [Isolated process](#tab/isolated-process)
-
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
-
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kusto/).
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kusto/).
 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Kusto --prerelease
 ```
 
-<!-- awaiting bundle support
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 4.x, or a later version.
--->
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto).
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
+```
 
 ---
 
@@ -59,13 +51,13 @@ You can install this version of the extension in your function app by registerin
 
 ::: zone pivot="programming-language-javascript"
 
-## Install bundle
+## Install the bundle
 
-Azure Data Explorer bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
+Azure Data Explorer bindings extension is part of a preview [extension bundle], which is specified in your *host.json* project file.
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
-You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+You can add the preview extension bundle by adding or replacing the following code in your *host.json* file:
 
 ```json
 {
@@ -79,7 +71,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Azure Data Explorer bindings for Azure Functions aren't available for the v3 version of the functions runtime.
+Azure Data Explorer bindings for Azure Functions aren't available for the v3 version of the Functions runtime.
 
 ---
 
@@ -90,15 +82,15 @@ Azure Data Explorer bindings for Azure Functions aren't available for the v3 ver
 ## Functions runtime
 
 > [!NOTE]
-> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
+> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [Functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version). You might need to update your installation of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
-## Install bundle
+## Install the bundle
 
-The Azure Data Explorer bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
+The Azure Data Explorer bindings extension is part of a preview [extension bundle], which is specified in your *host.json* project file.
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
-You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+You can add the preview extension bundle by adding or replacing the following code in your *host.json* file:
 
 ```json
 {
@@ -112,7 +104,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Azure Data Explorer bindings for Azure Functions aren't available for the v3 version of the functions runtime.
+Azure Data Explorer bindings for Azure Functions aren't available for the v3 version of the Functions runtime.
 
 ---
 
@@ -120,13 +112,13 @@ Azure Data Explorer bindings for Azure Functions aren't available for the v3 ver
 
 ::: zone pivot="programming-language-java"
 
-## Install bundle
+## Install the bundle
 
-Azure Data Explorer bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
+Azure Data Explorer bindings extension is part of a preview [extension bundle], which is specified in your *host.json* project file.
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
-You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+You can add the preview extension bundle by adding or replacing the following code in your *host.json* file:
 
 ```json
 {
@@ -140,13 +132,13 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Azure Data Explorer bindings for Azure Functions aren't available for the v3 version of the functions runtime.
+Azure Data Explorer bindings for Azure Functions aren't available for the v3 version of the Functions runtime.
 
 ---
 
 ## Update packages
 
-Add the Java library for Azure Data Explorer bindings to your functions project with an update to the `pom.xml` file in your Python Azure Functions project, as follows:
+Add the Java library for Azure Data Explorer bindings to your Functions project with an update to the `pom.xml` file in your Python Azure Functions project, as follows:
 
 ```xml
 <dependency>
@@ -165,12 +157,12 @@ Azure Data Explorer bindings for Azure Functions have a required property for th
 ## Considerations
 
 - Azure Data Explorer binding supports version 4.x and later of the Functions runtime.
-- Source code for the Azure Data Explorer bindings can be found in [this GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto).
-- This binding requires connectivity to Azure Data Explorer. For input bindings, users require **Viewer** permissions and for output bindings users require **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control).
+- Source code for the Azure Data Explorer bindings is in [this GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto).
+- This binding requires connectivity to Azure Data Explorer. For input bindings, users require **Viewer** permissions. For output bindings, users require **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control).
 
 ## Next steps
 
-- [Read data from a database (Input binding)](functions-bindings-azure-data-explorer-input.md)
-- [Save data to a database (Output binding)](functions-bindings-azure-data-explorer-output.md)
+- [Read data from a database (input binding)](functions-bindings-azure-data-explorer-input.md)
+- [Save data to a database (output binding)](functions-bindings-azure-data-explorer-output.md)
 
 [extension bundle]: functions-bindings-register.md#extension-bundles

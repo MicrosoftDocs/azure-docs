@@ -169,7 +169,7 @@ conceptualContent:
         - url: ../app-service/app-service-key-vault-references.md
           itemType: overview
           text: App Services - Reference Key Vault secrets in App Services
-        - url: ../app-service/configure-ssl-certificate.md#store-certificate-in-azure-key-vault
+        - url: ../app-service/configure-ssl-app-service-certificate.md#store-certificate-in-azure-key-vault
           itemType: overview
           text: App Services - Maintain App Service certificates in Key Vault
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver

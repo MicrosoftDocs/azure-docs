@@ -37,7 +37,7 @@ For example, to discover Contoso’s infrastructure, you might use the domain, c
 | Data source | Example |
 |--|--|
 | WhoIs records | Other domain names registered to the same contact email or registrant org used to register contoso.com likely also belong to Contoso |
-| WhoIs records | All domain names registered to any @contoso.com email address likely also belong to Microsoft |
+| WhoIs records | All domain names registered to any @contoso.com email address likely also belong to Contoso |
 | Whois records | Other domains associated with the same name server as contoso.com may also belong to Contoso |
 | DNS records | We can assume that Contoso also owns all observed hosts on the domains it owns and any websites that are associated with those hosts |
 | DNS records | Domains with other hosts resolving to the same IP blocks might also belong to Contoso if the organization owns the IP block |

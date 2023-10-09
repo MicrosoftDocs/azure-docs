@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Roadmunk'
-description: Learn how to configure single sign-on between Azure Active Directory and Roadmunk.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Roadmunk'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Roadmunk.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,59 +14,62 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Roadmunk
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Roadmunk
 
-In this tutorial, you'll learn how to integrate Roadmunk with Azure Active Directory (Azure AD). When you integrate Roadmunk with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Roadmunk with Microsoft Entra ID. When you integrate Roadmunk with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Roadmunk.
-* Enable your users to be automatically signed in to Roadmunk by using their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Roadmunk.
+* Enable your users to be automatically signed in to Roadmunk by using their Microsoft Entra accounts.
 * Manage your accounts in one central location, the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Roadmunk subscription that's enabled for single sign-on (SSO).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 Roadmunk supports SSO that's started by the *service provider* (SP) and by the *identity provider* (IDP).
 
 ## Add Roadmunk from the gallery
 
-To integrate Roadmunk into Azure AD, from the gallery, add Roadmunk to your list of managed SaaS apps:
+To integrate Roadmunk into Microsoft Entra ID, from the gallery, add Roadmunk to your list of managed SaaS apps:
 
-1. Sign in to the Azure portal by using a work or school account or a personal Microsoft account.
-1. In the left pane, select **Azure Active Directory**.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, in the search box, type **Roadmunk**.
 1. Select **Roadmunk** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
-## Configure and test Azure AD SSO for Roadmunk
+<a name='configure-and-test-azure-ad-sso-for-roadmunk'></a>
 
-Configure and test Azure AD SSO with Roadmunk by using a test user called *B.Simon*. To make SSO work, you need to establish a link relationship between an Azure AD user and the related user in Roadmunk.
+## Configure and test Microsoft Entra SSO for Roadmunk
 
-Here's an overview of how to configure and test Azure AD SSO with Roadmunk:
+Configure and test Microsoft Entra SSO with Roadmunk by using a test user called *B.Simon*. To make SSO work, you need to establish a link relationship between a Microsoft Entra user and the related user in Roadmunk.
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) so that your users can use this feature.
-    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD SSO by using B.Simon.
-    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD SSO.
+Here's an overview of how to configure and test Microsoft Entra SSO with Roadmunk:
+
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) so that your users can use this feature.
+    1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) to test Microsoft Entra SSO by using B.Simon.
+    1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Microsoft Entra SSO.
 1. [Configure Roadmunk SSO](#configure-roadmunk-sso) to configure the SSO settings on the application side.
-    1. [Create a Roadmunk test user](#create-roadmunk-test-user) so that you can link the counterpart of B.Simon in Roadmunk to the Azure AD representation of the user.
+    1. [Create a Roadmunk test user](#create-roadmunk-test-user) so that you can link the counterpart of B.Simon in Roadmunk to the Microsoft Entra representation of the user.
 1. [Test SSO](#test-sso) to make sure the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal:
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Roadmunk** application integration page, find the **Manage** section, and then select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO in the Azure portal:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Roadmunk** application integration page, find the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -101,23 +104,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 	![Screenshot showing where to copy configuration URLs.](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal. You'll name the user *B.Simon*.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-1. At the top of the window, select **New user**.
+In this section, you'll create a test user. You'll name the user *B.Simon*.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, enter `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use Azure SSO by granting access to Roadmunk.
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **Roadmunk**.
 1. On the app's overview page, find the **Manage** section, and then select **Users and groups**.
 1. Select **Add user**. Then in the **Add Assignment** dialog box, select **Users and groups**.
@@ -167,12 +176,12 @@ In this section, you'll enable B.Simon to use Azure SSO by granting access to Ro
 
 ## Test SSO 
 
-In this section, you test your Azure AD SSO configuration by using the access panel.
+In this section, you test your Microsoft Entra SSO configuration by using the access panel.
 
 In the My Apps portal, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. 
+After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. 
 
 Learn how to [enforce session control by using Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

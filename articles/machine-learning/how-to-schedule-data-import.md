@@ -10,12 +10,12 @@ ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
 ms.date: 06/19/2023
-ms.custom: data4ml
+ms.custom: data4ml, devx-track-azurecli
 ---
 
 # Schedule data import jobs (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to programmatically schedule data imports and use the schedule UI to do the same. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as importing the data regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI, SDK, and studio UI.
 
@@ -51,7 +51,7 @@ To import data on a recurring basis, you must create a schedule. A `Schedule` as
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 #### YAML: Schedule for data import with recurrence pattern
 ```yml
@@ -113,7 +113,7 @@ Next, run this command in the CLI:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml.data_transfer import Database
@@ -218,7 +218,7 @@ When you have a data import with satisfactory performance and outputs, you can s
 
 ## YAML: Schedule for a data import with cron expression
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-CLI-v2.md)]
 
 #### YAML: Schedule for data import with cron expression (preview)
 ```yml
@@ -271,7 +271,7 @@ The list continues here:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml.data_transfer import Database
@@ -379,13 +379,13 @@ Limitations:
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="list_schedule":::
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=list_schedule)]
 
@@ -401,7 +401,7 @@ In the studio portal, under the **Jobs** extension, select the **All schedules**
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 ```cli
 az ml schedule show -n simple_cron_data_import_schedule
@@ -409,7 +409,7 @@ az ml schedule show -n simple_cron_data_import_schedule
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 created_schedule = ml_client.schedules.get(name=schedule_name)
@@ -435,7 +435,7 @@ You can select a schedule name to show the schedule details page. The schedule d
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 ```cli
 az ml schedule update -n simple_cron_data_import_schedule  --set description="new description" --no-wait
@@ -446,7 +446,7 @@ az ml schedule update -n simple_cron_data_import_schedule  --set description="ne
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 job_schedule = ml_client.schedules.begin_create_or_update(
@@ -504,7 +504,7 @@ In the schedule details page, you can select **Update settings** to update both 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 ```cli
 az ml schedule disable -n simple_cron_data_import_schedule --no-wait
@@ -528,7 +528,7 @@ You can disable the current schedule at the schedule details page. You can also 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 ```cli
 az ml schedule enable -n simple_cron_data_import_schedule --no-wait
@@ -536,7 +536,7 @@ az ml schedule enable -n simple_cron_data_import_schedule --no-wait
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 # Update trigger expression
@@ -561,7 +561,7 @@ On the schedule details page, you can enable the current schedule. You can also 
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
 ```cli
 az ml schedule delete -n simple_cron_data_import_schedule
@@ -569,7 +569,7 @@ az ml schedule delete -n simple_cron_data_import_schedule
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 # Only disabled schedules can be deleted

@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Create a custom event trigger to run a pipeline in Azure Data Factory
@@ -74,7 +74,7 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 1. Select your custom topic from the Azure subscription dropdown or manually enter the event topic scope.
 
    > [!NOTE]
-   > To create or modify a custom event trigger in Data Factory, you need to use an Azure account with appropriate role-based access control (Azure RBAC). No additional permission is required. The Data Factory service principle does *not* require special permission to your Event Grid. For more information about access control, see the [Role-based access control](#role-based-access-control) section.
+   > To create or modify a custom event trigger in Data Factory, you need to use an Azure account with appropriate role-based access control (Azure RBAC). No additional permission is required. The Data Factory service principal does *not* require special permission to your Event Grid. For more information about access control, see the [Role-based access control](#role-based-access-control) section.
 
 1. The **Subject begins with** and **Subject ends with** properties allow you to filter for trigger events. Both properties are optional.
 

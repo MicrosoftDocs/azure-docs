@@ -14,7 +14,7 @@ ms.custom: github-actions-azure
 ---
 
 # Use GitHub Actions with Azure Machine Learning
-[!INCLUDE [v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [v2](includes/machine-learning-dev-v2.md)]
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
 This article will teach you how to create a GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md). You'll train a [scikit-learn](https://scikit-learn.org/) linear regression model on the NYC Taxi dataset. 
@@ -24,11 +24,11 @@ GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` pat
 
 ## Prerequisites
 
-[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-## Step 1. Get the code
+## Step 1: Get the code
 
 Fork the following repo at GitHub:
 
@@ -36,7 +36,7 @@ Fork the following repo at GitHub:
 https://github.com/azure/azureml-examples
 ```
 
-## Step 2. Authenticate with Azure
+## Step 2: Authenticate with Azure
 
 You'll need to first define how to authenticate with Azure. You can use a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or [OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect). 
 
@@ -48,7 +48,7 @@ You'll need to first define how to authenticate with Azure. You can use a [servi
 
 [!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
 
-## Step 3. Update `setup.sh` to connect to your Azure Machine Learning workspace
+## Step 3: Update `setup.sh` to connect to your Azure Machine Learning workspace
 
 You'll need to update the CLI setup file variables to match your workspace. 
 
@@ -61,7 +61,7 @@ You'll need to update the CLI setup file variables to match your workspace.
     |LOCATION     |    Location of your workspace (example: `eastus2`)    |
     |WORKSPACE     |     Name of Azure Machine Learning workspace     | 
 
-## Step 4. Update `pipeline.yml` with your compute cluster name
+## Step 4: Update `pipeline.yml` with your compute cluster name
 
 You'll use a `pipeline.yml` file to deploy your Azure Machine Learning pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
 

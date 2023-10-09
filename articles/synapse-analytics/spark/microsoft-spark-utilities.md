@@ -281,14 +281,14 @@ mssparkutils.fs.ls("Your directory path")
 
 ### View file properties
 
-Returns file properties including file name, file path, file size, and whether it is a directory and a file.
+Returns file properties including file name, file path, file size, file modification time, and whether it is a directory and a file.
 
 :::zone pivot = "programming-language-python"
 
 ```python
 files = mssparkutils.fs.ls('Your directory path')
 for file in files:
-    print(file.name, file.isDir, file.isFile, file.path, file.size)
+    print(file.name, file.isDir, file.isFile, file.path, file.size, file.modifyTime)
 ```
 ::: zone-end
 
@@ -297,7 +297,7 @@ for file in files:
 ```scala
 val files = mssparkutils.fs.ls("/")
 files.foreach{
-    file => println(file.name,file.isDir,file.isFile,file.size)
+    file => println(file.name,file.isDir,file.isFile,file.size,file.modifyTime)
 }
 ```
 
@@ -319,7 +319,7 @@ foreach(var File in Files) {
 ```r
 files <- mssparkutils.fs.ls("/")
 for (file in files) {
-    writeLines(paste(file$name, file$isDir, file$isFile, file$size))
+    writeLines(paste(file$name, file$isDir, file$isFile, file$size, file$modifyTime))
 }
 ```
 
@@ -779,7 +779,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```r
-mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, list("input": 20))
 ```
 
 After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
@@ -825,7 +825,7 @@ Sample1 run success with input is 10
 You can run the **Sample1** in another notebook and set the **input** value as 20:
 
 ```r
-exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, list("input": 20))
 print (exitVal)
 ```
 
@@ -948,16 +948,19 @@ putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a g
 
 Returns Azure AD token for a given audience, name (optional). The table below list all the available audience types:
 
-|Audience Type|Audience key|
-|--|--|
-|Audience Resolve Type|'Audience'|
-|Storage Audience Resource|'Storage'|
-|Dedicated SQL pools (Data warehouse)|'DW'|
-|Data Lake Audience Resource|'AzureManagement'|
-|Vault Audience Resource|'DataLakeStore'|
-|Azure OSSDB Audience Resource|'AzureOSSDB'|
-|Azure Synapse Resource|'Synapse'|
-|Azure Data Factory Resource|'ADF'|
+| Audience Type                                         | String literal to be used in API call |
+|-------------------------------------------------------|---------------------------------------|
+| Azure Storage                                         | `Storage`                             |
+| Azure Key Vault                                       | `Vault`                               |
+| Azure Management                                      | `AzureManagement`                     |
+| Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
+| Azure Synapse                                         | `Synapse`                             |
+| Azure Data Lake Store                                 | `DataLakeStore`                       |
+| Azure Data Factory                                    | `ADF`                                 |
+| Azure Data Explorer                                   | `AzureDataExplorer`                   |
+| Azure Database for MySQL                              | `AzureOSSDB`                          |
+| Azure Database for MariaDB                            | `AzureOSSDB`                          |
+| Azure Database for PostgreSQL                         | `AzureOSSDB`                          |
 
 :::zone pivot = "programming-language-python"
 

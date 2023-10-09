@@ -1,6 +1,6 @@
 ---
-title: B2B direct connect Azure AD overview
-description: Azure Active Directory B2B direct connect lets users from other Azure AD tenants seamlessly sign in to your shared resources via Teams shared channels. There's no need for a guest user object in your Azure AD directory.
+title: B2B direct connect Microsoft Entra overview
+description: Microsoft Entra B2B direct connect lets users from other Microsoft Entra tenants seamlessly sign in to your shared resources via Teams shared channels. There's no need for a guest user object in your Microsoft Entra directory.
 
 services: active-directory
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # B2B direct connect overview
 
-Azure Active Directory (Azure AD) B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration. This feature currently works with Microsoft Teams shared channels. With B2B direct connect, users from both organizations can work together using their home credentials and a shared channel in Teams, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Azure AD organizations. Or use it to share resources across multiple Azure AD tenants within your own organization.
+B2B direct connect is a feature of Microsoft Entra External ID that lets you set up a mutual trust relationship with another Microsoft Entra organization for seamless collaboration. This feature currently works with Microsoft Teams shared channels. With B2B direct connect, users from both organizations can work together using their home credentials and a shared channel in Teams, without having to be added to each other’s organizations as guests. Use B2B direct connect to share resources with external Microsoft Entra organizations. Or use it to share resources across multiple Microsoft Entra tenants within your own organization.
 
 ![Diagram illustrating B2B direct connect](media/b2b-direct-connect-overview/b2b-direct-connect-overview.png)
 
-B2B direct connect requires a mutual trust relationship between two Azure AD organizations to allow access to each other's resources. Both the resource organization and the external organization need to mutually enable B2B direct connect in their cross-tenant access settings. When the trust is established, the B2B direct connect user has single sign-on access to resources outside their organization using credentials from their home Azure AD organization.
+B2B direct connect requires a mutual trust relationship between two Microsoft Entra organizations to allow access to each other's resources. Both the resource organization and the external organization need to mutually enable B2B direct connect in their cross-tenant access settings. When the trust is established, the B2B direct connect user has single sign-on access to resources outside their organization using credentials from their home Microsoft Entra organization.
 
 Currently, B2B direct connect capabilities work with Teams shared channels. When B2B direct connect is established between two organizations, users in one organization can create a shared channel in Teams and invite an external B2B direct connect user to it. Then from within Teams, the B2B direct connect user can seamlessly access the shared channel in their home tenant Teams instance, without having to manually sign in to the organization hosting the shared channel.
 
-For licensing and pricing information related to B2B direct connect users, refer to [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
+For licensing and pricing information related to B2B direct connect users, refer to [Microsoft Entra External ID pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 ## Managing cross-tenant access for B2B direct connect
 
-Azure AD organizations can manage their trust relationships with other Azure AD organizations by defining inbound and outbound [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md). Cross-tenant access settings give you granular control over how other organizations collaborate with you (inbound access) and how your users collaborate with other organizations (outbound access).
+Microsoft Entra organizations can manage their trust relationships with other Microsoft Entra organizations by defining inbound and outbound [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md). Cross-tenant access settings give you granular control over how other organizations collaborate with you (inbound access) and how your users collaborate with other organizations (outbound access).
 
 - **Inbound access settings** control whether users from external organizations can access resources in your organization. You can apply these settings to everyone, or you can specify individual users, groups, and applications.
 
@@ -36,13 +36,13 @@ Azure AD organizations can manage their trust relationships with other Azure AD 
 
 - **Tenant restrictions** determine how your users can access an external organization when they’re using your devices and network, but they’re signed in using an account that was issued to them by the external organization.
 
-- **Trust settings** determine whether your Conditional Access policies will trust the multi-factor authentication (MFA), compliant device, and hybrid Azure AD joined device claims from an external organization when their users access your resources.  
+- **Trust settings** determine whether your Conditional Access policies will trust the multi-factor authentication (MFA), compliant device, and Microsoft Entra hybrid joined device claims from an external organization when their users access your resources.  
 
 > [!IMPORTANT]
 > B2B direct connect is possible only when both organizations allow access to and from the other organization. For example, Contoso can allow inbound B2B direct connect from Fabrikam, but sharing isn't possible until Fabrikam also enables outbound B2B direct connect with Contoso. Therefore, you’ll need to coordinate with the external organization’s admin to make sure their cross-tenant access settings allow sharing with you. This mutual agreement is important because B2B direct connect enables limited sharing of data for the users you enable for B2B direct connect.
 ### Default settings
 
-The default cross-tenant access settings apply to all external Azure AD organizations, except organizations for which you've configured individual settings. Initially, Azure AD blocks all inbound and outbound B2B direct connect capabilities by default for all external Azure AD tenants. You can change these default settings, but typically you can leave them as-is and enable B2B direct connect access with individual organizations.
+The default cross-tenant access settings apply to all external Microsoft Entra organizations, except organizations for which you've configured individual settings. Initially, Microsoft Entra ID blocks all inbound and outbound B2B direct connect capabilities by default for all external Microsoft Entra tenants. You can change these default settings, but typically you can leave them as-is and enable B2B direct connect access with individual organizations.
 
 ### Organization-specific settings
 
@@ -81,7 +81,7 @@ Fabrikam will also need to configure their outbound cross-tenant access settings
 
 ## Authentication
 
-In a B2B direct connect scenario, authentication involves a user from an Azure AD organization (the user's home tenant) attempting to sign in to a file or app in another Azure AD organization (the resource tenant). The user signs in with Azure AD credentials from their home tenant. The sign-in attempt is evaluated against cross-tenant access settings in both the user's home tenant and the resource tenant. If all access requirements are met, a token is issued to the user that allows the user to access the resource. This token is valid for 1 hour.
+In a B2B direct connect scenario, authentication involves a user from a Microsoft Entra organization (the user's home tenant) attempting to sign in to a file or app in another Microsoft Entra organization (the resource tenant). The user signs in with Microsoft Entra credentials from their home tenant. The sign-in attempt is evaluated against cross-tenant access settings in both the user's home tenant and the resource tenant. If all access requirements are met, a token is issued to the user that allows the user to access the resource. This token is valid for 1 hour.
 
 For details about how authentication works in a cross-tenant scenario with Conditional Access policies, see [Authentication and Conditional Access in cross-tenant scenarios](authentication-conditional-access.md).
 
@@ -99,7 +99,7 @@ For information about Conditional Access and Teams, see [Overview of security an
 
 ## Trust settings for device compliance
 
-In your cross-tenant access settings, you can use **Trust settings** to trust claims from an external user's home tenant about whether the user's device meets their device compliance policies or is hybrid Azure AD joined. When device trust settings are enabled, Azure AD checks a user's authentication session for a device claim. If the session contains a device claim indicating that the policies have already been met in the user's home tenant, the external user is granted seamless sign-on to your shared resource. You can enable device trust settings for all Azure AD organizations or individual organizations. ([Learn more](authentication-conditional-access.md#device-compliance-and-hybrid-azure-ad-joined-device-policies))
+In your cross-tenant access settings, you can use **Trust settings** to trust claims from an external user's home tenant about whether the user's device meets their device compliance policies or is Microsoft Entra hybrid joined. When device trust settings are enabled, Microsoft Entra ID checks a user's authentication session for a device claim. If the session contains a device claim indicating that the policies have already been met in the user's home tenant, the external user is granted seamless sign-on to your shared resource. You can enable device trust settings for all Microsoft Entra organizations or individual organizations. ([Learn more](authentication-conditional-access.md#device-compliance-and-hybrid-azure-ad-joined-device-policies))
 
 ## B2B direct connect user experience
 
@@ -115,15 +115,15 @@ B2B collaboration and B2B direct connect are two different approaches to sharing
 
 B2B direct connect users collaborate via a mutual connection between two organizations, whereas B2B collaboration users are invited to an organization and managed via a user object.
 
-- B2B direct connect offers way to collaborate with users from another Azure AD organization through a mutual, two-way connection configured by admins from both organizations. Users have single sign-on access to B2B direct connect-enabled Microsoft applications. Currently, B2B direct connect support Teams Connect shared channels.
+- B2B direct connect offers way to collaborate with users from another Microsoft Entra organization through a mutual, two-way connection configured by admins from both organizations. Users have single sign-on access to B2B direct connect-enabled Microsoft applications. Currently, B2B direct connect support Teams Connect shared channels.
 
-- B2B collaboration lets you invite external partners to access your Microsoft, SaaS, or custom-developed apps. B2B collaboration is especially useful when the external partner doesn't use Azure AD or it's not practical or possible to set up B2B direct connect. B2B collaboration allows external users to sign in using their preferred identity, including their Azure AD account, consumer Microsoft account, or a social identity you enable such as Google. With B2B collaboration, you can let external users sign in to your Microsoft applications, SaaS apps, custom-developed apps, and so on.  
+- B2B collaboration lets you invite external partners to access your Microsoft, SaaS, or custom-developed apps. B2B collaboration is especially useful when the external partner doesn't use Microsoft Entra ID or it's not practical or possible to set up B2B direct connect. B2B collaboration allows external users to sign in using their preferred identity, including their Microsoft Entra account, consumer Microsoft account, or a social identity you enable such as Google. With B2B collaboration, you can let external users sign in to your Microsoft applications, SaaS apps, custom-developed apps, and so on.  
 
 ### Using Teams with B2B direct connect vs. B2B collaboration
 
 Within the context of Teams, there are differences in how resources can be shared depending on whether you’re collaborating with someone using B2B direct connect or B2B collaboration.
 
-- With B2B direct connect, you add the external user to a shared channel within a team. This user can access the resources within the shared channel, but they don’t have access to the entire team or any other resources outside the shared channel. For example, they don’t have access to the Azure portal. They do, however, have access to My apps portal. B2B direct connect users don’t have a presence in your Azure AD organization, so these users are managed in the Teams client by the shared channel owner. For details, see the [Assign team owners and members in Microsoft Teams](/microsoftteams/assign-roles-permissions).
+- With B2B direct connect, you add the external user to a shared channel within a team. This user can access the resources within the shared channel, but they don’t have access to the entire team or any other resources outside the shared channel. For example, they don’t have access to the Azure portal. They do, however, have access to My apps portal. B2B direct connect users don’t have a presence in your Microsoft Entra organization, so these users are managed in the Teams client by the shared channel owner. For details, see the [Assign team owners and members in Microsoft Teams](/microsoftteams/assign-roles-permissions).
 
 - With B2B collaboration, you can invite the guest user to a team. The B2B collaboration guest user signs into the resource tenant using the email address that was used to invite them. Their access is determined by the permissions assigned to guest users in the resource tenant. Guest users can’t see or participate in any shared channels in the team.
 
@@ -133,15 +133,17 @@ For more information about differences between B2B collaboration and B2B direct 
 
 Reporting for monitoring and auditing B2B direct connect activity is available in both the Azure portal and the Microsoft Teams admin center.
 
-### Azure AD monitoring and audit logs
+<a name='azure-ad-monitoring-and-audit-logs'></a>
 
-Azure AD includes information about cross-tenant access and B2B direct connect in the organization's Audit logs and Sign-in logs. These logs can be viewed in the Azure portal under **Monitoring**.
+### Microsoft Entra ID monitoring and audit logs
 
-- **Azure AD audit logs**: Azure AD Audit logs show when inbound and outbound policies are created, updated, or deleted.  
+Microsoft Entra ID includes information about cross-tenant access and B2B direct connect in the organization's Audit logs and Sign-in logs. These logs can be viewed in the Azure portal under **Monitoring**.
+
+- **Microsoft Entra audit logs**: Microsoft Entra audit logs show when inbound and outbound policies are created, updated, or deleted.  
 
    ![Screenshot showing an audit log](media/b2b-direct-connect-overview/audit-log.png)
 
-- **Azure AD sign-in logs** Azure AD sign-in logs are available in both the home organization and the resource organization. Once B2B direct connect is enabled, sign-in logs will begin including user object IDs for B2B direct connect users from other tenants. The information reported in each organization varies, for example:
+- **Microsoft Entra sign-in logs** Microsoft Entra sign-in logs are available in both the home organization and the resource organization. Once B2B direct connect is enabled, sign-in logs will begin including user object IDs for B2B direct connect users from other tenants. The information reported in each organization varies, for example:
 
   - In both organizations, B2B direct connect sign-ins are labeled with a cross-tenant access type of B2B direct connect. A sign-in event is recorded when a B2B direct connect user first accesses a resource organization, and again when a refresh token is issued for the user. Users can access their own sign-in logs. Admins can view sign-ins for their entire organization to see how B2B direct connect users are accessing resources in their tenant.  
 
@@ -151,7 +153,7 @@ Azure AD includes information about cross-tenant access and B2B direct connect i
 
    [ ![Screenshot showing a sign-in log](media/b2b-direct-connect-overview/sign-in-logs.png) ](media/b2b-direct-connect-overview/sign-in-logs.png#lightbox)
 
-- **Azure AD access reviews**: With Azure Active Directory (Azure AD) access reviews, a tenant admin can ensure that external guest users don’t have access to your apps and resources longer than is necessary by configuring a one-time or recurring access review of the external users. [Learn more about access reviews](../governance/access-reviews-overview.md).
+- **Microsoft Entra access reviews**: With Microsoft Entra access reviews, a tenant admin can ensure that external guest users don’t have access to your apps and resources longer than is necessary by configuring a one-time or recurring access review of the external users. [Learn more about access reviews](../governance/access-reviews-overview.md).
 
 ### Microsoft Teams monitoring and audit logs
 
@@ -177,7 +179,7 @@ When B2B direct connect is enabled with an external organization, users in the e
 
 ### Inbound access
 
-We strongly recommend you add both your global privacy contact and your organization's privacy statement so your internal employees and external guests can review your policies. Follow the steps to [add your organization's privacy info](../fundamentals/active-directory-properties-area.md).  
+We strongly recommend you add both your global privacy contact and your organization's privacy statement so your internal employees and external guests can review your policies. Follow the steps to [add your organization's privacy info](../fundamentals/properties-area.md).  
 
 ### Restricting access to users and groups
 

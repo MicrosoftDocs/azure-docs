@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 05/19/2023
+  ms.date: 08/22/2023
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -42,7 +42,7 @@ sections:
           
       - question: In what regions is Application Gateway available?
         answer: |
-          Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+          Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
           
           For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](./overview-v2.md#unsupported-regions)
           
@@ -67,7 +67,7 @@ sections:
         answer: |
           *Keep-Alive timeout* governs how long the Application Gateway waits for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open if there's no activity. 
           
-          The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. Changing the value of the private IP address isn't supported. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
+          The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds.  For private IP addresses, the value is nonconfigurable with a *TCP idle timeout* of 5 minutes.  The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
           
           ```azurepowershell-interactive
           $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -75,7 +75,7 @@ sections:
           Set-AzPublicIpAddress -PublicIpAddress $publicIP
           ```
 
-          For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is non-configurable.
+          For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is nonconfigurable.
           
       - question: Does Application Gateway reuse the TCP connection that is  established with backend server?
         answer: Yes. Application Gateway reuses the existing TCP connections with backend server.
@@ -189,7 +189,11 @@ sections:
       - question: Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
         answer: |
           As long as you have IP connectivity, Application Gateway can communicate with instances outside of the virtual network that it's in. Application Gateway can also communicate with instances outside of the subscription it's in. If you plan to use internal IPs as backend pool members, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-       
+
+      - question: How is the IP address for FQDN-based backend server updated?
+        answer: |
+          Like any DNS resolver, the Application Gateway resource honors the TTL (Time to live) value of the backend server's DNS record. After the TTL expires, the gateway performs a lookup to update that DNS information. During this lookup, if your application gateway encounters a problem getting a response (or no DNS record is found), the gateway continues using the last-known-good DNS value to serve the traffic. [Know more](how-application-gateway-works.md#backend-server-dns-resolution).
+     
       - question: Why am I seeing 502 errors or unhealthy backend servers after I changed the DNS servers for the virtual network?
         answer: The instances of your application gateway use the virtual network's DNS configuration for name resolution. After changing any DNS server configuration, you need to restart (Stop and Start) the application gateway for the new DNS servers to get assigned. Until then, FQDN-based name resolutions for outbound connectivity could fail.
        
@@ -370,7 +374,7 @@ sections:
           
           For information on how to customize TLS options, see [Configure TLS policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
           
-      - question: Does Application Gateway support reencryption of traffic to the backend?
+      - question: Does Application Gateway support re-encryption of traffic to the backend?
         answer: Yes. Application Gateway supports TLS offload and end-to-end TLS, which reencrypt traffic to the backend.
 
       - question: Can I configure TLS policy to control TLS protocol versions?
@@ -395,7 +399,7 @@ sections:
       - question: Does Application Gateway have support for OCSP and OCSP stapling?
         answer: Yes, Application Gateway supports certificates with OCSP extensions and OCSP stapling for server certificates.
 
-      - question: How many authentication certificates for backend reencryption does Application Gateway support?
+      - question: How many authentication certificates for backend re-encryption does Application Gateway support?
         answer: Application Gateway supports up to 100 authentication certificates.
 
       - question: Does Application Gateway natively integrate with Azure Key Vault?
@@ -411,12 +415,12 @@ sections:
 
       - question: My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
         answer: |
-          Certificate Authority (CA) Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the non-compliant CAs can be found here:  
+          Certificate Authority (CA) Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here:  
           
           * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
           * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
           
-          As per the industry's compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
+          As per the industry's compliance requirements, CA vendors began revoking noncompliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
           
           To check if certificates utilized by your application have been revoked reference [DigiCert's Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates have been revoked, or will be revoked, you need to request new certificates from the CA vendor utilized in your applications. To avoid your application's availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
           

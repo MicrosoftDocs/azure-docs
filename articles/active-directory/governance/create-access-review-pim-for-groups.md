@@ -1,6 +1,6 @@
 ---
 title: Create an access review of PIM for Groups (preview)
-description: Learn how to create an access review of PIM for Groups in Azure Active Directory. 
+description: Learn how to create an access review of PIM for Groups in Microsoft Entra ID. 
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -16,33 +16,36 @@ ms.reviewer: jgangadhar
 ms.collection: M365-identity-device-management
 ---
  
-# Create an access review of PIM for Groups in Azure AD (preview)
+# Create an access review of PIM for Groups in Microsoft Entra ID (preview)
 
 This article describes how to create one or more access reviews for PIM for Groups, which will include the active members of the group and the eligible members. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
 
 ## Prerequisites
 
-- Azure AD Premium P2.
-- Only Global administrators and Privileged Role administrators can create reviews on PIM for Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
+- Microsoft Entra ID Governance License.
+- Only Global administrators and Privileged Role administrators can create reviews on PIM for Groups. For more information, see [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md).
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create a PIM for Groups access review
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 ### Scope
-1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
-2. On the left menu, select **Access reviews**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-3. Select **New access review** to create a new access review.
+1. Browse to **Identity governance** > **Access Reviews** > **Review History**.
+
+1. Select **New access review** to create a new access review.
 
     ![Screenshot that shows the Access reviews pane in Identity Governance.](./media/create-access-review/access-reviews.png)
 
-4. In the **Select what to review** box, select **Teams + Groups**.
+1. In the **Select what to review** box, select **Teams + Groups**.
 
     ![Screenshot that shows creating an access review.](./media/create-access-review/select-what-review.png)
 
-5. Select **Teams + Groups** and then select **Select Teams + groups** under **Review Scope**. A list of groups to choose from appears on the right.
+1. Select **Teams + Groups** and then select **Select Teams + groups** under **Review Scope**. A list of groups to choose from appears on the right.
 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-pim-review.png)
 
@@ -50,7 +53,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 > When a PIM for Groups is selected, the users under review for the group will include all eligible users and active users in that group. 
 
 6. Now you can select a scope for the review. Your options are:
-    - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
+    - **Guest users only**: This option limits the access review to only the Microsoft Entra B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
 

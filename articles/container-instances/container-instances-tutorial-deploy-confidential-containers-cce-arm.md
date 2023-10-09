@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 05/23/2023
-ms.custom: seodec18, mvc, devx-track-arm-template
+ms.custom: seodec18, mvc, devx-track-arm-template, devx-track-linux
 ---
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy
@@ -194,7 +194,7 @@ With the ARM template that you've crafted and the Azure CLI confcom extension, y
 
    * **Subscription**: select an Azure subscription.
    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-   * **Location**: select a location for the resource group. Example: **North Europe**.
+   * **Location**: select a location for the resource group. Choose a region where the [Confidential SKU is supported](./container-instances-region-availability.md#linux-container-groups). Example: **North Europe**.
    * **Name**: accept the generated name for the instance, or enter a name.
    * **Image**: accept the default image name. This sample Linux image displays a hardware attestation.
 
@@ -223,6 +223,9 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 3. Once its status is *Running*, navigate to the IP address in your browser. 
 
     ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png)
+
+    The presence of the attestation report below the Azure Container Instances logo confirms that the container is running on hardware that supports a TEE.
+    If you deploy to hardware that does not support a TEE, for example by choosing a region where the ACI Confidential SKU is not available, no attestation report will be shown.
 
 ## Next Steps  
 

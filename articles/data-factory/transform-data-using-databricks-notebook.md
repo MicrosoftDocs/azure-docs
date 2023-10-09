@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 04/04/2023
+ms.date: 08/14/2023
 ---
 
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks notebook against the Databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks notebook during execution.
 
@@ -102,7 +102,7 @@ In this section, you author a Databricks linked service. This linked service con
     
     1.  For **Databrick Workspace URL**, the information should be auto-populated.
 
-    1.  For **Authentication type**, if you select  **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/api/latest/authentication.html#generate-token). For **Managed  service identity** and  **User Assigned Managed Identity**,  grant **Contributor role** to both identities  in Azure Databricks resource's *Access control* menu. 
+    1.  For **Authentication type**, if you select  **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/administration-guide/access-control/tokens.html). For **Managed  service identity** and  **User Assigned Managed Identity**,  grant **Contributor role** to both identities  in Azure Databricks resource's *Access control* menu. 
 
     1.  For **Cluster version**, select the version you want to use.
 

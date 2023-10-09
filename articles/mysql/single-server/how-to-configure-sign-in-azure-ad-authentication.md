@@ -4,8 +4,8 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

@@ -24,7 +24,7 @@ Now that you've created your application, you'll learn how to configure the code
 
 The following Microsoft libraries support desktop apps:
 
-[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
+[!INCLUDE [active-directory-develop-libraries-desktop](./includes/libraries/libraries-desktop.md)]
 
 ## Public client application
 

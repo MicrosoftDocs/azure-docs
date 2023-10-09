@@ -1,8 +1,8 @@
 ---
 title: How to create users for Azure Database for MySQL
 description: This article describes how to create new user accounts to interact with an Azure Database for MySQL server.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 03/29/2023
 ms.service: mysql

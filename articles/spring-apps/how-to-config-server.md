@@ -4,7 +4,7 @@ description: Learn how to configure a managed Spring Cloud Config Server in Azur
 ms.service: spring-apps
 ms.topic: how-to
 ms.author: karler
-author: karlerickson
+author: KarlErickson
 ms.date: 12/10/2021
 ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
@@ -92,9 +92,6 @@ The following table lists the configurable properties that you can use to set up
 | `host-key-algorithm`       | No       | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
 
-> [!NOTE]
-> Config Server uses RSA keys with SHA-1 signatures for now. If you're using GitHub, for RSA public keys added to GitHub before November 2, 2021, the corresponding private key is supported. For RSA public keys added to GitHub after November 2, 2021, the corresponding private key is not supported, and we suggest using basic authentication instead.
-
 ### Private repository with basic authentication
 
 The following table lists the configurable properties that you can use to set up a private Git repository with basic authentication.
@@ -111,7 +108,7 @@ The following table lists the configurable properties that you can use to set up
 | `password`      | No       | The password or personal access token used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication. |
 
 > [!NOTE]
-> Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
+> Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps. If you use such a token, remember to update it before it expires.
 >
 > GitHub has removed support for password authentication, so you need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
@@ -186,7 +183,7 @@ Use the steps in this section to enter repository information for a public or pr
   :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for Basic authentication.":::
 
   > [!NOTE]
-  > Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps.
+  > Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps. If you use such a token, remember to update it before it expires.
   >
   > GitHub has removed support for password authentication, so you need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 

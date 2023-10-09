@@ -19,7 +19,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # Email one-time passcode authentication
 
-The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in.
+The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Microsoft Entra ID, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in.
 
 :::image type="content" source="media/one-time-passcode/email-otp.png" alt-text="Diagram showing an overview of Email one-time passcode.":::
 
@@ -29,7 +29,7 @@ The email one-time passcode feature is a way to authenticate B2B collaboration u
 
 ## Sign-in endpoints
 
-Email one-time passcode guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using one-time passcode.
+Email one-time passcode guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using one-time passcode.
 
 Email one-time passcode guest users can also use application endpoints that include your tenant information, for example:
 
@@ -38,6 +38,9 @@ Email one-time passcode guest users can also use application endpoints that incl
   * `https://portal.azure.com/<your tenant ID>`
 
 You can also give email one-time passcode guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
+
+> [!NOTE]
+> Email one-time passcode guest users can sign in to Microsoft Teams directly from the common endpoint without choosing **Sign-in options**. During the sign-in process to Microsoft Teams, the guest user can select a link to send a one-time passcode.
 
 ## User experience for one-time passcode guest users
 
@@ -60,7 +63,7 @@ The guest user is now authenticated, and they can see the shared resource or con
 
 When a guest user redeems an invitation or uses a link to a resource that has been shared with them, they’ll receive a one-time passcode if:
 
-- They don't have an Azure AD account.
+- They don't have a Microsoft Entra account.
 - They don't have a Microsoft account.
 - The inviting tenant didn't set up federation with social (like [Google](google-federation.md)) or other identity providers.
 - They don't have any other authentication method or any password-backed accounts.
@@ -70,7 +73,7 @@ At the time of invitation, there's no indication that the user you're inviting w
 
 
 > [!NOTE]
-> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update the user's authentication method, you can [reset their redemption status](reset-redemption-status.md).
+> When a user redeems a one-time passcode and later obtains an MSA, Microsoft Entra account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update the user's authentication method, you can [reset their redemption status](reset-redemption-status.md).
 
 ### Example
 
@@ -87,11 +90,11 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 ### To enable or disable email one-time passcodes
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. In the navigation pane, select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 
-1. Select **External Identities** > **All identity providers**.
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 
 1. Select **Email one-time passcode**.
 
@@ -107,7 +110,7 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 **What happens to my existing guest users if I enable email one-time passcode?**
 
-Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption activities where new guest users are redeeming into the tenant.
+Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption process activities where new guest users are redeeming into the tenant.
 
 **What is the user experience when email one-time passcode is disabled?**
 
@@ -115,19 +118,19 @@ If you’ve disabled the email one-time passcode feature, the user is prompted t
 
 Also, when email one-time passcode is disabled, users might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance.
 
-For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
+For more information about the different redemption process pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 **Will the “No account? Create one!” option for self-service sign-up go away?**
 
-No. It’s easy to get [self-service sign-up in the context of External Identities](self-service-sign-up-overview.md) confused with self-service sign-up for email-verified users, but they're two different features. The unmanaged ("viral") feature that has been deprecated is [self-service sign-up with email-verified users](../enterprise-users/directory-self-service-signup.md), which resulted in guests creating an unmanaged Azure AD account. However, self-service sign-up for External Identities will continue to be available, which results in your guests signing up to your organization with a [variety of identity providers](identity-providers.md).  
+No. It’s easy to get [self-service sign-up in the context of External Identities](self-service-sign-up-overview.md) confused with self-service sign-up for email-verified users, but they're two different features. The unmanaged ("viral") feature that has been deprecated is [self-service sign-up with email-verified users](../enterprise-users/directory-self-service-signup.md), which resulted in guests creating an unmanaged Microsoft Entra account. However, self-service sign-up for External Identities will continue to be available, which results in your guests signing up to your organization with a [variety of identity providers](identity-providers.md).  
 
 **What does Microsoft recommend we do with existing Microsoft accounts (MSA)?**
 
 When we support the ability to disable Microsoft Account in the Identity providers settings (not available today), we strongly recommend you disable Microsoft Account and enable email one-time passcode. Then you should [reset the redemption status](reset-redemption-status.md) of existing guests with Microsoft accounts so that they can re-redeem using email one-time passcode authentication and use email one-time passcode to sign in going forward.
 
-**Regarding the change to enable email one-time-passcode by default, does this include SharePoint and OneDrive integration with Azure AD B2B?**
+**Regarding the change to enable email one-time-passcode by default, does this include SharePoint and OneDrive integration with Microsoft Entra B2B?**
 
-No, the global rollout of the change to enable email one-time passcode by default doesn't include enabling SharePoint and OneDrive integration with Azure AD B2B by default.To learn how to enable or disable the integration of SharePoint and OneDrive with Azure AD B2B for secure collaboration, see [SharePoint and OneDrive Integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).
+No, the global rollout of the change to enable email one-time passcode by default doesn't include enabling SharePoint and OneDrive integration with Microsoft Entra B2B by default.To learn how to enable or disable the integration of SharePoint and OneDrive with Microsoft Entra B2B for secure collaboration, see [SharePoint and OneDrive Integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration).
 
 ## Next steps
 

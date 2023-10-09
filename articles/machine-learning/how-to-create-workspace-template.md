@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, ignite-2022, devx-track-arm-template, devx-track-azurecli
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
@@ -28,7 +28,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
 * The example template may not always use the latest API version for Azure Machine Learning. Before using the template, we recommend modifying it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
 
@@ -80,7 +80,7 @@ The example template has two **required** parameters:
 >
 > You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. When doing so, you must either [use a managed identity](how-to-identity-based-service-authentication.md) (preview), or [enable the admin account](../container-registry/container-registry-authentication.md#admin-account) for the container registry.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 For more information on templates, see the following articles:
 
@@ -492,7 +492,7 @@ For more information, see [Deploy resources from custom template](../azure-resou
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Azure Key Vault access policy and Azure Resource Manager templates
 

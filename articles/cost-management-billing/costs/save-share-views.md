@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to save and share a customized view with others.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/28/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -103,7 +103,7 @@ When you want to share information with others that don't have access to the sco
 
 :::image type="content" source="./media/save-share-views/download.png" alt-text="Screen shot showing the Download page." lightbox="./media/save-share-views/download.png" :::
 
-When you download data, cost analysis includes summarized data as it's shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the cost analysis preview. You can access the preview from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
+When you download data, cost analysis includes summarized data as it's shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the Resources smart view. You can access the Resources view from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
 
 If you need more advanced summaries or you're interested in raw data that hasn't been summarized, schedule an export to publish raw data to a storage account on a recurring basis.
 

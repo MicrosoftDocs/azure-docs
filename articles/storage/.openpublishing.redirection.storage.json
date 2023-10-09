@@ -1,6 +1,31 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/storage/queues/storage-c-plus-plus-how-to-use-queues.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-dotnet-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-java-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-nodejs-how-to-use-queues.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-python-how-to-use-queue-storage.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
             "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
             "redirect_document_id": false
@@ -19,6 +44,11 @@
             "source_path_from_root": "/articles/storage/automation-manage-storage.md",
             "redirect_url": "/azure/storage/common/storage-manage-with-automation",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blob-inventory-faq.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-faq#multiple-inventory-file-output",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-client.md",
@@ -1357,8 +1387,8 @@
         },
         {
             "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-queues.md",
-            "redirect_url": "/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
-            "redirect_document_id": true
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
@@ -1432,8 +1462,8 @@
         },
         {
             "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-queues.md",
-            "redirect_url": "/azure/storage/queues/storage-dotnet-how-to-use-queues",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-dotnet-shared-access-signature-part-1.md",
@@ -1682,8 +1712,8 @@
         },
         {
             "source_path_from_root": "/articles/storage/storage-java-how-to-use-queue-storage.md",
-            "redirect_url": "/azure/storage/queues/storage-java-how-to-use-queue-storage",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-java",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-java-hudson-continuous-integration-solution.md",
@@ -1742,8 +1772,8 @@
         },
         {
             "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-queues.md",
-            "redirect_url": "/azure/storage/queues/storage-nodejs-how-to-use-queues",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-nodejs",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-performance-checklist.md",
@@ -1792,8 +1822,8 @@
         },
         {
             "source_path_from_root": "/articles/storage/storage-python-how-to-use-queue-storage.md",
-            "redirect_url": "/azure/storage/queues/storage-python-how-to-use-queue-storage",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-python",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-redundancy.md",
@@ -2159,6 +2189,16 @@
             "source_path_from_root": "/articles/storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md",
             "redirect_url": "/azure/storage/files/storage-files-identity-auth-domain-services-enable",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-smb-multichannel-performance.md",
+            "redirect_url": "/azure/storage/files/smb-performance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/nfs-nconnect-performance.md",
+            "redirect_url": "/azure/storage/files/nfs-performance",
+            "redirect_document_id": true
+        }                
     ]
 }

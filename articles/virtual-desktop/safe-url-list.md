@@ -29,7 +29,7 @@ The following table is the list of URLs your session host VMs need to access for
 |---|---|---|---|
 | `login.microsoftonline.com` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.microsoft.com` | 443 | Service traffic | WindowsVirtualDesktop |
-| `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic | AzureMonitor |
+| `*.prod.warm.ingest.monitor.core.windows.net` | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
 | `catalogartifact.azureedge.net` | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
 | `gcs.prod.monitoring.core.windows.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.windows.net` | 1688 | Windows activation | Internet |
@@ -71,7 +71,7 @@ The following table lists optional URLs that your session host virtual machines 
 |--|--|--|--|
 | `login.microsoftonline.us` | 443 | Authentication to Microsoft Online Services |
 | `*.wvd.azure.us` | 443 | Service traffic | WindowsVirtualDesktop |
-| `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic | AzureMonitor |
+| `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | 443 | Agent traffic | AzureCloud |
 | `kms.core.usgovcloudapi.net` | 1688 | Windows activation | Internet |
 | `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
@@ -139,7 +139,7 @@ Any [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop
 | `aka.ms` | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | 443 | Client updates | Windows Desktop |
+| `query.prod.cms.rt.microsoft.com` | 443 | Download an MSI to update the client. Required for auto-updates. | [Windows Desktop](users/connect-windows.md) |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -152,7 +152,7 @@ Any [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop
 | `aka.ms` | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | 443 | Client updates | Windows Desktop |
+| `query.prod.cms.rt.microsoft.com` | 443 | Download an MSI to update the client. Required for auto-updates. | [Windows Desktop](users/connect-windows.md) |
 
 ---
 

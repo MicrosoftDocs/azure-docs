@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/27/2023
+ms.date: 09/29/2023
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -33,7 +33,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of IPs in a virtual network (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  2 TiB*     |    No  |
-|  Maximum size of a single capacity pool    |  500 TiB   |   Yes   |
+|  Maximum size of a single capacity pool    |  1000 TiB   |   Yes   |
 |  Minimum size of a single regular volume    |    100 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) |     102,401 GiB |     No |
@@ -46,12 +46,12 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of quota rules per volume     |   100  |    Yes    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
-|  Number of cross-zone replication data protection volumes (destination volumes)     |    10    |    Yes    |     
-|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  N  |
-|  Maximum size of protected volume  |  100 TiB  |  N  |
-|  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
-|  Maximum number of manual backups per volume per day |  5  |  Y  |
+|  Number of cross-region replication data protection volumes (destination volumes)     |    20    |    Yes    |     
+|  Number of cross-zone replication data protection volumes (destination volumes)     |    20    |    Yes    |     
+|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
+|  Maximum size of protected volume  |  100 TiB  |  No  |
+|  Maximum number of volumes that can be backed up per subscription   |  20  |  Yes  |
+|  Maximum number of manual backups per volume per day |  5  |  No  |
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
@@ -105,13 +105,14 @@ For volumes 100 TiB or under, if you've allocated at least 5 TiB of quota for a 
 For volumes 100 TiB or under, you can increase the `maxfiles` limit up to 531,278,150 if your volume quota is at least 25 TiB.
 
 >[!IMPORTANT]
-> Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.
+> When files or folders are allocated to an Azure NetApp Files volume, they count against the `maxfiles` limit. If a file or folder is deleted, the internal data structures for `maxfiles` allocation remain the same. For instance, if the files used in a volume increase to 63,753,378 and 100,000 files are deleted, the `maxfiles` allocation will remain at 63,753,378. 
+> Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, the `maxfiles` limit for a 2 TiB volume is 63,753,378. If you create more than 63,753,378 files in that volume, the volume quota cannot be reduced below its corresponding index of 2 TiB.
 
 **For [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes):**
 
 | Volume size (quota) | Automatic readjustment of the `maxfiles` limit |
 | - | - |
-|   > 100 TiB | 2,550,135,120 |
+|   > 100 TiB    | 2,550,135,120                  |
              
 You can increase the `maxfiles` limit beyond 2,550,135,120 using a support request. For every 2,550,135,120 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 120 TiB. For example, if you increase `maxfiles` limit from 2,550,135,120 to 5,100,270,240 files (or any number in between), you need to increase the volume quota to at least 240 TiB.
  

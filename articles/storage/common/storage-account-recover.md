@@ -3,13 +3,13 @@ title: Recover a deleted storage account
 titleSuffix: Azure Storage
 description: Learn how to recover a deleted storage account within the Azure portal.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/25/2023
-ms.author: tamram
-ms.subservice: common
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
 ---
 
 # Recover a deleted storage account

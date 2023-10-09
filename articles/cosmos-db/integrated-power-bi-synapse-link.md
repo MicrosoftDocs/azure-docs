@@ -20,7 +20,7 @@ Synapse Link enables you to build Power BI dashboards with no performance or cos
 
 Use the following steps to build a Power BI report from Azure Cosmos DB data in DirectQuery mode:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. From the **Integrations** section, open the **Power BI** pane and select **Get started**.
 

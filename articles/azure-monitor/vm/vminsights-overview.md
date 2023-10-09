@@ -2,9 +2,9 @@
 title: What is VM insights?
 description: Overview of VM insights, which monitors the health and performance of Azure VMs and automatically discovers and maps application components and their dependencies. 
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/08/2023
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/28/2023
 ---
 
 # Overview of VM insights
@@ -19,7 +19,7 @@ VM insights supports Windows and Linux operating systems on:
 - On-premises virtual machines.
 - Virtual machines hosted in another cloud environment.
 
-VM insights provides a set of predefined workbooks that allow you to view trending of collected performance data over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
+VM insights provides a set of predefined workbooks that allow you to view trending of [collected performance data](vminsights-log-query.md#performance-records) over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
 
 ![Screenshot that shows the VM insights perspective in the Azure portal.](media/vminsights-overview/vminsights-azmon-directvm.png)
 
@@ -48,3 +48,4 @@ Access VM insights for all your virtual machines and virtual machine scale sets 
 
 - [Enable and configure VM insights](./vminsights-enable-overview.md).
 - [Migrate machines with VM insights from Log Analytics agent to Azure Monitor Agent](../vm/vminsights-enable-overview.md#migrate-from-log-analytics-agent-to-azure-monitor-agent).
+

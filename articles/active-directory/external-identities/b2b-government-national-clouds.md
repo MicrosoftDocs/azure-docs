@@ -1,6 +1,6 @@
 ---
-title: Azure AD B2B in government and national clouds
-description: Learn what features are available in Azure Active Directory B2B collaboration in US Government and national clouds 
+title: Microsoft Entra B2B in government and national clouds
+description: Learn what features are available in Microsoft Entra B2B collaboration in US Government and national clouds 
 
 services: active-directory
 ms.service: active-directory
@@ -15,12 +15,12 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD B2B in government and national clouds
+# Microsoft Entra B2B in government and national clouds
 
 Microsoft Azure [national clouds](../develop/authentication-national-cloud.md) are physically isolated instances of Azure. B2B collaboration isn't enabled by default across national cloud boundaries, but you can use Microsoft cloud settings to establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
 - Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 ## B2B collaboration across Microsoft clouds
 
@@ -28,7 +28,7 @@ To set up B2B collaboration between tenants in different clouds, both tenants ne
 
 ## B2B collaboration within the Microsoft Azure Government cloud
 
-Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user won't be able to redeem the invitation. For Microsoft accounts (MSAs), there are known limitations with accessing the Azure portal: newly invited MSA guests are unable to redeem direct link invitations to the Azure portal, and existing MSA guests are unable to sign in to the Azure portal. For details about other limitations, see [Azure Active Directory Premium P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
+Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user won't be able to redeem the invitation. For Microsoft accounts (MSAs), there are known limitations with accessing the Microsoft Entra admin center: newly invited MSA guests are unable to redeem direct link invitations to the Microsoft Entra admin center, and existing MSA guests are unable to sign in to the Microsoft Entra admin center. For details about other limitations, see [Microsoft Entra ID P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
 ### How can I tell if B2B collaboration is available in my Azure US Government tenant?
 To find out if your Azure US Government cloud tenant supports B2B collaboration, do the following:
@@ -44,7 +44,7 @@ To find out if your Azure US Government cloud tenant supports B2B collaboration,
 
 ## Next steps
 
-See the following articles on Azure AD B2B collaboration:
+See the following articles on Microsoft Entra B2B collaboration:
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
 - [Delegate B2B collaboration invitations](external-collaboration-settings-configure.md)

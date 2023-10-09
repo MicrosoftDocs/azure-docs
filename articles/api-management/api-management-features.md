@@ -17,7 +17,9 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 
 > [!IMPORTANT]
 > * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
-> * The Consumption tier isn't available in the US Government cloud or the Azure China cloud. 
+> * The Consumption tier isn't available in the US Government cloud or the Microsoft Azure operated by 21Vianet cloud.  
+> * API Management **v2 tiers** are now in preview, with updated feature availability. [Learn more](v2-service-tiers-overview.md).
+
 
 | Feature                                                                                      | Consumption | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
@@ -36,6 +38,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [API authorizations](authorizations-overview.md)  | Yes         | Yes       | Yes   | Yes      | Yes     | 
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |

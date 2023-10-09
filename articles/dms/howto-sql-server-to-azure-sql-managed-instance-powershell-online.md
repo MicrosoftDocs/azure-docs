@@ -4,11 +4,13 @@ titleSuffix: Azure Database Migration Service
 description: Learn to online migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 12/16/2020
 ms.service: dms
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate SQL Server to SQL Managed Instance online with PowerShell & Azure Database Migration Service

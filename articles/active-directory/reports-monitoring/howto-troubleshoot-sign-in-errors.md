@@ -1,7 +1,7 @@
 ---
 
 title: How to troubleshoot sign-in errors
-description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
+description: Learn how to troubleshoot sign-in errors using Microsoft Entra reports in the Microsoft Entra admin center
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,15 +9,14 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/19/2023
+ms.date: 09/14/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
-ms.collection: M365-identity-device-management
 ---
 
-# How to: Troubleshoot sign-in errors using Azure Active Directory reports
+# How to: Troubleshoot sign-in errors using Microsoft Entra reports
 
-The Azure Active Directory (Azure AD) sign-in logs enable you to find answers to questions around managing access to the applications in your organization, including:
+The Microsoft Entra sign-in logs enable you to find answers to questions around managing access to the applications in your organization, including:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
@@ -29,14 +28,16 @@ In addition, the sign-ins logs can also help you troubleshoot sign-in failures f
 
 You need:
 
-* An Azure AD tenant with a Premium P1/P2 license.
-* A user with the **Global Administrator**, **Security Administrator**, **Security Reader**, or **Reports Reader** role for the tenant.
+* A Microsoft Entra tenant with a Premium P1/P2 license.
+* A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
 * In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 
 ## Gather sign-in details
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a role of least privilege access.
-1. Go to **Azure AD** > **Sign-ins**. 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**. 
 1. Use the filters to narrow down the results
     - Search by username if you're troubleshooting a specific user.
     - Search by application if you're troubleshooting issues with a specific app.
@@ -71,7 +72,7 @@ The following failure reasons and details are common:
 If you need more specifics to research, you can use the **sign-in error code** for further research.
 
 - Enter the error code into the **[Error code lookup tool](https://login.microsoftonline.com/error)** to get the error code description and remediation information.
-- Search for an error code in the **[sign-ins error codes reference](../develop/reference-aadsts-error-codes.md)**. 
+- Search for an error code in the **[sign-ins error codes reference](../develop/reference-error-codes.md)**. 
 
 The following error codes are associated with sign-in events, but this list isn't exhaustive:
 
@@ -80,7 +81,7 @@ The following error codes are associated with sign-in events, but this list isn'
     - Because the user didn't sign-in completely, the User field may display an Object ID or a globally unique identifier (GUID) instead of a username.
     - In some of these situations, the User ID shows up like "00000000-0000-0000".
 
-- **90025**: An internal Azure AD service hit its retry allowance to sign the user in.
+- **90025**: An internal Microsoft Entra service hit its retry allowance to sign the user in.
     - This error often happens without the user noticing and is usually resolved automatically. 
     - If it persists, have the user sign in again.
 
@@ -88,7 +89,7 @@ The following error codes are associated with sign-in events, but this list isn'
     - This error often appears if the user hasn't completed setting up MFA.
     - Instruct the user to complete the setup process through to sign-in.
 
-If all else fails, or the issue persists despite taking the recommended course of action, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For more information, see [how to get support for Azure AD](../fundamentals/how-to-get-support.md). 
+If all else fails, or the issue persists despite taking the recommended course of action, open a support request. For more information, see [how to get support for Microsoft Entra ID](../fundamentals/how-to-get-support.md). 
 
 ## Next steps
 

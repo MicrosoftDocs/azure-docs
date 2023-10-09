@@ -15,7 +15,7 @@ ms.date: 11/08/2022
 
 # Azure Machine Learning CLI (v2) release notes
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 

@@ -21,8 +21,12 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - An AKS cluster with Linux node pools. If you don't have an AKS cluster, see the AKS quickstart that uses the [Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or the [Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 
-> [!WARNING]
-> AKS Chaos Mesh faults are only supported on Linux node pools.
+## Limitations
+
+* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/access-private-cluster.md) feature.
+* AKS Chaos Mesh faults are only supported on Linux node pools.
+* Currently, Chaos Mesh faults don't work if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
+* If your AKS cluster is configured to only allow authorized IP ranges, you need to allow Chaos Studio's IP ranges. You can find them by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md). 
 
 ## Open Azure Cloud Shell
 
@@ -113,12 +117,11 @@ Now you can create your experiment. A chaos experiment defines the actions you w
             namespaces:
               - default
         ```
-    1. Remove any YAML outside of the `spec`, including the spec property name. Remove the indentation of the spec details.
+    1. Remove any YAML outside of the `spec`, including the spec property name. Remove the indentation of the spec details. The `duration` parameter isn't necessary, but is used if provided. In this case, remove it.
 
         ```yaml
         action: pod-failure
         mode: all
-        duration: '600s'
         selector:
           namespaces:
             - default
@@ -126,12 +129,12 @@ Now you can create your experiment. A chaos experiment defines the actions you w
     1. Use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minimize it.
 
         ```json
-        {"action":"pod-failure","mode":"all","duration":"600s","selector":{"namespaces":["default"]}}
+        {"action":"pod-failure","mode":"all","selector":{"namespaces":["default"]}}
         ```
     1. Use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec.
     
         ```json
-        {\"action\":\"pod-failure\",\"mode\":\"all\",\"duration\":\"600s\",\"selector\":{\"namespaces\":[\"default\"]}}
+        {\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}
         ```
 
 1. Create your experiment JSON by starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update), the [fault library](chaos-studio-fault-library.md), and the `jsonSpec` created in the previous step.
@@ -157,7 +160,7 @@ Now you can create your experiment. A chaos experiment defines the actions you w
                     "parameters": [
                       {
                           "key": "jsonSpec",
-                          "value": "{\"action\":\"pod-failure\",\"mode\":\"all\",\"duration\":\"600s\",\"selector\":{\"namespaces\":[\"default\"]}}"
+                          "value": "{\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}"
                       }
                     ],
                     "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1"
@@ -174,7 +177,7 @@ Now you can create your experiment. A chaos experiment defines the actions you w
             "targets": [
               {
                 "type": "ChaosTarget",
-                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh"
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh"
               }
             ]
           }
@@ -197,7 +200,7 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 Give the experiment access to your resources by using the following command. Replace `$EXPERIMENT_PRINCIPAL_ID` with the principal ID from the previous step. Replace `$RESOURCE_ID` with the resource ID of the target resource. In this case, it's the AKS cluster resource ID. Run this command for each resource targeted in your experiment.
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
+az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
 ```
 
 ## Run your experiment

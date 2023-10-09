@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
@@ -28,7 +28,7 @@ Having your logs in once place will provide a history of exceptions and error me
   ```python
   pip install opencensus-ext-azure
   ```
-* Create an [Application Insights instance](../../azure-monitor/app/opencensus-python.md) (this doc also contains information on getting the connection string for the resource)
+* Create an [Application Insights instance](/previous-versions/azure/azure-monitor/app/opencensus-python) (this doc also contains information on getting the connection string for the resource)
 
 ## Getting Started
 

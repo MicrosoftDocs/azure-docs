@@ -7,8 +7,7 @@ services: storage
 ms.author: pauljewell
 ms.date: 10/10/2019
 ms.topic: overview
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

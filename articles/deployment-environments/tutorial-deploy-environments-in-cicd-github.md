@@ -22,6 +22,8 @@ You use a workflow that features three branches: main, dev, and test.
 
 This workflow is a small example for the purposes of this tutorial. Real world workflows may be more complex.
 
+Before beginning this tutorial, you can familiarize yourself with Deployment Environments resources and concepts by reviewing [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -204,7 +206,7 @@ az role assignment create \
 
 ### 1.6 Create project environment types
 
-At the project level, dev infra admins specify which environment types are appropriate for the development team.
+At the project level, platform engineers specify which environment types are appropriate for the development team.
 
 Create a new Project Environment Type for each of the Environment Types we created on the dev center
 

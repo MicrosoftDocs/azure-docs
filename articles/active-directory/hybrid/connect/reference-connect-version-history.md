@@ -9,8 +9,8 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 7/6/2022
 ms.subservice: hybrid
-ms.author: rodejo
-ms.custom: has-adal-ref
+ms.author: billmath
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -44,19 +44,10 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > We will begin retiring past versions of Azure AD Connect Sync 2.x 12 months from the date they are superseded by a newer version. 
 > This policy will go into effect on 15 March 2023, when we will retire all versions that are superseded by a newer version on 15 March 2022.
 > 
-> The following versions will retire on 15 March 2023:
->
-> - 2.0.89.0
-> - 2.0.88.0
-> - 2.0.28.0
-> - 2.0.25.1
-> - 2.0.10.0
-> - 2.0.9.0
-> - 2.0.8.0
-> - 2.0.3.0
+> Currently only builds 2.1.16.0 (release August 8th 2022) or later are supported.
 > 
 > If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
-> 
+
 
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.
 
@@ -80,12 +71,13 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
 ## 2.2.1.0
 
 ### Release status
-6/19/2023: Released for download and autoupgrade.
+6/19/2023: Released for download.
 
 ### Functional Changes
  - We have enabled Auto Upgrade for tenants with custom synchronization rules. Note that deleted (not disabled) default rules will be re-created and enabled upon Auto Upgrade.
  - We have added Microsoft Azure AD Connect Agent Updater service to the install. This new service will be used for future auto upgrades.
  - We have removed the Synchronization Service WebService Connector Config program from the install.
+ - Default sync rule “In from AD – User Common” was updated to flow the employeeType attribute.
 
 ### Bug Fixes
  - We have made improvements to accessibility.
@@ -501,7 +493,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 > The Azure AD Connect sync V2 endpoint API is now available in these Azure environments:
 >
 > - Azure Commercial
-> - Azure China cloud
+> - Microsoft Azure operated by 21Vianet
 > - Azure US Government cloud
 >
 > This release won't be made available in the Azure German cloud.

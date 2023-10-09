@@ -1,8 +1,8 @@
 ---
 title: Configuration file reference | Microsoft Docs
 description: Configuration file reference
-author: msftandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 03/02/2022
 ---

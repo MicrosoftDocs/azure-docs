@@ -23,8 +23,8 @@ This tenant-level setting allows you to automatically and natively onboard any n
 | Release state                   | GA                                                           |
 | Supported operating systems     | All [Windows](/microsoft-365/security/defender-endpoint/minimum-requirements#supported-windows-versions) and [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) **Server** operating systems supported by Defender for Endpoint |
 | Required roles and  permissions | To manage this setting, you need **Subscription Owner** (on the chosen subscription), and  **AAD Global Administrator** or  **AAD Security Administrator** |
-| Environments                    | On-premises servers  <br />Multicloud VMs – limited  support |
-| Supported plans                 | Defender for Servers P1  <br />Defender for Servers P2 –  limited features |
+| Environments                    | On-premises servers  <br />Multicloud VMs – limited  support (see limitations section)|
+| Supported plans                 | Defender for Servers P1  <br />Defender for Servers P2 –  limited features (see limitations section) |
 
 ## How it works
 
@@ -67,9 +67,11 @@ Deploying the Defender for Endpoint agent on your on-premises Windows and Linux 
 
   | Location                             | Deployment use case                                          |
   | ------------------------------------ | ------------------------------------------------------------ |
-  | All                                  | <u>Windows Server (all  versions)</u> <br />Azure VMs or Azure Arc  machines already onboarded and billed by Defender for Servers via an Azure subscription  or Log Analytics workspace, running the Defender for Endpoint agent without the  MDE.Windows or MDE.Linux Azure extensions. For such machines, you can enable Defender for Cloud integration with Defender for Endpoint to deploy the extensions. |
-  | On-premises (not running  Azure Arc) | <u>Windows Server 2019</u>:<br />Servers already onboarded and  billed by Defender for Servers P2 via the Log Analytics workspace<br /><br /><u>Windows Server 2012,  2016</u>:  <br />Servers running the Defender for Endpoint modern unified agent, and already billed by Defender for Servers  P2 via the Log Analytics workspace |
-  | AWS, GCP (not running Azure  Arc)    | <u>Windows Server 2019</u>:<br />Servers already onboarded  and billed by Defender for Servers via multicloud connectors, Log Analytics  workspace, or both.     <br /><br /><u>Windows Server 2012,  2016</u>: <br />AWS or GCP VMs using the  modern unified Defender for Endpoint solution, already onboarded and billed by Defender for Servers via multicloud connectors, Log Analytics workspace, or both. |
+  | All                                  | <u>Windows 2012, 2016:</u> <br />Azure VMs or Azure Arc  machines already onboarded and billed by Defender for Servers via an Azure subscription or Log Analytics workspace, running the Defender for Endpoint modern unified agent without the MDE.Windows Azure extension. For such machines, you can enable Defender for Cloud integration with Defender for Endpoint to deploy the extension. |
+  | On-premises (not running  Azure Arc) | <u>Windows Server 2012,  2016</u>:  <br />Servers running the Defender for Endpoint modern unified agent, and already billed by Defender for Servers  P2 via the Log Analytics workspace |
+  | AWS, GCP (not running Azure  Arc)    | <u>Windows Server 2012,  2016</u>: <br />AWS or GCP VMs using the  modern unified Defender for Endpoint solution, already onboarded and billed by Defender for Servers via multicloud connectors, Log Analytics workspace, or both. |
+
+  Note: For Windows 2019 and above and Linux, agent version updates have been already released to support simultaneous onboarding without limitations. For Windows - use agent version 10.8555.X and above, For Linux - use agent version 30.101.23052.009 and above.
 
 ## Next steps
 

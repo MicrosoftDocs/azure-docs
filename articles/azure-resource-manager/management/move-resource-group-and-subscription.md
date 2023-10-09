@@ -3,7 +3,9 @@ title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.date: 04/24/2023
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, ai-gen-docs, devx-track-python
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Move resources to a new resource group or subscription
@@ -15,8 +17,6 @@ Both the source group and the target group are locked during the move operation.
 If your move requires setting up new dependent resources, you'll experience an interruption in those services until they've been reconfigured.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Changed resource ID
 
@@ -116,7 +116,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 Moving resources from one subscription to another is a three-step process:
 
-![cross-subscription move scenario](./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png" alt-text="Diagram that shows the three-step process of moving resources across subscriptions." border="false":::
 
 For illustration purposes, we have only one dependent resource.
 
@@ -130,11 +130,11 @@ To move resources, select the resource group that contains those resources.
 
 Select the resources you want to move. To move all of the resources, select the checkbox at the top of list. Or, select resources individually.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="select resources":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="Screenshot of the Azure portal showing the selection of resources to move.":::
 
 Select the **Move** button.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="move options":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="Screenshot of the Azure portal displaying the Move button with three options.":::
 
 This button gives you three options:
 
@@ -146,21 +146,21 @@ Select whether you're moving the resources to a new resource group or a new subs
 
 The source resource group is automatically set. Specify the destination resource group. If you're moving to a new subscription, also specify the subscription. Select **Next**.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="select destination resource group":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="Screenshot of the Azure portal where the user specifies the destination resource group for the move operation.":::
 
 The portal validates that the resources can be moved. Wait for validation to complete.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Move validation":::
+:::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Screenshot of the Azure portal showing the validation process for the move operation.":::
 
 When validation completes successfully, select **Next**.
 
 Acknowledge that you need to update tools and scripts for these resources. To start moving the resources, select **Move**.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="select destination":::
+:::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="Screenshot of the Azure portal where the user acknowledges the need to update tools and scripts before starting the move operation.":::
 
 When the move has completed, you're notified of the result.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="view move results":::
+:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="Screenshot of the Azure portal displaying a notification with the results of the move operation.":::
 
 ## Use Azure PowerShell
 
@@ -423,7 +423,7 @@ The lock prevents you from deleting either resource group, creating a new resour
 
 The following image shows an error message from the Azure portal when a user tries to delete a resource group that is part of an ongoing move.
 
-![Move error message attempting to delete](./media/move-resource-group-and-subscription/move-error-delete.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-error-delete.png" alt-text="Screenshot of the Azure portal showing an error message when trying to delete a resource group involved in an ongoing move operation.":::
 
 **Question: What does the error code "MissingMoveDependentResources" mean?**
 

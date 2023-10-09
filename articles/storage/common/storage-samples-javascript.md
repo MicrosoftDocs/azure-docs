@@ -4,8 +4,8 @@ description: View, download, and run sample code and applications for Azure Stor
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/01/2020
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.custom: devx-track-js
 ms.devlang: javascript

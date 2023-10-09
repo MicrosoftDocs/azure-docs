@@ -2,8 +2,8 @@
 title: Express configuration PowerShell wrapper module
 description: In this article, you can review the express configuration SQL vulnerability assessment PowerShell commands reference and copy example scripts to use in your environments.
 ms.topic: sample
-author: ElazarK
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.date: 06/01/2023
 ---
 
@@ -12,7 +12,6 @@ ms.date: 06/01/2023
 This article contains the PowerShell wrapper for SQL vulnerability assessment express configuration.
 
 You should make a local copy of the script and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`.
-
 
 After you have made a local copy of the wrapper you should use the [Express configuration PowerShell commands reference](express-configuration-powershell-commands.md).
 
@@ -513,9 +512,9 @@ function Invoke-SqlVulnerabilityAssessmentScan([parameter(mandatory)] [string] $
         Content    : {"operation":"ExecuteDatabaseVulnerabilityAssessmentScan","startTime":"2023-05-15T10:58:48.367Z"}
     #>
     if ($DatabaseName -eq 'master') {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/defualt/initiateScan?api-version=2022-02-01-preview&systemDatabaseName=master"
+        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/initiateScan?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/defualt/initiateScan?api-version=2022-02-01-preview"
+        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/initiateScan?api-version=2022-02-01-preview"
     }
     SendRestRequest -Method "Post" -Uri $Uri
 }

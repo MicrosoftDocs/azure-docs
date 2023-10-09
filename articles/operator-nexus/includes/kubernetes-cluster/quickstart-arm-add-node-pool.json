@@ -58,18 +58,9 @@
       },
       "agentVmSku": {
         "type": "string",
-        "defaultValue": "NC_M4_v1",
-        "allowedValues": [
-          "NC_M4_v1",
-          "NC_M8_v1",
-          "NC_M12_v1",
-          "NC_M16_v1",
-          "NC_M32_v1",
-          "NC_M36_v1",
-          "NC_M44_v1"
-        ],
+        "defaultValue": "NC_P10_56_v1",
         "metadata": {
-          "description": "VM size of the agent nodes. Allowed values: NC_M4_v1, NC_M8_v1, NC_M12_v1, NC_M16_v1, NC_M32_v1, NC_M36_v1, NC_M44_v1"
+          "description": "VM size of the agent nodes"
         }
       },
       "agentPoolZones": {
@@ -168,7 +159,7 @@
     "resources": [
       {
         "type": "Microsoft.NetworkCloud/kubernetesClusters/agentpools",
-        "apiVersion": "2023-05-01-preview",
+        "apiVersion": "2023-07-01",
         "name": "[concat(parameters('kubernetesClusterName'), '/', parameters('kubernetesClusterName'), '-', parameters('agentPoolName'))]",
         "location": "[parameters('location')]",
         "extendedLocation": {
@@ -176,6 +167,7 @@
           "type": "CustomLocation"
         },
         "properties": {
+          "administratorConfiguration": {},
           "count": "[parameters('agentPoolNodeCount')]",
           "mode": "[parameters('agentPoolMode')]",
           "vmSkuName": "[parameters('agentVmSku')]",

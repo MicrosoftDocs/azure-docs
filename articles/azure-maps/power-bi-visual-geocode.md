@@ -1,7 +1,7 @@
 ---
 title: Geocoding in Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you'll learn about geocoding in Azure Maps Power BI visual.
+description: This article describes geocoding in Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
 ms.date: 03/16/2022
@@ -34,11 +34,11 @@ When entering multiple values into the **Location** field, you create a geo-hier
 |:-:|-------------------------------------------------------------------------------------------|
 | 1 | The drill button on the far right, called Drill Mode, allows you to select a map Location and drill down into that specific location one level at a time. For example, if you turn on the drill-down option and select North America, you move down in the hierarchy to the next level--states in North America. For geocoding, Power BI sends Azure Maps country and state data for North America only. The button on the left goes back up one level. |
 | 2 | The double arrow drills to the next level of the hierarchy for all locations at once. For example, if you're currently looking at countries/regions and then use this option to move to the next level, states, Power BI displays state data for all countries/regions. For geocoding, Power BI sends Azure Maps state data (no country/region data) for all locations. This option is useful if each level of your hierarchy is unrelated to the level above it. |
-| 3 | Similar to the drill-down option, except that you don't need to click on the map. It expands down to the next level of the hierarchy remembering the current level's context. For example, if you're currently looking at countries/regions and select this icon, you move down in the hierarchy to the next level--states. For geocoding, Power BI sends data for each state and its corresponding country/region to help Azure Maps geocode more accurately. In most maps, you'll either use this option or the drill-down option on the far right. This will send Azure as much information as possible and result in more accurate location information. |
+| 3 | Similar to the drill-down option, except that you don't need to select the map. It expands down to the next level of the hierarchy remembering the current level's context. For example, if you're currently looking at countries/regions and select this icon, you move down in the hierarchy to the next level--states. For geocoding, Power BI sends data for each state and its corresponding country/region to help Azure Maps geocode more accurately. In most maps, you'll either use this option or the drill-down option on the far right. This sends Azure as much information as possible and result in more accurate location information. |
 
 ## Categorize geographic fields in Power BI
 
-To ensure fields are correctly geocoded, you can set the Data Category on the data fields in Power BI. In Data view, select the desired column. From the ribbon, select the Modeling tab and then set the Data Category to one of the following: Address, City, Continent, Country, Region, County, Postal Code, State, or Province. These data categories help Azure correctly encode the data. To learn more, see [Data categorization in Power BI Desktop](/power-bi/transform-model/desktop-data-categorization). If you're live connecting to SQL Server Analysis Services, you'll need to set the data categorization outside of Power BI using [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
+To ensure fields are correctly geocoded, you can set the Data Category on the data fields in Power BI. In Data view, select the desired column. From the ribbon, select the Modeling tab and then set the Data Category to one of the following properties: Address, City, Continent, Country, Region, County, Postal Code, State, or Province. These data categories help Azure correctly encode the data. To learn more, see [Data categorization in Power BI Desktop]. If you're live connecting to SQL Server Analysis Services, set the data categorization outside of Power BI using [SQL Server Data Tools (SSDT)].
 
 :::image type="content" source="media/power-bi-visual/data-category.png" alt-text="A screenshot showing the data category drop-down list in Power BI desktop.":::
 
@@ -56,3 +56,6 @@ Learn about the Azure Maps Power BI visual Pie Chart layer that uses geocoding:
 
 > [!div class="nextstepaction"]
 > [Add a pie chart layer](power-bi-visual-add-pie-chart-layer.md)
+
+[Data categorization in Power BI Desktop]: /power-bi/transform-model/desktop-data-categorization
+[SQL Server Data Tools (SSDT)]: /sql/ssdt/download-sql-server-data-tools-ssdt

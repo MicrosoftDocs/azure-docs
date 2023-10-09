@@ -5,17 +5,18 @@ description: Learn how to create a user delegation SAS for a container with Azur
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/22/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create a user delegation SAS for a container with .NET
+
+[!INCLUDE [storage-dev-guide-selector-user-delegation-sas-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-user-delegation-sas-container.md)]
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 

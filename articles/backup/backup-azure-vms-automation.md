@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 06/24/2023
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up and restore Azure VMs using Azure PowerShell

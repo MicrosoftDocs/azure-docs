@@ -4,8 +4,8 @@ description: Symptoms, causes, and resolutions of Azure Kubernetes Service backu
 ms.topic: troubleshooting
 ms.date: 03/15/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore (preview)

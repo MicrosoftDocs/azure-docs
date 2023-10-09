@@ -27,6 +27,15 @@ To verify that the agent is being registered by Azure AD, follow these steps:
 To verify that the agent is running, follow these steps:
 
  1. Sign in to the server with an administrator account.
- 2. 1. Open **Services** either by navigating to it or by going to *Start/Run/Services.msc*.
+ 2. Open **Services** either by navigating to it or by going to *Start/Run/Services.msc*.
  3. Under **Services**, make sure that **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are present and the status is **Running**.
      [![Screenshot that shows the Windows services.](./media/active-directory-cloud-sync-how-to-verify-installation/windows-services.png)](./media/active-directory-cloud-sync-how-to-verify-installation/windows-services.png#lightbox)
+
+### Verify the provisioning agent version
+
+To verify that the version of the agent running, follow these steps:
+
+1.  Navigate to 'C:\Program Files\Microsoft Azure AD Connect Provisioning Agent'
+2.  Right-click on 'AADConnectProvisioningAgent.exe' and select properties.
+3.  Click the details tab and the version number will be displayed next to Product version.
+

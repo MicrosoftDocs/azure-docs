@@ -2,7 +2,7 @@
 title: Data retention and storage in Application Insights | Microsoft Docs
 description: Retention and privacy policy statement for Application Insights.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 07/10/2023
 ms.custom: devx-track-csharp
 ms.reviewer: saars
 ---
@@ -85,7 +85,7 @@ You'll need to write a [telemetry processor plug-in](./api-filtering-sampling.md
 
 ## How long is the data kept?
 
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
 
 Data kept longer than 90 days incurs extra charges. For more information about Application Insights pricing, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -320,6 +320,22 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 ## Can I modify or update data after it has been collected?
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What happens to Application Insight telemetry when a server or device loses connection with Azure?
+
+All of our SDKs, including the web SDK, include *reliable transport* or *robust transport*. When the server or device loses connection with Azure, telemetry is [stored locally on the file system](./data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK periodically retries to send this telemetry until our ingestion service considers it "stale" (48 hours for logs, 30 minutes for metrics). Stale telemetry is dropped. In some cases, such as when local storage is full, retry won't occur.
+
+### Is personal data sent in the telemetry?
+
+You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. Learn more about [data retention and privacy](./data-retention-privacy.md).
+          
+*All* octets of the client web address are always set to 0 after the geolocation attributes are looked up.
+          
+The [Application Insights JavaScript SDK](./javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](./api-filtering-sampling.md#javascript-web-applications).   
 
 <!--Link references-->
 

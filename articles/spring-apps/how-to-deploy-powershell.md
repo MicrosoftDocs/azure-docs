@@ -1,13 +1,13 @@
 ---
 title: Create and deploy applications in Azure Spring Apps by using PowerShell
 description: How to create and deploy applications in Azure Spring Apps by using PowerShell
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.service: spring-apps
 ms.devlang: azurepowershell
 ms.date: 2/15/2022
-ms.custom: devx-track-azurepowershell, event-tier1-build-2022, devx-track-java, devx-track-extended-java
+ms.custom: devx-track-azurepowershell, event-tier1-build-2022, devx-track-java
 ---
 
 # Create and deploy applications by using PowerShell

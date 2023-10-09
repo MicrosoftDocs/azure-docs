@@ -3,7 +3,7 @@ title: Template functions - CIDR
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to manipulate IP addresses and create IP address ranges.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/16/2023
+ms.date: 07/14/2023
 ---
 
 # CIDR functions for ARM templates
@@ -11,7 +11,7 @@ ms.date: 05/16/2023
 This article describes the functions for working with CIDR in your Azure Resource Manager template (ARM template).
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [cidr](../bicep/bicep-functions-cidr.md) functions.
 
 ## parseCidr
 

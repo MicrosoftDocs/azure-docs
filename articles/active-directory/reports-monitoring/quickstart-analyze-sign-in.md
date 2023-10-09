@@ -1,82 +1,67 @@
 ---
-title: Analyze sign-ins with the Azure AD sign-ins log
-description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Azure AD.
+title: Quickstart guide to analyze a failed Microsoft Entra sign-in
+description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Microsoft Entra ID.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: quickstart
-ms.date: 11/01/2022
+ms.date: 09/14/2023
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
 ms.reviewer: besiler
-ms.collection: M365-identity-device-management
-ms.custom: mode-other
+
 #Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
 ---
-# Quickstart: Analyze sign-ins with the Azure AD sign-ins log 
+# Quickstart: Analyze sign-ins with the Microsoft Entra sign-ins log 
 
-With the information in the Azure AD sign-ins log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can locate failed sign-in using the sign-ins log.
+With the information in the Microsoft Entra sign-ins log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can locate failed sign-in using the sign-ins log.
 
 
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- **Access to an Azure AD tenant** - If you don't have access to an Azure AD tenant, see [Create your Azure free account today](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- A Microsoft Entra tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Perform a failed sign-in
 
-The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
+The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-ins log.
 
-**To complete this step:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as Isabella Simonsen using an incorrect password.
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen using an incorrect password.
-
-2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](reference-reports-latencies.md#activity-reports).
-
+2. Wait for 5 minutes to ensure that you can find the event in the sign-ins log.
 
 
 ## Find the failed sign-in
 
-This section provides you with the steps to analyze a failed sign-in:
+This section provides you with the steps to analyze a failed sign-in. Filter the sign-ins log to remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user. Then you can review the error details. The log details provide helpful information. You can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with information to troubleshoot a sign-in error. 
 
-- **Filter sign-ins**: Remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user.
-- **Lookup additional error information**: In addition to the information you can find in the sign-ins log, you can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader). 
 
-**To review the failed sign-in:**
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
 
-1. Navigate to the [sign-ins log](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+1. Adjust the filter to view only the records for Isabella Simonsen:
 
-2. To list only records for Isabella Simonsen:
-
-    a. In the toolbar, select **Add filters**.
+    1. Open the **Add filters**, select **User**, and then select **Apply**.
     
-    ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)   
+       ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)
 
-    b. In the **Pick a field** list, select **User**, and then select **Apply**.
+    1. In the **User** textbox, type **Isabella Simonsen**, and then select **Apply**.
 
-    c. In the **Username** textbox, type **Isabella Simonsen**, and then select **Apply**.
+1. Select the failed sign-in attempt and view the details.
 
-    d. In the toolbar, select **Refresh**.
-
-3. To analyze the issue, select **Troubleshooting and support**.
-
-    ![Add filter](./media/quickstart-analyze-sign-in/troubleshooting-and-support.png)   
-
-4. Copy the **Sign-in error code**.
+1. Copy the **Sign-in error code**.
 
     ![Sign-in error code](./media/quickstart-analyze-sign-in/sign-in-error-code.png)   
 
-
-5. Paste the error code into the textbox of the [sign-in error lookup tool](https://login.microsoftonline.com/error), and then select **Submit**.
+1. Paste the error code into the textbox of the [sign-in error lookup tool](https://login.microsoftonline.com/error), and then select **Submit**.
 
 Review the outcome of the tool and determine whether it provides you with additional information.
-
-![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
-
 
 ## More tests
 
@@ -90,14 +75,12 @@ Now, that you know how to find an entry in the sign-in log by name, you should a
 
     ![Status failure](./media/quickstart-analyze-sign-in/status-failure.png)
 
-
-
-
 ## Clean up resources
 
-When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+When no longer needed, delete the test user. If you don't know how to delete a Microsoft Entra user, see [Delete users from Microsoft Entra ID](../fundamentals/add-users.md#delete-a-user). 
 
-## Next steps
+## Next step
+
 
 > [!div class="nextstepaction"]
-> [What are Azure Active Directory reports?](overview-reports.md)
+> [Learn how to use the sign-in diagnostic](howto-use-sign-in-diagnostics.md)

@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get image insights using the REST API and Java - Bing Visual Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, mode-api, devx-track-extended-java
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Java
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API. This Java application uploads an image to the API and displays the information it returns. Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
@@ -49,7 +49,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, subscription key, and the path to your image. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";

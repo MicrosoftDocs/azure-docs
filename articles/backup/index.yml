@@ -9,9 +9,10 @@ metadata:
   ms.service: backup
   ms.custom: engagement-fy23
   ms.topic: landing-page 
-  author: jyothisuri
-  ms.author: jsuri 
-  ms.date: 07/05/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick 
+  ms.date: 09/29/2023
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -63,14 +64,23 @@ landingContent:
         links:
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
+          - text: Multi-user authorization for Backup vault 
+            url: multi-user-authorization-concept.md?tabs=backup-vault
+          - text: Enhanced soft delete
+            url: backup-azure-enhanced-soft-delete-about.md
           - text: Azure Kubernetes Service backup (preview)
             url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)
             url: blob-backup-overview.md
           - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
             url: selective-disk-backup-restore.md
-          - text: SAP HANA System Replication backup (preview)
-            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview
+          - text: SAP HANA System Replication backup
+            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
+          - text: Cross Region Restore for PostgreSQL (preview)
+            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview
+          - text: Cross Region Restore support for MARS agent (preview)
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
+
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -119,7 +129,7 @@ landingContent:
         links:
           - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
-          - text: Back up SAP HSR databases on Azure VMs (preview)
+          - text: Back up SAP HSR databases on Azure VMs
             url: sap-hana-database-with-hana-system-replication-backup.md
           - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
             url: sap-hana-database-instances-backup.md
@@ -147,6 +157,8 @@ landingContent:
             url: backup-windows-with-mars-agent.md
           - text: Manage MARS Agent backups by using the Azure Backup service
             url: backup-azure-manage-mars.md
+          - text: Cross Region Restore support for MARS agent (preview)
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent

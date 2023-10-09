@@ -32,7 +32,7 @@ Examples of custom autoscale rules include:
 
 ## Autoscale limits
 
-All Stream Analytics jobs can autoscale between 1, 3 and 6 SUs. Autoscaling beyond 6 SUs requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization.md#embarrassingly-parallel-jobs). Parallel jobs created with less than or equal to 6 streaming units can autoscale to the maximum SU value for that job based on the number of partitions.
+All Stream Analytics jobs can autoscale between 1/3, 2/3 and 1 SU V2. Autoscaling beyond 1 SU V2 requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization.md#embarrassingly-parallel-jobs). Parallel jobs created with less than or equal to 1 streaming unit can autoscale to the maximum SU value for that job based on the number of partitions.
 
 ## Scaling your Stream Analytics job
 
@@ -47,7 +47,7 @@ First, follow these steps to navigate to the **Scale** page for your Azure Strea
 
 ## Manual scale
 
-This setting allows you to set a fixed number of streaming units for your job. Notice that the default number of SUs is 3 when creating a job.
+This setting allows you to set a fixed number of streaming units for your job. Notice that the default number of SUs is 1 when creating a job.
 
 ### To manually scale your job
 
@@ -73,7 +73,7 @@ Set the **Default** condition by choosing one of the following scale modes:
 
 ### Scale based on a metric
 
-The following procedure shows you how to add a condition to automatically increase streaming units (scale out) when the SU (memory) usage is greater than 75%. Or how to decrease streaming units (scale in) when the SU usage is less than 25%. Increments are made from 1 to 3 to 6. Similarly, decrements are made from 6 to 3 to 1.
+The following procedure shows you how to add a condition to automatically increase streaming units (scale out) when the SU (memory) usage is greater than 75%. Or how to decrease streaming units (scale in) when the SU usage is less than 25%. Increments are made from fractional units (1/3 and 2/3) to a full streaming unit (1 SU V2). Similarly, decrements are made from 1 to 2/3 to 1/3.
 
 1. On the **Scale** page, select **Custom autoscale**.
 2. In the **Default** section of the page, specify a **name** for the default condition. Select the **pencil** symbol to edit the text.

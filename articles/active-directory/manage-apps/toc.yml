@@ -32,8 +32,10 @@
       href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
     - name: Export secrets and certs (enterprise apps)
       href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-    - name: Export expiring secrets and certs
-      href: /azure/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets
+    - name: Export expiring secrets and certs (app registrations)
+      href: ./scripts/powershell-export-apps-with-expiring-secrets.md
+    - name: Export expiring secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-enterprise-apps-with-expiring-secrets.md
     - name: Export secrets and certs expiring beyond required date
       href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
   - name: Concepts
@@ -134,6 +136,8 @@
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
+        - name: Manage app consent policies for group owner
+          href: manage-group-owner-consent-policies.md
         - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
         - name: Review admin consent requests
@@ -144,6 +148,8 @@
           href: grant-consent-single-user.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
+        - name: Restore revoked permissions
+          href: restore-permissions.md
       - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes
@@ -164,45 +170,49 @@
         href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate applications from Okta to Azure AD 
+      - name: Migrate applications from Okta to Microsoft Entra ID 
         items:
-        - name: Migrate applications from Okta to Azure AD
+        - name: Migrate applications from Okta to Microsoft Entra ID
           href: migrate-applications-from-okta.md
-        - name: Migrate Okta sign on policies to Azure AD Conditional Access
+        - name: Migrate Okta sign on policies to Microsoft Entra Conditional Access
           href: migrate-okta-sign-on-policies-conditional-access.md
-        - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
+        - name: Migrate Okta sync provisioning to Microsoft Entra Connect based synchronization
           href: migrate-okta-sync-provisioning.md
-        - name: Migrate Okta federation to Azure AD managed authentication
+        - name: Migrate Okta federation to Microsoft Entra ID managed authentication
           href: migrate-okta-federation.md
     - name: Secure legacy apps
       items:
-      - name: Secure hybrid access with Azure AD 
+      - name: Secure hybrid access with Microsoft Entra ID 
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
       - name: Cloudflare
         items:
-        - name: Configure Cloudflare with Azure AD
+        - name: Configure Cloudflare with Microsoft Entra ID
           href: cloudflare-integration.md
         - name: Configure Conditional Access policies in Cloudflare Access
           href: cloudflare-conditional-access-policies.md
       - name: Datawiza
         items:
-        - name: Integrate Datawiza with Azure AD
+        - name: Integrate Datawiza with Microsoft Entra ID
           href: datawiza-configure-sha.md
-        - name: Configure Oracle JDE with Azure AD 
-          href: datawiza-sso-oracle-jde.md
-        - name: Configure Oracle PeopleSoft with Azure AD 
-          href: datawiza-sso-oracle-peoplesoft.md
-        - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
-          href: datawiza-sso-mfa-oracle-ebs.md
+        - name: Guided configuration 
+          items: 
+          - name: Oracle JDE  
+            href: datawiza-sso-oracle-jde.md
+          - name: Oracle PeopleSoft  
+            href: datawiza-sso-oracle-peoplesoft.md
+          - name: Oracle EBS
+            href: datawiza-sso-mfa-oracle-ebs.md
+          - name: Outlook Web Access
+            href: datawiza-sso-mfa-to-owa.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
           href: f5-bigip-deployment-guide.md
-        - name: F5 BIG-IP and Azure AD integration
+        - name: F5 BIG-IP and Microsoft Entra integration
           items:
-          - name: Integrate F5 BIG-IP with Azure AD
+          - name: Integrate F5 BIG-IP with Microsoft Entra ID
             href: f5-integration.md
           - name: Easy Button guided configuration
             items:

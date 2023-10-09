@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn to offline migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 12/16/2020
 ms.service: dms
 ms.topic: how-to
@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - fasttrack-edit
   - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate SQL Server to SQL Managed Instance offline with PowerShell & Azure Database Migration Service
@@ -86,7 +87,7 @@ $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 $service = New-AzDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
-  -Sku Basic_2vCores `  
+  -Sku Basic_2vCores `
   -VirtualSubnetId $vSubNet.Id`
 ```
 
@@ -200,7 +201,7 @@ foreach($DataBase in $Databases.Database_Name)
     {
       $SourceDB=$DataBase
       $TargetDB=$DataBase
-      
+
 $selectedDbs += New-AzureRmDmsSelectedDB -MigrateSqlServerSqlDbMi `
                                               -Name $SourceDB `
                                               -TargetDatabaseName $TargetDB `
@@ -252,11 +253,11 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task.
 
 The `New-AzDataMigrationTask` cmdlet expects the following parameters:
 
-* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected.
 * *Resource Group Name*. Name of Azure resource group in which to create the task.
 * *ServiceName*. Azure Database Migration Service instance in which to create the task.
-* *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 
-* *TaskName*. Name of task to be created. 
+* *ProjectName*. Name of Azure Database Migration Service project in which to create the task.
+* *TaskName*. Name of task to be created.
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
 * *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Managed Instance connection.
 * *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to source server.
@@ -302,12 +303,12 @@ To monitor the migration, perform the following tasks.
     To combine migration details such as properties, state, and database information associated with the migration, use the following code snippet:
 
     ```powershell
-    $CheckTask= Get-AzDataMigrationTask 	-ResourceGroupName myResourceGroup `
-                                        	-ServiceName $service.Name `
-                                       	-ProjectName $project.Name `
-                                        	-Name myDMSTask `
-                                        	-ResultType DatabaseLevelOutput `
-    					-Expand 
+    $CheckTask = Get-AzDataMigrationTask -ResourceGroupName myResourceGroup `
+                                         -ServiceName $service.Name `
+                                         -ProjectName $project.Name `
+                                         -Name myDMSTask `
+                                         -ResultType DatabaseLevelOutput `
+                                         -Expand
     Write-Host ‘$CheckTask.ProjectTask.Properties.Output’
     ```
 
@@ -321,11 +322,11 @@ To monitor the migration, perform the following tasks.
       Write-Host "migration task running"
     }
     else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
-    { 
+    {
       Write-Host "Migration task is completed Successfully"
     }
     else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation" -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
-    { 
+    {
       Write-Host "Migration Task Failed"
     }
     ```

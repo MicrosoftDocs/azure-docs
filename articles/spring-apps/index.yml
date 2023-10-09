@@ -8,10 +8,10 @@ metadata:
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
   services: spring-cloud
   ms.service: spring-apps
-  ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
+  ms.custom: event-tier1-build-2022, devx-track-java
   ms.topic: landing-page
   ms.collection: collection
-  author: karlerickson
+  author: KarlErickson
   ms.author: karler
   ms.date: 09/26/2019
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -40,20 +40,38 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
+      - text: Launch your first app
+        url: quickstart.md?pivots=sc-enterprise
+      - text: Launch your first web app
+        url: quickstart-deploy-web-app.md?pivots=sc-enterprise
+      - text: Launch your first event-driven app
+        url: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
+    - linkListType: tutorial
+      links:
       - text: Introduction to Fitness Store sample
         url: quickstart-sample-app-acme-fitness-store-introduction.md
-      - text: Build and deploy applications
+      - text: Build and deploy apps
         url: quickstart-deploy-apps-enterprise.md
-      - text: Configure Single Sign-On
+      - text: Configure single sign-on
         url: quickstart-configure-single-sign-on-enterprise.md
+      - text: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
+        url: quickstart-integrate-azure-database-and-redis-enterprise.md
+      - text: Load application secrets using Key Vault
+        url: quickstart-key-vault-enterprise.md
       - text: Monitor applications end-to-end
         url: quickstart-monitor-end-to-end-enterprise.md
+      - text: Set request rate limits
+        url: quickstart-set-request-rate-limits-enterprise.md
+      - text: Automate deployments
+        url: quickstart-automate-deployments-github-actions-enterprise.md
     - linkListType: how-to-guide
       links:
       - text: Use Application Configuration Service
         url: how-to-enterprise-application-configuration-service.md
       - text: Use Build Service
         url: how-to-enterprise-build-service.md
+      - text: Configure APM integration and CA certificates
+        url: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
       - text: Use Service Registry
         url: how-to-enterprise-service-registry.md
       - text: Use API portal
@@ -128,6 +146,16 @@ landingContent:
             url: quickstart-deploy-infrastructure-vnet.md
           - text: Provision using Terraform
             url: quickstart-deploy-infrastructure-vnet-terraform.md
+
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Architecture design
+            url: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 
   # Card (optional)
   - title: Monitor end-to-end

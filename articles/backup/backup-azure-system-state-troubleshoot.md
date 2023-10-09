@@ -4,8 +4,8 @@ description: In this article, learn how to troubleshoot issues in System State B
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot System State Backup

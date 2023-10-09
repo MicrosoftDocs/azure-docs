@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 08/28/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -36,17 +36,43 @@ When you create a volume in a double-encryption capacity pool, the default key m
 
 Azure NetApp Files double encryption at rest is supported for the following regions:  
 
+* Australia Central 
+* Australia Central 2 
+* Australia East  
+* Australia Southeast 
+* Brazil South  
+* Canada Central  
+* Canada East
+* Central US  
+* East Asia
+* East US
+* East US 2
+* France Central  
+* Germany West Central 
+* Japan East  
+* Korea Central 
+* North Central US
+* North Europe 
+* Norway East 
+* Qatar Central
+* South Africa North 
+* South Central US
+* Switzerland North 
+* UAE North
+* UK South 
+* UK West
 * West Europe
-* East US 2 
-* East Asia    
-
+* West US
+* West US 2
+* West US 3
+ 
 ## Considerations
 
 * Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. 
 * For the cost of using Azure NetApp Files double encryption at rest, see the [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/) page.
 * You can't convert volumes in a single-encryption capacity pool to use double encryption at rest. However, you can copy data in a single-encryption volume to a volume created in a capacity pool that is configured with double encryption.  
 * For capacity pools created with double encryption at rest, volume names in the capacity pool are visible only to volume owners for maximum security.
-* Using double encryption at rest might have performance impacts based on the workload type and frequency. The performance impact can range from a minimal 1-2% to possibly 15% or higher, depending on the workload profile. 
+* Using double encryption at rest might have performance impacts based on the workload type and frequency. The performance impact can be a minimal 1-2%, depending on the workload profile. 
 
 ## Next steps
 

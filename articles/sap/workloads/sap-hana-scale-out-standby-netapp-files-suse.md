@@ -4,13 +4,14 @@ description: Learn how to deploy a SAP HANA scale-out system with standby node o
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/26/2023
+ms.date: 07/11/2023
 ms.author: radeltch
 ---
 
@@ -103,9 +104,25 @@ Azure NetApp Files is available in several [Azure regions](https://azure.microso
 
 For information about the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files Availability by Azure Region][anf-avail-matrix].  
 
+### Important considerations
+
+As you're creating your Azure NetApp Files for SAP NetWeaver on SUSE High Availability architecture, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
+
+### Sizing for HANA database on Azure NetApp Files
+
+The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md).  
+
+As you design the infrastructure for SAP HANA on Azure with Azure NetApp Files, be aware of the recommendations in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#sizing-for-hana-database-on-azure-netapp-files).  
+
+The configuration in this article is presented with simple Azure NetApp Files Volumes. 
+
+> [!IMPORTANT]
+> For production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
+
 ### Deploy Azure NetApp Files resources  
 
 The following instructions assume that you've already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.  
+
 
 1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
 
@@ -129,15 +146,6 @@ The following instructions assume that you've already deployed your [Azure virtu
 
    In this example, we used a separate Azure NetApp Files volume for each HANA data and log volume. For a more cost-optimized configuration on smaller or non-productive systems, it's possible to place all data mounts and all logs mounts on a single volume.  
 
-### Important considerations
-
-As you're creating your Azure NetApp Files for SAP NetWeaver on SUSE High Availability architecture, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
-
-### Sizing for HANA database on Azure NetApp Files
-
-The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md).  
-
-As you design the infrastructure for SAP HANA on Azure with Azure NetApp Files, be aware of the recommendations in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#sizing-for-hana-database-on-azure-netapp-files).  
 
 ## Deploy Linux virtual machines via the Azure portal
 
@@ -613,7 +621,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 ## Test SAP HANA failover
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
 
 1. Simulate a node crash on an SAP HANA worker node. Do the following:
 

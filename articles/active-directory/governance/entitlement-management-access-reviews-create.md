@@ -1,6 +1,6 @@
 ---
 title: Create an access review of an access package in entitlement management
-description: Learn how to set up an access review in a policy for entitlement management access packages in Azure AD part of Microsoft Entra.
+description: Learn how to set up an access review in a policy for entitlement management access packages in Microsoft Entra ID part of Microsoft Entra.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -27,19 +27,24 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 ## Prerequisites
 
 To enable reviews of access packages, you must meet the prerequisites for creating an access package:
-- Azure AD Premium P2
-- Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
+- Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 
 ## Create an access review of an access package
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package assignment policy](entitlement-management-access-package-lifecycle-policy.md) policy. If you have multiple policies, for different communities of users to request access, you can have independent access review schedules for each policy. Follow these steps to enable access reviews of an access package's assignments:
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. To create a new access policy, in the left menu, select **Access packages**, then select **New access** package.
+
+1. Browse to **Identity governance** > **Access reviews** > **Access package**.
+
+1. To create a new access policy, select **New access** package.
 
 1. To edit an existing access policy, in the left menu, select **Access packages** and open the access package you want to edit. Then, in the left menu, select **Policies** and select the policy that has the lifecycle settings you want to edit.
 
@@ -134,11 +139,11 @@ After the start date, an access review will be listed in the **Access reviews** 
  
 
 ## Access reviews email notifications
-You can designate reviewers, or users can review their access themselves. By default, Azure AD will send an email to reviewers or self-reviewers shortly after the review starts.
+You can designate reviewers, or users can review their access themselves. By default, Microsoft Entra ID will send an email to reviewers or self-reviewers shortly after the review starts.
 
 The email will include instructions on how to review access to access packages. If the review is for users to review their access, show them the instructions on how to perform a self-review of their access packages.
   
-If you've assigned guest users as reviewers, and they haven't accepted their Azure AD guest invitation, they won't receive emails from access reviews. They must first accept the invite and create an account with Azure AD before they can receive the emails. 
+If you've assigned guest users as reviewers, and they haven't accepted their Microsoft Entra guest invitation, they won't receive emails from access reviews. They must first accept the invite and create an account with Microsoft Entra ID before they can receive the emails. 
 
 ## Next steps
 

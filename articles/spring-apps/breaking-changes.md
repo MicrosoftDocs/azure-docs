@@ -1,12 +1,12 @@
 ---
 title: Azure Spring Apps API breaking changes
 description: Describes the breaking changes introduced by the latest Azure Spring Apps stable API version.
-author: karlerickson
+author: KarlErickson
 ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2022
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Azure Spring Apps API breaking changes

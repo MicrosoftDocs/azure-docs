@@ -52,7 +52,7 @@ The policy XML configuration is divided into `inbound`, `backend`, `outbound`, a
 </policies> 
 ```
 
-For policy XML examples, see [API Management policy samples](./policies/index.md). 
+For policy XML examples, see [API Management policy snippets repo](https://github.com/Azure/api-management-policy-snippets). 
 
 ### Error handling
 

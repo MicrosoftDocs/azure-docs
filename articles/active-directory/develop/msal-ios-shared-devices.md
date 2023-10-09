@@ -18,7 +18,7 @@ ms.custom: aaddev
 # Shared device mode for iOS devices
 
 > [!IMPORTANT]
-> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](./includes/develop-preview.md)]
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
@@ -28,7 +28,7 @@ To take advantage of shared device mode feature, app developers and cloud device
 
 1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune. The MDM pushes the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) that is required for shared device mode. To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
 
-1. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) to handle the following scenario:
+2. **Application developers** write a single-account app (multiple-account apps aren't supported in shared device mode) to handle the following scenario:
 
    - Sign in a user device-wide through any supported application.
    - Sign out a user device-wide through any supported application.
@@ -44,7 +44,7 @@ To take advantage of shared device mode feature, app developers and cloud device
 
 Your device needs to be configured to support shared device mode. It must have iOS 14+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
-Microsoft Intune supports zero-touch provisioning for devices in Azure Active Directory (Azure AD) shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To set up device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
+Microsoft Intune supports zero-touch provisioning for devices in Microsoft Entra shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To set up device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Microsoft Entra shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
 
 > [!IMPORTANT]
 > We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
@@ -245,12 +245,13 @@ For iOS, your app requires a background permission to remain active in the backg
 
 ## Microsoft applications that support shared device mode
 
-These Microsoft applications support Azure AD's shared device mode:
+These Microsoft applications support Microsoft Entra shared device mode:
 
 - [Microsoft Teams](/microsoftteams/platform/) (in Public Preview)
+- [Microsoft Power BI Mobile](/power-bi/consumer/mobile/mobile-app-shared-device-mode) (in Public Preview)
 
 > [!IMPORTANT]
-> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Next steps
 

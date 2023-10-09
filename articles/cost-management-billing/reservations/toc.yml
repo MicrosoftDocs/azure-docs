@@ -72,6 +72,14 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Limited-time offers
+    items:
+    - name: US West Dv3 VMs
+      href: limited-time-us-west.md
+    - name: Sweden Central select Linux VMs
+      href: limited-time-central-sweden.md
+    - name: Poland Central VMs
+      href: limited-time-central-poland.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
@@ -140,8 +148,8 @@
       href: reservation-utilization.md
     - name: View reservation transactions
       href: view-purchase-refunds.md
-    - name: View amortized reservation costs
-      href: reservation-amortization.md
+    - name: View amortized costs
+      href: view-amortized-costs.md
     - name: Charge back reservation costs
       href: charge-back-usage.md
     - name: Calculate EA cost savings

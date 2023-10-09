@@ -2,13 +2,13 @@
 title: Introduction to Azure Storage - Cloud storage on Azure
 description: The Azure Storage platform is Microsoft's cloud storage solution. Azure Storage provides highly available, secure, durable, massively scalable, and redundant storage for data objects in the cloud. Learn about the services available in Azure Storage and how you can use them in your applications, services, or enterprise solutions.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/10/2023
-ms.author: tamram
-ms.subservice: common
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
 ms.custom: ignite-2022
 ---
 

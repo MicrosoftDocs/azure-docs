@@ -2,8 +2,10 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 08/02/2023
 ms.custom: ignite-2022, devx-track-arm-template
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Resource providers for Azure services
@@ -46,15 +48,16 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../../cdn/index.yml) |
-| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-certificate.md#import-certificate-into-app-service) |
+| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-app-service-certificate.md) |
 | Microsoft.ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |
 | Microsoft.ClassicNetwork | Classic deployment model virtual network |
 | Microsoft.ClassicStorage | Classic deployment model storage |
 | Microsoft.ClassicSubscription - [registered](#registration) | Classic deployment model |
-| Microsoft.CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
+| Microsoft.CognitiveServices | [Cognitive Services](../../ai-services/index.yml) |
 | Microsoft.Commerce - [registered](#registration) | core |
+| Microsoft.Communication | [Azure Communication Services](../../communication-services/overview.md) |
 | Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft.Consumption - [registered](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
@@ -80,13 +83,13 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.DesktopVirtualization | [Azure Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning Service](../../iot-dps/index.yml) |
 | Microsoft.DeviceUpdate | [Device Update for IoT Hub](../../iot-hub-device-update/index.yml)
-| Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [App Service](../../app-service/index.yml) |
-| Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index ) |
+| Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index) |
+| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
@@ -174,7 +177,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/image-builder-overview.md) |
-| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
@@ -186,26 +189,26 @@ The resources providers that are marked with **- registered** are registered by 
 
 ## Registration
 
-The resources providers in the preceding section that are marked with **- registered** are registered by default for your subscription. To use the other resource providers, you must [register them](resource-providers-and-types.md). However, many resource providers are registered for you when you take certain actions. For example, if you create a resource through the portal, the portal automatically registers any unregistered resource providers that are needed. When deploy resources through an [Azure Resource Manager template](../templates/overview.md), any required resource providers are also registered.
+Resource providers marked with **- registered** in the previous section are automatically registered for your subscription. For other resource providers, you need to [register them](resource-providers-and-types.md). However, many resource providers are registered automatically when you perform specific actions. For example, when you create resources through the portal or by deploying an [Azure Resource Manager template](../templates/overview.md), Azure Resource Manager automatically registers any required unregistered resource providers.
 
 > [!IMPORTANT]
-> Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
+> Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription. A malicious user can't use unregistered resource providers.
 >
-> When you register resource providers that aren't needed, you may see apps in your Azure Active Directory tenant that you don't recognize. Microsoft adds the app for a resource provider when you register it. These applications are typically added by Windows Azure Service Management API. To avoid having unnecessary apps in your tenant, only register resource providers that are needed.
+> Registering unnecessary resource providers may result in unrecognized apps appearing in your Azure Active Directory tenant. Microsoft adds the app for a resource provider when you register it. These apps are typically added by the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
 
 ## Find resource provider
 
-If you have existing infrastructure in Azure, but aren't sure which resource provider is used, you can use either Azure CLI or PowerShell to find the resource provider. Specify the name of the resource group that contains the resources to find.
+To identify resource providers used for your existing Azure infrastructure, list the deployed resources. Specify the resource group containing the resources.
 
 The following example uses Azure CLI:
 
 ```azurecli-interactive
-az resource list -g examplegroup
+az resource list --resource-group examplegroup
 ```
 
 The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
 
-```json
+```output
 [
   {
     ...
@@ -222,11 +225,35 @@ Get-AzResource -ResourceGroupName examplegroup
 
 The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
 
-```azurepowershell
+```output
 Name              : examplekey
 ResourceGroupName : examplegroup
 ResourceType      : Microsoft.KeyVault/vaults
 ...
+```
+
+The following example uses Python:
+
+```python
+import os
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+credential = DefaultAzureCredential()
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+resource_group_name = "examplegroup"
+resources = resource_client.resources.list_by_resource_group(resource_group_name)
+
+for resource in resources:
+    print(resource.type)
+```
+
+The results list the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```output
+Microsoft.KeyVault/vaults
 ```
 
 ## Next steps

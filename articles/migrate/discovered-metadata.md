@@ -4,6 +4,7 @@ description: Provides details of the metadata discovered by Azure Migrate applia
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/24/2023
 ms.custom: engagement-fy23

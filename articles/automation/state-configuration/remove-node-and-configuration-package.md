@@ -4,6 +4,7 @@ description: This article explains how to remove an Azure Automation State Confi
 titleSuffix: Azure Automation
 services: automation
 ms.subservice: dsc
+ms.custom: devx-track-linux
 ms.date: 04/16/2021
 ms.topic: how-to
 ---

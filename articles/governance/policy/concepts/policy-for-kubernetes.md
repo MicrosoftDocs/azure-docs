@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 06/17/2022
+ms.date: 08/29/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.author: davidsmatlak
@@ -27,7 +27,7 @@ Azure Policy for Kubernetes supports the following cluster environments:
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
 
 > [!IMPORTANT]
-> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Instructions can be found below for [removal of those add-ons](#remove-the-add-on). 
+> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
 ## Overview
 
@@ -49,9 +49,9 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
+- Azure Policy Add-on for Kubernetes [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Maximum number of pods supported by the Azure Policy Add-on: **10,000**
+- Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**
 - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any
@@ -81,10 +81,20 @@ The following are general recommendations for using the Azure Policy Add-on:
   policy assignments increases in the cluster, which requires audit and enforcement operations.
 
   - For fewer than 500 pods in a single cluster with a max of 20 constraints: two vCPUs and 350 MB
-    memory per component.
+    of memory per component.
   - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB
-    memory per component.
+    of memory per component.
 
+-  Open ports for the Azure Policy Add-On. The Azure Policy Add-On uses these domains and ports to fetch policy
+   definitions and assignments and report compliance of the cluster back to Azure Policy.
+
+   |Domain |Port |
+   |---|---|
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
+   |`login.windows.net` |`443` |
+   |`dc.services.visualstudio.com` |`443` |
+   
 - Windows pods
   [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
   Thus, some of the Azure Policy definitions, such as disallowing root privileges, can't be
@@ -111,8 +121,8 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
 
 ## Install Azure Policy Add-on for AKS
 
-Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
-must enable the **Microsoft.PolicyInsights** resource providers.
+Before you install the Azure Policy Add-on or enabling any of the service features, your subscription
+must enable the `Microsoft.PolicyInsights` resource providers.
 
 1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
    find the version. If you need to install or upgrade, see
@@ -122,7 +132,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 
    - Azure portal:
 
-     Register the **Microsoft.PolicyInsights** resource providers. For steps, see
+     Register the `Microsoft.PolicyInsights` resource providers. For steps, see
      [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
    - Azure CLI:
@@ -137,7 +147,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 1. If limited preview policy definitions were installed, remove the add-on with the **Disable**
    button on your AKS cluster under the **Policies** page.
 
-1. The AKS cluster must be version _1.14_ or higher. Use the following script to validate your AKS
+1. The AKS cluster must be a [supported Kubernetes version in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive
@@ -150,7 +160,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 1. Install version _2.12.0_ or higher of the Azure CLI. For more information, see
    [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-Once the above prerequisite steps are completed, install the Azure Policy Add-on in the AKS cluster
+After the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster
 you want to manage.
 
 - Azure portal
@@ -190,9 +200,9 @@ similar to the following output:
 
 ```output
 {
-        "config": null,
-        "enabled": true,
-        "identity": null
+  "config": null,
+  "enabled": true,
+  "identity": null
 }
 ```
 ## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
@@ -205,13 +215,18 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](.
 
 ### Prerequisites
 
-> Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
+If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). After the deletion is done, you can then proceed.
+
 1. Ensure your Kubernetes cluster is a supported distribution.
 
-    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure-arc/kubernetes/validation-program.md).
+   > [!NOTE]
+   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure-arc/kubernetes/validation-program.md).
+
 1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](../../../azure-arc/kubernetes/extensions.md) including [connecting your cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
 
-    > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+   > [!NOTE]
+   > Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+
 1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
@@ -222,10 +237,12 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](.
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Before installing the Azure Policy extension or enabling any of the service features, your subscription must enable the **Microsoft.PolicyInsights** resource providers.
-    > Note: To enable the resource provider, follow the steps in
-   [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
-   or run either the Azure CLI or Azure PowerShell command:
+1. Before you install the Azure Policy extension or enabling any of the service features, your subscription must enable the `Microsoft.PolicyInsights` resource providers.
+
+   > [!NOTE]
+   > To enable the resource provider, follow the steps in [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
+   or run either the Azure CLI or Azure PowerShell command.
+
    - Azure CLI
 
      ```azurecli-interactive
@@ -245,10 +262,11 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](.
 
 ### Create Azure Policy extension
 
+> [!NOTE]
 > Note the following for Azure Policy extension creation:
 > - Auto-upgrade is enabled by default which will update Azure Policy extension minor version if any new changes are deployed.
 > - Any proxy variables passed as parameters to `connectedk8s` will be propagated to the Azure Policy extension to support outbound proxy.
->
+
 To create an extension instance, for your Arc enabled cluster, run the following command substituting `<>` with your values:
 
 ```azurecli-interactive
@@ -384,14 +402,13 @@ you created it with.
 
 1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
 
-1. Set the [Policy enforcement](./assignment-structure.md#enforcement-mode) to one of the values
-   below.
+1. Set the [Policy enforcement](./assignment-structure.md#enforcement-mode) to one of the following values:
 
    - **Enabled** - Enforce the policy on the cluster. Kubernetes admission requests with violations
      are denied.
 
    - **Disabled** - Don't enforce the policy on the cluster. Kubernetes admission requests with
-     violations aren't denied. Compliance assessment results are still available. When rolling out
+     violations aren't denied. Compliance assessment results are still available. When you roll out
      new policy definitions to running clusters, _Disabled_ option is helpful for testing the policy
      definition as admission requests with violations aren't denied.
 
@@ -406,8 +423,8 @@ you created it with.
 1. Select **Review + create**.
 
 Alternately, use the [Assign a policy - Portal](../assign-policy-portal.md) quickstart to find and
-assign a Kubernetes policy. Search for a Kubernetes policy definition instead of the sample 'audit
-vms'.
+assign a Kubernetes policy. Search for a Kubernetes policy definition instead of the sample _audit
+vms_.
 
 > [!IMPORTANT]
 > Built-in policy definitions are available for Kubernetes clusters in category **Kubernetes**. For
@@ -446,17 +463,15 @@ field of the failed constraint. For details on _Non-compliant_ resources, see
 
 Some other considerations:
 
-- If the cluster subscription is registered with Microsoft Defender for Cloud, then Microsoft Defender for Cloud
-  Kubernetes policies are applied on the cluster automatically.
+- If the cluster subscription is registered with Microsoft Defender for Cloud, then Microsoft Defender for Cloud Kubernetes policies are applied on the cluster automatically.
 
 - When a deny policy is applied on cluster with existing Kubernetes resources, any pre-existing
-  resource that is not compliant with the new policy continues to run. When the non-compliant
+  resource that isn't compliant with the new policy continues to run. When the non-compliant
   resource gets rescheduled on a different node the Gatekeeper blocks the resource creation.
 
-- When a cluster has a deny policy that validates resources, the user will not see a rejection
+- When a cluster has a deny policy that validates resources, the user doesn't get a rejection
   message when creating a deployment. For example, consider a Kubernetes deployment that contains
-  replicasets and pods. When a user executes `kubectl describe deployment $MY_DEPLOYMENT`, it does
-  not return a rejection message as part of events. However,
+  replicasets and pods. When a user executes `kubectl describe deployment $MY_DEPLOYMENT`, it doesn't return a rejection message as part of events. However,
   `kubectl describe replicasets.apps $MY_DEPLOYMENT` returns the events associated with rejection.
 
 > [!NOTE]
@@ -477,10 +492,10 @@ Two policy definitions reference the same `template.yaml` file stored at differe
 such as the Azure Policy template store (`store.policy.core.windows.net`) and GitHub.
 
 When policy definitions and their constraint templates are assigned but aren't already installed on
-the cluster and are in conflict, they are reported as a conflict and won't be installed into the
+the cluster and are in conflict, they're reported as a conflict and aren't installed into the
 cluster until the conflict is resolved. Likewise, any existing policy definitions and their
-constraint templates that are already on the cluster that conflict with newly assigned policy
-definitions continue to function normally. If an existing assignment is updated and there is a
+constraint templates that are already on the cluster that conflicts with newly assigned policy
+definitions continue to function normally. If an existing assignment is updated and there's a
 failure to sync the constraint template, the cluster is also marked as a conflict. For all conflict
 messages, see
 [AKS Resource Provider mode compliance reasons](../how-to/determine-non-compliance.md#aks-resource-provider-mode-compliance-reasons)
@@ -513,7 +528,7 @@ constraints on the cluster, it annotates both with Azure Policy information like
 assignment ID and the policy definition ID. To configure your client to view the add-on related
 artifacts, use the following steps:
 
-1. Setup `kubeconfig` for the cluster.
+1. Set up `kubeconfig` for the cluster.
 
    For an Azure Kubernetes Service cluster, use the following Azure CLI:
 
@@ -616,10 +631,10 @@ For more information about troubleshooting the Add-on for Kubernetes, see the
 [Kubernetes section](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 of the Azure Policy troubleshooting article.
 
-For Azure Policy extension for Arc extension related issues, please see:
+For Azure Policy extension for Arc extension related issues, go to:
 - [Azure Arc enabled Kubernetes troubleshooting](../../../azure-arc/kubernetes/troubleshooting.md)
 
-For Azure Policy related issues, please see:
+For Azure Policy related issues, go to:
 - [Inspect Azure Policy logs](#logging)
 - [General troubleshooting for Azure Policy on Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 

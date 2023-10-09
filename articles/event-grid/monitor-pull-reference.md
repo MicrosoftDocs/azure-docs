@@ -6,8 +6,10 @@ ms.custom: build-2023
 ms.date: 04/28/2023
 ---
 
-# Monitor data reference for Azure Event Grid's pull event delivery
+# Monitor data reference for Azure Event Grid's pull event delivery (Preview)
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's pull delivery. 
+
+[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
 
 ## Metrics
 

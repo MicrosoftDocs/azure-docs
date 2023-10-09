@@ -2,7 +2,7 @@
 title: Cluster extensions for Azure Kubernetes Service (AKS)
 description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
 ms.custom: event-tier1-build-2022
-ms.date: 05/15/2023
+ms.date: 06/30/2023
 ms.topic: article
 author: nickomang
 ms.author: nickoman
@@ -43,6 +43,7 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 | [Azure Machine Learning][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
 | [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. See also [supported versions of Flux (GitOps)][gitops-support] and [Tutorial: Deploy applications using GitOps with Flux v2][gitops-tutorial].|
 | [Azure Container Storage](../storage/container-storage/container-storage-introduction.md) | Use Azure Container Storage to manage block storage on AKS clusters to store data in persistent volumes. |
+| [Azure Backup for AKS](../backup/azure-kubernetes-service-backup-overview.md) | Use Azure Backup for AKS to protect your containerized applications and data stored in Persistent Volumes deployed in the AKS clusters. |
 
 You can also [select and deploy Kubernetes applications available through Marketplace](deploy-marketplace.md).
 

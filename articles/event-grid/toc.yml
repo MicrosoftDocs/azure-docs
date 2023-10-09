@@ -7,6 +7,8 @@ items:
       href: overview.md
     - name: What's new?
       href: whats-new.md
+    - name: Choose the right tier
+      href: choose-right-tier.md
   - name: MQTT messaging
     items:
     - name: Overview
@@ -52,6 +54,8 @@ items:
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
+      - name: JWT authentication and RBAC authorization for clients with Azure AD identity
+        href: mqtt-client-azure-ad-token-and-rbac.md
       - name: Use cases
         items:
         - name: Automotive Messaging
@@ -66,10 +70,14 @@ items:
         href: custom-disaster-recovery-client-side.md
       - name: How to configure multiple sessions for an MQTT client
         href: mqtt-establishing-multiple-sessions-per-client.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md 
       - name: Troubleshoot MQTT runtime issues
         href: mqtt-troubleshoot-errors.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -116,6 +124,10 @@ items:
       items:
       - name: Publish and subscribe using namespace topics
         href: publish-events-using-namespace-topics.md
+      - name: Send and pull messages
+        items:
+        - name: .NET
+          href: event-grid-dotnet-get-started-pull-delivery.md
     - name: How-to 
       items:
       - name: Create, view, and manage namespaces
@@ -124,8 +136,12 @@ items:
         href: create-view-manage-namespace-topics.md
       - name: Create, view, and manage event subscriptions
         href: create-view-manage-event-subscriptions.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md         
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -293,13 +309,15 @@ items:
               href: communication-services-presence-events.md
             - name: Email Events
               href: communication-services-email-events.md
+            - name: Job Router Events
+              href: communication-services-router-events.md
           - name: Azure Container Registry
             href: event-schema-container-registry.md
           - name: Azure Data Box
             href: event-schema-data-box.md
           - name: Azure Data Manager for Agriculture
             href: event-schema-data-manager-for-agriculture.md
-          - name: Azure Event Grid Namespace
+          - name: Azure Event Grid 
             href: event-schema-event-grid-namespace.md
           - name: Azure Event Hubs
             href: event-schema-event-hubs.md
@@ -321,6 +339,12 @@ items:
             href: ./event-schema-policy.md
           - name: Azure resource groups
             href: event-schema-resource-groups.md
+          - name: Azure Resource Notifications
+            items:
+            - name: Overview
+              href: event-schema-resource-notifications.md
+            - name: Health Resources
+              href: event-schema-health-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
@@ -472,6 +496,8 @@ items:
         href: how-to-event-domains.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
+      - name: Subscribe to Azure Resource Notifications - Health Resources events
+        href: subscribe-to-resource-notifications-health-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Move
@@ -522,6 +548,8 @@ items:
           href: troubleshoot-subscription-validation.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -548,8 +576,6 @@ items:
           href: /azure/templates/microsoft.eventgrid/eventsubscriptions
         - name: Topics
           href: /azure/templates/microsoft.eventgrid/topics
-      - name: SDKs
-        href: sdk-overview.md
       - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
         href: transition.md
     - name: Resources

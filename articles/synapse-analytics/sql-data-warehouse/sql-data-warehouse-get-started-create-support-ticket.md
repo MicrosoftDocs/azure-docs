@@ -7,7 +7,6 @@ ms.subservice: sql-dw
 ms.date: 03/10/2020
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 

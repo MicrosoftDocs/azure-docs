@@ -122,7 +122,6 @@ Not all types of subscriptions support billing ownership transfer. You can trans
 | [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)¹ | MS-AZR-0063P |
 | [Visual Studio Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0059p/)¹ | MS-AZR-0059P |
 | [Action Pack](https://azure.microsoft.com/offers/ms-azr-0025p/)¹ | MS-AZR-0025P¹ |
-| [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)¹ | MS-AZR-0064P |
 | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
 | [MSDN Platforms subscribers](https://azure.microsoft.com/offers/ms-azr-0062p/)¹ | MS-AZR-0062P |
 | [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)¹ | MS-AZR-0060P |

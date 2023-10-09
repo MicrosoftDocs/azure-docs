@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -39,37 +39,15 @@ Returns a numeric expression.
 
 The following example demonstrates raising a number to various powers.  
 
-```sql
-SELECT VALUE {
-    oneFirstPower: POWER(1, 1),
-    twoSquared: POWER(2, 2),
-    threeCubed: POWER(3, 3),
-    fourFourthPower: POWER(4, 4),
-    fiveFithPower: POWER(5, 5),
-    zeroSquared: POWER(0, 2),
-    nullCubed: POWER(null, 3),
-    twoNullPower: POWER(2, null)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/power/query.sql" highlight="2-9":::
 
-```json
-[
-  {
-    "oneFirstPower": 1,
-    "twoSquared": 4,
-    "threeCubed": 27,
-    "fourFourthPower": 256,
-    "fiveFithPower": 3125,
-    "zeroSquared": 0
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/power/result.json":::
 
 ## Remarks
 
-- This system function doesn't utilize the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`SQRT`](sqrt.md)

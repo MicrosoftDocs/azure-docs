@@ -91,7 +91,7 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 - [Azure IoT SDKs for Node.js Provisioning Service](https://aka.ms/IoTDPSNodeJSSDKRBAC)
     - [Sample](https://aka.ms/IoTDPSNodeJSSDKRBACSample)
 - [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPSJavaSDKRBACSample)
+    - [Sample](https://github.com/Azure/azure-iot-sdk-java/tree/preview/provisioning/provisioning-service-client-samples)
 - [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
 
 ## Azure AD access from the Azure portal

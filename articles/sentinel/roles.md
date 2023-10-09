@@ -3,7 +3,7 @@ title: Roles and permissions in Microsoft Sentinel
 description: Learn how Microsoft Sentinel assigns permissions to users using Azure role-based access control, and identify the allowed actions for each role.
 author: yelevin
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 09/29/2023
 ms.author: yelevin
 ---
 
@@ -23,7 +23,7 @@ Use Azure RBAC to create and assign roles within your security operations team t
 
 - [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) can, in addition to the above, manage incidents (assign, dismiss, etc.).
 
-- [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the above, create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
+- [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the above, install and update solutions from content hub, create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
 
 - [**Microsoft Sentinel Playbook Operator**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) can list, view, and manually run playbooks.
 
@@ -41,7 +41,7 @@ Users with particular job requirements may need to be assigned other roles or sp
 
 - **Install and manage out-of-the-box content**
 
-    Find packaged solutions for end-to-end products or standalone content from the content hub in Microsoft Sentinel. To install and manage content from the content hub, assign the [**Template Spec Contributor**](../role-based-access-control/built-in-roles.md#template-spec-contributor) role at the resource group level.
+    Find packaged solutions for end-to-end products or standalone content from the content hub in Microsoft Sentinel. To install and manage content from the content hub, assign the **Microsoft Sentinel Contributor** role at the resource group level. For some solutions, the [**Template Spec Contributor**](../role-based-access-control/built-in-roles.md#template-spec-contributor) role is still required.
  
 - **Automate responses to threats with playbooks**
 
@@ -83,12 +83,14 @@ This table summarizes the Microsoft Sentinel roles and their allowed actions in 
 |---|---|---|---|---|---|--|
 | Microsoft Sentinel Reader | -- | -- | --[*](#workbooks) | -- | &#10003; | --|
 | Microsoft Sentinel Responder | -- | -- | --[*](#workbooks) | &#10003; | &#10003; | --|
-| Microsoft Sentinel Contributor | -- | -- | &#10003; | &#10003; | &#10003; | --|
+| Microsoft Sentinel Contributor | -- | -- | &#10003; | &#10003; | &#10003; | &#10003;|
 | Microsoft Sentinel Playbook Operator | &#10003; | -- | -- | -- | -- | --|
 | Logic App Contributor | &#10003; | &#10003; | -- | -- | -- |-- |
-| Template Spec Contributor |  -- |  -- | -- | -- | -- |&#10003;  |
+| Template Spec Contributor |  -- |  -- | -- | -- | -- |&#10003;[**](#content-hub)  |
 
 <a name=workbooks></a>* Users with these roles can create and delete workbooks with the [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) role. Learn about [Other roles and permissions](#other-roles-and-permissions).
+
+<a name=content-hub></a>** The requirement for the Template Spec Contributor role to install and manage content from content hub is still required for some edge cases in addition to Microsoft Sentinel Contributor.
 
 Review the [role recommendations](#role-and-permissions-recommendations) for which roles to assign to which users in your SOC.
 
@@ -112,7 +114,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 | --------- | --------- | --------- | --------- |
 | **Security analysts**     | [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)        | Microsoft Sentinel's resource group        | View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents.        |
 |     | [Microsoft Sentinel Playbook Operator](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run playbooks.        |
-|**Security engineers**     | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)       |Microsoft Sentinel's resource group         |   View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.      |
+|**Security engineers**     | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)       |Microsoft Sentinel's resource group         |   View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.<br><br>Install and update solutions from content hub.  |
 |     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
 ||[Template Spec Contributor](../role-based-access-control/built-in-roles.md#template-spec-contributor)|Microsoft Sentinel's resource group    |Install and manage content from the content hub.|
 |  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
@@ -122,8 +124,15 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 > More roles may be required depending on the data you ingest or monitor. For example, Azure AD roles may be required, such as the global admin or security admin roles, to set up data connectors for services in other Microsoft portals.
 >
 
+## Resource-based access control
+
+You may have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you may want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.
+
+In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Microsoft Sentinel workspace or specific Microsoft Sentinel features. This method is also known as setting up resource-context RBAC. [Learn more about RBAC](resource-context-rbac.md)
+
 ## Next steps
 
 In this article, you learned how to work with roles for Microsoft Sentinel users and what each role enables users to do.
 
-Find blog posts about Azure security and compliance at the [Microsoft Sentinel Blog](https://aka.ms/azuresentinelblog).
+> [!div class="nextstepaction"]
+> >[Plan costs](billing.md)

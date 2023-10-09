@@ -66,10 +66,6 @@ API Server VNet Integration is available in all global Azure regions.
     az provider register --namespace Microsoft.ContainerService
     ```
 
-## Limitations
-
-* Existing AKS private clusters can't be converted to API Server VNet Integration clusters. 
-
 ## Create an AKS cluster with API Server VNet Integration using managed VNet
 
 You can configure your AKS clusters with API Server VNet Integration in managed VNet or bring-your-own VNet mode. You can create the as public clusters (with API server access available via a public IP) or private clusters (where the API server is only accessible via private VNet connectivity). You can also toggle between a public and private state without redeploying your cluster.
@@ -109,12 +105,12 @@ You can configure your AKS clusters with API Server VNet Integration in managed 
 
 ## Create a private AKS cluster with API Server VNet Integration using bring-your-own VNet
 
-When using bring-your-own VNet, you must create and delegate an API server subnet to `Microsoft.ContainerService/managedClusters`, which grants the AKS service permissions to inject the API server pods and internal load balancer into that subnet. You can't use the subnet for any other workloads, but you can use it for multiple AKS clusters located in the same virtual network. An AKS cluster requires *two to seven* IP addresses depending on cluster scale. The minimum supported API server subnet size is a */28*.
+When using bring-your-own VNet, you must create and delegate an API server subnet to `Microsoft.ContainerService/managedClusters`, which grants the AKS service permissions to inject the API server pods and internal load balancer into that subnet. You can't use the subnet for any other workloads, but you can use it for multiple AKS clusters located in the same virtual network. The minimum supported API server subnet size is a */28*.
 
 The cluster identity needs permissions to both the API server subnet and the node subnet. Lack of permissions at the API server subnet can cause a provisioning failure.
 
 > [!WARNING]
-> Running out of IP addresses may prevent API server scaling and cause an API server outage.
+> An AKS cluster reserves at least 9 IPs in the subnet address space. Running out of IP addresses may prevent API server scaling and cause an API server outage.
 
 ### Create a resource group
 
@@ -211,7 +207,7 @@ az group create -l <location> -n <resource-group>
 
 ## Convert an existing AKS cluster to API Server VNet Integration
 
-You can convert existing public AKS clusters to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements listed earlier. These requirements include: in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, and size of at least */28*. Converting your cluster is a one-way migration. Clusters can't have API Server VNet Integration disabled after it's been enabled.
+You can convert existing public/private AKS clusters to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements listed earlier. These requirements include: in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, and size of at least */28*. Converting your cluster is a one-way migration. Clusters can't have API Server VNet Integration disabled after it's been enabled.
 
 This upgrade performs a node-image version upgrade on all node pools and restarts all workloads while they undergo a rolling image upgrade.
 
@@ -254,6 +250,14 @@ AKS clusters configured with API Server VNet Integration can have public network
     --disable-private-cluster
     ```
 
+## Connect to cluster using kubectl
+
+* Configure `kubectl` to connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
+
+    ```azurecli-interactive
+    az aks get-credentials -g <resource-group> -n <cluster-name>
+    ```
+
 ## Next steps
 
 For associated best practices, see [Best practices for network connectivity and security in AKS][operator-best-practices-network].
@@ -276,3 +280,4 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [ref-support-levels]: /cli/azure/reference-types-and-status
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials

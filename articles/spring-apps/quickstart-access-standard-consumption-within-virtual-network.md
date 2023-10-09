@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network
 description: Learn how to access applications in a virtual network that are using the Azure Spring Apps Standard consumption and dedicated plan.
-author: karlerickson
+author: KarlErickson
 ms.author: haojianzhong
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network

@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Use .NET to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 02/07/2023
 ms.author: pauljewell
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet

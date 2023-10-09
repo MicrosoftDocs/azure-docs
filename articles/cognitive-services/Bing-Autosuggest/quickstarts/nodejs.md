@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Node.js.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Node.js application sends a partial search query to the API, and returns suggestions for searches. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
@@ -36,7 +36,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint host and path, your subscription key, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search term. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint host and path, your subscription key, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search term. Use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.

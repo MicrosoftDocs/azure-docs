@@ -2,8 +2,8 @@
 title: Azure Maps Web SDK best practices
 titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/23/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -30,7 +30,7 @@ If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the ca
 
 ```json
 "dependencies": {
-  "azure-maps-control": "^2.2.6"
+  "azure-maps-control": "^3.0.0"
 }
 ```
 
@@ -43,7 +43,9 @@ When a web page is loading, one of the first things you want to do is start rend
 
 ### Watch the maps ready event
 
-Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. The ready event fires when the minimal map resources needed to start interacting with the map. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
+Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. If you see a "Style is not done loading" error, you should use the `load` event and wait for the style to be fully loaded.
+
+The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
 
 ### Lazy load the Azure Maps Web SDK
 
@@ -52,9 +54,7 @@ If the map isn't needed right away, lazy load the Azure Maps Web SDK until it's 
 The [Lazy Load the Map] code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed. For the source code, see [Lazy Load the Map sample code].
 
 <!------------------------------------------------------
-<iframe height="500" scrolling="no" title="Lazy load the map" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>Lazy load the map</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result]
 --------------------------------------------------------->
 
 ### Add a placeholder for the map
@@ -166,7 +166,7 @@ The [Reusing Popup with Multiple Pins] code sample shows how to create a single 
 :::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
 
 <!------------------------------------------------------
-<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------->
 
 That said, if you only have a few points to render on the map, the simplicity of HTML markers may be preferred. Additionally, HTML markers can easily be made draggable if needed.
@@ -212,9 +212,7 @@ The [Simple Symbol Animation] code sample demonstrates a simple way to animate a
 :::image type="content" source="./media/web-sdk-best-practices/simple-symbol-animation.gif" alt-text="A screenshot of a map of the world with a symbol going in a circle, demonstrating how to animate the position of a symbol on the map by updating the coordinates.":::
 
 <!----------------------------------------------------
-<iframe height="500" scrolling="no" title="Symbol layer animation" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/oNgGzRd'>Symbol layer animation</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result]
 ------------------------------------------------------->
 
 ### Specify zoom level range

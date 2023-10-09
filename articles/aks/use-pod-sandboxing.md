@@ -2,7 +2,7 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 ms.date: 06/07/2023
 ---
 
@@ -92,7 +92,7 @@ When a pod uses the *kata-mshv-vm-isolation* runtimeClass, it creates a VM to se
 
 ## Deploy new cluster
 
-Perform the following steps to deploy a Azure Linux AKS cluster using the Azure CLI.
+Perform the following steps to deploy an Azure Linux AKS cluster using the Azure CLI.
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
@@ -104,6 +104,7 @@ Perform the following steps to deploy a Azure Linux AKS cluster using the Azure 
 
     ```azurecli-interactive
     az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku AzureLinux --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
+    ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
@@ -269,7 +270,7 @@ kubectl delete pod pod-name
 
 ## Next steps
 
-* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
+Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/

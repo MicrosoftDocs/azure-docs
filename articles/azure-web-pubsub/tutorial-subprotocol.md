@@ -149,68 +149,34 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
     # [C#](#tab/csharp)
 
-    Update `Startup.cs` with the below code.
-    - Update the `ConfigureServices` method to add the service client, and read the connection string from configuration. 
-    - Update the `Configure` method to add `app.UseStaticFiles();` before `app.UseRouting();` to support static files. 
-    - And update `app.UseEndpoints` to generate the client access token with `/negotiate` requests.
+    Update `Program.cs` with the below code.
+    - Use `AddAzureClients` to add the service client, and read the connection string from configuration. 
+    - Add `app.UseStaticFiles();` before `app.Run();` to support static files. 
+    - And update `app.MapGet` to generate the client access token with `/negotiate` requests.
 
     ```csharp
     using Azure.Messaging.WebPubSub;
-
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Azure;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
     
-    namespace logstream
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Services.AddAzureClients(s =>
     {
-        public class Startup
+        s.AddWebPubSubServiceClient(builder.Configuration["Azure:WebPubSub:ConnectionString"], "stream");
+    });
+    
+    var app = builder.Build();
+    app.UseStaticFiles();
+    app.MapGet("/negotiate", async context =>
+    {
+        var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+        var response = new
         {
-            public Startup(IConfiguration configuration)
-            {
-                Configuration = configuration;
-            }
+            url = service.GetClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
+        };
+        await context.Response.WriteAsJsonAsync(response);
+    });
     
-            public IConfiguration Configuration { get; }
-    
-            public void ConfigureServices(IServiceCollection services)
-            {
-                services.AddAzureClients(builder =>
-                {
-                    builder.AddWebPubSubServiceClient(Configuration["Azure:WebPubSub:ConnectionString"], "stream");
-                });
-            }
-    
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-            {
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-    
-                app.UseStaticFiles();
-    
-                app.UseRouting();
-    
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapGet("/negotiate", async context =>
-                    {
-                        var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
-                        var response = new
-                        {
-                            url = service.GetClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
-                        };
-                        await context.Response.WriteAsJsonAsync(response);
-                    });
-                });
-            }
-        }
-    }
-    
+    app.Run();
     ```
     
     # [JavaScript](#tab/javascript)
@@ -366,32 +332,30 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
     ```html
     <html>
-
-    <body>
-      <div id="output"></div>
-      <script>
-        (async function () {
-          let res = await fetch('/negotiate')
-          let data = await res.json();
-          let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
-          ws.onopen = () => {
-            console.log('connected');
-          };
-
-          let output = document.querySelector('#output');
-          ws.onmessage = event => {
-            let d = document.createElement('p');
-            d.innerText = event.data;
-            output.appendChild(d);
-          };
-        })();
-      </script>
-    </body>
-
-    </html>
+      <body>
+        <div id="output"></div>
+        <script>
+          (async function () {
+            let res = await fetch('/negotiate')
+            let data = await res.json();
+            let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
+            ws.onopen = () => {
+              console.log('connected');
+            };
+    
+            let output = document.querySelector('#output');
+            ws.onmessage = event => {
+              let d = document.createElement('p');
+              d.innerText = event.data;
+              output.appendChild(d);
+            };
+          })();
+        </script>
+      </body>
+    </html>                                                                
     ```
 
-    It just connects to the service and print any message received to the page. The main change is that we specify the subprotocol when creating the WebSocket connection.
+    The code above connects to the service and print any message received to the page. The main change is that we specify the subprotocol when creating the WebSocket connection.
 
 4. Run the server
     # [C#](#tab/csharp)
@@ -515,7 +479,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     ```javascript
     const WebSocket = require('ws');
-    const fetch = require('node-fetch');
+    const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     async function main() {
       let res = await fetch(`http://localhost:8080/negotiate`);

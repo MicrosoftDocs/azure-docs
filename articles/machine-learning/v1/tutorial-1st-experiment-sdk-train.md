@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-
 
 # Tutorial: Train your first machine learning model (SDK v1, part 2 of 3)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
@@ -228,7 +228,7 @@ if __name__ == "__main__":
 
 1. You'll see a link in the terminal window that opens. Select the link to view the job.
 
-    [!INCLUDE [amlinclude-info](../../../includes/machine-learning-py38-ignore.md)]
+    [!INCLUDE [amlinclude-info](../includes/machine-learning-py38-ignore.md)]
 
 ### View the output
 

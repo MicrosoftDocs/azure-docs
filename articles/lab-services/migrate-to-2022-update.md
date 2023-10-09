@@ -130,4 +130,4 @@ Update reports to include the new cost entry type, `Microsoft.LabServices/labs`,
 
 - As an admin, [create a lab plan](quick-create-resources.md).
 - As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
-- As an educator, [configure and control usage of a lab](how-to-configure-student-usage.md).
+- As an educator, [configure and control usage of a lab](how-to-manage-lab-users.md).

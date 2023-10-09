@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/20/2022
+ms.date: 07/13/2023
 ---
 
 #  Transform data in Asana (Preview) using Azure Data Factory or Synapse Analytics

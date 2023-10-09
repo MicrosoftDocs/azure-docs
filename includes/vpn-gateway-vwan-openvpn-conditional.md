@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/14/2020
+ ms.date: 08/23/2023
  ms.author: cherylmc
  ms.custom: include file
 
@@ -24,7 +24,7 @@ Conditional Access allows for fine-grained access control on a per-application b
    - Click **Select** to select a group or set of users to be affected by MFA.
    - Click **Done**.
 
-   ![Assignments](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
+   ![Assignments](./media/vpn-gateway-vwan-openvpn-mfa/mfa-ca-assignments.png)
 3. On the **New** pane, navigate to the **Access controls -> Grant** pane:
 
    - Click **Grant access**.
@@ -32,10 +32,10 @@ Conditional Access allows for fine-grained access control on a per-application b
    - Click **Require all the selected controls**.
    - Click **Select**.
    
-   ![Grant access - MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
+   ![Grant access - MFA](./media/vpn-gateway-vwan-openvpn-mfa/mfa-ca-grant-mfa.png)
 4. In the **Enable policy** section:
 
    - Select **On**.
    - Click **Create**.
 
-   ![Enable Policy](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
+   ![Enable Policy](./media/vpn-gateway-vwan-openvpn-mfa/mfa-ca-enable-policy.png)

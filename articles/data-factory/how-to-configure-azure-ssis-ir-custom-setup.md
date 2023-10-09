@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime

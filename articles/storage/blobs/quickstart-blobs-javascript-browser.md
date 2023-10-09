@@ -6,8 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 02/25/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
@@ -248,25 +247,25 @@ This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-
     http://localhost:1234
     ```
 
-## Step 1 - Create a container
+## Step 1: Create a container
 
 1. In the web app, select **Create container**. The status indicates that a container was created.
 2. In the Azure portal, verify your container was created. Select your storage account. Under **Blob service**, select **Containers**. Verify that the new container appears. (You may need to select **Refresh**.)
 
-## Step 2 - Upload a blob to the container
+## Step 2: Upload a blob to the container
 
 1. On your local computer, create and save a test file, such as *test.txt*.
 2. In the web app, select **Select and upload files**.
 3. Browse to your test file, and then select **Open**. The status indicates that the file was uploaded, and the file list was retrieved.
 4. In the Azure portal, select the name of the new container that you created earlier. Verify that the test file appears.
 
-## Step 3 - Delete the blob
+## Step 3: Delete the blob
 
 1. In the web app, under **Files**, select the test file.
 2. Select **Delete selected files**. The status indicates that the file was deleted and that the container contains no files.
 3. In the Azure portal, select **Refresh**. Verify that you see **No blobs found**.
 
-## Step 4 - Delete the container
+## Step 4: Delete the container
 
 1. In the web app, select **Delete container**. The status indicates that the container was deleted.
 2. In the Azure portal, select the **\<account-name\> | Containers** link at the top-left of the portal pane.

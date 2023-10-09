@@ -6,17 +6,30 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 09/27/2023
 ms.custom: references_regions
 ms.author: kavitagaddam
 ---
 
 # Release notes: Azure API for FHIR
 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
-> [!Note]
-> Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
+## **August 2023**
+**Decimal value precision in FHIR service is updated per FHIR specification**
+
+Prior to the fix, FHIR service allowed precision value of [18,6]. The service is updated to support decimal value precision of [36,18] per FHIR specification. For details, visit [FHIR specification Data Types](https://www.hl7.org/fhir/datatypes.html)
+
+## **July 2023**
+**Feature enhancement: Change to the exported file name format**
+
+FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. There are name changes with exported file and default storage account name.
+* Exported file names will follow the format \<FHIR Resource Name\>-\<Number\>- \<Number\>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
+* Default storage account name is updated to Export-\<Number\>.
+
+There is no change to number of resources added in individual exported files.
 
 ## **June 2023**
 **Bug Fix: Metadata endpoint URL in capability statement is relative URL**

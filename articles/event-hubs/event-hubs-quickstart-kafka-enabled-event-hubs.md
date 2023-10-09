@@ -143,6 +143,13 @@ If your Event Hubs Kafka cluster has events, you'll now start receiving them fro
 
 ---
 
+## Schema validation for Kafka with Schema Registry  
+
+You can use Azure Schema Registry to perform schema validation when you stream data with your Kafka applications using Event Hubs. 
+Azure Schema Registry of Event Hubs provides a centralized repository for managing schemas and you can seamlessly connect your new or existing Kafka applications with Schema Registry. 
+
+To learn more, see [Validate schemas for Apache Kafka applications using Avro](schema-registry-kafka-java-send-receive-quickstart.md). 
+
 ## Next steps
 
 In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).

@@ -64,7 +64,7 @@ For example, you have a deployment with a target condition `tags.environment = '
 
 If a deployment has no target condition, then it's applied to no devices.
 
-Use any Boolean condition on device twin tags, device twin reported properties, or deviceId to select the target devices. If you want to use a condition with tags, you need to add a `"tags":{}` section in the device twin under the same level as properties. [Learn more about tags in a device twin](../iot-hub/iot-hub-devguide-device-twins.md).
+Use any Boolean condition on device twin tags, device twin reported properties, or deviceId to select the target devices. If you want to use a condition with tags, you need to add a `"tags":{}` section in the device twin under the same level as properties. For more information about tags in a device twin, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). For more information about query operations, see [IoT Hub query language operators and IS_DEFINED function](../iot-hub/iot-hub-devguide-query-language.md#operators).
 
 Examples of target conditions:
 
@@ -74,6 +74,9 @@ Examples of target conditions:
 * tags.environment = 'prod' OR tags.location = 'westus'
 * tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 * properties.reported.devicemodel = '4000x'
+* IS_DEFINED(tags.remote)
+* NOT IS_DEFINED(tags.location.building)
+* tags.environment != null
 * [none]
 
 Consider these constraints when you construct a target condition:

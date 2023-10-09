@@ -2,7 +2,6 @@
 title: Manage with REST
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -29,7 +28,7 @@ The Management REST API is available in stable and preview versions. Be sure to 
 > * [Create or update a service](#create-or-update-a-service)
 > * [Enable Azure role-based access control for data plane](#enable-rbac)
 > * [(preview) Enforce a customer-managed key policy](#enforce-cmk)
-> * [(preview) Disable semantic search](#disable-semantic-search)
+> * [(preview) Disable semantic ranking](#disable-semantic-search)
 > * [(preview) Disable workloads that push data to external resources](#disable-external-access)
 
 All of the Management REST APIs have examples. If a task isn't covered in this article, see the [API reference](/rest/api/searchmanagement/) instead.
@@ -49,7 +48,7 @@ Management REST API calls are authenticated through Azure Active Directory (Azur
 > [!NOTE]
 > The following steps are borrowed from the [Azure REST APIs with Postman](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) blog post.
 
-1. Open a command shell for Azure CLI. If you don't have Azure CLI installed, you can open [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#1-create-a-service-principal), select **Try It**. 
+1. Open a command shell for Azure CLI.
 
 1. Sign in to your Azure subscription.
 
@@ -236,9 +235,9 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 <a name="disable-semantic-search"></a>
 
-## (preview) Disable semantic search
+## (preview) Disable semantic ranking
 
-Although [semantic search isn't enabled](semantic-search-overview.md#enable-semantic-search) by default, you could lock down the feature at the service level.
+Although [semantic search isn't enabled](semantic-how-to-enable-disable.md) by default, you could lock down the feature at the service level.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview

@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 09/05/2023
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall
@@ -62,8 +62,11 @@ $logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConf
 ```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Sensitive Data Protection are coming soon.
+Use the following Command Line Interface commands to [create and configure](/cli/azure/network/application-gateway/waf-policy/policy-setting) Log Scrubbing rules for Sensitive Data Protection:
 
+```CLI
+az network application-gateway waf-policy policy-setting update -g <MyResourceGroup> --policy-name <MyPolicySetting> --log-scrubbing-state <Enabled/Disabled> --scrubbing-rules "[{state:<Enabled/Disabled>,match-variable:<MatchVariable>,selector-match-operator:<Operator>,selector:<Selector>}]"
+```
 
 
 ---

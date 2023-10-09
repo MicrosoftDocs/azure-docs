@@ -187,14 +187,14 @@ After submitting a training run, a [Job](/python/api/azure-ai-ml/azure.ai.ml.ent
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 job.properties["azureml.git.commit"]
 ```
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml job show --name my_job_id --query "{GitCommit:properties."""azureml.git.commit"""}"

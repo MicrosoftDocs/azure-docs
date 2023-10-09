@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Learn how to mount a container in Blob Storage from an Azure virtual machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
 
-ms.subservice: blobs
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 08/18/2023
 ms.author: normesta
-ms.reviewer: yzheng
+
 ---
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
@@ -25,9 +24,9 @@ Your storage account must be contained within a virtual network. A virtual netwo
 
 ## Step 2: Configure network security
 
-Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Azure Active Directory (Azure AD) security, and access control lists (ACLs), are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
+Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. See [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
-To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
+Any other tools used to secure data, including account key authorization, Azure Active Directory (Azure AD) security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request. In fact, if you add an entry for a named user or group to the ACL of a blob or directory, that file becomes inaccessible on the client for non-root users. You would have to remove that entry to restore access to non-root users on the client.
 
 > [!IMPORTANT]
 > The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports.
@@ -115,7 +114,7 @@ Create a directory on your Linux system and then mount the container in the stor
      1. Create an entry in the /etc/fstab file by adding the following line:
   
         ```
-        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,_netdev    0 0
         ```
 
      2. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
@@ -127,7 +126,7 @@ Create a directory on your Linux system and then mount the container in the stor
    - For a temporary mount that doesn't persist across reboots, run the following command: 
     
      ```
-     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdatain 
+     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
      ``` 
      
      > [!TIP]

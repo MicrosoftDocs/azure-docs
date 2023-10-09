@@ -1,5 +1,5 @@
 {
-    "redirections": [        
+    "redirections": [
         {
             "source_path_from_root": "/articles/stream-analytics/no-code-filter-ingest-adx.md",
             "redirect_url": "/azure/stream-analytics/no-code-filter-ingest-data-explorer",
@@ -149,6 +149,6 @@
             "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-diagram-with-metrics-new.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-job-logical-diagram-with-metrics",
             "redirect_document_id": false
-        } 
+        }
     ]
 }

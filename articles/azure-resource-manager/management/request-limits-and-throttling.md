@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 10/05/2023
 ms.custom: seodec18, devx-track-arm-template
 ---
 # Throttling Resource Manager requests
@@ -13,7 +13,7 @@ Throttling happens at two levels. Azure Resource Manager throttles requests for 
 
 The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider. The image shows that requests are initially throttled per principal ID and per Azure Resource Manager instance in the region of the user sending the request. The requests are throttled per hour. When the request is forwarded to the resource provider, requests are throttled per region of the resource rather than per Azure Resource Manager instance in region of the user. The resource provider requests are also throttled per principal user ID and per hour.
 
-![Request throttling](./media/request-limits-and-throttling/request-throttling.svg)
+:::image type="content" source="./media/request-limits-and-throttling/request-throttling.svg" alt-text="Diagram that shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.":::
 
 ## Subscription and tenant limits
 
@@ -54,9 +54,25 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
-> [!NOTE]
-> **Azure DNS** and **Azure Private DNS** have a throttle limit of 500 read (GET) operations per 5 minutes.
->
+In addition to those general limits, the following limits apply to DNS operations:
+
+| DNS Zone Operation | Limit (per zone) |
+| --------- | ----- |
+| Create or Update | 40 per minute |
+| Delete | 40 per minute |
+| Get | 1000 per minute |
+| List | 60 per minute |
+| List By Resource Group | 60 per minute |
+| Update | 40 per minute |
+
+| DNS Record Set Operation | Limit (per zone) |
+| --------- | ----- |
+| Create or Update | 200 per minute |
+| Delete | 200 per minute |
+| Get | 1000 per minute |
+| List By DNS Zone | 60 per minute |
+| List By Type | 60 per minute |
+| Update | 200 per minute |
 
 ### Compute throttling
 

@@ -47,6 +47,9 @@ The **SequenceNumber** for a scheduled message is only valid while the message i
 
 Because the feature is anchored on individual messages and messages can only be enqueued once, Service Bus doesn't support recurring schedules for messages.
 
+> [!NOTE]
+> Message enqueuing time doesn't mean that the message will be sent at the same time. It will get enqueued, but the actual sending time depends on the queue's workload and its state.
+
 ## Next steps
 
 To learn more about Service Bus messaging, see the following topics:
@@ -54,3 +57,4 @@ To learn more about Service Bus messaging, see the following topics:
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+

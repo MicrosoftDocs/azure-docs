@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 05/27/2023
+ms.date: 07/26/2023
 author: mgoedtel
 
 ---
@@ -21,7 +21,7 @@ To make this process as simple as possible, and to ensure no data loss, this art
 ## Migrate Disk volumes
 
 > [!NOTE]
-> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.26. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
+> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.28. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
 
 Migration from in-tree to CSI is supported using two migration options:
 

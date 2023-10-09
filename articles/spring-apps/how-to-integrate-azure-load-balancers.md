@@ -1,12 +1,12 @@
 ---
 title:  Tutorial - Integrate Azure Spring Apps with Azure Load Balance Solutions
 description: How to integrate Azure Spring Apps with Azure Load Balance Solutions
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Integrate Azure Spring Apps with Azure Load Balance Solutions
@@ -32,7 +32,7 @@ We recommend that the domain name, as seen by the browser, is the same as the ho
 
 ## Prerequisites
 
-* A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
+* A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 * Azure Spring Apps: [How to create an Azure Spring Apps service](./quickstart.md)
 * Azure Traffic Manager: [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 * Azure App Gateway: [How to create an application gateway](../application-gateway/quick-create-portal.md)

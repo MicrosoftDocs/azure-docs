@@ -26,7 +26,7 @@ Depending on your configuration and environment, there are some variations.
 
 ## Ports
 
-All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: port 443. However, there will occasionally be HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
+All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: port 443. However, there will occasionally be HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach CRL endpoints listed [here](../../security/fundamentals/azure-ca-details.md#certificate-downloads-and-revocation-lists).  
 
 ## Authentication
 
@@ -34,8 +34,8 @@ Key vault client applications will need to access Azure Active Directory endpoin
 
 | Principal type | Endpoint:port |
 | --- | --- |
-| User using Microsoft account<br> (for example, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| User or service principal using a work or school account with Azure AD (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
+| User using Microsoft account<br> (for example, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| User or service principal using a work or school account with Azure AD (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
 There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-vs-authorization.md), [Integrating Applications with Azure Active Directory](../../active-directory/develop/how-to-integrate.md), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)) for additional information.  
@@ -46,8 +46,8 @@ For Key Vault management (CRUD and setting access policy), the key vault client 
 
 | Type of operation | Endpoint:port |
 | --- | --- |
-| Key Vault control plane operations<br> via Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
+| Key Vault control plane operations<br> via Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
+| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
 
 ## Key Vault operations
 
@@ -55,7 +55,7 @@ For all key vault object (keys and secrets) management and cryptographic operati
 
 | Type of operation | Endpoint:port |
 | --- | --- |
-| Operations including cryptographic operations on keys; creating, reading, updating, and deleting keys and secrets; setting or getting tags and other attributes on key vault objects (keys or secrets) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
+| Operations including cryptographic operations on keys; creating, reading, updating, and deleting keys and secrets; setting or getting tags and other attributes on key vault objects (keys or secrets) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## IP address ranges
 

@@ -4,7 +4,7 @@ description: Custom image pools are an efficient way to configure compute nodes 
 ms.topic: conceptual
 ms.date: 05/12/2023
 ms.devlang: csharp, python
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-linux
 ---
 
 # Use the Azure Compute Gallery to create a custom image pool

@@ -1,12 +1,12 @@
 ---
 title: Zero downtime deployment in Azure Spring Apps
 description: Learn about zero downtime deployment with blue-green deployment strategies in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 06/01/2023
 ms.author: haital
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Zero downtime deployment in Azure Spring Apps

@@ -100,20 +100,22 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 
 | Description | Required for v1 | Required for v2 | Notes |
 |:------------|:---------------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Connectivity to v2 endpoint requires DNS resolution of the default hostname. |
+| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Custom hostnames are also supported and can be used instead of the default hostname. |
 | Public IP address of the API Management instance | ✔️ | ✔️ | IP address of primary location is sufficient. |
 | Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
 | Hostname of Azure Blob Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
 | Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
-| Endpoints for Azure Active Directory integration | ✔️ | Optional<sup>3</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>4</sup> | Optional<sup>4</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
-| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>4</sup> | Optional<sup>4</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
-| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>4</sup> | Optional<sup>4</sup> | This requirement depends on the external cache that is being used |
+| Endpoints for Azure Resource Manager | ✔️ | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
+| Endpoints for Azure Active Directory integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
+| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
+| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
 
 <sup>1</sup>For an API Management instance in an internal virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network.<br/> 
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
-<sup>3</sup>Only required when using Azure AD authentication or Azure AD-related policies.<br/>
-<sup>4</sup>Only required when feature is used and requires public IP address, port, and hostname information.<br/>
+<sup>3</sup>Only required when using Azure AD authentication to verify RBAC permissions.<br/>
+<sup>4</sup>Only required when using Azure AD authentication or Azure AD-related policies.<br/>
+<sup>5</sup>Only required when feature is used and requires public IP address, port, and hostname information.<br/>
 
 > [!IMPORTANT]
 > * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.

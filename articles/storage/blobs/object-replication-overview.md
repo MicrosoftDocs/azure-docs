@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/04/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: engagement-fy23
 ---
 
@@ -44,6 +43,8 @@ Object replication isn't supported for blobs in the source account that are encr
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 
+Object replication is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
+
 ## How object replication works
 
 Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.
@@ -71,7 +72,7 @@ Object replication does not copy the source blob's index tags to the destination
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -105,7 +106,10 @@ You can also specify one or more filters as part of a replication rule to filter
 
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container aren't permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
 
-You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+
+> [!NOTE]
+> Changing the access tier of a blob in the source account won't change the access tier of that blob in the destination account. 
 
 ## Policy definition file
 
@@ -197,7 +201,7 @@ If the replication status for a blob in the source account indicates failure, th
 - Verify that the destination container is not in the process of being deleted, or has not just been deleted. Deleting a container may take up to 30 seconds.
 - Verify that the destination container is still participating in the object replication policy.
 - If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
-- Check whether the source or destination blob has been moved to the Archive tier. Archived blobs cannot be replicated via object replication. For more information about the Archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+- Check whether the source or destination blob has been moved to the archive tier. Archived blobs cannot be replicated via object replication. For more information about the archive tier, see [Access tiers for blob data](access-tiers-overview.md).
 - Verify that destination container or blob is not protected by an immutability policy. Keep in mind that a container or blob can inherit an immutability policy from its parent. For more information about immutability policies, see [Overview of immutable storage for blob data](immutable-storage-overview.md).
 
 ## Feature support

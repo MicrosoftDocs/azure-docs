@@ -1,7 +1,7 @@
 ---
 title: How to Use Tanzu Service Registry with the Azure Spring Apps Enterprise plan
 description: How to use Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: yoterada
 ms.service: spring-apps
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, de
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Tanzu® Service Registry with the Azure Spring Apps Enterprise plan.
+This article shows you how to use VMware Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
 
 Tanzu Service Registry is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
 
@@ -27,10 +27,6 @@ with the Azure Spring Apps Enterprise plan, you don't have to create or start th
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan instance with Tanzu Service Registry enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
-
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Create applications that use Service Registry

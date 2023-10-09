@@ -12,6 +12,8 @@ ms.author: veyaddan
 
 We support authentication of clients using X.509 certificates.  X.509 certificate provides the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Supported authentication modes
 
 - Certificates issued by a Certificate Authority (CA)

@@ -1,0 +1,251 @@
+items:
+- name: Identity architecture and deployment
+  expanded: true
+  items:
+  - name: Architecture
+    expanded: true
+    items:
+    - name: Microsoft Entra architecture
+      href: architecture.md
+    - name: Microsoft Entra architecture icons
+      href: architecture-icons.md
+    - name: Road to the cloud
+      items:
+      - name: Introduction
+        href: road-to-the-cloud-introduction.md
+      - name: Cloud transformation posture
+        href: road-to-the-cloud-posture.md
+      - name: Establish a Microsoft Entra footprint
+        href: road-to-the-cloud-establish.md
+      - name: Implement a cloud-first approach
+        href: road-to-the-cloud-implement.md
+      - name: Transition to the cloud
+        href: road-to-the-cloud-migrate.md
+    - name: Parallel identity options
+      href: parallel-identity-options.md
+    - name: Automate identity provisioning to applications
+      items:
+      - name: Automate identity provisioning to applications introduction
+        href: automate-provisioning-to-applications-introduction.md
+      - name: Solutions to automate identity provisioning to applications
+        href: automate-provisioning-to-applications-solutions.md
+    - name: Multi-tenant user management
+      items:
+      - name: Multi-tenant user management introduction
+        href: multi-tenant-user-management-introduction.md
+      - name: Common scenarios
+        href: multi-tenant-user-management-scenarios.md
+      - name: Common considerations
+        href: multi-tenant-common-considerations.md
+      - name: Common solutions
+        href: multi-tenant-common-solutions.md
+    - name: University multilateral federation solutions
+      items:
+      - name: Introduction
+        href: multilateral-federation-introduction.md
+      - name: Baseline
+        href: multilateral-federation-baseline.md     
+      - name: Solution 1 - Microsoft Entra ID with Cirrus Bridge
+        href: multilateral-federation-solution-one.md
+      - name: Solution 2 - Microsoft Entra ID to Shibboleth as SP Proxy
+        href: multilateral-federation-solution-two.md
+      - name: Solution 3 - Microsoft Entra ID with ADFS and Shibboleth
+        href: multilateral-federation-solution-three.md    
+      - name: Decision tree
+        href: multilateral-federation-decision-tree.md    
+    - name: Authentication protocols
+      items:
+      - name: Overview
+        href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
+      - name: SAML authentication
+        href: auth-saml.md
+      - name: OpenID Connect authentication
+        href: auth-oidc.md
+      - name: OAuth 2.0 with Entra ID authentication
+        href: auth-oauth2.md
+      - name: Header-based authentication
+        href: auth-header-based.md
+      - name: LDAP authentication
+        href: auth-ldap.md
+      - name: Password-based authentication
+        href: auth-password-based-sso.md
+      - name: RADIUS authentication
+        href: auth-radius.md
+      - name: Remote desktop gateway authentication
+        href: auth-remote-desktop-gateway.md
+      - name: SSH authentication
+        href: auth-ssh.md
+      - name: Windows authentication - KCD
+        href: auth-kcd.md
+    - name: Provisioning protocols
+      items:
+      - name: Overview
+        href: auth-prov-overview.md
+      - name: Directory synchronization
+        href: sync-directory.md
+      - name: LDAP synchronization
+        href: sync-ldap.md
+      - name: SCIM synchronization
+        href: sync-scim.md
+    - name: Recoverability
+      items:
+      - name: Recoverability best practices overview
+        href: recoverability-overview.md
+      - name: Recover from deletions
+        href: recover-from-deletions.md
+      - name: Recover from misconfigurations
+        href: recover-from-misconfigurations.md
+    - name: Build for resilience
+      items:
+      - name: Overview
+        href: resilience-overview.md
+      - name: Infrastructure guidance
+        items:
+        - name: Infrastructure overview
+          href: resilience-in-infrastructure.md
+        - name: Credential management
+          href: resilience-in-credentials.md
+        - name: Device states
+          href: resilience-with-device-states.md
+        - name: Continuous access evaluation
+          href: resilience-with-continuous-access-evaluation.md
+        - name: The backup authentication system
+          href: backup-authentication-system.md
+        - name: Building application support for the backup authentication system
+          href: backup-authentication-system-apps.md
+        - name: External user authentication
+          href: resilience-b2b-authentication.md
+        - name: Hybrid authentication
+          href: resilience-in-hybrid.md
+        - name: Application Proxy
+          href: resilience-on-premises-access.md
+      - name: Azure AD B2C guidance
+        items:
+        - name: Azure AD B2C introduction to resilience
+          href: resilience-b2c.md
+        - name: End-user experience
+          href: resilient-end-user-experience.md
+        - name: Interfaces with external processes
+          href: resilient-external-processes.md
+        - name: Azure AD B2C developer best practices
+          href: resilience-b2c-developer-best-practices.md
+        - name: Monitoring and analytics
+          href: resilience-with-monitoring-alerting.md
+      - name: Application development guidance
+        items:
+        - name: Development overview
+          href: resilience-app-development-overview.md
+        - name: Client applications
+          href: resilience-client-app.md  
+        - name: Daemon applications
+          href: resilience-daemon-app.md
+        - name: OpenID Connect metadata refresh
+          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md?toc=/azure/active-directory/architecture/toc.json
+      - name: Monitor application health for resilience
+        href: monitor-sign-in-health-for-resilience.md
+    - name: Secure with Microsoft Entra ID
+      items:
+      - name: Introduction
+        href: secure-introduction.md
+      - name: Fundamentals
+        href: secure-fundamentals.md
+      - name: Resource management
+        href: secure-resource-management.md
+      - name: Delegating administration in a single tenant
+        href: secure-single-tenant.md
+      - name: Delegating administration in multiple tenants
+        href: secure-multiple-tenants.md
+      - name: Best practices
+        href: secure-best-practices.md
+  - name: Deployment guide
+    items:
+    - name: Microsoft Entra deployment plans
+      href: deployment-plans.md
+    - name: Azure Active Directory B2C deployment plans
+      href: b2c-deployment-plans.md
+  - name: Microsoft Entra Operations reference
+    items:
+    - name: Introduction
+      href: ops-guide-intro.md
+    - name: Identity and access management
+      href: ops-guide-iam.md
+    - name: Authentication management
+      href: ops-guide-auth.md
+    - name: Identity governance
+      href: ops-guide-govern.md
+    - name: Operations
+      href: ops-guide-ops.md
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/architecture/toc.json
+    - name: Security operations guide
+      items: 
+      - name: Security operations overview
+        href: security-operations-introduction.md
+      - name: Security operations for user accounts
+        href: security-operations-user-accounts.md
+      - name: Security operations for consumer accounts
+        href: security-operations-consumer-accounts.md
+      - name: Security operations for privileged accounts
+        href: security-operations-privileged-accounts.md
+      - name: Security operations for PIM
+        href: security-operations-privileged-identity-management.md 
+      - name: Security operations for applications
+        href: security-operations-applications.md  
+      - name: Security operations for devices
+        href: security-operations-devices.md
+      - name: Security operations for Infrastructure
+        href: security-operations-infrastructure.md
+    - name: Protect Microsoft 365 from on-premises attacks 
+      href: protect-m365-from-on-premises-attacks.md
+    - name: Secure external collaboration
+      items:
+      - name: Secure external access overview 
+        href: secure-external-access-resources.md 
+      - name: 1 Determine your security posture
+        href: 1-secure-access-posture.md  
+      - name: 2 Determine your current state
+        href: 2-secure-access-current-state.md
+      - name: 3 Create a security plan
+        href: 3-secure-access-plan.md  
+      - name: 4 Secure access with groups
+        href: 4-secure-access-groups.md
+      - name: 5 Secure access with B2B collaboration
+        href: 5-secure-access-b2b.md
+      - name: 6 Secure access with Entitlement Management
+        href: 6-secure-access-entitlement-managment.md
+      - name: 7 Secure access with Conditional Access
+        href: 7-secure-access-conditional-access.md
+      - name: 8 Secure access with sensitivity labels
+        href: 8-secure-access-sensitivity-labels.md
+      - name: 9 Secure access to Teams, SharePoint, and OneDrive
+        href: 9-secure-access-teams-sharepoint.md
+      - name: 10 Convert local guest accounts to B2B
+        href: 10-secure-local-guest.md
+      - name: 11 Onboard external user
+        href: 11-onboard-external-user.md
+    - name: Secure service accounts
+      items:
+      - name: Introduction to Azure service accounts
+        href: secure-service-accounts.md
+      - name: Secure managed identities
+        href: service-accounts-managed-identities.md
+      - name: Secure service principals
+        href: service-accounts-principal.md
+      - name: Govern Azure service accounts
+        href: govern-service-accounts.md
+      - name: Introduction to on-premises service accounts
+        href: service-accounts-on-premises.md
+      - name: Secure group MSAs
+        href: service-accounts-group-managed.md
+      - name: Secure standalone MSAs
+        href: service-accounts-standalone-managed.md
+      - name: Secure computer accounts
+        href: service-accounts-computer.md
+      - name: Secure on-premises user service accounts
+        href: service-accounts-user-on-premises.md
+      - name: Govern on-premises user service accounts
+        href: service-accounts-govern-on-premises.md

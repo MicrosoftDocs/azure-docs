@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -35,57 +35,13 @@ Returns a signed numeric value that represents the current number of 100-nanosec
 
 This example uses a container with a partition key path of `/pk`. There are three items in the container with two items within the same logical partition, and one item in a different logical partition.
 
-```json
-[
-  {
-    "id": "1",
-    "pk": "A"
-  },
-  {
-    "id": "2",
-    "pk": "A"
-  },
-  {
-    "id": "3",
-    "pk": "B"
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticksstatic/seed.novalidate.json" highlight="4,8,12":::
 
 This function returns the same static nanosecond ticks for items within the same partition. For comparison, the nonstatic function gets a new nanosecond ticks value for each item matched by the query.
 
-```sql
-SELECT
-    i.id,
-    i.pk AS partitionKey,
-    GetCurrentTicks() AS nonStaticTicks,
-    GetCurrentTicksStatic() AS staticTicks
-FROM
-    items i
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticksstatic/query.novalidate.sql" highlight="4-5":::  
 
-```json
-[
-  {
-    "id": "1",
-    "partitionKey": "A",
-    "nonStaticTicks": 16879779663422236,
-    "staticTicks": 16879779663415572
-  },
-  {
-    "id": "2",
-    "partitionKey": "A",
-    "nonStaticTicks": 16879779663422320,
-    "staticTicks": 16879779663415572
-  },
-  {
-    "id": "3",
-    "partitionKey": "B",
-    "nonStaticTicks": 16879779663422380,
-    "staticTicks": 16879779663421680
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticksstatic/result.novalidate.json":::
 
 > [!NOTE]
 > It's possible for items in different logical partitions to exist in the same physical partition. In this scenario, the static nanosecond ticks value would be identical.
@@ -98,4 +54,4 @@ FROM
 ## See also
 
 - [System functions](system-functions.yml)
-- [`GetCurrentTicks` (nonstatic)](getcurrentticks.md)
+- [`GetCurrentTicks`](getcurrentticks.md)

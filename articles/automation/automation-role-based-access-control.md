@@ -331,7 +331,7 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 ### Configure Azure RBAC using the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the **Automation Accounts** page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your Automation account from the **Automation Accounts** page.
 
 1. Select **Access control (IAM)** and select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you might have defined. Assign the role to a user to which you want to give permissions.
 
@@ -460,7 +460,7 @@ New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Opera
 New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Once the script has run, have the user log in to the Azure portal and select **All Resources**. In the list, the user can see the runbook for which he/she has been added as an Automation Runbook Operator.
+Once the script has run, have the user sign in to the Azure portal and select **All Resources**. In the list, the user can see the runbook for which he/she has been added as an Automation Runbook Operator.
 
 ![Runbook Azure RBAC in the portal](./media/automation-role-based-access-control/runbook-rbac.png)
 

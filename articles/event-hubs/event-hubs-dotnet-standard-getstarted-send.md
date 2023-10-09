@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Send or receive events using .NET'
-description: A quickstart to create a .NET Core application that sends events to Azure Event Hubs and then receive those events by using the Azure.Messaging.EventHubs package.
+description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
@@ -118,6 +118,7 @@ This section shows you how to create a .NET Core console application to send eve
         // Use the producer client to send the batch of events to the event hub
         await producerClient.SendAsync(eventBatch);
         Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
     }
     finally
     {
@@ -169,6 +170,7 @@ This section shows you how to create a .NET Core console application to send eve
         // Use the producer client to send the batch of events to the event hub
         await producerClient.SendAsync(eventBatch);
         Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
     }
     finally
     {
@@ -302,6 +304,7 @@ Replace the contents of **Program.cs** with the following code:
     {
         // Write the body of the event to the console window
         Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     
@@ -310,6 +313,7 @@ Replace the contents of **Program.cs** with the following code:
         // Write details about the error to the console window
         Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
         Console.WriteLine(eventArgs.Exception.Message);
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     ```
@@ -361,6 +365,7 @@ Replace the contents of **Program.cs** with the following code:
     {
         // Write the body of the event to the console window
         Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     
@@ -369,6 +374,7 @@ Replace the contents of **Program.cs** with the following code:
         // Write details about the error to the console window
         Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
         Console.WriteLine(eventArgs.Exception.Message);
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     ```
@@ -391,6 +397,13 @@ Replace the contents of **Program.cs** with the following code:
 5. In the Azure portal, you can verify that there are three outgoing messages, which Event Hubs sent to the receiving application. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
+
+## Schema validation for Event Hubs SDK based applications
+
+You can use Azure Schema Registry to perform schema validation when you stream data with your Event Hubs SDK-based applications. 
+Azure Schema Registry of Event Hubs provides a centralized repository for managing schemas and you can seamlessly connect your new or existing applications with Schema Registry. 
+
+To learn more, see [Validate schemas with Event Hubs SDK](schema-registry-dotnet-send-receive-quickstart.md). 
 
 ## Clean up resources
 Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 

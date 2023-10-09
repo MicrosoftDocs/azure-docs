@@ -2,7 +2,7 @@
 title: How to migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
@@ -187,7 +187,7 @@ When you use Application Configuration Service for Tanzu with a Git backend, you
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to bind apps to Application Configuration Service for VMware Tanzu®.
+Use the following steps to bind apps to Application Configuration Service for VMware Tanzu.
 
 1. In your Azure Spring Apps Enterprise instance, select **Application Configuration Service** in the navigation pane.
 
@@ -199,7 +199,7 @@ Use the following steps to bind apps to Application Configuration Service for VM
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry:
+Use the following commands to bind apps to Application Configuration Service for VMware Tanzu and VMware Tanzu Service Registry:
 
 ```azurecli
 az spring application-configuration-service bind --app api-gateway
@@ -212,7 +212,7 @@ For more information, see [Use Application Configuration Service for Tanzu](./ho
 
 ## Using Service Registry for Tanzu
 
-[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
+[Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.1/spring-cloud-services/GUID-service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
 
 | Component        | Standard plan                                                        | Enterprise plan                                                                   |
 |------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
@@ -220,7 +220,7 @@ For more information, see [Use Application Configuration Service for Tanzu](./ho
 
 ## Bind an application to Tanzu Service Registry
 
-To bind apps to Application Configuration Service for VMware Tanzu®, follow these steps.
+To bind apps to Application Configuration Service for VMware Tanzu, follow these steps.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -236,7 +236,7 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry:
+Use the following commands to bind apps to Application Configuration Service for VMware Tanzu and VMware Tanzu Service Registry:
 
 ```azurecli
 az spring service-registry bind --app api-gateway

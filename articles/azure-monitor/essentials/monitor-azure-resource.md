@@ -4,7 +4,7 @@ description: This article describes how to collect and analyze monitoring data f
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/15/2021
+ms.date: 07/17/2023
 ms.reviewer: robb
 
 ---
@@ -34,7 +34,7 @@ As soon as you create an Azure resource, Azure Monitor is enabled and starts col
 - [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time-series database. The metric database is automatically created for each Azure subscription. Use [Metrics Explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Metrics.
 - [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in different ways by using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/log-analytics-tutorial.md) to analyze data from Azure Monitor Logs.
 
-### <a id="monitoring-data-from-azure-resources"></a> Monitor data from Azure resources
+### Monitoring data from Azure resources
 
 While resources from different Azure services have different monitoring requirements, they generate monitoring data in the same formats so that you can use the same Azure Monitor tools to analyze all Azure resources.
 

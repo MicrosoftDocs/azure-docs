@@ -1,19 +1,18 @@
 ---
 title: Append data to a blob with .NET
 titleSuffix: Azure Storage
-description: Learn how to append data to a blob in Azure Storage by using the.NET client library. 
+description: Learn how to append data to an append blob in Azure Storage by using the.NET client library. 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.date: 09/01/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp, python
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-csharp, devx-track-dotnet, devguide-csharp
 ---
 
-# Append data to a blob in Azure Storage using the .NET client library
+# Append data to an append blob with .NET
 
 You can append data to a blob by creating an append blob. Append blobs are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
 
@@ -37,48 +36,28 @@ Use either of these methods to append data to that append blob:
 The maximum size in bytes of each append operation is defined by the [AppendBlobMaxAppendBlockBytes](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.appendblobmaxappendblockbytes) property. The following example creates an append blob and appends log data to that blob. This example uses the [AppendBlobMaxAppendBlockBytes](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.appendblobmaxappendblockbytes) property to determine whether multiple append operations are required.
 
 ```csharp
-public static async void AppendToBlob
-    (BlobContainerClient containerClient, MemoryStream logEntryStream, string LogBlobName)
+static async Task AppendToBlob(
+    BlobContainerClient containerClient,
+    MemoryStream logEntryStream,
+    string logBlobName)
 {
-    AppendBlobClient appendBlobClient = containerClient.GetAppendBlobClient(LogBlobName);
+    AppendBlobClient appendBlobClient = containerClient.GetAppendBlobClient(logBlobName);
 
-    appendBlobClient.CreateIfNotExists();
+    await appendBlobClient.CreateIfNotExistsAsync();
 
-        var maxBlockSize = appendBlobClient.AppendBlobMaxAppendBlockBytes;
-    
-        var buffer = new byte[maxBlockSize];
-
-    if (logEntryStream.Length <= maxBlockSize)
+    int maxBlockSize = appendBlobClient.AppendBlobMaxAppendBlockBytes;
+    long bytesLeft = logEntryStream.Length;
+    byte[] buffer = new byte[maxBlockSize];
+    while (bytesLeft > 0)
     {
-        appendBlobClient.AppendBlock(logEntryStream);
-    }
-    else
-    {
-        var bytesLeft = (logEntryStream.Length - logEntryStream.Position);
-
-        while (bytesLeft > 0)
+        int blockSize = (int)Math.Min(bytesLeft, maxBlockSize);
+        int bytesRead = await logEntryStream.ReadAsync(buffer.AsMemory(0, blockSize));
+        await using (MemoryStream memoryStream = new MemoryStream(buffer, 0, bytesRead))
         {
-            if (bytesLeft >= maxBlockSize)
-            {
-                buffer = new byte[maxBlockSize];
-                await logEntryStream.ReadAsync
-                    (buffer, 0, maxBlockSize);
-            }
-            else
-            {
-                buffer = new byte[bytesLeft];
-                await logEntryStream.ReadAsync
-                    (buffer, 0, Convert.ToInt32(bytesLeft));
-            }
-
-            appendBlobClient.AppendBlock(new MemoryStream(buffer));
-
-            bytesLeft = (logEntryStream.Length - logEntryStream.Position);
-
+            await appendBlobClient.AppendBlockAsync(memoryStream);
         }
-
+        bytesLeft -= bytesRead;
     }
-
 }
 ```
 

@@ -24,7 +24,7 @@ The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a W
 Using an authentication broker such as WAM has numerous benefits:
 
 - Enhanced security. See [Token protection](/azure/active-directory/conditional-access/concept-token-protection).
-- Support for Windows Hello, conditional access, and FIDO keys.
+- Support for Windows Hello, Conditional Access, and FIDO keys.
 - Integration with the Windows **Email & accounts** view.
 - Fast single sign-on.
 - Ability to sign in silently with the current Windows account.

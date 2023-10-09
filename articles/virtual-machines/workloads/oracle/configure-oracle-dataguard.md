@@ -1,10 +1,10 @@
 ---
-title: Implement Oracle Data Guard on a Linux-based Azure virtual machine | Microsoft Docs
+title: Implement Oracle Data Guard on a Linux-based Azure virtual machine 
 description: Quickly get Oracle Data Guard up and running in your Azure environment.
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2023
@@ -183,19 +183,22 @@ Now, you'll access `OracleVM1` by using the Azure Bastion service from the [Azur
 
 In the search box at the top of the window, enter **OracleVM1**. In the list of results, select **OracleVM1** to open that VM.
 
-![Screenshot of the search box and the results for the first Oracle VM.](./media/configure-oracle-dataguard/search-oraclevm1.png)
+:::image type="content" source="./media/configure-oracle-dataguard/search-oraclevm1.png" alt-text="Diagram showing the search box and the results for the first Oracle VM." lightbox="./media/configure-oracle-dataguard/search-oraclevm1.png":::
+
 
 At the top of the pane, select **Connect** > **Bastion**.
 
-![Screenshot of selections for connecting via Azure Bastion.](./media/configure-oracle-dataguard/connect-bastion.png)
+:::image type="content" source="./media/configure-oracle-dataguard/connect-bastion.png" alt-text="Diagram showing the selections for connecting via Azure Bastion." lightbox="./media/configure-oracle-dataguard/connect-bastion.png":::
 
 Enter the username and password, and then select the **Connect** button.
 
-![Screenshot of entering credentials to connect via Azure Bastion.](./media/configure-oracle-dataguard/connect-bastion-credentials.png)
+
+:::image type="content" source="./media/configure-oracle-dataguard/connect-bastion-credentials.png" alt-text="Diagram showing how to enter credentials to connect via Azure Bastion." lightbox="./media/configure-oracle-dataguard/connect-bastion-credentials.png":::
+
 
 A new tab opens with a secure connection to your virtual machine, where the Oracle software is already installed from an Azure Marketplace image.
 
-![Screenshot of a connection via Azure Bastion in a browser.](./media/configure-oracle-dataguard/connect-bastion-browser-tab.png)
+:::image type="content" source="./media/configure-oracle-dataguard/connect-bastion-browser-tab.png" alt-text="Diagram showing a connection via Azure Bastion in a browser." lightbox="./media/configure-oracle-dataguard/connect-bastion-browser-tab.png":::
 
 ### Configure OracleVM1 (primary)
 
@@ -420,7 +423,8 @@ Return to the Azure portal. Search for **OracleVM2**, and then select the resour
 
 At the top of the pane, select **Connect** > **Bastion**.
 
-![Screenshot of selections for connecting through Azure Bastion.](./media/configure-oracle-dataguard/connect-bastion.png)
+:::image type="content" source="./media/configure-oracle-dataguard/connect-bastion.png" alt-text="Diagram showing selections for connecting through Azure Bastion." lightbox="./media/configure-oracle-dataguard/connect-bastion.png":::
+
 
 Enter the username and password, and then select the **Connect** button.
 
@@ -542,8 +546,9 @@ $ mkdir -p /u01/app/oracle/admin/cdb1/adump
 
 Create a password file:
 
+
 ```bash
-$ orapwd file=/u01/app/oracle/product/19.0.0/dbhome_1/dbs/orapwcdb1 password=OracleLab123 entries=10 format=
+$ orapwd file=/u01/app/oracle/product/19.0.0/dbhome_1/dbs/orapwcdb1 password=OracleLab123 entries=10 force=y
 ```
 
 Start the database on `OracleVM2`:

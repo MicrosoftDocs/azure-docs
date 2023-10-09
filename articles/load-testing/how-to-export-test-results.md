@@ -39,7 +39,8 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 ```
 
 ## Access and download load test results
-
+>[!IMPORTANT]
+>For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file will not be available for download. You can configure a [JMeter Backend Listener](#export-test-results-using-jmeter-backend-listeners) to export the results to a data store of your choice. 
 # [Azure portal](#tab/portal)
 
 To download the test results for a test run in the Azure portal:
@@ -133,6 +134,15 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
 
     :::image type="content" source="./media/how-to-export-test-results/azure-pipelines-run-summary.png" alt-text="Screenshot that shows the Azure Pipelines workflow summary page, highlighting the test results in the Stages section." lightbox="./media/how-to-export-test-results/azure-pipelines-run-summary.png":::
 ---
+## Export test results using JMeter Backend Listeners
+You can use [JMeter Backend Listeners](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) to export test results to databases like InfluxDB, MySQL or monitoring tools like AppInsights. 
+
+You can use the backend listeners available by default in JMeter, backend listeners from [jmeter-plugins.org](https://jmeter-plugins.org), or a custom backend listener in the form of a Java archive (JAR) file. 
+
+A sample JMeter script that uses a [backend listener for Azure Application Insights](https://github.com/adrianmo/jmeter-backend-azure) is available [here](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
+
+The following code snippet shows an example of a backend listener, for Azure Application Insights, in a JMX file:
+:::code language="xml" source="~/azure-load-testing-samples/jmeter-backend-listeners/sample-backend-listener-appinsights.jmx" range="85-126" :::
 
 ## Next steps
 

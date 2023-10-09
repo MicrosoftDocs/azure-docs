@@ -6,8 +6,8 @@ author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual 
 ms.date: 03/22/2022
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: ignite-2022
 ---
 

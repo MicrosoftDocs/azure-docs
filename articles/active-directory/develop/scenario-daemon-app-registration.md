@@ -22,7 +22,7 @@ For a daemon application, here's what you need to know when you register the app
 
 ## Supported account types
 
-Daemon applications make sense only in Azure Active Directory (Azure AD) tenants. So when you create the application, choose one of the following options:
+Daemon applications make sense only in Microsoft Entra tenants. So when you create the application, choose one of the following options:
 
 - **Accounts in this organizational directory only**. This choice is the most common one because daemon applications are written by line-of-business (LOB) developers.
 - **Accounts in any organizational directory**. You'll make this choice if you're an Independent Software Vendor (ISV) providing a utility tool to your customers. You'll need your customers' tenant admins to approve it.
@@ -43,7 +43,7 @@ Daemon applications require that a tenant admin pre-consent to the application c
 
 If you're an ISV building a multitenant application, you should read the section [Deployment - case of multitenant daemon apps](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

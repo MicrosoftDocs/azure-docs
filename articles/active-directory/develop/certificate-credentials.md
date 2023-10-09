@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/27/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
@@ -21,7 +21,7 @@ The Microsoft identity platform allows an application to use its own credentials
 
 One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns. This is described in the [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) specification for the `private_key_jwt` client authentication option.
 
-If you're interested in using a JWT issued by another identity provider as a credential for your application, please see [workload identity federation](workload-identity-federation.md) for how to set up a federation policy.
+If you're interested in using a JWT issued by another identity provider as a credential for your application, please see [workload identity federation](../workload-identities/workload-identity-federation.md) for how to set up a federation policy.
 
 ## Assertion format
 
@@ -39,8 +39,8 @@ To compute the assertion, you can use one of the many JWT libraries in the langu
 
 Claim type | Value | Description
 ---------- | ---------- | ----------
-`aud` | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` | The "aud" (audience) claim identifies the recipients that the JWT is intended for (here Azure AD) See [RFC 7519, Section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In this case, that recipient is the login server (login.microsoftonline.com).
-`exp` | 1601519414 | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT **must not** be accepted for processing. See [RFC 7519, Section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  This allows the assertion to be used until then, so keep it short - 5-10 minutes after `nbf` at most.  Azure AD does not place restrictions on the `exp` time currently. 
+`aud` | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` | The "aud" (audience) claim identifies the recipients that the JWT is intended for (here Microsoft Entra ID) See [RFC 7519, Section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In this case, that recipient is the login server (login.microsoftonline.com).
+`exp` | 1601519414 | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT **must not** be accepted for processing. See [RFC 7519, Section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  This allows the assertion to be used until then, so keep it short - 5-10 minutes after `nbf` at most.  Microsoft Entra ID does not place restrictions on the `exp` time currently. 
 `iss` | {ClientID} | The "iss" (issuer) claim identifies the principal that issued the JWT, in this case your client application. Use the GUID application ID.
 `jti` | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value **must** be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well. The "jti" value is a case-sensitive string. [RFC 7519, Section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
 `nbf` | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5). Using the current time is appropriate. 
@@ -87,7 +87,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## Register your certificate with Microsoft identity platform
 
-You can associate the certificate credential with the client application in the Microsoft identity platform through the Azure portal using any of the following methods:
+You can associate the certificate credential with the client application in the Microsoft identity platform through the Microsoft Entra admin center using any of the following methods:
 
 ### Uploading the certificate file
 
@@ -138,4 +138,4 @@ Client assertions can be used anywhere a client secret would be used. For exampl
 
 The [MSAL.NET library handles this scenario](msal-net-client-assertions.md) in a single line of code.
 
-The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.
+The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.

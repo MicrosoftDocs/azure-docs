@@ -39,11 +39,11 @@ Follow these steps to configure single sign-on using an existing Identity Provid
 1. Configure your existing identity provider to allow redirects back to Spring Cloud Gateway for VMware Tanzu and API portal for VMware Tanzu. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API portal has two URIs for supporting the user interface and underlying API. The following commands retrieve these URIs that you add to your single sign-on provider's configuration.
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
-   PORTAL_URL=$(az spring api-portal show \
+   export PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
@@ -74,7 +74,7 @@ To register the application with Azure Active Directory, follow these steps. If 
 1. Use the following command to retrieve the application ID and collect the client secret:
 
    ```azurecli
-   APPLICATION_ID=$(cat ad.json | jq -r '.appId')
+   export APPLICATION_ID=$(cat ad.json | jq -r '.appId')
    az ad app credential reset --id ${APPLICATION_ID} --append > sso.json
    ```
 
@@ -87,13 +87,13 @@ To register the application with Azure Active Directory, follow these steps. If 
 1. Use the following commands to retrieve the URLs for Spring Cloud Gateway and API portal, and add the necessary Reply URLs to the Active Directory App Registration.
 
    ```azurecli
-   APPLICATION_ID=$(cat ad.json | jq -r '.appId')
+   export APPLICATION_ID=$(cat ad.json | jq -r '.appId')
 
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
-   PORTAL_URL=$(az spring api-portal show \
+   export PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
@@ -117,14 +117,14 @@ To register the application with Azure Active Directory, follow these steps. If 
 1. Use the following command to retrieve the `Issuer URI`. Save the output to use later in this quickstart.
 
    ```bash
-   TENANT_ID=$(cat sso.json | jq -r '.tenant')
+   export TENANT_ID=$(cat sso.json | jq -r '.tenant')
    echo "https://login.microsoftonline.com/${TENANT_ID}/v2.0"
    ```
 
 1. Retrieve the `JWK URI` from the output of the following command. The Identity Service application uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by Active Directory.
 
    ```bash
-   TENANT_ID=$(cat sso.json | jq -r '.tenant')
+   export TENANT_ID=$(cat sso.json | jq -r '.tenant')
    echo "https://login.microsoftonline.com/${TENANT_ID}/discovery/v2.0/keys"
    ```
 
@@ -182,7 +182,7 @@ To complete the single sign-on experience, use the following steps to deploy the
        --name identity-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name identity-service \
-       --routes-file azure/routes/identity-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/identity-service.json
    ```
 
 ## Configure single sign-on for Spring Cloud Gateway
@@ -192,7 +192,7 @@ You can configure Spring Cloud Gateway to authenticate requests using single sig
 1. Use the following commands to configure Spring Cloud Gateway to use single sign-on:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
@@ -243,7 +243,7 @@ You can configure Spring Cloud Gateway to authenticate requests using single sig
 You can configure API portal for VMware Tanzu to use single sign-on to require authentication before exploring APIs. Use the following commands to configure single sign-on for API portal:
 
 ```azurecli
-PORTAL_URL=$(az spring api-portal show \
+export PORTAL_URL=$(az spring api-portal show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
@@ -259,7 +259,7 @@ az spring api-portal update \
 Use the following commands to retrieve the URL for API portal:
 
 ```azurecli
-PORTAL_URL=$(az spring api-portal show \
+export PORTAL_URL=$(az spring api-portal show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 

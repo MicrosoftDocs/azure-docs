@@ -4,6 +4,7 @@ titleSuffix: Azure Web PubSub Service
 description: How to secure Azure Web PubSub outbound traffic through shared private endpoints
 author: ArchangelSDY
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/27/2023
 ms.author: dayshen
@@ -192,7 +193,7 @@ When the `properties.provisioningState` is `Succeeded` and `properties.status` (
 
 At this point, the private endpoint between Azure Web PubSub Service and Azure Function is established.
 
-### Step 4: Verify upstream calls are from a private IP
+## Step 4: Verify upstream calls are from a private IP
 
 Once the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header at upstream side.
 

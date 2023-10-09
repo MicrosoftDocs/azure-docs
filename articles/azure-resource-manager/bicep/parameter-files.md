@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/26/2023
+ms.date: 09/12/2023
 ---
 
 # Create parameters files for Bicep deployment
@@ -11,7 +11,7 @@ ms.date: 06/26/2023
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, and [Azure CLI](/azure/install-azure-cli.md) version 2.47.0 or newer.
+> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or newer.
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the `using` statement within the Bicep parameters file. For more information, see [Bicep parameters file](#parameters-file).
 
@@ -45,6 +45,35 @@ You can reference environment variables as parameter values. For example:
 using './main.bicep'
 
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
+```
+
+You can define and use variables. Bicep CLI version 0.21.1 or newer is required for using variables in .bicepparam file.  Here are some examples:
+
+```bicep
+using './main.bicep'
+
+var storagePrefix = 'myStorage'
+param primaryStorageName = '${storagePrefix}Primary'
+param secondaryStorageName = '${storagePrefix}Secondary'
+```
+
+```bicep
+using './main.bicep'
+
+var testSettings = {
+  instanceSize: 'Small'
+  instanceCount: 1
+}
+
+var prodSettings = {
+  instanceSize: 'Large'
+  instanceCount: 4
+}
+
+param environmentSettings = {
+  test: testSettings
+  prod: prodSettings
+}
 ```
 
 # [JSON parameters file](#tab/JSON)
@@ -303,7 +332,7 @@ From Bicep CLI, you can build a Bicep parameters file into a JSON parameters fil
 
 ## Deploy Bicep file with parameters file
 
-From Azure CLI, pass a local parameters file using `@` and the parameters file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
+From Azure CLI, you can pass both a json based local parameters file using `@` and the parameters file name and a .bicepparam based local parameters file just using the file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \

@@ -16,7 +16,7 @@ ms.custom: how-to, devplatv2
 
 # Deploy models for scoring in batch endpoints
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints provide a convenient way to deploy models to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. We call this type of deployments *model deployments*.
 
@@ -34,7 +34,7 @@ In this article, you'll learn how to use batch endpoints to deploy a machine lea
 
 In this example, we're going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we're going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. In the second half, [we're going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples-with-studio.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples-with-studio.md)]
 
 The files for this example are in:
 
@@ -48,7 +48,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs-studio](../../includes/machine-learning/azureml-batch-prereqs-with-studio.md)]
+[!INCLUDE [machine-learning-batch-prereqs-studio](includes/azureml-batch-prereqs-with-studio.md)]
 
 ### Create compute
 
@@ -276,6 +276,7 @@ A model deployment is a set of resources required for hosting the model that doe
     | `settings.retry_settings.timeout` | [Optional] The timeout in seconds for a `scoring_script` `run()` for scoring a mini batch. |
     | `settings.error_threshold` | [Optional] The number of input file scoring failures that should be ignored. If the error count for the entire input goes above this value, the batch scoring job will be terminated. The example uses `-1`, which indicates that any number of failures is allowed without terminating the batch scoring job. | 
     | `settings.logging_level` | [Optional] Log verbosity. Values in increasing verbosity are: WARNING, INFO, and DEBUG. |
+    | `settings.environment_variables` | [Optional] Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
     
     # [Python](#tab/python)
     
@@ -302,7 +303,7 @@ A model deployment is a set of resources required for hosting the model that doe
     | `settings.retry_settingstimeout` | The timeout in seconds for scoring a mini batch (default is 30) |
     | `settings.output_action` | Indicates how the output should be organized in the output file. Allowed values are `append_row` or `summary_only`. Default is `append_row` |
     | `settings.logging_level` | The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`. |
-    | `environment_variables` | Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
+    | `settings.environment_variables` | Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
 
     # [Studio](#tab/studio)
    
@@ -406,9 +407,9 @@ A model deployment is a set of resources required for hosting the model that doe
     
 ## Run batch endpoints and access results
 
-Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. 
+Invoking a batch endpoint triggers a batch scoring job. The job `name` will be returned from the invoke response and can be used to track the batch scoring progress. When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account.
 
-When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account:
+You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning SDK, or REST endpoints. Read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md) for details about all the options.
 
 > [!NOTE]
 > __How does parallelization work?__:
@@ -450,12 +451,6 @@ When running models for scoring in Batch Endpoints, you need to indicate the inp
 ---
 
 Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
-
-> [!TIP]
-> Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
-
-> [!IMPORTANT]
-> __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
 
 ### Monitor batch job execution progress
 

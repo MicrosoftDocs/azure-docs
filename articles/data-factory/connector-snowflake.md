@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/28/2022
+ms.date: 08/07/2023
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -272,7 +272,7 @@ If your sink data store and format meet the criteria described in this section, 
 
 #### Staged copy from Snowflake
 
-When your sink data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you better throughput. The service exports data from Snowflake into staging storage, then copies the data to sink, and finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data by using staging.
+When your sink data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you with better throughput. The service exports data from Snowflake into staging storage, then copies the data to sink, and finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data by using staging.
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
@@ -418,7 +418,7 @@ If your source data store and format meet the criteria described in this section
 
 #### Staged copy to Snowflake
 
-When your source data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you better throughput. The service automatically converts the data to meet the data format requirements of Snowflake. It then invokes the COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data using staging.
+When your source data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you with better throughput. The service automatically converts the data to meet the data format requirements of Snowflake. It then invokes the COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data using staging.
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
@@ -479,6 +479,12 @@ The below table lists the properties supported by Snowflake source. You can edit
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Table | If you select Table as input, data flow will fetch all the data from the table specified in the Snowflake dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName<br>schemaName |
 | Query | If you select Query as input, enter a query to fetch data from Snowflake. This setting overrides any table that you've chosen in dataset.<br>If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`. | No | String | query |
+| Enable incremental extract (Preview) | Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed. | No | Boolean | enableCdc |
+| Incremental Column | When using the incremental extract feature, you must choose the date/time/numeric column that you wish to use as the watermark in your source table. | No | String | waterMarkColumn |
+| Enable Snowflake Change Tracking (Preview) | This option enables ADF to leverage Snowflake change data capture technology to process only the delta data since the previous pipeline execution. This option automatically loads the delta data with row insert, update and deletion operations without requiring any incremental column. | No | Boolean | enableNativeCdc |
+| Net Changes | When using snowflake change tracking, you can use this option to get deduped changed rows or exhaustive changes. Deduped changed rows will show only the latest versions of the rows that have changed since a given point in time, while exhaustive changes will show you all the versions of each row that has changed, including the ones that were deleted or updated. For example, if you update a row, you will see a delete version and an insert version in exhaustive changes, but only the insert version in deduped changed rows. Depending on your use case, you can choose the option that suits your needs. The default option is false, which means exhaustive changes. | No | Boolean | netChanges |
+| Include system Columns | When using snowflake change tracking, you can use the systemColumns option to control whether the metadata stream columns provided by Snowflake are included or excluded in the change tracking output. By default, systemColumns is set to true, which means the metadata stream columns are included. You can set systemColumns to false if you want to exclude them. | No | Boolean | systemColumns |
+| Start reading from beginning | Setting this option with incremental extract and change tracking will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on. | No | Boolean | skipInitialLoad |
 
 #### Snowflake source script examples
 
@@ -500,6 +506,10 @@ source(allowSchemaDrift: true,
 	query: 'select * from MYTABLE',
 	store: 'snowflake') ~> SnowflakeSource
 ```
+### Native Change Tracking
+
+Azure Data Factory now supports a native feature in Snowflake known as change tracking, which involves tracking changes in the form of logs. This feature of snowflake allows us to track the changes in the data over time making it useful for incremental data loading and auditing purpose. To utilize this feature, when you enable Change data capture and select the Snowflake Change Tracking, we create a Stream object for the source table that enables change tracking on source snowflake table. Subsequently, we use the CHANGES clause in our query to fetch only the new or updated data from source table. Also, it is recommended to schedule pipeline such that changes are consumed within interval of [data retention time](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days) set for snowflake source table else user might see inconsistent behavior in captured changes.
+
 
 ### Sink transformation
 
@@ -544,6 +554,12 @@ IncomingStream sink(allowSchemaDrift: true,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
+#### Query Pushdown optimization
+By setting the pipeline Logging Level to None, we exclude the transmission of intermediate transformation metrics, preventing potential hindrances to Spark optimizations and enabling query pushdown optimization provided by Snowflake. This pushdown optimization allows substantial performance enhancements for large Snowflake tables with extensive datasets.
+
+
+> [!NOTE]
+> We don’t support temporary tables in Snowflake, as they are local to the session or user who creates them, making them inaccessible to other sessions and prone to being overwritten as regular tables by Snowflake. While Snowflake offers transient tables as an alternative, which are accessible globally, they require manual deletion, contradicting our primary objective of using Temp tables which is to avoid any delete operations in source schema.
 
 ## Lookup activity properties
 

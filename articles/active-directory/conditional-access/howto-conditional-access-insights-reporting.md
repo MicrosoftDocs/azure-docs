@@ -1,6 +1,6 @@
 ---
 title: Conditional Access insights and reporting workbook
-description: Using the Azure AD Conditional Access insights and reporting workbook to troubleshoot policies
+description: Using the Microsoft Entra Conditional Access insights and reporting workbook to troubleshoot policies
 
 services: active-directory
 ms.service: active-directory
@@ -21,23 +21,25 @@ The Conditional Access insights and reporting workbook enables you to understand
 
 ## Prerequisites
 
-To enable the insights and reporting workbook, your tenant must have a Log Analytics workspace to retain sign-in logs data. Users must have Azure AD Premium P1 or P2 licenses to use Conditional Access.
+To enable the insights and reporting workbook, your tenant must have a Log Analytics workspace to retain sign-in logs data. Users must have Microsoft Entra ID P1 or P2 licenses to use Conditional Access.
 
 Users must have at least the Security Reader role assigned and Log Analytics workspace Contributor roles assigned.
 
-### Stream sign-in logs from Azure AD to Azure Monitor logs 
+<a name='stream-sign-in-logs-from-azure-ad-to-azure-monitor-logs-'></a>
 
-If you haven't integrated Azure AD logs with Azure Monitor logs, you need to take the following steps before the workbook loads:  
+### Stream sign-in logs from Microsoft Entra ID to Azure Monitor logs 
+
+If you haven't integrated Microsoft Entra ID logs with Azure Monitor logs, you need to take the following steps before the workbook loads:  
 
 1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
-1. [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+1. [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## How it works 
 
 To access the insights and reporting workbook:  
 
-1. Sign in to the **Azure portal**.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Insights and reporting**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Insights and reporting**.
 
 ### Get started: Select parameters 
 
@@ -47,7 +49,7 @@ The insights and reporting dashboard lets you see the impact of one or more Cond
 
 **Conditional Access policy**: Select one or more Conditional Access policies to view their combined impact. Policies are separated into two groups: Enabled and Report-only policies. By default, all Enabled policies are selected. These enabled policies are the policies currently enforced in your tenant.  
 
-**Time range**: Select a time range from 4 hours to as far back as 90 days. If you select a time range further back than when you integrated the Azure AD logs with Azure Monitor, only sign-ins after the time of integration appear.  
+**Time range**: Select a time range from 4 hours to as far back as 90 days. If you select a time range further back than when you integrated the Microsoft Entra ID logs with Azure Monitor, only sign-ins after the time of integration appear.  
 
 **User**: By default, the dashboard shows the impact of the selected policies for all users. To filter by an individual user, type the name of the user into the text field. To filter by all users, type “All users” into the text field or leave the parameter empty. 
 
@@ -90,8 +92,8 @@ You can also investigate the sign-ins of a specific user by searching for sign-i
 
 To configure a Conditional Access policy in report-only mode:
 
-1. Sign into the **Azure portal** as a Conditional Access Administrator, security administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select an existing policy or create a new policy.
 1. Under **Enable policy** set the toggle to **Report-only** mode.
 1. Select **Save**
@@ -103,16 +105,16 @@ To configure a Conditional Access policy in report-only mode:
 
 ### Why are queries failing due to a permissions error?
 
-In order to access the workbook, you need the proper Azure AD permissions and Log Analytics workspace permissions. To test whether you have the proper workspace permissions by running a sample log analytics query:
+In order to access the workbook, you need the proper permissions in Microsoft Entra ID and Log Analytics. To test whether you have the proper workspace permissions by running a sample log analytics query:
 
-1. Sign in to the **Azure portal**.
-1. Browse to **Azure Active Directory** > **Log Analytics**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics**.
 1. Type `SigninLogs` into the query box and select **Run**.
 1. If the query doesn't return any results, your workspace may not have been configured correctly. 
 
 ![Screenshot showing how to troubleshoot failing queries.](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
-For more information about how to stream Azure AD sign-in logs to a Log Analytics workspace, see the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ### Why are the queries in the workbook failing?
 
@@ -132,16 +134,16 @@ When the volume of sign-ins exceeds the query capacity of Log Analytics, the wor
 
 ### Can I save my parameter selections?  
 
-You can save your parameter selections at the top of the workbook by going to **Azure Active Directory** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. 
+You can save your parameter selections at the top of the workbook by going to **Identity** > **Monitoring & health** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. 
 
 ### Can I edit and customize the workbook with other queries? 
 
-You can edit and customize the workbook by going to **Azure Active Directory** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. To start editing the queries, select **Edit** at the top of the workbook.  
+You can edit and customize the workbook by going to **Identity** > **Monitoring & health** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. To start editing the queries, select **Edit** at the top of the workbook.  
  
 ## Next steps
 
 - [Conditional Access report-only mode](concept-conditional-access-report-only.md)
 
-- For more information about Azure AD workbooks, see the article, [How to use Azure Monitor workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+- For more information about Microsoft Entra workbooks, see the article, [How to use Azure Monitor workbooks for Microsoft Entra ID reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)

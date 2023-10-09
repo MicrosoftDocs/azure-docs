@@ -22,6 +22,7 @@ For more information, see [Multitenant Hosting for Windows 11](https://www.micro
 > - To use Windows 7, 8.1 and 10 images for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
 > - Student & Free Trial accounts are enabled to deploy Windows 11 images for development or testing purposes.
 > - For Windows Server licensing benefits, please refer to [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
+> - When selecting a VM size, ensure the size meets the [Windows 11 hardware minimum requirements](/windows-hardware/design/minimum/minimum-hardware-requirements-overview)
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 

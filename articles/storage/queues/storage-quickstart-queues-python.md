@@ -7,8 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, py-fresh-zinc, passwordless-python
 ---
@@ -34,7 +33,7 @@ Use the Azure Queue Storage client library for Python to:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.7+
 
 ## Setting up
 

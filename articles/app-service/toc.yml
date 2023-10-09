@@ -2,14 +2,14 @@
   href: index.yml
 - name: Get started
   items:
-    - name: Getting started
-      href: getting-started.md
-    - name: About App Service
-      href: overview.md
-    - name: About App Service Environments
-      href: environment/overview.md
-    - name: Compare web hosting options
-      href: /azure/architecture/guide/technology-choices/compute-decision-tree
+  - name: Getting started
+    href: getting-started.md
+  - name: About App Service
+    href: overview.md
+  - name: About App Service Environments
+    href: environment/overview.md
+  - name: Compare web hosting options
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
@@ -29,7 +29,9 @@
       href: quickstart-wordpress.md
     - name: Deploy Go (experimental)
       href: quickstart-golang.md
-- name: Deployment
+    - name: Deploy a custom container
+      href: quickstart-custom-container.md
+- name: Deployment and configuration
   items:
     - name: Deployment best practices
       href: deploy-best-practices.md
@@ -55,7 +57,7 @@
           href: configure-language-java.md
         - name: Configure Ruby
           href: configure-language-ruby.md
-    - name: Deploy an app
+    - name: Deployment methods
       items:
         - name: Use ZIP or WAR
           href: deploy-zip.md
@@ -77,6 +79,8 @@
           href: deploy-run-package.md
         - name: Use cloud sync
           href: deploy-content-sync.md
+    - name: Authentication for deployment
+      href: deploy-authentication-types.md
     - name: Set deployment credentials
       href: deploy-configure-credentials.md
     - name: Create staging environments
@@ -138,6 +142,8 @@
           href: configure-ssl-bindings.md
         - name: Add TLS/SSL cert
           href: configure-ssl-certificate.md
+        - name: Buy App Service cert
+          href: configure-ssl-app-service-certificate.md
         - name: Use TLS/SSL cert in code
           href: configure-ssl-certificate-in-code.md
         - name: Configure TLS mutual authentication
@@ -172,7 +178,7 @@
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
-            - name: Connect to Cognitive Services with secrets in Key Vault
+            - name: Connect to Azure AI services with secrets in Key Vault
               items: 
               - name: Use .NET
                 href: tutorial-connect-msi-key-vault.md
@@ -323,17 +329,19 @@
             - name: Configure gateway-required integration
               href: configure-gateway-required-vnet-integration.md
         - name: Deploy app behind private endpoint
-          href: networking/private-endpoint.md
+          href: overview-private-endpoint.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
         - name: Integrate with Application Gateway
-          href: networking/app-gateway-with-service-endpoints.md
+          href: overview-app-gateway-integration.md
         - name: Integrate with NAT gateway
-          href: networking/nat-gateway-integration.md
+          href: overview-nat-gateway-integration.md
         - name: Integrate with Traffic Manager
           href: web-sites-traffic-manager.md
         - name: About hybrid connections
           href: app-service-hybrid-connections.md
+        - name: Real-time web apps
+          href: ../azure-web-pubsub/howto-integrate-app-service.md?toc=/azure/app-service/toc.json
     - name: Azure Policy built-ins reference
       displayName: samples, policies, definitions
       href: ./policy-reference.md
@@ -359,8 +367,6 @@
       href: overview-manage-costs.md
 - name: Custom containers
   items:
-    - name: Custom container quickstart
-      href: quickstart-custom-container.md
     - name: Configure custom container
       href: configure-custom-container.md
     - name: CI/CD to custom container
@@ -377,13 +383,13 @@
           href: app-service-sql-github-actions.md
         - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
-- name: Resiliency
+- name: Reliability
   items:
-  - name: About availability zones
-    href: ../availability-zones/migrate-app-service.md
-  - name: About disaster recovery
-    href: overview-disaster-recovery.md
-  - name: About DR backup region
+  - name: Reliability in Azure App Service
+    href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Migrate to availability zones
+    href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Move an App Service app to another region
     href: manage-disaster-recovery.md
 - name: Samples
   items:
@@ -511,8 +517,6 @@
           href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
         - name: Migrate Java
           href: app-service-java-migration.md
-        - name: Migrate Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate JBoss EAP

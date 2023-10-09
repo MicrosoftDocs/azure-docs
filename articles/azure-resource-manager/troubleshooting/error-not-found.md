@@ -101,19 +101,19 @@ When you see dependency problems, you need to gain insight into the order of res
 1. Sign in to the [portal](https://portal.azure.com).
 1. From the resource group's **Overview**, select the link for the deployment history.
 
-    :::image type="content" source="media/error-not-found/select-deployment.png" alt-text="Screenshot that highlights the link to a resource group's deployment history.":::
+    :::image type="content" source="media/error-not-found/select-deployment.png" alt-text="Screenshot of Azure portal highlighting the link to a resource group's deployment history in the Overview section.":::
 
 1. For the **Deployment name** you want to review, select **Related events**.
 
-    :::image type="content" source="media/error-not-found/select-deployment-events.png" alt-text="Screenshot that highlights the link to a deployment's related events.":::
+    :::image type="content" source="media/error-not-found/select-deployment-events.png" alt-text="Screenshot of Azure portal showing a deployment name with the Related events link highlighted in the deployment history.":::
 
 1. Examine the sequence of events for each resource. Pay attention to the status of each operation and it's time stamp. For example, the following image shows three storage accounts that deployed in parallel. Notice that the three storage account deployments started at the same time.
 
-    :::image type="content" source="media/error-not-found/deployment-events-parallel.png" alt-text="Screenshot of activity log for resources deployed in parallel.":::
+    :::image type="content" source="media/error-not-found/deployment-events-parallel.png" alt-text="Screenshot of Azure portal activity log displaying three storage accounts deployed in parallel, with their timestamps and statuses.":::
 
    The next image shows three storage accounts that aren't deployed in parallel. The second storage account depends on the first storage account, and the third storage account depends on the second storage account. The first storage account is labeled **Started**, **Accepted**, and **Succeeded** before the next is started.
 
-    :::image type="content" source="media/error-not-found/deployment-events-sequence.png" alt-text="Screenshot of activity log for resources deployed in sequential order.":::
+    :::image type="content" source="media/error-not-found/deployment-events-sequence.png" alt-text="Screenshot of Azure portal activity log displaying three storage accounts deployed in sequential order, with their timestamps and statuses.":::
 
 ## Solution 3: Get external resource
 
@@ -228,6 +228,6 @@ When you deploy a template, look for expressions that use the [reference](../tem
 
 When you delete a resource, there might be a short amount of time when the resource appears in the portal but isn't available. If you select the resource, you'll get an error that the resource is **Not found**.
 
-:::image type="content" source="media/error-not-found/resource-not-found-portal.png" alt-text="Screenshot of deleted resource in portal that shows resource not found.":::
+:::image type="content" source="media/error-not-found/resource-not-found-portal.png" alt-text="Screenshot of Azure portal showing a deleted resource with a 'Not found' error message in the resource's Overview section.":::
 
 Refresh the portal and the deleted resource should be removed from your list of available resources. If a deleted resource continues to be shown as available for more than a few minutes, [contact support](https://azure.microsoft.com/support/options/).

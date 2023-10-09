@@ -1,8 +1,8 @@
 ---
-title: Protect your APIs with Defender for APIs in Defender for Cloud (Preview)
+title: Protect your APIs with Defender for APIs
 description: Learn about deploying the Defender for APIs plan in Defender for Cloud
-author: elazark
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 06/29/2023

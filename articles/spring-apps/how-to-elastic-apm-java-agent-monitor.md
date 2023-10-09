@@ -1,7 +1,7 @@
 ---
 title:  How to monitor Spring Boot apps with Elastic APM Java Agent
 description: How to use Elastic APM Java Agent to monitor Spring Boot applications running in Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Apps.
 
@@ -72,7 +72,7 @@ Use the following steps to enable custom persistent storage:
 
 ## Activate Elastic APM Java Agent
 
-Before proceeding, you'll need your Elastic APM server connectivity information handy, which assumes you've deployed Elastic on Azure. For more information, see [How to deploy and manage Elastic on Microsoft Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement). To get this information, use the following steps:
+Before proceeding, you need your Elastic APM server connectivity information handy, which assumes you've deployed Elastic on Azure. For more information, see [How to deploy and manage Elastic on Microsoft Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement). To get this information, use the following steps:
 
 1. In the Azure portal, go to the **Overview** page of your Elastic deployment, then select **Manage Elastic Cloud Deployment**.
 
@@ -161,7 +161,7 @@ To configure the environment variables in an ARM template, add the following cod
 
 ## Upgrade Elastic APM Java Agent
 
-To plan your upgrade, see [Upgrade versions](https://www.elastic.co/guide/en/cloud/current/ec-upgrade-deployment.html) for Elastic Cloud on Azure, and [Breaking Changes](https://www.elastic.co/guide/en/apm/server/current/breaking-changes.html) for APM. After you've upgraded APM Server, upload the Elastic APM Java agent JAR file in the custom persistent storage and restart apps with updated JVM options pointing to the upgraded Elastic APM Java agent JAR.
+To plan your upgrade, see [Upgrade versions](https://www.elastic.co/guide/en/cloud/current/ec-upgrade-deployment.html) for Elastic Cloud on Azure, and [Breaking Changes](https://www.elastic.co/guide/en/apm/server/current/breaking-changes.html) for APM. After you've upgraded APM Server, upload the Elastic APM Java agent JAR file in the custom persistent storage. Then, restart your apps with the updated JVM options pointing to the upgraded Elastic APM Java agent JAR.
 
 ## Monitor applications and metrics with Elastic APM
 
@@ -175,7 +175,7 @@ Use the following steps to monitor applications and metrics:
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png" alt-text="Elastic / Kibana screenshot showing A P M search results." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png":::
 
-Kibana APM is the curated application to support Application Monitoring workflows. Here you can view high-level details such as request/response times, throughput, transactions in a service with most impact on the duration.
+Kibana APM is the curated application to support Application Monitoring workflows. Here you can view high-level details such as request/response times, throughput, and the transactions in a service with the most impact on the duration.
 
 :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png" alt-text="Elastic / Kibana screenshot showing A P M Services Overview page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png":::
 

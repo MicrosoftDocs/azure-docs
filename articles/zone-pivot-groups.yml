@@ -109,6 +109,15 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+- id: cloud-location
+  # Owner: lajanuar
+  title: Workflow
+  prompt: Choose a workflow
+  pivots:
+  - id: workflow-onedrive
+    title: OneDrive
+  - id: workflow-sharepoint
+    title: SharePoint
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -167,6 +176,10 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
+  - id: programming-language-nodejs
+    title: NodeJS
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-text-analytics
   title: Programming languages
   prompt: Choose one of the client library languages or REST API.
@@ -369,12 +382,12 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
   - id: programming-language-powershell
     title: PowerShell
   - id: programming-language-python
     title: Python
-  - id: programming-language-typescript
-    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -425,10 +438,10 @@ groups:
   title: Python mode
   prompt: Choose a Python programming model
   pivots:
-  - id: python-mode-configuration
-    title: v1
   - id: python-mode-decorators
     title: v2
+  - id: python-mode-configuration
+    title: v1
 - id: create-java-durable-options
   title: Create option
   prompt: Choose how to create the app
@@ -444,7 +457,7 @@ groups:
   prompt: Choose a programming model
   pivots:
   - id: nodejs-model-v4
-    title: v4 (preview)
+    title: v4
   - id: nodejs-model-v3
     title: v3
 - id: functions-container-hosting
@@ -457,6 +470,20 @@ groups:
     title: Azure Container Apps (preview)
   - id: azure-arc
     title: Azure Arc (preview)
+- id: df-languages
+  title: Durable Functions programming languages
+  prompt: Choose a programming language or runtime
+  pivots:
+  - id: csharp
+    title: C#
+  - id: javascript
+    title: JavaScript
+  - id: python
+    title: Python
+  - id: powershell
+    title: PowerShell
+  - id: java
+    title: Java
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -608,10 +635,24 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-cpp
     title: C++
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-vision-40-sdk
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-cpp
+    title: C++
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -705,6 +746,8 @@ groups:
   pivots:
   - id: programming-language-rest
     title: REST
+  - id: programming-language-csharp
+    title: C#
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-two-with-js-spx
@@ -826,6 +869,25 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
@@ -907,6 +969,18 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
+- id: programming-languages-set-twenty-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-spark-all-minus-sql
 # Owner: midesa
   title: Programming languages
@@ -1027,6 +1101,8 @@ groups:
     title: Azure PowerShell
   - id: development-environment-azure-portal
     title: Azure portal
+  - id: development-environment-azd
+    title: Azure Developer CLI
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
@@ -1054,18 +1130,16 @@ groups:
     title: Linux
   - id: platform-sphere
     title: Azure Sphere
-- id: app-service-platform-environment
-  title: App Service platform and development tool
-  prompt: Choose a hosting platform and development tool
+- id: app-service-java-hosting
+  title: App Service Java hosting
+  prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: platform-linux-development-environment-maven
-    title: Linux with Maven
-  - id: platform-linux-development-environment-azure-portal
-    title: Linux with Azure portal
-  - id: platform-windows-development-environment-maven
-    title: Windows with Maven
-  - id: platform-windows-development-environment-azure-portal
-    title: Windows with Azure portal
+  - id: java-maven-quarkus
+    title: Embed your own server
+  - id: java-maven-tomcat
+    title: To a Tomcat server
+  - id: java-maven-jboss
+    title: To a JBoss server
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform
@@ -1412,6 +1486,20 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
+- id: acs-plat-web-ios-android-windows-unity
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+  - id: platform-windows
+    title: Windows
+  - id: platform-unity
+    title: Unity
 - id: acs-plat-android-web-ios
   title: Platform
   prompt: Choose a platform
@@ -1667,12 +1755,16 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 - id: openai-chat
@@ -1701,6 +1793,8 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+  - id: ps
+    title: PowerShell
 # Owner: mbullwin
 - id: openai-fine-tuning
   title: Programming languages
@@ -1718,9 +1812,13 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Azure OpenAI Studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript 
   - id: rest-api
-    title: REST API
+    title: REST
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
@@ -1728,10 +1826,20 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Studio
-  - id: rest-api
-    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -2202,21 +2310,21 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-standard
-    title: Basic/Standard
   - id: sc-enterprise
     title: Enterprise
+  - id: sc-standard
+    title: Basic/Standard
 # Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
   - id: sc-standard
     title: Basic/Standard
-  - id: sc-enterprise
-    title: Enterprise
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
@@ -2276,7 +2384,7 @@ groups:
   - id: ms-powershell
     title: Microsoft Graph PowerShell
 ## template without azure AD PowerShell
-- id: enterprise-apps-minus-aad-powershell
+- id: enterprise-apps-minus-former-powershell
   title: Manage Enterprise apps
   prompt: Choose an option
   pivots:
@@ -2308,6 +2416,15 @@ groups:
     title: Microsoft graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
+## revoke permissions
+- id: delegated-app-permissions
+  title: Permissions
+  prompt: Choose an option
+  pivots:
+  - id: delegated-perms
+    title: Delegated permissions
+  - id: app-perms
+    title: App-only permissions
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
@@ -2409,6 +2526,17 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owners: adamhammer
+- id: acs-programming-languages-java-swift-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: Windows
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-java
+    title: Android
 # Owner: jorgegarc
 - id: acs-maui-xamarin-react
   title: Cross-platform pivots
@@ -2495,24 +2623,23 @@ groups:
     title: Microsoft Graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
-# Owner:
-- id: deploy-python-web-app-postgressql
-  title: Workflows
-  prompt: Choose your path
-  pivots:
-  - id: deploy-portal
-    title: Azure portal
-  - id: deploy-azd
-    title: Azure Developer CLI
 # Owner: daknappe (Azure Virtual Desktop)
-- id: azure-virtual-desktop-host-pool-types
+- id: azure-virtual-desktop-host-pool-management-types
   title: Azure Virtual Desktop host pool management type
-  prompt: Choose a host pool management type
+  prompt: "Choose a host pool management type:"
   pivots:
-  - id: host-pool-automated
-    title: Automated host pool
   - id: host-pool-standard
-    title: Standard host pool
+    title: Standard
+  - id: host-pool-automated
+    title: Automated (preview)
+- id: azure-virtual-desktop-app-attach
+  title: Azure Virtual Desktop app attach version
+  prompt: "Choose an app attach version:"
+  pivots:
+  - id: msix-app-attach
+    title: MSIX app attach
+  - id: app-attach
+    title: App attach (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -2594,3 +2721,27 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+# Owner: juliakm
+- id: template-type
+  title: Template type
+  prompt: Choose a template type
+  pivots:
+  - id: templates-includes
+    title: Includes templates
+  - id: templates-extends
+    title: Extends templates
+# Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+  - id: api-apache-cassandra
+    title: Apache Cassandra
+  - id: api-apache-gremlin
+    title: Apache Gremlin
+  - id: api-table
+    title: Table

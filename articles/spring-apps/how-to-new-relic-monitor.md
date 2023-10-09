@@ -1,8 +1,8 @@
 ---
-title: "How to monitor Spring Boot apps using New Relic Java agent"
+title: How to monitor Spring Boot apps using New Relic Java agent
 titleSuffix: Azure Spring Apps
 description: Learn how to monitor Spring Boot applications using the New Relic Java agent.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to monitor of Spring Boot applications in Azure Spring Apps with the New Relic Java agent.
 
@@ -43,21 +43,28 @@ Use the following procedure to access the agent:
 
 1. Create an instance of Azure Spring Apps.
 
-2. Create an application.
+1. Create an application.
 
-    ```azurecli
-      az spring app create --name "appName" --is-public true \
-      -s "resourceName" -g "resourceGroupName"
-    ```
+   ```azurecli
+   az spring app create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --is-public true \
+   ```
 
-3. Create a deployment with the New Relic agent and environment variables.
+1. Create a deployment with the New Relic agent and environment variables.
 
-    ```azurecli
-    az spring app deploy --name "appName" --jar-path app.jar \
-       -s "resourceName" -g "resourceGroupName" \
+   ```azurecli
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --jar-path app.jar \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
-       --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
-    ```
+       --env NEW_RELIC_APP_NAME=appName \
+             NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
+   ```
 
 Azure Spring Apps preinstalls the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
@@ -67,37 +74,37 @@ You can also activate this agent from the Azure portal with the following proced
 
 1. In your Azure Spring Apps instance, select **Apps** in the navigation pane.
 
-   :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
+   :::image type="content" source="media/how-to-new-relic-monitor/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/how-to-new-relic-monitor/find-app.png":::
 
 1. Select the application from the list, and then select **Configuration** in the navigation pane.
 
 1. Use the **General settings** tab to update values such as the JVM options.
 
-   :::image type="content" source="media/new-relic-monitoring/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/new-relic-monitoring/update-jvm-option.png":::
+   :::image type="content" source="media/how-to-new-relic-monitor/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the General settings tab selected." lightbox="media/how-to-new-relic-monitor/update-jvm-option.png":::
 
 1. Select **Environment variables** to add or update the variables used by your application.
 
-   :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
+   :::image type="content" source="media/how-to-new-relic-monitor/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environment variables tab selected." lightbox="media/how-to-new-relic-monitor/configurations-update-environment.png":::
 
 1. View the application api/gateway **Summary** page from the New Relic dashboard.
 
-   [![App summary page](media/new-relic-monitoring/app-summary-page.png)](media/new-relic-monitoring/app-summary-page.png)
+   :::image type="content" source="media/how-to-new-relic-monitor/app-summary-page.png" alt-text="Screenshot of the New Relic dashboard showing the API Gateway summary page." lightbox="media/how-to-new-relic-monitor/app-summary-page.png":::
 
 1. View the application customers-service **Summary** page from the New Relic dashboard.
 
-   [![Customers-service page](media/new-relic-monitoring/customers-service.png)](media/new-relic-monitoring/customers-service.png)
+   :::image type="content" source="media/how-to-new-relic-monitor/customers-service.png" alt-text="Screenshot of the New Relic dashboard showing the Customers Service page." lightbox="media/how-to-new-relic-monitor/customers-service.png":::
 
 1. View the **Service Map** page from the New Relic dashboard.
 
-   [![Service map page](media/new-relic-monitoring/service-map.png)](media/new-relic-monitoring/service-map.png)
+   :::image type="content" source="media/how-to-new-relic-monitor/service-map.png" alt-text="Screenshot of the New Relic dashboard showing the Service Map page." lightbox="media/how-to-new-relic-monitor/service-map.png":::
 
 1. View the **JVMs** page of the application from the New Relic dashboard.
 
-   [![JVM page](media/new-relic-monitoring/jvm-page.png)](media/new-relic-monitoring/jvm-page.png)
+   :::image type="content" source="media/how-to-new-relic-monitor/jvm-page.png" alt-text="Screenshot of the New Relic dashboard showing the JVM page." lightbox="media/how-to-new-relic-monitor/jvm-page.png":::
 
 1. View the application profile from the New Relic dashboard.
 
-   [![Application profile](media/new-relic-monitoring/profile-app.png)](media/new-relic-monitoring/profile-app.png)
+   :::image type="content" source="media/how-to-new-relic-monitor/profile-app.png" alt-text="Screenshot of the New Relic dashboard showing the Application Profile page." lightbox="media/how-to-new-relic-monitor/profile-app.png":::
 
 ## Automate provisioning
 
@@ -176,7 +183,7 @@ You can use some environment variables provided by New Relic to configure the lo
 
 ## New Relic Java Agent update/upgrade
 
-The New Relic Java agent update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
+The New Relic Java agent update/upgrade the JDK regularly. The agent update/upgrade may affect following scenarios.
 
 * Existing applications that use the New Relic Java agent before update/upgrade are unchanged.
 * Existing applications that use the New Relic Java agent before update/upgrade require restart or redeploy to engage the new version of the New Relic Java agent.

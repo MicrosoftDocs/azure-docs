@@ -1,12 +1,12 @@
 ---
 title: Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network
 description: Learn about the customer responsibilities for running an Azure Spring Apps Standard consumption and dedicated plan service instance in a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 03/21/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network

@@ -2,11 +2,10 @@
 title: Migrate to Azure file shares
 description: Learn how to migrate to Azure file shares and find your migration guide.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 07/13/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Migrate to Azure file shares
@@ -31,7 +30,7 @@ Here are the two basic components of a file:
 - **File metadata**: The file metadata has these subcomponents:
    * File attributes like read-only
    * File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
-   * Timestamps, most notably the creation, and last-modified timestamps
+   * Timestamps, most notably the creation and last-modified timestamps
    * An alternative data stream, which is a space to store larger amounts of nonstandard properties
 
 File fidelity in a migration can be defined as the ability to:
@@ -45,6 +44,9 @@ To ensure your migration proceeds smoothly, identify [the best copy tool for you
 Taking the previous information into account, you can see that the target storage for general-purpose files in Azure is [Azure file shares](storage-files-introduction.md).
 
 Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy, attributes, and permissions. NTFS permissions can be stored on files and folders because they're on-premises.
+
+> [!IMPORTANT]
+> If you're migrating on-premises file servers to Azure File Sync, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take up to a day to propagate if done after a large file migration.
 
 A user of Active Directory, which is their on-premises domain controller, can natively access an Azure file share. So can a user of Azure Active Directory Domain Services (Azure AD DS). Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 
@@ -78,8 +80,6 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Windows Server 2012 and earlier | <ul><li>Via DataBox and Azure File Sync to recent server OS</li><li>Via Storage Migration Service to recent server with Azure File Sync, then upload</li></ul> | <ul><li>Via Storage Migration Service to recent server with Azure File Sync</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
 | Network-attached storage (NAS) | <ul><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
 | Linux / Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
-| Microsoft Azure StorSimple 8100 or 8600 series appliances | <ul><li>[Via dedicated data migration cloud service](storage-files-migration-storsimple-8000.md)</li></ul> | <ul><li>[Via dedicated data migration cloud service](storage-files-migration-storsimple-8000.md)</li></ul> |
-| StorSimple 1200 virtual appliance | <ul><li>[Via Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## Migration toolbox
 

@@ -134,24 +134,22 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 :::moniker range="azureml-api-2"
 ## Scenario: Use online endpoints
 
-__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+Security for inbound and outbound communication are configured separately for managed online endpoints.
 
-__Outbound__ communication from a deployment can be secured on a per-deployment basis by using the `egress_public_network_access` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+#### Inbound communication
 
-> [!NOTE]
-> For secure outbound communication, a private endpoint is created for each deployment where `egress_public_network_access` is set to `disabled`.
+__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` ensures that the online endpoint receives traffic only from a client's virtual network through the Azure Machine Learning workspace's private endpoint.
 
-Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+The `public_network_access` flag of the Azure Machine Learning workspace also governs the visibility of the online endpoint. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
 
-### Supported configurations
+#### Outbound communication
 
-| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
-| -------- | -------------------------------- | --------------------------------- | --------- |
-| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
-| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
+__Outbound__ communication from a deployment can be secured at the workspace level by enabling managed virtual network isolation for your Azure Machine Learning workspace. Enabling this setting causes Azure Machine Learning to create a managed virtual network for the workspace. Any deployments in the workspace's managed virtual network can use the virtual network's private endpoints for outbound communication.
+
+The [legacy network isolation method for securing outbound communication](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) worked by disabling a deployment's `egress_public_network_access` flag. We strongly recommend that you secure outbound communication for deployments by using a [workspace managed virtual network](concept-secure-online-endpoint.md) instead. Unlike the legacy approach, the `egress_public_network_access` flag for the deployment no longer applies when you use a workspace managed virtual network with your deployment. Instead, outbound communication will be controlled by the rules set for the workspace's managed virtual network.
+
 :::moniker-end
+
 ## Scenario: Use Azure Kubernetes Service
 
 For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to secure inference](how-to-secure-inferencing-vnet.md).

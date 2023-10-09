@@ -6,11 +6,11 @@ ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.devlang: azurecli
+ms.custom: devx-track-linux
 ms.topic: tutorial
 ms.date: 4/4/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Linux VM to run web applications.
 ---
 
@@ -53,7 +53,7 @@ The following example creates a VM named *myVM* and creates SSH keys if they don
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

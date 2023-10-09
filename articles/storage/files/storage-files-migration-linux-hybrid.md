@@ -2,11 +2,10 @@
 title: Linux migration to Azure File Sync
 description: Learn how to migrate files from a Linux server location to a hybrid cloud deployment with Azure File Sync and Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Migrate from Linux to a hybrid cloud deployment with Azure File Sync

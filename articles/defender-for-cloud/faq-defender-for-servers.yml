@@ -1,12 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Defender for Cloud common questions - Defender for Servers
+  title: Common questions - Defender for Servers
   description: Get answers to frequently asked questions about Microsoft Defender for Servers.
   ms.topic: faq
   ms.service: defender-for-cloud
   author: dcurwin
   ms.author: dacurwin
-  ms.date: 06/20/2023
+  ms.date: 08/16/2023
 title: Common questions about Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 
@@ -89,7 +89,11 @@ sections:
             - For the Log Analytics agent, connected machines from all subscriptions are billed, including subscriptions that don't have the Defender for Servers plan enabled.
             - For the Azure Monitor agent, billing and feature coverage for Defender for Servers depends only on the plan being enabled in the subscription.
           
-          
+      - question: |
+          What happens if I enabled the Defender for Servers plan at the workspace level only (not at subscription)?
+        answer: |
+          You can enable Microsoft Defender for Servers at the Log Analytics workspace level, but only servers reporting to that workspace will be protected and billed, and those servers won't receive some benefits, such as Microsoft Defender for Endpoint, vulnerability assessment, and just-in-time VM access.       
+      
       - question: |
           Is the 500 MB of free data ingestion allowance applied per workspace or per machine?
         answer: |
@@ -138,7 +142,7 @@ sections:
           - Linux.
 
           > [!IMPORTANT]
-          > If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. To offboard the machine, see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints#offboard-windows-servers).
+          > If you delete the MDE.Windows/MDE.Linux extension, it won't remove Microsoft Defender for Endpoint. To offboard the machine, see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints#offboard-windows-servers).
 
       - question: |
           I enabled the solution but the `MDE.Windows`/`MDE.Linux` extension isn't showing on my machine
@@ -158,11 +162,11 @@ sections:
       - question: |
           Do I need to buy a separate anti-malware solution to protect my machines?
         answer: |
-          No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
+          No. With Defender for Endpoint integration in Defender for Servers, you'll also get malware protection on your machines.
 
-          - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers deploy [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
+          - On Windows Server 2012 R2 with Defender for Endpoint unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
           - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
-          - On Linux, Defender for Servers deploy MDE including the anti-malware component, and set the component in *passive mode*.
+          - On Linux, Defender for Servers deploy Defender for Endpoint including the anti-malware component, and set the component in *passive mode*.
                     
       - question: |
           If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
@@ -250,8 +254,8 @@ sections:
           | Reason                                                            | Details                                                                                                                                                                        |
           |-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
           | **No scan data available on the machine**                         | There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension. You can check the data in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration).|
-          | **Guest Configuration extension is not installed on the machine** | The machine is missing the Guest Configuration extension, which is a prerequisite for assessing the compliance with the Azure security baseline.                               |
-          | **System managed identity is not configured on the machine**      | A system-assigned, managed identity must be deployed on the machine.                                                                                                           |
+          | **Guest Configuration extension isn't installed on the machine** | The machine is missing the Guest Configuration extension, which is a prerequisite for assessing the compliance with the Azure security baseline.                               |
+          | **System managed identity isn't configured on the machine**      | A system-assigned, managed identity must be deployed on the machine.                                                                                                           |
           | **The recommendation is disabled in policy**                      | The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine.                                                               |
 
 
@@ -311,7 +315,7 @@ sections:
           - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
           - [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
 
-          If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
+          If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data. To learn more on how Microsoft Sentinel customers can benefit, please see the [Microsoft Sentinel Pricing page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 
       - question: |
@@ -369,8 +373,8 @@ sections:
           You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](/previous-versions/azure/azure-monitor/insights/solution-targeting) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
           
           > [!IMPORTANT]
-          > Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it is not available in new regions.
-          > The feature will not be supported after August 31, 2024.
+          > Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it isn't available in new regions.
+          > The feature won't be supported after August 31, 2024.
           > Regions that support solution targeting until the deprecation date are:
           >
           > | Region code | Region name |

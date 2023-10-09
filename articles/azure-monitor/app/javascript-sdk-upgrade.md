@@ -27,13 +27,13 @@ Upgrading to the new version of the Application Insights JavaScript SDK can prov
   To manually refresh the current pageview ID, for example, in single-page applications, use `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`.
 
   > [!NOTE]
-  > To keep the trace ID unique, where you previously used `Util.newId()`, now use `Util.generateW3CId()`. Both ultimately end up being the operation ID.
+  > To keep the trace ID unique, now use `Util.generateW3CId()` where you previously used `Util.newId()`. Both ultimately end up being the operation ID.
 
 If you're using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update the URL depending on your current SDK loading scenario.
 
 - Download via CDN scenario: Update the JavaScript (Web) SDK Loader Script that you currently use to point to the following URL:
    ```
-   "https://js.monitor.azure.com/scripts/b/ai.2.min.js"
+   "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js"
    ```
 
 - npm scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with a connection string:
@@ -41,7 +41,7 @@ If you're using the current application insights PRODUCTION SDK (1.0.20) and wan
    ```ts
    appInsights.downloadAndSetup({
      connectionString: "Copy connection string from Application Insights Resource Overview",
-     url: "https://js.monitor.azure.com/scripts/b/ai.2.min.jss"
+     url: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js"
      });
    ```
 
