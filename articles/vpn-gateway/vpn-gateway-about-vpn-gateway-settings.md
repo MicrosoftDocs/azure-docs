@@ -133,7 +133,7 @@ Before you create a VPN gateway, you must create a gateway subnet. The gateway s
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others.
 
-When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. While it's possible to create a gateway subnet as small as /29 (applicable to the Basic SKU only), all other SKUs require a gateway subnet of size /27 or larger (/27, /26, /25 etc.). You may want to create a gateway subnet larger than /27 so that the subnet has enough IP addresses to accommodate possible future configurations.
+When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. While it's possible to create a gateway subnet as small as /29 (applicable to the Basic SKU only), all other SKUs require a gateway subnet of size /27 or larger (/27, /26, /25 etc.). You might want to create a gateway subnet larger than /27 so that the subnet has enough IP addresses to accommodate possible future configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
@@ -145,7 +145,7 @@ Considerations:
 
 [!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 
-* When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your virtual network gateway (VPN and Express Route gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../virtual-network/network-security-groups-overview.md).
+* When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet might cause your virtual network gateway (VPN and Express Route gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="lng"></a>Local network gateways
 
