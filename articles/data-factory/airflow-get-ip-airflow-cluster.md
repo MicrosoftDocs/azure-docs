@@ -13,7 +13,7 @@ ms.date: 09/19/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-To restrict access to your data stores or resources solely to your Managed Airflow cluster and prevent access from all other IP addresses via the public endpoint, you can retrieve the dedicated IP address specific to your Managed Airflow environment and add it to your storage firewall's allow list. This enables you to access data stores or resources secured by the firewall through the list of permitted IP addresses on the allow list of the firewall.
+To restrict access to your data stores or resources solely to your Managed Airflow cluster and prevent access from all other IP addresses via the public endpoint. Retrieve the dedicated IP address specific to your Managed Airflow environment and add it to your storage firewall's allow list. This enables you to access data stores or resources secured by the firewall through the list of permitted IP addresses on the allow list of the firewall.
 
 This article shows you how to retrieve the Managed Airflow cluster’s IP address and add it to the storage account you want to secure.
 
@@ -25,12 +25,12 @@ This article shows you how to retrieve the Managed Airflow cluster’s IP addres
 - It should be noted that to obtain an access token for Data Factory, the resource to be used is **https://datafactory.azure.com**. 
 - Additionally, the service principal used to obtain the access token needs to have atleast a **contributor role** on the Data Factory where the Airflow Integration Runtime is located.
  
-You can refer to the below screenshots for more information.
+For more information, see the below screenshots.
     1. Use Azure AD API call to get access token.
 
         :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-access-token.png" alt-text="Screenshot showing the api used to retrieve the access token to invoke airflow apis." lightbox="media/airflow-get-ip-airflow-cluster/get-access-token.png":::
 
-    1. Use the access token acquired as a bearer token from step 1 to invoke the Airflow API.
+    2. Use the access token acquired as a bearer token from step 1 to invoke the Airflow API.
     
         :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-dags.png" alt-text="Screenshot showing sample airflow api request using bearer token fetched in initial step." lightbox="media/airflow-get-ip-airflow-cluster/get-dags.png":::
 
