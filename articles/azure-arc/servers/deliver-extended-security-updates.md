@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 10/05/2023
+ms.date: 10/09/2023
 ms.topic: conceptual
 ---
 
@@ -85,9 +85,8 @@ If any problems occur during the enablement process, see [Troubleshoot delivery 
 
 There are several scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Three of these scenarios supported by Azure Arc include the following:
 
-- Dev/Test
-- Visual Studio
-- Disaster Recovery
+- Dev/Test (Visual Studio)
+- Disaster Recovery (Entitled benefit disaster recovery instances from Software Assurance or subscription only)
 
 To qualify for these scenarios, you must have:
 
@@ -99,8 +98,7 @@ To enroll Azure Arc-enabled servers eligible for ESUs at no additional cost, fol
 
 1. Tag both the WS2012 Arc ESU License and the Azure Arc-enabled server with one of the following three name-value pairs, corresponding to the appropriate exception:
 
-    1. Name: “ESU Usage”; Value: “WS2012 DEV TEST”
-    1. Name: “ESU Usage”; Value: “WS2012 VISUAL STUDIO”
+    1. Name: “ESU Usage”; Value: “WS2012 VISUAL STUDIO DEV TEST”
     1. Name: “ESU Usage”; Value: “WS2012 DISASTER RECOVERY”
     
     In the case that you're using the ESU License for multiple exception scenarios, mark the license with the tag: Name: “ESU Usage”; Value: “WS2012 MULTIPURPOSE”
