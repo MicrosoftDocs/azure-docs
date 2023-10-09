@@ -30,11 +30,12 @@ In this how-to guide, you learn how to create a site. A *site* refers to a speci
 
 Use the information in the table to add the Network Function Virtualization Infrastructure (NFVIs).
 
-| Setting  | Description  |
-|---------|---------|
-|NFVI Name     |  Enter the name specified by the designer in NSDV.       |
-|NFVI Type     |   *Azure Core*, *Azure Operator Distributed Services* or *Unknown*.  The NFVI type here must match the NFVI type specified by the designer in the NSDV.|      |
-|NFVI Location    |  The Azure region for the site.       |
+|Setting|Value|
+|---|---|
+| NFVI Name| Enter the name specified by the designer in NSDV| 
+| NFVI Type| *Azure Core*, *Azure Operator Distributed Services* or *Unknown*.  This NFVI type value must match the NFVI type specified by the designer in the NSDV.|
+| NFVI Location | The Azure region for the site.|
+
 
 1. Add the Network Function Virtualization Infrastructure (NFVIs) you wish to deploy your network service on by selecting the **Add the NFVIs** tab, then *Add NFVI* once field information is input.
 
