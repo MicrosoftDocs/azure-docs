@@ -73,9 +73,9 @@ As with security for other types of capability, it's critical to plan for a comp
 To learn more about the unique nature of AI threat testing, read how [Microsoft AI Red Team is building the future of safer AI](https://www.microsoft.com/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/).
 
 ## Configure before customize
-Microsoft recommends organizations start with SaaS based approaches  like the Copilot model for their initial adoption of AI and for all subsequent AI workloads. This minimizes the level of respolnsibility and expertise your organization has to provide to design, operate, and secure these highly complex capabilities.
+Microsoft recommends organizations start with SaaS based approaches  like the Copilot model for their initial adoption of AI and for all subsequent AI workloads. This minimizes the level of responsibility and expertise your organization has to provide to design, operate, and secure these highly complex capabilities.
 
-If the current "offthe shelf" capabilities don't meet the specific needs for a workload, you can adopt a PaaS model by using AI services, such as [Azure OpenAI Service](../../ai-services/openai/overview.md), to meet those specific requirements.
+If the current "off the shelf" capabilities don't meet the specific needs for a workload, you can adopt a PaaS model by using AI services, such as [Azure OpenAI Service](../../ai-services/openai/overview.md), to meet those specific requirements.
 
 Custom model building should only be adopted by organizations with deep expertise in data science and the security, privacy, and ethical considerations of AI.
 
