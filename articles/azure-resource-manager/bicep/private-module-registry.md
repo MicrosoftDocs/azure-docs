@@ -90,9 +90,9 @@ To see the published module in the portal:
 You're now ready to reference the file in the registry from a Bicep file. For examples of the syntax to use for referencing an external module, see [Bicep modules](modules.md).
 
 ---
-## Working with Bicep Registry Files
+## Working with Bicep registry files
 
-When leveraging bicep files that are hosted in a remote registry it is important to understand how your local machine will interact with the regsitry. When you first declare the reference to the registry your local editor will attempt to communicate with the Azure Containter Registry and download a copy of the registry to your local cache.
+When leveraging bicep files that are hosted in a remote registry, it's important to understand how your local machine will interact with the regsitry. When you first declare the reference to the registry, your local editor will try to communicate with the Azure Containter Registry and download a copy of the registry to your local cache.
 
 The local cache is found in:
 
