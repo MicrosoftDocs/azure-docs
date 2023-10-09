@@ -71,7 +71,7 @@ For example, to upgrade a resource bridge on Azure Stack HCI, run: `az arcapplia
 
 Partner products that use Arc resource bridge may choose to handle upgrades differently, including enabling cloud-managed upgrade by default. This article will be updated to reflect any such changes.
 
-[Azure Arc VM management (preview) on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) supports upgrade of an Arc resource bridge on Azure Stack HCI 22H2 up until Appliance version 1.0.14 and az arcappliance CLI extension version 0.2.33. These upgrades can be done through manual upgrade or a support request for cloud-managed upgrade. For additional upgrades afterwards, please transition to Azure Stack HCI 23H2 (Preview). In 23H2 (Preview), the LCM tool manages upgrades across all components as a "validated recipe" package. Please visit the [Arc VM HCI FAQ page](/azure-stack/hci/manage/faqs-arc-enabled-vms) for more info. 
+[Azure Arc VM management (preview) on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) supports upgrade of an Arc resource bridge on Azure Stack HCI, version 22H2 up until Arc resource bridge version 1.0.14 and `az arcappliance` CLI extension version 0.2.33. These upgrades can be done through manual upgrade or a support request for cloud-managed upgrade. For additional upgrades afterwards, you must transition to Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all components as a "validated recipe" package. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/faqs-arc-enabled-vms). 
 
 ## Version releases
 
