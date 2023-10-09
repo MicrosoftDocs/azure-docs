@@ -127,7 +127,7 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 
 The following default limits apply when using Azure Private DNS:
 
-[!INCLUDE [dns-limits](../../includes/dns-limits-private-zones.md)]
+[!INCLUDE [dns-limits-private-zones](../../includes/dns-limits-private-zones.md)]
 
 ## Next steps
 

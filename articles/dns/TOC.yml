@@ -89,8 +89,10 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md?toc=%2fazure%2fdns%2ftoc.json
   - name: Private DNS
     items:
-    - name: Private DNS zone
+    - name: What is an Azure Private DNS zone?
       href: private-dns-privatednszone.md
+    - name: Private DNS zones and records
+      href: dns-private-zones-records.md
     - name: Virtual network links
       href: private-dns-virtual-network-links.md
     - name: Autoregistration
