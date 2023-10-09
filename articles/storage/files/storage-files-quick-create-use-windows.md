@@ -4,7 +4,7 @@ description: This tutorial covers how to create an SMB Azure file share using th
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 07/28/2022
+ms.date: 10/09/2023
 ms.author: kendownie
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
@@ -53,6 +53,10 @@ Next, create an SMB Azure file share.
     ![Screenshot, + file share selected to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
 1. Name the new file share *qsfileshare* and leave **Transaction optimized** selected for **Tier**.
+1. Select the **Backup** tab. By default, backup is enabled when you create an Azure file share using the Azure portal. To disable backup, uncheck the **Enable backup** checkbox. If backup is enabled, you can either leave the defaults or create a new Recovery Services Vault. To create a new backup policy, select **Create a new policy**.
+
+    ![Screenshot of Backup tab.](./media/storage-files-quick-create-use-windows/create-file-share-backup.png)
+
 1. Select **Review + create** and then **Create** to create the file share.
 1. Create a new txt file called *qsTestFile* on your local machine.
 1. Select the new file share, then on the file share location, select **Upload**.
