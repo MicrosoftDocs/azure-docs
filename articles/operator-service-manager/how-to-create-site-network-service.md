@@ -40,7 +40,7 @@ In this how-to guide you learn how to create a Site Network Service (SNS) using 
 1. On the *Choose a Network Service Design* tab, select the **Publisher**, **Network Service Design Resource**, **Network Service Design Version** that you published earlier.
 
     > [!NOTE]
-> Consult the documentation from your Network Service Design (NSD) Publisher or directly contact them to obtain the Publisher Offering Location, Publisher, Network Service Design Resource and Network Service Design version.
+    > Consult the documentation from your Network Service Design (NSD) Publisher or directly contact them to obtain the Publisher Offering Location, Publisher, Network Service Design Resource and Network Service Design version.
 
 1. On the *Set initial configuration* tab, select a Configuration Group Value resource for each schema listed in the selected Network Service Design.
 1. Select **Create New** on the *Set initial configuration* page.
