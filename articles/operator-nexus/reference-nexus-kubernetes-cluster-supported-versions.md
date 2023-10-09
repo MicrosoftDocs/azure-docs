@@ -100,16 +100,16 @@ For more information on upgrading your cluster, see [Upgrade an Azure Operator N
 
 ## Kubernetes version support policy
 
-Nexus supports three GA minor versions of Kubernetes:
+Nexus supports three minor versions of Kubernetes:
 
 * The latest GA minor version released in Nexus (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor versions
+  * Each supported minor version
 
 Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
 
 * Duration of support – How long is a version actively maintained. At the end of the supported period, the version is “End of life.”
-* Platfrom support – How long can a version be selected for deployment after End of life.
+* Platform support – How long can a version be selected for deployment after End of life.
 
 > [NOTE]
 > Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
@@ -258,18 +258,18 @@ Downgrades aren't supported.
 
 ### What happens if I don't upgrade my cluster?
 
-If you don't upgrade your cluster, you'll continue to receive support for the Kubernetes version you're running until the end of the support period. After that, you'll no longer receive support for your cluster. You'll need to upgrade your cluster to a supported version to continue receiving support.
+If you don't upgrade your cluster, you continue to receive support for the Kubernetes version you're running until the end of the support period. After that, you'll no longer receive support for your cluster. You need to upgrade your cluster to a supported version to continue receiving support.
 
 ### What happens if I don't upgrade my cluster before the end of the platform support period?
 
-If you don't upgrade your cluster before the end of the platform support period, you'll no longer be able to upgrade your cluster to a supported version or scale-out agent pools. You'll need to recreate your cluster using a supported version to continue receiving support.
+If you don't upgrade your cluster before the end of the platform support period, you'll no longer be able to upgrade your cluster to a supported version or scale-out agent pools. You need to recreate your cluster using a supported version to continue receiving support.
 
 ### What does 'Outside of Support' mean?
 
 'Outside of Support' means that:
 
 * The version you're running is outside of the supported versions list.
-* You'll be asked to upgrade the cluster to a supported version when requesting support.
+* You're asked to upgrade the cluster to a supported version when requesting support.
 
 Additionally, Nexus doesn't make any runtime or other guarantees for clusters outside of the supported versions list.
 
@@ -296,8 +296,8 @@ Yes, you can create a new 1.xx.x cluster during its platform support window. How
 
 ### Can I upgrade a cluster to a newer version during its platform support window?
 
-Yes, you can upgrade a N-3 cluster to N-2 during its platform support window. However, N-4 to N-3 upgrades aren't supported.
+Yes, you can upgrade an N-3 cluster to N-2 during its platform support window. However, N-4 to N-3 upgrades aren't supported.
 
 ### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
-Yes, You're allowed to add node pools to the the cluster.
+Yes, You're allowed to add node pools to the cluster.
