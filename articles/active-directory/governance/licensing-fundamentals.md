@@ -30,7 +30,7 @@ The following licenses are available for use with Microsoft Entra ID Governance 
 >[!NOTE]
 >Microsoft Entra ID Governance scenarios may depends upon other features that aren't covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
-Microsoft Entra ID Governance products are not yet available in the government and national clouds.
+Microsoft Entra ID Governance products are not yet available in the US government or US national clouds.
 
 ### Governance products and prerequisites
 
@@ -161,7 +161,7 @@ Here are some example license scenarios to help you determine the number of lice
 
 ### Do licenses need to be assigned to users to use Identity Governance features?
 
-Users do not need to be assigned an Identity Governance license, but there needs to be as many licenses in the tenant to include all users in scope of, or who configures, the Identity Governance features.  
+Users do not need to be assigned an Identity Governance license, but there needs to be as many licenses in the tenant to include all users in scope of, or who configures, the Identity Governance features.
 
 ## Next steps
 - [What is Microsoft Entra ID Governance?](identity-governance-overview.md)
