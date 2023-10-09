@@ -1,15 +1,19 @@
+- name: What is Azure Cosmos DB for MongoDB?
+  href: introduction.md
 - name: Choose your model
   href: choose-model.md
 - name: Comparing MongoDB Atlas
   href: cosmos-db-vs-mongodb-atlas.md
-- name: RU-based
+- name: FAQ
+  href: faq.yml
+- name: RU
   items:
-    - name: RU-based MongoDB documentation
+    - name: MongoDB RU documentation
       href: index.yml
     - name: Overview
       items:
-        - name: What is Azure Cosmos DB for MongoDB?
-          href: introduction.md
+        - name: What is Azure Cosmos DB for MongoDB RU?
+          href: ru/introduction.md
         - name: API versions
           items:
             - name: API version 4.2
@@ -40,7 +44,7 @@
           href: quickstart-go.md
     - name: Tutorials
       items:
-        - name: 1 - Create and manage data
+        - name: Create and manage data
           items:
             - name: Node.js console app
               href: nodejs-console-app.md
@@ -60,9 +64,9 @@
                   href: tutorial-develop-nodejs-part-6.md
             - name: Node.js and React app
               href: tutorial-develop-react.md
-        - name: 2 - Query data
+        - name: Query data
           href: tutorial-query.md
-        - name: 3 - Distribute data globally
+        - name: Distribute data globally
           href: tutorial-global-distribution.md
         - name: Aggregation pipeline
           href: tutorial-aggregation.md
@@ -141,6 +145,8 @@
         - name: Azure Cosmos DB resource model
           displayName: collection, document
           href: ../resource-model.md
+        - name: Indexing
+          href: indexing.md
         - name: Partitioning (sharding)
           items:
             - name: Partitioning overview
@@ -268,43 +274,7 @@
             - name: Security baseline
               href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
         - name: Optimize your Azure Cosmos DB costs
-          items:
-            - name: Overview
-              href: ../optimize-costs.yml
-            - name: Free tier
-              href: ../free-tier.md
-              displayName: free tier
-            - name: Limit total account throughput
-              displayName: cost, RUs, RU
-              href: ../limit-total-account-throughput.md
-            - name: Plan and manage costs
-              href: ../plan-manage-costs.md
-            - name: Pricing model
-              href: ../how-pricing-works.md
-            - name: Total Cost of Ownership (TCO)
-              href: ../total-cost-ownership.md
-            - name: Understand your bill
-              displayName: free tier
-              href: ../understand-your-bill.md
-            - name: Optimize provisioned throughput cost
-              displayName: request units, RUs, RU
-              href: ../optimize-cost-throughput.md
-            - name: Optimize request cost
-              displayName: request, cost, read, write, query, queries, RUs, RU
-              href: ../optimize-cost-reads-writes.md
-            - name: Optimize storage cost
-              href: ../optimize-cost-storage.md
-            - name: Optimize multi-region cost
-              href: ../optimize-cost-regions.md
-            - name: Optimize development/testing cost
-              displayName: free tier
-              href: ../optimize-dev-test.md
-            - name: Optimize cost with reserved capacity
-              href: ../reserved-capacity.md
-            - name: Optimize using rate limiting
-              href: ../rate-limiting-requests.md
-            - name: Use the emulator
-              href: ../local-emulator.md
+          href: ../optimize-costs.yml
         - name: Enterprise readiness
           items:
             - name: Service quotas
@@ -320,9 +290,13 @@
             - name: Overview
               href: ../notebooks-overview.md
             - name: FAQ
-              href: ../notebooks-faq.yml
+              href: ../notebooks-faq.yml              
+        - name: Emulator
+          href: ../emulator.md
     - name: How to
       items:
+        - name: Develop with the emulator
+          href: ../how-to-develop-emulator.md?pivots=api-mongodb
         - name: Use developer tools
           items:
             - name: MongoDB extension commands
@@ -336,32 +310,10 @@
                   href: connect-using-mongochef.md
                 - name: Connect using Compass
                   href: connect-using-compass.md
-                - name: Connect using Studio 3T
+                - name: Connect using Robo 3T
                   href: connect-using-robomongo.md
                 - name: Connect using Mongoose
                   href: connect-using-mongoose.md
-            - name: Develop locally with emulator
-              items:
-                - name: Install and use the emulator
-                  href: ../local-emulator.md
-                - name: Run the emulator container in Docker
-                  items:
-                    - name: Run in Docker for Linux
-                      href: ../docker-emulator-linux.md
-                    - name: Run in Docker for Windows
-                      href: ../docker-emulator-windows.md
-                    - name: Access the REST API
-                      href: ../docker-emulator-rest-api.md
-                - name: Export emulator certificates
-                  href: ../local-emulator-export-ssl-certificates.md
-                - name: Emulator command-line parameters
-                  href: ../emulator-command-line-parameters.md
-                - name: Emulator troubleshooting
-                  href: ../troubleshoot-local-emulator.md
-                - name: Emulator release notes
-                  href: ../local-emulator-release-notes.md
-                - name: Visual Studio Code extension
-                  href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
             - name: Use Azure Cosmos DB Explorer
@@ -407,8 +359,6 @@
               href: find-request-unit-charge.md
             - name: Change streams
               href: change-streams.md
-            - name: Manage data indexing
-              href: indexing.md
             - name: Time to live
               href: time-to-live.md
             - name: Use multi-document transactions
@@ -418,7 +368,7 @@
             - name: Integrate with Azure services
               href: integrations-overview.md              
             - name: RAG with Azure OpenAI
-              href: ../rag-data-openai.md
+              href: ../vector-search.md#retrieval-augmented-generation
             - name: Vercel
               href: ../vercel-integration.md
         - name: Migrate data to Azure Cosmos DB
@@ -600,6 +550,12 @@
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
           href: /cli/azure/azure-cli-reference-for-cosmos-db
+        - name: Emulator
+          items:
+            - name: Release notes
+              href: ../emulator-release-notes.md
+            - name: Windows command-line arguments
+              href: ../emulator-windows-arguments.md
     - name: Resources
       items:
         - name: Build your skills with Microsoft Learn training
@@ -626,5 +582,5 @@
               href: ../use-cases.md
             - name: Social media apps
               href: ../social-media-apps.md
-- name: vCore-based
+- name: vCore
   href: vcore/toc.yml

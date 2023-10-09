@@ -5,9 +5,9 @@ description: Manage blobs with Azure CLI
 author: StevenMatthew
 
 ms.author: shaas
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 08/28/2023
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
@@ -68,14 +68,14 @@ You can use the `az storage blob upload-batch` command to recursively upload mul
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
-The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-unmodified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
+The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified within the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
 
 ```azurecli-interactive
 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
-lastModified=`date -d "10 days ago" '+%Y-%m-%dT%H:%MZ'`
+lastModified=`date -d "7 days ago" '+%Y-%m-%dT%H:%MZ'`
 
 path="C:\\temp\\"
 filename="demo-file.txt"
@@ -96,7 +96,7 @@ az storage blob upload-batch \
     --pattern *.png \
     --account-name $storageAccount \
     --auth-mode login \
-    --if-unmodified-since $lastModified
+    --if-modified-since $lastModified
 
 ```
 
@@ -331,15 +331,15 @@ az storage blob snapshot \
 
 ## Set blob tier
 
-When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **Hot**, **Cool**, and **Archive** with the `az storage blob set-tier` command.
+When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **hot**, **cool**, and **archive** with the `az storage blob set-tier` command.
 
 Depending on your requirements, you may also utilize the *Copy Blob* operation to copy a blob from one tier to another. The *Copy Blob* operation will create a new blob in the desired tier while leaving the source blob remains in the original tier.
 
-Changing tiers from **Cool** or **Hot** to **Archive** takes place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Changing tiers from **cool** or **hot** to **archive** takes place almost immediately. After a blob is moved to the **archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 For additional information, see the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) reference.
 
-The following sample code sets the tier to **Hot** for a single, named blob within the `archive` container.
+The following sample code sets the tier to **hot** for a single, named blob within the `archive` container.
 
 ```azurecli-interactive
 #!/bin/bash

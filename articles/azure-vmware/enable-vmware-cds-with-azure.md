@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 08/30/2022
 ---
 
-# Enable VMware Cloud Director service with Azure VMware Solution (Preview)
+# Enable VMware Cloud Director service with Azure VMware Solution
 
 [VMware Cloud Director service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html) with Azure VMware Solution enables enterprise customers to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
 
@@ -184,4 +184,5 @@ VMware Cloud director service (CDs) is VMware owned and supported product connec
 
 [VMware Cloud Director Service Documentation](https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html)  
 [Migration to Azure VMware Solutions with Cloud Director service](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/migration-to-azure-vmware-solution-with-cloud-director-service.pdf)
+
 

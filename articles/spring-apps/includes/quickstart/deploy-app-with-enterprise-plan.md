@@ -2,12 +2,12 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: include
 ms.date: 08/09/2023
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Enterprise plan.
 
 [!INCLUDE [deploy-event-driven-app-with-enterprise-plan](includes/quickstart/deploy-app-with-enterprise-plan.md)]
@@ -107,9 +107,9 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az term accept \
-      --publisher vmware-inc \
-      --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan asa-ent-hr-mtr
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
    ```
 
 1. Use the following command to create an Azure Spring Apps service instance:

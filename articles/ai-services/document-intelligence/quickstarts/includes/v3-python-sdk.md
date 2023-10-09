@@ -1,11 +1,10 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) Python SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Python SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v3.0 
+description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v3.1 or v3.0 
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/16/2023
 ms.author: lajanuar
@@ -13,7 +12,7 @@ monikerRange: '>=doc-intel-3.0.0'
 ---
 <!-- markdownlint-disable MD025 -->
 
-[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview.md)
+[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-1.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -81,7 +80,7 @@ Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file from a URL**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-document` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * We've added the file URL value to the `docUrl` variable in the `analyze_general_documents` function.
 
@@ -248,7 +247,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file from a URL**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
@@ -271,7 +270,7 @@ def format_polygon(polygon):
     return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
 
 def analyze_layout():
-    # sample form document
+    # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     document_analysis_client = DocumentAnalysisClient(

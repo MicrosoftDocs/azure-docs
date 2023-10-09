@@ -38,7 +38,7 @@ In this access scenario, a user has signed into a client application. The client
 
 For the client app, the correct delegated permissions must be granted. Delegated permissions can also be referred to as scopes. Scopes are permissions for a given resource that represent what a client application can access on behalf of the user. For more information about scopes, see [scopes and permissions](scopes-oidc.md).
 
-For the user, the authorization relies on the privileges that the user has been granted for them to access the resource. For example, the user could be authorized to access directory resources by [Azure Active Directory (Azure AD) role-based access control (RBAC)](../roles/custom-overview.md) or to access mail and calendar resources by Exchange Online RBAC. For more information on RBAC for applications, see [RBAC for applications](custom-rbac-for-developers.md).
+For the user, the authorization relies on the privileges that the user has been granted for them to access the resource. For example, the user could be authorized to access directory resources by [Microsoft Entra role-based access control (RBAC)](../roles/custom-overview.md) or to access mail and calendar resources by Exchange Online RBAC. For more information on RBAC for applications, see [RBAC for applications](custom-rbac-for-developers.md).
 
 ### App-only access (Access without a user)
 
@@ -56,7 +56,7 @@ For example, imagine an application that has been granted the Files.Read.All del
 
 **Application permissions**, sometimes called app roles are used in the app-only access scenario, without a signed-in user present. The application will be able to access any data that the permission is associated with. For example, an application granted the Files.Read.All application permission will be able to read any file in the tenant.  Only an administrator or owner of the service principal can consent to application permissions.
 
-There are other ways in which applications can be granted authorization for app-only access. For example, an application can be assigned an Azure AD RBAC role.
+There are other ways in which applications can be granted authorization for app-only access. For example, an application can be assigned a Microsoft Entra RBAC role.
 
 ### Comparison of delegated and application permissions
 
@@ -93,8 +93,10 @@ Depending on the permissions they require, some applications might require an ad
 
 Preauthorization allows a resource application owner to grant permissions without requiring users to see a consent prompt for the same set of permissions that have been preauthorized. This way, an application that has been preauthorized won't ask users to consent to permissions. Resource owners can preauthorize client apps in the Azure portal or by using PowerShell and APIs, like Microsoft Graph.
 
-## Next steps
+## See also
 
 - [Delegated access scenario](delegated-access-primer.md)
 - [User and admin consent overview](../manage-apps/user-admin-consent-overview.md)
 - [OpenID connect scopes](scopes-oidc.md)
+-- [Making your application multi-tenant](./howto-convert-app-to-be-multi-tenant.md)
+- [Microsoft Entra Microsoft Q&A](/answers/topics/azure-active-directory.html)

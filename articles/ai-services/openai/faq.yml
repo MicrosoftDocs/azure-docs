@@ -5,10 +5,9 @@ metadata:
   description: Get answers to the most popular questions about Azure OpenAI Service
   services: cognitive-services
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: openai
+  ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 07/31/2023
+  ms.date: 10/06/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -26,7 +25,7 @@ sections:
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
-          Azure OpenAI supports the latest GPT-4 models. These models are currently only available by request. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+          Azure OpenAI supports the latest GPT-4 models.  It supports both GPT-4 and GPT-4-32K.
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
@@ -44,9 +43,9 @@ sections:
       - question: |
           How do I apply for new use cases?
         answer: |
-          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure AI services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
+          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure AI services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you didn't originally apply for.
       - question: |
-          I am trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
+          I'm trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
         answer: | 
           This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI only supports arrays of embeddings with multiple inputs for the `text-embedding-ada-002` Version 2 model. This model version supports an array consisting of up to 16 inputs per API request. The array can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
       - question: |
@@ -54,28 +53,44 @@ sections:
         answer: | 
           Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md) While these models are extremely powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've mastered the introduction, check out our article on more [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
       - question: |
-          My guest account has been given access to an Azure OpenAI resource, but I am unable to access that resource in the Azure OpenAI Studio. How do I enable access?
+          My guest account has been given access to an Azure OpenAI resource, but I'm unable to access that resource in the Azure OpenAI Studio. How do I enable access?
         answer: | 
           This is expected behavior when using the default sign-in experience for the [Azure OpenAI Studio](https://oai.azure.com).
           
           To access Azure OpenAI Studio from a guest account that has been granted access to an Azure OpenAI resource:
           
           1. Open a private browser session and then navigate to [https://oai.azure.com](https://oai.azure.com).
-          2. Rather than immediately entering your guest account credentials instead select **Sign-in options** 
+          2. Rather than immediately entering your guest account credentials instead select `Sign-in options` 
           3. Now select **Sign in to an organization** 
           4. Enter the domain name of the organization that granted your guest account access to the Azure OpenAI resource. 
           5. Now sign-in with your guest account credentials. 
           
           You should now be able to access the resource via the Azure OpenAI Studio.
           
-          Alternatively if you are signed into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
-  
+          Alternatively if you're signed into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
+      - question: |
+          When I ask GPT-4 what model it's running it tells me it's running GPT-3. Why does this happen?
+        answer: | 
+          Azure OpenAI models (including GPT-4) being unable to correctly identify what model is running is expected behavior. 
+
+          **Why does this happen?**
+
+          Ultimately, the model is performing next [token](/semantic-kernel/prompt-engineering/tokens) prediction in response to your question. The model doesn't have any native ability to query what model version is currently being run to answer your question. To answer this question, you can always go to **Azure OpenAI Studio** > **Management** > **Deployments** > and consult the model name column to confirm what model is currently associated with a given deployment name.
+
+          The questions, "What model are you running?" or "What is the latest model from OpenAI?" produce similar quality results to asking the model what the weather will be today. It might return the correct result, but purely by chance. On its own, the model has no real-world information other than what was part of its training/training data. In the case of GPT-4, as of August 2023 the underlying training data goes only up to September 2021. GPT-4 was not released until March 2023, so barring OpenAI releasing a new version with updated training data, or a new version that is fine-tuned to answer those specific questions, it's expected behavior for GPT-4 to respond that GPT-3 is the latest model release from OpenAI.
+
+          If you wanted to help a GPT based model to accurately respond to the question "what model are you running?", you would need to provide that information to the model through techniques like [prompt engineering of the model's system message](/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions), [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) which is the technique used by [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data) where up-to-date information is injected to the system message at query time, or via [fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) where you could fine-tune specific versions of the model to answer that question in a certain way based on model version. 
+
+          To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
+
+
+          
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |
           How do I get access to Azure OpenAI? 
         answer: |
-          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. In addition to applying for initial access, all solutions using Azure OpenAI are required to go through a use case review before they can be released for production use. Apply here for initial access or for a production review: [Apply now](https://aka.ms/oaiapply)          
+          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. Apply here for initial access: [Apply now](https://aka.ms/oaiapply)          
       - question: |
           After I apply for access, how long will I have to wait to get approved?
         answer: |
@@ -93,7 +108,7 @@ sections:
       - question: |
           Where can I post questions and see answers to other common questions? 
         answer: |  
-          - We recommend posting questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/387/azure-openai)
+          - We recommend posting questions on [Microsoft Q&A](/answers/tags/387/azure-openai)
           - Alternatively, you can post questions on [Stack Overflow](https://stackoverflow.com/search?q=azure+openai)
       - question: |
           Where do I go for Azure OpenAI customer support?
@@ -124,7 +139,7 @@ sections:
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:
-          If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).  
+          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).  
       - question: |
           How do I deploy a model with the REST API? 
         answer:
@@ -132,7 +147,7 @@ sections:
       - question: |
           Can I use quota to increase the max token limit of a model?
         answer:
-          No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and are not impacted by changes made to TPM. 
+          No, quota Tokens-Per-Minute (TPM) allocation isn't related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and aren't impacted by changes made to TPM. 
   - name: Web app
     questions:
       - question: |
@@ -160,7 +175,7 @@ sections:
       - question: |
           How much does it cost to use Azure OpenAI on your data?
         answer:
-          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There is no additional cost for using the "your data" feature in the Azure AI Studio.
+          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no additional cost for using the "your data" feature in the Azure AI Studio.
       - question: |
           How can I customize or automate the index creation process?
         answer:
@@ -180,7 +195,7 @@ sections:
       - question: |
           Is there a token limit on the system message?
         answer: 
-          Yes, the token limit on the system message is 200. If the system message is more than 200 tokens, the rest of the tokens beyond the first 200 will be ignored.
+          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored.
       - question: |
           Do the query language and the data source language need to be the same?
         answer:
@@ -190,6 +205,15 @@ sections:
         answer:
           When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
           If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
+      - question: |
+          How can I add vector embeddings when indexing my data?
+        answer:
+          When you select "Azure Blob Container", "Azure Cognitive Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
+      - question: |
+          Why is index creation failing after I added an embedding model?
+        answer:
+          Index creation may fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
+
 additionalContent: |
 
   ## Next steps

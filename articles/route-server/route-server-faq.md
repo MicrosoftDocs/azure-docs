@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: faq
-ms.date: 08/16/2023
+ms.date: 08/18/2023
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -94,7 +94,7 @@ No. By default, Azure Route Server doesn't propagate routes it receives from an 
 
 ### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
-ExpressRoute is preferred over VPN or SDWAN.
+By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md)
 
 ### What are the requirements for an Azure VPN gateway to work with Azure Route Server?
 
@@ -120,6 +120,10 @@ You can still use Route Server to direct traffic between subnets in different vi
 
 No, Azure Route Server provides transit only between ExpressRoute and Site-to-Site (S2S) VPN gateway connections (when enabling the *branch-to-branch* setting).
 
+### Can I create an Azure Route Server in a spoke VNet that's connected to a Virtual WAN hub?
+
+No. The spoke VNet can't have a Route Server if it's connected to the virtual WAN hub.
+
 ## Limitations
 
 ### How many Azure Route Servers can I create in a virtual network?
@@ -134,7 +138,7 @@ No, Azure Route Server doesn't support configuring a user defined route (UDR) on
 
 No, Azure Route Server doesn't support network security group association to the ***RouteServerSubnet*** subnet.
 
-### <a name = "limitations"></a>What are Azure Route Server limits?
+### <a name = "limits"></a>What are Azure Route Server limits?
 
 Azure Route Server has the following limits (per deployment).
 

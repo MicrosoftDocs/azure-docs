@@ -1,15 +1,16 @@
 ---
-title: Connect with sqlcmd 
+title: Connect with sqlcmd
 description: Use sqlcmd command-line utility to connect to and query a dedicated SQL pool in Azure Synapse Analytics.
-author: joannapea 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 04/17/2018
+author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 04/17/2018
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # Connect to a dedicated SQL pool in Azure Synapse Analytics with sqlcmd

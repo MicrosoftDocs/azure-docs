@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 09/30/2023
 ms.custom: template-how-to
 ---
 
@@ -18,9 +18,9 @@ In a production deployment, it's recommended that you deploy at least three mach
 
 ## Qualified workloads
 
-The following infrastructure workloads don't incur OpenShift Container Platform worker subscriptions:
+The following infrastructure workloads don't incur Azure Red Hat OpenShift worker subscriptions:
 
-- Kubernetes and OpenShift Container Platform control plane services that run on masters
+- Kubernetes and Azure Red Hat OpenShift control plane services that run on masters
 
 - The default router
 

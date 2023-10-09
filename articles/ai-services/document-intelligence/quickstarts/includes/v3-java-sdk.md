@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.0 
+description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.1 or v3.0 
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/17/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
 
-[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview.md)
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview-v3-1.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -143,7 +142,7 @@ Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-document` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
@@ -286,7 +285,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 

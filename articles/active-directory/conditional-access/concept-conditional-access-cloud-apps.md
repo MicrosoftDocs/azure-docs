@@ -1,6 +1,6 @@
 ---
 title: Cloud apps, actions, and authentication context in Conditional Access policy
-description: What are cloud apps, actions, and authentication context in an Azure AD Conditional Access policy
+description: What are cloud apps, actions, and authentication context in a Microsoft Entra Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
@@ -8,7 +8,7 @@ ms.subservice: conditional-access
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 
-ms.date: 06/27/2023
+ms.date: 08/31/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,14 +19,14 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Target resources
 
-Target resources (formerly Cloud apps, actions, and authentication context) are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
+Target resources (formerly Cloud apps, actions, and authentication context) are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, services, actions, or authentication context.
 
-- Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
+- Administrators can choose from the list of applications or services that include built-in Microsoft applications and any [Microsoft Entra integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../app-proxy/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a [user action](#user-actions) like **Register security information** or **Register or join devices**, allowing Conditional Access to enforce controls around those actions.
 - Administrators can target [traffic forwarding profiles](#traffic-forwarding-profiles) from Global Secure Access for enhanced functionality.
 - Administrators can use [authentication context](#authentication-context) to provide an extra layer of security in applications. 
 
-![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
+:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png" alt-text="Screenshot displaying a Conditional Access policy and the target resources panel." lightbox="media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png":::
 
 ## Microsoft cloud applications
 
@@ -83,32 +83,6 @@ Targeting this group of applications helps to avoid issues that may arise becaus
 
 Administrators can exclude the entire Office 365 suite or specific Office 365 cloud apps from the Conditional Access policy.
 
-The following key applications are affected by the Office 365 cloud app:
-
-- Exchange Online
-- Microsoft 365 Search Service
-- Microsoft Forms
-- Microsoft Planner (ProjectWorkManagement)
-- Microsoft Stream
-- Microsoft Teams
-- Microsoft To-Do
-- Microsoft Flow
-- Microsoft Office 365 Portal
-- Microsoft Office client application
-- Microsoft To-Do WebApp
-- Microsoft Whiteboard Services
-- Office Delve
-- Office Online
-- OneDrive
-- Power Apps
-- Power Automate
-- Security & compliance portal
-- SharePoint Online
-- Skype for Business Online
-- Skype and Teams Tenant Admin API
-- Sway
-- Yammer
-
 A complete list of all services included can be found in the article [Apps included in Conditional Access Office 365 app suite](reference-office-365-application-contents.md).
 
 ### Microsoft Azure Management
@@ -130,11 +104,11 @@ Because the policy is applied to the Azure management portal and API, services, 
 - Azure Data Factory portal 
 - Azure Event Hubs 
 - Azure Service Bus 
-- [Azure SQL Database](/azure/azure-sql/database/conditional-access-configure)
+- Azure SQL Database
 - SQL Managed Instance 
 - Azure Synapse 
 - Visual Studio subscriptions administrator portal 
-- [Microsoft IoT Central](https://apps.azureiotcentral.com/)
+- Microsoft IoT Central
 
 > [!NOTE]
 > The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
@@ -144,29 +118,28 @@ For more information on how to set up a sample policy for Microsoft Azure Manage
 > [!TIP]
 > For Azure Government, you should target the Azure Government Cloud Management API application.
 
-### Microsoft Admin Portals (preview)
+### Microsoft Admin Portals
 
 When a Conditional Access policy targets the Microsoft Admin Portals cloud app, the policy is enforced for tokens issued to application IDs of the following Microsoft administrative portals:
 
-- Microsoft 365 Admin Center
-- Exchange admin center
 - Azure portal
+- Exchange admin center
+- Microsoft 365 admin center
+- Microsoft 365 Defender portal
 - Microsoft Entra admin center
-- Security and Microsoft Purview compliance portal
+- Microsoft Intune admin center
+- Microsoft Purview compliance portal
 
-Other Microsoft admin portals will be added over time.
-
-> [!IMPORTANT]
-> Microsoft Admin Poratls (preview) is not currently supported in Government clouds.
+We're continually adding more administrative portals to the list.
 
 > [!NOTE]
 > The Microsoft Admin Portals app applies to interactive sign-ins to the listed admin portals only. Sign-ins to the underlying resources or services like Microsoft Graph or Azure Resource Manager APIs are not covered by this application. Those resources are protected by the [Microsoft Azure Management](#microsoft-azure-management) app. This enables customers to move along the MFA adoption journey for admins without impacting automation that relies on APIs and PowerShell. When you are ready, Microsoft recommends using a [policy requiring administrators perform MFA always](howto-conditional-access-policy-admin-mfa.md) for comprehensive protection.
 
 ### Other applications
 
-Administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
+Administrators can add any Microsoft Entra registered application to Conditional Access policies. These applications may include: 
 
-- Applications published through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md)
+- Applications published through [Microsoft Entra application proxy](../app-proxy/what-is-application-proxy.md)
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
 - [Custom applications not in the gallery](../manage-apps/view-applications-portal.md)
 - [Legacy applications published through app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)
@@ -179,7 +152,7 @@ Some applications don't appear in the picker at all. The only way to include the
 
 ### All cloud apps
 
-Applying a Conditional Access policy to **All cloud apps** results in the policy being enforced for all tokens issued to web sites and services. This option includes applications that aren't individually targetable in Conditional Access policy, such as Azure Active Directory. 
+Applying a Conditional Access policy to **All cloud apps** results in the policy being enforced for all tokens issued to web sites and services. This option includes applications that aren't individually targetable in Conditional Access policy, such as Microsoft Entra ID. 
 
 In some cases, an **All cloud apps** policy could inadvertently block user access. These cases are excluded from policy enforcement and include:
 
@@ -202,14 +175,14 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 > [!NOTE]
 > When applying a policy targeting user actions for register security information, if the user account is a guest from [Microsoft personal account (MSA)](../external-identities/microsoft-account.md), using the control 'Require multifactor authentication', will require the MSA user to register security information with the organization. If the guest user is from another provider such as [Google](../external-identities/google-federation.md), access will be blocked.
 
-- **Register or join devices**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-device-registration.md) or [join](../devices/concept-directory-join.md) devices to Azure AD. It provides granularity in configuring multifactor authentication for registering or joining devices instead of a tenant-wide policy that currently exists. There are three key considerations with this user action: 
-   - `Require multifactor authentication` is the only access control available with this user action and all others are disabled. This restriction prevents conflicts with access controls that are either dependent on Azure AD device registration or not applicable to Azure AD device registration. 
-   - `Client apps`, `Filters for devices` and `Device state` conditions aren't available with this user action since they're dependent on Azure AD device registration to enforce Conditional Access policies.
-   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multifactor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/manage-device-identities.md#configure-device-settings). 
+- **Register or join devices**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-device-registration.md) or [join](../devices/concept-directory-join.md) devices to Microsoft Entra ID. It provides granularity in configuring multifactor authentication for registering or joining devices instead of a tenant-wide policy that currently exists. There are three key considerations with this user action: 
+   - `Require multifactor authentication` is the only access control available with this user action and all others are disabled. This restriction prevents conflicts with access controls that are either dependent on Microsoft Entra device registration or not applicable to Microsoft Entra device registration. 
+   - `Client apps`, `Filters for devices` and `Device state` conditions aren't available with this user action since they're dependent on Microsoft Entra device registration to enforce Conditional Access policies.
+   - When a Conditional Access policy is enabled with this user action, you must set **Identity** > **Devices** > **Overview** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multifactor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action isn't properly enforced. More information about this device setting can found in [Configure device settings](../devices/manage-device-identities.md#configure-device-settings). 
 
 ## Traffic forwarding profiles
 
-Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to configure these traffic profiles in Conditional Access policy, see the article [How to require a compliant network check](../../global-secure-access/how-to-compliant-network.md).
+Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to apply a Conditional Access policy to these traffic profiles, see the article [How to apply Conditional Access policies to the Microsoft 365 traffic profile](../../global-secure-access/how-to-target-resource-microsoft-365-profile.md).
 
 For more information about these profiles, see the article [Global Secure Access traffic forwarding profiles](../../global-secure-access/concept-traffic-forwarding.md).
 
@@ -221,14 +194,14 @@ For example, an organization may keep files in SharePoint sites like the lunch m
 
 ### Configure authentication contexts
 
-Authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
+Authentication contexts are managed under **Protection** > **Conditional Access** > **Authentication context**.
 
-![Manage authentication context in the Azure portal](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
+:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png" alt-text="Screenshot showing the management of authentication contexts." lightbox="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png":::
 
-Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
+Create new authentication context definitions by selecting **New authentication context**. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
 
-- **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
-- **Description** provides more information about the policies it's used by Azure AD administrators and those applying authentication contexts to resources.
+- **Display name** is the name that is used to identify the authentication context in Microsoft Entra ID and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
+- **Description** provides more information about the policies it's used by Microsoft Entra administrators and those applying authentication contexts to resources.
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
 - **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It's listed here for troubleshooting and development use cases. 
 
@@ -236,7 +209,7 @@ Create new authentication context definitions by selecting **New authentication 
 
 Administrators can select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** and selecting **Authentication context** from the **Select what this policy applies to** menu.
 
-:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-in-policy.png" alt-text="Adding a Conditional Access authentication context to a policy":::
+:::image type="content" source="media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-in-policy.png" alt-text="Screenshot showing how to add a Conditional Access authentication context to a policy":::
 
 #### Delete an authentication context 
 

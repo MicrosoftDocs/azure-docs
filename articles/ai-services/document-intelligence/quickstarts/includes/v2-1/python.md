@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v2.1
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: includes
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -87,7 +86,7 @@ key = "YOUR_FORM_RECOGNIZER_KEY"
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * We've added the file URI value to the `formUrl` variable near the top of the file.
 > * To analyze a given file at a URI, you'll use the `begin_recognize_content_from_url` method.
 
@@ -101,7 +100,7 @@ key = "YOUR_FORM_RECOGNIZER_KEY"
     return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
 
  def recognize_content():
-    # sample form document
+    # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     form_recognizer_client = FormRecognizerClient(

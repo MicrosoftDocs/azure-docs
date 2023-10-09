@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Twilio binding for Azure Functions
@@ -20,17 +20,13 @@ This article explains how to send text messages by using [Twilio](https://www.tw
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 ---
 
@@ -42,6 +38,8 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 1.x.
 
 # [Functions v2.x+](#tab/functionsv2/isolated-process)
@@ -52,18 +50,10 @@ There is currently no support for Twilio for an isolated worker process app.
 
 Functions 1.x doesn't support running in an isolated worker process.
 
-# [Functions v2.x+](#tab/functionsv2/csharp-script)
-
-This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 1.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
-
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -88,7 +78,11 @@ Unless otherwise noted, these examples are specific to version 2.x and later ver
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)    
+# [Isolated worker model](#tab/isolated-process)
+
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
+
+# [In-process model](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 
@@ -123,100 +117,10 @@ namespace TwilioQueueOutput
 
 This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out CreateMessageOptions` parameter or an `ICollector<CreateMessageOptions>` or `IAsyncCollector<CreateMessageOptions>` parameter.
 
-# [Isolated process](#tab/isolated-process)
-
-The Twilio binding isn't currently supported for a function app running in an isolated worker process.
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a Twilio output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses an `out` parameter to send a text message.
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "twilioSms",
-  "name": "message",
-  "accountSidSetting": "TwilioAccountSid",
-  "authTokenSetting": "TwilioAuthToken",
-  "from": "+1425XXXXXXX",
-  "direction": "out",
-  "body": "Azure Functions Testing"
-}
-```
-
-Here's C# script code:
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio"
-#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
-
-using System;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.Azure.WebJobs.Extensions.Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
-
-public static void Run(string myQueueItem, out CreateMessageOptions message,  ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a
-    // customer and a mobile number to send text updates to.
-    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
-    string msg = "Hello " + order.name + ", thank you for your order.";
-
-    // You must initialize the CreateMessageOptions variable with the "To" phone number.
-    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message.
-    message.Body = msg;
-}
-```
-
-You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio"
-#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
-
-using System;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.Azure.WebJobs.Extensions.Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a
-    // customer and a mobile number to send text updates to.
-    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
-    string msg = "Hello " + order.name + ", thank you for your order.";
-
-    // You must initialize the CreateMessageOptions variable with the "To" phone number.
-    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message.
-    smsText.Body = msg;
-
-    await message.AddAsync(smsText);
-}
-```
-
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 The following example shows a Twilio output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's binding data in the *function.json* file:
@@ -349,9 +253,13 @@ public class TwilioOutput {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a [function.json configuration file](#configuration).  
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
+
+# [In-process model](#tab/in-process)
 
 In [in-process](functions-dotnet-class-library.md) function apps, use the [TwilioSmsAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), which supports the following parameters.
 
@@ -363,12 +271,6 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [Twili
 | **From**| This value is set to the phone number that the SMS text is sent from.|
 | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
-
-# [Isolated process](#tab/isolated-process)
-
-The Twilio binding isn't currently supported for a function app running in an isolated worker process.
-
-# [C# Script](#tab/csharp-script)
 
 ---
 
@@ -383,7 +285,7 @@ The [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twilios
 Place the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter, where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version:

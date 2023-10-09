@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: 'Form and document processing, data extraction, and analysis using Document Intelligence C# client library SDKs v3.1 or v3.0 '
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/16/2023
 ms.author: lajanuar
@@ -126,7 +125,7 @@ Analyze and extract text, tables, structure, key-value pairs.
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file from a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file from a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-document` as the model ID. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
 
@@ -143,7 +142,7 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 
-//sample form document
+//sample document
 Uri fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed,"prebuilt-document", fileUri);
@@ -259,7 +258,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file from a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file from a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
 > * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 

@@ -2,7 +2,7 @@
 title: Event hub as an event handler for Azure Event Grid events
 description: Describes how you can use event hubs as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 09/19/2023
 ---
 
 # Event hub as an event handler for Azure Event Grid events
@@ -69,7 +69,7 @@ See the following examples:
 ```
 
 ## Delivery properties
-Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set custom headers on the events that are delivered to Azure Event Hubs.
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that the destination requires. You can set custom headers on the events that are delivered to Azure Event Hubs.
 
 If you need to publish events to a specific partition within an event hub, set the `PartitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 

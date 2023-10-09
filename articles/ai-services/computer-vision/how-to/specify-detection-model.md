@@ -6,8 +6,8 @@ services: cognitive-services
 author: yluiu
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: yluiu

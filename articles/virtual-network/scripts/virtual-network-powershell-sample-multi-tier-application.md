@@ -24,7 +24,7 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 A subnet ID is assigned after you've created a virtual network; specifically, using the New-AzVirtualNetwork cmdlet with the -Subnet option. If you configure the subnet using the New-AzVirtualNetworkSubnetConfig cmdlet before the call to New-AzVirtualNetwork, you won't see the subnet ID until after you call New-AzVirtualNetwork.
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
+[!code-azurepowershell-interactive [main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1 "Virtual network for multi-tier application")]
 
 ## Clean up deployment
 

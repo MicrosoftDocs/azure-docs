@@ -6,7 +6,7 @@ manager: femila
 ms.service: azure-video-indexer
 ms.topic: include 
 ms.date: 12/13/2022
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 This section talks about limited access features in Azure AI Video Indexer.

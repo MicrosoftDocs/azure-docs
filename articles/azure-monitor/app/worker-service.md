@@ -4,7 +4,7 @@ description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monito
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 06/23/2023
+ms.date: 09/12/2023
 ms.reviewer: cithomas
 ---
 
@@ -494,8 +494,7 @@ The following auto-collection modules are enabled by default. These modules are 
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule` (There's currently an issue involving this telemetry module. For a temporary workaround, see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
-).)
+* `AppServicesHeartbeatTelemetryModule` (There's currently an issue involving this telemetry module. For a temporary workaround, see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689).)
 * `AzureInstanceMetadataTelemetryModule`
 
 To configure any default telemetry module, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example:

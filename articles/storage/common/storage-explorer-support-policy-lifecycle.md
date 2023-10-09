@@ -5,6 +5,7 @@ services: storage
 author: MRayermannMSFT
 manager: jinglouMSFT
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm

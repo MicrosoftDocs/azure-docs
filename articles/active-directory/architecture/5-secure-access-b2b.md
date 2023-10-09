@@ -1,6 +1,6 @@
 ---
-title: Transition to governed collaboration with Azure Active Directory B2B collaboration 
-description: Move to governed collaboration with Azure Ad B2B collaboration by using controls, tools, and settings. 
+title: Transition to governed collaboration with Microsoft Entra B2B collaboration 
+description: Move to governed collaboration with Microsoft Entra B2B collaboration by using controls, tools, and settings. 
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -15,12 +15,12 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Transition to governed collaboration with Azure Active Directory B2B collaboration
+# Transition to governed collaboration with Microsoft Entra B2B collaboration
 
-Understanding collaboration helps secure external access to your resources. Use the information in this article to move external collaboration into Azure Active Directory B2B (Azure AD B2B) collaboration. 
+Understanding collaboration helps secure external access to your resources. Use the information in this article to move external collaboration into Microsoft Entra B2B (Microsoft Entra B2B) collaboration. 
 
 * See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
-* Learn about: [External Identities in Azure AD](../external-identities/external-identities-overview.md)
+* Learn about: [External Identities in Microsoft Entra ID](../external-identities/external-identities-overview.md)
 
 ## Before you begin
 
@@ -28,19 +28,19 @@ This article is number 5 in a series of 10 articles. We recommend you review the
 
 ## Control collaboration 
 
-You can limit the organizations your users collaborate with (inbound and outbound), and who in your organization can invite guests. Most organizations permit business units to decide collaboration, and delegate approval and oversight. For example, organizations in government, education, and finance often don't permit open collaboration. You can use Azure AD features to control collaboration.
+You can limit the organizations your users collaborate with (inbound and outbound), and who in your organization can invite guests. Most organizations permit business units to decide collaboration, and delegate approval and oversight. For example, organizations in government, education, and finance often don't permit open collaboration. You can use Microsoft Entra features to control collaboration.
 
 To control access your tenant, deploy one or more of the following solutions:
 
 - **External collaboration settings** – restrict the email domains that invitations go to
-- **Cross tenant access settings** – control application access by guests by user, group, or tenant (inbound). Control external Azure AD tenant and application access for users (outbound).
+- **Cross tenant access settings** – control application access by guests by user, group, or tenant (inbound). Control external Microsoft Entra tenant and application access for users (outbound).
 - **Connected organizations** – determine what organizations can request access packages in Entitlement Management 
 
 ### Determine collaboration partners
 
 Document the organizations you collaborate with, and organization users' domains, if needed. Domain-based restrictions might be impractical. One collaboration partner can have multiple domains, and a partner can add domains. For example, a partner with multiple business units, with separate domains, can add more domains as they configure synchronization.
 
-If your users use Azure AD B2B, you can discover the external Azure AD tenants they're collaborating with, with the sign-in logs, PowerShell, or a workbook. Learn more:
+If your users use Microsoft Entra B2B, you can discover the external Microsoft Entra tenants they're collaborating with, with the sign-in logs, PowerShell, or a workbook. Learn more:
 
 * [Get MsIdCrossTenantAccessActivity](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity)
 * [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)
@@ -74,7 +74,7 @@ Some organizations have a blocklist of bad-actor domains from a managed security
 
 ### Cross tenant access settings
 
-You can control inbound and outbound access using cross tenant access settings. In addition, you can trust multi-factor authentication (MFA), a compliant device, and hybrid Azure Active Directory joined device (HAAJD) claims from external Azure AD tenants. When you configure an organizational policy, it applies to the Azure AD tenant and applies to users in that tenant, regardless of domain suffix. 
+You can control inbound and outbound access using cross tenant access settings. In addition, you can trust multi-factor authentication (MFA), a compliant device, and Microsoft Entra hybrid joined device (HAAJD) claims from external Microsoft Entra tenants. When you configure an organizational policy, it applies to the Microsoft Entra tenant and applies to users in that tenant, regardless of domain suffix. 
 
 You can enable collaboration across Microsoft clouds, such as Microsoft Azure operated by 21Vianet or Azure Government. Determine if your collaboration partners reside in a different Microsoft cloud. 
 
@@ -96,11 +96,11 @@ To control external organizations users access, configure outbound access polici
 Learn more: [Configure cross-tenant access settings for B2B collaboration](../external-identities/cross-tenant-access-settings-b2b-collaboration.md)
 
 > [!NOTE]
-> Cross tenant access settings apply to Azure AD tenants. To control access for partners not using Azure AD, use external collaboration settings.
+> Cross tenant access settings apply to Microsoft Entra tenants. To control access for partners not using Microsoft Entra ID, use external collaboration settings.
 
 ### Entitlement management and connected organizations
 
-Use entitlement management to ensure automatic guest-lifecycle governance. Create access packages and publish them to external users or to connected organizations, which support Azure AD tenants and other domains. When you create an access package, restrict access to connected organizations. 
+Use entitlement management to ensure automatic guest-lifecycle governance. Create access packages and publish them to external users or to connected organizations, which support Microsoft Entra tenants and other domains. When you create an access package, restrict access to connected organizations. 
 
 Learn more: [What is entitlement management?](../governance/entitlement-management-overview.md)
 
@@ -108,11 +108,11 @@ Learn more: [What is entitlement management?](../governance/entitlement-manageme
 
 To begin collaboration, invite or enable a partner to access resources. Users gain access by:
 
-* [Azure AD B2B collaboration invitation redemption](../external-identities/redemption-experience.md) 
+* [Microsoft Entra B2B collaboration invitation redemption](../external-identities/redemption-experience.md) 
 * [Self-service sign-up](../external-identities/self-service-sign-up-overview.md)
 * [Requesting access to an access package in entitlement management](../governance/entitlement-management-request-access.md)
 
-When you enable Azure AD B2B, you can invite guest users with links and email invitations. Self-service sign-up, and publishing access packages to the My Access portal, require more configuration. 
+When you enable Microsoft Entra B2B, you can invite guest users with links and email invitations. Self-service sign-up, and publishing access packages to the My Access portal, require more configuration. 
 
 > [!NOTE]
 > Self-service sign-up enforces no allowlist or blocklist in external collaboration settings. Instead, use cross tenant access settings. You can integrate allowlists and blocklists with self-service sign-up using custom API connectors. See, [Add an API connector to a user flow](../external-identities/self-service-sign-up-add-api-connector.md).
@@ -125,13 +125,13 @@ Determine who can invite guest users to access resources.
   * See, [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md)
 * If security requirements permit, allow all Member UserType to invite guests
 * Determine if Guest UserType can invite guests
-  * Guest is the default Azure AD B2B user account
+  * Guest is the default Microsoft Entra B2B user account
 
     ![Screenshot of guest invitation settings.](media/secure-external-access/5-guest-invite-settings.png)
 
 ### External user information
 
-Use Azure AD entitlement management to configure questions that external users answer. The questions appear to approvers to help them make a decision. You can configure sets of questions for each access package policy, so approvers have relevant information for access they approve. For example, ask vendors for their vendor contract number. 
+Use Microsoft Entra entitlement management to configure questions that external users answer. The questions appear to approvers to help them make a decision. You can configure sets of questions for each access package policy, so approvers have relevant information for access they approve. For example, ask vendors for their vendor contract number. 
 
 Learn more: [Change approval and requestor information settings for an access package in entitlement management](../governance/entitlement-management-access-package-approval-policy.md)
 
@@ -142,15 +142,17 @@ Learn more:
 * [Use API connectors to customize and extend self-service sign-up](../external-identities/api-connectors-overview.md)
 * [Manage Azure AD B2C with Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md)
 
-### Troubleshoot invitation redemption to Azure AD users
+<a name='troubleshoot-invitation-redemption-to-azure-ad-users'></a>
+
+### Troubleshoot invitation redemption to Microsoft Entra users
 
 Invited guest users from a collaboration partner can have trouble redeeming an invitation. See the following list for mitigations.
 
 * User domain isn't on an allowlist
 * The partner’s home tenant restrictions prevent external collaboration
-* The user isn't in the partner Azure AD tenant. For example, users at contoso.com are in Active Directory. 
+* The user isn't in the partner Microsoft Entra tenant. For example, users at contoso.com are in Active Directory. 
   * They can redeem invitations with the email one-time password (OTP)
-  * See, [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
+  * See, [Microsoft Entra B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
 
 ## External user access
 
@@ -167,7 +169,7 @@ We recommend the following guest-user restrictions:
 * Limit guest access to browsing groups and other properties in the directory
    * Use external collaboration settings to restrict guests from reading groups they aren't members of
 * Block access to employee-only apps
-   * Create a Conditional Access policy to block access to Azure AD-integrated applications for non-guest users
+   * Create a Conditional Access policy to block access to Microsoft Entra integrated applications for non-guest users
 * Block access to the Azure portal
   * You can make needed exceptions 
   * Create a Conditional Access policy with all guest and external users. Implement a policy to block access.
@@ -178,7 +180,7 @@ Learn more: [Conditional Access: Cloud apps, actions, and authentication context
 
 Establish a process to review and remove users who don't need access. Include external users in your tenant as guests, and users with member accounts.
 
-Learn more: [Use Azure AD Identity Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
+Learn more: [Use Microsoft Entra ID Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
 
 Some organizations add external users as members (vendors, partners, and contractors). Assign an attribute, or username:
 
@@ -186,16 +188,18 @@ Some organizations add external users as members (vendors, partners, and contrac
 * **Partners** - p-alias@contoso.com
 * **Contractors** - c-alias@contoso.com
 
-Evaluate external users with member accounts to determine access. You might have guest users not invited through entitlement management or Azure AD B2B.
+Evaluate external users with member accounts to determine access. You might have guest users not invited through entitlement management or Microsoft Entra B2B.
 
 To find these users:
 
-* [Use Azure AD Identity Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
+* [Use Microsoft Entra ID Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
 * Use a sample PowerShell script on [access-reviews-samples/ExternalIdentityUse/](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse)
 
-## Transition current external users to Azure AD B2B
+<a name='transition-current-external-users-to-azure-ad-b2b'></a>
 
-If you don't use Azure AD B2B, you likely have non-employee users in your tenant. We recommend you transition these accounts to Azure AD B2B external user accounts and then change their UserType to Guest. Use Azure AD and Microsoft 365 to handle external users. 
+## Transition current external users to Microsoft Entra B2B
+
+If you don't use Microsoft Entra B2B, you likely have non-employee users in your tenant. We recommend you transition these accounts to Microsoft Entra B2B external user accounts and then change their UserType to Guest. Use Microsoft Entra ID and Microsoft 365 to handle external users. 
 
 Include or exclude:
 
@@ -241,22 +245,22 @@ For more information on governing applications, see:
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md)
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) (You're here) 
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md) (You're here) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md)
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md)
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

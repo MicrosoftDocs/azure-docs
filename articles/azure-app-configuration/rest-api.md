@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API
 description: Reference pages for the Azure App Configuration REST API
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 11/28/2022
@@ -19,6 +19,7 @@ The documentation on the [control plane](../azure-resource-manager/management/co
 - [Labels](./rest-api-labels.md)
 - [Locks](./rest-api-locks.md)
 - [Revisions](./rest-api-revisions.md)
+- [Snapshots](./rest-api-snapshot.md)
 
 ## Protocol
 

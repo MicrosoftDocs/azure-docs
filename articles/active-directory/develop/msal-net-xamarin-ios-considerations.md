@@ -164,7 +164,7 @@ In such cases, use [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft.Id
 
 ## Report an issue
 
-If you have questions or would like to report an issue you've found in MSAL.NET, open an issue in the [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) repository on GitHub.
+If you have questions or would like to report an issue you've found in MSAL.NET, open an issue in the [`microsoft-authentication-library-for-dotnet`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) repository on GitHub.
 
 ## Next steps
 
@@ -172,6 +172,6 @@ For information about properties for Xamarin iOS, see the [iOS-specific consider
 
 Sample | Platform | Description
 ------ | -------- | -----------
-[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | A simple Xamarin Forms app that shows how to use MSAL to authenticate Microsoft personal accounts and Azure AD via the Azure AD 2.0 endpoint. The app also shows how to use the resulting token to access Microsoft Graph.
+[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | A Xamarin Forms app showcasing how to use MSAL.NET to authenticate work or school and Microsoft personal accounts with the Microsoft identity platform, and access the Microsoft Graph with the resulting token.
 
 <!--- https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png -->

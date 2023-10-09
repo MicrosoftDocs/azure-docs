@@ -3,11 +3,13 @@ title: Embed Azure AI Video Indexer widgets in your apps
 description: Learn how to embed Azure AI Video Indexer widgets in your apps.
 ms.topic: how-to
 ms.date: 01/10/2023
-ms.author: juliako
-ms.custom:
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Embed Azure AI Video Indexer widgets in your apps
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how you can embed Azure AI Video Indexer widgets in your apps. Azure AI Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
@@ -21,7 +23,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: `people`, `keywords`, `audioEffects`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, `spokenLanguage`, `observedPeople`, `namedEntities`.|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: `people`, `keywords`, `audioEffects`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, `spokenLanguage`, `observedPeople`, `namedEntities`, `detectedObjects`.|
 |`controls`|Strings separated by comma|Allows you to control the controls that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renders only search option and download button.<br/>Available options: `search`, `download`, `presets`, `language`.|
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
@@ -43,7 +45,7 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
 |`language`/`locale` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
-|`boundingBoxes`|Array of bounding boxes options: people (faces) and observed people. <br/>Values should be separated by a comma (",").|Controls the option to set bounding boxes on/off when embedding the player.<br/>All mentioned option will be turned on.<br/><br/>Example: `boundingBoxes= observedPeople, people`<br/>Default value is `boundingBoxes= observedPeople` (only observed people bounding box are turned on).|
+|`boundingBoxes`|Array of bounding boxes. Options: people (faces), observed people and detected objects. <br/>Values should be separated by a comma (",").|Controls the option to set bounding boxes on/off when embedding the player.<br/>All mentioned option will be turned on.<br/><br/>Example: `boundingBoxes=observedPeople,people,detectedObjects`<br/>Default value is `boundingBoxes=observedPeople,detectedObjects` (only observed people and detected objects bounding box are turned on).|
 
 ### Editor widget
 
@@ -70,7 +72,7 @@ To embed a video, use the website as described below:
 
 1. Sign in to the [Azure AI Video Indexer](https://www.videoindexer.ai/) website.
 1. Select the video that you want to work with and press **Play**.
-1. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
+1. Select the type of widget that you want (**Insights**, **Player**, or **Editor**).
 1. Click **&lt;/&gt; Embed**.
 5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
@@ -253,7 +255,7 @@ If you embed Azure AI Video Indexer insights with your own [Azure Media Player](
 
 You can choose the types of insights that you want. To do this, specify them as a value to the following URL parameter that's added to the embed code that you get (from the [API](https://aka.ms/avam-dev-portal) or from the [Azure AI Video Indexer](https://www.videoindexer.ai/) website): `&widgets=<list of wanted widgets>`.
 
-The possible values are: `people`, `keywords`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, `namedEntities`, `logos`.
+The possible values are listed [here](#cognitive-insights-widget).
 
 For example, if you want to embed a widget that contains only people and keywords insights, the iframe embed URL will look like this:
 

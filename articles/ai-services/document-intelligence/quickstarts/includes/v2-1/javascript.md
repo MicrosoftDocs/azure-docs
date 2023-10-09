@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library v2.1
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -94,7 +93,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * We've added the file URI value to the `formUrl` variable near the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginRecognizeContent` method.
 

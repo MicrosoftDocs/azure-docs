@@ -16,6 +16,11 @@
     - name: Route to shared services VNets
       displayName: Resource Manager route to shared services VNets
       href: quickstart-route-shared-services-vnet-template.md
+  - name: BICEP templates
+    expanded: true
+    items:
+    - name: Deploy Virtual WAN with routing intent and routing policies
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
 - name: Tutorials
   expanded: true
   items:
@@ -140,7 +145,11 @@
     - name: Azure PowerShell
       href: howto-connect-vnet-hub-powershell.md
   - name: Create a cross-tenant VNet connection
-    href: cross-tenant-vnet.md
+    items:
+    - name: Azure PowerShell
+      href: cross-tenant-vnet.md
+    - name: Azure CLI
+      href: cross-tenant-vnet-az-cli.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute association
@@ -283,6 +292,8 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
+    - name: Monitoring - best practices
+      href: monitoring-best-practices.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
@@ -306,7 +317,7 @@
   - name: REST
     href: /rest/api/azure
   - name: Azure CLI
-    href: ./index.yml
+    href: /cli/azure/network
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
 - name: Resources

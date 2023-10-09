@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -53,7 +53,7 @@ The following example rounds positive and negative numbers to the nearest intege
     | **`0.5`** | `1` |
     | **`6.5000`** | `7` |
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`POWER`](power.md)

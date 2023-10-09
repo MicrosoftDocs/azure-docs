@@ -4,14 +4,15 @@ titleSuffix: Azure AI services
 description: How to create a credential entity to manage your credential in secure.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 06/22/2021
 ms.author: mbullwin
 ---
 
 # How-to: Create a credential entity
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 When onboarding a data feed, you should select an authentication type, some authentication types like *Azure SQL Connection String* and *Service Principal* need a credential entity to store credential-related information, in order to manage your credential in secure. This article will tell how to create a credential entity for different credential types in Metrics Advisor.
     
@@ -68,17 +69,17 @@ To create service principal for your data source, you can follow detailed instru
 
 There are several steps to create a service principal from key vault.
 
-**Step 1. Create a Service Principal and grant it access to your database.** You can follow detailed instructions in [Connect different data sources](../data-feeds-from-different-sources.md), in creating service principal section for each data source. 
+**Step 1: Create a Service Principal and grant it access to your database.** You can follow detailed instructions in [Connect different data sources](../data-feeds-from-different-sources.md), in creating service principal section for each data source. 
 
 After creating a service principal in Azure portal, you can find `Tenant ID` and `Client ID` in **Overview**. The **Directory (tenant) ID** should be `Tenant ID` in credential entity configurations.
 
 ![sp client ID and tenant ID](../media/credential-entity/sp-client-tenant-id.png)
 
-**Step 2. Create a new client secret.** You should go to **Certificates & Secrets** to create a new client secret, and the **value** will be used in next steps. (Note: The value only appears once, so it's better to store it somewhere.)
+**Step 2: Create a new client secret.** You should go to **Certificates & Secrets** to create a new client secret, and the **value** will be used in next steps. (Note: The value only appears once, so it's better to store it somewhere.)
 
 ![sp Client secret value](../media/credential-entity/sp-secret-value.png)
 
-**Step 3. Create a key vault.** In [Azure portal](https://portal.azure.com/#home), select **Key vaults** to create one.
+**Step 3: Create a key vault.** In [Azure portal](https://portal.azure.com/#home), select **Key vaults** to create one.
 
 ![create a key vault in azure portal](../media/credential-entity/create-key-vault.png)
 
@@ -86,7 +87,7 @@ After creating a key vault, the **Vault URI** is the `Key Vault Endpoint` in MA 
 
 ![key vault endpoint](../media/credential-entity/key-vault-endpoint.png)
 
-**Step 4. Create secrets for Key Vault.** In Azure portal for key vault, generate two secrets in **Settings->Secrets**.
+**Step 4: Create secrets for Key Vault.** In Azure portal for key vault, generate two secrets in **Settings->Secrets**.
 The first is for `Service Principal Client Id`, the other is for `Service Principal Client Secret`, both of their name will be used in credential entity configurations.
 
 ![generate secrets](../media/credential-entity/generate-secrets.png)
@@ -101,7 +102,7 @@ The first is for `Service Principal Client Id`, the other is for `Service Princi
 
 Until now, the *client ID* and *client secret* of service principal are finally stored in Key Vault. Next, you need to create another service principal to store the key vault. Therefore, you should **create two service principals**, one to save client ID and client secret, which will be stored in a key vault, the other is to store the key vault.
 
-**Step 5. Create a service principal to store the key vault.** 
+**Step 5: Create a service principal to store the key vault.** 
 
 1. Go to [Azure portal AAD (Azure Active Directory)](https://portal.azure.com/?trace=diagnostics&feature.customportal=false#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) and create a new registration.
 
@@ -113,7 +114,7 @@ Until now, the *client ID* and *client secret* of service principal are finally 
 
     ![add client secret](../media/credential-entity/add-client-secret.png)
 
-**Step 6. Grant Service Principal access to Key Vault.**  Go to the key vault resource you created, in **Settings->Access polices**, by selecting 'Add Access Policy' to make connection between key vault and the second service principal in **Step 5**, and 'Save'.
+**Step 6: Grant Service Principal access to Key Vault.**  Go to the key vault resource you created, in **Settings->Access polices**, by selecting 'Add Access Policy' to make connection between key vault and the second service principal in **Step 5**, and 'Save'.
 
 ![grant sp to key vault](../media/credential-entity/grant-sp-to-kv.png)
 

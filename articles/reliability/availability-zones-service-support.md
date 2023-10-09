@@ -29,7 +29,7 @@ The following regions currently support availability zones:
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
 | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Italy North* | UAE North | | Central India |
+| Canada Central | Italy North | UAE North | | Central India |
 | Central US |  Germany West Central | Israel Central* | | Japan East |
 | East US | Norway East | | | Korea Central |
 | East US 2 | North Europe  | | | Southeast Asia |
@@ -130,7 +130,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure Batch](../batch/create-pool-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Cognitive Search](../search/search-reliability.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Container Apps](../container-apps/disaster-recovery.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Container Apps](reliability-azure-container-apps.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Container Instances](../container-instances/availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Container Registry](../container-registry/zone-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |

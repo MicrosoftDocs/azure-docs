@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory SSO integration with SpedTrack
-description: Learn how to configure single sign-on between Azure Active Directory and SpedTrack.
+title: Microsoft Entra SSO integration with SpedTrack
+description: Learn how to configure single sign-on between Microsoft Entra ID and SpedTrack.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,41 +14,48 @@ ms.author: jeedes
 
 ---
 
-# Azure Active Directory SSO integration with SpedTrack
+# Microsoft Entra SSO integration with SpedTrack
 
-In this article, you'll learn how to integrate SpedTrack with Azure Active Directory (Azure AD). SpedTrack provides a comprehensive web-based solution for school districts to manage their Special Services departments. When you integrate SpedTrack with Azure AD, you can:
+In this article, you'll learn how to integrate SpedTrack with Microsoft Entra ID. SpedTrack provides a comprehensive web-based solution for school districts to manage their Special Services departments. When you integrate SpedTrack with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to SpedTrack.
-* Enable your users to be automatically signed-in to SpedTrack with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to SpedTrack.
+* Enable your users to be automatically signed-in to SpedTrack with their Microsoft Entra accounts.
 
-You'll configure and test Azure AD single sign-on for SpedTrack in a test environment. SpedTrack supports both **SP** and **IDP** initiated single sign-on.
+You'll configure and test Microsoft Entra single sign-on for SpedTrack in a test environment. SpedTrack supports both **SP** and **IDP** initiated single sign-on.
 
 ## Prerequisites
 
-To integrate Azure Active Directory with SpedTrack, you need:
+To integrate Microsoft Entra ID with SpedTrack, you need:
 
-* An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SpedTrack single sign-on (SSO) enabled subscription.
 
 ## Add application and assign a test user
 
-Before you begin the process of configuring single sign-on, you need to add the SpedTrack application from the Azure AD gallery. A user within your tenant will need to be assigned to the application. This test user will need to exist within SpedTrack also. 
+Before you begin the process of configuring single sign-on, you need to add the SpedTrack application from the Microsoft Entra gallery. A user within your tenant will need to be assigned to the application. This test user will need to exist within SpedTrack also. 
 
-### Add SpedTrack from the Azure AD gallery
+<a name='add-spedtrack-from-the-azure-ad-gallery'></a>
 
-Add SpedTrack from the Azure AD application gallery to configure single sign-on with SpedTrack. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
+### Add SpedTrack from the Microsoft Entra gallery
 
-### Assign an Azure AD test user
+Add SpedTrack from the Microsoft Entra application gallery to configure single sign-on with SpedTrack. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal. This test user will also need to be created within SpedTrack with a matching email.
+<a name='assign-an-azure-ad-test-user'></a>
 
-## Configure Azure AD SSO
+### Assign a Microsoft Entra test user
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account. This test user will also need to be created within SpedTrack with a matching email.
 
-1. In the Azure portal, on the **SpedTrack** application integration page, find the **Manage** section and select **single sign-on**.
+<a name='configure-azure-ad-sso'></a>
+
+## Configure Microsoft Entra SSO
+
+Complete the following steps to enable Microsoft Entra single sign-on.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SpedTrack** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 
 1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** then perform the following steps:
@@ -93,7 +100,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. Download the SP Metadata file or copy the values of Identifier, Reply URL, Sign on URL and Logout URL. 
 
-1. Select **Upload Metadata** to upload the **Federation Metadata XML** file, which you've downloaded from the Azure portal.
+1. Select **Upload Metadata** to upload the **Federation Metadata XML** file, which you've downloaded.
 
 1. **Save** the changes within SpedTrack after uploading the file. 
 
@@ -103,7 +110,7 @@ In this section, you create a user called Britta Simon in SpedTrack. Work with [
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
@@ -112,13 +119,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the SpedTrack for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the SpedTrack for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SpedTrack tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SpedTrack for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SpedTrack tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SpedTrack for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 
-* [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 * [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md).
 
 ## Next steps

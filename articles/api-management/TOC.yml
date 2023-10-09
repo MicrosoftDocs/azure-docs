@@ -7,6 +7,8 @@
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
+      - name: v2 service tiers
+        href: v2-service-tiers-overview.md
       - name: Service limits
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
 - name: Quickstarts
@@ -59,7 +61,7 @@
       - name: Policy snippets
         href: https://github.com/Azure/api-management-policy-snippets
       - name: Azure PowerShell
-        href: powershell-samples.md
+        href: https://github.com/Azure/azure-docs-powershell-samples
 - name: Concepts
   items:
       - name: Terminology
@@ -163,17 +165,19 @@
               displayName: soft delete
               href: soft-delete.md
             - name: Migrate to stv2 platform
-              href: migrate-stv1-to-stv2.md
+              href: migrate-stv1-to-stv2.md 
             - name: Configure networking
               items:
-                - name: Connect to a virtual network
+                - name: Deploy to a VNet - external
                   href: api-management-using-with-vnet.md
-                - name: Connect to an internal virtual network
+                - name: Deploy to a VNet - internal
                   href: api-management-using-with-internal-vnet.md
-                - name: Integrate Application Gateway in an internal virtual network
+                - name: Integrate Application Gateway in an internal VNet
                   href: api-management-howto-integrate-internal-vnet-appgateway.md
                 - name: Connect privately using private endpoint
                   href: private-endpoint.md
+                - name: Integrate with VNet for outbound requests
+                  href: integrate-vnet-outbound.md
                 - name: Retrieve IP addresses
                   href: api-management-howto-ip-addresses.md
                 - name: Defend against DDoS attacks
@@ -251,7 +255,7 @@
                   href: import-api-from-odata.md
                 - name: Import SAP OData metadata
                   href: sap-api.md
-                - name: Configure API for SSE
+                - name: Configure API for SSE 
                   href: how-to-server-sent-events.md
                 - name: API import restrictions
                   href: api-management-api-import-restrictions.md

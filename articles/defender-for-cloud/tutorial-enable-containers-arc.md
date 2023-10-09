@@ -56,7 +56,7 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 > [!NOTE]
 > To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
-## Deploy the Defender agent on Arc-enabled Kubernetes clusters that were onboarded to an Azure subscription
+## Deploy the Defender agent on Arc-enabled Kubernetes clusters
 
 You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender agent](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-agent) with REST API, Azure CLI or with a Resource Manager template.
 
@@ -68,7 +68,7 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 
 1. Navigate to the Recommendations page.
 
-1. Search for and select the `Azure Arc-enabled Kubernetes clusters should have Defender for Cloud's extension installed` recommendation.
+1. Search for and select the `Azure Arc-enabled Kubernetes clusters should have the Defender extension installed` recommendation.
 
     :::image type="content" source="media/tutorial-enable-containers-azure/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender agent for Azure Arc-enabled Kubernetes clusters." lightbox="media/tutorial-enable-containers-azure/extension-recommendation.png":::
 

@@ -4,10 +4,9 @@ titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's embeddings API for document search with the BillSum dataset
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: tutorial
-ms.date: 06/14/2023
+ms.date: 09/12/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -34,7 +33,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-* Access granted to Azure OpenAI in the desired Azure subscription
+* Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 * The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, pandas, tiktoken.
@@ -65,18 +64,7 @@ You can also download the sample data by running the following command on your l
 curl "https://raw.githubusercontent.com/Azure-Samples/Azure-OpenAI-Docs-Samples/main/Samples/Tutorials/Embeddings/data/bill_sum_data.csv" --output bill_sum_data.csv
 ```
 
-### Retrieve key and endpoint
-
-To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**.
-
-|Variable name | Value |
-|--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com`.|
-| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-
-Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
-
-Create and assign persistent environment variables for your key and endpoint.
+[!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
 ### Environment variables
 
@@ -344,7 +332,7 @@ len(decode)
 1466
 ```
 
-Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an Azure Database. As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
+Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an [Azure Database to support Vector Search](../../../cosmos-db/mongodb/vcore/vector-search.md). As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
 
 ```python
 df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
@@ -409,3 +397,4 @@ If you created an OpenAI resource solely for completing this tutorial and want t
 Learn more about Azure OpenAI's models:
 > [!div class="nextstepaction"]
 > [Azure OpenAI Service models](../concepts/models.md)
+* Store your embeddings and perform vector (similarity) search using [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Cosmos DB for NoSQL](../../../cosmos-db/rag-data-openai.md)

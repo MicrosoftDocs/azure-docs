@@ -5,7 +5,7 @@ author: cilwerner
 ms.author: cwerner
 manager: CelesteDG
 ms.date: 03/24/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.subservice: develop
 ms.custom: aaddev, engagement-fy23
 ms.service: active-directory
@@ -21,8 +21,8 @@ After the application has been registered, you can check or change the account t
 | Supported account types (Register an application) | `signInAudience` (Manifest) |
 |---------------------------------------------------|-----------------------------|
 | Accounts in this organizational directory only (Single tenant) | `AzureADMyOrg` |
-| Accounts in any organizational directory (Any Azure AD directory - Multitenant) | `AzureADMultipleOrgs` |
-| Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
+| Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) | `AzureADMultipleOrgs` |
+| Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
 | Personal Microsoft accounts only | `PersonalMicrosoftAccount` |
 
 If you change this property you may need to change other properties first. 
@@ -38,7 +38,7 @@ See the following table for the validation differences of various properties for
 | Certificates (`keyCredentials`)             | Symmetric signing key     | Symmetric signing key    | Encryption and asymmetric signing key  |
 | Client secrets (`passwordCredentials`)      | No limit\*                | No limit\*               | If liveSDK is enabled: Maximum of two client secrets  |
 | Redirect URIs (`replyURLs`)                 | See [Redirect URI/reply URL restrictions and limitations](reply-url.md) for more info.  |  |   |
-| API permissions (`requiredResourceAccess`)  | No more than 50 APIs (resource apps) from the same tenant as the application, no more than 10 APIs from other tenants, and no more than 400 permissions total across all APIs.   | No more than 50 APIs (resource apps) from the same tenant as the application, no more than 10 APIs from other tenants, and no more than 400 permissions total across all APIs.   | Maximum of 50 resources per application and 30 permissions per resource (for example, Microsoft Graph). Total limit of 200 per application (resources x permissions).   |
+| API permissions (`requiredResourceAccess`)  | No more than 50 total APIs (resource apps), with no more than 10 APIs from other tenants. No more than 400 permissions total across all APIs.  | No more than 50 total APIs (resource apps), with no more than 10 APIs from other tenants. No more than 400 permissions total across all APIs. | No more than 50 total APIs (resource apps), with no more than 10 APIs from other tenants. No more than 200 permissions total across all APIs. Maximum of 30 permissions per resource (for example, Microsoft Graph).   |
 | Scopes defined by this API (`oauth2Permissions`)             | Maximum scope name length of 120 characters <br><br> No limit\* on the number of scopes defined       | Maximum scope name length of 120 characters <br><br> No limit\* on the number of scopes defined    | Maximum scope name length of 40 characters <br><br> Maximum of 100 scopes defined     |
 | Authorized client applications (`preAuthorizedApplications`) | No limit\*  | No limit\*    | Total maximum of 500 <br><br> Maximum of 100 client apps defined <br><br> Maximum of 30 scopes defined per client  |
 | appRoles      | Supported <br> No limit\*   | Supported <br> No limit\* | Not supported |
