@@ -27,7 +27,7 @@ Select a service from the table below and learn how it can help you meet your de
 
 | Service | Description |
 | --- | --- |
-| ![Anomaly Detector icon](media/service-icons/anomaly-detector.svg) [Anomaly Detector](./Anomaly-Detector/index.yml)(retired) | Identify potential problems early on |
+| ![Anomaly Detector icon](media/service-icons/anomaly-detector.svg) [Anomaly Detector](./Anomaly-Detector/index.yml) (retired) | Identify potential problems early on |
 | ![Azure Cognitive Search icon](media/service-icons/cognitive-search.svg) [Azure Cognitive Search](../search/index.yml) | Bring AI-powered cloud search to your mobile and web apps |
 | ![Azure OpenAI Service icon](media/service-icons/azure.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks |
 | ![Bot service icon](media/service-icons/bot-services.svg) [Bot Service](/composer/) | Create bots and connect them across channels |
@@ -39,8 +39,8 @@ Select a service from the table below and learn how it can help you meet your de
 | ![Immersive Reader icon](media/service-icons/immersive-reader.svg) [Immersive Reader](./immersive-reader/index.yml) | Help users read and comprehend text |
 | ![Language icon](media/service-icons/language.svg) [Language](./language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities |
 | ![Language Understanding icon](media/service-icons/luis.svg) [Language understanding](./luis/index.yml) (retired) | Understand natural language in your apps |
-| ![Metrics Advisor icon](media/service-icons/metrics-advisor.svg) [Metrics Advisor](./metrics-advisor/index.yml)(retired) | An AI service that detects unwanted contents |
-| ![Personalizer icon](media/service-icons/personalizer.svg) [Personalizer](./personalizer/index.yml)(retired) | Create rich, personalized experiences for each user |
+| ![Metrics Advisor icon](media/service-icons/metrics-advisor.svg) [Metrics Advisor](./metrics-advisor/index.yml) (retired) | An AI service that detects unwanted contents |
+| ![Personalizer icon](media/service-icons/personalizer.svg) [Personalizer](./personalizer/index.yml) (retired) | Create rich, personalized experiences for each user |
 | ![QnA Maker icon](media/service-icons/luis.svg) [QnA maker](./qnamaker/index.yml) (retired) | Distill information into easy-to-navigate questions and answers |
 | ![Speech icon](media/service-icons/speech.svg) [Speech](./speech-service/index.yml) | Speech to text, text to speech, translation and speaker recognition |
 | ![Translator icon](media/service-icons/translator.svg) [Translator](./translator/index.yml) | Translate more than 100 languages and dialects |
