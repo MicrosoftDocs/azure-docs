@@ -20,6 +20,8 @@ Azure Content Delivery Network (CDN) includes four products:
 * **Azure CDN Standard from Edgio (formerly Verizon)**
 * **Azure CDN Premium from Edgio (formerly Verizon)**.
 
+To learn more about how to configure $0 egress using a 3rd party CDN partner see [https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/routing-preference-unmetered]. 
+
 > [!IMPORTANT]
 > Azure CDN from Akamai is scheduled to be retired on October 31, 2023. You can no longer create new Azure CDN from Akamai after June 1, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
