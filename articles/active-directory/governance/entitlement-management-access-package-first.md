@@ -165,7 +165,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
     ![Screenshot of the access package lifecycle tab](./media/entitlement-management-access-package-first/new-access-package-lifecycle.png)
 
-1. Skip the **Custom extensions (Preview)** step.
+1. Skip the **Custom extensions** step.
 
 1. Select **Next** to open the **Review + Create** tab. 
 
