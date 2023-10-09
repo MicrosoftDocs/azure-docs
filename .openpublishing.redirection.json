@@ -24433,7 +24433,7 @@
         },
         {
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
-            "redirect_url": "/articles/load-balancer/upgrade-basic-standard-with-powershell.md",
+            "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
             "redirect_document_id": false
         }
     ]

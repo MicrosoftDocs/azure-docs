@@ -53,7 +53,7 @@ The PowerShell module performs the following functions:
 - **PowerShell**: A supported version of PowerShell version 7 or higher is the recommended version of PowerShell for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, Windows PowerShell 5.1 is supported. 
 - **Az PowerShell Module**: Determine whether you have the latest Az PowerShell module installed
   - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
-- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is an a separate install from the Az PowerShell module. It will be automatically installed if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command as shown below. 
+- **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It will be automatically installed if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command as shown below. 
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
@@ -212,11 +212,11 @@ At the end of its execution, the upgrade module performs the following validatio
 
 - The Standard Load Balancer exists and its SKU is 'Standard'
 - The count of front end IP configurations match and that the IP addresses are the same
-- The count of backend pools and their memberships match
-- The count of load balancing rules match
-- The count of health probes match
-- The count of inbound NAT rules match
-- The count of inbound NAT pools match
+- The count of backend pools and their memberships matches
+- The count of load balancing rules matches
+- The count of health probes matches
+- The count of inbound NAT rules matches
+- The count of inbound NAT pools matches
 - External Standard Load Balancers have a configured outbound rule
 - External Standard Load Balancer backend pool members have associated Network Security Groups
 
