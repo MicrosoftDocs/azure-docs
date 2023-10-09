@@ -220,7 +220,7 @@ The following browsers have been tested to see if they correctly redirect to the
 | Samsung S7 (API 25) | pass<sup>1</sup> |                       pass |           pass |           pass |           fail |           pass |
 | Vivo (API 26)       |       pass       |                       pass |           pass |           pass |           pass |           fail |
 | Pixel 2 (API 26)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
-| Oppo                |       pass       | not applicable<sup>3</sup> | not applicable | not applicable | not applicable | not applicable |
+| Oppo                |       pass       | not applicable<sup>2</sup> | not applicable | not applicable | not applicable | not applicable |
 | OnePlus (API 25)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
 | Nexus (API 28)      |       pass       |                       pass |           pass |           pass |           fail |           pass |
 | MI                  |       pass       |                       pass |           pass |           pass |           fail |           pass |
