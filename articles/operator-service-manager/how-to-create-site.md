@@ -23,17 +23,21 @@ In this how-to guide, you learn how to create a site. A *site* refers to a speci
 1. Search for **Sites** then select **Create**.
 1. On the **Basics** tab, enter the *Subscription*, *Resource group*, *Name* and *Region*. You can accept the default values for the remaining settings.
 
-    > [!NOTE]
+> [!NOTE]
 > The site must be in the same region as the prerequisite resources.
+
+## Add Network Function Virtualization Infrastructure (NFVI)
+
+Use the information in the table to add the Network Function Virtualization Infrastructure (NFVIs).
+
+| Setting  | Description  |
+|---------|---------|
+|NFVI Name     |  Enter the name specified by the designer in NSDV.       |
+|NFVI Type     |   *Azure Core*, *Azure Operator Distributed Services* or *Unknown*.  The NFVI type here must match the NFVI type specified by the designer in the NSDV.|      |
+|NFVI Location    |  The Azure region for the site.       |
 
 1. Add the Network Function Virtualization Infrastructure (NFVIs) you wish to deploy your network service on by selecting the **Add the NFVIs** tab, then *Add NFVI* once field information is input.
 
-    |Setting  |Description  |
-    |---------|---------|
-    |NFVI Name     |  Enter the name specified by the designer in NSDV.       |
-    |NFVI Type     |   *Azure Core*, *Azure Operator Distributed Services* or *Unknown*.  The NFVI type here must match the NFVI type specified by the designer in the NSDV.|      |
-    |NFVI Location    |  The Azure region for the site.       |
-    
     > [!NOTE]
     > Consult the documentation from your NSD Designer or directly contact them to obtain the list of NFVIs.
 
