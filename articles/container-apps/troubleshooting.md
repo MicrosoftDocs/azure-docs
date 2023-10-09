@@ -355,119 +355,127 @@ x Console does not show setting for HTTP/TCP. Okay, it's --transport.
 
 ::: zone pivot="console"
 
-- Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command. If ingress is disabled, `az containerapp ingress show` returns nothing.
+### Verify ingress is enabled
 
-  TODO1 This is confusing, especially for Linux people (for whom no output means no error), and should be changed so that az container app ingress show explicitly states ingress is disabled.
+Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command. If ingress is disabled, `az containerapp ingress show` returns nothing.
 
-  # [Bash](#tab/bash)
+TODO1 This is confusing, especially for Linux people (for whom no output means no error), and should be changed so that az container app ingress show explicitly states ingress is disabled.
 
-  ```azurecli
-  az containerapp ingress show \
-    --name <YOUR_CONTAINER_APP_NAME> \
-    --resource-group <YOUR_RESOURCE_GROUP_NAME> \
-  ```
+# [Bash](#tab/bash)
 
-  # [Azure PowerShell](#tab/azure-powershell)
+```azurecli
+az containerapp ingress show \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+```
 
-  ```powershell
-  az containerapp ingress show `
-    --name <YOUR_CONTAINER_APP_NAME> `
-    --resource-group <YOUR_RESOURCE_GROUP_NAME> `
-  ```
+# [Azure PowerShell](#tab/azure-powershell)
 
-  ---
+```powershell
+az containerapp ingress show `
+  --name <YOUR_CONTAINER_APP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+```
 
-  You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
+---
 
-  # [Bash](#tab/bash)
+You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
 
-  ```azurecli
-  az containerapp ingress enable \
-    --type <internal|external> \
-	--target-port <YOUR_TARGET_PORT> \
-    --name <YOUR_CONTAINER_APP_NAME> \
-    --resource-group <YOUR_RESOURCE_GROUP_NAME> \
-  ```
+# [Bash](#tab/bash)
 
-  # [Azure PowerShell](#tab/azure-powershell)
+```azurecli
+az containerapp ingress enable \
+  --type <internal|external> \
+  --target-port <YOUR_TARGET_PORT> \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+```
 
-  ```powershell
-  az containerapp ingress enable `
-    --type <internal|external> `
-	--target-port <YOUR_TARGET_PORT> `  
-    --name <YOUR_CONTAINER_APP_NAME> `
-    --resource-group <YOUR_RESOURCE_GROUP_NAME> `
-  ```
+# [Azure PowerShell](#tab/azure-powershell)
 
-  ---
+```powershell
+az containerapp ingress enable `
+  --type <internal|external> `
+  --target-port <YOUR_TARGET_PORT> `  
+  --name <YOUR_CONTAINER_APP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+```
 
-- If you want to allow external ingress, verify your app is configured accordingly. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+---
 
-  ```json
+### Verify external ingress is allowed
+
+If you want to allow external ingress, verify your app is configured accordingly. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+
+```json
+{
+  "allowInsecure": false,
+  "clientCertificateMode": null,
+  "corsPolicy": null,
+  "customDomains": null,
+  "exposedPort": 0,
+  "external": true,
+  "fqdn": "<YOUR_CONTAINER_APP_FQDN>",
+  "ipSecurityRestrictions": null,
+  "stickySessions": null,
+  "targetPort": 3500,
+  "traffic": [
   {
-    "allowInsecure": false,
-    "clientCertificateMode": null,
-    "corsPolicy": null,
-    "customDomains": null,
-    "exposedPort": 0,
-    "external": true,
-    "fqdn": "<YOUR_CONTAINER_APP_FQDN>",
-    "ipSecurityRestrictions": null,
-    "stickySessions": null,
-    "targetPort": 3500,
-    "traffic": [
-    {
-      "latestRevision": true,
-      "weight": 100
-    }
-    ],
-    "transport": "Auto"
+    "latestRevision": true,
+    "weight": 100
   }
-  ```
+  ],
+  "transport": "Auto"
+}
+```
 
-  Verify `external` is `true`. If not, run the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command, as described previously, with `--type external`. You can expect output like the following example:
+Verify `external` is `true`. If not, run the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command, as described previously, with `--type external`. You can expect output like the following example:
   
-  ```json
-  Ingress enabled. Access your app at <YOUR_CONTAINER_APP_ENDPOINT>
+```json
+Ingress enabled. Access your app at <YOUR_CONTAINER_APP_ENDPOINT>
 
-  {
-    ...
-    "external": true,
-    ...
-  }
-  ```
+{
+  ...
+  "external": true,
+  ...
+}
+```
 
-- Verify your target port is set to the same port your container app is listening on. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+### Verify target port
 
-  ```json
-  {
-	...
-    "targetPort": 3500,
-    ...
-  }
-  ```
+Verify your target port is set to the same port your container app is listening on. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
 
-- Use the [`az containerapp access-restriction list`](/cli/azure/containerapp/ingress/access-restriction#az-containerapp-ingress-access-restriction-list(containerapp)) command to verify your client does not have an IP address that is denied.
+```json
+{
+  ...
+  "targetPort": 3500,
+  ...
+}
+```
 
-  # [Bash](#tab/bash)
+### Verify IP access allowed
 
-  ```azurecli
-  az containerapp access-restriction list \
-    --name <YOUR_CONTAINER_APP_NAME> \
-    --resource-group <YOUR_RESOURCE_GROUP_NAME> \
-  ```
+Use the [`az containerapp access-restriction list`](/cli/azure/containerapp/ingress/access-restriction#az-containerapp-ingress-access-restriction-list(containerapp)) command to verify your client does not have an IP address that is denied.
 
-  # [Azure PowerShell](#tab/azure-powershell)
+# [Bash](#tab/bash)
 
-  ```powershell
-  az containerapp access-restriction list `
-    --name <YOUR_CONTAINER_APP_NAME> `
-    --resource-group <YOUR_RESOURCE_GROUP_NAME> `
-  ```
+```azurecli
+az containerapp access-restriction list \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+```
 
-  ---
+# [Azure PowerShell](#tab/azure-powershell)
 
-  If you do not have any IP access restrictions, this command returns an empty list (`[]`).
+```powershell
+az containerapp access-restriction list `
+  --name <YOUR_CONTAINER_APP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+```
+
+---
+
+If you do not have any IP access restrictions, this command returns an empty list (`[]`).
 
 ::: zone-end
 
