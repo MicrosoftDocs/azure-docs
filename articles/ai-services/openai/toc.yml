@@ -74,8 +74,6 @@ items:
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:
-      - name: Prepare dataset
-        href: ./how-to/prepare-dataset.md
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
   - name: Networking & security

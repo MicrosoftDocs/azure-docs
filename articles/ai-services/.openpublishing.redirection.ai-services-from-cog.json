@@ -4454,6 +4454,11 @@
       "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to/enable-vnet-service-endpoint.md",
       "redirect_url": "/azure/ai-services/translator/custom-translator/how-to/enable-vnet-service-endpoint",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
+      "redirect_url": "/azure/ai-services/openai/how-to/fine-tuning",
+      "redirect_document_id": false
     }
   ]
 }
