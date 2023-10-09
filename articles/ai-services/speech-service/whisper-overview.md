@@ -5,7 +5,7 @@ description: In this article, you learn about the Whisper model from OpenAI that
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 09/15/2023

@@ -5,7 +5,7 @@ description: This document helps developers migrate code from v3.1 to v3.2 of th
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/15/2023
