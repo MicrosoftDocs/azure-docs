@@ -25,7 +25,7 @@ For specific component pages, you can always refer:
 
 Azure's preferred destination for community support, [Microsoft Q&A](/answers/products/azure), allows you to ask technical questions and engage with Azure engineers, Most Valuable Professionals (MVPs), partners, and customers. When you ask a question, make sure you use the `HDInsight` tag. You can also submit your own answers and help other community members with their questions.
 
-- [Microsoft Q&A for HDInsight](/answers/tags/168/azure-hdinsight)
+- [Microsoft Q&A for HDInsight on AKS](/answers/tags/453/azure-hdinsight-aks)
 
 If you can't find an answer to your problem using search, you can submit a new question to Microsoft Q&A and tag it with the appropriate Azure service and area.
 
