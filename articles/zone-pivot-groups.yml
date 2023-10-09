@@ -491,11 +491,11 @@ groups:
   - id: consumption-plan
     title: Consumption plan
   - id: premium-plan
-    title: Elastic Premium plan
+    title: Premium plan
   - id: dedicated-plan
-    title: Dedicated (App Service) plan
+    title: Dedicated plan
   - id: container-apps
-    title: Azure Container Apps
+    title: Container Apps
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions

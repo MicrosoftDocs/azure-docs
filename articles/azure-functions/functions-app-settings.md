@@ -688,6 +688,10 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
+### alwaysOn
+
+On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP triggers _wakes-up_ your functions. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+
 ### linuxFxVersion 
 
 For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value or a custom image URI.
