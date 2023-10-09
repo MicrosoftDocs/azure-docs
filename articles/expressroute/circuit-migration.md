@@ -1,5 +1,5 @@
 ---
-title: Migrate ExpressRoute circuits
+title: Migrate to a new ExpressRoute circuit
 description: Learn how to migrate your ExpressRoute circuit from one circuit to another with minimum service interruption.
 services: expressroute
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 10/06/2023
 ms.author: duau
 ---
 
-# Migrate ExpressRoute circuit
+# Migrate to a new ExpressRoute circuit
 
 If you want to switch from one ExpressRoute circuit to another, you may want to do it smoothly with minimum service interruption. This document helps you to follow the steps to migrate your production traffic without causing major disruptions or risks. You can use this method whether you're moving to a new or the same peering location.
 
@@ -136,7 +136,7 @@ The verification of your Microsoft peering requires careful planning to avoid an
 
 Once you have linked a route filter, you need to check the routes that are advertised and received over the BGP peering on the CE device. To filter the routes that are advertised and allow only the on-premises prefixes of the Microsoft peering and the specific IP address of the selected Microsoft public endpoints for testing, you need to modify the route-map or the Junos policy configuration that you have applied.
 
-To test the connectivity to Microsoft 365 endpoints, you should follow the steps in [Implementing ExpressRoute for Microsoft 365 – Build your test procedures](/microsoft-365/enterprise/implementing-expressroute?view=o365-worldwide#build-your-test-procedures). For Azure public endpoints, you should start with basic connectivity testing such as traceroute from on-premises and verify that the request goes over ExpressRoute endpoints. Beyond ExpressRoute endpoints, ICMP messages are suppressed over Microsoft network. You should also test the connectivity at the application level, in addition to basic ping tests. For instance, if you have an Azure VM with Azure public IP running a web server, you can try accessing the web server public IP from your on-premises network through the ExpressRoute connection. This helps you confirm that more complex traffic, such as HTTP requests, can reach Azure services.
+To test the connectivity to Microsoft 365 endpoints, you should follow the steps in [Implementing ExpressRoute for Microsoft 365 – Build your test procedures](/microsoft-365/enterprise/implementing-expressroute#build-your-test-procedures). For Azure public endpoints, you should start with basic connectivity testing such as traceroute from on-premises and verify that the request goes over ExpressRoute endpoints. Beyond ExpressRoute endpoints, ICMP messages are suppressed over Microsoft network. You should also test the connectivity at the application level, in addition to basic ping tests. For instance, if you have an Azure VM with Azure public IP running a web server, you can try accessing the web server public IP from your on-premises network through the ExpressRoute connection. This helps you confirm that more complex traffic, such as HTTP requests, can reach Azure services.
 
 ### Switch over the production traffic
 
