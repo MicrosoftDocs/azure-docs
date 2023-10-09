@@ -21,7 +21,7 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to the Azure OpenAI Service in the desired Azure subscription
--   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+-   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the [Request Access to Azure OpenAI Service form](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 
 - [Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.](
 ../../cognitive-services-custom-subdomains.md)
