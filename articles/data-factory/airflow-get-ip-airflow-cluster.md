@@ -20,11 +20,25 @@ This article shows you how to retrieve the Managed Airflow cluster’s IP addres
 > [!NOTE]
 > Importing DAGs is currently not supported using blob storage with IP allow listing or using private endpoints. We suggest using Git-sync instead.
 
-## Step 1: Retrieve the Managed Airflow cluster IP address
+## Step 1: Retrieve the bearer token for the Airflow API.
+- Similar to the authentication process used in the standard Azure REST API, acquiring an access token from Azure AD is required before making a call to the Airflow REST API. A guide on how to obtain the token from Azure AD can be found at https://learn.microsoft.com/en-us/rest/api/azure.
+- It should be noted that to obtain an access token for Data Factory, the resource to be used is **https://datafactory.azure.com**. 
+- Additionally, the service principal used to obtain the access token needs to have atleast a **contributor role** on the Data Factory where the Airflow Integration Runtime is located.
+ 
+You can refer to the below screenshots for more information.
+    1. Use Azure AD API call to get access token.
+
+        :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-access-token.png" alt-text="Screenshot showing the api used to retrieve the access token to invoke airflow apis." lightbox="media/airflow-get-ip-airflow-cluster/get-access-token.png":::
+
+    1. Use the access token acquired as a bearer token from step 1 to invoke the Airflow API.
+    
+        :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-dags.png" alt-text="Screenshot showing sample airflow api request using bearer token fetched in initial step." lightbox="media/airflow-get-ip-airflow-cluster/get-dags.png":::
+
+## Step 2: Retrieve the Managed Airflow cluster IP address
 
 Refer to the REST API documentation for [Integration Runtimes - Get](/rest/api/datafactory/integration-runtimes/get?tabs=HTTP#code-try-0).
 
-## Step 2: Add the Managed Airflow cluster IP address to the storage account you want to secure
+## Step 3: Add the Managed Airflow cluster IP address to the storage account you want to secure
 
 > [!NOTE]
 > You can add the Managed Airflow IP address to other storage services as well like Azure SQL DB, Azure Key Vault, etc.
