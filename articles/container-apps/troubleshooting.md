@@ -106,7 +106,7 @@ az provider register --namespace Microsoft.OperationalInsights
 
 ---
 
-:::zone-end
+::: zone-end
 
 ## Symptoms
 
@@ -122,7 +122,7 @@ The following sections describe how to diagnose and resolve these issues.
 
 ## View logs
 
-:::zone pivot="portal"
+::: zone pivot="portal"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
@@ -175,7 +175,9 @@ Container Apps generates [system logs](./logging.md#system-logs) for service lev
 
 For more information, see [Observability in Azure Container Apps](./observability.md).
 
-:::zone pivot="console"
+::: zone-end
+
+::: zone pivot="console"
 
 Get a list of revisions for your container app with the [`containerapp revision list`](/cli/azure/containerapp/revision#az-containerapp-revision-list(containerapp)) command.
 
@@ -309,6 +311,7 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
 1. In the search results, under *Resources*, select your container app name.
 1. In the navigation bar at the left, select **Diagnose and solve problems**.
+1. In the *Diagnose and solve problems* page, select one of the *Troubleshooting categories*.
 
 ::: zone-end
 
@@ -331,6 +334,8 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - Verify **Target port** is set to the same port your container app is listening on. TODO1 Link to where we configure that.
 - If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
+
+::: zone-end
 
 ::: zone pivot="console"
 
