@@ -3,14 +3,14 @@ title: "Illumio Core connector for Microsoft Sentinel"
 description: "Learn how to install the connector Illumio Core to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Illumio Core connector for Microsoft Sentinel
 
-The [Illumio Core](https://www.illumio.com/products/core) data connector provides the capability to ingest Illumio Core logs into Microsoft Sentinel.
+The [Illumio Core](https://www.illumio.com/products/) data connector provides the capability to ingest Illumio Core logs into Microsoft Sentinel.
 
 ## Connector attributes
 
@@ -38,7 +38,7 @@ IllumioCoreEvent
 ## Vendor installation instructions
 
 
-**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias IllumioCoreEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Illumio%20Core/Parsers/IllumioCoreEvent.txt).The function usually takes 10-15 minutes to activate after solution installation/update and maps Illumio Core events to Azure Sentinel Information Model (ASIM).
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias IllumioCoreEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Illumio%20Core/Parsers/IllumioCoreEvent.txt).The function usually takes 10-15 minutes to activate after solution installation/update and maps Illumio Core events to Microsoft Sentinel Information Model (ASIM).
 
 1. Linux Syslog agent configuration
 

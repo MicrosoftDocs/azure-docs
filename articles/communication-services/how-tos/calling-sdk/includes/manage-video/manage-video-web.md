@@ -51,6 +51,8 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It is recommended that different `CallAgents` use different microphones and speakers. They should not share the same microphones nor speakers. In case of sharing them, Microphone UFDs may be triggered and microphone will stop working depending on the browser / os.
+
 ### Local video stream properties
 
 A `LocalVideoStream` has the following properties:
@@ -362,7 +364,7 @@ CSS for styling the loading spinner over the remote video stream.
 
 ### Remote video quality
 
-The ACS WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called OptimalVideoCount (OVC). This feature can be used to inform applications at run-time how many videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Application should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
+The ACS WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called Optimal Video Count (OVC). This feature can be used to inform applications at run-time how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Applications should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
 
 **Usage**
 The `optimalVideoCount` feature is a call feature
@@ -407,12 +409,12 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 
 - `isReceiving`:
     - Will inform the application if remote video stream data is being received or not. Such scenarios are:
-        - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see their video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see their video playing normally.
-        - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, their video start to have bad quality, probably because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.
-        - I am viewing the video of a Remote participant who is On MacOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I see a black/frozen video since they paused their camera and I see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I see the RemoteVideoStream.isReceiving flag goes to true.
-        - I am viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I see their video frozen/black frame, and see RemoteVideoStream.isReceiving flag goes to false. The remote participant can get network back and reconnect and their audio/video should start flowing normally and I see the RemoteVideoStream.isReceiving flag to true.
-        - I am viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see them on the call and their video will be frozen, and so I  see the RemoteVideoStream.isReceiving flag goes to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
-        - I am viewing the video of a remote participant who is on mobile browser and they lock the device. I see the RemoteVideoStream.isReceiving flag goes to false. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
+        - I'm viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see their video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see their video playing normally.
+        - I'm viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, their video start to have bad quality, probably because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.
+        - I'm viewing the video of a Remote participant who is On macOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I see a black/frozen video since they paused their camera and I see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I see the RemoteVideoStream.isReceiving flag goes to true.
+        - I'm viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I see their video frozen/black frame, and see RemoteVideoStream.isReceiving flag goes to false. The remote participant can get network back and reconnect and their audio/video should start flowing normally and I see the RemoteVideoStream.isReceiving flag to true.
+        - I'm viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see them on the call and their video will be frozen, and so I  see the RemoteVideoStream.isReceiving flag goes to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
+        - I'm viewing the video of a remote participant who is on mobile browser and they lock the device. I see the RemoteVideoStream.isReceiving flag goes to false. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
     - This feature improves the user experience for rendering remote video streams.
     - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
 ```js
@@ -455,3 +457,91 @@ You can update `scalingMode` by invoking the `updateScalingMode` method:
 ```js
 view.updateScalingMode('Crop');
 ```
+
+## Send video streams from two different cameras, in the same call from the same desktop device.
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+This is supported as part of version 1.17.1-beta.1+ on desktop supported browsers.
+- You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
+```js
+// Create your first CallAgent with identity A
+const callClient1 = new CallClient();
+const callAgent1 = await callClient1.createCallAgent(tokenCredentialA);
+const deviceManager1 = await callClient1.getDeviceManager();
+
+// Create your second CallAgent with identity B
+const callClient2 = new CallClient();
+const callAgent2 = await callClient2.createCallAgent(tokenCredentialB);
+const deviceManager2 = await callClient2.getDeviceManager();
+
+// Join the call with your first CallAgent
+const camera1 = await deviceManager1.getCameras()[0];
+const callObj1 = callAgent1.join({ groupId: ‘123’}, { videoOptions: { localVideoStreams: [new LocalVideoStream(camera1)] } });
+
+// Join the same call with your second CallAgent and make it use a different camera
+const camera2 = (await deviceManager2.getCameras()).filter((camera) => { return camera !== camera1 })[0];
+const callObj2 = callAgent2.join({ groupId: '123' }, { videoOptions: { localVideoStreams: [new LocalVideoStream(camera2)] } });
+
+//Mute the microphone and speakers of your second CallAgent’s Call, so that there is no echos/noises.
+await callObj2.muteIncomingAudio();
+await callObj2.mute();
+```
+Limitations:
+- This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used.
+- Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
+- Sending two different cameras with one CallAgent is currently not supported.
+- On macOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
+
+## Send or receive a reaction from other participants
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Sending and receiving of reactions is in public preview and available as part of versions 1.18.1-beta.1 or higher.
+
+Within ACS you can send and receive reactions when on a group call:
+- Like :+1:
+- Love :heart:
+- Applause :clap:
+- Laugh :smile:
+- Surprise :open_mouth:
+
+To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
+
+You'll need to subscribe for events which provide the subscriber event data as:
+```javascript
+export interface ReactionEventPayload {
+    /**
+     * identifier for a participant
+     */
+    identifier: CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
+    /**
+     * reaction type received
+     */
+    reactionMessage: ReactionMessage;
+}
+```
+
+You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
+
+### Sample on how to send a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+const reactionMessage: SDK.ReactionMessage = {
+       reactionType: 'like'
+};
+await reaction.sendReaction(reactionMessage);
+```
+
+### Sample on how to receive a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+reaction.on('reaction', event => {
+    // user identifier
+    console.log("User Mri - " + event.identifier);
+    // received reaction
+    console.log("User Mri - " + event.reactionMessage.name);
+    // reaction message
+    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
+}
+```
+
+### Key things to note about using Reactions:
+- Reactions won't work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
+- Sending of reactions doesn't work on 1:1 calls.

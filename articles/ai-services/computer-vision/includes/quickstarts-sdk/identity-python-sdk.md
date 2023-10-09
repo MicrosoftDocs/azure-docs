@@ -4,8 +4,8 @@ description: Use the Face client library for Python to detect faces and identify
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: include
 ms.date: 05/03/2022
 ms.author: pafarley

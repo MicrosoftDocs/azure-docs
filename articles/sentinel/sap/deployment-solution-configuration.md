@@ -106,7 +106,7 @@ By default, all analytics rules provided in the Microsoft Sentinel solution for 
 
 To enable or disable the ingestion of a specific log:
  
-1. Edit the *systemconfig.ini* file located under */opt/sapcon/SID/* on the connector's VM. 
+1. Edit the *systemconfig.json* file located under */opt/sapcon/SID/* on the connector's VM. 
 1. Inside the configuration file, locate the relevant log and do one of the following:
     - To enable the log, change the value to `True`. 
     - To disable the log, change the value to `False`.
@@ -114,9 +114,9 @@ To enable or disable the ingestion of a specific log:
 For example, to stop ingestion for the `ABAPJobLog`, change its value to `False`:
 
 ```
-ABAPJobLog = False
+"abapjoblog": "True",
 ```
-Review the list of available logs in the [Systemconfig.ini file reference](reference-systemconfig.md#logs-activation-status-section).
+Review the list of available logs in the [Systemconfig.json file reference](reference-systemconfig-json.md).
 
 You can also [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
@@ -130,9 +130,9 @@ You can also [stop ingesting the user master data tables](sap-solution-deploy-al
 To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, run this command: 
 
 ```
-docker stop sapcon-[SID]
+docker stop sapcon-[SID/agent-name]
 ```
-
+To stop ingesting a specific SID for a multi-SID container you must delete the SID from the connector page UI in Sentinel
 The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
 
 If you need to reenable the Docker container, run this command: 

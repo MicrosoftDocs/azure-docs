@@ -97,4 +97,4 @@ To ensure that the token size doesn't exceed HTTP header size limits, the number
 
 ## Next steps
 
-- Learn more about the [ID tokens used in Azure AD](id-tokens.md).
+- Learn more about the [ID tokens used in Microsoft Entra ID](id-tokens.md).

@@ -2,8 +2,7 @@
 title: System message framework and template recommendations for Large Language Models(LLMs)
 titleSuffix: Azure OpenAI Service
 description: Learn about how to construct system messages also know as metaprompts to guide an AI system's behavior.
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 05/19/2023
 ms.custom: 

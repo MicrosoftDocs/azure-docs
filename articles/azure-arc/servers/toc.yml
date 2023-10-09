@@ -133,6 +133,12 @@
       href: prepare-extended-security-updates.md
     - name: License provisioning for Extended Security Updates
       href: license-extended-security-updates.md
+    - name: Deliver Extended Security Updates
+      href: deliver-extended-security-updates.md
+    - name: Programmatically manage Extended Security Updates licenses
+      href: api-extended-security-updates.md
+    - name: Troubleshoot Extended Security Updates
+      href: troubleshoot-extended-security-updates.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -186,6 +192,8 @@
   - name: Azure Policy built-ins 
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: License terms
+    href: /legal/azure-arc/license-terms?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Azure Arc Jumpstart

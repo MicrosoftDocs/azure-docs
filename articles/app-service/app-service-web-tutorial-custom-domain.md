@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 01/31/2023
 ms.custom: mvc, seodec18
 ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Map an existing custom DNS name to Azure App Service

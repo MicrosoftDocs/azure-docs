@@ -61,7 +61,7 @@ param firewallRules array = [
 @description('The tier of the particular SKU. High Availability is available only for GeneralPurpose and MemoryOptimized sku.')
 @allowed([
   'Burstable'
-  'Generalpurpose'
+  'GeneralPurpose'
   'MemoryOptimized'
 ])
 param serverEdition string = 'Burstable'

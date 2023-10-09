@@ -48,7 +48,7 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
@@ -148,7 +148,7 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```

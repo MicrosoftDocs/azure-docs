@@ -47,6 +47,8 @@ items:
       href: tutorials/virtual-visits.md
     - name: Virtual event
       href: tutorials/events-playbook.md
+    - name: Contact center
+      href: tutorials/contact-center.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -142,6 +144,8 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Get a trial phone number
       href: quickstarts/telephony/get-trial-phone-number.md
+    - name: Lookup number type and carrier details
+      href: quickstarts/telephony/number-lookup.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Add a Microsoft Teams user to an existing call
@@ -206,6 +210,8 @@ items:
         href: quickstarts/sms/apply-for-toll-free-verification.md
       - name: Enable alphanumeric sender ID
         href: quickstarts/sms/enable-alphanumeric-sender-id.md
+      - name: Look up a recipient phone number
+        href: quickstarts/telephony/number-lookup.md
     - name: Events
       items:
       - name: View SMS events
@@ -230,7 +236,7 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send VOIP push notifications to devices
+    - name: Using Event Grid to send calling push notifications
       href: tutorials/add-voip-push-notifications-event-grid.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
@@ -356,8 +362,10 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Participant view data injection
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Bypass Setup Screen
+        - name: Skip Setup Screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Setup Orientation
+          href: how-tos/ui-library-sdk/orientation.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
@@ -390,8 +398,12 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
-    - name: Add file sharing to your application with UI Library
-      href: tutorials/file-sharing-tutorial.md
+    - name: Add file sharing with UI Library in Azure Communication Service Chat
+      href: tutorials/file-sharing-tutorial-acs-chat.md
+    - name: Add file sharing with UI Library in Teams Interoperability Chat
+      href: tutorials/file-sharing-tutorial-interop-chat.md
+    - name: Add inline image support with UI Library in Teams Interoperability Chat
+      href: tutorials/inline-image-tutorial-interop-chat.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Connect to Teams
@@ -771,6 +783,10 @@ items:
         href: concepts/pstn-pricing.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
+      - name: Number Lookup Concept
+        href: concepts/numbers/number-lookup-concept.md
+      - name: Number Lookup SDK
+        href: concepts/numbers/number-lookup-sdk.md
       - name: Country availability 
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling
@@ -845,6 +861,8 @@ items:
       href: concepts/email/sdk-features.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Understanding sender reputation
+      href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
@@ -1017,6 +1035,8 @@ items:
       href: concepts/numbers/phone-number-management-for-canada.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Czech Republic
+      href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
       href: concepts/numbers/phone-number-management-for-denmark.md
     - name: Phone number management for Estonia
@@ -1027,7 +1047,7 @@ items:
       href: concepts/numbers/phone-number-management-for-france.md
     - name: Phone number management for Germany
       href: concepts/numbers/phone-number-management-for-germany.md
-    - name: Phone number management for Hong Kong
+    - name: Phone number management for Hong Kong SAR
       href: concepts/numbers/phone-number-management-for-hong-kong.md
     - name: Phone number management for Ireland
       href: concepts/numbers/phone-number-management-for-ireland.md
@@ -1035,26 +1055,38 @@ items:
       href: concepts/numbers/phone-number-management-for-israel.md
     - name: Phone number management for Italy
       href: concepts/numbers/phone-number-management-for-italy.md
+    - name: Phone number management for Japan
+      href: concepts/numbers/phone-number-management-for-japan.md
     - name: Phone number management for Latvia
       href: concepts/numbers/phone-number-management-for-latvia.md
     - name: Phone number management for Lithuania
       href: concepts/numbers/phone-number-management-for-latvia.md      
     - name: Phone number management for Luxembourg
       href: concepts/numbers/phone-number-management-for-luxembourg.md
+    - name: Phone number management for Malaysia
+      href: concepts/numbers/phone-number-management-for-malaysia.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand
       href: concepts/numbers/phone-number-management-for-new-zealand.md
     - name: Phone number management for Norway
       href: concepts/numbers/phone-number-management-for-norway.md
+    - name: Phone number management for Philippines
+      href: concepts/numbers/phone-number-management-for-philippines.md
     - name: Phone number management for Poland
       href: concepts/numbers/phone-number-management-for-poland.md
     - name: Phone number management for Portugal
       href: concepts/numbers/phone-number-management-for-portugal.md
+    - name: Phone number management for Saudi Arabia
+      href: concepts/numbers/phone-number-management-for-saudi-arabia.md
     - name: Phone number management for Singapore
       href: concepts/numbers/phone-number-management-for-singapore.md
     - name: Phone number management for Slovakia
       href: concepts/numbers/phone-number-management-for-slovakia.md
+    - name: Phone number management for Slovenia
+      href: concepts/numbers/phone-number-management-for-slovenia.md
+    - name: Phone number management for South Korea
+      href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain
       href: concepts/numbers/phone-number-management-for-spain.md
     - name: Phone number management for Sweden
@@ -1065,6 +1097,8 @@ items:
       href: concepts/numbers/phone-number-management-for-taiwan.md
     - name: Phone number management for Thailand
       href: concepts/numbers/phone-number-management-for-thailand.md
+    - name: Phone number management for United Arab Emirates
+      href: concepts/numbers/phone-number-management-for-united-arab-emirates.md
     - name: Phone number management for United Kingdom
       href: concepts/numbers/phone-number-management-for-united-kingdom.md
     - name: Phone number management for United States

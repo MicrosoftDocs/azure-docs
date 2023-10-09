@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot insufficient access rights error
 description: Learn how to troubleshoot InsufficientAccessRights error when provisioning to on-premises Active Directory.
-author: jfields
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 06/27/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -75,7 +75,7 @@ Reference articles that explain the reason in detail:
 
 If option 1 is not feasible and doesn't work as expected, then ask Cx to check with their AD admin and security administrators, if they are allowed to modify the default permissions of the ```AdminSDHolder``` container. This [article](https://go.microsoft.com/fwlink/?linkid=2240198) that explains the importance of the ```AdminSDHolder``` container. Once Cx gets internal approval to update the ```AdminSDHolder``` container permissions, there are two ways to update the permissions.
 
-*    Using ```ADSIEdit``` as described in this [article](https://petri.com/active-directory-security-understanding-adminsdholder-object ).
+*    Using ```ADSIEdit``` as described in this [article](https://petri.com/active-directory-security-understanding-adminsdholder-object).
 *    Using ```DSACLS``` command-line script. Here's an example script that could be used as a starting point and Cx can tweak it as per their requirements.
 
 ```powershell
@@ -105,9 +105,8 @@ Replace the ```dc=contoso,dc=com``` with your root node or appropriate OU contai
 
 **Option 4: Skip GMSA account and use manually created service account**
 This option should only be used as a temporary workaround to unblock until the GMSA permission issue is investigated and resolved. Our recommendation is to use the GMSA account.
-You can set the registry option to [skip GMSA configuration](https://go.microsoft.com/fwlink/?linkid=2239993) and reconfigure the Azure AD Connect provisioning agent to use a manually created service account with the right permissions.
+You can set the registry option to [skip GMSA configuration](https://go.microsoft.com/fwlink/?linkid=2239993) and reconfigure the Microsoft Entra Connect provisioning agent to use a manually created service account with the right permissions.
 
 ## Next steps
 
 * [Learn more about the Inbound Provisioning API](inbound-provisioning-api-concepts.md)
-

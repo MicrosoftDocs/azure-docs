@@ -28,7 +28,9 @@ In order for the external user from another directory to use the My Access porta
 
 ## Share link to request an access package
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 

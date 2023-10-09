@@ -100,6 +100,15 @@ groups:
     title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
+- id: programming-languages-document-sdk
+  # Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: cloud-location
   # Owner: lajanuar
   title: Workflow
@@ -373,12 +382,12 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
   - id: programming-language-powershell
     title: PowerShell
   - id: programming-language-python
     title: Python
-  - id: programming-language-typescript
-    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -429,10 +438,10 @@ groups:
   title: Python mode
   prompt: Choose a Python programming model
   pivots:
-  - id: python-mode-configuration
-    title: v1
   - id: python-mode-decorators
     title: v2
+  - id: python-mode-configuration
+    title: v1
 - id: create-java-durable-options
   title: Create option
   prompt: Choose how to create the app
@@ -448,7 +457,7 @@ groups:
   prompt: Choose a programming model
   pivots:
   - id: nodejs-model-v4
-    title: v4 (preview)
+    title: v4
   - id: nodejs-model-v3
     title: v3
 - id: functions-container-hosting
@@ -626,10 +635,24 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-cpp
     title: C++
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-vision-40-sdk
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-cpp
+    title: C++
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -855,6 +878,8 @@ groups:
     title: Azure portal
   - id: azcli
     title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1076,6 +1101,8 @@ groups:
     title: Azure PowerShell
   - id: development-environment-azure-portal
     title: Azure portal
+  - id: development-environment-azd
+    title: Azure Developer CLI
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
@@ -1728,12 +1755,16 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 - id: openai-chat
@@ -1762,6 +1793,8 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+  - id: ps
+    title: PowerShell
 # Owner: mbullwin
 - id: openai-fine-tuning
   title: Programming languages
@@ -1779,9 +1812,13 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Azure OpenAI Studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript 
   - id: rest-api
-    title: REST API
+    title: REST
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
@@ -1789,10 +1826,20 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Studio
-  - id: rest-api
-    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -2263,21 +2310,21 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-standard
-    title: Basic/Standard
   - id: sc-enterprise
     title: Enterprise
+  - id: sc-standard
+    title: Basic/Standard
 # Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
   - id: sc-standard
     title: Basic/Standard
-  - id: sc-enterprise
-    title: Enterprise
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
@@ -2577,17 +2624,17 @@ groups:
   - id: ms-graph
     title: Microsoft Graph
 # Owner: daknappe (Azure Virtual Desktop)
-- id: azure-virtual-desktop-host-pool-types
+- id: azure-virtual-desktop-host-pool-management-types
   title: Azure Virtual Desktop host pool management type
-  prompt: Choose a host pool management type
+  prompt: "Choose a host pool management type:"
   pivots:
   - id: host-pool-standard
-    title: Standard host pool
+    title: Standard
   - id: host-pool-automated
-    title: Automated host pool (preview)
+    title: Automated (preview)
 - id: azure-virtual-desktop-app-attach
   title: Azure Virtual Desktop app attach version
-  prompt: Choose an app attach version
+  prompt: "Choose an app attach version:"
   pivots:
   - id: msix-app-attach
     title: MSIX app attach
@@ -2683,3 +2730,18 @@ groups:
     title: Includes templates
   - id: templates-extends
     title: Extends templates
+# Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+  - id: api-apache-cassandra
+    title: Apache Cassandra
+  - id: api-apache-gremlin
+    title: Apache Gremlin
+  - id: api-table
+    title: Table

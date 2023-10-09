@@ -6,9 +6,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
 ms.date: 08/07/2023
-
 ---
 
 # RedisStreamTrigger Azure Function (preview)
@@ -29,7 +29,15 @@ The `RedisStreamTrigger` reads new entries from a stream and surfaces those elem
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
-### [In-process](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
+
+The isolated process examples aren't available in preview.
+
+```csharp
+//TBD
+```
+
+### [In-process model](#tab/in-process)
 
 ```csharp
 
@@ -40,14 +48,6 @@ public static void StreamsTrigger(
 {
     logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
 }
-```
-
-### [Isolated process](#tab/isolated-process)
-
-The isolated process examples aren't available in preview.
-
-```csharp
-//TBD
 ```
 
 ---

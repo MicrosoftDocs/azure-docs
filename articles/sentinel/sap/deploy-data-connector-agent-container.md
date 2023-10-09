@@ -4,6 +4,7 @@ description: This article shows you how to use the UI to deploy the container th
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
@@ -77,7 +78,6 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 ### Prerequisites
 
-- To get started with deploying the data connector agent via the UI, **[complete the sign-up form](https://aka.ms/SentinelSAPMultiSIDUX)** so that we can provision your subscription with access to the preview. We’ll send a confirmation email once your subscription is active.
 - Follow the [Microsoft Sentinel Solution for SAP deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), [deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md).
 - Set up a [managed identity](#managed-identity) or a [registered application](#registered-application). For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
@@ -216,7 +216,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
         - . 
         - \-
     - Select the subscription and key vault.
-    - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, *src/test/NWRFC.zip*.
+    - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
     - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, under **SAP Cryptographic Library path on the agent VM**, provide the path that contains the `sapgenpse` binary and `libsapcrypto.so` library.
     
     > [!NOTE]

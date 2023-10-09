@@ -111,7 +111,7 @@ Related links:
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 * [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret)
+* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret)
 * [Azure AD authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### Check that credentials aren't expired

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQs for Identity Protection in Azure Active Directory
-  description: Frequently asked questions Azure AD Identity Protection
+  title: FAQs for Identity Protection in Microsoft Entra ID
+  description: Frequently asked questions Microsoft Entra ID Protection
   
   services: active-directory
   ms.service: active-directory
@@ -13,7 +13,7 @@ metadata:
   manager: amycolannino
   ms.reviewer: chuqiaoshi
   ms.collection: M365-identity-device-management
-title: Frequently asked questions Identity Protection in Azure Active Directory
+title: Frequently asked questions Identity Protection in Microsoft Entra ID
 summary: |
 
 sections:
@@ -53,7 +53,7 @@ sections:
 
           ### How can I close specific risk detections like I did in the old UI?
 
-          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Microsoft Entra ID Protection](howto-identity-protection-risk-feedback.md).
           
           ### How far can I go back in time to understand what’s going on with my user?
 

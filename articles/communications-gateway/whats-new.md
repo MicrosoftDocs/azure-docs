@@ -5,12 +5,18 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 05/05/2023
+ms.date: 09/06/2023
 ---
 
 # What's new in Azure Communications Gateway?
 
 This article covers new features and improvements for Azure Communications Gateway.
+
+## September 2023
+
+### ExpressRoute Microsoft Peering between Azure and operator networks
+
+From September 2023, you can use ExpressRoute Microsoft Peering to connect operator networks to Azure Communications Gateway as an alternative to Peering Services Voice (also known as MAPS for voice). We recommend that most deployments use MAPS for voice unless there's a specific reason that ExpressRoute Microsoft Peering is preferable. For example, you might have existing ExpressRoute connectivity to your network that you can reuse. For details and examples of when ExpressRoute might be preferable to MAPS, see [Using ExpressRoute for Microsoft PSTN Services](../../articles/expressroute/using-expressroute-for-microsoft-pstn.md).
 
 ## May 2023
 
@@ -18,7 +24,7 @@ This article covers new features and improvements for Azure Communications Gatew
 
 From May 2023, you can deploy Mobile Control Point (MCP) as part of Azure Communications Gateway. MCP is an IMS Application Server that simplifies interworking with Microsoft Phone System for mobile calls. It ensures calls are only routed to the Microsoft Phone System when a user is eligible for Teams Phone Mobile services. This process minimizes the changes you need in your mobile network to route calls into Microsoft Teams. For more information, see [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
 
-You can add MCP when you deploy Azure Communications Gateway or by requesting changes to an existing deployment. For more information, see [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md) and [Deploy Azure Communications Gateway](deploy.md) or [Get support or request changes to your Azure Communications Gateway](request-changes.md)
+You can add MCP when you deploy Azure Communications Gateway or by requesting changes to an existing deployment. For more information, see [Deploy Azure Communications Gateway](deploy.md) or [Get support or request changes to your Azure Communications Gateway](request-changes.md)
 
 ### Authentication with managed identities for Operator Connect APIs
 
@@ -31,4 +37,4 @@ This new authentication model replaces an earlier model that required you to cre
 ## Next steps
 
 - [Learn more about Azure Communications Gateway](overview.md).
-- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
+- [Get started with Azure Communications Gateway](get-started.md).

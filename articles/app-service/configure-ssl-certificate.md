@@ -8,6 +8,7 @@ ms.date: 07/28/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Add and manage TLS/SSL certificates in Azure App Service

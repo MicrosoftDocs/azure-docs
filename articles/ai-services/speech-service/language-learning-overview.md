@@ -5,8 +5,7 @@ description: Azure AI services for Speech can be used to learn languages.
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 02/23/2023
 ms.author: eur

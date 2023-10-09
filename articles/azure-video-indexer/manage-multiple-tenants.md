@@ -4,9 +4,12 @@ description: This article suggests different integration options for managing mu
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: ikbarmen
+author: IngridAtMicrosoft
 ---
 
 # Manage multiple tenants
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article discusses different options for managing multiple tenants with Azure AI Video Indexer. Choose a method that is most suitable for your scenario:
 

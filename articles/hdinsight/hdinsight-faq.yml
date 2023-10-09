@@ -438,4 +438,4 @@ sections:
       - question: |
           What compliance offerings does HDInsight offer?
         answer: |
-          For compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+          For compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).

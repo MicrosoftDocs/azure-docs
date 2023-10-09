@@ -69,7 +69,7 @@ Azure Cosmos DB currently supports three types of indexes. You can configure the
 
 ### Range Index
 
-**Range** index is based on an ordered tree-like structure. The range index type is used for:
+**Range** indexes are based on an ordered tree-like structure. The range index type is used for:
 
 - Equality queries:
 
@@ -169,7 +169,7 @@ Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospat
     SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
     ```
 
-- Queries with a filter on two or more properties were at least one property is an equality filter
+- Queries with a filter on two or more properties where at least one property is an equality filter
 
     ```sql
     SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
@@ -177,7 +177,7 @@ Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospat
 
 As long as one filter predicate uses one of the index type, the query engine evaluates that first before scanning the rest. For example, if you have a SQL query such as `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
-- The above query will first filter for entries where firstName = "Andrew" by using the index. It then pass all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
+- The above query will first filter for entries where firstName = "Andrew" by using the index. It then passes all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
 
 - You can speed up queries and avoid full container scans when using functions that perform a full scan like CONTAINS. You can add more filter predicates that use the index to speed up these queries. The order of filter clauses isn't important. The query engine figures out which predicates are more selective and run the query accordingly.
 
@@ -205,7 +205,7 @@ Here's a table that summarizes the different ways indexes are used in Azure Cosm
 | Full index scan    | Read distinct set of indexed values and load only matching items from the transactional data store                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
 | Full scan          | Load all items from the transactional data store                                          | Upper, Lower                                    | N/A                                                          | Increases based on number of items in container |
 
-When writing queries, you should use filter predicate that uses the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it does a precise index scan instead of a full index scan.
+When writing queries, you should use filter predicates that use the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it does a precise index scan instead of a full index scan.
 
 ## Index usage details
 
@@ -356,9 +356,9 @@ To execute this query, the query engine must do an index seek on `headquarters/e
 
 Queries with aggregate functions must rely exclusively on the index in order to use it.
 
-In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine loads all index matches, evaluate the filter on the loaded items, and return only the correct results.
+In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine loads all index matches, evaluates the filter on the loaded items, and returns only the correct results.
 
-For most queries, loading false positive index matches don't have any noticeable effect on index utilization.
+For most queries, loading false positive index matches doesn't have any noticeable effect on index utilization.
 
 For example, consider the following query:
 

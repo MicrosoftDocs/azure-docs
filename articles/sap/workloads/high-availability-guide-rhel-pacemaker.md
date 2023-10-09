@@ -293,8 +293,8 @@ Follow these steps to create a service principal, if not using managed identity.
 6. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add.
    The sign-on URL isn't used and can be any valid URL.
 7. Select Certificates and Secrets, then click New client secret.
-8. Enter a description for a new key, select "Never expires" and click Add.
-9. Make a node the Value. It is used as the **password** for the service principal.
+8. Enter a description for a new key, select "Two years" and click Add.
+9. Make a note of the Value. It is used as the **password** for the service principal.
 10. Select Overview. Make a note the Application ID. It's used as the username (**login ID** in the steps below) of the service principal.
 
 ---
@@ -367,13 +367,13 @@ op monitor interval=3600
 For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 
 ```bash
-# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command: 
+# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command (see Tip box below for details): 
 sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
 subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 
-# If the version of pacemaker is less than 2.0.4-6.el8, then run following command:
+# If the version of pacemaker is less than 2.0.4-6.el8, then run following command (see Tip box below for details):
 sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
 subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
@@ -395,14 +395,14 @@ op monitor interval=3600
 For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 
 ```bash
-# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command: 
+# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command (see Tip box below for details): 
 sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
 resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 
-# If the version of pacemaker is less than 2.0.4-6.el8, then run following command:
+# If the version of pacemaker is less than 2.0.4-6.el8, then run following command (see Tip box below for details):
 sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
 resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
@@ -415,7 +415,7 @@ op monitor interval=3600
 If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
 > [!TIP]
-> Only configure the `pcmk_delay_max` attribute in two node clusters, with pacemaker version less than 2.0.4-6.el8. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829).
+> 'value1' and 'value2' are integer values with a unit of seconds. Replace the values 'value1' and 'value2' with appropriate integer values that are at least 5 seconds apart. For example:`pcmk_delay_base="prod-cl1-0:0;prod-cl1-1:10"`. Only configure the `pcmk_delay_max` attribute in two node clusters, with pacemaker version less than 2.0.4-6.el8. For pacemaker versions greater than 2.0.4-6.el8, use `pcmk_delay_base`.<br> For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829).
 
 > [!IMPORTANT]
 > The monitoring and fencing operations are deserialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
@@ -428,6 +428,72 @@ sudo pcs property set stonith-enabled=true
 
 > [!TIP]
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
+## Configure Pacemaker for Azure scheduled events
+
+Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events. Pacemaker resource agent azure-events-az monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
+
+1. **[A]** Make sure that the package for the azure-events-az agent is already installed and up to date.
+
+   ```bash
+   sudo dnf info resource-agents
+   ```
+
+   Minimum version requirements:
+   - RHEL 8.4: `resource-agents-4.1.1-90.13`
+   - RHEL 8.6: `resource-agents-4.9.0-16.9`
+   - RHEL 8.8 and newer: `resource-agents-4.9.0-40.1`
+   - RHEL 9.0 and newer: `resource-agents-cloud-4.10.0-34.2`
+
+2. **[1]** Configure the resources in Pacemaker.
+
+   ```bash
+   #Place the cluster in maintenance mode
+   sudo pcs property set maintenance-mode=true
+
+3. **[1]** Set the pacemaker cluster health node strategy and constraint
+
+   ```bash
+   sudo pcs property set node-health-strategy=custom
+   sudo pcs constraint location 'regexp%!health-.*' \
+   rule score-attribute='#health-azure' \
+   defined '#uname'
+   ```
+
+   > [!IMPORTANT]
+   >
+   > Don't define any other resources in the cluster starting with “health-”, besides the resources described in the next steps of the documentation.
+
+4. **[1]** Set initial value of the cluster attributes.
+   Run for each cluster node. For scale-out environments including majority maker VM.
+
+   ```bash
+   sudo crm_attribute --node prod-cl1-0 --name '#health-azure' --update 0
+   sudo crm_attribute --node prod-cl1-1 --name '#health-azure' --update 0
+   ```
+
+5. **[1]** Configure the resources in Pacemaker.  
+   Important: The resources must start with ‘health-azure’.
+
+   ```bash
+   sudo pcs resource create health-azure-events \
+   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   ```
+
+6. Take the Pacemaker cluster out of maintenance mode
+
+   ```bash
+   sudo pcs property set maintenance-mode=false
+   ```
+
+7. Clear any errors during enablement and verify that the health-azure-events resources have started successfully on all cluster nodes.
+
+   ```bash
+   sudo pcs resource cleanup
+   ```
+
+   First time query execution for scheduled events [can take up to 2 minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](../../virtual-machines/linux/scheduled-events.md) documentation.
 
 ## Optional fencing configuration  
 

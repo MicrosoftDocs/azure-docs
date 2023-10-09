@@ -4,6 +4,8 @@
   items: 
     - name: About the Azure Linux Container Host for AKS
       href: intro-azure-linux.md
+    - name: Support cycle for the Azure Linux Container Host for AKS
+      href: support-cycle.md
     #- name: Supported Azure Linux versions
     #  href: azure-linux-supported-versions.md
 - name: Quickstarts

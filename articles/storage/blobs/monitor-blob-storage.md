@@ -5,7 +5,7 @@ recommendations: false
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 08/08/2023
 ms.author: normesta

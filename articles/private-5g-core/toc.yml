@@ -10,25 +10,27 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2307 - Current
+    - name: 2308 - Current
+      href: azure-private-5g-core-release-notes-2308.md
+    - name: '2307'
       href: azure-private-5g-core-release-notes-2307.md  
-    - name: 2306
+    - name: '2306'
       href: azure-private-5g-core-release-notes-2306.md  
-    - name: 2305
+    - name: '2305'
       href: azure-private-5g-core-release-notes-2305.md  
-    - name: 2303
+    - name: '2303'
       href: azure-private-5g-core-release-notes-2303.md  
-    - name: 2302
+    - name: '2302'
       href: azure-private-5g-core-release-notes-2302.md
-    - name: 2301
+    - name: '2301'
       href: azure-private-5g-core-release-notes-2301.md
-    - name: 2211
+    - name: '2211'
       href: azure-private-5g-core-release-notes-2211.md
-    - name: 2210
+    - name: '2210'
       href: azure-private-5g-core-release-notes-2210.md
-    - name: 2209
+    - name: '2209'
       href: azure-private-5g-core-release-notes-2209.md
-    - name: 2208
+    - name: '2208'
       href: azure-private-5g-core-release-notes-2208.md
   - name: Packet core and Azure Stack Edge compatibility
     href: azure-stack-edge-packet-core-compatibility.md
@@ -63,7 +65,7 @@ items:
     - name: Cloud monitoring with Azure Monitor Workbooks
       href: monitor-private-5g-core-workbooks.md
     - name: Cloud monitoring of UE usage with Event Hubs (preview)
-      href: ue-usage-event-hub.md  
+      href: ue-usage-event-hub.md
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
     - name: Local monitoring with distributed tracing
@@ -86,6 +88,10 @@ items:
     items:
     - name: How to open a support request 
       href: open-support-request.md
+  - name: Kubectl access
+    items:
+    - name: Set up kubectl access
+      href: set-up-kubectl-access.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network
@@ -122,6 +128,8 @@ items:
       href: upgrade-packet-core-arm-template.md
     - name: Reinstall a packet core instance
       href: reinstall-packet-core.md
+    - name: Create custom alerts
+      href: monitor-private-5g-core-alerts.md  
   - name: Policy control
     items:
     - name: Collect the required information for a service

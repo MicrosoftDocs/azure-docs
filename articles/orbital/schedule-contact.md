@@ -12,7 +12,7 @@ ms.author: apoorvanori
 
 # Quickstart: Schedule a contact
 
-Schedule a contact with the selected satellite for data retrieval and delivery on Azure Orbital Ground Station. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the contact profile.
+Schedule a contact with your satellite for data retrieval and delivery on Azure Orbital Ground Station. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the designated contact profile.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-select-schedule.png" alt-text="Select an available contact schedule page" lightbox="media/orbital-eos-select-schedule.png":::
 
-7. View scheduled contacts by selecting on the spacecraft page, and navigating to **Contacts**.
+7. View scheduled contacts by selecting the spacecraft page, and navigating to **Contacts**.
 
    :::image type="content" source="media/orbital-eos-view-scheduled-contacts.png" alt-text="View scheduled contacts page" lightbox="media/orbital-eos-view-scheduled-contacts.png":::
 

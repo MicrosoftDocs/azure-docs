@@ -9,8 +9,7 @@ ms.author: akashdubey
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.service: azure-queue-storage
 ms.custom: devx-track-azurecli
 ---
 

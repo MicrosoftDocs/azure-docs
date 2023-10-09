@@ -1,12 +1,12 @@
 ---
 title: Use Azure Active Directory and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL
-description: Learn how to set up Azure Active Directory (Azure AD) and add native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL.
+description: Learn how to set up Azure Active Directory (Azure AD) and add native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL
 author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 09/19/2023
 ---
 
 # Use Azure Active Directory and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL
@@ -18,9 +18,6 @@ ms.date: 08/01/2023
 > This preview version is provided without a service level agreement, and it's not recommended
 > for production workloads. Certain features might not be supported or might have constrained 
 > capabilities.
->
-> [Contact us](mailto:askcosmosdb4postgres@microsoft.com) if you're interested in participating in Azure Active Directory authentication 
-> for Azure Cosmos DB for PostgreSQL preview.
 >
 > You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
@@ -213,6 +210,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO "user@tenant.onmicrosoft.com";
 
 ## Next steps
 
-- Learn about [authentication in Azure Cosmos DB for PostgreSQL](./concepts-authentication.md).
-- Review [Azure Active Directory fundamentals](./../../active-directory/fundamentals/active-directory-whatis.md).
-- [Learn more about SQL GRANT in PostgreSQL](https://www.postgresql.org/docs/current/sql-grant.html).
+- Learn about [authentication in Azure Cosmos DB for PostgreSQL](./concepts-authentication.md)
+- Check out [Azure AD limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#azure-active-directory-authentication)
+- Review [Azure Active Directory fundamentals](./../../active-directory/fundamentals/active-directory-whatis.md)
+- [Learn more about SQL GRANT in PostgreSQL](https://www.postgresql.org/docs/current/sql-grant.html)

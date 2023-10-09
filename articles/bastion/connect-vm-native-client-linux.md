@@ -4,6 +4,7 @@ titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Linux computer by using Bastion and a native client.
 author: cherylmc
 ms.service: bastion
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/08/2023
 ms.author: cherylmc

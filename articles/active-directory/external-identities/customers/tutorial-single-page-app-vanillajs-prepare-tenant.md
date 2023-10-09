@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare your customer tenant to authenticate users in a Vanilla JavaScript single-page application
-description: Learn how to configure your Azure Active Directory (AD) for customers tenant for authentication with a Vanilla JavaScript single-page app (SPA).
+description: Learn how to configure your Microsoft Entra ID for customers tenant for authentication with a Vanilla JavaScript single-page app (SPA).
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 08/17/2023
-#Customer intent: As a developer, I want to learn how to configure a Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure a Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app
 
-This tutorial series demonstrates how to build a Vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+This tutorial series demonstrates how to build a Vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Microsoft Entra ID for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
 In this tutorial;
 
@@ -30,13 +30,13 @@ In this tutorial;
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
 
     * Application administrator
     * Application developer
     * Cloud application administrator
 
-- An Azure AD for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
+- A Microsoft Entra ID for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
 
 ## Register the SPA and record identifiers
 

@@ -1,14 +1,16 @@
 ---
 title: Customize a Brands model with Azure AI Video Indexer API
 description: Learn how to customize a Brands model with the Azure AI Video Indexer API.
-author: anikaz
-manager: johndeu
 ms.topic: article
 ms.date: 01/14/2020
+ms.custom: prevauth-anikaz
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customize a Brands model with the Azure AI Video Indexer API
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure AI Video Indexer detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
 

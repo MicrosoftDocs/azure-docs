@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.custom: query-reference
+ms.custom: query-reference, devx-track-dotnet
 ---
 
 # Index and query GeoJSON location data in Azure Cosmos DB for NoSQL

@@ -5,11 +5,13 @@ author: outinyman
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 9/27/2023
 ms.author: ounyman
 ---
 
 # Disaster recovery for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR. 
 
@@ -100,11 +102,11 @@ Consider the following steps for DR test.
 
 * Prepare a test environment with test data. It's recommended that you use a service instance with small amounts of data to reduce the time to replicate the data.
  
-* Create a support ticket and provide your Azure subscription and the service name for the Azure API for FHIR for your test environment.
+* Create a support ticket and provide your Azure subscription, preferred Azure region for the failover, and the service name for the Azure API for FHIR for your test environment.
 
 * Come up with a test plan, as you would with any DR test.
  
-* The Microsoft support team enables the DR feature and confirms that the failover has taken place.
+* The Microsoft support team enables the DR feature and confirms that the preferred failover region by the customer has been added
 
 * Conduct your DR test and record the testing results, which it should include any data loss and network latency issues. 
 

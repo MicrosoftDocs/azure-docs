@@ -106,26 +106,12 @@ productDirectory:
         - ai-machine-learning
       url: ai-services/computer-vision/overview-identity.md
     # Card
-    - title: Anomaly Detector
-      summary: Easily add anomaly detection capabilities to your apps
-      imageSrc: ai-services/media/service-icons/anomaly-detector.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/anomaly-detector/index.yml
-    # Card
     - title: Content Safety
       summary: An AI service that detects unwanted contents
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
       url: ai-services/content-moderator/index.yml
-    # Card
-    - title: Personalizer
-      summary: An AI service that delivers a personalized user experience
-      imageSrc: ai-services/media/service-icons/personalizer.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/personalizer/index.yml
     # Card
     - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -149,13 +135,6 @@ productDirectory:
         - mobile
         - web
       url: search/index.yml
-    # Card
-    - title: Metrics Advisor
-      summary: An AI service that monitors metrics and diagnoses issues
-      imageSrc: ai-services/media/service-icons/metrics-advisor.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/metrics-advisor/index.yml
     # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
@@ -247,6 +226,13 @@ productDirectory:
       azureCategories:
         - integration
       url: energy-data-services/index.yml
+    # Card
+    - title: Azure Data Manager for Agriculture (Preview)
+      summary: Create a more sustainable future by innovating with agriculture data
+      imageSrc: data-manager-for-agri/media/icon/data-manager-for-agriculture.svg
+      azureCategories:
+        - integration
+      url: data-manager-for-agri/index.yml
     # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
@@ -821,6 +807,15 @@ productDirectory:
       azureCategories:
         - devops
       url: load-testing/index.yml
+    # Card
+    - title: Microsoft Playwright Testing (Preview)
+      summary: Run end-to-end Playwright tests at scale
+      imageSrc: ./media/index/playwright-testing-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+        - web
+      url: playwright-testing/index.yml
     # Card
     - title: Azure Managed Grafana
       summary: Deploy Grafana dashboards as a fully managed Azure service

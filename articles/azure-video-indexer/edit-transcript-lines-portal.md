@@ -1,12 +1,15 @@
 ---
 title: View and update transcriptions in Azure AI Video Indexer website 
 description: This article explains how to insert or remove a transcript line in the Azure AI Video Indexer website. It also shows how to view word-level information.
-ms.author: itnorman
 ms.topic: how-to
 ms.date: 05/03/2022
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
 # View and update transcriptions
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article explains how to insert or remove a transcript line in the Azure AI Video Indexer website. It also shows how to view word-level information.
 

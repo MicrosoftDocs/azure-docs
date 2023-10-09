@@ -199,7 +199,7 @@ private static string createToken(string resourceUri, string keyName, string key
 
 ```azurepowershell-interactive
 [Reflection.Assembly]::LoadWithPartialName("System.Web")| out-null
-$URI="myNamespace.servicebus.windows.net/myEventHub"
+$URI="myNamespace.servicebus.windows.net/myEventHub/"
 $Access_Policy_Name="RootManageSharedAccessKey"
 $Access_Policy_Key="myPrimaryKey"
 #Token expires now+300
