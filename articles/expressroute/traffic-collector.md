@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute Traffic Collector (Preview)
+title: Azure ExpressRoute Traffic Collector
 titleSuffix: Azure ExpressRoute
 description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature is helpful.
 services: expressroute
@@ -11,7 +11,7 @@ ms.author: duau
 ms.custom: references_regions
 ---
 
-# Azure ExpressRoute Traffic Collector (Preview)
+# Azure ExpressRoute Traffic Collector
 
 ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
@@ -142,6 +142,14 @@ ExpressRoute Traffic Collector is supported in the following regions:
 - Australia Central 2
 - Australia East
 - Australia Southeast
+
+## Pricing
+
+| Zone | Gateway per hour | Data processed per GB |
+| ---- | ---------------- | --------------------- |
+| Zone 1 | $0.60/hour | $0.10/GB |
+| Zone 2 | $0.80/hour | $0.20/GB |
+| Zone 3 | $0.80/hour | $0.20/GB |
 
 ## Next steps
 
