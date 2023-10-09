@@ -83,20 +83,20 @@ If any problems occur during the enablement process, see [Troubleshoot delivery 
 
 ## Additional scenarios
 
-There are several scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Three of these scenarios supported by Azure Arc include the following:
+There are some scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Two of these scenarios supported by Azure Arc include the following:
 
 - Dev/Test (Visual Studio)
-- Disaster Recovery (Entitled benefit disaster recovery instances from Software Assurance or subscription only)
+- Disaster Recovery (Entitled benefit DR instances from Software Assurance or subscription only)
 
 To qualify for these scenarios, you must have:
 
 1. Provisioned and activated a WS2012 Arc ESU License intended to be linked to regular Azure Arc-enabled servers running in production environments (i.e., normally billed ESU scenarios)
 
-1. Onboarded your Windows Server 2012 and Windows Server 2012 R2 machines to Azure Arc-enabled servers for the purpose of Dev/Test, association with Visual Studio subscriptions, or Disaster Recovery
+1. Onboarded your Windows Server 2012 and Windows Server 2012 R2 machines to Azure Arc-enabled servers for the purpose of Dev/Test with Visual Studio subscriptions or Disaster Recovery
 
 To enroll Azure Arc-enabled servers eligible for ESUs at no additional cost, follow these steps to tag and link:
 
-1. Tag both the WS2012 Arc ESU License and the Azure Arc-enabled server with one of the following three name-value pairs, corresponding to the appropriate exception:
+1. Tag both the WS2012 Arc ESU License and the Azure Arc-enabled server with one of the following name-value pairs, corresponding to the appropriate exception:
 
     1. Name: “ESU Usage”; Value: “WS2012 VISUAL STUDIO DEV TEST”
     1. Name: “ESU Usage”; Value: “WS2012 DISASTER RECOVERY”
