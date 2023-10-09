@@ -69,7 +69,7 @@ Edsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice 
 | Standard_E32ds_v4               | 32 | 256 | 1200 | 32 | 150000/2000 | 51200/768  | 64000/1600 | 8 | 16000 |
 | Standard_E48ds_v4               | 48 | 384 | 1800 | 32 | 225000/3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
 | Standard_E64ds_v4 <sup>2</sup>  | 64 | 504 | 2400 | 32 | 300000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |
-| Standard_E80ids_v4 <sup>3,5</sup> | 80 | 504 | 2400 | 64 | 375000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |
+| Standard_E80ids_v4 <sup>3,5</sup> | 80 | 504 | 2400 | 64 | 375000/4000 | 80000/1500 | 80000/2000 | 8 | 30000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
 

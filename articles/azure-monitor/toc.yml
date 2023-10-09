@@ -268,14 +268,8 @@ items:
           href: app/usage-flows.md
         - name: HEART Framework
           href: app/usage-heart.md
-      - name: GitHub and Azure DevOps integration
-        items:
-        - name: Work Item integration
-          href: app/work-item-integration.md
-        - name: Release annotations
-          href: app/annotations.md
-        - name: Continuous monitoring
-          href: app/continuous-monitoring.md
+      - name: Release and work item insights
+        href: app/release-and-work-item-insights.md
     - name: Code-level diagnostics
       items:
       - name: Profiler

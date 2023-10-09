@@ -16,6 +16,7 @@ ms.reviewer: calebb, ripull, inbarc
 
 ms.collection: M365-identity-device-management
 ---
+
 # Configure authentication session management with Conditional Access
 
 In complex deployments, organizations might have a need to restrict authentication sessions. Some scenarios might include:
@@ -35,7 +36,7 @@ Sign-in frequency defines the time period before a user is asked to sign in agai
 
 The Microsoft Entra ID default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
-It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but aren't limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). The Microsoft Entra ID default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions hasn't changed”.
+It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but aren't limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using Microsoft Graph PowerShell](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession). The Microsoft Entra ID default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions hasn't changed”.
 
 The sign-in frequency setting works with apps that have implemented OAuth2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
 
@@ -200,3 +201,4 @@ We factor for five minutes of clock skew, so that we don’t prompt users more o
 ## Next steps
 
 * If you're ready to configure Conditional Access policies for your environment, see the article [Plan a Conditional Access deployment](plan-conditional-access.md).
+
