@@ -121,6 +121,25 @@ The currently supported versions of the `microsoft.flux` extension are described
 > [!IMPORTANT]
 > Eventually, a major version update (v2.x.x) for the `microsoft.flux` extension will be released. When this happens, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
 
+### 1.7.8 (October 2023)
+
+> [!NOTE]
+> We have started to roll out this release across regions. We'll remove this note once version 1.7.8 is available to all supported regions.
+
+Flux version: [Release v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
+
+- source-controller: v1.1.1
+- kustomize-controller: v1.1.0
+- helm-controller: v0.36.1
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
+
+Changes made for this version:
+
+- Upgrades Flux to [v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
+- Adds support for workload identity in [AKS clusters with workload identity](/azure/aks/workload-identity-deploy-cluster) by adding `--config workloadIdentity.enable=true` and `workloadIdentity.azureClientId=<user_assigned_client_id>` to the `k8s-extension create` command
+
 ### 1.7.7 (September 2023)
 
 Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
@@ -186,23 +205,6 @@ Changes made for this version:
 - Adds support for optional properties [`waitForReconciliation`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1299C14-L1299C35) and [`reconciliationWaitDuration`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1304).
 
    By default, `waitForReconciliation` is set to false, so when creating a flux configuration, the `provisioningState` returns `Succeeded` once the configuration reaches the cluster and the ARM template or Azure CLI command successfully exits. However, the actual state of the objects being deployed as part of the configuration is tracked by `complianceState`, which can be viewed in the portal or by using Azure CLI. Setting `waitForReconciliation` to true and specifying a `reconciliationWaitDuration` means that the template or CLI deployment will wait for `complianceState` to reach a terminal state (success or failure) before exiting. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L72))
-
-### 1.7.3 (April 2023)
-
-Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
-
-- source-controller: v0.36.1
-- kustomize-controller: v0.35.1
-- helm-controller: v0.31.2
-- notification-controller: v0.33.0
-- image-automation-controller: v0.31.0
-- image-reflector-controller: v0.26.1
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
-- Fixes issue causing resources that were deployed as part of Flux configuration to persist even when the configuration was deleted with prune flag set to `true`
-- Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
 
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
