@@ -60,13 +60,14 @@ While these are strong advantages, there's a possibility that Zone to Zone Disas
 
 As mentioned before, Zone to Zone Disaster Recovery reduces complexity as it leverages redundant networking concepts across Availability Zones making configuration simpler. The behavior of networking components in the Zone to Zone Disaster Recovery scenario is outlined below: 
 
-- Virtual Network: You may use the same virtual network as the source network for actual failovers. Use a different virtual network to the source virtual network for test failovers.
-- Subnet: Failover into the same subnet is supported.
-- Private IP address: If you're using static IP addresses, you can use the same IPs in the target zone if you choose to configure them in such a manner.
-- Accelerated Networking: Similar to Azure to Azure Disaster Recovery, you may enable Accelerated Networking if the VM SKU supports it.
-- Public IP address: You can attach a previously created standard public IP address in the same region to the target VM. Basic public IP addresses don't support Availability Zone related scenarios.
-- Load balancer: Standard load balancer is a regional resource and therefore the target VM can be attached to the backend pool of the same load balancer. A new load balancer isn't required.
-- Network Security Group: You may use the same network security groups as applied to the source VM.
+- **Virtual Network**: You may use the same virtual network as the source network for actual failovers. Use a different virtual network to the source virtual network for test failovers.
+- **Subnet**: Failover into the same subnet is supported.
+- **Private IP address**: If you're using static IP addresses, you can use the same IPs in the target zone if you choose to configure them in such a manner. 
+    However, note that, for each VM protected by Azure Site Recovery for which you wish to use the same IP on target zone, you must have a free IP available in the subnet as Azure Site Recovery uses it during failover. Azure Site Recovery allocates this free IP address to the source VM to free up the target IP address. Azure Site Recovery then allocates the target IP address to the target VM.
+- **Accelerated Networking**: Similar to Azure to Azure Disaster Recovery, you may enable Accelerated Networking if the VM SKU supports it.
+- **Public IP address**: You can attach a previously created standard public IP address in the same region to the target VM. Basic public IP addresses don't support Availability Zone related scenarios.
+- **Load balancer**: Standard load balancer is a regional resource and therefore the target VM can be attached to the backend pool of the same load balancer. A new load balancer isn't required.
+- **Network Security Group**: You may use the same network security groups as applied to the source VM.
 
 ## Pre-requisites
 
