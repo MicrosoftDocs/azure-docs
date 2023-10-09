@@ -772,7 +772,7 @@
           "redirect_document_id": true     
       },
       {    "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac-old.md",
-           "redirect_url": "/azure/healthcare-apis/dicom/dicom-configure-rbac",
+           "redirect_url": "/azure/healthcare-apis/dicom/dicom-configure-azure-rbac",
            "redirect_document_id": false  
       }
     ]
