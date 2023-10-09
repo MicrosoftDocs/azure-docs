@@ -3,12 +3,13 @@ title: Outgoing Audio Filters
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to set outgoing audio filters.
 author: t-leejiyoon
-ms.author: t-leejiyoon
+ms.author: zehangzheng
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
 ms.date: 07/27/2023
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Manage audio filters
