@@ -35,3 +35,7 @@ You've now successfully added your network security group to Chaos Studio.
 ## Create an experiment from a template
 
 Now you can create your experiment from a pre-filled experiment template. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
+
+1. In Chaos Studio, go to **Experiments** > **Create** > **New from template**.
+
+
