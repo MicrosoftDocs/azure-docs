@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 06/05/2023
+ms.date: 10/09/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -19,8 +19,6 @@ Azure Content Delivery Network (CDN) includes four products:
 * **Azure CDN Standard from Akamai**
 * **Azure CDN Standard from Edgio (formerly Verizon)**
 * **Azure CDN Premium from Edgio (formerly Verizon)**.
-
-To learn more about how to configure $0 egress using a 3rd party CDN partner see [https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/routing-preference-unmetered]. 
 
 > [!IMPORTANT]
 > Azure CDN from Akamai is scheduled to be retired on October 31, 2023. You can no longer create new Azure CDN from Akamai after June 1, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
@@ -48,6 +46,7 @@ The following table compares the features available with each product.
 | [Query string caching](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual-stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Routing preference unmetered](../virtual-network/ip-services/routing-preference-unmetered.md)  | |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
  **Security** | **Standard Microsoft** | **Standard Akamai** | **Standard Edgio** | **Premium Edgio** |
 | HTTPS support with CDN endpoint | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
