@@ -2,14 +2,14 @@
 title: Azure Event Hubs – data streaming platform with Kafka support
 description: Learn about Azure Event Hubs, A real-time data streaming platform with native Apache Kafka support.
 ms.topic: overview
-ms.date: 03/07/2023
+ms.date: 10/09/2023
 ---
 
 # Azure Event Hubs – A real-time data streaming platform with native Apache Kafka support
 Azure Event Hubs is a cloud native data streaming service that can stream millions of events per second, with low latency, from any source to any destination. Event Hubs is compatible with Apache Kafka, and it enables you to run existing Kafka workloads without any code changes. 
 
 Using Event Hubs to ingest and store streaming data, businesses can harness the power of streaming data to gain valuable insights, drive real-time analytics, and respond to events as they happen, enhancing overall efficiency and customer experience. 
-    :::image type="content" source="./media/event-hubs-about/event-streaming-platform.png" alt-text="Image showing how Event Hubs fits in an event streaming platform.":::
+    :::image type="content" source="./media/event-hubs-about/event-streaming-platform.png" alt-text="Diagram that shows how Azure Event Hubs fits in an event streaming platform.":::
 
 Azure Event Hubs is the preferred event ingestion layer of any event streaming solution that you build on top of Azure. It seamlessly integrates with data and analytics services inside and outside Azure to build your complete data streaming pipeline to serve following use cases. 
 
@@ -28,23 +28,23 @@ Event Hubs is built from the ground up as a cloud native broker engine. Hence yo
 ### Schema Registry in Azure Event Hubs 
 Azure Schema Registry in Event Hubs provides a centralized repository for managing schemas of events streaming applications. Azure Schema Registry comes free with every Event Hubs namespace, and it integrates seamlessly with your Kafka applications or Event Hubs SDK based applications.
 
-:::image type="content" source="./media/event-hubs-about/schema-registry.png" alt-text="Image showing Schema Registry and Event Hubs integration.":::
+:::image type="content" source="./media/event-hubs-about/schema-registry.png" alt-text="Diagram that shows Schema Registry and Azure Event Hubs integration.":::
 
 
 It ensures data compatibility and consistency across event producers and consumers.  Schema Registry enables seamless schema evolution, validation, and governance, and promoting efficient data exchange and interoperability.
-Schema Registry seamlessly integrates with you existing Kafka applications and it supports multiple schema definitions formats including Avro and JSON Schemas.  
+Schema Registry seamlessly integrates with your existing Kafka applications and it supports multiple schema definitions formats including Avro and JSON Schemas.  
 
 ### Real-time event stream processing with Azure Stream Analytics 
 Event Hubs integrates seamlessly with Azure Stream Analytics to enable real-time stream processing. With the built-in no-code editor, you can effortlessly develop a Stream Analytics job using drag-and-drop functionality, without writing any code. 
 
-:::image type="content" source="../stream-analytics/media/filter-ingest-data-lake-storage-gen2/filter-data-lake-gen2-card-start.png" alt-text="Image showing Stream Analytics no code editor templates.":::
+:::image type="content" source="../stream-analytics/media/filter-ingest-data-lake-storage-gen2/filter-data-lake-gen2-card-start.png" alt-text="Diagram that shows Stream Analytics no code editor templates.":::
 
 Alternatively, developers can use the SQL-based Stream Analytics query language to perform real-time stream processing and take advantage of a wide range of functions for analyzing streaming data.  
 
 ### Exploring streaming data with Azure Data Explorer
 Azure Data Explorer is a fully managed platform for big data analytics that delivers high performance and allows for the analysis of large volumes of data in near real time. By integrating Event Hubs with Azure Data Explorer, you can easily perform near real-time analytics and exploration of streaming data. 
 
-:::image type="content" source="./media/event-hubs-about/data-explorer-integration.png" alt-text="Image showing Azure Data explorer query and output.":::
+:::image type="content" source="./media/event-hubs-about/data-explorer-integration.png" alt-text="Diagram that shows Azure Data explorer query and output.":::
 
 
 ### Rich ecosystem– Azure functions, SDKs and Kafka ecosystem
@@ -67,7 +67,7 @@ Capture your data in near-real time in an Azure Blob storage or Azure Data Lake 
 Event Hubs provides a unified event streaming platform with time retention buffer, decoupling event producers from event consumers. The producers and consumer applications can perform large scale data ingestion through multiple protocols. 
 
 The following figure shows the key components of Event Hubs architecture:
-:::image type="content" source="./media/event-hubs-about/eh-components.png" alt-text="Image showing the main components of Event Hubs.":::
+:::image type="content" source="./media/event-hubs-about/eh-components.png" alt-text="Diagram that shows the main components of Event Hubs.":::
 
 The key functional components of Event Hubs include: 
 - **Event Hub/Kafka topic**: In Event Hubs, you can organize events into event hubs or Kafka topic. It's an append only distributed log, which can comprise of one or more partitions. 
