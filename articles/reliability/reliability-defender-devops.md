@@ -4,7 +4,7 @@ description: Find out about reliability in Defender for DevOps
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 10/09/2023
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Defender for DevOps
