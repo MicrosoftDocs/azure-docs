@@ -3,7 +3,7 @@ title: User roles and permissions
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: limits-and-quotas
 ms.custom: ignite-2022
-ms.date: 03/06/2023
+ms.date: 10/09/2023
 ---
 
 # User roles and permissions
@@ -30,7 +30,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Edit security policy | - | ✔ | - | - | ✔ |
 | Enable / disable Microsoft Defender plans | - | ✔ | - | ✔ | ✔ |
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
-| Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | - | ✔ | ✔ | ✔ |
+| Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | ✔ | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Exempt security recommendations | - | - | ✔ | ✔ | ✔ |
 
