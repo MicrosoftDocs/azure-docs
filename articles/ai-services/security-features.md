@@ -5,7 +5,7 @@ description: Learn about the security considerations for Azure AI services usage
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 12/02/2022
 ms.author: pafarley

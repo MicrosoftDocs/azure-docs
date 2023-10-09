@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: overview
 ms.date: 08/28/2023
 ms.author: aahi
