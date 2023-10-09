@@ -5,7 +5,9 @@ ms.topic: overview
 ms.date: 10/09/2023
 ---
 
-# Application Insights overview :::image type="content" source="media/app-insights-overview/app-insights-icon.svg" alt-text="The official logo of Azure Monitor Application Insights":::
+# Application Insights overview
+
+:::image type="content" source="media/app-insights-overview/app-insights-icon.svg" alt-text="The official logo of Azure Monitor Application Insights":::
 
 Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md), excels in Application Performance Management (APM) for live web applications. It enhances the performance, reliability, and quality of your applications.
 
@@ -114,6 +116,14 @@ We're constantly assessing opportunities to expand our support for other languag
 ## Frequently asked questions
 
 This section provides answers to common questions.
+
+### How do I instrument an application?
+
+For detailed information about instrumenting applications to enable Application Insights, see [data collection basics](opentelemetry-overview.md).
+
+### How do I use Application Insights?
+
+After enabling Application Insights by instrumenting an application, we suggest first checking out [Live metrics](live-stream.md) and the [Application map](app-map.md), as well as the other [built-in experiences](#experiences).
 
 ### What telemetry does Application Insights collect?
 
