@@ -1,5 +1,5 @@
 ---
-title: How to delete operator resources
+title: How to delete operator resources in Azure Operator Service Manager
 description: Learn how to delete operator services
 author: sherrygonz
 ms.author: sherryg
