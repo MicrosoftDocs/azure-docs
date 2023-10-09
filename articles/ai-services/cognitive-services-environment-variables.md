@@ -5,7 +5,7 @@ description: "This guide shows you how to set and retrieve environment variables
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 09/09/2022
 ms.author: pafarley
