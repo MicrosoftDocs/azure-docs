@@ -123,11 +123,15 @@ To view the health of a **server endpoint** in the portal, navigate to the **Syn
 
   | Metric name | Description | Blade name |
   |-|-|-|
-  | Bytes synced | Size of data transferred (upload and download) | Sync group, Server endpoint |
-  | Cloud tiering recall | Size of data recalled | Registered servers |
-  | Files not syncing | Count of files that are failing to sync | Server endpoint |
-  | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
-  | Server online status | Count of heartbeats received from the server | Registered servers |
+  | Bytes synced | Size of data transferred (upload and download). | Server endpoint - Sync status |
+  | Files not syncing | Count of files that are failing to sync. | Server endpoint - Sync status |
+  | Files synced | Count of files transferred (upload and download). | Server endpoint - Sync status |
+  | Cloud tiering cache hit rate | Percentage of bytes, not whole files, that have been served from the cache vs. recalled from the cloud. | Server endpoint - Cloud tiering status |
+  | Cache data size by last access time | Size of data by last access time. | Server endpoint - Cloud tiering status |
+  | Cloud tiering size of data tiered by last maintenance job | Size of data tiered during last maintenance job. | Server endpoint - Cloud tiering status |
+  | Cloud tiering recall size by application | Size of data recalled by application. | Server endpoint - Cloud tiering status |  
+  | Cloud tiering recall | Size of data recalled. | Server endpoint - Cloud tiering status, Registered servers |
+  | Server online status | Count of heartbeats received from the server. | Registered servers |
 
 - To learn more, see [Azure Monitor](#azure-monitor).
 
