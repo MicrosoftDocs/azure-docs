@@ -32,7 +32,7 @@ Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor
 1. Go to your **Storage Sync Service** in the **Azure portal** and click **Metrics**.
 2. Click the **Metric** drop-down and select the metric you want to view.
 
-:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-metrics.png" alt-text="Screenshot that shows the File Sync metrics in the Azure portal." border="true":::
+![Screenshot of Azure File Sync metrics](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 The following metrics for Azure File Sync are available in Azure Monitor:
 
@@ -101,7 +101,7 @@ To view the health of your Azure File Sync deployment in the **Azure portal**, n
 
 To view the **registered server health** in the portal, navigate to the **Registered servers** section of the **Storage Sync Service**.
 
-:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-registered-servers.png" alt-text="Screenshot that shows the registered server health in the Azure portal." border="true":::
+![Screenshot of registered servers health](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
 - If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service. See the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity) for guidance.
