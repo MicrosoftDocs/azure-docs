@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 09/29/2023
+ms.date: 10/09/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -138,7 +138,7 @@ Flux version: [Release v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1
 Changes made for this version:
 
 - Upgrades Flux to [v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
-- Adds support for workload identity in [AKS clusters with workload identity](/azure/aks/workload-identity-deploy-cluster) by adding `--config workloadIdentity.enable=true` and `workloadIdentity.azureClientId=<user_assigned_client_id>` to the `k8s-extension create` command
+- Adds support for [AKS clusters with workload identity](tutorial-use-gitops-flux2.md#workload-identity-in-aks-clusters)
 
 ### 1.7.7 (September 2023)
 

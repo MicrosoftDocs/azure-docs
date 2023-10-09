@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 08/16/2023
+ms.date: 10/09/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -567,6 +567,28 @@ az k8s-extension update --resource-group <resource-group> --cluster-name <cluste
 ```
 
 If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
+
+### Workload identity in AKS clusters
+
+To create Flux configurations in [AKS clusters with workload identity enabled](/azure/aks/workload-identity-deploy-cluster), you must modify the flux extension.
+
+1. Retrive the [OIDC issuer URL](#retrieve-the-oidc-issuer-url) for your cluster.
+1. Create a [managed identity](/azure/aks/workload-identity-deploy-cluster#create-a-managed-identity) and note its client ID.
+1. Create the flux extension on the cluster, using the following command:
+
+   ```azurecli
+   az k8s-extension create --resource-group <resource_group_name> --cluster-name <aks_cluster_name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config workloadIdentity.enable=true workloadIdentity.azureClientId=<user_assigned_client_id>
+   ```
+
+1. Establish a [federated identity credential](/azure/aks/workload-identity-deploy-cluster#establish-federated-identity-credential). For example:
+
+  ```azurecli
+  # For source-controller
+  az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"source-controller" --audience api://AzureADTokenExchange
+  
+  # For image-reflector controller if you plan to enable it during extension creation, it is now deployed by default
+  az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"image-reflector-controller" --audience api://AzureADTokenExchange
+  ```
 
 ## Delete the Flux configuration and extension
 
