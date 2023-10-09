@@ -23,7 +23,19 @@ Before you convert a disk from locally-redundant storage (LRS) to zone-redundant
 
 # [Azure PowerShell](#tab/azure-powershell)
 
+Run the following command and observe the output. If there is no value in **Zones** proceed to this section. Otherwise proceed to this section.
+
+```azurepowershell
+Get-AzDisk -DiskName your_disk_name_here -ResourceGroupName your_RG_name_here
+```
+
 # [Azure CLI](#tab/azure-cli)
+
+Run the following command and observe the output. If there is no value in **zones** proceed to this section. Otherwise proceed to this section.
+
+```azurecli
+az disk show --name your_disk_name_here --resource-group your_RG_name_here
+```
 
 ---
 
