@@ -4,7 +4,7 @@ description: In this quickstart, get started with the Azure management client li
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 10/5/2023
 ms.author: eur
