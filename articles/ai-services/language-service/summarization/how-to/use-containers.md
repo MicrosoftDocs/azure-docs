@@ -5,8 +5,7 @@ description: Use Docker containers for the summarization API to summarize text, 
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.author: jboback
