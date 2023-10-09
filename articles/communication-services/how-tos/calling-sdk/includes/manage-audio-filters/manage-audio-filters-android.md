@@ -1,19 +1,20 @@
 ---
-author: t-leejiyoon
+author: zehangzheng
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 07/28/2023
-ms.author: t-leejiyoon
+ms.date: 10/6/2023
+ms.author: zehangzheng
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 The audio filter feature allows different audio preprocessing options to be applied to outgoing audio. There are two types of audio filters: OutgoingAudioFilters and LiveOutgoingAudioFilters, with OutgoingAudioFilters changing settings before the call starts and LiveOutgoingAudioFilters changing settings while a call is in progress. 
 
-You first need import the Calling SDK:
+You first need import the Calling SDK and the associated classes:
 
 ```csharp
-using Azure.Communication;
-using Azure.Communication.Calling.WindowsClient;
+import com.azure.android.communication.calling.OutgoingAudioOptions;
+import com.azure.android.communication.calling.OutgoingAudioFilters;
+import com.azure.android.communication.calling.LiveOutgoingAudioFilters;
 ```
 
 ## OutgoingAudioFilters
@@ -21,17 +22,15 @@ using Azure.Communication.Calling.WindowsClient;
 
 Begin by creating a `OutgoingAudioFilters` and passing it into OutgoingAudioOptions as shown in the following code:
 
-```csharp
-var outgoingAudioOptions = new OutgoingAudioOptions();
-var filters = new OutgoingAudioFilters()
-{
-    AnalogAutomaticGainControlEnabled = true,
-    DigitalAutomaticGainControlEnabled = true,
-    MusicModeEnabled = true,
-    AcousticEchoCancellationEnabled = true,
-    NoiseSuppressionMode = NoiseSuppressionMode.High
-};
-outgoingAudioOptions.Filters = filters;
+```java
+OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
+OutgoingAudioFilters filters = new OutgoingAudioFilters();
+filters.setNoiseSuppressionMode(NoiseSuppressionMode.HIGH);
+filters.setAnalogAutomaticGainControlEnabled(true);
+filters.setDigitalAutomaticGainControlEnabled(true);
+filters.setMusicModeEnabled(true);
+filters.setAcousticEchoCancellationEnabled(true); 
+outgoingAudioOptions.setAudioFilters(filters);
 ```
 
 ## LiveOutgoingAudioFilters
@@ -39,11 +38,11 @@ outgoingAudioOptions.Filters = filters;
 
 Only a subset of the filters available from `OutgoingAudioFilters` are available during an active call: music mode, echo cancellation, and noise suppression mode.
 
-```csharp
-LiveOutgoingAudioFilters filter = call.LiveOutgoingAudioFilters;
-filter.MusicModeEnabled = true;
-filter.AcousticEchoCancellationEnabled = true;
-filter.NoiseSuppressionMode = NoiseSuppressionMode.Auto;
+```java
+LiveOutgoingAudioFilters filters = call.getLiveOutgoingAudioFilters();
+filters.setMusicModeEnabled(false);
+filters.setAcousticEchoCancellationEnabled(false);
+filters.setNoiseSuppressionMode(NoiseSuppressionMode.HIGH);
 ```
 
 ## Available Filters

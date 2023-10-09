@@ -1,19 +1,18 @@
 ---
-author: t-leejiyoon
+author: zehangzheng
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 07/28/2023
-ms.author: t-leejiyoon
+ms.date: 10/6/2023
+ms.author: zehangzheng
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
 The audio filter feature allows different audio preprocessing options to be applied to outgoing audio. There are two types of audio filters: OutgoingAudioFilters and LiveOutgoingAudioFilters, with OutgoingAudioFilters changing settings before the call starts and LiveOutgoingAudioFilters changing settings while a call is in progress. 
 
 You first need import the Calling SDK:
 
-```csharp
-using Azure.Communication;
-using Azure.Communication.Calling.WindowsClient;
+```swift
+import AzureCommunicationCalling
 ```
 
 ## OutgoingAudioFilters
@@ -21,17 +20,15 @@ using Azure.Communication.Calling.WindowsClient;
 
 Begin by creating a `OutgoingAudioFilters` and passing it into OutgoingAudioOptions as shown in the following code:
 
-```csharp
-var outgoingAudioOptions = new OutgoingAudioOptions();
-var filters = new OutgoingAudioFilters()
-{
-    AnalogAutomaticGainControlEnabled = true,
-    DigitalAutomaticGainControlEnabled = true,
-    MusicModeEnabled = true,
-    AcousticEchoCancellationEnabled = true,
-    NoiseSuppressionMode = NoiseSuppressionMode.High
-};
-outgoingAudioOptions.Filters = filters;
+```swift
+let outgoingAudioOptions = OutgoingAudioOptions()
+let filters = OutgoingAudioFilters()
+filters.NoiseSuppressionMode = NoiseSuppressionMode.high
+filters.analogAutomaticGainControlEnabled = true
+filters.digitalAutomaticGainControlEnabled = true
+filters.musicModeEnabled = true
+filters.acousticEchoCancellationEnabled = true
+outgoingAudioOptions.audioFilters = filters
 ```
 
 ## LiveOutgoingAudioFilters
@@ -39,11 +36,11 @@ outgoingAudioOptions.Filters = filters;
 
 Only a subset of the filters available from `OutgoingAudioFilters` are available during an active call: music mode, echo cancellation, and noise suppression mode.
 
-```csharp
-LiveOutgoingAudioFilters filter = call.LiveOutgoingAudioFilters;
-filter.MusicModeEnabled = true;
-filter.AcousticEchoCancellationEnabled = true;
-filter.NoiseSuppressionMode = NoiseSuppressionMode.Auto;
+```swift
+LiveOutgoingAudioFilters filters = call.liveOutgoingAudioFilters
+filters.musicModeEnabled = true
+filters.acousticEchoCancellationEnabled = true
+filters.NoiseSuppressionMode = NoiseSuppressionMode.high
 ```
 
 ## Available Filters
