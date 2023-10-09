@@ -1,6 +1,6 @@
 ---
-title: List Azure AD role assignments
-description: You can now see and manage members of an Azure Active Directory administrator role in the Microsoft Entra admin center.
+title: List Microsoft Entra role assignments
+description: You can now see and manage members of a Microsoft Entra administrator role in the Microsoft Entra admin center.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -14,16 +14,16 @@ ms.reviewer: vincesm
 ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
-# List Azure AD role assignments
+# List Microsoft Entra role assignments
 
-This article describes how to list roles you have assigned in Azure Active Directory (Azure AD). In Azure Active Directory (Azure AD), roles can be assigned at an organization-wide scope or with a single-application scope.
+This article describes how to list roles you have assigned in Microsoft Entra ID. In Microsoft Entra ID, roles can be assigned at an organization-wide scope or with a single-application scope.
 
 - Role assignments at the organization-wide scope are added to and can be seen in the list of single application role assignments.
 - Role assignments at the single application scope aren't added to and can't be seen in the list of organization-wide scoped assignments.
 
 ## Prerequisites
 
-- AzureAD module when using PowerShell
+- Azure AD PowerShell module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -80,7 +80,7 @@ This section describes how to list role assignments with single-application scop
 
 1. Browse to **Identity** > **Applications** > **App registrations**.
 
-1. Select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
+1. Select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Microsoft Entra organization.
 
     ![Create or edit app registrations from the App registrations page](./media/view-assignments/app-reg-all-apps.png)
 
@@ -88,7 +88,7 @@ This section describes how to list role assignments with single-application scop
 
     ![List app registration role assignments from the App registrations page](./media/view-assignments/app-reg-assignments.png)
 
-1. Select **Assignments** to list the role assignments. Opening the assignments page from within the app registration shows you the role assignments that are scoped to this Azure AD resource.
+1. Select **Assignments** to list the role assignments. Opening the assignments page from within the app registration shows you the role assignments that are scoped to this Microsoft Entra resource.
 
     ![List app registration role assignments from the properties of an app registration](./media/view-assignments/app-reg-assignments-2.png)
 
@@ -166,6 +166,6 @@ HTTP/1.1 200 OK
 
 ## Next steps
 
-* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
-* For more about role permissions, see [Azure AD built-in roles](permissions-reference.md).
+* Feel free to share with us on the [Microsoft Entra administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
+* For more about role permissions, see [Microsoft Entra built-in roles](permissions-reference.md).
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

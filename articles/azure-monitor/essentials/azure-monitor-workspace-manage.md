@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 03/28/2023
 ---
 
@@ -31,7 +32,7 @@ This article shows you how to create and delete an Azure Monitor workspace. When
 Use the following command to create an Azure Monitor workspace using Azure CLI.
 
 ```azurecli
-az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties {}
+az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties "{}"
 ```
 
 ### [Resource Manager](#tab/resource-manager)

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Prepare your customer tenant to authorize a .NET daemon application"
-description: Learn about how to prepare your Azure Active Directory (Azure AD) for customers tenant to acquire an access token using client credentials flow in your .NET daemon application
+description: Learn about how to prepare your Microsoft Entra ID for customers tenant to acquire an access token using client credentials flow in your .NET daemon application
 services: active-directorya
 author: SHERMANOUKO
 manager: mwongerapk
@@ -15,7 +15,7 @@ ms.date: 07/28/2023
 
 # Tutorial: Prepare your customer tenant to authorize a .NET daemon application
 
-The first step in securing your applications is to register them. In this tutorial, you prepare your Azure Active Directory (Azure AD) for customers tenant for authorization. This tutorial is part of a series that guides you to develop a .NET daemon app that calls your own custom protected web API using Azure AD for customers.
+The first step in securing your applications is to register them. In this tutorial, you prepare your Microsoft Entra ID for customers tenant for authorization. This tutorial is part of a series that guides you to develop a .NET daemon app that calls your own custom protected web API using Microsoft Entra ID for customers.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+Microsoft Entra ID for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## 1. Register a web API application
 

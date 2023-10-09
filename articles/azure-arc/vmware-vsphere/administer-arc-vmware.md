@@ -3,6 +3,9 @@ title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
 ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
+ms.custom: devx-track-azurecli
 ---
 
 # Perform ongoing administration for Arc-enabled VMware vSphere

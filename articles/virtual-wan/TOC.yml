@@ -16,6 +16,11 @@
     - name: Route to shared services VNets
       displayName: Resource Manager route to shared services VNets
       href: quickstart-route-shared-services-vnet-template.md
+  - name: BICEP templates
+    expanded: true
+    items:
+    - name: Deploy Virtual WAN with routing intent and routing policies
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
 - name: Tutorials
   expanded: true
   items:
@@ -287,6 +292,8 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
+    - name: Monitoring - best practices
+      href: monitoring-best-practices.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard

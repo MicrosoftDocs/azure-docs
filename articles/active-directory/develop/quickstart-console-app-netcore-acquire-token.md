@@ -35,7 +35,10 @@ The application can be built using either an automatic or manual configuration.
 
 To register and automatically configure the app and then download the code sample, follow these steps:
 
-1. Go to the [Azure portal page for app registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in one click.
 
@@ -49,10 +52,9 @@ To manually configure your application and code sample, use the following proced
 
 To register the application and add the registration information to the solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **Daemon-console**. Users of the app will see this name, and can be changed later.
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Certificates & secrets**.
@@ -74,7 +76,7 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
 1. Open the solution in Visual Studio: *1-Call-MSGraph\daemon-console.sln* (optional).
-1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
+1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Microsoft Entra admin center.
 
    ```json
    "TenantId": "Enter_the_Tenant_Id_Here",
@@ -94,7 +96,7 @@ Running the application now results in the output `HTTP 403 - Forbidden* error: 
 
 ##### Global tenant administrator
 
-For a global tenant administrator, go to **Enterprise applications** in the Azure portal. Select the app registration, and select **Permissions** from the **Security** section of the left pane. Then select the large button labeled **Grant admin consent for {Tenant Name}** (where **{Tenant Name}** is the name of the directory).
+For a global tenant administrator, go to **Enterprise applications** in the Microsoft Entra admin center. Select the app registration, and select **Permissions** from the **Security** section of the left pane. Then select the large button labeled **Grant admin consent for {Tenant Name}** (where **{Tenant Name}** is the name of the directory).
 
 ##### Standard user
 
@@ -124,7 +126,7 @@ In that code:
 
 - `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
-The number of users in Azure Active Directory should be displayed as a result.
+The number of users in Microsoft Entra ID should be displayed as a result.
 
 This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it's recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
 
@@ -193,8 +195,8 @@ This code uses the configuration defined in the appsettings.json file:
 
  | Element | Description |
  |---------|---------|
- | `ClientSecret` | The client secret created for the application in the Azure portal. |
- | `ClientId` | The application (client) ID for the application registered in the Azure portal. This value can be found on the app's **Overview** page in the Azure portal. |
+ | `ClientSecret` | The client secret created for the application in the Microsoft Entra admin center. |
+ | `ClientId` | The application (client) ID for the application registered in the Microsoft Entra admin center. This value can be found on the app's **Overview** page in the Microsoft Entra admin center. |
  | `Instance`    | (Optional) The security token service (STS) could instance endpoint for the app to authenticate. It's usually `https://login.microsoftonline.com/` for the public cloud.|
  | `TenantId`    |  Name of the tenant or the tenant ID.|
 

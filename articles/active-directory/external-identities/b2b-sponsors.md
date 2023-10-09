@@ -1,6 +1,6 @@
 ---
-title: Add sponsors to a guest user in the Microsoft Entra admin center - Azure AD (preview)
-description: Shows how an admin can add sponsors to guest users in Azure Active Directory (Azure AD) B2B collaboration.
+title: Add sponsors to a guest user in the Microsoft Entra admin center - External ID (preview)
+description: Shows how an admin can add sponsors to guest users in Microsoft Entra B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ author: csmulligan
 manager: CelesteDG
 ms.collection: M365-identity-device-management
 
-# Customer intent: As a tenant administrator, I want to know how to add sponsors to guest users in Azure AD.
+# Customer intent: As a tenant administrator, I want to know how to add sponsors to guest users in Microsoft Entra External ID.
 ---
 # Sponsors field for B2B users (preview)
 
@@ -35,7 +35,7 @@ When a sponsor leaves the organization, as part of the offboarding process the t
 
 ## Other scenarios using the B2B sponsors feature
 
-The Azure Active Directory B2B collaboration sponsor feature serves as a foundation for other scenarios that aim to provide a full governance lifecycle for external partners. These scenarios aren't part of the sponsor feature but rely on it for managing guest users:
+The Microsoft Entra B2B collaboration sponsor feature serves as a foundation for other scenarios that aim to provide a full governance lifecycle for external partners. These scenarios aren't part of the sponsor feature but rely on it for managing guest users:
 
 - Administrators can transfer sponsorship to another user or group, if the guest user starts working on a different project.
 - When requesting new access packages, sponsors can be added as approvers to provide additional support in Entitlement Management, which can help reduce the workload on existing reviewers.

@@ -5,8 +5,7 @@ description: Learn how to use Azure RBAC for managing individual access to Azure
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: mbullwin

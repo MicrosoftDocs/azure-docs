@@ -62,7 +62,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
-    [![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
+    :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png" alt-text="Diagram shows download agent link on Azure portal.":::
 2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command:
     ```cli
@@ -100,7 +100,7 @@ You need to create a 'Monitored Object' (MO) that creates a representation for t
 Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the AAD tenant will be applied to all devices that are part of the tenant and running the agent installed via the client installer. Agents installed as virtual machine extension will not be impacted by this.
 The image below demonstrates how this works:
 
-![Diagram shows monitored object purpose and association.](media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png)
+:::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" alt-text="Diagram shows monitored object purpose and association.":::
 
 Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
@@ -391,30 +391,46 @@ $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insigh
 
 
 ```
-
-### Using PowerShell for offboarding
-```PowerShell
-#This will remove the monitor object
-$TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
-$SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
-$ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
-
-Connect-AzAccount -Tenant $TenantID
-
-#Select the subscription
-Select-AzSubscription -SubscriptionId $SubscriptionID
-
-#Delete monitored object
-$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
-#Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
-
-```
-
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
 The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See example below:
 
-[![Diagram shows agent heartbeat logs on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)
+:::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png" alt-text="Diagram shows agent heartbeat logs on Azure portal.":::
+
+### Using PowerShell for offboarding
+```PowerShell
+#This will remove the monitor object
+$TenantID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  #Your Tenant ID
+
+Connect-AzAccount -Tenant $TenantID
+
+#Create Auth Token
+$auth = Get-AzAccessToken
+
+$AuthenticationHeader = @{
+    "Content-Type" = "application/json"
+    "Authorization" = "Bearer " + $auth.Token
+}
+
+#Get Monitored Object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+$MonitoredObject =  Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Get
+
+#Get Monitored Object Data Collection Rule Associations
+$requestURL = "https://management.azure.com$($MonitoredObject.id)/providers/microsoft.insights/datacollectionruleassociations?api-version=2021-09-01-preview"
+$MonitoredObjectAssociations = Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Get
+
+#Disassociate from all Data Collection Rule
+foreach ($Association in $MonitoredObjectAssociations.value){
+    $requestURL = "https://management.azure.com$($Association.id)?api-version=2022-06-01"
+    Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
+}
+
+#Delete monitored object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+Invoke-AzRestMethod -Uri $requestURL -Method Delete
+
+```
 
 
 ## Manage the agent

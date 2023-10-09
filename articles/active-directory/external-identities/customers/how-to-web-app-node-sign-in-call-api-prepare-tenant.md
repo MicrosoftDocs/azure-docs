@@ -1,6 +1,6 @@
 ---
 title: Sign in users and call an API in a Node.js web application  - prepare your tenant
-description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users and call an API in your own Node.js web application.
+description: Learn about how to prepare your Microsoft Entra ID for customers tenant to sign in users and call an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,7 +16,7 @@ ms.custom: developer, devx-track-js
 
 # Sign in users and call an API in a Node.js web application  - prepare your tenant
 
-In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication and authorization. To prepare your tenant, you do the following tasks:
+In this article, you prepare your Microsoft Entra ID for customers tenant for authentication and authorization. To prepare your tenant, you do the following tasks:
 
 - Register a web API and configure permissions/scopes in the Microsoft Entra admin center. 
 
@@ -32,7 +32,7 @@ After you complete the tasks, you collect:
 
 - A *Client secret* for your client web app.
 
-- A *Directory (tenant) ID* for your Azure AD for customers tenant.
+- A *Directory (tenant) ID* for your External ID for customers tenant.
 
 - Web API permissions/scopes. 
 

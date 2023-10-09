@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Configure AD DS Connector Account Permissions '
+title: 'Microsoft Entra Connect: Configure AD DS Connector Account Permissions '
 description: This document details how to configure the AD DS Connector account with the new ADSyncConfig PowerShell module
 services: active-directory
 author: billmath
@@ -15,16 +15,16 @@ ms.collection: M365-identity-device-management
 ms.custom:
 ---
 
-# Azure AD Connect: Configure AD DS Connector Account Permissions 
+# Microsoft Entra Connect: Configure AD DS Connector Account Permissions 
 
-The PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
+The PowerShell module named [`ADSyncConfig.psm1`](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Microsoft Entra Connect deployment. 
 
 ## Overview 
-The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you select to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
+The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you select to enable in Microsoft Entra Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Microsoft Entra Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Microsoft Entra Connect is deployed.
 
 ![overview of ad ds account](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
-For Azure AD Connect Express installation, an automatically generated account (MSOL_nnnnnnnnnn) is created in Active Directory with all the necessary permissions, so there’s no need to use this ADSyncConfig module unless you have blocked permissions inheritance on organizational units or on specific Active Directory objects that you want to synchronize to Azure AD. 
+For Microsoft Entra Connect Express installation, an automatically generated account (MSOL_nnnnnnnnnn) is created in Active Directory with all the necessary permissions, so there’s no need to use this ADSyncConfig module unless you have blocked permissions inheritance on organizational units or on specific Active Directory objects that you want to synchronize to Microsoft Entra ID. 
  
 ### Permissions summary 
 The following table provides a summary of the permissions required on AD objects: 
@@ -39,7 +39,8 @@ The following table provides a summary of the permissions required on AD objects
 | Device writeback |Read and Write permissions to device objects and containers documented in [device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.|
 
-## Using the ADSyncConfig PowerShell Module 
+## Using the ADSyncConfig PowerShell module
+
 The ADSyncConfig module requires the [Remote Server Administration Tools (RSAT) for AD DS](/windows-server/remote/remote-server-administration-tools) since it depends on the AD DS PowerShell module and tools. To install RSAT for AD DS, open a Windows PowerShell window with ‘Run As Administrator’ and execute: 
 
 ``` powershell
@@ -48,7 +49,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configure](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.  Be aware that some of the cmdlets can only be run on the computer that is hosting Azure AD Connect.
+>You can also copy the file **C:\Program Files\Microsoft Entra Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.  Be aware that some of the cmdlets can only be run on the computer that is hosting Microsoft Entra Connect.
 
 To start using the ADSyncConfig you need to load the module in a Windows PowerShell window: 
 
@@ -82,14 +83,14 @@ Make sure to replace `<ADAccountName>`, `<ADDomainName>` and `<ADAccountDN>` wit
 
 In case you want to modify permissions on the AdminSDHolder container, use the switch `-IncludeAdminSdHolders`. Note that this is not recommended.
 
-By default, all the set permissions cmdlets will try to set AD DS permissions on the root of each Domain in the Forest, meaning that the user running the PowerShell session requires Domain Administrator rights on each domain in the Forest.  Because of this requirement, it is recommended to use an Enterprise Administrator from the Forest root. If your Azure AD Connect deployment has multiple AD DS Connectors, it will be required to run the same cmdlet on each forest that has an AD DS Connector. 
+By default, all the set permissions cmdlets will try to set AD DS permissions on the root of each Domain in the Forest, meaning that the user running the PowerShell session requires Domain Administrator rights on each domain in the Forest.  Because of this requirement, it is recommended to use an Enterprise Administrator from the Forest root. If your Microsoft Entra Connect deployment has multiple AD DS Connectors, it will be required to run the same cmdlet on each forest that has an AD DS Connector. 
 
 You can also set permissions on a specific OU or AD DS object by using the parameter `-ADobjectDN` followed by the DN of the target object where you want to set permissions. When using a target ADobjectDN, the cmdlet will set permissions on this object only and not on the domain root or AdminSDHolder container. This parameter can be useful when you have certain OUs or AD DS objects that have permission inheritance disabled (see Locate AD DS objects with permission inheritance disabled) 
 
 Exceptions to these common parameters are the `Set-ADSyncRestrictedPermissions` cmdlet which is used to set the permissions on the AD DS Connector Account itself, and the `Set-ADSyncPasswordHashSyncPermissions` cmdlet since the permissions required for Password Hash Sync are only set at the domain root, hence this cmdlet does not include the `-ObjectDN` or `-IncludeAdminSdHolders` parameters.
 
 ### Determine your AD DS Connector Account 
-In case Azure AD Connect is already installed and you want to check what is the AD DS Connector Account currently in use by Azure AD Connect, you can execute the cmdlet: 
+In case Microsoft Entra Connect is already installed and you want to check what is the AD DS Connector Account currently in use by Microsoft Entra Connect, you can execute the cmdlet: 
 
 ``` powershell
 Get-ADSyncADConnectorAccount 
@@ -116,7 +117,7 @@ Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>'
 ## Configure AD DS Connector Account Permissions 
  
 ### Configure Basic Read-Only Permissions 
-To set basic read-only permissions for the AD DS Connector account when not using any Azure AD Connect feature, run: 
+To set basic read-only permissions for the AD DS Connector account when not using any Microsoft Entra Connect feature, run: 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
@@ -304,7 +305,7 @@ This cmdlet will set the following permissions:
 |Allow |Authenticated Users |Read Permissions |This object 
 
 ## Next Steps
-- [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md)
+- [Microsoft Entra Connect: Accounts and permissions](reference-connect-accounts-permissions.md)
 - [Express Installation](how-to-connect-install-express.md)
 - [Custom Installation](how-to-connect-install-custom.md)
 - [ADSyncConfig Reference](reference-connect-adsyncconfig.md)

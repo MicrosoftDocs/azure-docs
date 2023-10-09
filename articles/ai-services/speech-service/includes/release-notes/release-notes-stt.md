@@ -2,9 +2,24 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/09/2023
+ms.date: 09/29/2023
 ms.author: eur
 ---
+
+### September 2023 release
+
+#### Whisper public preview
+
+Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../../batch-transcription-create.md#using-whisper-models) guide. 
+
+> [!NOTE]
+> Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../../../openai/whisper-quickstart.md). 
+
+Check out [What is the Whisper model?](../../whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+#### Speech to text REST API v3.2 public preview
+
+Speech to text REST API v3.2 is available in preview. [Speech to text REST API](../../rest-speech-to-text.md) v3.1 is generally available. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](../../migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](../../migrate-v3-1-to-v3-2.md) migration guides.
 
 ### August 2023 release
 

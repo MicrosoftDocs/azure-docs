@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 09/08/2023
 ms.author: alkohli
 ---
 
@@ -103,32 +103,66 @@ Use the `Get-HcsExternalVirtualSwitch` command to identify the newly created swi
 Here is an example output:
 
 ```output
-[10.100.10.10]: PS> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
-[10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
+[1HXG613.microsoftdatabox.com]: PS>Get-HcsExternalVirtualSwitch
 
 Name                          : vSwitch1
 InterfaceAlias                : {Port2}
 EnableIov                     : True
-MacAddressPools               :
-IPAddressPools                : {}
-ConfigurationSource           : Dsc
+MacAddressPools               : {}
+IPAddressPools                : {Name: 'KubernetesNodeIPs', AddressRange: '10.126.75.200-10.126.75.202', Name:
+                                'KubernetesServiceIPs', AddressRange: '10.126.75.206-10.126.75.208'}
+BGPPeers                      : {}
+ConfigurationSource           : ClusterNetwork
 EnabledForCompute             : True
+EnabledForStorage             : False
+EnabledForMgmt                : True
 SupportsAcceleratedNetworking : False
-DbeDhcpHostVnicName           : f4a92de8-26ed-4597-a141-cb233c2ba0aa
+DbeDhcpHostVnicName           : bc29af45-88b7-43af-ab27-78cc6427bc5f
+VirtualNetworks               : {}
+EnableEmbeddedTeaming         : True
+InternalVnetName              :
 Type                          : External
+Mtu                           : 1500
 
-Name                          : vswitch-Port5
+Name                          : vSwitch2
+InterfaceAlias                : {Port3, Port4}
+EnableIov                     : True
+MacAddressPools               : {}
+IPAddressPools                : {}
+BGPPeers                      : {}
+ConfigurationSource           : ClusterNetwork
+EnabledForCompute             : False
+EnabledForStorage             : True
+EnabledForMgmt                : False
+SupportsAcceleratedNetworking : False
+DbeDhcpHostVnicName           : 25c6bdc4-2991-41db-8757-1fb08a219ea7
+VirtualNetworks               : {}
+EnableEmbeddedTeaming         : True
+InternalVnetName              :
+Type                          : External
+Mtu                           : 1500
+
+Name                          : TestvSwitch
 InterfaceAlias                : {Port5}
 EnableIov                     : True
-MacAddressPools               :
-IPAddressPools                :
-ConfigurationSource           : Dsc
+MacAddressPools               : {}
+IPAddressPools                : {}
+BGPPeers                      : {}
+ConfigurationSource           : User
 EnabledForCompute             : False
-SupportsAcceleratedNetworking : False
-DbeDhcpHostVnicName           : 9b301c40-3daa-49bf-a20b-9f7889820129
+EnabledForStorage             : False
+EnabledForMgmt                : False
+SupportsAcceleratedNetworking : True
+DbeDhcpHostVnicName           : ed7eb61d-7dd8-4648-bb8e-04fe5b0b6fd6
+VirtualNetworks               : {Name: 'TestvSwitch-internal', AddressSpace: '192.0.2.0/24', SwitchName:
+                                'TestvSwitch', GatewayIPAddress: '192.0.2.0/24', DnsServers: '192.0.2.0/24', VlanId:
+                                '0'EnabledForK8s: FalseIPAddressPools:    VirtualMachineIPs , 192.0.2.0/24}
+EnableEmbeddedTeaming         : False
+InternalVnetName              : TestvSwitch-internal
 Type                          : External
+Mtu                           : 9000
 
-[10.100.10.10]: PS>
+[1HXG613.microsoftdatabox.com]: PS>
 ```
 
 ## Verify network, subnet for switch

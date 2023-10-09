@@ -22,7 +22,7 @@ Instructions for the legacy create user process can be found in the [Add or dele
 
 ## Before you begin
 
-Before you create or invite a new user, take some time to review the types of users, their authentication methods, and their access within the Azure AD tenant. For example, do you need to create an internal guest, an internal user, or an external guest? Does your new user need guest or member privileges?
+Before you create or invite a new user, take some time to review the types of users, their authentication methods, and their access within the Microsoft Entra tenant. For example, do you need to create an internal guest, an internal user, or an external guest? Does your new user need guest or member privileges?
 
 - **Internal member**: These users are most likely full-time employees in your organization.
 - **Internal guest**: These users have an account in your tenant, but have guest-level privileges. It's possible they were created within your tenant prior to the availability of B2B collaboration.
@@ -31,19 +31,19 @@ Before you create or invite a new user, take some time to review the types of us
 
 For more information abut the differences between internal and external guests and members, see [B2B collaboration properties](../external-identities/user-properties.md).
 
-Authentication methods vary based on the type of user you create. Internal guests and members have credentials in your Azure AD tenant that can be managed by administrators. These users can also reset their own password. External members authenticate to their home Azure AD tenant and your Azure AD tenant authenticates the user through a federated sign-in with the external member's Azure AD tenant. If external members forget their password, the administrator in their Azure AD tenant can reset their password. External guests set up their own password using the link they receive in email when their account is created.
+Authentication methods vary based on the type of user you create. Internal guests and members have credentials in your Microsoft Entra tenant that can be managed by administrators. These users can also reset their own password. External members authenticate to their home Microsoft Entra tenant and your Microsoft Entra tenant authenticates the user through a federated sign-in with the external member's Microsoft Entra tenant. If external members forget their password, the administrator in their Microsoft Entra tenant can reset their password. External guests set up their own password using the link they receive in email when their account is created.
 
 Reviewing the default user permissions may also help you determine the type of user you need to create. For more information, see [Set default user permissions](users-default-permissions.md)
 
 ## Required roles
 
-The required role of least privilege varies based on the type of user you're adding and if you need to assign Azure AD roles at the same time. **Global Administrator** can create users and assign roles, but whenever possible you should use the least privileged role. 
+The required role of least privilege varies based on the type of user you're adding and if you need to assign Microsoft Entra roles at the same time. **Global Administrator** can create users and assign roles, but whenever possible you should use the least privileged role. 
 
-| Role | Task |
+| Task | Role |
 | -- | -- |
 | Create a new user | User Administrator |
 | Invite an external guest | Guest Inviter | 
-| Assign Azure AD roles | Privileged Role Administrator |
+| Assign Microsoft Entra roles | Privileged Role Administrator |
 
 ## Create a new user
 
@@ -86,7 +86,7 @@ Either select the **Review + create** button to create the new user or **Next: A
 
 ### Assignments
 
-You can assign the user to an administrative unit, group, or Azure AD role when the account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit. Assignments can be added after the user is created. 
+You can assign the user to an administrative unit, group, or Microsoft Entra role when the account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit. Assignments can be added after the user is created. 
 
 **To assign a group to the new user**:
 
@@ -148,7 +148,7 @@ When you invite an external guest user by sending an email invitation, you can c
 
 There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
 
-If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+If you have an environment with both Microsoft Entra ID (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
 
 ## Delete a user
 
@@ -157,7 +157,7 @@ You can delete an existing user using Azure portal.
 - You must have a Global Administrator, Privileged Authentication Administrator, or User Administrator role assignment to delete users in your organization.
 - Global Administrators and Privileged Authentication Administrators can delete any users including other administrators.
 - User Administrators can delete any non-admin users, Helpdesk Administrators, and other User Administrators.
-- For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+- For more information, see [Administrator role permissions in Microsoft Entra ID](../roles/permissions-reference.md).
 
 To delete a user, follow these steps:
 
@@ -168,7 +168,7 @@ To delete a user, follow these steps:
 
     ![Screenshot of the All users page with a user selected and the Delete button highlighted.](media/how-to-create-delete-users/delete-existing-user.png)
 
-The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](./users-restore.md).
+The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Microsoft Entra ID](./users-restore.md).
 
 When a user is deleted, any licenses consumed by the user are made available for other users.
 

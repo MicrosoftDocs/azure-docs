@@ -5,10 +5,9 @@ description: Use the Docker containers for the Sentiment Analysis API to perform
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 09/18/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
@@ -47,33 +46,13 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 The Sentiment Analysis container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
 
-To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/tags).
+To use the latest version of the container, you can use the `latest` tag, which is for english. You can also find a full list of containers for supported languages using the [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/tags).
 
 The sentiment analysis container v3 container is available in several languages. To download the container for the English container, use the command below. 
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
-
-To download the container for another language, replace `3.0-en` with one of the image tags below. 
-
-| Sentiment Analysis Container | Image tag |
-|--|--|
-| Chinese-Simplified    |   `3.0-zh-hans`   |
-| Chinese-Traditional   |   `3.0-zh-hant`   |
-| Dutch                 |     `3.0-nl`      |
-| English               |     `3.0-en`      |
-| French                |     `3.0-fr`      |
-| German                |     `3.0-de`      |
-| Hindi                 |    `3.0-hi`       |
-| Italian               |     `3.0-it`      |
-| Japanese              |     `3.0-ja`      |
-| Korean                |     `3.0-ko`      |
-| Norwegian  (Bokmål)   |     `3.0-no`      |
-| Portuguese (Brazil)   |    `3.0-pt-BR`    |
-| Portuguese (Portugal) |    `3.0-pt-PT`    |
-| Spanish               |     `3.0-es`      |
-| Turkish               |     `3.0-tr`      |
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 9/12/2023
 author: ChrisHMSFT

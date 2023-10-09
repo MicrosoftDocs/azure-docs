@@ -2,6 +2,7 @@
 title: Azure Active Directory authorization proxy 
 description: Azure Active Directory authorization proxy 
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 author: EdB-MSFT
 ms.author: edbaynash
 ms.date: 07/10/2022

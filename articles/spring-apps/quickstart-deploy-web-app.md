@@ -34,11 +34,11 @@ The following diagram shows the architecture of the system:
 
 ::: zone pivot="sc-consumption-plan,sc-standard"
 
-This article provides the following options for deploying to Azure Spring Apps:
+This article describes the following options for creating resources and deploying them to Azure Spring Apps:
 
 - The Azure portal is the easiest and fastest way to create resources and deploy applications with one-click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services. 
-- The Azure portal and Maven plugin are a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
-- The Azure Developer CLI is a more efficient way to automatically create resources and deploy applications through simple commands. It covers application code and infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
+- Azure portal and Maven plugin: Use the Azure portal to create resources and deploy applications step by step. The Azure portal is suitable for developers who are using Azure cloud services for the first time.
+- Azure Developer CLI: Use the Azure Developer CLI to create resources and deploy applications through simple commands, and to cover application code and infrastructure as code files needed to provision the Azure resources. The Azure Developer CLI is suitable for developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -120,7 +120,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-1. After the deployment has completed, find the application URL from the deployment outputs:
+1. After the deployment is complete, you can find the application URL from the deployment outputs:
 
    :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-standard.png" alt-text="Diagram that shows the enterprise app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-standard.png":::
 
@@ -130,9 +130,9 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-1. Access the application with the output application URL. The page should appear as you saw in localhost.
+1. After the deployment is complete, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
 
-1. Use the following command to check the app's log to investigate any deployment issue:
+1. To check the app's log to investigate any deployment issue, use the following command:
 
    ```azurecli
    az spring app logs \
@@ -148,7 +148,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. After the deployment has completed, find the application URL from the deployment outputs:
+1. After the deployment is complete, you can find the application URL from the deployment outputs:
 
    :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-consumption.png" alt-text="Diagram that shows the consumption app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-consumption.png":::
 

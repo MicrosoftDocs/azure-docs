@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# What is the Azure AD provisioning agent?
+# What is the Microsoft Entra provisioning agent?
 
-The provisioning agent is the synchronization tool that is used to deliver several features for use with Azure AD and is managed from the cloud.
+The provisioning agent is the synchronization tool that is used to deliver several features for use with Microsoft Entra ID and is managed from the cloud.
 
-The provisioning agent provides connectivity between Azure Active Directory (Azure AD) and your on-premises environment.
+The provisioning agent provides connectivity between Microsoft Entra ID and your on-premises environment.
 
 
  These features include:

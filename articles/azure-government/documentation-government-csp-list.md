@@ -61,6 +61,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
 |[ArdentMC](https://www.ardentmc.com)|
+|[Ariento Inc.](https://www.ariento.com/)|
 |[Army of Quants](https://www.armyofquants.com/)|
 |[Ascent Innovations LLC](https://www.ascent365.com/)|
 |[ASM Research LLC](https://www.asmr.com)|

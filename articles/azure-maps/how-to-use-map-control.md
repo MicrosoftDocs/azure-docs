@@ -2,8 +2,8 @@
 title: How to use the Azure Maps web map control
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -17,8 +17,11 @@ The Azure Maps Web SDK provides a [Map Control] that enables the customization o
 
 This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
 
-> [!IMPORTANT]
-> If you have existing applications incorporating Azure Maps using version 2 of the [Map Control], it is recomended to start using version 3. Version 3 is backwards compatible and has several benifits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles].
+> [!NOTE]
+>
+> **Azure Maps Web SDK Map Control v1 retirement**
+>
+> Version 1 of the Web SDK Map Control is now deprecated and will be retired on 9/19/26. To avoid service disruptions, migrate to version 3 of the Web SDK Map Control by 9/19/26. Version 3 is backwards compatible and has several benifits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles]. For more information, see [The Azure Maps Web SDK v1 migration guide].
 
 ## Prerequisites
 
@@ -452,6 +455,7 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 [Map Control]: https://www.npmjs.com/package/azure-maps-control
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[The Azure Maps Web SDK v1 migration guide]: web-sdk-migration-guide.md
 [Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
 [WebGL 2 Compatibility]: #webgl-2-compatibility
 [WebGL 2]: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#webgl_2

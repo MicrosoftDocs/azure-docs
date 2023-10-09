@@ -133,14 +133,14 @@
       items:
         - name: React
           items:
-          - name: 1 - Register your app
-            href: single-page-app-tutorial-01-register-app.md
-          - name: 2 - Prepare your app
-            href: single-page-app-tutorial-02-prepare-spa.md
-          - name: 3 - Sign in users
-            href: single-page-app-tutorial-03-sign-in-users.md
-          - name: 4 - Get user data from web API
-            href: single-page-app-tutorial-04-call-api.md
+          - name: Register your app
+            href: tutorial-single-page-app-react-register-app.md
+          - name: Prepare your app
+            href: tutorial-single-page-app-react-prepare-spa.md
+          - name: Sign in users
+            href: tutorial-single-page-app-react-sign-in-users.md
+          - name: Get user data from web API
+            href: tutorial-single-page-app-react-call-api.md
         - name: Angular
           href: tutorial-v2-angular-auth-code.md
         - name: Blazor WebAssembly
@@ -465,7 +465,7 @@
           href: reference-v2-libraries.md
         - name: Prepare for development
           items:
-            - name: Get an Azure AD tenant
+            - name: Get a Microsoft Entra tenant
               href: quickstart-create-new-tenant.md
             - name: Register app or web API
               href: quickstart-register-app.md
@@ -600,7 +600,7 @@
           items:
             - name: Publish to App Source
               href: v2-howto-get-appsource-certified.md
-            - name: Publish to Azure AD App Gallery
+            - name: Publish to Microsoft Entra App Gallery
               href: ../manage-apps/v2-howto-app-gallery-listing.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Publish to Microsoft 365 App Stores
               href: /office/dev/store/add-in-submission-guide
@@ -799,7 +799,7 @@
               href: userinfo.md            
         - name: SAML 2.0
           items:
-            - name: How Azure AD uses the SAML protocol
+            - name: How Microsoft Entra ID uses the SAML protocol
               href: saml-protocol-reference.md
             - name: SAML single sign-on (SSO)
               displayName: SSO
@@ -808,6 +808,10 @@
               href: single-sign-out-saml-protocol.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
+        - name: WS-Federation
+          items:
+          - name: Federation metadata
+            href: federation-metadata.md
     - name: App registration reference
       items:
         - name: Application manifest
@@ -848,7 +852,7 @@
       href: identity-videos.md
     - name: "Blog: Microsoft 365 Developer - Microsoft identity platform"
       href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
-    - name: "Blog: Azure AD - Identity"
+    - name: "Blog: Microsoft Entra ID - Identity"
       href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
     - name: Azure roadmap - security and identity
       href: https://azure.microsoft.com/roadmap/?category=security-identity

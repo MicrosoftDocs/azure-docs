@@ -41,7 +41,7 @@ This diagram shows a high-level view of the authentication flow:
 Redirect URIs for SPAs that use the auth code flow require special configuration.
 
 - **Add a redirect URI** that supports auth code flow with PKCE and cross-origin resource sharing (CORS): Follow the steps in [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow).
-- **Update a redirect URI**: Set the redirect URI's `type` to `spa` by using the [application manifest editor](reference-app-manifest.md) in the Azure portal.
+- **Update a redirect URI**: Set the redirect URI's `type` to `spa` by using the [application manifest editor](reference-app-manifest.md) in the Microsoft Entra admin center.
 
 The `spa` redirect type is backward-compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
 
@@ -80,7 +80,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter    | Required/optional | Description |
 |--------------|-------------|--------------|
 | `tenant`     | required    | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to sign them into the resource tenant. For more information, see [Endpoints](./v2-protocols.md#endpoints). |
-| `client_id`  | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
+| `client_id`  | required    | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
 | `response_type` | required    | Must include `code` for the authorization code flow. Can also include `id_token` or `token` if using the [hybrid flow](#request-an-id-token-as-well-or-hybrid-flow). |
 | `redirect_uri` | required | The `redirect_uri` of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except it must be URL-encoded. For native and mobile apps, use one of the recommended values: `https://login.microsoftonline.com/common/oauth2/nativeclient` for apps using embedded browsers or `http://localhost` for apps that use system browsers. |
 | `scope`  | required    | A space-separated list of [scopes](./permissions-consent-overview.md) that you want the user to consent to.  For the `/authorize` leg of the request, this parameter can cover multiple resources. This value allows your app to get consent for multiple web APIs you want to call. |
@@ -135,13 +135,13 @@ The following table describes the various error codes that can be returned in th
 | Error Code  | Description    | Client Action   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Protocol error, such as a missing required parameter. | Fix and resubmit the request. This error is a development error typically caught during initial testing. |
-| `unauthorized_client` | The client application isn't permitted to request an authorization code. | This error usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| `unauthorized_client` | The client application isn't permitted to request an authorization code. | This error usually occurs when the client application isn't registered in Microsoft Entra ID or isn't added to the user's Microsoft Entra tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
 | `access_denied`  | Resource owner denied consent  | The client application can notify the user that it can't continue unless the user consents. |
 | `unsupported_response_type` | The authorization server doesn't support the response type in the request. | Fix and resubmit the request. This error is a development error typically caught during initial testing. In the [hybrid flow](#request-an-id-token-as-well-or-hybrid-flow), this error signals that you must enable the ID token implicit grant setting on the client app registration. |
 | `server_error`  | The server encountered an unexpected error.| Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed to a temporary error. |
 | `temporarily_unavailable`   | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
-| `invalid_resource`  | The target resource is invalid because it doesn't exist, Azure AD can't find it, or it's not correctly configured. | This error indicates the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
-| `login_required` | Too many or no users found. | The client requested silent authentication (`prompt=none`), but a single user couldn't be found. This error may mean there are multiple users active in the session, or no users. This error takes into account the tenant chosen. For example, if there are two Azure AD accounts active and one Microsoft account, and `consumers` is chosen, silent authentication works. |
+| `invalid_resource`  | The target resource is invalid because it doesn't exist, Microsoft Entra ID can't find it, or it's not correctly configured. | This error indicates the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
+| `login_required` | Too many or no users found. | The client requested silent authentication (`prompt=none`), but a single user couldn't be found. This error may mean there are multiple users active in the session, or no users. This error takes into account the tenant chosen. For example, if there are two Microsoft Entra accounts active and one Microsoft account, and `consumers` is chosen, silent authentication works. |
 | `interaction_required` | The request requires user interaction. | Another authentication step or consent is required. Retry the request without `prompt=none`. |
 
 ### Request an ID token as well or hybrid flow
@@ -222,7 +222,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter  | Required/optional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [Endpoints](./v2-protocols.md#endpoints).  |
-| `client_id` | required  | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | required  | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `scope`      | optional   | A space-separated list of scopes. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For more information, see [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md). This parameter is a Microsoft extension to the authorization code flow, intended to allow apps to declare the resource they want the token for during token redemption.|
 | `code`          | required  | The `authorization_code` that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same `redirect_uri` value that was used to acquire the `authorization_code`. |
@@ -250,7 +250,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter  | Required/optional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [Endpoints](./v2-protocols.md#endpoints).  |
-| `client_id` | required  | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | required  | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `scope`      | optional   | A space-separated list of scopes. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For more information, see [permissions, consent, and scopes](./permissions-consent-overview.md). This parameter is a Microsoft extension to the authorization code flow. This extension allows apps to declare the resource they want the token for during token redemption.|
 | `code`          | required  | The `authorization_code` that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same `redirect_uri` value that was used to acquire the `authorization_code`. |
@@ -279,7 +279,7 @@ This example shows a successful token response:
 | Parameter     | Description   |
 |---------------|------------------------------|
 | `access_token`  | The requested access token. The app can use this token to authenticate to the secured resource, such as a web API. |
-| `token_type`    | Indicates the token type value. The only type that Azure AD supports is `Bearer`. |
+| `token_type`    | Indicates the token type value. The only type that Microsoft Entra ID supports is `Bearer`. |
 | `expires_in`    | How long the access token is valid, in seconds. |
 | `scope`         | The scopes that the `access_token` is valid for. Optional. This parameter is non-standard and, if omitted, the token is for the scopes requested on the initial leg of the flow. |
 | `refresh_token` | An OAuth 2.0 refresh token. The app can use this token to acquire other access tokens after the current access token expires. Refresh tokens are long-lived. They can maintain access to resources for extended periods. For more detail on refreshing an access token, refer to [Refresh the access token](#refresh-the-access-token) later in this article.<br> **Note:** Only provided if `offline_access` scope was requested. |
@@ -317,10 +317,10 @@ This example is an Error response:
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protocol error, such as a missing required parameter. | Fix the request or app registration and resubmit the request.   |
 | `invalid_grant`    | The authorization code or PKCE code verifier is invalid or has expired. | Try a new request to the `/authorize` endpoint and verify that the `code_verifier` parameter was correct.  |
-| `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This error usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This error usually occurs when the client application isn't registered in Microsoft Entra ID or isn't added to the user's Microsoft Entra tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
 | `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
 | `unsupported_grant_type` | The authorization server doesn't support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
-| `invalid_resource` | The target resource is invalid because it doesn't exist, Azure AD can't find it, or it's not correctly configured. | This code indicates the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  |
+| `invalid_resource` | The target resource is invalid because it doesn't exist, Microsoft Entra ID can't find it, or it's not correctly configured. | This code indicates the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID.  |
 | `interaction_required` | Non-standard, as the OIDC specification calls for this code only on the `/authorize` endpoint. The request requires user interaction. For example, another authentication step is required. | Retry the `/authorize` request with the same scopes. |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request after a small delay. The client application might explain to the user that its response is delayed because of a temporary condition. |
 |`consent_required` | The request requires user consent. This error is non-standard. It's usually only returned on the `/authorize` endpoint per OIDC specifications. Returned when a `scope` parameter was used on the code redemption flow that the client app doesn't have permission to request.  | The client should send the user back to the `/authorize` endpoint with the correct scope to trigger consent. |
@@ -367,7 +367,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 | Parameter     | Type           | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | required     | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [Endpoints](./v2-protocols.md#endpoints).   |
-| `client_id`     | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `client_id`     | required    | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `grant_type`    | required    | Must be `refresh_token` for this leg of the authorization code flow. |
 | `scope`         | optional    | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original `authorization_code` request leg. If the scopes specified in this request span multiple resource server, then the Microsoft identity platform returns a token for the resource specified in the first scope. For more information, see [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md). |
 | `refresh_token` | required    | The `refresh_token` that you acquired in the second leg of the flow. |
@@ -391,7 +391,7 @@ This example shows a successful token response:
 | Parameter     | Description         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | The requested access token. The app can use this token to authenticate to the secured resource, such as a web API. |
-| `token_type`    | Indicates the token type value. The only type that Azure AD supports is Bearer. |
+| `token_type`    | Indicates the token type value. The only type that Microsoft Entra ID supports is Bearer. |
 | `expires_in`    | How long the access token is valid, in seconds.   |
 | `scope`         | The scopes that the `access_token` is valid for.    |
 | `refresh_token` | A new OAuth 2.0 refresh token. Replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible. <br> **Note:** Only provided if `offline_access` scope was requested.|

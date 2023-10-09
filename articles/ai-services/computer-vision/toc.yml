@@ -103,7 +103,11 @@ items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
   - name: Vision SDK
-    href: how-to/install-sdk.md
+    items:
+    - name: Overview
+      href: sdk/overview-sdk.md
+    - name: Install the SDK
+      href: sdk/install-sdk.md
   - name: Quickstarts
     items:
     - name: Version 4.0 quickstart (preview)
@@ -128,8 +132,6 @@ items:
         href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
       - name: Azure AI services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-      - name: Azure AI services Go SDK Samples
-        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
@@ -242,6 +244,8 @@ items:
         href: /python/api/azure-ai-vision
       - name: C++
         href: /cpp/cognitive-services/vision
+      - name: Java
+        href: /java/api/com.azure.ai.vision.imageanalysis
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2

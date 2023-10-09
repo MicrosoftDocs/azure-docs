@@ -9,6 +9,8 @@ ms.date: 06/24/2022
 ---
 # Slow query logs in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 In Azure Database for MariaDB, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the slow query log, see the MariaDB documentation for [slow query log](https://mariadb.com/kb/en/library/slow-query-log-overview/).
