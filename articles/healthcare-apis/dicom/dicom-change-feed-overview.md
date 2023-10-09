@@ -5,13 +5,13 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 10/9/2023
 ms.author: mmitrik
 ---
 
-# Change Feed Overview
+# Change feed Overview
 
-The Change Feed provides logs of all the changes that occur in DICOM service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
+The change feed provides logs of all the changes that occur in the DICOM&reg; service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
 
 Client applications can read these logs at any time in batches of any size. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
@@ -222,12 +222,8 @@ Change Feed support is well suited for scenarios that process data based on obje
 * Extract business analytics insights and metrics, based on changes that occur to your objects.
 * Poll the Change Feed to create an event source for push notifications.
 
-## Summary
-
-In this article, we reviewed the REST API design of Change Feed and potential usage scenarios. For information on Change Feed, see [Pull changes from Change Feed](pull-dicom-changes-from-change-feed.md).
-
 ## Next steps
 
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[Pull changes from the change feed](pull-dicom-changes-from-change-feed.md)
 
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

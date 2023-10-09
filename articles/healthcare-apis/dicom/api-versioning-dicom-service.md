@@ -6,13 +6,13 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/13/2022
+ms.date: 10/09/2023
 ms.author: mmitrik
 ---
 
 # API versioning for DICOM service
 
-This reference guide provides you with an overview of the API version policies for the DICOM service. 
+This reference guide provides you with an overview of the API version policies for the DICOM&reg; service. 
 
 ## Specifying version of REST API in requests
 
@@ -20,8 +20,7 @@ The version of the REST API must be explicitly specified in the request URL as i
 
 `<service_url>/v<version>/studies`
 
-> [!NOTE]
-> Routes without a version are not supported.
+Routes without a version are not supported.
 
 ## Supported versions
 
@@ -82,9 +81,4 @@ Example:
 
 [ ![Screenshot of the API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
 
-## Next steps
-
-In this article, you learned about the API version policies for the DICOM service. For more information about the DICOM service, see 
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

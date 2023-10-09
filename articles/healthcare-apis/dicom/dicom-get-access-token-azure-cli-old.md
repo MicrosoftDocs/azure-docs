@@ -6,13 +6,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 3/22/2022
 ms.author: mmitrik
 ---
 
 # Get access token for the DICOM service using Azure CLI
 
-In this article, you'll learn how to obtain an access token for the DICOM service using the Azure CLI. When you [deploy the DICOM service](deploy-dicom-services-in-azure.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
+In this article, you'll learn how to obtain an access token for the DICOM&reg; service using the Azure CLI. When you [deploy the DICOM service](deploy-dicom-services-in-azure.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
 
 ## Prerequisites
 
@@ -43,9 +43,4 @@ Try It
 curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
 
-## Next steps
-
-In this article, you've learned how to obtain an access token for the DICOM service using the Azure CLI. 
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
