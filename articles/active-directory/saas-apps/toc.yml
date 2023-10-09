@@ -2311,6 +2311,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: Senomix Timesheets
+        href: senomix-timesheets-tutorial.md
       - name: SendPro Enterprise
         href: sendpro-enterprise-tutorial.md
       - name: SendSafely
