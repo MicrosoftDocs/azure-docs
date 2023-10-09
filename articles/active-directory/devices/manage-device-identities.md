@@ -133,7 +133,7 @@ The exported list includes these device identity attributes:
 
 `displayName,accountEnabled,operatingSystem,operatingSystemVersion,joinType (trustType),registeredOwners,userNames,mdmDisplayName,isCompliant,registrationTime,approximateLastSignInDateTime,deviceId,isManaged,objectId,profileType,systemLabels,model`
 
-The following filters are able to be applied for the export task:
+The following filters can be applied for the export task:
 
 - Enabled state
 - Compliant state
