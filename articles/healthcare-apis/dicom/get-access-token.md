@@ -19,11 +19,11 @@ To use the DICOM service, users and applications need to prove their identity an
 
 ## Assign roles and grant permissions
 
-Before you get an access token, configure access control for the DICOM service using [Azure role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview) (Azure RBAC). Azure RBAC is a system that allows you to define who can access what resources and what actions they can perform on them.
+Before you get an access token, configure access control for the DICOM service using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure RBAC is a system that allows you to define who can access what resources and what actions they can perform on them.
 
 To assign roles and grant access to the DICOM service:
 
-1. Register a client application in Microsoft Entra ID that acts as your identity provider and authentication mechanism. Use Azure portal, PowerShell, or Azure CLI to [register an application](dicom-register-application).
+1. Register a client application in Microsoft Entra ID that acts as your identity provider and authentication mechanism. Use Azure portal, PowerShell, or Azure CLI to [register an application](dicom-register-application.md).
 
 1. Assign one of the built-in roles for the DICOM data plane to the client application. The roles are: 
 - **DICOM Data Owner**. Gives full access to DICOM data.

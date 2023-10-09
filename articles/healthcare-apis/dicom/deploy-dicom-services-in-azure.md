@@ -11,12 +11,6 @@ ms.custom: mode-api
 
 # Deploy the DICOM service using Azure portal
 
-Deploying the DICOM service using the Azure portal is a simple and convenient way to create and manage your DICOM data storage and access. The Azure portal is a web-based interface that allows you to create and manage Azure resources. 
-
-After you deploy your DICOM Service instance, you can use the Azure portal to view its details, including the service URL. The service URL is a unique identifier for your service that you need to use when making requests to the DICOM Service API. 
-
-The service URL for your DICOM service will be: https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com. Make sure to specify the version as part of the url when making requests. More information can be found in the API Versioning for DICOM service documentation. This quickstart will guide you through the steps to deploy and access your DICOM Service instance using the Azure portal.
-
 In this quickstart, you'll learn how to deploy DICOM Service using the Azure portal.
 
 Once deployment is complete, you can use the Azure portal to navigate to the newly created DICOM service to see the details including your service URL. The service URL to access your DICOM service  will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service documentation](api-versioning-dicom-service.md).
