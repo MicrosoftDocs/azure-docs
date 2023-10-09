@@ -59,7 +59,7 @@ Private Link with Azure Virtual Desktop allows users to establish secure connect
 
 ### Tamper protection support for Azure Virtual Desktop
 
-Microsoft Intune now supports the use of an endpoint security [antivirus policy](/mem/intune/protect/endpoint-security-antivirus-policy#prerequisites-for-tamper-protection) to manage [tamper protection](/microsoft-365/security/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection) for Azure Virtual Desktop session hosts running Windows 11 Enterprise or Windows 11 Enterprise multi-session. Support for tamper protection requires you to onboard session hosts to Microsoft Defender for Endpoint before you apply the policy that enables tamper protection.
+Microsoft Intune now supports the use of endpoint security [antivirus policy](/mem/intune/protect/endpoint-security-antivirus-policy#prerequisites-for-tamper-protection) to manage [tamper protection](/microsoft-365/security/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection) for Azure Virtual Desktop session hosts running Windows 11 Enterprise or Windows 11 Enterprise multi-session. Support for tamper protection requires you to onboard session hosts to Microsoft Defender for Endpoint before you apply the policy that enables tamper protection.
 
 ## June 2023
 
