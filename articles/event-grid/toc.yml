@@ -162,7 +162,7 @@ items:
         items:
         - name: Monitoring data reference (push delivery)
           href: 
-  - name: Event Grid Basic
+  - name: Event Grid basic
     items:
     - name: Overview
       items:
@@ -383,6 +383,8 @@ items:
           href: handler-relay-hybrid-connections.md
         - name: Storage queues
           href: handler-storage-queues.md
+        - name: Azure Monitor alerts
+          href: handler-azure-monitor-alerts.md
       - name: Event delivery
         items:
         - name: Event filtering
