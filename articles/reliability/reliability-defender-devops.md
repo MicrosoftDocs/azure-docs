@@ -26,7 +26,13 @@ Defender for DevOps supports single-region disaster recovery. As such, a multi-r
 
 Defender for DevOps is only supported in the following regions: 
 
-- List regions here
+| Americas | Europe | Asia Pacific |
+| ----- |----|--|
+| Canada Central (Coming soon)| North Europe | Australia East|
+|Central US   |Sweden Central | East Asia (Coming soon)|
+| East US |UK South| Japan East (Coming soon)|
+|West US (Coming soon)|UK West (Coming soon) ||
+|| West Europe||
 
 
 ### Single-region disaster recovery process
