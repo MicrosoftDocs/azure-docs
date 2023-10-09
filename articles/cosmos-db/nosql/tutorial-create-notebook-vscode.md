@@ -6,7 +6,7 @@ description: |
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: overview 
-ms.date: 06/30/2023
+ms.date: 10/09/2023
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
@@ -47,7 +47,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 1. Open Visual Studio Code.
 1. Run the **Polyglot Notebook: Create new blank notebook** command from the Command Palette (Ctrl+Shift+P).
 
-    :::image type="content" source="media/tutorial-create-notebook-vscode/create-notebook-csharp.png" alt-text="Create new Polyglot notebook in Visual Studio Code":::
+    :::image type="content" source="media/tutorial-create-notebook-vscode/create-notebook-csharp.png" alt-text="Screenshot of Create new Polyglot notebook command in Visual Studio Code.":::
 
 1. Select the .ipynb file extension. 
 1. Select C# as the default language.
@@ -75,7 +75,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
     from azure.cosmos import CosmosClient
     ```
 
-1. Create a new instance of of CosmosClient.
+1. Create a new instance of CosmosClient.
     ```python
     endpoint = "<FILL ME>"
     key = "<FILL ME>"
@@ -96,7 +96,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **Run** to create the database and container resource.
 
-    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-python.png" alt-text="Screenshot of Execute cell in Visual Studio Code Jupyter notebook":::
+    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-python.png" alt-text="Screenshot of Execute cell in Visual Studio Code Jupyter notebook.":::
     
 ### [C#](#tab/csharp)
 
@@ -137,7 +137,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **Execute Cell** to create the database and container resource.
 
-    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-csharp.png" alt-text="Screenshot of Execute cell in Visual Studio Code Jupyter C# notebook":::
+    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-csharp.png" alt-text="Screenshot of Execute cell in Visual Studio Code Jupyter C# notebook.":::
 
 ---
 
@@ -148,16 +148,16 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 1. Add a new code cell
 
 1. Within the code cell, add the following code to upload data from this url: <https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json>.
-```python
-    import urllib.request
-    import json
-    
-    with urllib.request.urlopen("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json") as url:
-        docs = json.loads(url.read().decode())
-    
-    for doc in docs:
-        container.upsert_item(doc)
-```
+    ```python
+        import urllib.request
+        import json
+        
+        with urllib.request.urlopen("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json") as url:
+            docs = json.loads(url.read().decode())
+        
+        for doc in docs:
+            container.upsert_item(doc)
+    ```
 1. Run the cell. This will take 45 seconds to 1 minute to run.
 
 
