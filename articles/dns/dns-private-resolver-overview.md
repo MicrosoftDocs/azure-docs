@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 07/19/2023
+ms.date: 10/09/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -94,8 +94,9 @@ A DNS forwarding rule includes one or more target DNS servers that are used for 
 
 ## Restrictions:
 
-> [!NOTE]
-> See [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-) for a list of usage limits for the DNS private resolver. 
+The following limits currently apply to Azure DNS Private Resolver: 
+
+[!INCLUDE [dns-limits-private-resolver](../../includes/dns-limits-private-resolver.md)]
 
 ### Virtual network restrictions 
 

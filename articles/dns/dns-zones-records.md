@@ -1,13 +1,13 @@
 ---
-title: DNS Zones and Records overview - Azure DNS
-description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
+title: DNS Zones and Records Overview - Azure Public DNS
+description: Overview of support for hosting DNS zones and records in Microsoft Azure Public DNS.
 author: greg-lindsay
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/06/2023
+ms.date: 10/09/2023
 ms.author: greglin
 ---
 
@@ -136,7 +136,7 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 
 The following default limits apply when using Azure DNS:
 
-[!INCLUDE [dns-limits](../../includes/dns-limits.md)]
+[!INCLUDE [dns-limits](../../includes/dns-limits-public-zones.md)]
 
 ## Next steps
 
