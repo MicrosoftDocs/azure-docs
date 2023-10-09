@@ -89,6 +89,40 @@ To see the published module in the portal:
 
 You're now ready to reference the file in the registry from a Bicep file. For examples of the syntax to use for referencing an external module, see [Bicep modules](modules.md).
 
+---
+## Working with Bicep Registry Files
+
+When leveraging bicep files that are hosted in a remote registry it is important to understand how your local machine will interact with the regsitry. When you first declare the reference to the registry your local editor will attempt to communicate with the Azure Containter Registry and download a copy of the registry to your local cache.
+
+The local cache is found in:
+
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
+
+- On Mac
+
+    ```path
+    ~/.bicep
+    ```
+
+Any changes made to the remote registry will not be recognized by your local machine until a `restore` has been ran with the specified file that includes the registry reference.
+
+```azurecli
+az bicep restore --file <bicep-file> [--force]
+```
+
+For more information refer to the [`restore` command.](bicep-cli.md#restore)
+
+
 ## Next steps
 
 * To learn about modules, see [Bicep modules](modules.md).
