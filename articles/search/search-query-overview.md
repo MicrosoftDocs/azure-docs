@@ -27,18 +27,13 @@ This article describes the kinds of queries you can create.
 | Vector search | Vector indexes of generated embeddings | Vector queries iterate over vector fields in a search index. |
 | Hybrid search | All of the above, in a single search index | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
 
-## Full text search
-
-Full text search accepts terms or phrases passed in a **`search`** parameter in all "searchable" fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
+## Text search
 
 In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the" and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
 
 When matching terms are found, the query engine reconstitutes a search document containing the match using the document key or ID to assemble field values, ranks the documents in order of relevance, and returns the top 50 (by default) in the response or a different number if you specified **`top`**.
 
-If you're implementing full text search, understanding how your content is tokenized will help you debug any query anomalies. Queries over hyphenated strings or special characters could necessitate using an analyzer other than the default standard Lucene to ensure the index contains the right tokens. You can override the default with [language analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized analyzers](index-add-custom-analyzers.md#built-in-analyzers) that modify lexical analysis. One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
-
-> [!TIP]
-> If you anticipate heavy use of Boolean operators, which is more likely in indexes that contain large text blocks (a content field or long descriptions), be sure to test queries with the **`searchMode=Any|All`** parameter to evaluate the impact of that setting on boolean search.
+For more information, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 ## Autocomplete and suggested queries
 
