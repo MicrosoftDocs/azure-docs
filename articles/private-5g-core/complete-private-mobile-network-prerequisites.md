@@ -42,7 +42,7 @@ Depending on your networking requirements (for example, if a limited set of subn
 - Default gateway.
 - One IP address for the management port (port 2) on the Azure Stack Edge Pro 2 device.
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
-- One IP address for accessing local monitoring tools for the packet core instance.
+- One service IP address for accessing local monitoring tools for the packet core instance.
 
 :::zone-end
 :::zone pivot="ase-pro-gpu"
@@ -52,7 +52,7 @@ Depending on your networking requirements (for example, if a limited set of subn
 - One IP address for the management port
   - You'll choose a port between 2 and 4 to use as the Azure Stack Edge Pro GPU device's management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices).*
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
-- One IP address for accessing local monitoring tools for the packet core instance.
+- One service IP address for accessing local monitoring tools for the packet core instance.
 
 :::zone-end
 
