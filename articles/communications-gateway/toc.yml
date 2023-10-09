@@ -26,6 +26,8 @@ items:
       href: security.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-communications-gateway-security-baseline?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
+  - name: Provisioning API
+    href: provisioning-platform.md
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
   - name: Limits, quotas and restrictions
