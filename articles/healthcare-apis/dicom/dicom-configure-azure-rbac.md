@@ -3,11 +3,11 @@ title: Configure Azure RBAC for the DICOM service - Azure Health Data Services
 description: This article describes how to configure Azure RBAC for the DICOM service
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
 ms.topic: how-to 
 ms.date: 10/09/2023
 ms.author: mmitrik
 ---
+
 # Configure Azure RBAC for the DICOM service
 
 In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the DICOM&reg; service. 
