@@ -318,7 +318,7 @@ Following are common scenarios for monitoring your application.
 **Health monitoring**<br>
 - Create an [Availability test](../app/availability-overview.md) in Application insights to create a recurring test to monitor the availability and responsiveness of your application.
 - Use the [SLA report](../app/sla-report.md) to calculate and report SLA for web tests.
-- Use [annotations](../app/annotations.md) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
+- Use [annotations](../app/release-and-work-item-insights.md?tabs=release-annotations) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
 
 **Application logs**<br>
 - Container insights sends stdout/stderr logs to a Log Analytics workspace. See [Resource logs](../../aks/monitor-aks-reference.md#resource-logs) for a description of the different logs and [Kubernetes Services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) for a list of the tables each is sent to.
