@@ -1,6 +1,6 @@
 ---
 title: Private DNS Records Overview - Azure Private DNS
-description: Overview of suppoort for DNS records in Azure Private DNS.
+description: Overview of support for DNS records in Azure Private DNS.
 author: greg-lindsay
 ms.service: dns
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Overview of private DNS records
 
-This article provides information about support for DNS records in Azure Private DNS zones. For an overiew of private DNS zones, see: [What is an Azure Private DNS zone?](private-dns-privatednszone.md)
+This article provides information about support for DNS records in Azure Private DNS zones. For an overview of private DNS zones, see: [What is an Azure Private DNS zone?](private-dns-privatednszone.md)
 
 ## DNS records
 
@@ -36,7 +36,7 @@ www.contoso.com.        3600    IN    A    10.10.1.5
 www.contoso.com.        3600    IN    A    10.10.1.10
 ```
 
-Azure DNS manages all DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record. However, examples like the one above, in which a record set contains more than one record, are not uncommon.
+Azure DNS manages all DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record. However, examples like the one shown here, in which a record set contains more than one record, are not uncommon.
 
 For example, suppose you have already created an A record 'www' in the zone 'contoso.com', pointing to the IP address '10.10.1.5' (the first record shown previously).  To create the second record you would add that record to the existing record set, rather than create an additional record set.
 
@@ -44,13 +44,13 @@ The SOA and CNAME record types are exceptions. The DNS standards don't permit mu
 
 ### Time-to-live
 
-The time to live, or TTL, specifies how long each record is cached by clients before being queried. In the above example, the TTL is 3600 seconds or 1 hour.
+The time to live, or TTL, specifies how long each record is cached by clients before being queried. In the previous example, the TTL is 3600 seconds or 1 hour.
 
 In Azure DNS, the TTL gets specified for the record set, not for each record, so the same value is used for all records within that record set.  You can specify any TTL value between 1 and 2,147,483,647 seconds.
 
 ### Wildcard records
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records get returned in response to any query with a matching name, unless there's a closer match from a non-wildcard record set. Azure DNS supports wildcard record sets for all record types except NS and SOA.
+Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records get returned in response to any query with a matching name, unless there's a closer match from a nonwildcard record set. Azure DNS supports wildcard record sets for all record types except NS and SOA.
 
 To create a wildcard record set, use the record set name '\*'. You can also use a name with '\*' as its left-most label, for example, '\*.foo'.
 
