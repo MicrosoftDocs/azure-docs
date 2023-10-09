@@ -1,5 +1,5 @@
 ---
-title: How to create a site
+title: How to create a site in Azure Operator Service Manager
 description: Learn how to create a site in Azure Operator Service Manager.
 author: sherrygonz
 ms.author: sherryg
