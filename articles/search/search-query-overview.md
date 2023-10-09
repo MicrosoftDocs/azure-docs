@@ -8,56 +8,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 10/09/2023
 ---
 
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly specified query patterns. This article describes query requests and the kinds of queries you can create.
+Azure Cognitive Search supports query constructs for a broad range of scenarios, from free-form text search, to highly specified query patterns, to vector search. All queries execute over a search index that stores searchable content.
 
-In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. To illustrate, the following query example calls the [Search Documents (REST API)](/rest/api/searchservice/search-documents). It's a parameterized, free text query with a boolean operator, targeting the [hotels-sample-index](search-get-started-portal.md) documents collection. It also selects which fields are returned in results.
-
-```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "queryType": "simple",
-    "searchMode": "all",
-    "search": "restaurant +view",
-    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
-    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
-    "top": "10",
-    "count": "true",
-    "orderby": "Rating desc"
-}
-```
-
-Parameters used during query execution include:
-
-+ **`queryType`** sets the parser: `simple`, `full`. The [default simple query parser](search-query-simple-examples.md) is optimal for full text search. The [full Lucene query parser](search-query-lucene-examples.md) is for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. This parameter can also be set to `semantic` for [semantic ranking](semantic-search-overview.md) for advanced semantic modeling on the query response.
-
-+ **`searchMode`** specifies whether matches are based on "all" criteria (favors precision) or "any" criteria (favors recall) in the expression. The default is "any".
-
-+ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as "searchable" in the index schema is a candidate for this parameter.
-
-+ **`searchFields`** constrains query execution to specific searchable fields. During development, it's helpful to use the same field list for select and search. Otherwise a match might be based on field values that you can't see in the results, creating uncertainty as to why the document was returned.
-
-Parameters used to shape the response:
-
-+ **`select`** specifies which fields to return in the response. Only fields marked as "retrievable" in the index can be used in a select statement.
-
-+ **`top`** returns the specified number of best-matching documents. In this example, only 10 hits are returned. You can use top and skip (not shown) to page the results.
-
-+ **`count`** tells you how many documents in the entire index match overall, which can be more than what are returned. 
-
-+ **`orderby`** is used if you want to sort results by a value, such as a rating or location. Otherwise, the default is to use the relevance score to rank results. A  field must be attributed as "sortable" to be a candidate for this parameter.
-
-The above list is representative but not exhaustive. For the full list of parameters on a query request, see [Search Documents (REST API)](/rest/api/searchservice/search-documents).
+This article describes the kinds of queries you can create.
 
 <a name="types-of-queries"></a>
 
 ## Types of queries
 
-With a few notable exceptions, a full text query request iterates over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. In Cognitive Search, the primary methodology for finding matches is either full text search or filters, but you can also implement other well-known search experiences like autocomplete, or geo-location search. The rest of this article summarizes queries in Cognitive Search and provides links to more information and examples.
+| Query form | Searchable content | Description |
+|------------|--------------------|-------------|
+| Text search | Inverted indexes of tokenized terms, raw alphanumeric content | Full text queries iterate over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. Text is analyzed and tokenized for full text search. Raw content, extracted verbatim from source documents, support filters and pattern matching queries like fuzzy search and wildcards. |
+| Vector search | Vector indexes of generated embeddings | Vector queries iterate over vector fields in a search index. |
+| Hybrid search | All of the above, in a single search index | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
 
 ## Full text search
 

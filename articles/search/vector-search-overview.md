@@ -13,7 +13,9 @@ ms.date: 09/27/2023
 # Vector search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+
+Vector search is an approach in information retrieval that uses numeric representations of content for search scenarios. Because the content is numeric rather than plain text, queries can match on what's semantically similar, even if there is no match on exact terms.
 
 This article is a high-level introduction to vector support in Azure Cognitive Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 
@@ -25,9 +27,9 @@ We recommend this article for background, but if you'd rather get started, follo
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
 > + [Query vector data](vector-search-how-to-query.md) using the Azure portal, preview REST APIs, or beta SDK packages.
 
-You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
+You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr). 
 
-Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), Azure portal, and the more recent beta packages of the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
+Vector support is in the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
 ## What's vector search in Cognitive Search?
 
