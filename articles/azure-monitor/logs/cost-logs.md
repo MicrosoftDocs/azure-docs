@@ -134,7 +134,7 @@ In some scenarios, combining this data can result in cost savings. Typically, th
 
 ## Workspaces with Microsoft Defender for Cloud
 
-[Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) [bills by the number of monitored services](https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/). It provides 500 MB per server per day of data allocation that's applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
+[Microsoft Defender for Servers (part of Defender for Cloud)](../../security-center/index.yml) [bills by the number of monitored services](https://azure.microsoft.com/pricing/details/defender-for-cloud/). It provides 500 MB per server per day of data allocation that's applied to the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
 - [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
 - [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
