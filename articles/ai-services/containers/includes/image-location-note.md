@@ -5,7 +5,7 @@ description: note about the image location for containers on the Microsoft Conta
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 09/02/2020
 ms.author: aahi
