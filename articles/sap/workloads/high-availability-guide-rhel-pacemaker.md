@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/23/2023
+ms.date: 10/09/2023
 ms.author: radeltch
 
 ---
@@ -367,13 +367,13 @@ op monitor interval=3600
 For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 
 ```bash
-# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command (see Tip box below for details): 
+# Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
 sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
 subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 
-# If the version of pacemaker is less than 2.0.4-6.el8, then run following command (see Tip box below for details):
+# Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
 sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
 subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
@@ -395,14 +395,13 @@ op monitor interval=3600
 For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 
 ```bash
-# If the version of pacemaker is or greater than 2.0.4-6.el8, then run following command (see Tip box below for details): 
+# Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
 sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
 resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
-
-# If the version of pacemaker is less than 2.0.4-6.el8, then run following command (see Tip box below for details):
+# Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
 sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
 resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
@@ -415,7 +414,10 @@ op monitor interval=3600
 If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
 > [!TIP]
-> 'value1' and 'value2' are integer values with a unit of seconds. Replace the values 'value1' and 'value2' with appropriate integer values that are at least 5 seconds apart. For example:`pcmk_delay_base="prod-cl1-0:0;prod-cl1-1:10"`. Only configure the `pcmk_delay_max` attribute in two node clusters, with pacemaker version less than 2.0.4-6.el8. For pacemaker versions greater than 2.0.4-6.el8, use `pcmk_delay_base`.<br> For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829).
+>
+> * To avoid fence races within a two-node pacemaker cluster, you can configure "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For additional details, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
+> * The property "priority-fencing-delay" is applicable for pacemaker version 2.0.4-6.el8 or higher and on two-node cluster. If you configure the "priority-fencing-delay" cluster property, there is no need to set the "pcmk_delay_max" property. But if the pacemaker is less than 2.0.4-6.el8, you should set "pcmk_delay_max" property.
+> * The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS and SAP HANA scale-up high availability document.
 
 > [!IMPORTANT]
 > The monitoring and fencing operations are deserialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
@@ -440,10 +442,10 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    ```
 
    Minimum version requirements:
-   - RHEL 8.4: `resource-agents-4.1.1-90.13`
-   - RHEL 8.6: `resource-agents-4.9.0-16.9`
-   - RHEL 8.8 and newer: `resource-agents-4.9.0-40.1`
-   - RHEL 9.0 and newer: `resource-agents-cloud-4.10.0-34.2`
+   * RHEL 8.4: `resource-agents-4.1.1-90.13`
+   * RHEL 8.6: `resource-agents-4.9.0-16.9`
+   * RHEL 8.8 and newer: `resource-agents-4.9.0-40.1`
+   * RHEL 9.0 and newer: `resource-agents-cloud-4.10.0-34.2`
 
 2. **[1]** Configure the resources in Pacemaker.
 
