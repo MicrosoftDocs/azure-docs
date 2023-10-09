@@ -415,9 +415,6 @@
     - name: Custom Vision Service
       tocHref: /azure/ai-services/custom-vision-service/
       topicHref: /azure/ai-services/custom-vision-service/
-    - name: Entity Linking
-      tocHref: /azure/cognitive-services/entitylinking/
-      topicHref: /azure/cognitive-services/entitylinking/home
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/anomaly-detector/overview
@@ -652,6 +649,22 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: HDInsight on AKS
+    tocHref: /azure/hdinsight-aks/
+    topicHref: ../articles/hdinsight-aks/index.yml
+    items:
+      - name: Flink
+        tocHref: /azure/hdinsight-aks/flink
+        topicHref: ../articles/hdinsight-aks/flink/flink-overview.md
+      - name: Release Notes
+        tocHref: /azure/hdinsight-aks/release-notes
+        topicHref: ../articles/hdinsight-aks/release-notes/hdinsight-aks-release-notes.md
+      - name: Spark
+        tocHref: /azure/hdinsight-aks/spark
+        topicHref: ../articles/hdinsight-aks/spark/hdinsight-on-aks-spark-overview.md
+      - name: Trino
+        tocHref: /azure/hdinsight-aks/trino
+        topicHref: ../articles/hdinsight-aks/trino/trino-overview.md
   - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
