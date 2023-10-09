@@ -68,7 +68,7 @@ sections:
         answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
 
       - question: What to do when network connection health check fails?
-        answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/windows-365/enterprise/health-checks). Such health checks can make sure that Dev Box provisioning is successful and end-user experiences are optimal. If you see the failure of health check, please click “view details” to see what causes the failure and address the issue from there. Most of the time it can be your network policy that blocks the following service URLs and ports: [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).           
+        answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/windows-365/enterprise/health-checks). Such health checks can make sure that Dev Box provisioning is successful and end-user experiences are optimal. If you see the failure of health check, please click “view details” to see what causes the failure and address the issue from there. Most of the time it can be your network policy that blocks the following service URLs and ports [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).           
 
   - name: Dev Box hibernation
     questions:
