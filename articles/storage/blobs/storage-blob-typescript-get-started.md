@@ -15,6 +15,8 @@ ms.custom: template-how-to, devx-track-ts, devguide-ts, passwordless-js, devx-tr
 
 # Get started with Azure Blob Storage and TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
+
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)

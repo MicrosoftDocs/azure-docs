@@ -22,7 +22,7 @@ Application Insights provides other features including, but not limited to:
 
 - [Live Metrics](live-stream.md): Observe activity from your deployed application in real time with no effect on the host environment.
 - [Availability](availability-overview.md): Also known as synthetic transaction monitoring. Probe the external endpoints of your applications to test the overall availability and responsiveness over time.
-- [GitHub or Azure DevOps integration](work-item-integration.md): Create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in the context of Application Insights data.
+- [GitHub or Azure DevOps integration](release-and-work-item-insights.md?tabs=work-item-integration): Create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in the context of Application Insights data.
 - [Usage](usage-overview.md): Understand which features are popular with users and how users interact and use your application.
 - [Smart detection](proactive-diagnostics.md): Detect failures and anomalies automatically through proactive telemetry analysis.
 
@@ -31,6 +31,10 @@ Application Insights supports [distributed tracing](distributed-tracing-telemetr
 The [Application Map](app-map.md) allows a high-level, top-down view of the application architecture and at-a-glance visual references to component health and responsiveness.
 
 To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
+
+:::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." border="false" lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
+
+Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
 
 ## How do I use Application Insights?
 
@@ -45,7 +49,7 @@ Consider starting with the [Application Map](app-map.md) for a high-level view. 
 Two views are especially useful:
 
 - [Performance view](tutorial-performance.md): Get deep insights into how your application or API and downstream dependencies are performing. You can also find a representative sample to [explore end to end](transaction-diagnostics.md).
-- [Failure view](tutorial-runtime-exceptions.md): Understand which components or actions are generating failures and triage errors and exceptions. The built-in views are helpful to track application health proactively and for reactive root-cause analysis.
+- [Failures view](tutorial-runtime-exceptions.md): Understand which components or actions are generating failures and triage errors and exceptions. The built-in views are helpful to track application health proactively and for reactive root-cause analysis.
 
 [Create Azure Monitor alerts](tutorial-alert.md) to signal potential issues in case your application or components parts deviate from the established baseline.
 
@@ -78,7 +82,7 @@ For a detailed view of all autoinstrumentation supported environments, languages
 
 For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required.
 
-A preview [OpenTelemetry](opentelemetry-enable.md?tabs=net) offering is also available.
+An [OpenTelemetry](opentelemetry-enable.md?tabs=net) offering is also available.
 
 ### [Java](#tab/java)
 
@@ -90,19 +94,15 @@ Autoinstrumentation is available for any environment by using [Azure Monitor Ope
 
 Autoinstrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
 
-The [Application Insights SDK](nodejs.md) is an alternative. We also have a preview [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
+The [Application Insights SDK](nodejs.md) is an alternative. We also have an [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
+
+### [Python](#tab/python)
+
+Python applications can be monitored by using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md?tabs=python).
 
 ### [JavaScript](#tab/javascript)
 
 JavaScript requires the [Application Insights SDK](javascript.md).
-
-### [Python](#tab/python)
-
-Python applications can be monitored by using [OpenCensus Python SDK via the Azure Monitor exporters](opencensus-python.md).
-
-An extension is available for monitoring [Azure Functions](opencensus-python.md#integrate-with-azure-functions).
-
-A preview [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also available.
 
 ---
 
@@ -111,11 +111,33 @@ A preview [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also 
 
 This section outlines supported scenarios.
 
-* [C#|VB (.NET)](./asp-net.md)
+### Automatic instrumentation (enable without code changes)
+* [Autoinstrumentation supported environments and languages](codeless-overview.md#supported-environments-languages-and-resource-providers)
+
+### Manual instrumentation
+
+#### OpenTelemetry Distro
+
+* [ASP.NET](opentelemetry-enable.md?tabs=net)
+* [Java](opentelemetry-enable.md?tabs=java)
+* [Node.js](opentelemetry-enable.md?tabs=nodejs)
+* [Python](opentelemetry-enable.md?tabs=python)
+* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore) (preview)
+
+#### Application Insights SDK (Classic API)
+
+* [ASP.NET](./asp-net.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
-* [JavaScript](./javascript.md)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
+* [ASP.NET Core](./asp-net-core.md)
+
+#### Client-side JavaScript SDK
+
+* [JavaScript](./javascript.md)
+  * [React](./javascript-framework-extensions.md)
+  * [React Native](./javascript-framework-extensions.md)
+  * [Angular](./javascript-framework-extensions.md)
 
 ### Supported platforms and frameworks
 
@@ -128,46 +150,96 @@ This section lists all supported platforms and frameworks.
 * [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
-#### Autoinstrumentation (enable without code changes)
-* [ASP.NET: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
-* [ASP.NET Core: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
-* [Java](./opentelemetry-enable.md?tabs=java)
-
-#### Manual instrumentation/SDK (some code changes required)
-* [ASP.NET](./asp-net.md)
-* [ASP.NET Core](./asp-net-core.md)
-* [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
-* [JavaScript: Web](./javascript.md)
-  * [React](./javascript-framework-extensions.md)
-  * [React Native](./javascript-framework-extensions.md)
-  * [Angular](./javascript-framework-extensions.md)
-
-> [!NOTE]
-> OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
-
-### Logging frameworks
-* [ILogger](./ilogger.md)
+#### Logging frameworks
+* [`ILogger`](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Log4J, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
+* [`Log4J`, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
-### Export and data analysis
+#### Export and data analysis
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
 ### Unsupported SDKs
-Several other community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
+Many community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
 
-We're constantly assessing opportunities to expand our support for other languages. For the latest SDK news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
+We're constantly assessing opportunities to expand our support for other languages. For the latest news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
 
 ---------------------------
 
 ## Frequently asked questions
 
-Review [frequently asked questions](../faq.yml).
+This section provides answers to common questions.
 
+### What telemetry does Application Insights collect?
+
+From server web apps:
+          
+* HTTP requests.
+* [Dependencies](./asp-net-dependencies.md). Calls to SQL databases, HTTP calls to external services, Azure Cosmos DB, Azure Table Storage, Azure Blob Storage, and Azure Queue Storage.
+* [Exceptions](./asp-net-exceptions.md) and stack traces.
+* [Performance counters](./performance-counters.md): Performance counters are available when using:
+- [Azure Monitor Application Insights agent](application-insights-asp-net-agent.md)
+- [Azure monitoring for VMs or virtual machine scale sets](./azure-vm-vmss-apps.md)
+- [Application Insights `collectd` writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
+* [Custom events and metrics](./api-custom-events-metrics.md) that you code.
+* [Trace logs](./asp-net-trace-logs.md) if you configure the appropriate collector.
+          
+From [client webpages](./javascript-sdk.md):
+          
+* Uncaught exceptions in your app, including information on
+  * Stack trace
+  * Exception details and message accompanying the error
+  * Line & column number of error
+  * URL where error was raised
+* Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on:
+  * Url of dependency source
+  * Command & Method used to request the dependency
+  * Duration of the request
+  * Result code and success status of the request
+  * ID (if any) of user making the request
+  * Correlation context (if any) where request is made
+* User information (for example, Location, network, IP)
+* Device information (for example, Browser, OS, version, language, model)
+* Session information
+
+  > [!Note]
+  > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
+
+    For more information, see [Data collection, retention, and storage in Application Insights](./data-retention-privacy.md).
+          
+From other sources, if you configure them:
+          
+* [Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md)
+* [Import to Log Analytics](../logs/data-collector-api.md)
+* [Log Analytics](../logs/data-collector-api.md)
+* [Logstash](../logs/data-collector-api.md)
+
+### How can I manage Application Insights resources with PowerShell?
+          
+You can [write PowerShell scripts](./powershell.md) by using Azure Resource Monitor to:
+          
+* Create and update Application Insights resources.
+* Set the pricing plan.
+* Get the instrumentation key.
+* Add a metric alert.
+* Add an availability test.
+          
+You can't set up a metrics explorer report or set up continuous export.
+
+### How can I query Application Insights telemetry? 
+          
+Use the [REST API](/rest/api/application-insights/) to run [Log Analytics](../logs/log-query-overview.md) queries.
+
+### Can I send telemetry to the Application Insights portal?
+
+We recommend that you use our SDKs and use the [SDK API](./api-custom-events-metrics.md). There are variants of the SDK for various [platforms](./app-insights-overview.md#supported-languages). These SDKs handle processes like buffering, compression, throttling, and retries. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.   
+
+### How long does it take for telemetry to be collected?
+
+Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).    
+          
 ## Troubleshooting
 
 Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
@@ -184,7 +256,7 @@ Post general questions to the Microsoft Q&A [answers forum](/answers/topics/2422
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) by using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) by using an `azure-application-insights` tag.
 
 ### Feedback Community
 

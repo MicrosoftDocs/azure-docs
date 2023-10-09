@@ -227,10 +227,10 @@ It's optional to specify the order. If not specified, the order is ascending.
     "compositeIndexes":[  
         [  
             {  
-               "path":"/name",
+               "path":"/name"
             },
             {  
-               "path":"/age",
+               "path":"/age"
             }
         ]
     ]
@@ -274,6 +274,10 @@ An [indexing policy update](../index-policy.md#modifying-the-indexing-policy) tr
 
 > [!NOTE]
 > When you update indexing policy, writes to Azure Cosmos DB are uninterrupted. Learn more about [indexing transformations](../index-policy.md#modifying-the-indexing-policy)
+ 
+> [!IMPORTANT]
+> Removing an index takes affect immediately, whereas adding a new index takes some time as it requires an indexing transformation. When replacing one index with another (for example, replacing a single property index with a composite-index) make sure to add the new index first and then wait for the index transformation to complete **before** you remove the previous index from the indexing policy. Otherwise this will negatively affect your ability to query the previous index and may break any active workloads that reference the previous index. 
+
 
 ### Use the Azure portal
 

@@ -35,6 +35,8 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
+* In the Volume overview page, refer to the **Originated from** field to see the name of the snapshot used to create the volume. 
+
 * See [Restoring volume backups from vaulted snapshots](snapshots-introduction.md#restoring-volume-backups-from-vaulted-snapshots) for more information. 
 
 
@@ -68,6 +70,8 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
 
     ![Screenshot that shows the Create a Volume page.](../media/azure-netapp-files/backup-restore-create-volume.png)
+
+4. The Volumes page displays the new volume. In the Volumes page, the **Originated from** field identifies the name of the snapshot used to create the volume.
 
 ## Next steps  
 

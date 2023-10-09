@@ -35,8 +35,8 @@ For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/
 You can use any of these methods to authenticate between the service and webhook.
 
 - Anonymous mode
-- Simple Auth with `?code=<code>` is provided through the configured Webhook URL as query parameter.
-- Azure Active Directory(Azure AD) authentication. For more information, see [Use a managed identity in client events](howto-use-managed-identity.md#use-a-managed-identity-in-client-events-scenarios).
+- Simple authentication with `?code=<code>` is provided through the configured Webhook URL as query parameter.
+- Microsoft Entra authorization. For more information, see [Use a managed identity in client events](howto-use-managed-identity.md#use-a-managed-identity-in-client-events-scenarios).
 
 ## Configure event handler
 

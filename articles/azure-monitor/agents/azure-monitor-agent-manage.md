@@ -73,7 +73,7 @@ For information on how to install Azure Monitor Agent from the Azure portal, see
 
 #### [PowerShell](#tab/azure-powershell)
 
-You can install Azure Monitor Agent on Azure virtual machines and on Azure Arc-enabled servers by using the PowerShell command for adding a virtual machine extension.
+You can install Azure Monitor Agent on Azure virtual machines and on Azure Arc-enabled servers by using the PowerShell command for adding a virtual machine extension. 
 
 ### Install on Azure virtual machines
 
@@ -102,6 +102,10 @@ Use the following PowerShell commands to install Azure Monitor Agent on Azure vi
   ```powershell
   Set-AzVMExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true
   ```
+
+### Install on Azure virtual machines scale set 
+
+Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) PowerShell cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Install on Azure Arc-enabled servers
 
@@ -148,6 +152,9 @@ Use the following CLI commands to install Azure Monitor Agent on Azure virtual m
   ```azurecli
   az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id> --enable-auto-upgrade true
   ```
+### Install on Azure virtual machines scale set 
+
+Use the [az vmss extension set](/cli/azure/vmss/extension) CLI cmdlet to install Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Install on Azure Arc-enabled servers
 
@@ -207,6 +214,9 @@ Use the following PowerShell commands to uninstall Azure Monitor Agent on Azure 
   ```powershell
   Remove-AzVMExtension -Name AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> 
   ```
+### Uninstall on Azure virtual machines scale set 
+
+Use the [Remove-AzVmssExtension](/powershell/module/az.compute/remove-azvmssextension) PowerShell cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Uninstall on Azure Arc-enabled servers
 
@@ -237,6 +247,9 @@ Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual
   ```azurecli
   az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorLinuxAgent
   ```
+### Uninstall on Azure virtual machines scale set 
+
+Use the [az vmss extension delete](/cli/azure/vmss/extension) CLI cmdlet to uninstall Azure Monitor Agent on Azure virtual machines scale sets.
 
 ### Uninstall on Azure Arc-enabled servers
 
@@ -394,7 +407,7 @@ These initiatives above comprise individual policies that:
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 
-   ![Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)
+   :::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png" alt-text="Partial screenshot from the Azure Policy Definitions page that shows two built-in policy initiatives for configuring Azure Monitor Agent.":::
 
 #### Known issues
 
@@ -407,7 +420,7 @@ These initiatives above comprise individual policies that:
 
 You can choose to use the individual policies from the preceding policy initiative to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative, as shown.
 
-![Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" alt-text="Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.":::
 
 ### Remediation
 
@@ -415,7 +428,7 @@ The initiatives or policies will apply to each virtual machine as it's created. 
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 
-![Screenshot that shows initiative remediation for Azure Monitor Agent.](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent.":::
 
 ## Next steps
 

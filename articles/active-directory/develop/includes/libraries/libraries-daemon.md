@@ -8,7 +8,7 @@
 |PHP| [The PHP League oauth2-client](https://oauth2-client.thephpleague.com/usage/) | [League\OAuth2](https://oauth2-client.thephpleague.com/) | ![Green check mark.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
 -->
 
-<sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
+<sup>1</sup> [Universal License Terms for Online Services][preview-tos] apply to libraries in *Public preview*.
 
 <!--Image references-->
 
@@ -17,4 +17,4 @@
 
 <!--Reference-style links -->
 
-[preview-tos]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all

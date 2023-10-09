@@ -4,9 +4,9 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 08/16/2023
 ms.author: rogarana
-ms.custom: 
+ms.custom: references_regions
 ---
 
 # Elastic SAN Preview networking
@@ -39,10 +39,10 @@ After configuring endpoints, you can configure network rules to further control 
 
 ## Private endpoints
 
-Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Private endpoints use a separate set of IP addresses from the subnet address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
+> [!IMPORTANT]
+> For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions that Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 
-> [!NOTE]
-> An Elastic SAN private endpoint uses multiple IP addresses from the private address space of the subnet. The maximum number used per endpoint is 20.
+Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet. An Elastic SAN private endpoint uses a set of IP addresses from the subnet address space for each volume group. The maximum number used per endpoint is 20.
 
 Private endpoints have several advantages over service endpoints. For a complete comparison of private endpoints to service endpoints, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 

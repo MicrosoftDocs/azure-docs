@@ -6,7 +6,7 @@ metadata:
   ms.service: defender-for-cloud
   author: dcurwin
   ms.author: dacurwin
-  ms.date: 06/20/2023
+  ms.date: 08/16/2023
 title: Common questions about Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 
@@ -89,7 +89,11 @@ sections:
             - For the Log Analytics agent, connected machines from all subscriptions are billed, including subscriptions that don't have the Defender for Servers plan enabled.
             - For the Azure Monitor agent, billing and feature coverage for Defender for Servers depends only on the plan being enabled in the subscription.
           
-          
+      - question: |
+          What happens if I enabled the Defender for Servers plan at the workspace level only (not at subscription)?
+        answer: |
+          You can enable Microsoft Defender for Servers at the Log Analytics workspace level, but only servers reporting to that workspace will be protected and billed, and those servers won't receive some benefits, such as Microsoft Defender for Endpoint, vulnerability assessment, and just-in-time VM access.       
+      
       - question: |
           Is the 500 MB of free data ingestion allowance applied per workspace or per machine?
         answer: |
@@ -158,11 +162,11 @@ sections:
       - question: |
           Do I need to buy a separate anti-malware solution to protect my machines?
         answer: |
-          No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
+          No. With Defender for Endpoint integration in Defender for Servers, you'll also get malware protection on your machines.
 
-          - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
+          - On Windows Server 2012 R2 with Defender for Endpoint unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
           - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
-          - On Linux, Defender for Servers deploy MDE including the anti-malware component, and set the component in *passive mode*.
+          - On Linux, Defender for Servers deploy Defender for Endpoint including the anti-malware component, and set the component in *passive mode*.
                     
       - question: |
           If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?

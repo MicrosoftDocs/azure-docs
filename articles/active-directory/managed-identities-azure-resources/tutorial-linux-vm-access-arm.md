@@ -21,7 +21,7 @@ ms.custom: mode-other, devx-track-arm-template
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This quickstart shows you how to use a system-assigned managed identity as a Linux virtual machine (VM)'s identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
+This quickstart shows you how to use a system-assigned managed identity as a Linux virtual machine (VM)'s identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication without needing to insert credentials into your code. 
 You learn how to:
 
 > [!div class="checklist"]
@@ -39,7 +39,7 @@ You learn how to:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case, the Resource Group in which the VM is contained.  
+When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Microsoft Entra authentication. The Azure Resource Manager API supports Microsoft Entra authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case, the Resource Group in which the VM is contained.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. Navigate to the tab for **Resource Groups**.
@@ -58,51 +58,63 @@ When you use managed identities for Azure resources, your code can get access to
 
 To complete these steps, you need an SSH client. If you're using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. In the portal, navigate to your Linux VM and in the **Overview**, select **Connect**.  
-2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using `curl`, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.  
- 
-    The `curl` request for the access token is below.  
-    
-    ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true   
-    ```
-    
-    > [!NOTE]
-    > The value of the “resource” parameter must be an exact match for what is expected by Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
-    
-    The response includes the access token you need to access Azure Resource Manager. 
-    
-    Response:  
+1. In the portal, navigate to your Linux VM and in the **Overview**, select **Connect**.
 
-    ```bash
-    {"access_token":"eyJ0eXAiOi...",
-    "refresh_token":"",
-    "expires_in":"3599",
-    "expires_on":"1504130527",
-    "not_before":"1504126627",
-    "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
-    ```
-    
-    You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
-    
-    > [!NOTE]
-    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
-    
-    ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
-    ```
-    
-    The response back with the specific Resource Group information: 
-     
-    ```bash
-    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```
+2. **Connect** to the VM with the SSH client of your choice.
+
+3. In the terminal window, using `curl`, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
+ 
+The `curl` request for the access token is below.
+
+```bash
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true
+```
+
+> [!NOTE]
+> The value of the `resource` parameter must be an exact match for what is expected by Microsoft Entra ID. In the case of the Resource Manager resource ID, you must include the trailing slash on the URI.
+
+The response includes the access token you need to access Azure Resource Manager.
+
+Response:
+
+```json
+{
+  "access_token":"eyJ0eXAiOi...",
+  "refresh_token":"",
+  "expires_in":"3599",
+  "expires_on":"1504130527",
+  "not_before":"1504126627",
+  "resource":"https://management.azure.com",
+  "token_type":"Bearer"
+}
+```
+
+You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<ACCESS-TOKEN>` with the ones you created earlier.
+
+> [!NOTE]
+> The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
+
+```bash
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS-TOKEN>" 
+```
+
+The response back with the specific Resource Group information:
+ 
+```json
+{
+"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest",
+"name":"DevTest",
+"location":"westus",
+"properties":
+{
+  "provisioningState":"Succeeded"
+  }
+} 
+```
 
 ## Next steps
 
-In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API. For more information about Azure Resource Manager, see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

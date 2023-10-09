@@ -4,6 +4,7 @@ description: This article tells how to use Azure Automation to manage Office 365
 services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Manage Office 365 services

@@ -1,9 +1,12 @@
 ---
 title: 'Securely connect to Azure resources'
 description: Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
+author: cephalin
+ms.author: cephalin
 
 ms.topic: tutorial
 ms.date: 02/16/2022
+ms.custom: AppServiceConnectivity
 ---
 # Securely connect to Azure services and databases from Azure App Service
 

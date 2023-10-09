@@ -54,13 +54,13 @@
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
-      href: ../networking/connectivty-interoperability-preface.md?toc=/azure/vpn-gateway/toc.json
+      href: ../networking/connectivity-interoperability-preface.md?toc=/azure/vpn-gateway/toc.json
     - name: Test Setup Configuration
-      href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/vpn-gateway/toc.json 
+      href: ../networking/connectivity-interoperability-configuration.md?toc=/azure/vpn-gateway/toc.json 
     - name: Control Plane Analysis
-      href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/vpn-gateway/toc.json 
+      href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/vpn-gateway/toc.json 
     - name: Data Plane Analysis
-      href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/vpn-gateway/toc.json    
+      href: ../networking/connectivity-interoperability-data-plane.md?toc=/azure/vpn-gateway/toc.json    
 - name: How-to guides
   items:
   - name: Create and manage a VPN gateway
@@ -211,6 +211,8 @@
           href: about-vpn-profile-download.md 
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
+      - name: Azure VPN Client versions
+        href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
   - name: Routing, BGP, and VNet Peering

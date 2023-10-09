@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/01/2023
+ms.date: 10/06/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,14 +17,54 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4487       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4487       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4583        | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4677       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.4677 (Insider)
+
+*Date published: October 3, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Turkey).
+- Fixed a bug that caused a crash when using Teams Media Optimization. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+>[!NOTE]
+>This Insiders release was originally version 1.2.4675, but we've replaced it with version 1.2.4677, which fixes the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability. 
+
+## Updates for version 1.2.4583
+
+*Date published: October 6, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+- Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
+
+## Updates for version 1.2.4582
+
+*Date published: September 19, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1byOF), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1bwjL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1byOV)
+
+In this release, we've made the following changes:
+
+- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Accessibility improvements:
+   - Narrator now announces the view mode selector as "*View combo box*", instead of "*Tile view combo box*" or "*List view combo box*".
+   - Narrator now focuses on and announces **Learn more** hyperlinks.
+   - Keyboard focus is now set correctly when a warning dialog loads.
+   - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
+   - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
+
+> [!NOTE]
+> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, has replaced version 1.2.4577.
 
 ## Updates for version 1.2.4487
 
 *Date published: July 21, 2023*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 In this release, we've made the following changes:
 
@@ -34,19 +74,17 @@ In this release, we've made the following changes:
 
 *Date published: July 11, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
+In this release, we've made the following changes:
 
-In this release, we've made the following changes: 
-
-- Added a new RDP file property called *allowed security protocols*. This property restricts the list of security protocols the client can negotiate. 
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Added a new RDP file property called *allowed security protocols*. This property restricts the list of security protocols the client can negotiate.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Accessibility improvements:
   - Narrator now describes the toggle button in the display settings side panel as *toggle button* instead of *button*.
-  - Control types for text now correctly say that they're *text* and not *custom*. 
-  - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Delete**. 
-  - Added heading-level description to **Subscribe with URL**. 
+  - Control types for text now correctly say that they're *text* and not *custom*.
+  - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Delete**.
+  - Added heading-level description to **Subscribe with URL**.
 - Dialog improvements:
-  - Updated **file** and **URI launch** dialog error handling messages to be more specific and user-friendly. 
+  - Updated **file** and **URI launch** dialog error handling messages to be more specific and user-friendly.
   - The client now displays an error message after unsuccessfully checking for updates instead of incorrectly notifying the user that the client is up to date.
   - Fixed an issue where, after having been automatically reconnected to the remote session, the **connection information** dialog gave inconsistent information about identity verification.
 
@@ -54,18 +92,18 @@ In this release, we've made the following changes:
 
 *Date published: July 6, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - General improvements to Narrator experience.
 - Fixed an issue that caused the text in the message for subscribing to workspaces to be cut off when the user increases the text size.
 - Fixed an issue that caused the client to sometimes stop responding when attempting to start new connections.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4337 
+## Updates for version 1.2.4337
 
-*Date published: June 13, 2023* 
+*Date published: June 13, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2023-29362](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29362).
 - Fixed the vulnerability known as [CVE-2023-29352](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29352).
@@ -80,19 +118,19 @@ In this release, we've made the following changes:
 - Fixed an application compatibility issue that affected preview versions of Windows.
 - Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
 - Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
-- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked. 
+- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4240 
+## Updates for version 1.2.4240
 
 *Date published: May 16, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
-- Made minor changes to connection bar UI, including improved button sizing. 
-- Fixed an issue where the client stopped responding if closed from the system tray. 
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Made minor changes to connection bar UI, including improved button sizing.
+- Fixed an issue where the client stopped responding if closed from the system tray.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.4159
 
@@ -106,7 +144,7 @@ In this release, we've made the following changes:
 - Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
 - Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
 - Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
-- Fixed an issue that generated duplicate Activity IDs for unique connections. 
+- Fixed an issue that generated duplicate Activity IDs for unique connections.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Fixed an application compatibility issue for preview versions of Windows.
 
@@ -138,12 +176,12 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - Fixed a bug where refreshes increased memory usage.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Bug fix for Background Effects persistence between Teams sessions.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Various bug fixes for multimedia redirection (MMR) video playback redirection.
-   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available. 
+   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
 >This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).

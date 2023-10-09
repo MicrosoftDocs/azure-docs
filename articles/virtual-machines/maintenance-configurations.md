@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/06/2021
 ms.author: cynthn
-#pmcontact: pphillips
+#pmcontact: ApnaLakshay
 ---
 
 # Managing VM updates with Maintenance Configurations
@@ -50,7 +50,7 @@ Using this scope with maintenance configurations lets you decide when to apply u
 
 ### Guest
 
-This scope is integrated with [update management center](../update-center/overview.md), which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
+This scope is integrated with [Update Manager](../update-center/overview.md), which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
 
@@ -60,13 +60,15 @@ This scope is integrated with [update management center](../update-center/overvi
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
 - The value of **Repeat** should be at least 6 hours.
 
+In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
+
 >[!IMPORTANT]
 > The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
 
-To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
+To learn more about this topic, checkout [Update Manager and scheduled patching](../update-center/scheduled-patching.md)
 
 > [!NOTE]
-> In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
+> If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system.
 
 ## Shut Down Machines
 

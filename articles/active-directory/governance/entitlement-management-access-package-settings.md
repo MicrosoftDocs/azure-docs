@@ -28,11 +28,15 @@ In order for the external user from another directory to use the My Access porta
 
 ## Share link to request an access package
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open the access package you want to share a link to request an access package for.
 
 1. On the Overview page, check the **Hidden** setting.  If the **Hidden** setting is **Yes**, then even users who do not have the My Access portal link can browse and request the access package. If you do not wish to have them browse for the access package, then change the setting to **No**.
 

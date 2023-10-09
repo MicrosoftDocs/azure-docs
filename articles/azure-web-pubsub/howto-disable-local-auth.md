@@ -1,6 +1,6 @@
 ---
 title: Disable local (access key) authentication with Azure Web PubSub Service
-description: This article provides information about how to disable access key authentication and use only Azure AD authentication with Azure Web PubSub Service.
+description: This article provides information about how to disable access key authentication and use only Microsoft Entra authorization with Azure Web PubSub Service.
 author: terencefan
 
 ms.author: tefa
@@ -12,14 +12,14 @@ ms.topic: conceptual
 
 # Disable local (access key) authentication with Azure Web PubSub Service
 
-There are two ways to authenticate to Azure Web PubSub Service resources: Azure Active Directory (Azure AD) and Access Key. Azure AD provides superior security and ease of use over access key. With Azure AD, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure Web PubSub Service resources when possible.
+There are two ways to authenticate to Azure Web PubSub Service resources: Microsoft Entra ID and Access Key. Microsoft Entra ID provides superior security and ease of use over access key. With Microsoft Entra ID, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Web PubSub Service resources when possible.
 
 > [!IMPORTANT]
 > Disabling local authentication can have following influences.
 >
 > - The current set of access keys will be permanently deleted.
 > - Tokens signed with current set of access keys will become unavailable.
-> - Signature will **NOT** be attached in the upstream request header. Please visit _[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)_ to learn how to validate requests via Azure AD token.
+> - Signature will **NOT** be attached in the upstream request header. Please visit _[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)_ to learn how to validate requests via Microsoft Entra token.
 
 ## Use Azure portal
 
@@ -97,6 +97,6 @@ You can assign the [Azure Web PubSub Service should have local authentication me
 
 See the following docs to learn about authentication methods.
 
-- [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
+- [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
 - [Authenticate with Azure applications](./howto-authorize-from-application.md)
 - [Authenticate with managed identities](./howto-authorize-from-managed-identity.md)

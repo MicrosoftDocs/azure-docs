@@ -9,6 +9,8 @@ ms.date: 06/24/2022
 ---
 # Supported Azure Database for MariaDB server versions
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure Database for MariaDB has been developed from the open-source [MariaDB Server](https://downloads.mariadb.org/), using the InnoDB engine.
 
 MariaDB uses the X.Y.Z naming scheme. X is the major version, Y is the minor version, and Z is the patch version.

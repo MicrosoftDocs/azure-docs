@@ -10,6 +10,8 @@
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
+    - name: Quotas
+      href: event-hubs-quotas.md
     - name: Compare messaging services
       href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
@@ -399,17 +401,15 @@
     - name: Go
       items:
         - name: Client library
-          href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs?tab=doc
         - name: Management library
-          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/eventhub/armeventhub?tab=doc
     - name: Azure CLI
       href: /cli/azure/eventhubs
     - name: REST
       href: /rest/api/eventhub
     - name: Resource Manager template
       href: /azure/templates/microsoft.eventhub/allversions
-    - name: Quotas
-      href: event-hubs-quotas.md
     - name: Apache Kafka configurations
       href: apache-kafka-configurations.md
     - name: Azure Policy built-ins

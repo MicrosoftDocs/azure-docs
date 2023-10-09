@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 09/29/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication
@@ -42,6 +42,8 @@ Clients currently supported:
 - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD.
 - [Web client](users/connect-web.md).
 - [macOS client](users/connect-macos.md) version 10.8.2 or later.
+- [iOS client](users/connect-ios-ipados.md) version 10.5.1 or later.
+- [Android client](users/connect-android-chrome-os.md) version 10.0.16 or later.
 
 ## Things to know before enabling single sign-on
 

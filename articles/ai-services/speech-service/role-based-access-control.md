@@ -5,8 +5,7 @@ description: Learn how to assign access roles for a Speech resource.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 04/03/2022
 ms.author: eur
@@ -23,15 +22,15 @@ You can manage access and permissions to your Speech resources with Azure role-b
 
 A role definition is a collection of permissions. When you create a Speech resource, the built-in roles in this table are assigned by default. 
 
-| Role | Can list resource keys | Access to data, models, and endpoints| 
-| ---| ---| ---| 
-|**Owner** |Yes |View, create, edit, and delete |
-|**Contributor** |Yes |View, create, edit, and delete |
-|**Cognitive Services Contributor** |Yes |View, create, edit, and delete |
-|**Cognitive Services User** |Yes |View, create, edit, and delete |
-|**Cognitive Services Speech Contributor** |No | View, create, edit, and delete |
-|**Cognitive Services Speech User** |No |View only |
-|**Cognitive Services Data Reader (Preview)** |No |View only |
+| Role | Can list resource keys | Access to data, models, and endpoints in custom projects| Access to speech transcription and synthesis APIs
+| ---| ---| ---| ---|
+|**Owner** |Yes |View, create, edit, and delete |Yes |
+|**Contributor** |Yes |View, create, edit, and delete |Yes |
+|**Cognitive Services Contributor** |Yes |View, create, edit, and delete |Yes |
+|**Cognitive Services User** |Yes |View, create, edit, and delete |Yes |
+|**Cognitive Services Speech Contributor** |No | View, create, edit, and delete |Yes |
+|**Cognitive Services Speech User** |No |View only |Yes |
+|**Cognitive Services Data Reader (Preview)** |No |View only |Yes |
 
 > [!IMPORTANT]
 > Whether a role can list resource keys is important for [Speech Studio authentication](#speech-studio-authentication). To list resource keys, a role must have permission to run the `Microsoft.CognitiveServices/accounts/listKeys/action` operation. Please note that if key authentication is disabled in the Azure Portal, then none of the roles can list keys.

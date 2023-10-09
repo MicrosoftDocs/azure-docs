@@ -3,7 +3,7 @@ title: Authenticate Event Grid publishing clients using Azure Active Directory
 description: This article describes how to authenticate Azure Event Grid publishing client using Azure Active Directory.  
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 01/05/2022
+ms.date: 08/17/2023
 ---
 
 # Authentication and authorization with Azure Active Directory
@@ -68,6 +68,23 @@ With RBAC privileges taken care of, you can now [build your client application t
 ## Publish events using Event Grid's client SDKs
 
 Use [Event Grid's data plane SDK](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) to publish events to Event Grid. Event Grid's SDK support all authentication methods, including Azure AD authentication. 
+
+Here's the sample code that publishes events to Event Grid using the .NET SDK. You can get the topic endpoint on the **Overview** page for your Event Grid topic in the Azure portal. It's in the format: `https://<TOPIC-NAME>.<REGION>-1.eventgrid.azure.net/api/events`.
+
+```csharp
+ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredential();
+EventGridPublisherClient client = new EventGridPublisherClient( new Uri("<TOPIC ENDPOINT>"), managedIdentityCredential);
+
+
+EventGridEvent egEvent = new EventGridEvent(
+        "ExampleEventSubject",
+        "Example.EventType",
+        "1.0",
+        "This is the event data");
+
+// Send the event
+await client.SendEventAsync(egEvent);
+```
 
 ### Prerequisites
 

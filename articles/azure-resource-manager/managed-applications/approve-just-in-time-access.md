@@ -8,7 +8,7 @@ ms.author: evanhi
 ---
 # Configure and approve just-in-time access for Azure Managed Applications
 
-As a consumer of a managed application, you might not be comfortable giving the publisher permanent access to the managed resource group. To give you greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access, which is currently in preview. It enables you to approve when and for how long the publisher has access to the resource group. The publisher can make required updates during that time, but when that time is over, the publisher's access expires.
+As a consumer of a managed application, you might not be comfortable giving the publisher permanent access to the managed resource group. To give you greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access. It enables you to approve when and for how long the publisher has access to the resource group. The publisher can make required updates during that time, but when that time is over, the publisher's access expires.
 
 The work flow for granting access is:
 
@@ -80,7 +80,7 @@ To approve requests through the managed application:
 1. Select **JIT Access** for the managed application, and select **Approve Requests**.
 
    ![Approve requests](./media/approve-just-in-time-access/approve-requests.png)
- 
+
 1. Select the request to approve.
 
    ![Select request](./media/approve-just-in-time-access/select-request.png)

@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 10/06/2023
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet connection (classic)
 
 This article helps you create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 
-The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).**
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/classic-diagram.png" alt-text="Diagram showing classic VNet-to-VNet architecture.":::
 
@@ -146,8 +146,6 @@ The local site typically refers to your on-premises location. It contains the IP
 1. On the **Gateway** page, select the following values:
 
    * **Size:** This is the gateway SKU that you use to create your virtual network gateway. Classic VPN gateways use the old (legacy) gateway SKUs. For more information about the legacy gateway SKUs, see [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md). You can select **Standard** for this exercise.
-
-   * **Routing type:** Select the routing type for your gateway. This is also known as the VPN type. It's important to select the correct type because you can't convert the gateway from one type to another. Your VPN device must be compatible with the routing type you select. For more information about Routing Type, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype). You may see articles referring to 'RouteBased' and 'PolicyBased' VPN types. 'Dynamic' corresponds to 'RouteBased', and 'Static' corresponds to' PolicyBased'. For this configuration, select **Dynamic**.
 
    * **Gateway subnet:** The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 

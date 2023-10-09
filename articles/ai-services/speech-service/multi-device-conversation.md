@@ -5,8 +5,7 @@ description: Multi-device conversation makes it easy to create a speech or text 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 02/19/2022
 ms.author: eur

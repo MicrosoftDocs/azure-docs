@@ -1,12 +1,12 @@
 ---
 title: Passwordless security key sign-in
-description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys
+description: Enable passwordless security key sign-in to Microsoft Entra ID using FIDO2 security keys
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/02/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
 
-This document focuses on enabling security key based passwordless authentication. At the end of this article, you'll be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
+This document focuses on enabling security key based passwordless authentication. At the end of this article, you'll be able to sign in to web-based applications with your Microsoft Entra account using a FIDO2 security key.
 
 ## Requirements
 
-- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Microsoft Entra multifactor authentication](howto-mfa-getstarted.md)
 - Enable [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1903 or higher
@@ -33,9 +33,9 @@ These include Microsoft Edge, Chrome, Firefox, and Safari. For more information 
 
 ## Prepare devices
 
-For Azure AD joined devices, the best experience is on Windows 10 version 1903 or higher.
+For Microsoft Entra joined devices, the best experience is on Windows 10 version 1903 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 version 2004 or higher.
+Microsoft Entra hybrid joined devices must run Windows 10 version 2004 or higher.
 
 ## Enable passwordless authentication method
 
@@ -47,8 +47,8 @@ Registration features for passwordless authentication methods rely on the combin
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Authentication method policy**.
 1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups. *Only security groups are supported*.
 1. **Save** the configuration.
 
@@ -62,7 +62,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 ![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
 
-- **Allow self-service set up** should remain set to **Yes**. If set to no, your users won't be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
+- **Allow self-service set up** should remain set to **Yes**. If set to no, your users won't be able to register a FIDO key through MySecurityInfo, even if enabled by Authentication Methods policy.  
 - **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](concept-authentication-passwordless.md#fido2-security-key-providers)
 
 **Key Restriction Policy**
@@ -74,7 +74,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 To remove a FIDO2 key associated with a user account, delete the key from the user’s authentication method.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and search for the user account from which the FIDO key is to be removed.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and search for the user account from which the FIDO key is to be removed.
 1. Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
 
     ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
@@ -95,8 +95,8 @@ There are two ways to get your AAGUID. You can either ask your security key prov
 1. Browse to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Sign in if not already.
 1. Click **Security Info**.
-   1. If the user already has at least one Azure AD Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
-   1. If they don't have at least one Azure AD Multi-Factor Authentication method registered, they must add one.
+   1. If the user already has at least one Microsoft Entra multifactor authentication method registered, they can immediately register a FIDO2 security key.
+   1. If they don't have at least one Microsoft Entra multifactor authentication method registered, they must add one.
    1. An Administrator can issue a [Temporary Access Pass](howto-authentication-temporary-access-pass.md) to allow the user to register a Passwordless authentication method.
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
@@ -140,4 +140,4 @@ If a user's UPN changes, you can no longer modify FIDO2 security keys to account
 
 [Learn more about device registration](../devices/overview.md)
 
-[Learn more about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Microsoft Entra multifactor authentication](../authentication/howto-mfa-getstarted.md)

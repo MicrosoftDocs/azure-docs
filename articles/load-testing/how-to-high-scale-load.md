@@ -1,27 +1,25 @@
 ---
-title: Configure Azure Load Testing for high-scale load tests
+title: Configure high-scale load tests
 titleSuffix: Azure Load Testing
-description: Learn how to configure Azure Load Testing to run high-scale load tests by simulating large amounts of virtual users.
+description: Learn how to configure test engine instances in Azure Load Testing to run high-scale load tests. Monitor engine health metrics to find an optimal configuration for your load test.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 07/18/2022
+ms.date: 08/22/2023
 ms.topic: how-to
 
 ---
 
 # Configure Azure Load Testing for high-scale load
 
-In this article, learn how to set up a load test for high-scale load with Azure Load Testing. 
-
-Configure multiple test engine instances to scale out the number of virtual users for your load test and simulate a high number of requests per second. To achieve an optimal load distribution, you can monitor the test instance health metrics in the Azure Load Testing dashboard.
+In this article, you learn how to configure your load test for high-scale with Azure Load Testing. Configure multiple test engine instances to scale out the number of virtual users for your load test and simulate a high number of requests per second. To achieve an optimal load distribution, you can monitor the test instance health metrics in the Azure Load Testing dashboard.
 
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 
-- An existing Azure Load Testing resource. To create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
+- An existing Azure load testing resource. To create an Azure load testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## Determine requests per second
 
@@ -38,9 +36,9 @@ To achieve a target number of requests per second, configure the total number of
 
 ## Test engine instances and virtual users
 
-In the Apache JMeter script, you can specify the number of parallel threads. Each thread represents a virtual user that accesses the application endpoint in parallel. We recommend that you keep the number of threads in a script below a maximum of 250.
+In the Apache JMeter script, you can specify the number of parallel threads. Each thread represents a virtual user that accesses the application endpoint. We recommend that you keep the number of threads in a script below a maximum of 250.
 
-In Azure Load Testing, *test engine* instances are responsible for running the Apache JMeter script. You can configure the number of instances for a load test. All test engine instances run in parallel.
+In Azure Load Testing, *test engine* instances are responsible for running the Apache JMeter script. All test engine instances run in parallel. You can configure the number of instances for a load test.
 
 The total number of virtual users for a load test is then: VUs = (# threads) * (# test engine instances).
 
@@ -50,9 +48,13 @@ For example, to simulate 1,000 virtual users, set the number of threads in the A
 
 The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
 
-## Configure your test plan
+## Configure test engine instances
 
-In this section, you configure the scaling settings of your load test.
+You can specify the number of test engine instances for each test. Your test script runs in parallel across each of these instances to simulate load to your application.
+
+To configure the number of instances for a test:
+
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
@@ -72,9 +74,32 @@ In this section, you configure the scaling settings of your load test.
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun it.
 
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
+
+For CI/CD workflows, you configure the number of engine instances in the [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
+
+1. Open the YAML test configuration file for your load test in your editor of choice.
+
+1. Configure the number of test engine instances in the `engineInstances` setting.
+
+    The following example configures a load test that runs across 10 parallel test engine instances.
+
+    ```yaml
+    version: v0.1
+    testId: SampleTestCICD
+    displayName: Sample test from CI/CD
+    testPlan: SampleTest.jmx
+    description: Load test website home page
+    engineInstances: 10
+    ```
+
+1. Save the YAML configuration file, and commit the changes to source control.
+
+---
+
 ## Monitor engine instance metrics
 
-To make sure that the test engine instances themselves aren't a performance bottleneck, you can monitor resource metrics of the test engine instance. A high resource usage for a test instance might negatively influence the results of the load test.
+To make sure that the test engine instances, themselves aren't a performance bottleneck, you can monitor resource metrics of the test engine instance. A high resource usage for a test instance might negatively influence the results of the load test.
 
 Azure Load Testing reports four resource metrics for each instance:
 
@@ -98,13 +123,13 @@ To view the engine resource metrics:
 
 ### Troubleshoot unhealthy engine instances
 
-If one or multiple instances show a high resource usage, it could impact the test results. To resolve the issue, try one or more of the following steps:
+If one or multiple instances show a high resource usage, it could affect the test results. To resolve the issue, try one or more of the following steps:
 
 - Reduce the number of threads (virtual users) per test engine. To achieve a target number of virtual users, you might increase the number of engine instances for the load test.
 
 - Ensure that your script is effective, with no redundant code.
 
-- If the engine health status is unknown, re-run the test.
+- If the engine health status is unknown, rerun the test.
 
 ## Next steps
 

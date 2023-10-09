@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Manage and restore soft-deleted blobs and snapshots with the Azure portal, PowerShell, or Azure CLI.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/16/2023
 ms.author: normesta
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Manage and restore soft-deleted blobs
 
-Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
+Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. You cannot permanently delete a blob that has been soft deleted before the retention period expires. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 

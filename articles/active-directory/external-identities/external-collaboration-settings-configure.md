@@ -5,6 +5,7 @@ description: Learn how to enable Active Directory B2B external collaboration and
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 10/24/2022
 
@@ -17,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Configure external collaboration settings
 
-External collaboration settings let you specify what roles in your organization can invite external users for B2B collaboration. These settings also include options for [allowing or blocking specific domains](allow-deny-list.md), and options for restricting what external guest users can see in your Azure AD directory. The following options are available:
+External collaboration settings let you specify what roles in your organization can invite external users for B2B collaboration. These settings also include options for [allowing or blocking specific domains](allow-deny-list.md), and options for restricting what external guest users can see in your Microsoft Entra directory. The following options are available:
 
-- **Determine guest user access**: Azure AD allows you to restrict what external guest users can see in your Azure AD directory. For example, you can limit guest users' view of group memberships, or allow guests to view only their own profile information.
+- **Determine guest user access**: Microsoft Entra External ID allows you to restrict what external guest users can see in your Microsoft Entra directory. For example, you can limit guest users' view of group memberships, or allow guests to view only their own profile information.
 
 - **Specify who can invite guests**: By default, all users in your organization, including B2B collaboration guest users, can invite external users to B2B collaboration. If you want to limit the ability to send invitations, you can turn invitations on or off for everyone, or limit invitations to certain roles.
 
@@ -27,20 +28,25 @@ External collaboration settings let you specify what roles in your organization 
 
 - **Allow or block domains**: You can use collaboration restrictions to allow or deny invitations to the domains you specify. For details, see [Allow or block domains](allow-deny-list.md).
 
-For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
+For B2B collaboration with other Microsoft Entra organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
+
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified. In the following example, the company branding for Woodgrove Groceries appears on the left. The example on the right displays the default branding for the user's home tenant.
+
+:::image type="content" source="media/external-identities-overview/b2b-comparison.png" alt-text="Screenshots showing a comparison of the branded sign-in experience and the default sign-in experience.":::
 
 ## Configure settings in the portal
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the **Azure Active Directory** service.
-1. Select **External Identities** > **External collaboration settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+
+1. Browse to **Identity** > **External Identities** > **External collaboration settings**.
 
 1. Under **Guest user access**, choose the level of access you want guest users to have:
   
     ![Screenshot showing Guest user access settings.](./media/external-collaboration-settings-configure/guest-user-access.png)
 
-   - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
+   - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Microsoft Entra resources and directory data as member users.
 
    - **Guest users have limited access to properties and memberships of directory objects**: (Default) This setting blocks guests from certain directory tasks, like enumerating users, groups, or other directory resources. Guests can see membership of all non-hidden groups. [Learn more about default guest permissions](../fundamentals/users-default-permissions.md#member-and-guest-users).
 
@@ -65,7 +71,7 @@ For B2B collaboration with other Azure AD organizations, you should also review 
    - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request removal from your organization.
 
    > [!IMPORTANT]
-   > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable.
+   > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Microsoft Entra tenant. Otherwise, this setting will be unavailable.
 
    ![Screenshot showing External user leave settings in the portal.](media/external-collaboration-settings-configure/external-user-leave-settings.png)
 
@@ -79,16 +85,29 @@ External collaboration settings can be configured by using the Microsoft Graph A
 
 - For **Guest user access restrictions** and **Guest invite restrictions**, use the [authorizationPolicy](/graph/api/resources/authorizationpolicy?view=graph-rest-1.0&preserve-view=true) resource type.
 - For the **Enable guest self-service sign up via user flows** setting, use [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type.
-- For email one-time passcode settings (now on the **All identity providers** page in the Azure portal), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0&preserve-view=true) resource type.
+- For email one-time passcode settings (now on the **All identity providers** page in the Microsoft Entra admin center), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0&preserve-view=true) resource type.
 
 ## Assign the Guest Inviter role to a user
 
 With the Guest Inviter role, you can give individual users the ability to invite guests without assigning them a global administrator or other admin role. Assign the Guest inviter role to individuals. Then make sure you set **Admins and users in the guest inviter role can invite** to **Yes**.
 
-Here's an example that shows how to use PowerShell to add a user to the Guest Inviter role:
+Here's an example that shows how to use Microsoft Graph PowerShell to add a user to the `Guest Inviter` role:
 
-```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
+
+```powershell
+
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+
+$roleName = "Guest Inviter"
+$role = Get-MgDirectoryRole | where {$_.DisplayName -eq $roleName}
+$userId = <User Id/User Principal Name>
+
+$DirObject = @{
+  "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/$userId"
+  }
+
+New-MgDirectoryRoleMemberByRef -DirectoryRoleId $role.Id -BodyParameter $DirObject
+
 ```
 
 ## Sign-in logs for B2B users
@@ -97,7 +116,8 @@ When a B2B user signs into a resource tenant to collaborate, a sign-in log is ge
 
 ## Next steps
 
-See the following articles on Azure AD B2B collaboration:
+See the following articles on Microsoft Entra B2B collaboration:
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
 - [Adding a B2B collaboration user to a role](./add-users-administrator.md)
+

@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Add different data feeds to Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/26/2021
@@ -14,6 +13,8 @@ ms.author: mbullwin
 
 
 # How-to: Connect different data sources
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Use this article to find the settings and requirements for connecting different types of data sources to Azure AI Metrics Advisor. To learn about using your data with Metrics Advisor, see [Onboard your data](how-tos/onboard-your-data.md). 
 

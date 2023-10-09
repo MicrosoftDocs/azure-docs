@@ -1,6 +1,6 @@
 ---
 title: Usage and insights report
-description: Introduction to usage and insights report in the Azure portal 
+description: Learn about the information you can explore using the Usage and insights report in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/30/2023
+ms.date: 09/26/2023
 ms.author: sarahlipsey
 ms.reviewer: madansr7
 ---
 
-# Usage and insights in Azure Active Directory
+# Usage and insights in Microsoft Entra ID
 
-With the Azure Active Directory (Azure AD) **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights includes a report on authentication methods, service principal sign-ins, and application credential activity. You can find answers to the following questions:
+With the Microsoft Entra **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights includes a report on authentication methods, service principal sign-ins, and application credential activity. You can find answers to the following questions:
 
 * What are the top used applications in my organization?
 * What applications have the most failed sign-ins? 
@@ -26,8 +26,8 @@ With the Azure Active Directory (Azure AD) **Usage and insights** reports, you c
 
 To access the data from Usage and insights you must have:
 
-* An Azure AD tenant
-* An Azure AD premium (P1/P2) license to view the sign-in data
+* A Microsoft Entra tenant
+* A Microsoft Entra ID P1 or P2 (P1/P2) license to view the sign-in data
 * A user in the Reports Reader, Security Reader, Security Administrator, or Global Administrator role.
 
 ## Access Usage and insights 
@@ -36,10 +36,10 @@ You can access the Usage and insights reports from the Azure portal and using Mi
 
 ### To access Usage & insights in the portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
-1. Go to **Azure Active Directory** > **Usage & insights**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Usage & insights**.
 
-The **Usage & insights** reports are also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
+The **Usage & insights** reports are also available from the **Enterprise applications** area of Microsoft Entra ID. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
 
 ### To access Usage & insights using Microsoft Graph:
 
@@ -51,9 +51,11 @@ The reports can be viewed and managed using Microsoft Graph on the `/beta` endpo
 
 Refer to the section on each report in this article for the specific objects and parameters to include. For more information, see the [Microsoft Graph documentation for Identity and access reports](/graph/api/resources/report-identity-access).
 
-## Azure AD application activity (preview)
+<a name='azure-ad-application-activity-preview'></a>
 
-The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. Any application activity during the selected date range appears in the report. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
+## Microsoft Entra application activity (preview)
+
+The **Microsoft Entra application activity (preview)** report shows the list of applications with one or more sign-in attempts. Any application activity during the selected date range appears in the report. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
 
 It's possible that activity for a deleted application may appear in the report if the activity took place during the selected date range and before the application was deleted. Other scenarios could include a user attempting to sign in to an application that doesn't have a service principal associated with the app. For these types of scenarios, you may need to review the audit logs or sign-in logs to investigate further.
 
@@ -67,7 +69,7 @@ The sign-in activity graph uses interactive user sign-ins. Select a day in the a
 
 ### Application activity using Microsoft Graph
 
-You can view the `applicationSignInSummary` or `applicationSignInDetailedSummary` of Azure AD application activity with Microsoft Graph. 
+You can view the `applicationSignInSummary` or `applicationSignInDetailedSummary` of Microsoft Entra application activity with Microsoft Graph. 
 
 Add the following query to view the **sign-in summary**, then select the **Run query** button.
 
@@ -85,14 +87,14 @@ For more information, see [Application sign-in in Microsoft Graph](/graph/api/re
 
 ## AD FS application activity
 
-The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user login to authenticate in the last 30 days. These applications have not been migrated to Azure AD for authentication.
+The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user sign-in to authenticate in the last 30 days. These applications haven't been migrated to Microsoft Entra ID for authentication.
 
 Viewing the AD FS application activity using Microsoft Graph retrieves a list of the `relyingPartyDetailedSummary` objects, which identifies the relying party to a particular Federation Service.
 
 Add the following query, then select the **Run query** button.
 
    ```http
-   GET https://graph.microsoft.com/beta/reports/getRelyingPartyDetailedSummary
+   GET https://graph.microsoft.com/beta/reports/getRelyingPartyDetailedSummary(period='{period}')
    ```
 
 For more information, see [AD FS application activity in Microsoft Graph](/graph/api/resources/relyingpartydetailedsummary?view=graph-rest-beta&preserve-view=true).
@@ -107,11 +109,11 @@ Are you planning on running a registration campaign to nudge users to sign up fo
 
 Looking for the details of a user and their authentication methods? Look at the **User registration details** report from the side menu and search for a name or UPN. The default MFA method and other methods registered are displayed. You can also see if the user is capable of registering for one of the authentication methods.
 
-Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You'll be able to see the method used to attempt to register or reset an authentication method.
+Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You can see the method used to attempt to register or reset an authentication method.
 
 ## Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used in an app-only or delegated context. The report shows the last time the service principal was used.
+The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you with information on the usage of the service principal - whether it was used as a client or resource app and whether it was used in an app-only or delegated context. The report shows the last time the service principal was used.
 
 [ ![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png) ](./media/concept-usage-insights-report/service-principal-sign-ins.png#lightbox)
 
@@ -129,7 +131,7 @@ Add the following query to retrieve the service principal sign-in activity, then
 GET https://graph.microsoft.com/beta/reports/servicePrincipalSignInActivities/{id}
 ```
 
-The following is an example of the response:
+Example response:
 
 ```json
 {
@@ -163,7 +165,7 @@ For more information, see [List service principal activity in Microsoft Graph](/
 
 ## Application credential activity (preview)
 
-The Application credential activity (preview) report provides the last credential activity date for every application credential. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place. 
+The Application credential activity (preview) report provides the last credential activity date for every application credential. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report, you can view the expiration dates of all your applications in one place. 
 
 To view the details of the application credential activity, select the **View more details** link. These details include the application object, service principal, and resource IDs. You can also see if the credential origin is the application or the service principal. 
 
@@ -187,7 +189,7 @@ To get started, follow these instructions to work with `appCredentialSignInActiv
     ```http
     GET https://graph.microsoft.com/beta/reports/appCredentialSignInActivities/{id}
     ```
-The following is an example of the response:
+Example response:
 
 ```json
 {
@@ -214,4 +216,4 @@ For more information, see [Application credential activity in Microsoft Graph](/
 ## Next steps
 
 - [Learn about the sign-ins report](concept-sign-ins.md)
-- [Learn about Azure AD authentication](../authentication/overview-authentication.md)
+- [Learn about Microsoft Entra authentication](../authentication/overview-authentication.md)

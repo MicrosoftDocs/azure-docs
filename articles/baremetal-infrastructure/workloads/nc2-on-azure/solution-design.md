@@ -30,7 +30,7 @@ The following table describes the network topologies supported by each network f
 |Connectivity over Active/Passive VPN gateways| Yes |
 |Connectivity over Active/Active VPN gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
-|Transit connectivity via vWAN for Spoke Delegated VNETS| No |
+|Transit connectivity via vWAN for Spoke Delegated VNETS| Yes |
 |On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
 |On-premises connectivity via Secured HUB(Az Firewall NVA) | No|
 |Connectivity from UVMs on NC2 nodes to Azure resources|Yes|

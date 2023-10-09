@@ -26,7 +26,7 @@ highlightedContent:
     - title: What is Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
-    - title: Azure AD features supported in Azure AD B2C
+    - title: Microsoft Entra features supported in Azure AD B2C
       url: supported-azure-ad-features.md
       itemType: overview
     - title: Get started with Azure AD B2C
@@ -96,7 +96,7 @@ conceptualContent:
         ##- text: What is Azure AD B2C?
          ## url: overview.md
           ##itemType: overview
-        ##- text: Compare Azure AD and Azure AD B2C
+        ##- text: Compare Microsoft Entra ID and Azure AD B2C
           ##url: supported-azure-ad-features.md
          ## itemType: overview
        ## - text: Get started with Azure AD B2C
@@ -117,16 +117,16 @@ conceptualContent:
     - title: Learn the basics
       links:
           - text: Authentication and authorization
-            url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/authentication-vs-authorization.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
           - text: Tokens
-            url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/security-tokens.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
           - text: Protocols
-            url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/v2-app-types.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
           - text: Authentication library
-            url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
        
 
@@ -153,7 +153,7 @@ conceptualContent:
             itemType: how-to-guide
 
           - text: Authenticate users in a Node.js web app(Quick course)
-            url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
+            url: /training/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
             itemType: learn
           # - text: 'Quickstart: Single-page app'
             # url: configure-authentication-sample-spa-app.md
@@ -217,10 +217,10 @@ conceptualContent:
             url: custom-domain.md
             itemType: how-to-guide  
           - text: Customize user experiences using custom policies
-            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy            
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy
             itemType: how-to-guide 
           - text: Custom policy how-to guide series
-            url: custom-policies-series-overview.md            
+            url: custom-policies-series-overview.md
             itemType: how-to-guide
           # - text: Use API connectors 
             # url: add-api-connector.md?pivots=b2c-user-flow

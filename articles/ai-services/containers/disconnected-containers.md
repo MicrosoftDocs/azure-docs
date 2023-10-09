@@ -23,6 +23,7 @@ Containers enable you to run Azure AI services APIs in your own environment, and
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
+  * [Summarization](../language-service/summarization/how-to/use-containers.md)
 * [Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
 * [Document Intelligence](../../ai-services/document-intelligence/containers/disconnected.md)
 
@@ -183,4 +184,4 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Next steps
 
-[Azure AI services containers overview](../cognitive-services-container-support.md)
+[Azure AI containers overview](../cognitive-services-container-support.md)
