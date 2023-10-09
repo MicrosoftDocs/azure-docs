@@ -512,8 +512,6 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 
 You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
 
-### 
-
 ## Privacy
 
 ### Does the ExpressRoute service store customer data?
