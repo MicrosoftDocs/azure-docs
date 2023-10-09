@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Use a chaos experiment template to induce an outage on an Azure Active Directory instance
 
-You can use a chaos experiment to verify that your application is resilience to failures by causing those failures in a controlled environment. In this article, you induce an outage on an Azure Active Directory resource using a pre-populated experiment template and Azure Chaos Studio Preview.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you induce an outage on an Azure Active Directory resource using a pre-populated experiment template and Azure Chaos Studio Preview.
 
 ## Prerequisites
 
