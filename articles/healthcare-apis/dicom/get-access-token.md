@@ -23,7 +23,7 @@ Before you get an access token, configure access control for the DICOM service u
 
 To assign roles and grant access to the DICOM service:
 
-1. Register a client application in Microsoft Entra ID that acts as your identity provider and authentication mechanism. You can use Azure portal, PowerShell, or Azure CLI to register an application.
+1. Register a client application in Microsoft Entra ID that acts as your identity provider and authentication mechanism. Use Azure portal, PowerShell, or Azure CLI to [register an application](dicom-register-application).
 
 1. Assign one of the built-in roles for the DICOM data plane to the client application. The roles are: 
 - **DICOM Data Owner**. Gives full access to DICOM data.
