@@ -101,7 +101,7 @@ step certificate fingerprint client1-authnID.pem
 
 1. Go to Topic spaces page under MQTT section.
 2. On the Topic spaces page, select **+ Topic space** on the toolbar.
-3. Provide a name for the topic space.  
+3. Provide a **name** for the topic space, on the **Create topic space** page.
 4. Select **+ Add topic template** to add the topic template contosotopics/topic1.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space.png" alt-text="Screenshot of topic space configuration.":::
