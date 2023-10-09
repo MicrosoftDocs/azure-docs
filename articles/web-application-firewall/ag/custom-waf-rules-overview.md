@@ -26,8 +26,6 @@ If you want to use **or** between two different conditions,then the two conditio
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
-Custom rules can be duplicated within a given policy. When duplicating a rule, you need to specify a unique name for the rule and a unique priority value. Additionally, custom rules can be copied from one Application Gateway WAF policy to another as long as the policies are both in the same subscription. When copying a rule from one policy to another you need to select the Application Gateway WAF policy you wish to copy the rule into. Once you select the WAF policy you need to give the rule a unique name, and assign a priority rank.
-
 > [!NOTE]
 > The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
@@ -183,6 +181,10 @@ In WAF policy detection mode, if a custom rule is triggered, the action is alway
    - Prevention mode - Blocks the transaction based on SecDefaultAction. Just like the Allow action, once the request is evaluated and added to the blocklist, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked.
    - Detection mode - Logs the transaction based on SecDefaultAction after which evaluation is stopped. Any request after that meets the same conditions won't be evaluated and will just be logged.
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. The other custom rules are evaluated in order of priority, followed by the managed rules.
+
+## Copying and duplicating custom rules
+
+Custom rules can be duplicated within a given policy. When duplicating a rule, you need to specify a unique name for the rule and a unique priority value. Additionally, custom rules can be copied from one Application Gateway WAF policy to another as long as the policies are both in the same subscription. When copying a rule from one policy to another you need to select the Application Gateway WAF policy you wish to copy the rule into. Once you select the WAF policy you need to give the rule a unique name, and assign a priority rank.
 
 ## Geomatch custom rules
 
