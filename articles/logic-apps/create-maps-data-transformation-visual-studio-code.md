@@ -57,11 +57,9 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
   1. [Create a local folder, a local Standard logic app project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
 
-  After you create your logic app project, in your project's root folder, open the **local.settings.json** file, and add the following values:
+  After you create your logic app project, in your project's root folder, open the **local.settings.json** file, and add the following value:
 
   - `"FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"`
-
-  - `"AzureWebJobsFeatureFlags": "EnableMultiLanguageWorker"`
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
 
