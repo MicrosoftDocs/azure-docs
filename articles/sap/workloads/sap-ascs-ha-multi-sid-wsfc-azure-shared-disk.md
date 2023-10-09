@@ -35,8 +35,8 @@ You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS i
   - Zone-redundant storage (ZRS) for Premium SSD shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
 - The Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
 - An [Azure proximity placement group (PPG)](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
-  - If you're using PPGs for a SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
-  - If you're using PPGs for a SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
+  - If you're using PPGs for an SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
+  - If you're using PPGs for an SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
 For more information, review the [Limitations](../../virtual-machines/disks-shared.md#limitations) section of the documentation for Azure shared disks.
 
@@ -122,7 +122,7 @@ Here are the details for an SAP deployment in an Azure availability set:
 | Host name role                                        | Host name   | Static IP address                        | Availability set | Disk `SkuName` value |
 | ----------------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
 | First cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | `Premium_LRS`  |
-| 2nd cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
+| Second cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
 | Cluster network name                                  | pr1clust    | 10.0.0.42 (only for a Windows Server 2016 cluster) | Not applicable              |              |
 | SID1 ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | Not applicable              |              |
 | SID1 ERS cluster network name (only for ERS2) | pr1-erscl   | 10.0.0.44                                | Not applicable              |              |
@@ -519,7 +519,7 @@ The outlined failover tests assume that SAP ASCS is active on node A.
    Make sure that each SAP SID can successfully move to the other cluster node. Choose one of these options to initiate a failover of the SAP \<SID\> cluster group from cluster node A to cluster node B:
 
    - Failover Cluster Manager  
-   - Powershell commands for failover clusters
+   - PowerShell commands for failover clusters
 
     ```powershell
     $SAPSID = "PR2"     # SAP <SID>

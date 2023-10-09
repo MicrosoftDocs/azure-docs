@@ -138,8 +138,8 @@ Currently, you can use Azure Premium SSD disks as Azure shared disks for the SAP
   - Zone-redundant storage (ZRS) for Premium SSD shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
 - The Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
 - An [Azure proximity placement group (PPG)](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
-  - If you're using PPGs for a SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
-  - If you're using PPGs for a SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
+  - If you're using PPGs for an SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
+  - If you're using PPGs for an SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
 For more information, review the [Limitations](../../virtual-machines/disks-shared.md#limitations) section of the documentation for Azure shared disks.
 
@@ -187,7 +187,7 @@ To create a shared disk resource for a cluster:
 
 The following diagrams show multiple SAP instances on Azure VMs running Windows Server Failover Clustering to reduce the total number of VMs.
 
-This configuration can be either local SAP application servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS cluster role on Microsoft SQL Server Always On nodes.
+This configuration can be either local SAP application servers on an SAP ASCS/SCS cluster or an SAP ASCS/SCS cluster role on Microsoft SQL Server Always On nodes.
 
 > [!IMPORTANT]
 > Installing a local SAP application server on a SQL Server Always On node is not supported.
