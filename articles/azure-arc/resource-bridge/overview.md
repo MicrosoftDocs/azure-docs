@@ -116,10 +116,31 @@ The following private cloud environments and their versions are officially suppo
 
 Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#not-able-to-connect-to-url) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
+### Supported versions
+
+Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.10, then the typical n-3 supported versions are:
+
+- Current version: 1.0.10
+
+- n-1 version: 1.0.9
+
+- n-2 version: 1.0.8
+
+- n-3 version: 1.0.7
+
+There may be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions become 1.0.12, 1.0.10, 1.0.9, 1.0.8.
+
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
+
+If a resource bridge is not upgraded to one of the supported versions (n-3), then it will fall outside the support window and be unsupported. If this happens, it may not always be possible to upgrade an unsupported resource bridge to a newer version, as component services used by Arc resource bridge may no longer be compatible. In addition, the unsupported resource bridge may not be able to provide reliable monitoring and health metrics.
+
+If an Arc resource bridge is unable to be upgraded to a supported version, you must delete it and deploy a new resource bridge. Depending on which private cloud product you're using, there may be other steps required to reconnect the resource bridge to existing resources. For details, check the partner product's Arc resource bridge recovery documentation.
+
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
 * Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+
 
 
