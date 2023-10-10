@@ -42,7 +42,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 1. Select **AAD Outage**.
 
    [![Screenshot that shows the experiment templates screen, with the AAD outage template button highlighted.](images/tutorial-aad-outage-select.png)](images/tutorial-aad-outage-select.png#lightbox)
-1. Add a name for your experiment that complies with resource naming guidelines. Select **Next: Experiment designer**.
+1. Add a name for your experiment that complies with resource naming guidelines. Select **Next: Permissions**.
 
-   
+   [![Screenshot that shows the experiment basics screen, with the permissions tab button button highlighted.](images/tutorial-aad-outage-basics.png)](images/tutorial-aad-outage-basics.png#lightbox)
 
