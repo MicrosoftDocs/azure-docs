@@ -81,14 +81,8 @@ In the following diagram, VNet1 uses the Open mode and VNet2 uses the Private On
 ![Diagram that shows mixed access modes.](./media/private-link-security/ampls-mixed-access-modes.png)
 
 ## Consider AMPLS limits
-The AMPLS object has the following limits:
-* A virtual network can connect to only *one* AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources to which the virtual network should have access.
-* An AMPLS object can connect to 300 Log Analytics workspaces and 1,000 Application Insights components at most.
-* An Azure Monitor resource (workspace or Application Insights component or [data collection endpoint](../essentials/data-collection-endpoint-overview.md)) can connect to five AMPLSs at most.
-* An AMPLS object can connect to 10 private endpoints at most.
 
-> [!NOTE]
-> AMPLS resources created before December 1, 2021, support only 50 resources.
+[!INCLUDE [ampls-limitations](../includes/ampls-limitations.md)]
 
 In the following diagram:
 * Each virtual network connects to only *one* AMPLS object.
@@ -106,6 +100,9 @@ Your Log Analytics workspaces or Application Insights components can be set to:
 That granularity allows you to set access according to your needs, per workspace. For example, you might accept ingestion only through private link-connected networks (meaning specific virtual networks) but still choose to accept queries from all networks, public and private.
 
 Blocking queries from public networks means clients like machines and SDKs outside of the connected AMPLSs can't query data in the resource. That data includes logs, metrics, and the live metrics stream. Blocking queries from public networks affects all experiences that run these queries, such as workbooks, dashboards, insights in the Azure portal, and queries run from outside the Azure portal.
+
+> [!NOTE]
+> There are certain exceptions where these settings do not apply. You can find details in [the following section](#exceptions).
 
 Your [data collection endpoints](../essentials/data-collection-endpoint-overview.md) can be set to accept or block access from public networks (networks not connected to the resource AMPLS).
 

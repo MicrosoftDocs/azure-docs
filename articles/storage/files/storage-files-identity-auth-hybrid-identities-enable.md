@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/03/2023
+ms.date: 09/25/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -184,6 +184,9 @@ There are two options for configuring directory and file-level permissions with 
 
 To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step is not required.
 
+> [!IMPORTANT]
+> You can set file/directory level ACLs for identities which are not synced to Azure AD. However, these ACLs will not be enforced because the Kerberos ticket used for authentication/authorization will not contain these not-synced identities. In order to enforce set ACLs, identities need to be synced to Azure AD.
+
 > [!TIP]
 > If Azure AD hybrid joined users from two different forests will be accessing the share, it's best to use icacls to configure directory and file-level permissions. This is because Windows File Explorer ACL configuration requires the client to be domain joined to the Active Directory domain that the storage account is joined to.
 
@@ -208,14 +211,15 @@ Changes are not instant, and require a policy refresh or a reboot to take effect
 
 If you want to enable client machines to connect to storage accounts that are configured for AD DS as well as storage accounts configured for Azure AD Kerberos, follow these steps. If you're only using Azure AD Kerberos, skip this section.
 
-Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings:
+Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings. Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
 - Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <realmname>`
-  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
+- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <REALMNAME>`
+  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
 
-Changes aren't instant, and require a policy refresh or a reboot to take effect.
+> [!IMPORTANT]
+> In Kerberos, realm names are case sensitive and upper case. Your Kerberos realm name is usually the same as your domain name, in upper-case letters.
 
 ## Undo the client configuration to retrieve Kerberos tickets
 

@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
 ms.date: 12/06/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Configure inbound NAT Rules for Virtual Machine Scale Sets

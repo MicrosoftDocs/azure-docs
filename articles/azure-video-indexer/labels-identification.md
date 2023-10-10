@@ -8,7 +8,9 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ---
 
-# Labels identification  
+# Labels identification
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Labels identification is an Azure AI Video Indexer AI feature that identifies visual objects like sunglasses or actions like swimming, appearing in the video footage of a media file. There are many labels identification categories and once extracted, labels identification instances are displayed in the Insights tab and can be translated into over 50 languages. Clicking a Label opens the instance in the media file, select Play Previous or Play Next to see more instances. 
 

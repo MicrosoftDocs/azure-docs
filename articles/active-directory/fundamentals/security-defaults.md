@@ -1,26 +1,24 @@
 ---
-title: Providing a default level of security in Azure Active Directory
-description: Get protected from common identity threats using Azure AD security defaults
+title: Providing a default level of security in Microsoft Entra ID
+description: Get protected from common identity threats using Microsoft Entra security defaults
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 09/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sama
-
-ms.collection: M365-identity-device-management
 ---
-# Security defaults in Azure AD
+# Security defaults in Microsoft Entra ID
 
 Security defaults make it easier to help protect your organization from identity-related attacks like password spray, replay, and phishing common in today's environments. 
 
-Microsoft is making these preconfigured security settings available to everyone, because we know managing security can be difficult. Based on our learnings more than 99.9% of those common identity-related attacks are stopped by using multifactor authentication (MFA) and blocking legacy authentication. Our goal is to ensure that all organizations have at least a basic level of security enabled at no extra cost.
+Microsoft is making these preconfigured security settings available to everyone, because we know managing security can be difficult. Based on our learnings more than 99.9% of those common identity-related attacks are stopped by using multifactor authentication and blocking legacy authentication. Our goal is to ensure that all organizations have at least a basic level of security enabled at no extra cost.
 
 These basic controls include:
 
@@ -33,11 +31,11 @@ These basic controls include:
 ## Who's it for?
 
 - Organizations who want to increase their security posture, but don't know how or where to start.
-- Organizations using the free tier of Azure Active Directory licensing.
+- Organizations using the free tier of Microsoft Entra licensing.
 
 ### Who should use Conditional Access?
 
-- If you're an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you.
+- If you're an organization with Microsoft Entra ID P1 or P2 licenses, security defaults are probably not right for you.
 - If your organization has complex security requirements, you should consider [Conditional Access](../conditional-access/concept-conditional-access-policy-common.md#template-categories)
 
 ## Enabling security defaults
@@ -56,7 +54,7 @@ To configure security defaults in your directory, you must be assigned at least 
 
 To enable security defaults:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Overview** > **Properties**.
    1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Enabled**.
@@ -70,7 +68,9 @@ As part of enabling security defaults, administrators should revoke all existing
 
 ## Enforced security policies
 
-### Require all users to register for Azure AD Multifactor Authentication
+<a name='require-all-users-to-register-for-azure-ad-multifactor-authentication'></a>
+
+### Require all users to register for Microsoft Entra multifactor authentication
 
 All users have 14 days to register using the [Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md) or any app supporting [OATH TOTP](../authentication/concept-authentication-oath-tokens.md). After the 14 days have passed, the user can't sign in until registration is completed. A user's 14-day period begins after their first successful interactive sign-in after enabling security defaults.
 
@@ -92,11 +92,13 @@ After registration is finished, the following administrator roles will be requir
 - Global Administrator
 - Application Administrator
 - Authentication Administrator
+- Authentication Policy Administrator
 - Billing Administrator
 - Cloud Application Administrator
 - Conditional Access Administrator
 - Exchange Administrator
 - Helpdesk Administrator
+- Identity Governance Administrator
 - Password Administrator
 - Privileged Authentication Administrator
 - Privileged Role Administrator
@@ -151,13 +153,13 @@ After you enable security defaults in your tenant, any user accessing the follow
 - Azure PowerShell 
 - Azure CLI 
 
-This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. 
+This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. This applies to ARM APIs such as accessing your subscription, VMs, storage accounts etc. This does not include Microsoft Entra ID or Microsoft Graph.
 
 > [!NOTE]
 > Pre-2017 Exchange Online tenants have modern authentication disabled by default. In order to avoid the possibility of a login loop while authenticating through these tenants, you must [enable modern authentication](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
-> The Azure AD Connect synchronization account is excluded from security defaults and will not be prompted to register for or perform multifactor authentication. Organizations should not be using this account for other purposes.
+> The Microsoft Entra Connect synchronization account is excluded from security defaults and will not be prompted to register for or perform multifactor authentication. Organizations should not be using this account for other purposes.
 
 ## Deployment considerations
 
@@ -178,7 +180,7 @@ Any [B2B guest](../external-identities/what-is-b2b.md) users or [B2B direct conn
 
 ### Disabled MFA status
 
-If your organization is a previous user of per-user based multifactor authentication, don't be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based multifactor authentication.
+If your organization is a previous user of per-user based multifactor authentication, don't be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the multifactor authentication status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based multifactor authentication.
 
 ### Disabling security defaults
 
@@ -186,7 +188,7 @@ Organizations that choose to implement Conditional Access policies that replace 
 
 To disable security defaults in your directory:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Overview** > **Properties**.
    1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
@@ -195,4 +197,4 @@ To disable security defaults in your directory:
 ## Next steps
 
 - [Blog: Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414)
-- More information about licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+- More information about licensing can be found on the [Microsoft Entra pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

@@ -66,9 +66,9 @@ resource hierarchy or individual resource to remediate.
 
 ## Policy definition ID
 
-If the `policyAssignmentId` is for an initiative assignment, the **policyDefinitionReferenceId** property must be used to specify which policy definition(s) in the initiative the subject resource(s) are to be remediated. As a remediation can only remediation in a scope of one definition,
-this property is a _string_. The value must match the value in the initiative definition in the
-`policyDefinitions.policyDefinitionReferenceId` field.
+If the `policyAssignmentId` is for an initiative assignment, the **policyDefinitionReferenceId** property must be used to specify which policy definition in the initiative the subject resource(s) are to be remediated. As a remediation can only remediate in a scope of one definition,
+this property is a _string_ and not an array. The value must match the value in the initiative definition in the
+`policyDefinitions.policyDefinitionReferenceId` field instead of the global identifier for policy definition `Id`.
 
 ## Resource count and parallel deployments
 

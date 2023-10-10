@@ -1,5 +1,5 @@
 ---
-title: Create a lifecycle workflow - Azure AD
+title: Create a lifecycle workflow - Microsoft Entra ID
 description: This article guides you in creating a lifecycle workflow. 
 author: OWinfreyATL
 ms.author: owinfrey

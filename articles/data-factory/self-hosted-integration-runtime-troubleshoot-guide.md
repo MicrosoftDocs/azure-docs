@@ -676,7 +676,7 @@ For Azure Data Factory v1 customers:
     1. If you don't receive the response you had expected, use one of the following methods, as appropriate:
                 
         * If you receive a "Remote name could not be resolved" message, there's a Domain Name System (DNS) issue. Contact your network team to fix the issue.
-        * If you receive an "ssl/tls cert is not trusted" message, [check the certificate](https://wu2.frontend.clouddatahub.net/) to see whether it's trusted on the machine, and then install the public certificate by using Certificate Manager. This action should mitigate the issue.
+        * If you receive an "ssl/tls cert is not trusted" message, check the certificate (```https://wu2.frontend.clouddatahub.net/```) to see whether it's trusted on the machine, and then install the public certificate by using Certificate Manager. This action should mitigate the issue.
         * Go to **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime**, and check for any failure that's caused by DNS, a firewall rule, or company network settings. If you find such a failure, forcibly close the connection. Because every company has its own customized network settings, contact your network team to troubleshoot these issues.
     
     1. If "proxy" has been configured on the self-hosted integration runtime, verify that your proxy server can access the service endpoint. For a sample command, see [PowerShell, web requests, and proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
@@ -914,7 +914,7 @@ How to determine whether you're affected:
     
     "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
     
-    The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
+    The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the check server certificate link (```https://eu.frontend.clouddatahub.net/```) on the machine where the self-hosted IR is installed, and then view the server certificate information.
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png" alt-text="Screenshot of the check server certificate pane of the Azure Data Factory service.":::
     
@@ -939,7 +939,7 @@ How to determine whether you're affected:
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png" alt-text="Screenshot showing the DigiCert Global Root G2 folder in the Trusted Root Certification Authorities directory.":::
     
-    If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+    If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt). 
 
 
 ## Next steps

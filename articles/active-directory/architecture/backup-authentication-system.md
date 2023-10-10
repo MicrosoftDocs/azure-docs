@@ -1,5 +1,5 @@
 ---
-title: Azure AD's backup authentication system
+title: Microsoft Entra ID's backup authentication system
 description: Increasing the resilience of the authentication plane with the backup authentication system.
 
 services: active-directory
@@ -15,11 +15,11 @@ ms.reviewer: joroja
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD's backup authentication system
+# Microsoft Entra ID's backup authentication system
 
-Users and organizations around the world depend on the high availability of Azure Active Directory (Azure AD) authentication of users and services 24 hours a day, seven days a week. We promise a 99.99% Service Level availability for authentication, and we continuously seek to improve it by enhancing the resilience of our authentication service. To further improve resilience during outages, we implemented a backup system in 2021.
+Organizations around the world depend on the high availability of Microsoft Entra authentication for users and services 24 hours a day, seven days a week. We promise a 99.99% service level availability for authentication, and we continuously seek to improve it by enhancing the resilience of our authentication service. To further improve resilience during outages, we implemented a backup system in 2021.
 
-The Azure AD backup authentication system is made up of multiple backup services that work together to increase authentication resilience if there's an outage. This system transparently and automatically handles authentications for supported applications and services if the primary Azure AD service is unavailable or degraded. It adds an extra layer of resilience on top of the multiple levels of existing redundancy. This resilience is described in the blog post [Advancing service resilience in Azure Active Directory with its backup authentication service](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/). This system syncs authentication metadata when the system is healthy and uses that to enable users to continue to access applications during outages of the primary service while still enforcing policy controls.
+The Microsoft Entra backup authentication system is made up of multiple backup services that work together to increase authentication resilience if there's an outage. This system transparently and automatically handles authentications for supported applications and services if the primary Microsoft Entra service is unavailable or degraded. It adds an extra layer of resilience on top of the multiple levels of existing redundancy. This resilience is described in the blog post [Advancing service resilience in Microsoft Entra ID with its backup authentication service](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/). This system syncs authentication metadata when the system is healthy and uses that to enable users to continue to access applications during outages of the primary service while still enforcing policy controls.
 
 During an outage of the primary service, users are able to continue working with their applications, as long as they accessed them in the last three days from the same device, and no blocking policies exist that would curtail their access:
 
@@ -29,7 +29,7 @@ In addition to Microsoft applications, we support:
 - SaaS applications available in the app gallery, like ADP, Atlassian, AWS, GoToMeeting, Kronos, Marketo, SAP, Trello, Workday, and more.
 - Selected line of business applications, based on their authentication patterns.
 
-Service to service authentication that relies on Azure AD managed identities or are built on Azure services, like virtual machines, cloud storage, Azure AI services, and App Services, receives increased resilience from the back up authentication system. 
+Service to service authentication that relies on Microsoft Entra managed identities or are built on Azure services, like virtual machines, cloud storage, Azure AI services, and App Services, receives increased resilience from the back up authentication system. 
 
 Microsoft is continuously expanding the number of supported scenarios. 
 
@@ -45,7 +45,7 @@ The backup authentication system automatically provides incremental resilience t
 
 The following auth patterns aren't currently supported:
 
-- Web applications that authenticate using Open ID Connect and request access tokens
+- Web applications that authenticate using OpenID Connect and request access tokens
 - Web applications that use the SAML protocol for authentication, when configured as SP-Initiated SSO
 
 ## What makes a user supportable by the backup authentication system?
@@ -74,7 +74,7 @@ Certain other types of policies don't support use of the backup authentication s
 
 ## Workload identity resilience in the backup authentication system
 
-In addition to user authentication, the backup authentication system provides resilience for [managed identities](../managed-identities-azure-resources/overview.md) and other key Azure infrastructure by offering a regionally isolated authentication service that is redundantly layered with the primary authentication service. This system enables the infrastructure authentication within an Azure region to be resilient to issues that may occur in another region or within the larger Azure Active Directory service. This system complements Azure’s cross-region architecture. Building your own applications using MI and following Azure’s [best practices for resilience and availability]() ensures your applications are highly resilient. In addition to MI, this regionally resilient backup system protects key Azure infrastructure and services that keep the cloud functional.
+In addition to user authentication, the backup authentication system provides resilience for [managed identities](../managed-identities-azure-resources/overview.md) and other key Azure infrastructure by offering a regionally isolated authentication service that is redundantly layered with the primary authentication service. This system enables the infrastructure authentication within an Azure region to be resilient to issues that may occur in another region or within the larger Microsoft Entra service. This system complements Azure’s cross-region architecture. Building your own applications using MI and following Azure’s [best practices for resilience and availability]() ensures your applications are highly resilient. In addition to MI, this regionally resilient backup system protects key Azure infrastructure and services that keep the cloud functional.
 
 ### Summary of infrastructure authentication support
 
@@ -116,13 +116,13 @@ The backup authentication system is supported in all cloud environments except M
 | Ceridian Dayforce HCM | No | SAML SP-initiated |
 | Cisco AnyConnect | No | SAML SP-initiated |
 | Cisco Webex | No | SAML SP-initiated |
-| Citrix ADC SAML Connector forAzure AD | No | SAML SP-initiated |
+| Citrix ADC SAML Connector for Azure AD | No | SAML SP-initiated |
 | Clever | No | SAML SP-initiated |
 | Cloud Drive Mapper | Yes | Protected |
 | Cornerstone Single Sign-on | No | SAML SP-initiated |
 | Docusign | No | SAML SP-initiated |
 | Druva | No | SAML SP-initiated |
-| F5 BIG-IP ARM Azure AD integration | No | SAML SP-initiated |
+| F5 BIG-IP APM Azure AD integration | No | SAML SP-initiated |
 | FortiGate SSL VPN | No | SAML SP-initiated |
 | Freshworks | No | SAML SP-initiated |
 | Gmail | Yes | Protected |
@@ -167,7 +167,7 @@ The backup authentication system is supported in all cloud environments except M
 | microsoft.app | App Service | Protected |
 | microsoft.appconfiguration | Azure App Configuration | Protected |
 | microsoft.appplatform | Azure App Service | Protected |
-| microsoft.authorization | Azure Active Directory | Protected |
+| microsoft.authorization | Microsoft Entra ID | Protected |
 | microsoft.automation | Automation Service | Protected |
 | microsoft.avs | Azure VMware Solution | Protected |
 | microsoft.batch | Azure Batch | Protected |
@@ -250,4 +250,4 @@ The backup authentication system is supported in all cloud environments except M
 - [Application requirements for the backup authentication system](backup-authentication-system-apps.md)
 - [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 - [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)
-- [Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
+- [Microsoft Entra SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)

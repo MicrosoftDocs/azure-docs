@@ -4,34 +4,28 @@ description: Learn how to install Azure Container Storage Preview for use with A
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 09/26/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
 
 # Install Azure Container Storage Preview for use with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to install Azure Container Storage Preview for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage Preview on the cluster.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-- Take note of your Azure subscription ID. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role. If you don't have access to one, you can still proceed, but you'll need admin assistance to complete the steps in this article.
-
-- This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Quickstart for Bash in Azure Cloud Shell](../../cloud-shell/quickstart.md).
-
-- Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
 > [!NOTE]
-> Instead of following the steps in this article, you can install Azure Container Storage Preview using a provided installation script. See [Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service](container-storage-aks-quickstart.md).
+> If you already have an AKS cluster deployed, you can proceed to [Connect to the cluster](#connect-to-the-cluster). Alternatively, you can install Azure Container Storage Preview [using an automated installation script](container-storage-aks-quickstart.md) instead of following the manual steps outlined in this article.
 
 ## Getting started
+
+- Take note of your Azure subscription ID. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role. If you don't have access to one, you can still proceed, but you'll need admin assistance to complete the steps in this article.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
 - If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
-
-- You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
 ## Set subscription context
 
@@ -57,10 +51,7 @@ An Azure resource group is a logical group that holds your Azure resources that 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
 
-> [!IMPORTANT]
-> Azure Container Storage Preview is only available in *eastus*, *westus2*, *westus3*, and *westeurope* regions.
-
-Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
+Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*.
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -153,14 +144,16 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
 
 Next, you must update your node pool label to associate the node pool with the correct IO engine for Azure Container Storage.
 
-Run the following command to update the label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool from the previous step.
+> [!IMPORTANT]
+> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. Before you can install Azure Container Storage, you must update the user node pool label as described in this section. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the agent/system nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
+
+Run the following command to update the node pool label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool.
 
 ```azurecli-interactive
 az aks nodepool update --resource-group <resource group> --cluster-name <cluster name> --name <nodepool name> --labels acstor.azure.com/io-engine=acstor
 ```
 
-> [!TIP]
-> You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
+You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
 
 ## Assign Contributor role to AKS managed identity
 
@@ -185,12 +178,11 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 
 # [Azure CLI](#tab/cli)
 
-Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values.
+Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>`, `<cluster-name>`, and `<azure-subscription-id>` with your own values. You can also narrow the scope to your resource group, for example `/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group>`.
 
 ```azurecli-interactive
 export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
-export AKS_NODE_RG=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "nodeResourceGroup" -o tsv)
-az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --resource-group "$AKS_NODE_RG"
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --scope "/subscriptions/<azure-subscription-id>"
 ```
 ---
 

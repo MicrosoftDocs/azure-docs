@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 09/04/2023
+ms.date: 10/04/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,28 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## September 2023
+
+### New articles
+
+- [Tutorial: Call an API from a React single-page app](tutorial-single-page-app-react-call-api.md) - Get user data from web API
+
+### Updated articles
+
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Add app roles to your application and receive them in the token](howto-add-app-roles-in-apps.md) - Add clarity to distinguish between app and user roles
+- [How and why applications are added to Microsoft Entra ID](how-applications-are-added.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Making your application multi-tenant](howto-convert-app-to-be-multi-tenant.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Microsoft Entra app manifest](reference-app-manifest.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Microsoft Entra authentication and authorization error codes](reference-error-codes.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using Angular](quickstart-single-page-app-angular-sign-in.md) - Update SPA quickstarts to use new code sample
+- [Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript](quickstart-single-page-app-javascript-sign-in.md) - Update SPA quickstarts to use new code sample
+- [Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using React](quickstart-single-page-app-react-sign-in.md) - Update SPA quickstarts to use new code sample
+- [Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET Core web app](quickstart-web-app-aspnet-core-sign-in.md) - Update ASP.NET quickstart to use new code sample
+- [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Single sign-on SAML protocol](single-sign-on-saml-protocol.md) - Rebranding of Azure Active Directory to Microsoft Entra
+- [Tutorial: Prepare a Single-page application for authentication](tutorial-single-page-app-react-prepare-spa.md) - Add clarity to the content
 
 ## August 2023
 
@@ -41,23 +63,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md) - Improving clarity in the content
 - [Single sign-on with MSAL.js](msal-js-sso.md) - Add guidance on using the loginHint claim for SSO
 - [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md) - Simplified and leverage the Microsoft Identity App Sync .NET tool
-
-## June 2023
-
-### New articles
-
-- [Configure app multi-instancing](configure-app-multi-instancing.md) - Configuration of multiple instances of the same application within a tenant
-- [Migrate away from using email claims for user identification or authorization](migrate-off-email-claim-authorization.md) - Migration guidance for insecure authorization pattern
-- [Optional claims reference](optional-claims-reference.md) - v1.0 and v2.0 optional claims reference
-
-### Updated articles
-
-- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md) - Editorial review of Node.js code snippet
-- [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Editorial review of claims mapping policy type
-- [Configure token lifetime policies (preview)](configure-token-lifetimes.md) - Adding service principal policy commands
-- [Customize SAML token claims](saml-claims-customization.md) - Review of claims mapping policy type
-- [Microsoft identity platform code samples](sample-v2-code.md) - Reworking code samples file to add extra tab
-- [Refresh tokens in the Microsoft identity platform](refresh-tokens.md) - Editorial review of refresh tokens
-- [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
-- [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Editorial review
-- [What's new for authentication?](reference-breaking-changes.md) - Identity breaking change: omission of unverified emails by default

@@ -41,7 +41,7 @@ The API for Cassandra has added benefits of being built on Azure Cosmos DB:
 
 - **Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal tradeoffs between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix and eventual. These consistency levels allow developers to make precise trade-offs between consistency, availability, and latency. For more information, see [consistency levels](../consistency-levels.md).
 
-- **Enterprise grade**: Azure Cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
+- **Enterprise grade**: Azure Cosmos DB provides [compliance certifications](https://www.microsoft.com/trust-center) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
 
 - **Event Sourcing**: The API for Cassandra provides access to a persistent change log, the [Change Feed](change-feed.md). The change feed can facilitate event sourcing directly from the database. In Apache Cassandra, change data capture (CDC) is the only equivalent feature. CDC is merely a mechanism to flag specific tables for archival and rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. These capabilities are redundant in Azure Cosmos DB as the relevant aspects are automatically governed.
 

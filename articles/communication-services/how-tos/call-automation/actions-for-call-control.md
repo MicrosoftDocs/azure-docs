@@ -268,7 +268,7 @@ No events are published for reject action.
 
 ## Redirect a call
 
-You can choose to redirect an incoming call to one or more endpoints without answering it. Redirecting a call removes your application's ability to control the call using Call Automation.
+You can choose to redirect an incoming call to another endpoint without answering it. Redirecting a call removes your application's ability to control the call using Call Automation.
 
 # [csharp](#tab/csharp)
 

@@ -20,7 +20,7 @@ For information on defining Common Data Model documents by using Common Data Mod
 
 At a high level, the connector supports:
 
-* Spark 2.4, 3.1, and 3.2.
+* 3.1, and 3.2., and 3.3.
 * Reading data from an entity in a Common Data Model folder into a Spark DataFrame.
 * Writing from a Spark DataFrame to an entity in a Common Data Model folder based on a Common Data Model entity definition.
 * Writing from a Spark DataFrame to an entity in a Common Data Model folder based on the DataFrame schema.

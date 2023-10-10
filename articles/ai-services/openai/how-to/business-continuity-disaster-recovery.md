@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Considerations for implementing Business Continuity and Disaster Recovery (BCDR) with Azure OpenAI 
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 8/17/2023
 author: mrbullwinkle    

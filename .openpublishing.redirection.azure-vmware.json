@@ -12,7 +12,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-vmware/migrate-sql-server-always-on-cluster.md",
-            "redirect_url": "/articles/azure-vmware/migrate-sql-server-always-on-availability-group",
+            "redirect_url": "/azure/azure-vmware/migrate-sql-server-always-on-availability-group",
             "redirect_document_id": false
         }
     ]

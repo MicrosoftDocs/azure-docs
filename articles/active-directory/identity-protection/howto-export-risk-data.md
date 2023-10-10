@@ -1,6 +1,6 @@
 ---
-title: Export and use Azure Active Directory Identity Protection data
-description: Learn how to investigate using long-term data in Azure Active Directory Identity Protection
+title: Export and use Microsoft Entra ID Protection data
+description: Learn how to investigate using long-term data in Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -17,18 +17,18 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Export risk data
 
-Azure AD stores reports and security signals for a defined period of time. When it comes to risk information that period may not be long enough.
+Microsoft Entra ID stores reports and security signals for a defined period of time. When it comes to risk information that period may not be long enough.
 
-| Report / Signal | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| Report / Signal | Microsoft Entra ID Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 |
 | --- | --- | --- | --- |
 | Audit logs | 7 days | 30 days | 30 days |
 | Sign-ins | 7 days | 30 days | 30 days |
-| Azure AD MFA usage | 30 days | 30 days | 30 days |
+| Microsoft Entra multifactor authentication usage | 30 days | 30 days | 30 days |
 | Risky sign-ins | 7 days | 30 days | 30 days |
 
-Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD to send **RiskyUsers**, **UserRiskEvents**, **RiskyServicePrincipals**, and **ServicePrincipalRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an event hub, or send data to a partner solution. Find these options in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Identity** > **Monitoring & health** > **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
+Organizations can choose to store data for longer periods by changing diagnostic settings in Microsoft Entra ID to send **RiskyUsers**, **UserRiskEvents**, **RiskyServicePrincipals**, and **ServicePrincipalRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an event hub, or send data to a partner solution. Find these options in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Identity** > **Monitoring & health** > **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
 
-[ ![Diagnostic settings screen in Azure AD showing existing configuration](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png) ](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png#lightbox)
+[ ![Diagnostic settings screen in Microsoft Entra ID showing existing configuration](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png) ](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png#lightbox)
 
 ## Log Analytics
 
@@ -57,26 +57,26 @@ AADRiskyUsers
 ```
 
 > [!NOTE]
-> Log Analytics only has visibility into data as it is streamed. Events prior to enabling the sending of events from Azure AD do not appear.
+> Log Analytics only has visibility into data as it is streamed. Events prior to enabling the sending of events from Microsoft Entra ID do not appear.
 
 ## Storage account
 
-By routing logs to an Azure storage account, you can keep it for longer than the default retention period. For more information, see the article [Tutorial: Archive Azure AD logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
+By routing logs to an Azure storage account, you can keep it for longer than the default retention period. For more information, see the article [Tutorial: Archive Microsoft Entra logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 ## Azure Event Hubs
 
-Azure Event Hubs can look at incoming data from sources like Azure AD Identity Protection and provide real-time analysis and correlation. For more information, see the article [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+Azure Event Hubs can look at incoming data from sources like Microsoft Entra ID Protection and provide real-time analysis and correlation. For more information, see the article [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
 ## Other options
 
-Organizations can choose to [connect Azure AD data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md) as well for further processing.
+Organizations can choose to [connect Microsoft Entra data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md) as well for further processing.
 
 Organizations can use the [Microsoft Graph API to programmatically interact with risk events](howto-identity-protection-graph-api.md).
 
 ## Next steps
 
-- [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
-- [Install and use the log analytics views for Azure Active Directory](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
-- [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
-- [Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK](howto-identity-protection-graph-api.md)
-- [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+- [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring-health.md)
+- [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
+- [Connect data from Microsoft Entra ID Protection](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
+- [Microsoft Entra ID Protection and the Microsoft Graph PowerShell SDK](howto-identity-protection-graph-api.md)
+- [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

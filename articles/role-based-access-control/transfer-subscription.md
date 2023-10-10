@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.custom: devx-track-azurecli
-ms.date: 12/09/2022
+ms.date: 09/28/2023
 ms.author: rolyon
 ---
 
@@ -85,6 +85,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
 | Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
 | Azure Service Bus | Yes | Yes | |You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
+| Azure Synapse Analytics Workspace | Yes | Yes |  | You must update the tenant ID associated with the Synapse Analytics Workspace. If the workspace is associated with a Git repository, you must update the [workspace's Git configuration](../synapse-analytics/cicd/source-control.md#switch-to-a-different-git-repository). For more information, see [Recovering Synapse Analytics workspace after transferring a subscription to a different Azure AD directory (tenant)](../synapse-analytics/how-to-recover-workspace-after-tenant-move.md). |
 
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.

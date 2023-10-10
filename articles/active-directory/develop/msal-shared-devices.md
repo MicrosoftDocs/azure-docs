@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Overview of shared device mode
 
-Shared device mode is a feature of Azure Active Directory (Azure AD) that allows you to build and deploy applications that support frontline workers and educational scenarios that require shared Android and iOS devices.
+Shared device mode is a feature of Microsoft Entra ID that allows you to build and deploy applications that support frontline workers and educational scenarios that require shared Android and iOS devices.
 
 > [!IMPORTANT]
 > Shared device mode for iOS [!INCLUDE [PREVIEW BOILERPLATE](./includes/develop-preview.md)]
@@ -30,11 +30,11 @@ Because mobile devices running iOS or Android were designed for single users, mo
 
 To allow an organization's employees to use its apps across a pool of devices shared by those employees, developers need to enable the opposite experience. Employees should be able to pick a device from the pool and perform a single gesture to "make it theirs" during their shift. At the end of their shift, they should be able to perform another gesture to sign out globally on the device, with all their personal and company information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of their shift and/or after a period of inactivity.
 
-Azure AD enables these scenarios with a feature called **shared device mode**.
+Microsoft Entra ID enables these scenarios with a feature called **shared device mode**.
 
 ## Introducing shared device mode
 
-As mentioned, shared device mode is a feature of Azure AD that enables you to:
+As mentioned, shared device mode is a feature of Microsoft Entra ID that enables you to:
 
 - Build applications that support frontline workers.
 - Deploy devices to frontline workers with apps that support shared device mode.

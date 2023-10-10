@@ -1,6 +1,6 @@
 ---
 title: Create an access review of PIM for Groups (preview)
-description: Learn how to create an access review of PIM for Groups in Azure Active Directory. 
+description: Learn how to create an access review of PIM for Groups in Microsoft Entra ID. 
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -16,14 +16,14 @@ ms.reviewer: jgangadhar
 ms.collection: M365-identity-device-management
 ---
  
-# Create an access review of PIM for Groups in Azure AD (preview)
+# Create an access review of PIM for Groups in Microsoft Entra ID (preview)
 
 This article describes how to create one or more access reviews for PIM for Groups, which will include the active members of the group and the eligible members. Reviews can be performed on both active members of the group, who are active at the time the review is created, and the eligible members of the group.
 
 ## Prerequisites
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance.
-- Only Global administrators and Privileged Role administrators can create reviews on PIM for Groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
+- Microsoft Entra ID Governance License.
+- Only Global administrators and Privileged Role administrators can create reviews on PIM for Groups. For more information, see [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md).
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
@@ -53,7 +53,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 > When a PIM for Groups is selected, the users under review for the group will include all eligible users and active users in that group. 
 
 6. Now you can select a scope for the review. Your options are:
-    - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
+    - **Guest users only**: This option limits the access review to only the Microsoft Entra B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
 

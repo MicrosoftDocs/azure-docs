@@ -41,7 +41,7 @@ To use the SAP connector operations, you have to first authenticate your connect
 
 * You can provide a username and password.
 
-* The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/viewer/e73bba71770e4c0ca5fb2a3c17e8e229/7.31.25/en-US/e656f466e99a11d1a5b00000e835363f.html).
+* The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/docs/r/e73bba71770e4c0ca5fb2a3c17e8e229/7.31.25/en-US/e656f466e99a11d1a5b00000e835363f.html).
 
 You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
@@ -131,7 +131,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 * An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps.
+* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/docs/SAP_NETWEAVER_700?version=7.0.37&locale=en-US&state=PRODUCTION) that you want to access from Azure Logic Apps.
 
   * Set up your SAP server and user account to allow using RFC.
 
@@ -178,9 +178,9 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
     **Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <*host-name*> not allowed**
 
-    For more information, review [SAP Note 1850230 - GW: "Registration of tp &lt;program ID&gt; not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230).
+    For more information, review [SAP Note 1850230 - GW: "Registration of tp \<program ID\> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
 
-  * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.31.25/en-US/48b2a710ca1c3079e10000000a42189b.html).
+  * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/docs/r/62b4de4187cb43668d15dac48fc00732/7.31.25/en-US/48b2a710ca1c3079e10000000a42189b.html).
 
   * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. Make sure that the **Activation Type** is set to **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
 
@@ -199,7 +199,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
   > In Standard workflows, the SAP built-in trigger named **Register SAP RFC server for trigger** uses the Azure 
   > Functions trigger instead, and shows only the actual callbacks from SAP.
 
-  * For the SAP built-in connector trigger named **Register SAP RFC server for trigger**, you have to enable virtual network integration and private ports by following the article at [Enabling Service Bus and SAP built-in connectors for stateful Logic Apps in Standard](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/enabling-service-bus-and-sap-built-in-connectors-for-stateful/ba-p/3820381). You can also run the workflow in Visual Studio Code to fire the trigger locally. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
+  * For the SAP built-in connector trigger named **Register SAP RFC server for trigger**, you have to enable virtual network integration and private ports by following the article at [Enabling Service Bus and SAP built-in connectors for stateful Logic Apps in Standard](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/enabling-service-bus-and-sap-built-in-connectors-for-stateful/ba-p/3820381). You can also run the workflow in Visual Studio Code to fire the trigger locally. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
  
    - **WEBSITE_PRIVATE_IP**: Set this environment variable value to **127.0.0.1** as the localhost address. 
    - **WEBSITE_PRIVATE_PORTS**: Set this environment variable value to two free and usable ports on your local computer, separating the values with a comma (**,**), for example, **8080,8088**.
@@ -237,7 +237,7 @@ The SAP system-required network connectivity includes the following servers and 
 Redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service automatically happens within the SAP .NET Connector (NCo) library. This redirection occurs even if only the Application Server, Dispatcher service information is provided in the connection parameters.
 
 If you're using a load balancer in front of your SAP system, you must redirect all the services to their respective servers. 
-For more information about SAP services and ports, review the [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports).
+For more information about SAP services and ports, review the [TCP/IP Ports of All SAP Products](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16).
 
 > [!NOTE]
 >
@@ -325,7 +325,7 @@ For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premi
 
 * If you provide a Personal Security Environment (PSE) with your connection, you don't need to copy and set up the PSE and SECUDIR for your on-premises data gateway.
 
-* If you enable SNC through an external security product, such as [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, or NTLM, make sure that the SNC library exists on the same computer as your data gateway installation. For this task, copy the SNC library's binary files to the same folder as the data gateway installation on your local computer, for example, **C:\Program Files\On-Premises Data Gateway**.
+* If you enable SNC through an external security product, such as [sapseculib](https://help.sap.com/docs/SAP_NETWEAVER_740/f1cccec432514a3181f2852f2b91d306/7a0755dc6ef84f76890a77ad6eb13b13.html?version=7.4.23&locale=en-US&state=PRODUCTION), Kerberos, or NTLM, make sure that the SNC library exists on the same computer as your data gateway installation. For this task, copy the SNC library's binary files to the same folder as the data gateway installation on your local computer, for example, **C:\Program Files\On-Premises Data Gateway**.
 
   > [!NOTE]
   >
@@ -604,7 +604,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 > Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
 > before this date are supported through August 31, 2024. For more information, see the following resources:
 >
-> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
 > - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 > - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 > - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
@@ -666,7 +666,7 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
 
 1. In the SAP connection information box, provide the following [required information](/connectors/sap/#default-connection). The **Authentication Type** that you select changes the available options.
 
-   ![Screenshot showing SAP connection settings for Consumption.](media\logic-apps-using-sap-connector\sap-connection-consumption.png)
+   ![Screenshot showing SAP connection settings for Consumption.](./media/logic-apps-using-sap-connector/sap-connection-consumption.png)
 
    > [!NOTE]
    >
@@ -715,11 +715,11 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 1. In the SAP connection information box, provide the following [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication). The **Authentication Type** that you select changes the available options.
 
-   ![Screenshot showing SAP built-in connection settings for Standard workflow with Basic authentication.](media\logic-apps-using-sap-connector\sap-connection-standard.png)
+   ![Screenshot showing SAP built-in connection settings for Standard workflow with Basic authentication.](./media/logic-apps-using-sap-connector/sap-connection-standard.png)
 
 1. To enable SNC, in the SAP connection information box, provide the [required information instead](/azure/logic-apps/connectors/built-in/reference/sap/#authentication).
 
-   ![Screenshot showing SAP built-in connection settings for Standard workflow with SNC enabled.](media\logic-apps-using-sap-connector\sap-connection-snc-standard.png)
+   ![Screenshot showing SAP built-in connection settings for Standard workflow with SNC enabled.](./media/logic-apps-using-sap-connector/sap-connection-snc-standard.png)
 
    | Parameter | Description |
    |-----------| ------------|
@@ -741,7 +741,7 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
 
 1. In the SAP connection information box, provide the following [required information](/connectors/sap/#default-connection). The **Authentication Type** that you select changes the available options.
 
-   ![Screenshot showing SAP connection settings for ISE.](media\logic-apps-using-sap-connector\sap-connection-ise.png)
+   ![Screenshot showing SAP connection settings for ISE.](./media/logic-apps-using-sap-connector/sap-connection-ise.png)
 
    > [!NOTE]
    >
@@ -750,7 +750,7 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
 
 1. To enable SNC, in the SAP connection information box, provide the following required information instead:
 
-   ![Screenshot showing SAP connection settings with SNC enabled for ISE.](./media\logic-apps-using-sap-connector\sap-connection-snc-ise.png)
+   ![Screenshot showing SAP connection settings with SNC enabled for ISE.](./media/logic-apps-using-sap-connector/sap-connection-snc-ise.png)
 
    | Parameter | Description |
    |-----------|-------------|
@@ -1018,7 +1018,7 @@ You can [export all of your gateway's configuration and service logs](/data-inte
 
 As an optional advanced logging task, you can directly capture ETW events, and then [consume the data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data).
 
-To work with the resulting ETL files, you can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md), or you can write your own program. The following walkthrough uses PerfView:
+To work with the resulting ETL files, you can use [PerfView](https://github.com/Microsoft/perfview/blob/main/README.md), or you can write your own program. The following walkthrough uses PerfView:
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 

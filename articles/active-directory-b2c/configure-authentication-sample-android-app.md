@@ -58,9 +58,9 @@ The apps registration and application architecture are illustrated in the follow
 A computer that's running: 
 
 
-- [Java Development Kit (JDK) 8 or later](https://openjdk.java.net/)
+- [Java Development Kit (JDK) 8 or later](https://openjdk.org/)
 - [Apache Maven](https://maven.apache.org/)
-- [Android API level 16 or later](https://developer.android.com/studio/releases/platforms)
+- [Android API level 16 or later](https://developer.android.com/tools/releases/platforms)
 - [Android Studio](https://developer.android.com/studio) or another code editor
 
 

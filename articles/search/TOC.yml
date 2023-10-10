@@ -125,32 +125,32 @@
   items:
   - name: Search
     items:
-    - name: Full-text
-      items:
-      - name: Full-text search
-        href: search-lucene-query-architecture.md
-      - name: Query types and composition
-        href: search-query-overview.md
-      - name: Relevance scoring
-        href: index-similarity-and-scoring.md
-    - name: Semantic
-      items:
-      - name: Semantic search
-        href: semantic-search-overview.md
-      - name: Semantic ranking
-        href: semantic-ranking.md 
-    - name: Vectors
-      items:
-      - name: Vector search
-        href: vector-search-overview.md
-      - name: Vector index size limit
-        href: vector-search-index-size.md
-      - name: Vector query execution
-        href: vector-search-ranking.md
+    - name: Full-text search
+      href: search-lucene-query-architecture.md
+    - name: Vector search
+      href: vector-search-overview.md
+    - name: Hybrid search
+      href: hybrid-search-overview.md
+    - name: Retrieval Augmented Generation (RAG)
+      href: retrieval-augmented-generation-overview.md
+    - name: Other query types
+      href: search-query-overview.md
+  - name: Relevance
+    items:
+    - name: Scoring in keyword queries (BM25)
+      href: index-similarity-and-scoring.md
+    - name: Scoring in vector queries
+      href: vector-search-ranking.md
+    - name: Scoring in hybrid queries (RRF)
+      href: hybrid-search-ranking.md
+    - name: Semantic search
+      href: semantic-search-overview.md
   - name: Indexing
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Vector index size limit
+      href: vector-search-index-size.md
     - name: Import
       href: search-what-is-data-import.md
     - name: Import Data wizard
@@ -266,9 +266,9 @@
       href: search-howto-concurrency.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Upgrade to 11.0
+    - name: Upgrade .NET libraries
       href: search-dotnet-sdk-migration-version-11.md
-    - name: Upgrade the Management SDK
+    - name: Manage with Azure SDKs
       href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
@@ -496,33 +496,33 @@
   items:
   - name: REST
     items:
-    - name: Search API
+    - name: Search REST API
       href: /rest/api/searchservice
-    - name: Management API
+    - name: Management REST API
       href: /rest/api/searchmanagement
   - name: .NET
     items:
-    - name: Search API
+    - name: Azure.Search.Documents
       href: /dotnet/api/overview/azure/search.documents-readme
-    - name: Management API
-      href: /dotnet/api/microsoft.azure.management.search
+    - name: Azure.ResourceManager.Search
+      href: /dotnet/api/overview/azure/resourcemanager.search-readme
   - name: Java
     items:
-    - name: Search API
+    - name: com.azure.search.documents
       href: /java/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: com.azure.resourcemanager.search
       href: /java/api/overview/azure/search/management
   - name: JavaScript
     items:
-    - name: Search API
+    - name: azure/search-documents
       href: /javascript/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure/arm-search
       href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
-    - name: Search API
+    - name: azure-search-documents
       href: /python/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure-mgmt-search
       href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
@@ -537,6 +537,10 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Data type reference
+    href: /rest/api/searchservice/supported-data-types
+  - name: Data types for indexer data sources
+    href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
   - name: Stopwords reference
     href: reference-stopwords.md
   - name: OData language reference
@@ -628,19 +632,21 @@
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:
-  - name: Azure Community Support
-    href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure Updates
-    href: https://azure.microsoft.com/updates/?product=search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-cognitive-search
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Products by Region
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search
   - name: Demo sites
     href: resource-demo-sites.md
-  - name: Tools
+  - name: Tools and Accelerators
     href: resource-tools.md
   - name: Training
     href: resource-training.md
-  - name: Partner spotlight
-    href: resource-partners-knowledge-mining.md
-  - name: Partner data sources (Terms of Use)
-    href: search-data-sources-terms-of-use.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Partner solutions
+    items:
+    - name: Partner spotlight
+      href: resource-partners-knowledge-mining.md
+    - name: Partner data sources (Terms of Use)
+      href: search-data-sources-terms-of-use.md

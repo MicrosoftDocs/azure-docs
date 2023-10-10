@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -104,11 +103,11 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. On the Document Intelligence Studio home page, select **Layout**
 
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot of analyze layout menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)

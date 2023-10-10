@@ -2,7 +2,7 @@
 title: Manage databases in Azure SQL databases using Azure Automation
 description: This article explains on how to use Azure SQL server database using a system assigned managed identity in Azure Automation.
 services: automation
-ms.date: 06/26/2023
+ms.date: 09/23/2023
 ms.topic: conceptual
 ---
 
@@ -51,8 +51,7 @@ To allow access from the Automation system managed identity to the Azure SQL dat
     1. Go to [Azure portal](https://portal.azure.com) home page and select **SQL servers**.
     1. In the **SQL server** page, under **Settings**, select **SQL Databases**.
     1. Select your database to go to the SQL database page and select **Query editor (preview)** and execute the following two queries:
-       - CREATE USER "AutomationAccount"
-       - FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
+       - CREATE USER "AutomationAccount" FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
        - EXEC sp_addrolemember `dbowner`, "AutomationAccount"
            - Automation account - replace with your Automation account's name
            - Object ID - replace with object (principal) ID for your system managed identity principal from step 1.

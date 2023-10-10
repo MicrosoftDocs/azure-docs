@@ -9,6 +9,8 @@ ms.date: 06/24/2022
 ---
 # Server concepts in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article provides considerations and guidelines for working with Azure Database for MariaDB servers.
 
 ## What is an Azure Database for MariaDB server?

@@ -515,6 +515,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubernets-secret]: https://kubernetes.io/docs/concepts/configuration/secret
 
 <!-- LINKS - internal -->
 [operator-best-practices-storage]: operator-best-practices-storage.md
@@ -526,3 +527,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md
 [storage-account-private-endpoint]: ../storage/common/storage-private-endpoints.md
+[manage-blob-storage]: ../storage/blobs/blob-containers-cli.md

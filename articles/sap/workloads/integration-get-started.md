@@ -43,7 +43,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
 | [App Development in any language including ABAP and DevOps](#app-development-in-any-language-including-abap-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
-| [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender for Cloud and the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution. Prevent incidents from happening, detect and respond to threats in real-time. |
+| [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender for Cloud, the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution, and immutable vault for Azure Backup. Prevent incidents from happening, detect, and respond to threats in real-time. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
 ### Azure OpenAI service
@@ -210,6 +210,8 @@ Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_
 
 Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
 
+Leverage the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept) to protect your SAP data from ransomware attacks.
+
 #### Microsoft Defender for Cloud
 
 The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to provide "cloud security posture management" (CSPM) and "cloud workload protection" (CWPP) for the various workload types. Below excerpt serves as entry point to start securing your SAP system.
@@ -231,11 +233,13 @@ See SAP's recommendation to use AntiVirus software for SAP hosts and systems on 
 For more information about using Microsoft Defender for Endpoint (MDE) via Microsoft Defender for Server for SAP applications regarding `Next-generation protection` (AntiVirus) and `Endpoint Detection and Response` (EDR) see the following Microsoft resources:
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
+- [SAP Applications and Microsoft Defender for Windows Server | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/microsoft-defender-endpoint-mde-for-sap-applications-on-windows/ba-p/3912268)
 - [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)
 
 Also see the following SAP resources:
 
+- [3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389)
 - [2808515 - Installing security software on SAP servers running on Linux](https://me.sap.com/notes/2808515)
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
 
@@ -271,6 +275,13 @@ Also see the following SAP resources:
 See below video to experience the SAP security orchestration, automation and response workflow with Sentinel in action:
 
 > [!VIDEO https://www.youtube.com/embed/b-AZnR-nQpg]
+
+#### Immutable vault for Azure Backup for SAP
+
+For more information about [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept), see the following Azure documentation:
+
+- [Backup and restore plan to protect against ransomware](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
+- [Back up SAP HANA System Replication databases on Azure VMs](/azure/backup/sap-hana-database-with-hana-system-replication-backup#create-a-recovery-services-vault)
 
 ### SAP BTP
 

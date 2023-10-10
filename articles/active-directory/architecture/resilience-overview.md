@@ -1,5 +1,5 @@
 ---
-title: Resilience in identity and access management with Azure Active Directory
+title: Resilience in identity and access management with Microsoft Entra ID
 description: Learn how to build resilience into identity and access management. Resilience helps endure disruption to system components and recover with minimal effort.
 services: active-directory
 author: janicericketts
@@ -19,7 +19,7 @@ ms.custom:
 ms.collection: M365-identity-device-management
 ---
 
-# Building resilience into identity and access management with Azure Active Directory
+# Building resilience into identity and access management with Microsoft Entra ID
 
 Identity and access management (IAM) is a framework of processes, policies, and technologies. IAM facilitates the management of identities and what they access. It includes the many components supporting the authentication and authorization of user and other accounts in your system.
 

@@ -375,10 +375,7 @@ If you would like to use certificate authentication and wrap the encryption key 
 > [!IMPORTANT]
 > Azure AD certificate-based authentication is currently not supported on Linux VMs.
 
-
-
-
- ```powershell
+```powershell
 # Fill in 'MyKeyVaultResourceGroup', 'MySecureVault', and 'MyLocation' (if needed)
 
    $KVRGname = 'MyKeyVaultResourceGroup'
@@ -459,7 +456,6 @@ If you would like to use certificate authentication and wrap the encryption key 
 
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
 ```
-
 
 ## Next steps
 
