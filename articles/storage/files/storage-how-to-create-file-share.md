@@ -210,11 +210,11 @@ Follow these instructions to create a new Azure file share using the Azure porta
 1. In the file share listing, you should see any file shares you have previously created in this storage account; an empty table if no file shares have been created yet. Select **+ File share** to create a new file share.
 
 1. The new file share blade should appear on the screen. Complete the fields in the **Basic** tab of the new file share blade to create a file share:
-
-- **Name**: The name of the file share to be created.
-- **Tier**: The selected tier for a standard file share. This field is only available in a **general purpose (GPv2) storage account**. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
-- **Provisioned capacity**: For premium file shares only, the provisioned capacity is the amount that you'll be billed for regardless of actual usage. The IOPS and throughput available on a premium file share is based on the provisioned capacity, so you can provision more capacity to get more performance. The minimum size for a premium file share is 100 GiB. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
-
+   
+   - **Name**: The name of the file share to be created.
+   - **Tier**: The selected tier for a standard file share. This field is only available in a **general purpose (GPv2) storage account**. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
+   - **Provisioned capacity**: For premium file shares only, the provisioned capacity is the amount that you'll be billed for regardless of actual usage. The IOPS and throughput available on a premium file share is based on the provisioned capacity, so you can provision more capacity to get more performance. The minimum size for a premium file share is 100 GiB. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
+   
 1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
 
 1. Select **Review + create** and then **Create** to create the Azure file share.
