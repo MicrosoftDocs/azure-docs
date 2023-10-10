@@ -52,8 +52,8 @@ The following services are in scope for DoD IL5 PA in US DoD regions (US DoD Cen
 
 - [API Management](https://azure.microsoft.com/services/api-management/)
 - [Application Gateway](https://azure.microsoft.com/services/application-gateway/)
-- [Azure Active Directory (Free and Basic)](../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
-- [Azure Active Directory (Premium P1 + P2)](../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
+- [Microsoft Entra ID (Free and Basic)](../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
+- [Microsoft Entra ID (Premium P1 + P2)](../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
 - [Azure Backup](https://azure.microsoft.com/services/backup/)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
