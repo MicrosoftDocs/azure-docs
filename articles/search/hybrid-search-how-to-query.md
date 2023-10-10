@@ -17,13 +17,13 @@ ms.date: 10/10/2023
 
 Hybrid search consists of keyword queries and vector queries in a single search request. 
 
-The response includes the top results ordered by search score. Both vector queries and free text queries are assigned a search score according to the scoring or similarity functions configured on the fields (BM25 for text fields). The scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to weight each document with the inverse of its position in the ranked result set. 
+The response includes the top results ordered by search score. Both vector queries and free text queries are assigned an initial search score from their respecitive scoring or similarity algorithms. Those scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set. 
 
 ## Prerequisites
 
 + Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there is a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
-+ A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
++ A search index containing vector and non-vector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
 + Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
@@ -39,9 +39,9 @@ All results are returned in plain text, including vectors. If you use Search Exp
 
 A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
-Hybrid queries are useful because they add support for filters, orderby, and [semantic search](semantic-how-to-query-request.md) For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
+Hybrid queries are useful because they add support for all query capabilities, including orderby and [semantic search](semantic-how-to-query-request.md). For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
 
-The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search and full text search with filters.
+The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate hybrid query configurations.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
@@ -67,7 +67,7 @@ api-key: {{admin-api-key}}
 
 ## Hybrid search with filter
 
-This example adds a filter, which is applied to the nonvector content of the search index.
+This example adds a filter, which is applied to the "filterable" nonvector fields of the search index.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -193,11 +193,9 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 
 ### Ranking
 
-Ranking of results is computed by Reciprocal Rank Fusion (RRF).
+Multiple sets are created for hybrid queries, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Ranking of results is computed by Reciprocal Rank Fusion (RRF).
 
-Multiple sets are created for hybrid queries, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md).
-
-Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms, HNSW's similarity metric and RRF respectively, produce scores that have different magnitudes. This behavior is by design. RRF scores can appear quite low, even with a high similarity match. Lower scores are a characteristic of the RRF algorithm. In a hybrid query with RRF, more of the reciprocal of the ranked documents are included in the results, given the relatively smaller score of the RRF ranked documents, as opposed to pure vector search.
+In this section, compare the responses between single vector search and simple hybrid search for the top result. The different ranking algorithms, HNSW's similarity metric and RRF is this case, produce scores that have different magnitudes. This behavior is by design. RRF scores can appear quite low, even with a high similarity match. Lower scores are a characteristic of the RRF algorithm. In a hybrid query with RRF, more of the reciprocal of the ranked documents are included in the results, given the relatively smaller score of the RRF ranked documents, as opposed to pure vector search.
 
 **Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function).
 

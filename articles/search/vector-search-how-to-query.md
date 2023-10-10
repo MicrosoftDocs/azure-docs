@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/10/2023
 ---
 
-# How to query vector data in a search index
+# Create a vector query in Azure Cognitive Search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -18,11 +18,10 @@ ms.date: 10/10/2023
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to:
 
 > [!div class="checklist"]
-> + [Query vector fields](#query-syntax-for-vector-search).
-> + [Filter and query vector fields](#filter-and-vector-queries)
-<!-- > + [Combine vector, full text search, and semantic search in a hybrid query](#query-syntax-for-hybrid-search). -->
-> + [Query multiple vector fields at once](#query-syntax-for-vector-query-over-multiple-fields).
-> + [Run multiple vector queries in parallel](#query-syntax-for-multiple-vector-queries).
+> + [Query vector fields](#vector-query-request).
+> + [Filter a vector query](#Vector-query-with-filter)
+> + [Query multiple vector fields at once](#multiple-vector-fields).
+> + [Run multiple vector queries in parallel](#multiple-vector-queries).
 
 Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
@@ -40,7 +39,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 Cognitive Search doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
 
-All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result shows "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
+All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result can show "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
 ## Check your index for vector fields
 
@@ -379,7 +378,7 @@ Ranking of results is computed by either:
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
 
-Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
+Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#multiple-vector-fields) and [multiple vector queries](#multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
 
 ## Next steps
 
