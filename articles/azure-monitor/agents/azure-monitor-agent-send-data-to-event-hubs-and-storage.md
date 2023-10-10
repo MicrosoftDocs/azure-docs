@@ -1,5 +1,5 @@
 ---
-title: Send data to Event Hubs and Storage (Public preview)
+title: Send data to Event Hubs and Storage (Private preview)
 description: This article describes how to use Azure Monitor Agent to upload data to Azure Storage and Event Hubs.
 ms.topic: conceptual
 author: guywi-ms
@@ -8,7 +8,7 @@ ms.date: 10/09/2023
 ms.reviewer: luki
 ---
 
-# Send data to Event Hubs and Storage (Public preview)
+# Send data to Event Hubs and Storage (Private preview)
 
 This article provides all of the required information related to the private preview for using the new Azure Monitor Agent (AMA) feature to upload data to Azure Storage and Event Hubs.
 
