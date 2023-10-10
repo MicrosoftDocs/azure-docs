@@ -54,7 +54,7 @@ This article lists limits in different areas of Azure Monitor.
 
 ## Azure Monitor Private Link Scope (AMPLS)
 
-[!INCLUDE [ampls-limitations](/includes/ampls-limitations.md)]
+[!INCLUDE [ampls-limitations](includes/ampls-limitations.md)]
 
 ## Next steps
 
