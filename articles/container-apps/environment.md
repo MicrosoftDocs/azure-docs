@@ -61,6 +61,13 @@ Settings relevant to the Azure Container Apps environment API resource.
 | `properties.appLogsConfiguration` | Used for configuring the Log Analytics workspace where logs for all apps in the environment are published. |
 | `properties.containerAppsConfiguration.daprAIInstrumentationKey` | App Insights instrumentation key provided to Dapr for tracing |
 
+## Policies
+
+Azure Container Apps environments will be automatically deleted if one of the following conditions is detected:
+- The Azure Container Apps environment is idle for more than 90 days
+- The Azure Container Apps environment is in a failed state due to VNET or Azure Policy configuration for more than 90 days
+- The Azure Container Apps environment blocks infrastructure updates due to VNET or Azure Policy configuration for more than 90 days
+
 ## Next steps
 
 > [!div class="nextstepaction"]
