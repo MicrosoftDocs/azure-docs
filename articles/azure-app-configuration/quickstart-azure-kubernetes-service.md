@@ -16,7 +16,7 @@ ms.author: junbchen
 
 In Kubernetes, you set up pods to consume configuration from ConfigMaps. It lets you decouple configuration from your container images, making your applications easily portable. [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about) can construct ConfigMaps and Secrets from your key-values and Key Vault references in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
 
-In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from environment variables.
+In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from json files.
 
 ## Prerequisites
 
@@ -34,7 +34,8 @@ In this quickstart, you incorporate Azure App Configuration Kubernetes Provider 
 >
 
 ## Create an application running in AKS
-In this section, you will create a simple ASP.NET Core web application running in Azure Kubernetes Service (AKS). The application reads configuration from the environment variables defined in a Kubernetes deployment. In the next section, you will enable it to consume configuration from Azure App Configuration without changing the application code. If you already have an AKS application that reads configuration from environment variables, you can skip this section and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider).
+
+In this section, you will create a simple ASP.NET Core web application running in Azure Kubernetes Service (AKS). The application reads configuration from local json file. In the next section, you will enable it to consume configuration from Azure App Configuration without changing the application code. 
 
 ### Create an application
 
@@ -64,6 +65,37 @@ In this section, you will create a simple ASP.NET Core web application running i
     <div class="text-center">
         <h1>@Configuration["Settings:Message"]</h1>
     </div>
+    ```
+
+1. Open *appsettings.json* file at the root of your project directory, and update the content with the following code.
+
+    ```json
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+      "Settings:FontColor": "Black",
+      "Settings:Message": "Message from the local configuration",
+      "AllowedHosts": "*"
+    }
+    ```
+
+1. Open *program.cs*, and add a JSON configuration source by calling `AddJsonFile`. The specified file will be generated in next section [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). Currently, the application will  read configuration from *appsettings.json* file at the root of your project directory.
+
+    ```csharp   
+    // Existing code in Program.cs
+    // ... ...
+
+    // Add a JSON configuration source 
+    builder.Configuration.AddJsonFile("config/appsettings.json", reloadOnChange:true, optional:false); 
+
+    var app = builder.Build();
+
+    // The rest of existing code in program.cs
+    // ... ...
     ```
 
 ### Containerize the application 
@@ -142,11 +174,6 @@ In this section, you will create a simple ASP.NET Core web application running i
             image: myregistry.azurecr.io/aspnetapp:v1
             ports:
             - containerPort: 80
-            env:
-            - name: Settings__Message
-              value: "Message from the local configuration"
-            - name: Settings__FontColor
-              value: "Black"
     ```
 
 1. Add a *service.yaml* file to the *Deployment* directory with the following content to create a LoadBalancer service. 
@@ -174,7 +201,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 1. Run the following command and get the External IP address exposed by the LoadBalancer service.
    
     ```console
-    kubectl get service configmap-demo-service -n appconfig-demo
+    kubectl get service aspnetapp-demo-service -n appconfig-demo
     ```
 
 1. Open a browser window, and navigate to the IP address obtained in the previous step. The web page looks like this:
@@ -183,7 +210,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ## Use App Configuration Kubernetes Provider
 
-Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as environment variables by your application.
+Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file by populating a volume with its data.
 
 ### Setup the Azure App Configuration store
 
@@ -191,12 +218,10 @@ Now that you have an application running in AKS, you'll deploy the App Configura
 
     |**Key**|**Value**|
     |---|---|
-    |Settings__FontColor|*Green*|
-    |Settings__Message|*Hello from Azure App Configuration*|
-    
-1. [Enabling the system-assigned managed identity on the Virtual Machine Scale Sets of your AKS cluster](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set). This allows the App Configuration Kubernetes Provider to use the managed identity to connect to your App Configuration store.
+    |Settings:FontColor|*Green*|
+    |Settings:Message|*Hello from Azure App Configuration*|
 
-1. Grant read access to your App Configuration store by [assigning the managed identity the App Configuration Data Reader role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration).
+1. Grant read access to your App Configuration store by [use workload identity](./reference-kubernetes-provider.md#use-workload-identity).
 
 ### Install App Configuration Kubernetes Provider to AKS cluster
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
@@ -217,7 +242,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store.
+    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store, and set the `spec.auth.workloadIdentity.managedIdentityClientId` property to the client ID of the user-assigned managed identity you created in previous step [use workload identity](./reference-kubernetes-provider.md#use-workload-identity).
    
     ```yaml
     apiVersion: azconfig.io/v1beta1
@@ -228,6 +253,12 @@ Now that you have an application running in AKS, you'll deploy the App Configura
       endpoint: <your-app-configuration-store-endpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
+        configMapData: 
+          type: json
+          key: appsettings.json
+      auth:
+        workloadIdentity:
+          managedIdentityClientId: <your-managed-identity-client-id>
     ```
     
     > [!NOTE]
@@ -237,21 +268,39 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variables.
+2. Update the *deployment.yaml* file in the *Deployment* directory and populate a volume with data stored in the ConfigMap `configmap-created-by-appconfig-provider`. Defining a volume and mounting it inside the `aspnetapp` container as `/app/config` creates the JSON file `/app/config/appsettings.json`.
    
-    Replace the `env` section 
     ```yaml
-    env:
-    - name: Settings__Message
-      value: "Message from the local configuration"
-    - name: Settings__FontColor
-      value: "Black"
-    ```
-    with
-    ```yaml
-    envFrom:
-    - configMapRef:
-        name: configmap-created-by-appconfig-provider
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: aspnetapp-demo
+      labels:
+        app: aspnetapp-demo
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: aspnetapp-demo
+      template:
+        metadata:
+          labels:
+            app: aspnetapp-demo
+        spec:
+          containers:
+          - name: aspnetapp
+            image: myregistry.azurecr.io/aspnetapp:v1
+            ports:
+            - containerPort: 80
+            volumeMounts:
+            - name: config-volume
+              mountPath: /app/config
+          volumes:
+          - name: config-volume 
+            configMap: configmap-created-by-appconfig-provider 
+            items:
+            - key: appsettings.json
+              path: appsettings.json
     ```
 
 3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
