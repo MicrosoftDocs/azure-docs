@@ -85,11 +85,11 @@ You can invoke the finetune settings form by selecting on the **Finetune** butto
 1. Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace. 
 For models with completion task type, the training data you use must be formatted as a JSON Lines (JSONL) document in which each line represents a single prompt-completion pair. 
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" alt-text="Screenshot showing the training data in the finetune wizard.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" alt-text="Screenshot showing the training data in the finetune UI section.":::
 
 For models with chat task type, each row in the dataset should be a list of JSON objects. Each row corresponds to a conversation and each object in the row is a turn/utterance in the conversation.
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" alt-text="Screenshot showing the training data in the finetune wizard.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" alt-text="Screenshot showing the training data after the data is uploaded into Azure.":::
 
 * Validation data: Pass in the data you would like to use to validate your model. Selecting **Automatic split** reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
 
