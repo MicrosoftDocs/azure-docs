@@ -1,8 +1,8 @@
 ---
 title: Monitoring & Alerting - How-To Guide
 description: Learn how to Create Alerts for Quotas
-ms.date: 10/01/2023
-ms.topic: How-to guides
+ms.date: 10/11/2023
+ms.topic: how-to
 ---
 
 # Monitoring & Alerting: How-To Guide
