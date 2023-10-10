@@ -1,6 +1,6 @@
 ---
-title: Register a client application for the DICOM service in Azure Active Directory
-description: How to register a client application for the DICOM service in Azure Active Directory.
+title: Register a client application for the DICOM service in Microsoft Entra ID
+description: How to register a client application for the DICOM service in Microsoft Entra ID.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,13 +9,13 @@ ms.date: 09/02/2022
 ms.author: mmitrik
 ---
 
-# Register a client application for the DICOM service in Azure Active Directory
+# Register a client application for the DICOM service in Microsoft Entra ID
 
 In this article, you'll learn how to register a client application for the DICOM service. You can find more information on [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 ## Register a new application
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID**.
 2. Select **App registrations**.
 [ ![Screen shot of new app registration window.](media/register-application-one.png) ](media/register-application-one.png#lightbox)
 3. Select **New registration**.
@@ -83,7 +83,7 @@ Your application registration is now complete.
 
 ## Next steps
 
-In this article, you learned how to register a client application for the DICOM service in the Azure AD. Additionally, you learned how to add a secret and API permissions to Azure Health Data Services. For more information about DICOM service, see
+In this article, you learned how to register a client application for the DICOM service in the Microsoft Entra ID. Additionally, you learned how to add a secret and API permissions to Azure Health Data Services. For more information about DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)
