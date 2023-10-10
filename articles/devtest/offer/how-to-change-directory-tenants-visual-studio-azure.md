@@ -11,9 +11,9 @@ ms.custom: devtestoffer
 
 # Change Directory Tenants with your Azure Subscriptions  
 
-Organizations may have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). (Azure AD)  
+Organizations may have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). (Microsoft Entra ID)  
 
-Azure AD is Microsoft’s cloud-based identity and access management service that helps your employees sign in and access internal and external resources.  
+Microsoft Entra ID is Microsoft’s cloud-based identity and access management service that helps your employees sign in and access internal and external resources.  
 
 You may need to change the Active Directory you’re working in or [transfer your subscription to another Active Directory](../../role-based-access-control/transfer-subscription.md).  
 
@@ -29,7 +29,9 @@ If the identity you’re logged in as is associated with multiple directories, s
 
 Your experience within the portal is highly dependent on the directory associated with the identity you used. To change directory tenants, an Admin will have to add your identity as a user within the target directory.  
 
-## Importance of Changing Your Azure Active Directory Tenant  
+<a name='importance-of-changing-your-azure-active-directory-tenant'></a>
+
+## Importance of Changing Your Microsoft Entra tenant  
 
 When you set up your Azure Credit Subscription through a Visual Studio license, you can use a work email or a personal email to create your identity.  
 
