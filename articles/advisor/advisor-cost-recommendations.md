@@ -27,7 +27,7 @@ Advisor uses machine-learning algorithms to identify low utilization and to iden
 Advisor identifies resources that haven't been used at all over the last 7 days and makes a recommendation to shut them down. 
 
 -	Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** isn't considered since we've found that **CPU** and **Outbound Network utilization** are sufficient.
-- The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, please be aware that it may take several days for the recommendations to be updated.
+- The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, please be aware that it may take up to 48 hours for the recommendations to be updated.
 - Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics across instances.
 - A shutdown recommendation is created if: 
   - P95th of the maximum value of CPU utilization summed across all cores is less than 3%.
@@ -39,7 +39,7 @@ Advisor identifies resources that haven't been used at all over the last 7 days 
 Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). On virtual machine scale sets, Advisor recommends resizing when it's possible to fit the current load on a more appropriate cheaper SKU, or a lower number of instances of the same SKU.
 
 -	Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**. 
-- The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, please be aware that it may take several days for the recommendations to be updated.
+- The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, please be aware that it may take up to 48 hours for the recommendations to be updated.
 - Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations. 
 - An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
   - Performance of the workloads on the new SKU shouldn't be impacted. 
