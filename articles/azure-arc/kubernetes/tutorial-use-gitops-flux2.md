@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 10/09/2023
+ms.date: 10/10/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -570,7 +570,7 @@ If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the de
 
 ### Workload identity in AKS clusters
 
-To create Flux configurations in [AKS clusters with workload identity enabled](/azure/aks/workload-identity-deploy-cluster), you must modify the flux extension.
+Starting with [`microsoft.flux` v1.8.0](extensions-release.md#flux-gitops), you can create Flux configurations in [AKS clusters with workload identity enabled](/azure/aks/workload-identity-deploy-cluster). To do so, modify the flux extension as shown in the following steps.
 
 1. Retrieve the [OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) for your cluster.
 1. Create a [managed identity](/azure/aks/workload-identity-deploy-cluster#create-a-managed-identity) and note its client ID.
@@ -602,7 +602,7 @@ To create Flux configurations in [AKS clusters with workload identity enabled](/
      type: <helm_repository_type>
      url: <helm_repository_link>
      provider: azure
-   ```dotnetcli
+   ```
 
 1. Be sure to provide proper permissions for workload identity for the resource that you want source-controller or image-reflector controller to pull. For example, if using Azure Container Registry, `AcrPull` permissions are required.
 
