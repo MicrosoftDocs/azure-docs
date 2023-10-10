@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/07/2023
+ms.date: 10/10/2023
 ---
 
 # Quickstart: Use preview REST APIs for vector search queries
@@ -168,7 +168,7 @@ You should get a status HTTP 201 success.
 
 **Key points:**
 
-+ The "fields" collection includes a required key field, a category field, and pairs of fields (such as "title", "titleVector") for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
++ The "fields" collection includes a required key field, a category field, and pairs of fields (such as `"title"`, `"titleVector"`) for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
@@ -180,7 +180,7 @@ You should get a status HTTP 201 success.
 
 Use the [Add, Update, or Delete Documents](/rest/api/searchservice/preview-api/add-update-delete-documents) REST API for this request.
 
-For readability, the following example shows a subset of documents and embeddings. The body of the Upload Documents request consists of 108 documents, each with a full set of embeddings for "titleVector" and "contentVector".
+For readability, the following example shows a subset of documents and embeddings. The body of the Upload Documents request consists of 108 documents, each with a full set of embeddings for `"titleVector"` and `"contentVector"`.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/index?api-version={{api-version}}
@@ -244,7 +244,7 @@ There are several queries to demonstrate the patterns. We use the same query str
 + [Semantic hybrid search](#semantic-hybrid-search)
 + [Semantic hybrid search with filter](#semantic-hybrid-search-with-filter)
 
-### Single vector search
+<!-- ### Single vector search
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
 
@@ -271,7 +271,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The response includes 5 results, and each result provides a search score, title, content, and category. In a similarity search, the response will always include "k" results ordered by the value similarity score.
+The response includes five results, and each result provides a search score, title, content, and category. In a similarity search, the response always includes `"k"` results ordered by the value similarity score.
 
 ### Single vector search with filter
 
@@ -300,9 +300,9 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "filter": "category eq 'Databases'"
 }
-```
+``` -->
 
-### Cross-field vector search
+<!-- ### Cross-field vector search
 
 A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md):
 
@@ -329,7 +329,7 @@ api-key: {{admin-api-key}}
 
 ### Multi-query vector search
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. This also displays scores using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. The following query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this approach if you have different embedding models with different dimensions in your search index. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -361,9 +361,9 @@ api-key: {{admin-api-key}}
         }
     ]
 }
-```
+``` -->
 
-### Hybrid search
+<!-- ### Hybrid search
 
 Hybrid search consists of keyword queries and vector queries in a single search request. 
 
@@ -392,7 +392,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms, HNSW's similarity metric and RRF respectively, produce scores that have different magnitudes. This is by design. Note that RRF scores may appear quite low, even with a high similarity match. This is a characteristic of the RRF algorithm. When using hybrid search and RRF, more of the reciprocal of the ranked documents are included in the results, given the relatively smaller score of the RRF ranked documents, as opposed to pure vector search.
+Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms, HNSW's similarity metric and RRF respectively, produce scores that have different magnitudes. This behavior is by design. RRF scores can appear quite low, even with a high similarity match. Lower scores are a characteristic of the RRF algorithm. In a hybrid query with RRF, more of the reciprocal of the ranked documents are included in the results, given the relatively smaller score of the RRF ranked documents, as opposed to pure vector search.
 
 **Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function).
 
@@ -516,7 +516,7 @@ api-key: {{admin-api-key}}
 + Vector search is specified through the vector "vector.value" property. Keyword search is specified through "search" property.
 
 + In a hybrid search, you can integrate vector search with full text search over keywords. Filters, spell check, and semantic ranking apply to textual content only, and not vectors. In this final query, there's no semantic "answer" because the system didn't produce one that was sufficiently strong.
-
+ -->
 ## Clean up
 
 Azure Cognitive Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
