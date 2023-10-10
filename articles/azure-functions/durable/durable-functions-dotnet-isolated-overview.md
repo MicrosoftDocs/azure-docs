@@ -24,13 +24,6 @@ Using this model lets you get all the great benefits that come with the Azure Fu
 - Support for strongly typed calls and class-based activities and orchestrations (NOTE: in preview. For more information, see [here](#source-generator-and-class-based-activities-and-orchestrations).)
 - Plus all the benefits of the Azure Functions .NET isolated worker.
 
-### Feature parity with in-process Durable Functions
-
-Not all features from in-process Durable Functions have been migrated to the isolated worker yet. Some known missing features that will be addressed at a later date are:
-
-- Durable Entities
-- `CallHttpAsync`
-
 ### Source generator and class-based activities and orchestrations
 
 **Requirement**: add `<PackageReference Include="Microsoft.DurableTask.Generators" Version="1.0.0-preview.1" />` to your project.

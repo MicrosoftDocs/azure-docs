@@ -1157,6 +1157,9 @@ You can use [Durable entities](durable-functions-entities.md) to easily implemen
 
 ::: zone pivot="csharp"
 
+> [!NOTE]
+> Support for Durable entities is currently in **preview** for the .NET-isolated worker.
+
 # [C# (InProc)](#tab/in-process)
 
 ```csharp
@@ -1202,8 +1205,48 @@ public class Counter
 
 # [C# (Isolated)](#tab/isolated-process)
 
-Durable entities are currently not supported in the .NET-isolated worker.
+```csharp
+[FunctionName(nameof(Counter))]
+public static Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+{
+    return dispatcher.DispatchAsync(operation =>
+    {
+        switch (operation.Name.ToLowerInvariant())
+        {
+            case "add":
+                operation.State.SetState(operation.State.GetState<int>() + operation.GetInput<int>());
+                break;
+            case "reset":
+                operation.State.SetState(0);
+                break;
+            case "get":
+                operation.State.GetState<int>();
+                break;
+        }
+    });
+}
+```
 
+Durable entities can also be modeled as classes in .NET. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+
+```csharp
+public class Counter
+{
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+
+    public void Reset() => this.CurrentValue = 0;
+
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+    {
+        return dispatcher.DispatchAsync<Counter>();
+    }
+}
+```
 ::: zone-end
 ::: zone pivot="javascript"
 
@@ -1344,8 +1387,19 @@ public static async Task Run(
 
 # [C# (Isolated)](#tab/isolated-process)
 
-Durable entities are currently not supported in the .NET-isolated worker.
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData, [DurableClient] DurableTaskClient client)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
 
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityInstanceId("Counter", metricType);
+    await client.Entities.SignalEntityAsync(entityId, "add", delta);
+}
+```
 ::: zone-end
 ::: zone pivot="javascript"
 

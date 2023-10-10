@@ -724,7 +724,7 @@ Internally, this trigger binding polls the configured durable store for new enti
 The entity trigger is configured using the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute.
 
 > [!NOTE]
-> Entity triggers aren't yet supported for isolated worker process apps.
+> Entity triggers are currently in **preview** for isolated worker process apps.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
 The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
