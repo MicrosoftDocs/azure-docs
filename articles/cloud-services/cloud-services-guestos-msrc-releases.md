@@ -11,8 +11,8 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/26/2023
-ms.author: jejackson
+ms.date: 10/10/2023
+ms.author: ssundara
 ms.custom: compute-evergreen
 ---
 
