@@ -14,6 +14,8 @@ ms.author: mbullwin
 
 # How-to: Connect different data sources
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Use this article to find the settings and requirements for connecting different types of data sources to Azure AI Metrics Advisor. To learn about using your data with Metrics Advisor, see [Onboard your data](how-tos/onboard-your-data.md). 
 
 ## Supported authentication types

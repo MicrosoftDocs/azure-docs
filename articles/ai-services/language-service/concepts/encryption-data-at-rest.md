@@ -4,7 +4,7 @@ description: Learn how the Language service encrypts your data when it's persist
 titleSuffix: Azure AI services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: aahi

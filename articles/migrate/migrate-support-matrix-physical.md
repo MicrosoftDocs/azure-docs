@@ -73,7 +73,7 @@ For Linux servers, based on the features you want to perform, you can create a u
     Operating system | Versions
     --- | ---
     Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x
-    Cent OS | 5.1, 5.9, 5.11, 6.x, 7.x, 8.x
+    CentOS | 5.1, 5.9, 5.11, 6.x, 7.x, 8.x
     Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04
     Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
     SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
