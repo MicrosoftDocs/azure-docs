@@ -16,9 +16,7 @@ zone_pivot_groups: azure-portal-console
 
 TODO1 Intro here.
 
-Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas.
-
-In this tutorial, you add an HTTP scale rule to your container app and observe how your application scales.
+This topic describes how to troubleshoot a container app.
 
 ## Prerequisites
 
@@ -315,6 +313,16 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 
 ::: zone-end
 
+## Verify Container Apps can pull container image
+
+TODO1
+- Verify you can pull your container image publicly. TODO1 Give example, like pulling Docker image from command line?
+- Verify your container environment firewall is not blocking access to the container registry. TODO1 How?
+- Verify DNS lookup of the container registry does not fail. TODO1 Publicly, then from container environment? Link to how to get debug console inside environment. Why would this happen? Container environment firewall blocking port 53? Do container environments have their own DNS caching servers, such as dnsmasq?
+
+TODO1 ACI says they sometimes cache container images. Do we? That could lead to using an outdated image.
+https://learn.microsoft.com/en-us/azure/container-instances/container-instances-troubleshooting#cached-images
+
 ## Review Ingress Configuration
 
 TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
@@ -331,22 +339,25 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 	- **Ingress Traffic** is set to **Accepting traffic from anywhere**.
 	- Your Container Apps environment has *internalOnly* set to *false*. TODO1 Where is that?
 
-TODO1 These next four items might not be useful. Check with PMs before we replicate to console.
+TODO1 These next four items might not be useful. Check with PMs before we replicate them to console.
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) your client uses to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - If your client uses HTTP/1, verify **Transport** is set to **Auto** or **HTTP/1**. If your client uses HTTP/2, verify **Transport** is set to **Auto** or **HTTP/2**.
 - If your client cannot use a secure connection, verify **Insecure connections** > **Allowed** is enabled.
 
+TODO1 These items should be useful.
 - Verify **Target port** is set to the same port your container app is listening on, or the same port exposed by your container app's Dockerfile.
 - If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
 
 TODO1
-x Where is environment configuration in Portal? You have to know your environment name and search for it.
+- x Where is environment configuration in Portal? You have to know your environment name and search for it.
+- x Console does not show setting for HTTP/TCP. Okay, it's --transport.
+- / How to find what env your app belongs to in console? containerapp show > managedEnvironmentId. Can we then query on that ID?
+
 - How to set env internalOnly to true/false on env in Portal?
 - Portal ingress traffic setting is confusing. It sounds like env internalOnly setting partially overrides this.
 - env show in console does not show internalOnly.
-/ How to find what env your app belongs to in console? containerapp show > managedEnvironmentId. Can we then query on that ID?
-x Console does not show setting for HTTP/TCP. Okay, it's --transport.
+
 - Things to note:
 	- Port mismatch. For HTTP ingress your port is always 443. However that is the exposed port, not the target port.
 	- TCP ingress is only available with custom vnet.
@@ -603,16 +614,12 @@ TODO1 Can you configure traffic routing in command line? The doc for [`az contai
 
 ::: zone-end
 
-## Conclusion
-
-TODO1 Add?
-
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Next steps
 
-TODO1 Figure out next step. Maybe Ingress if we split that into separate topic.
+TODO1 Figure out next step. Maybe Ingress/networking if we split that into separate topic.
 
 > [!div class="nextstepaction"]
 > [Set scaling rules in Azure Container Apps](scale-app.md)
