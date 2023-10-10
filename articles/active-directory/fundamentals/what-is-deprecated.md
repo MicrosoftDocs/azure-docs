@@ -76,5 +76,5 @@ Use the definitions in this section help clarify the state, availability, and su
 [What's new in Microsoft Entra ID?](../../active-directory/fundamentals/whats-new.md)
 
 ## Resources
-* [Microsoft Entra ID Change Announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-november-2022-train/ba-p/2967452)
+* [Microsoft Entra change announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-november-2022-train/ba-p/2967452)
 * Devices: [End-of-life management and recycling](https://www.microsoft.com/legal/compliance/recycling)
