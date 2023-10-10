@@ -54,33 +54,23 @@ This how-to guide shows how to add a map to your integration account. If you're 
 
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
-* Consumption and Standard workflows support XSLT maps that reference external assemblies, which enable directly calling custom .NET code from XSLT maps with the following requirements:
+* Consumption and Standard workflows support XSLT maps that reference external assemblies, which enable directly calling custom .NET code from XSLT maps. To support this capability, Consumption workflows also have the following requirements:
 
-  * Standard workflows
+  * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
 
-    * For the following scenarios, [change your logic app resource's app setting named **FUNCTIONS_WORKER_RUNTIME** to **dotnet-isolated**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings):
+  * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
 
-      * [Run the **Transform XML** action](logic-apps-enterprise-integration-transform.md) with XSLT maps that call .NET Framework assemblies.
-      * [Create maps for data transformation](create-maps-data-transformation-visual-studio-code.md).
-      * [Create and run .NET code from Standard workflows](create-run-custom-code-functions.md).
+  * If your assembly or map is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal.
 
-  * Consumption workflows
+  * If your assembly is bigger than 2 MB but not bigger than the [size limit for assemblies](logic-apps-limits-and-config.md#artifact-capacity-limits), you'll need an Azure storage account and blob container where you can upload your assembly. Later, you can provide that container's location when you add the assembly to your integration account. For this task, the following table describes the items you need:
 
-    * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
+    | Item | Description |
+    |------|-------------|
+    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
+    | Blob container | In this container, you can upload your assembly. You also need this container's content URI location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). <br><br>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
 
-    * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
-
-    * If your assembly or map is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal.
-
-    * If your assembly is bigger than 2 MB but not bigger than the [size limit for assemblies](logic-apps-limits-and-config.md#artifact-capacity-limits), you'll need an Azure storage account and blob container where you can upload your assembly. Later, you can provide that container's location when you add the assembly to your integration account. For this task, the following table describes the items you need:
-
-      | Item | Description |
-      |------|-------------|
-      | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
-      | Blob container | In this container, you can upload your assembly. You also need this container's content URI location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
-      | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). <br><br>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
-
-      To add larger maps, you can use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). For Standard workflows, the Azure Logic Apps REST API is currently unavailable.
+    To add larger maps, you can use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). For Standard workflows, the Azure Logic Apps REST API is currently unavailable.
 
 ## Limitations
 

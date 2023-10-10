@@ -6,7 +6,7 @@ ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 10/10/2023
 # As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
 ---
 
@@ -56,10 +56,6 @@ This how-to guide shows how to create a blank data map, choose your source and t
   1. [Connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account), if you haven't already.
 
   1. [Create a local folder, a local Standard logic app project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
-
-  After you create your logic app project, in your project's root folder, open the **local.settings.json** file, and add the following value:
-
-  - `"FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"`
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
 

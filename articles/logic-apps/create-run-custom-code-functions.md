@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 10/04/2023
+ms.date: 10/10/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -97,8 +97,6 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    | **<*workspace-name*>** | Contains both your function project and logic app workflow project. |
    | **Functions** | Contains the artifacts for your function project. For example, the **<*function-name*>.cs** file is the code file where you can author your code. |
    | **LogicApp** | Contains the artifacts for your logic app project, including a blank workflow. |
-
-1. [Change your logic app project's language worker runtime to **dotnet-isolated** using the app setting named **FUNCTIONS_WORKER_RUNTIME**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
 
 ## Write your code
 

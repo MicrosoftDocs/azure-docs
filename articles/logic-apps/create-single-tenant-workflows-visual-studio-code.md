@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 10/10/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -248,8 +248,6 @@ By default, Visual Studio Code creates a logic app project that is extension bun
    ![Screenshot shows Explorer pane with project shortcut menu opened from blank area in project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
 
 1. When the prompt appears, confirm the project conversion.
-
-1. [Change your project's language worker runtime to **dotnet** or **dotnet-isolated** using the app setting named **FUNCTIONS_WORKER_RUNTIME**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
 
 <a name="enable-built-in-connector-authoring"></a>
 

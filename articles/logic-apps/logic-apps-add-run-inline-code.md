@@ -3,9 +3,9 @@ title: Run code snippets in workflows
 description: Run code snippets in workflows using Inline Code operations in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, estfan, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 10/10/2023
 ms.custom: devx-track-js
 ---
 
@@ -78,8 +78,6 @@ The following diagram shows the highlights from example workflow:
     * [Node.js versions 16.x.x](https://nodejs.org/en/download/releases/)
 
     * No integration account required.
-
-    * [Confirm that logic app resource's app setting named **FUNCTIONS_WORKER_RUNTIME** is set to **node**](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings).
 
 ## Add the Execute JavaScript Code action
 
