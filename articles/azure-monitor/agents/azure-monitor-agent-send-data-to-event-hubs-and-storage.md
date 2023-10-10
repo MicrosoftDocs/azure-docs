@@ -893,6 +893,10 @@ Create a data collection rule for collecting events and sending to storage and e
 
     - Define `dataSources` as per your requirements. Supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
     - Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource id of event hub instance.
+
+      > [!NOTE]
+      > It isn't event hub namespace resource id.
+      
     - under `dataFlows`, include destination name.
 
     See the resource definition example above for a sample.
