@@ -51,7 +51,7 @@ The audit logs for Azure Data Manager for Energy service returns the following f
 | Data partition ID | 	String |  	Data partition ID on which operation is performed. |
 | Action  |	String | 	Action refers to the type of operation that is, whether it's create, delete, update etc.|
 | ActionID | 	String 	| ID associated with operation. |
-| PuID |	String	| ObjectId of the user in Azure AD|
+| PuID |	String	| ObjectId of the user in Microsoft Entra ID|
 | ResultType |	String 	| Define success or failure of operation | 
 | Operation Description	| String |	Provides specific details of the response. These details can include tracing information, such as the symptoms, of the result that are used for further analysis. |
 | RequestId | 	 String 	| This is the unique ID associated to the request, which triggered the operation on data plane. |
@@ -91,5 +91,3 @@ OEPAuditLogs
 Learn about Managed Identity:
 > [!div class="nextstepaction"]
 > [Managed Identity in Azure Data Manager for Energy](how-to-use-managed-identity.md)
-
-

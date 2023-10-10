@@ -20,9 +20,9 @@ Create an Azure Data Manager for Energy instance using the tutorial at [How to c
 You will need to pass parameters for generating the access token, which you'll need to make valid calls to the Entitlements API of your Azure Data Manager for Energy instance. You will also need these parameters for different user management requests to the Entitlements API. Hence Keep the following values handy for these actions.
 
 #### Find `tenant-id`
-Navigate to the Azure Active Directory account for your organization. One way to do so is by searching for "Azure Active Directory" in the Azure portal's search bar. Once there, locate `tenant-id` under the basic information section in the *Overview* tab. Copy the `tenant-id` and paste in an editor to be used later.  
+Navigate to the Microsoft Entra account for your organization. One way to do so is by searching for "Microsoft Entra ID" in the Azure portal's search bar. Once there, locate `tenant-id` under the basic information section in the *Overview* tab. Copy the `tenant-id` and paste in an editor to be used later.  
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Azure Active Directory.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
 
 :::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
@@ -90,9 +90,9 @@ Copy the `access_token` value from the response. You'll need it to pass as one o
 
 You can manage users' access to your Azure Data Manager for Energy instance or data partitions. As a prerequisite for this step, you need to find the 'object-id' (OID) of the user(s) first. If you are managing an application's access to your instance or data partition, then you must find and use the application ID (or client ID) instead of the OID.
 
-You'll need to input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy Instance. `object-id` (OID) is the Azure Active Directory User Object ID.
+You'll need to input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy Instance. `object-id` (OID) is the Microsoft Entra user Object ID.
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Microsoft Entra ID.":::
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
