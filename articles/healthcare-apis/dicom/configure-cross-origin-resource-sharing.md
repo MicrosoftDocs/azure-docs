@@ -11,7 +11,7 @@ ms.subservice: fhir
 
 # Configure cross-origin resource sharing
 
-DICOM&reg; service in Azure Health Data Services supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
+The DICOM&reg; service in Azure Health Data Services supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
 CORS is often used in a single-page app that must call a RESTful API to a different domain.
 

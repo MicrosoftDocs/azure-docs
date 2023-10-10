@@ -11,7 +11,7 @@ ms.custom: mode-api
 
 # Deploy the DICOM service
 
-In this quickstart, you'll learn how to deploy DICOM&reg; service using the Azure portal.
+In this quickstart, you'll learn how to deploy the DICOM&reg; service using the Azure portal.
 
 Once deployment is complete, you can use the Azure portal to navigate to the newly created DICOM service to see the details including your service URL. The service URL to access your DICOM service  will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service documentation](api-versioning-dicom-service.md).
 

@@ -12,7 +12,7 @@ ms.author: smithasa
 
 # Digital pathology using the DICOM service
 
-`Pathology` is a branch of medical science primarily concerning the cause, origin, and nature of disease. It involves the examination of tissues, organs, bodily fluids, and autopsies in order to study and diagnose disease.
+Pathology is a branch of medical science primarily concerning the cause, origin, and nature of disease. It involves the examination of tissues, organs, bodily fluids, and autopsies in order to study and diagnose disease.
 
 Historically, biopsies of tissues are stored in glass slides and investigated under microscope. This creates challenges when clinicians and pathologists need to share information for consultations and diagnosis as well as for research.  
 
@@ -91,8 +91,8 @@ Reach out to dicom-support@microsoft.com if you want to work with our partner IS
 
 ## Next steps
 
-[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
+[Deploy the DICOM service in Azure](deploy-dicom-services-in-azure.md)
 
-[Use DICOMweb&trade; APIs with the DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+[Use DICOMweb APIs with the DICOM service](dicomweb-standard-apis-with-dicom-services.md)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

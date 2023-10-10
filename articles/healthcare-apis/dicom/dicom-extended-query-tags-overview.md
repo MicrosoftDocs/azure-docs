@@ -479,7 +479,7 @@ This conceptual article provided you with an overview of the Extended Query Tag 
  
 ## Next steps
 
-[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
+[Deploy the DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
 [Use DICOMweb APIs with the DICOM service](dicomweb-standard-apis-with-dicom-services.md)
 
