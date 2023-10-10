@@ -110,7 +110,7 @@ This section describes what's [supported](#whats-supported) and [not supported](
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager-template)
 
-Azure Resource Manager Template definition for setting up a storage account:
+Azure Resource Manager template definition for setting up a storage account:
 
 ```json
 {
@@ -891,11 +891,11 @@ Create a data collection rule for collecting events and sending to storage and e
 
     ### [Event hub](#tab/event-hub)
 
-    - Define `dataSources` as per your requirements. Supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
+    - Define `dataSources` as per your requirements. The supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
     - Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource ID of the event hub instance.
 
       > [!NOTE]
-      > It isn't event hub namespace resource id.
+      > It isn't the event hub namespace resource ID.
 
     - under `dataFlows`, include destination name.
 
@@ -903,19 +903,19 @@ Create a data collection rule for collecting events and sending to storage and e
 
     ### [Storage table](#tab/storage-table)
 
-    - Define `“dataSources”` as per your requirements. Supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`.
+    - Define `“dataSources”` as per your requirements. The supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`.
     - Use `destinations` as `storageTablesDirect` for direct upload to table storage. `storageAccountResourceId` is the resource ID of the storage account. 
-    - `tableName` is the name of Table where JSON blob with event data is uploaded to.
+    - `tableName` is the name of the Table where JSON blob with event data is uploaded to.
     - Under `dataFlows`, include destination name.
 
     See the example Azure Resource Manager template for a sample. Table is created if it doesn’t already exists.
 
     ### [Storage blob](#tab/storage-blob)
 
-    - Define `dataSources` as per your requirements. Supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`.
+    - Define `dataSources` as per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`.
     - Use `destinations` as `storageBlobsDirect` for direct upload to blob storage. 
-    - `storageAccountResourceId` is resource ID of the storage account. 
-    - `containerName` is name of container where JSON blob with event data is uploaded to. 
+    - `storageAccountResourceId` is the resource ID of the storage account. 
+    - `containerName` is the name of the container where JSON blob with event data is uploaded to. 
     - Under `dataFlows`, include destination name. 
 
     See the example Azure Resource Manager template for a sample. Container is created if it doesn’t already exist.
