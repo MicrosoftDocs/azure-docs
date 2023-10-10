@@ -53,7 +53,7 @@ Next, create an SMB Azure file share.
    :::image type="content" source="media/storage-files-quick-create-use-windows/create-file-share.png" alt-text="Screenshot showing how to create a new file share.":::
 
 1. Name the new file share *qsfileshare* and leave **Transaction optimized** selected for **Tier**.
-1. Select the **Backup** tab. By default, backup is enabled when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault. To create a new backup policy, select **Create a new policy**.
+1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/create-file-share-backup.png" alt-text="Screenshot showing how to enable or disable file share backup." border="true":::
 
