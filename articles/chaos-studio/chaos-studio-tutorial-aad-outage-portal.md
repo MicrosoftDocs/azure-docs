@@ -54,3 +54,18 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 1. Review fault parameters and select **Next: Target resources**.
 
    [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/tutorial-aad-outage-fault-params.png)](images/tutorial-aad-outage-fault-params.png#lightbox)
+1. Select the network security group resource that you want to use in the experiment. Select **Save**.
+
+   [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/tutorial-aad-outage-fault-targets.png)](images/tutorial-aad-outage-fault-targets.png#lightbox)
+1. Select **Review + create** > **Create** to save the experiment.
+
+## Run your experiment
+You're now ready to run your experiment.
+
+1. In the **Experiments** view, select your experiment. Select **Start** > **OK**.
+1. When **Status** changes to *Running*, select **Details** for the latest run under **History** to see details for the running experiment.
+
+## Next steps
+Now that you've run an Azure Cosmos DB service-direct experiment, you're ready to:
+- [Manage your experiment](chaos-studio-run-experiment.md)
+- [Create an experiment that shut down all targets in a zone](chaos-studio-tutorial-dynamic-target-portal.md)
