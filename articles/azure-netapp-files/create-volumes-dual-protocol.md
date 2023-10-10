@@ -53,8 +53,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
-* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AADDS). 
-* Dual-protocol volumes do not support the use of LDAP over TLS with Azure Active Directory Domain Services ([Azure AD DS](../active-directory-domain-services/overview.md)). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
+* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services (AADDS). 
+* Dual-protocol volumes do not support the use of LDAP over TLS with Microsoft Entra Domain Services ([Microsoft Entra Domain Services](../active-directory-domain-services/overview.md)). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * The NFS version used by a dual-protocol volume can be NFSv3 or NFSv4.1. The following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
     * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
@@ -228,9 +228,9 @@ The values specified for `objectClass` are separate entries. For example, in Mul
 
 ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
-Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
+Microsoft Entra Domain Services (AADDS) doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
-If you are synchronizing the users and groups in your Azure AD tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [AADDS Custom OU Considerations and Limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
+If you are synchronizing the users and groups in your Microsoft Entra tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [AADDS Custom OU Considerations and Limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
 
 ### Access Active Directory Attribute Editor 
 

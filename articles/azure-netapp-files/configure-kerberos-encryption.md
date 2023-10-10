@@ -23,7 +23,7 @@ Azure NetApp Files supports NFS client encryption in Kerberos modes (krb5, krb5i
 
 The following requirements apply to NFSv4.1 client encryption: 
 
-* Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (AADDS) connection to facilitate Kerberos ticketing 
+* Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services (AADDS) connection to facilitate Kerberos ticketing 
 * DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
 * A Linux client: This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
 * NTP server access: You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
