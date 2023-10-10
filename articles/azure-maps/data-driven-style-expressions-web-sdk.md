@@ -520,7 +520,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the following image.
 
-![String operator expression example](media/how-to-expressions/string-operator-expression.png)
+:::image type="content" source="./media/how-to-expressions/string-operator-expression.png" alt-text="Screenshot of a map that demonstrates the string operator expression example.":::
 
 ## Interpolate and Step expressions
 
