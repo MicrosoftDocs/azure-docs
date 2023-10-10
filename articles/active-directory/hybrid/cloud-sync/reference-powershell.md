@@ -149,7 +149,7 @@ Disables accidentalDeletionPrevention tenant feature
 Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId <TenantId>
 ```
 
-This cmdlet requires `TenantId` of the Azure AD tenant. It will verify if Accidental Deletion Prevention feature, set on the tenant with Azure AD Connect (ADSync, not Cloud Sync), is enabled and disables it.
+This cmdlet requires `TenantId` of the Microsoft Entra tenant. It will verify if Accidental Deletion Prevention feature, set on the tenant with Microsoft Entra Connect (ADSync, not Cloud Sync), is enabled and disables it.
 
 #### Example:
 ``` powershell
