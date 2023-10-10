@@ -7,6 +7,22 @@ ms.author: xiaofanzhou
 ---
 
 
+### [.NET](#tab/dotnet)
+
+For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication).
+
+```csharp
+using Microsoft.Data.SqlClient;
+
+// The connection string should've been set in environment variable AZURE_SQL_CONNECTIONSTRING by Service Connector.
+string connectionString = 
+    Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING")!;
+
+using var connection = new SqlConnection(connectionString);
+connection.Open();
+```
+
+
 ### [Java](#tab/java)
 
 For managed identity authentication, see [Connect using Azure Active Directory authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
@@ -36,29 +52,44 @@ public class Main {
 }
 ```
 
-### [Spring](#tab/spring)
+### [SpringBoot](#tab/spring)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
 Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies.
 
 
-### [.NET](#tab/dotnet)
+### [Python](#tab/python)
 
-For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication).
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 
-```csharp
-using Microsoft.Data.SqlClient;
+For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code).
 
-// The connection string should've been set in environment variable AZURE_SQL_CONNECTIONSTRING by Service Connector.
-string connectionString = 
-    Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING")!;
+### [Django](#tab/django)
 
-using var connection = new SqlConnection(connectionString);
-connection.Open();
-```
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 
-### [Others](#tab/others)
+For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code).
+
+### [Go](#tab/go)
+
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+
+For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code).
+
+### [NodeJS](#tab/node)
+
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+
+For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code).
+
+### [PHP](#tab/php)
+
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+
+For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code).
+
+### [Ruby](#tab/ruby)
 
 For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 

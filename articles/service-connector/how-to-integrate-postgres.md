@@ -7,8 +7,6 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.custom: event-tier1-build-2022, engagement-fy23
-zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-authtype
 ---
 
 # Integrate Azure Database for PostgreSQL with Service Connector
@@ -43,10 +41,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 ## Default environment variable names or application properties and Sample codes
 
-Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL. **Please select the authentication types at the top of this page.**
-
-
-::: zone pivot="system-identity"
+Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL.
 
 ### Connect with System-assigned Managed Identity
 
@@ -121,10 +116,6 @@ Reference the connection details and sample codes in following tables, according
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-me-id.md)]
 
-::: zone-end
-
-
-::: zone pivot="user-identity"
 
 ### Connect with User-assigned Managed Identity
 
@@ -207,11 +198,6 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-me-id.md)]
 
-::: zone-end
-
-
-::: zone pivot="connection-string"
-
 ### Connect with Connection String
 
 #### [.NET](#tab/dotnet)
@@ -284,11 +270,6 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql secrets](./includes/code-postgres-secret.md)]
-
-::: zone-end
-
-
-::: zone pivot="service-principal"
 
 ### Connect with Service Principal
 
@@ -390,8 +371,6 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-me-id.md)]
-
-::: zone-end
 
 
 ## Next steps
