@@ -18,15 +18,17 @@ Each section of this article presents a data transfer scenario. Each section des
 
 ## Calculate the cost to upload
 
-You can upload blobs by using the `azcopy copy` command. The destination endpoint of that command impacts the cost of the upload. 
+This section calculates the cost to upload `1,000` blobs that are `5 GiB` each in size. 
 
-### Blob Service endpoint
+You upload blobs by using the `azcopy copy` command. In that command, you'll specify a destination endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section describes the cost using each.
 
-If you upload data to the Blob Service endpoint (`blob.core.windows.net`), then AzCopy uploads each blob in 8 MiB blocks. 
+### Cost of using the Blob Service endpoint
+
+If you upload data to the Blob Service endpoint, then AzCopy uploads each blob in 8 MiB blocks. 
 
 AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
 
-The table below calculates the number of write operations required to upload `1,000` blobs that are `5 GiB` each in size. 
+The table below calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
 |---|---|
@@ -38,7 +40,7 @@ The table below calculates the number of write operations required to upload `1,
 > [!TIP]
 > You can reduce the number of operations by configuring AzCopy to use a larger block size.  
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost of these write operations.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to upload these blobs.
 
 | Price factor                                        | Hot        | Cool      | Cold       | Archive   |
 |-----------------------------------------------------|------------|-----------|------------|-----------|
@@ -48,21 +50,21 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 > [!NOTE]
 > If you upload to the archive tier, each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. Each [Put Block List](/rest/api/storageservices/put-block-list) operation is charged the price of an **archive** write operation.  
 
-### Data Lake Storage endpoint
+### Cost of using the Data Lake Storage endpoint
 
-If you upload data to the Data Lake Storage endpoint (`https://<storage-account>.dfs.core.windows.net`), then AzCopy uploads each blob in 4 MiB blocks. This value is non-configurable. 
+If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4 MiB blocks. This value is non-configurable. 
 
 AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block which is billed as a write operation.
 
-The table below calculates the number of write operations required to upload `1,000` blobs that are `5 GiB` each in size. 
+The table below calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
 |---|---|
-| Number of MiB in 5 Gib | 5,120 |
+| Number of MiB in 5 GiB | 5,120 |
 | Path - Update operations per per blob (5,120 MiB / 4 MiB block) | 1,280 |
 | **Total write operations (1,000 * 1,280)** | **1,280,000** |
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost of these write operations.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to upload these blobs
 
 | Price factor                                        | Hot         | Cool       | Cold       | Archive    |
 |-----------------------------------------------------|-------------|------------|------------|------------|
@@ -71,13 +73,15 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ## Calculate the cost to download
 
-You can download blobs by using the `azcopy copy` command. The source endpoint of that command impacts the cost of the upload. 
+This section calculates the cost to download `1,000` blobs that are `5 GiB` each in size.
 
-### Blob Service endpoint
+You can download blobs by using the `azcopy copy` command. In that command, you'll specify a source endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section describes the cost using each.
 
-If you download blobs from the Blob Service endpoint (`https://<storage-account>.blob.core.windows.net`), AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) and [Get Blob](/rest/api/storageservices/get-blob) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
+### Cost of using the Blob Service endpoint
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost of downloading `1000` blobs that are `5 GiB` in size.
+If you download blobs from the Blob Service endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) and [Get Blob](/rest/api/storageservices/get-blob) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
+
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
 | Price factor                                            | Hot          | Cool        | Cold        |
 |---------------------------------------------------------|--------------|-------------|-------------|
@@ -90,15 +94,15 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Total cost (read + listing + retrieval)**             | **$0.0059**  | **$5.01**   | **$15.02**  |
 
 > [!NOTE]
-> The table above excludes the archive tier. You can't download directly from that tier. To read data from the archive tier, you must first rehydrate the data to an online tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
+> The table above excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-### Data Lake Storage endpoint
+### Cost of using the Data Lake Storage endpoint
 
-If you download blobs by using the Data Lake Storage endpoint (`https://<storage-account>.dfs.core.windows.net`), AzCopy reads each blob in 4 MiB blocks. This value is non-configurable. 
+If you download blobs by using the Data Lake Storage endpoint, AzCopy reads each blob in 4 MiB blocks. This value is non-configurable. 
 
 AzCopy uses the [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) and [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
 
-The table below calculates the number of write operations required to upload `1000` blobs that are `5 GiB` each in size. 
+The table below calculates the number of write operations required to upload the blobs. 
 
 | Calculation | Value
 |---|---|
@@ -106,9 +110,7 @@ The table below calculates the number of write operations required to upload `10
 | Path - Update operations per per blob (5,120 MiB / 4 MiB block) | 1,280 |
 | Total read operations (1000* 1,280) | **1,280,000** |
 
-If you read blobs from the cool, or cold tier, your charged a data retrieval fee.
-
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost of downloading `1000` blobs that are `5 GiB` in size.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to download these blobs.
 
 | Price factor                                                   | Hot         | Cool        | Cold         |
 |----------------------------------------------------------------|-------------|-------------|--------------|
@@ -121,11 +123,13 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Total cost (read + iterative read + retrieval)**             | **$0.73**   | **$11.67**  | **$46.65**   |
 
 > [!NOTE]
-> The table above excludes the archive tier. You can't download directly from that tier. To read data from the archive tier, you must first rehydrate the data to an online tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
+> The table above excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 ## Calculate the cost to copy between containers
 
-Scenario description
+You can copy blobs between containers by using the `azcopy copy` command. In that command, you'll specify a source and destination endpoint. Each endpoint must be a Blob Service endpoint (`blob.core.windows.net`).
+
+
 
 Show rest operations called
 
