@@ -5,7 +5,7 @@ description: Learn how to use the Azure portal to configure customer-managed key
 services: cognitive-services
 author: erindormier
 
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
