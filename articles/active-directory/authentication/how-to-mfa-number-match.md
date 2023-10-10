@@ -48,7 +48,7 @@ Combined registration with Authenticator requires number matching. When a user g
 
 ### AD FS adapter
 
-AD FS adapter requires number matching on supported versions of Windows Server. On earlier versions, users continue to see the **Approve**/**Deny** experience and don’t see number matching until you upgrade. The AD FS adapter supports number matching only after you install one of the updates in the following table. For more information about how to set up AD FS adapter, see [Configure Microsoft Entra multifactor authentication Server to work with AD FS in Windows Server](howto-mfaserver-adfs-windows-server.md).
+AD FS adapter requires number matching on supported versions of Windows Server. On earlier versions, users continue to see the **Approve**/**Deny** experience and don’t see number matching until you upgrade. The AD FS adapter supports number matching only after you install one of the updates in the following table. For more information about how to set up AD FS adapter, see [Configure Azure Multi-Factor Authentication Server to work with AD FS in Windows Server](howto-mfaserver-adfs-windows-server.md).
 
 >[!NOTE]
 >Unpatched versions of Windows Server don't support number matching. Users continue to see the **Approve**/**Deny** experience and don't see number matching unless these updates are applied.
