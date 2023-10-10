@@ -75,7 +75,7 @@ You need to install the following packages:
 - _Microsoft.Extensions.Configuration.Json_ - This package contains JSON configuration provider implementation for Microsoft.Extensions.Configuration.
 - _Microsoft.Extensions.Configuration.Binder_ - This package contains functionality to bind an object to data in configuration providers for Microsoft.Extensions.Configuration.
 - _Microsoft.Extensions.Configuration.Abstractions_ - This package contains abstractions of key-value pair based configuration.
-- _Microsoft.Identity.Client.Extensions.MSAL_ - This package contains extensions to Microsoft Authentication Library for .NET (MSAL.NET).
+- _Microsoft.Identity.Client.Extensions.Msal_ - This package contains extensions to Microsoft Authentication Library for .NET (MSAL.NET).
 
 ### NuGet Package Manager
 
