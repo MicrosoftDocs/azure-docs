@@ -75,6 +75,15 @@ See the following table for a summary of virtual network and private endpoint su
 | The resource allows access from selected networks or only private endpoint connections.  | The resource allows access from all networks.  | An embedding model is not available. |   Supported. |  Supported. |
 | Regardless of resource access allowances.                                 | The resource allows access from selected networks or only private endpoint connections.   |     Regardless of the availability of an embedding model.                                     |   Supported.    | Not supported. |
 
+Additionally, the ingestion API has the following configuration requirements:
+
+| Azure OpenAI resource                                                                  | Search resource                              | Azure OpenAI studio support | API support |
+|----------------------------------------------------------------------------------------|----------------------------------------------|-----------------------------|-------------|
+| The resource allows access from all networks.                                           | The resource allows access from all networks. | Supported.                   | Supported.   |
+| The resource allows access from selected networks or only private endpoint connections. | Regardless of resource access allowances. |  Not supported.                |Not supported. |
+| The resource allows access from all networks.   | The resource allows access from selected networks or only private endpoint connections. |   Not supported. |  Not supported. |
+
+
 
 ### Azure OpenAI resources
 
