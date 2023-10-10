@@ -30,7 +30,7 @@ Microsoft Support access requests (preview) enable you to manage Microsoft Suppo
 
 ## Support access role permissions
 
-To manage Microsoft Support access requests, you must be assigned to a role that has full permission to manage Microsoft Entra ID support tickets for the tenant. This role permission is included in Microsoft Entra built-in roles with the action `microsoft.azure.supportTickets/allEntities/allTasks`. You can see which Microsoft Entra roles have this permission in the [Microsoft Entra built-in roles](../roles/permissions-reference.md) article.
+To manage Microsoft Support access requests, you must be assigned to a role that has full permission to manage Microsoft Entra support tickets for the tenant. This role permission is included in Microsoft Entra built-in roles with the action `microsoft.azure.supportTickets/allEntities/allTasks`. You can see which Microsoft Entra roles have this permission in the [Microsoft Entra built-in roles](../roles/permissions-reference.md) article.
 
 
 ## Next steps
