@@ -368,7 +368,7 @@ Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Wi
 
 ### Migrate tenant restrictions v1 policies to v2
 
-Migration of Tenant Restrictions from V1 to V2 is an one time operation. Once you have moved from TRv1 to TRv2 on proxy, no client side changes are required and any policy changes need to just happen on the cloud via Entra portal.
+Migrating tenant restriction policies from v1 to v2 is a one-time operation. After migration, no client-side changes are required. You can make any subsequent policy changes via the Microsoft Entra admin center.
 
 On your corporate proxy, you can move from tenant restrictions v1 to tenant restrictions v2 by changing this tenant restrictions v1 header:
 
