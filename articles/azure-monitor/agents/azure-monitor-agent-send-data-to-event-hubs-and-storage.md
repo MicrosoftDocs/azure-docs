@@ -12,11 +12,11 @@ ms.reviewer: luki
 
 This article provides all of the required information related to the private preview for using the new Azure Monitor Agent (AMA) feature to upload data to Azure Storage and Event Hubs.
 
-The Azure Monitor Agent is the new, consolidated telemetry agent for collecting data from IaaS resources like virtual machines. This preview brings us closer to retiring the Diagnostics Extensions for Windows and Linux (WAD/LAD). By using the new upload capability in this preview, you can now upload the logs<sup>[1]</sup> you send to Log Analytics workspaces to Event Hubs and Storage. Both new data destinations use data collection rules to configure collection setup for the agents.
+The Azure Monitor Agent is the new, consolidated telemetry agent for collecting data from IaaS resources like virtual machines. This preview brings us closer to retiring the Diagnostics Extensions for Windows and Linux (WAD/LAD). By using the new upload capability in this preview, you can now upload the logs<sup>[1](#FN1)</sup> you send to Log Analytics workspaces to Event Hubs and Storage. Both new data destinations use data collection rules to configure collection setup for the agents.
 
 **Footnotes**
 
-1: Not all data types are supported; please refer to [Preview scope](#preview-scope) for specifics.
+<a name="FN1">1</a>: Not all data types are supported; please refer to [Preview scope](#preview-scope) for specifics.
 
 ## Preview scope
 
@@ -105,8 +105,8 @@ This section describes what's [supported](#whats-supported) and [not supported](
 
 1. [Create a new storage account](../../storage/common/storage-account-create.md). If you already have a storage account, you can skip this step.
 1. Set up access to the storage account:
-   - If you want to upload data to blob storage, assign the built-in role `Storage Blob Data Contributor` to the managed identity on your storage account via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.
-   - If you want to upload data to table storage, assign the built-in role `Storage Table Data Contributor` to the managed identity on your storage account via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.
+   - If you want to upload data to blob storage, assign the built-in role `Storage Blob Data Contributor` to the managed identity on your storage account via the [Access Control (IAM) page](../../role-based-access-control/role-assignments-portal.md) in your storage account.
+   - If you want to upload data to table storage, assign the built-in role `Storage Table Data Contributor` to the managed identity on your storage account via the [Access Control (IAM) page](../../role-based-access-control/role-assignments-portal.md) in your storage account.
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager-template)
 
@@ -203,7 +203,7 @@ Azure Resource Manager Template definition for setting up a storage account:
 ### [Azure portal](#tab/portal)
 
 1. [Create an Event Hubs namespace and event hub](../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md) where you want data to be sent. If you already have an Event Hubs namespace and event hub, you can skip this step.
-1. If you want to upload data to an event hub, assign the built-in role `Azure Event Hubs Data Sender` to managed identity on Event Hub.
+1. If you want to upload data to an event hub, assign the built-in role `Azure Event Hubs Data Sender` to the managed identity on your event hub via the [Access Control (IAM) page](../../role-based-access-control/role-assignments-portal.md) in your event hub.
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager-template)
 
@@ -314,615 +314,615 @@ Create a data collection rule for collecting events and sending to storage and e
 
 1. Paste this Azure Resource Manager template into the editor:
 
-### [Windows](#tab/windows)
+    ### [Windows](#tab/windows)
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    },
-    "dataCollectionRulesName": {
-      "defaultValue": "[concat(resourceGroup().name, 'DCR')]",
-      "type": "String"
-    },
-    "storageAccountName": {
-      "defaultValue": "[concat(resourceGroup().name, 'sa')]",
-      "type": "String"
-    },
-    "eventHubNamespaceName": {
-      "defaultValue": "[concat(resourceGroup().name, 'eh')]",
-      "type": "String"
-    },
-    "eventHubInstanceName": {
-      "defaultValue": "[concat(resourceGroup().name, 'ehins')]",
-      "type": "String"
-    }
-  },
-  "resources": [
+    ```json
     {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "apiVersion": "2022-06-01",
-      "name": "[parameters('dataCollectionRulesName')]",
-      "location": "[parameters('location')]",
-      "kind": "AgentDirectToStore",
-      "properties": {
-        "dataSources": {
-          "performanceCounters": [
-            {
-              "streams": [
-                "Microsoft-Perf"
-              ],
-              "samplingFrequencyInSeconds": 10,
-              "counterSpecifiers": [
-                "\\Process(_Total)\\Working Set - Private",
-                "\\Memory\\% Committed Bytes In Use",
-                "\\LogicalDisk(_Total)\\% Free Space",
-                "\\Network Interface(*)\\Bytes Total/sec"
-              ],
-              "name": "perfCounterDataSource10"
-            }
-          ],
-          "windowsEventLogs": [
-            {
-              "streams": [
-                "Microsoft-Event"
-              ],
-              "xPathQueries": [
-                "Application!*[System[(Level=2)]]",
-                "System!*[System[(Level=2)]]"
-              ],
-              "name": "eventLogsDataSource"
-            }
-          ],
-          "iisLogs": [
-            {
-              "streams": [
-                "Microsoft-W3CIISLog"
-              ],
-              "logDirectories": [
-                "C:\\inetpub\\logs\\LogFiles\\W3SVC1\\"
-              ],
-              "name": "myIisLogsDataSource"
-            }
-          ],
-          "logFiles": [
-            {
-              "streams": [
-                "Custom-Text-logs"
-              ],
-              "filePatterns": [
-                "C:\\JavaLogs\\*.log"
-              ],
-              "format": "text",
-              "settings": {
-                "text": {
-                  "recordStartTimestampFormat": "ISO 8601"
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+            "description": "Location for all resources."
+        }
+        },
+        "dataCollectionRulesName": {
+        "defaultValue": "[concat(resourceGroup().name, 'DCR')]",
+        "type": "String"
+        },
+        "storageAccountName": {
+        "defaultValue": "[concat(resourceGroup().name, 'sa')]",
+        "type": "String"
+        },
+        "eventHubNamespaceName": {
+        "defaultValue": "[concat(resourceGroup().name, 'eh')]",
+        "type": "String"
+        },
+        "eventHubInstanceName": {
+        "defaultValue": "[concat(resourceGroup().name, 'ehins')]",
+        "type": "String"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Insights/dataCollectionRules",
+        "apiVersion": "2022-06-01",
+        "name": "[parameters('dataCollectionRulesName')]",
+        "location": "[parameters('location')]",
+        "kind": "AgentDirectToStore",
+        "properties": {
+            "dataSources": {
+            "performanceCounters": [
+                {
+                "streams": [
+                    "Microsoft-Perf"
+                ],
+                "samplingFrequencyInSeconds": 10,
+                "counterSpecifiers": [
+                    "\\Process(_Total)\\Working Set - Private",
+                    "\\Memory\\% Committed Bytes In Use",
+                    "\\LogicalDisk(_Total)\\% Free Space",
+                    "\\Network Interface(*)\\Bytes Total/sec"
+                ],
+                "name": "perfCounterDataSource10"
                 }
-              },
-              "name": "myTextLogs"
-            }
-          ]
-        },
-        "destinations": {
-          "eventHubsDirect": [
-            {
-              "eventHubResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventHubNamespaceName'), parameters('eventHubInstanceName'))]",
-              "name": "myEh1"
-            }
-          ],
-          "storageBlobsDirect": [
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "blobNamedPerf",
-              "containerName": "PerfBlob"
-            },
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "blobNamedWin",
-              "containerName": "WinEventBlob"
-            },
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "blobNamedIIS",
-              "containerName": "IISBlob"
-            },
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "blobNamedTextLogs",
-              "containerName": "TxtLogBlob"
-            }
-          ],
-          "storageTablesDirect": [
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "tableNamedPerf",
-              "tableName": "PerfTable"
-            },
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "tableNamedWin",
-              "tableName": "WinTable"
-            },
-            {
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-              "name": "tableUnnamed"
-            }
-          ]
-        },
-        "dataFlows": [
-          {
-            "streams": [
-              "Microsoft-Perf"
             ],
-            "destinations": [
-              "myEh1",
-              "blobNamedPerf",
-              "tableNamedPerf",
-              "tableUnnamed"
-            ]
-          },
-          {
-            "streams": [
-              "Microsoft-WindowsEvent"
+            "windowsEventLogs": [
+                {
+                "streams": [
+                    "Microsoft-Event"
+                ],
+                "xPathQueries": [
+                    "Application!*[System[(Level=2)]]",
+                    "System!*[System[(Level=2)]]"
+                ],
+                "name": "eventLogsDataSource"
+                }
             ],
-            "destinations": [
-              "myEh1",
-              "blobNamedWin",
-              "tableNamedWin",
-              "tableUnnamed"
-            ]
-          },
-          {
-            "streams": [
-              "Microsoft-W3CIISLog"
+            "iisLogs": [
+                {
+                "streams": [
+                    "Microsoft-W3CIISLog"
+                ],
+                "logDirectories": [
+                    "C:\\inetpub\\logs\\LogFiles\\W3SVC1\\"
+                ],
+                "name": "myIisLogsDataSource"
+                }
             ],
-            "destinations": [
-              "blobNamedIIS"
+            "logFiles": [
+                {
+                "streams": [
+                    "Custom-Text-logs"
+                ],
+                "filePatterns": [
+                    "C:\\JavaLogs\\*.log"
+                ],
+                "format": "text",
+                "settings": {
+                    "text": {
+                    "recordStartTimestampFormat": "ISO 8601"
+                    }
+                },
+                "name": "myTextLogs"
+                }
             ]
-          },
-          {
-            "streams": [
-              "Custom-Text-logs"
+            },
+            "destinations": {
+            "eventHubsDirect": [
+                {
+                "eventHubResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventHubNamespaceName'), parameters('eventHubInstanceName'))]",
+                "name": "myEh1"
+                }
             ],
-            "destinations": [
-              "blobNamedTextLogs"
+            "storageBlobsDirect": [
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "blobNamedPerf",
+                "containerName": "PerfBlob"
+                },
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "blobNamedWin",
+                "containerName": "WinEventBlob"
+                },
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "blobNamedIIS",
+                "containerName": "IISBlob"
+                },
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "blobNamedTextLogs",
+                "containerName": "TxtLogBlob"
+                }
+            ],
+            "storageTablesDirect": [
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "tableNamedPerf",
+                "tableName": "PerfTable"
+                },
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "tableNamedWin",
+                "tableName": "WinTable"
+                },
+                {
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "name": "tableUnnamed"
+                }
             ]
-          }
-        ]
-      }
+            },
+            "dataFlows": [
+            {
+                "streams": [
+                "Microsoft-Perf"
+                ],
+                "destinations": [
+                "myEh1",
+                "blobNamedPerf",
+                "tableNamedPerf",
+                "tableUnnamed"
+                ]
+            },
+            {
+                "streams": [
+                "Microsoft-WindowsEvent"
+                ],
+                "destinations": [
+                "myEh1",
+                "blobNamedWin",
+                "tableNamedWin",
+                "tableUnnamed"
+                ]
+            },
+            {
+                "streams": [
+                "Microsoft-W3CIISLog"
+                ],
+                "destinations": [
+                "blobNamedIIS"
+                ]
+            },
+            {
+                "streams": [
+                "Custom-Text-logs"
+                ],
+                "destinations": [
+                "blobNamedTextLogs"
+                ]
+            }
+            ]
+        }
+        }
+    ]
     }
-  ]
-}
 
-```
+    ```
 
-### [Linux](#tab/linux)
+    ### [Linux](#tab/linux)
 
-```json
-{ 
- 
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", 
- 
-  "contentVersion": "1.0.0.0", 
- 
-  "parameters": { 
- 
-    "location": { 
- 
-      "type": "string", 
- 
-      "defaultValue": "[resourceGroup().location]", 
- 
-      "metadata": { 
- 
-        "description": "Location for all resources." 
- 
-      } 
- 
-    }, 
- 
-    "dataCollectionRulesName": { 
- 
-      "defaultValue": "[concat(resourceGroup().name, 'DCR')]", 
- 
-      "type": "String" 
- 
-    }, 
- 
-    "storageAccountName": { 
- 
-      "defaultValue": "[concat(resourceGroup().name, 'sa')]", 
- 
-      "type": "String" 
- 
-    }, 
- 
-    "eventHubNamespaceName": { 
- 
-      "defaultValue": "[concat(resourceGroup().name, 'eh')]", 
- 
-      "type": "String" 
- 
-    }, 
- 
-    "eventHubInstanceName": { 
- 
-      "defaultValue": "[concat(resourceGroup().name, 'ehins')]", 
- 
-      "type": "String" 
- 
-    } 
- 
-  }, 
- 
-  "resources": [ 
- 
+    ```json
     { 
- 
-      "type": "Microsoft.Insights/dataCollectionRules", 
- 
-      "apiVersion": "2022-06-01", 
- 
-      "name": "[parameters('dataCollectionRulesName')]", 
- 
-      "location": "[parameters('location')]", 
- 
-      "kind": "AgentDirectToStore", 
- 
-      "properties": { 
- 
-        "dataSources": { 
- 
-          "performanceCounters": [ 
- 
-            { 
- 
-              "streams": [ 
- 
-                "Microsoft-Perf" 
- 
-              ], 
- 
-              "samplingFrequencyInSeconds": 10, 
- 
-              "counterSpecifiers": [ 
- 
-                "Processor(*)\\% Processor Time",
-"Processor(*)\\% Idle Time",
-"Processor(*)\\% User Time",
-"Processor(*)\\% Nice Time",
-"Processor(*)\\% Privileged Time",
-"Processor(*)\\% IO Wait Time",
-"Processor(*)\\% Interrupt Time",
-"Processor(*)\\% DPC Time",
-"Memory(*)\\Available MBytes Memory",
-"Memory(*)\\% Available Memory",
-"Memory(*)\\Used Memory MBytes",
-"Memory(*)\\% Used Memory",
-"Memory(*)\\Pages/sec",
-"Memory(*)\\Page Reads/sec",
-"Memory(*)\\Page Writes/sec",
-"Memory(*)\\Available MBytes Swap",
-"Memory(*)\\% Available Swap Space",
-"Memory(*)\\Used MBytes Swap Space",
-"Memory(*)\\% Used Swap Space",
-"Logical Disk(*)\\% Free Inodes",
-"Logical Disk(*)\\% Used Inodes",
-"Logical Disk(*)\\Free Megabytes",
-"Logical Disk(*)\\% Free Space",
-"Logical Disk(*)\\% Used Space",
-"Logical Disk(*)\\Logical Disk Bytes/sec",
-"Logical Disk(*)\\Disk Read Bytes/sec",
-"Logical Disk(*)\\Disk Write Bytes/sec",
-"Logical Disk(*)\\Disk Transfers/sec",
-"Logical Disk(*)\\Disk Reads/sec",
-"Logical Disk(*)\\Disk Writes/sec",
-"Network(*)\\Total Bytes Transmitted",
-"Network(*)\\Total Bytes Received",
-"Network(*)\\Total Bytes",
-"Network(*)\\Total Packets Transmitted",
-"Network(*)\\Total Packets Received",
-"Network(*)\\Total Rx Errors",
-"Network(*)\\Total Tx Errors",
-"Network(*)\\Total Collisions"
- 
- 
-              ], 
- 
-              "name": "perfCounterDataSource10" 
- 
-            } 
- 
-          ], 
- 
-          "syslog": [ 
- 
-            { 
- 
-              "streams": [ 
- 
-                "Microsoft-Syslog" 
- 
-              ], 
- 
-              "facilityNames": [
-                                "auth",
-                                "authpriv",
-                                "cron",
-                                "daemon",
-                                "mark",
-                                "kern",
-                                "local0",
-                                "local1",
-                                "local2",
-                                "local3",
-                                "local4",
-                                "local5",
-                                "local6",
-                                "local7",
-                                "lpr",
-                                "mail",
-                                "news",
-                                "syslog",
-                                "user",
-                                "UUCP"
-                            ],
-            "logLevels": [
-                                "Debug",
-                                "Info",
-                                "Notice",
-                                "Warning",
-                                "Error",
-                                "Critical",
-                                "Alert",
-                                "Emergency"
-                            ], 
- 
-              "name": "syslogDataSource" 
- 
-            } 
- 
-          ], 
- 
-          
- 
-          "logFiles": [ 
- 
-            { 
- 
-              "streams": [ 
- 
-                "Custom-Text-logs" 
- 
-              ], 
- 
-              "filePatterns": [ 
- 
-                "/var/log/messages" 
- 
-              ], 
- 
-              "format": "text", 
- 
-              "settings": { 
- 
-                "text": { 
- 
-                  "recordStartTimestampFormat": "ISO 8601" 
- 
+    
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", 
+    
+    "contentVersion": "1.0.0.0", 
+    
+    "parameters": { 
+    
+        "location": { 
+    
+        "type": "string", 
+    
+        "defaultValue": "[resourceGroup().location]", 
+    
+        "metadata": { 
+    
+            "description": "Location for all resources." 
+    
+        } 
+    
+        }, 
+    
+        "dataCollectionRulesName": { 
+    
+        "defaultValue": "[concat(resourceGroup().name, 'DCR')]", 
+    
+        "type": "String" 
+    
+        }, 
+    
+        "storageAccountName": { 
+    
+        "defaultValue": "[concat(resourceGroup().name, 'sa')]", 
+    
+        "type": "String" 
+    
+        }, 
+    
+        "eventHubNamespaceName": { 
+    
+        "defaultValue": "[concat(resourceGroup().name, 'eh')]", 
+    
+        "type": "String" 
+    
+        }, 
+    
+        "eventHubInstanceName": { 
+    
+        "defaultValue": "[concat(resourceGroup().name, 'ehins')]", 
+    
+        "type": "String" 
+    
+        } 
+    
+    }, 
+    
+    "resources": [ 
+    
+        { 
+    
+        "type": "Microsoft.Insights/dataCollectionRules", 
+    
+        "apiVersion": "2022-06-01", 
+    
+        "name": "[parameters('dataCollectionRulesName')]", 
+    
+        "location": "[parameters('location')]", 
+    
+        "kind": "AgentDirectToStore", 
+    
+        "properties": { 
+    
+            "dataSources": { 
+    
+            "performanceCounters": [ 
+    
+                { 
+    
+                "streams": [ 
+    
+                    "Microsoft-Perf" 
+    
+                ], 
+    
+                "samplingFrequencyInSeconds": 10, 
+    
+                "counterSpecifiers": [ 
+    
+                    "Processor(*)\\% Processor Time",
+    "Processor(*)\\% Idle Time",
+    "Processor(*)\\% User Time",
+    "Processor(*)\\% Nice Time",
+    "Processor(*)\\% Privileged Time",
+    "Processor(*)\\% IO Wait Time",
+    "Processor(*)\\% Interrupt Time",
+    "Processor(*)\\% DPC Time",
+    "Memory(*)\\Available MBytes Memory",
+    "Memory(*)\\% Available Memory",
+    "Memory(*)\\Used Memory MBytes",
+    "Memory(*)\\% Used Memory",
+    "Memory(*)\\Pages/sec",
+    "Memory(*)\\Page Reads/sec",
+    "Memory(*)\\Page Writes/sec",
+    "Memory(*)\\Available MBytes Swap",
+    "Memory(*)\\% Available Swap Space",
+    "Memory(*)\\Used MBytes Swap Space",
+    "Memory(*)\\% Used Swap Space",
+    "Logical Disk(*)\\% Free Inodes",
+    "Logical Disk(*)\\% Used Inodes",
+    "Logical Disk(*)\\Free Megabytes",
+    "Logical Disk(*)\\% Free Space",
+    "Logical Disk(*)\\% Used Space",
+    "Logical Disk(*)\\Logical Disk Bytes/sec",
+    "Logical Disk(*)\\Disk Read Bytes/sec",
+    "Logical Disk(*)\\Disk Write Bytes/sec",
+    "Logical Disk(*)\\Disk Transfers/sec",
+    "Logical Disk(*)\\Disk Reads/sec",
+    "Logical Disk(*)\\Disk Writes/sec",
+    "Network(*)\\Total Bytes Transmitted",
+    "Network(*)\\Total Bytes Received",
+    "Network(*)\\Total Bytes",
+    "Network(*)\\Total Packets Transmitted",
+    "Network(*)\\Total Packets Received",
+    "Network(*)\\Total Rx Errors",
+    "Network(*)\\Total Tx Errors",
+    "Network(*)\\Total Collisions"
+    
+    
+                ], 
+    
+                "name": "perfCounterDataSource10" 
+    
                 } 
- 
-              }, 
- 
-              "name": "myTextLogs" 
- 
-            } 
- 
-          ] 
- 
-        }, 
- 
-        "destinations": { 
- 
-          "eventHubsDirect": [ 
- 
-            { 
- 
-              "eventHubResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventHubNamespaceName'), parameters('eventHubInstanceName'))]", 
- 
-              "name": "myEh1" 
- 
-            } 
- 
-          ], 
- 
-          "storageBlobsDirect": [ 
- 
-            { 
- 
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
- 
-              "name": "blobNamedPerf", 
- 
-              "containerName": "PerfBlob" 
- 
-            }, 
- 
-            { 
- 
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
- 
-              "name": "blobNamedLinux", 
- 
-              "containerName": "SyslogBlob" 
- 
-            }, 
- 
-            { 
- 
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
- 
-              "name": "blobNamedTextLogs", 
- 
-              "containerName": "TxtLogBlob" 
- 
-            } 
- 
-          ], 
- 
-          "storageTablesDirect": [ 
- 
-            { 
- 
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
- 
-              "name": "tableNamedPerf", 
- 
-              "tableName": "PerfTable" 
- 
-            }, 
- 
-            { 
- 
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
- 
-              "name": "tableNamedLinux", 
- 
-              "tableName": "LinuxTable" 
- 
-            }, 
- 
-            { 
- 
-              "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
- 
-              "name": "tableUnnamed" 
- 
-            } 
- 
-          ] 
- 
-        }, 
- 
-        "dataFlows": [ 
- 
-          { 
- 
-            "streams": [ 
- 
-              "Microsoft-Perf" 
- 
+    
             ], 
- 
-            "destinations": [ 
- 
-              "myEh1", 
- 
-              "blobNamedPerf", 
- 
-              "tableNamedPerf", 
- 
-              "tableUnnamed" 
- 
-            ] 
- 
-          }, 
- 
-          { 
- 
-            "streams": [ 
- 
-              "Microsoft-Syslog" 
- 
+    
+            "syslog": [ 
+    
+                { 
+    
+                "streams": [ 
+    
+                    "Microsoft-Syslog" 
+    
+                ], 
+    
+                "facilityNames": [
+                                    "auth",
+                                    "authpriv",
+                                    "cron",
+                                    "daemon",
+                                    "mark",
+                                    "kern",
+                                    "local0",
+                                    "local1",
+                                    "local2",
+                                    "local3",
+                                    "local4",
+                                    "local5",
+                                    "local6",
+                                    "local7",
+                                    "lpr",
+                                    "mail",
+                                    "news",
+                                    "syslog",
+                                    "user",
+                                    "UUCP"
+                                ],
+                "logLevels": [
+                                    "Debug",
+                                    "Info",
+                                    "Notice",
+                                    "Warning",
+                                    "Error",
+                                    "Critical",
+                                    "Alert",
+                                    "Emergency"
+                                ], 
+    
+                "name": "syslogDataSource" 
+    
+                } 
+    
             ], 
- 
-            "destinations": [ 
- 
-              "myEh1", 
- 
-              "blobNamedLinux", 
- 
-              "tableNamedLinux", 
- 
-              "tableUnnamed" 
- 
+    
+            
+    
+            "logFiles": [ 
+    
+                { 
+    
+                "streams": [ 
+    
+                    "Custom-Text-logs" 
+    
+                ], 
+    
+                "filePatterns": [ 
+    
+                    "/var/log/messages" 
+    
+                ], 
+    
+                "format": "text", 
+    
+                "settings": { 
+    
+                    "text": { 
+    
+                    "recordStartTimestampFormat": "ISO 8601" 
+    
+                    } 
+    
+                }, 
+    
+                "name": "myTextLogs" 
+    
+                } 
+    
             ] 
- 
-          }, 
- 
-          { 
- 
-            "streams": [ 
- 
-              "Custom-Text-logs" 
- 
+    
+            }, 
+    
+            "destinations": { 
+    
+            "eventHubsDirect": [ 
+    
+                { 
+    
+                "eventHubResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventHubNamespaceName'), parameters('eventHubInstanceName'))]", 
+    
+                "name": "myEh1" 
+    
+                } 
+    
             ], 
- 
-            "destinations": [ 
- 
-              "blobNamedTextLogs" 
- 
+    
+            "storageBlobsDirect": [ 
+    
+                { 
+    
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    
+                "name": "blobNamedPerf", 
+    
+                "containerName": "PerfBlob" 
+    
+                }, 
+    
+                { 
+    
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    
+                "name": "blobNamedLinux", 
+    
+                "containerName": "SyslogBlob" 
+    
+                }, 
+    
+                { 
+    
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    
+                "name": "blobNamedTextLogs", 
+    
+                "containerName": "TxtLogBlob" 
+    
+                } 
+    
+            ], 
+    
+            "storageTablesDirect": [ 
+    
+                { 
+    
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    
+                "name": "tableNamedPerf", 
+    
+                "tableName": "PerfTable" 
+    
+                }, 
+    
+                { 
+    
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    
+                "name": "tableNamedLinux", 
+    
+                "tableName": "LinuxTable" 
+    
+                }, 
+    
+                { 
+    
+                "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    
+                "name": "tableUnnamed" 
+    
+                } 
+    
             ] 
- 
-          } 
- 
-        ] 
- 
-      } 
- 
-    } 
- 
-  ] 
- 
-}
+    
+            }, 
+    
+            "dataFlows": [ 
+    
+            { 
+    
+                "streams": [ 
+    
+                "Microsoft-Perf" 
+    
+                ], 
+    
+                "destinations": [ 
+    
+                "myEh1", 
+    
+                "blobNamedPerf", 
+    
+                "tableNamedPerf", 
+    
+                "tableUnnamed" 
+    
+                ] 
+    
+            }, 
+    
+            { 
+    
+                "streams": [ 
+    
+                "Microsoft-Syslog" 
+    
+                ], 
+    
+                "destinations": [ 
+    
+                "myEh1", 
+    
+                "blobNamedLinux", 
+    
+                "tableNamedLinux", 
+    
+                "tableUnnamed" 
+    
+                ] 
+    
+            }, 
+    
+            { 
+    
+                "streams": [ 
+    
+                "Custom-Text-logs" 
+    
+                ], 
+    
+                "destinations": [ 
+    
+                "blobNamedTextLogs" 
+    
+                ] 
+    
+            } 
+    
+            ] 
+    
+        } 
+    
+        } 
+    
+    ] 
+    
+    }
 
-```
+    ```
 
----
+    ---
 
 1. Update the following values in the Azure Resource Manager template:
 
-### [Event Hub](#tab/event-hub)
+    ### [Event Hub](#tab/event-hub)
 
-- Define `dataSources` as per your requirements. Supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
-- Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource id of event hub instance (note: it is not event hub namespace resource id). 
-- under `dataFlows`, include destination name.
+    - Define `dataSources` as per your requirements. Supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
+    - Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource id of event hub instance (note: it is not event hub namespace resource id). 
+    - under `dataFlows`, include destination name.
 
-See the resource definition example above for a sample.
+    See the resource definition example above for a sample.
 
-### [Storage Table](#tab/storage-table)
+    ### [Storage Table](#tab/storage-table)
 
-- Define `“dataSources”` as per your requirements. Supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`.
-- Use `destinations` as `storageTablesDirect` for direct upload to table storage. `storageAccountResourceId` is the resource id of storage account. 
-- `tableName` is name of Table where JSON blob with event data will be uploaded to.
-- Under `dataFlows`, include destination name.
+    - Define `“dataSources”` as per your requirements. Supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`.
+    - Use `destinations` as `storageTablesDirect` for direct upload to table storage. `storageAccountResourceId` is the resource id of storage account. 
+    - `tableName` is name of Table where JSON blob with event data will be uploaded to.
+    - Under `dataFlows`, include destination name.
 
-See the resource definition example above for a sample. Table will be created if doesn’t already exists.
+    See the resource definition example above for a sample. Table will be created if doesn’t already exists.
 
-### [Storage Blob](#tab/storage-blob)
+    ### [Storage Blob](#tab/storage-blob)
 
-- Define `dataSources` as per your requirements. Supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`.
-- Use `destinations` as `storageBlobsDirect` for direct upload to blob storage. 
-- `storageAccountResourceId` is resource id of storage account. 
-- `containerName` is name of container where JSON blob with event data will be uploaded to. 
-- Under `dataFlows`, include destination name. 
+    - Define `dataSources` as per your requirements. Supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`.
+    - Use `destinations` as `storageBlobsDirect` for direct upload to blob storage. 
+    - `storageAccountResourceId` is resource id of storage account. 
+    - `containerName` is name of container where JSON blob with event data will be uploaded to. 
+    - Under `dataFlows`, include destination name. 
 
-See the resource definition example above for a sample. Container will be created if doesn’t already exist.
+    See the resource definition example above for a sample. Container will be created if doesn’t already exist.
 
----
+    ---
 
 1. Select **Save**.
 
 ## Create an Azure VM
 
-[Create the Azure VM](../../virtual-machines/overview.md). If you already have a VM, make sure that same managed identity is assigned to it that was used to configure Storage account and Event Hub and then move to the next step.
+[Create the Azure VM](../../virtual-machines/overview.md). If you already have a VM, make sure that the same managed identity is assigned to it that was used to configure Storage account and Event Hub and then move to the next step.
 
 ## Create DCR association and deploy AzureMonitorAgent
 
@@ -938,84 +938,83 @@ Use custom template deployment to create the DCR association and AMA deployment.
 
 1. Paste this Azure Resource Manager template into the editor:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "defaultValue": "[concat(resourceGroup().name, 'vm')]",
-      "type": "String"
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    },
-    "dataCollectionRulesName": {
-      "defaultValue": "[concat(resourceGroup().name, 'DCR')]",
-      "type": "String",
-	  "metadata": {
-        "description": "Data Collection Rule Name"
-      }
-    },
-    "dcraName": {
-      "type": "string",
-      "defaultValue": "[concat(uniquestring(resourceGroup().id), 'DCRLink')]",
-      "metadata": {
-        "description": "Name of the association."
-      }
-    },
-    "identityName": {
-      "type": "string",
-      "defaultValue": "[concat(resourceGroup().name, 'UAI')]",
-      "metadata": {
-        "description": "Managed Identity"
-      }
-    }
-  },
-  "resources": [
+    ```json
     {
-      "type": "Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations",
-      "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('dcraName'))]",
-      "apiVersion": "2021-04-01",
-      "properties": {
-        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
-        "dataCollectionRuleId": "[resourceID('Microsoft.Insights/dataCollectionRules',parameters('dataCollectionRulesName'))]"
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('vmName'), '/AMAExtension')]",
-      "apiVersion": "2020-06-01",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations', parameters('vmName'), 'Microsoft.Insights', parameters('dcraName'))]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.Azure.Monitor",
-        "type": "AzureMonitorWindowsAgent",
-        "typeHandlerVersion": "1.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "authentication": {
-            "managedIdentity": {
-              "identifier-type": "mi_res_id",
-              "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
-            }
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+        "defaultValue": "[concat(resourceGroup().name, 'vm')]",
+        "type": "String"
+        },
+        "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+            "description": "Location for all resources."
         }
-      }
+        },
+        "dataCollectionRulesName": {
+        "defaultValue": "[concat(resourceGroup().name, 'DCR')]",
+        "type": "String",
+        "metadata": {
+            "description": "Data Collection Rule Name"
+        }
+        },
+        "dcraName": {
+        "type": "string",
+        "defaultValue": "[concat(uniquestring(resourceGroup().id), 'DCRLink')]",
+        "metadata": {
+            "description": "Name of the association."
+        }
+        },
+        "identityName": {
+        "type": "string",
+        "defaultValue": "[concat(resourceGroup().name, 'UAI')]",
+        "metadata": {
+            "description": "Managed Identity"
+        }
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations",
+        "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('dcraName'))]",
+        "apiVersion": "2021-04-01",
+        "properties": {
+            "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+            "dataCollectionRuleId": "[resourceID('Microsoft.Insights/dataCollectionRules',parameters('dataCollectionRulesName'))]"
+        }
+        },
+        {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('vmName'), '/AMAExtension')]",
+        "apiVersion": "2020-06-01",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations', parameters('vmName'), 'Microsoft.Insights', parameters('dcraName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.Azure.Monitor",
+            "type": "AzureMonitorWindowsAgent",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+            "authentication": {
+                "managedIdentity": {
+                "identifier-type": "mi_res_id",
+                "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
+                }
+            }
+            }
+        }
+        }
+    ]
     }
-  ]
-}
 
-```
+    ```
 
 1. Select **Save**.
-
 
 ## Troubleshooting
 
@@ -1069,4 +1068,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For a full list of information on creating a data collection rule and associating resources to it, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md)
+- For a full list of information on creating a data collection rule and associating resources to it, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
