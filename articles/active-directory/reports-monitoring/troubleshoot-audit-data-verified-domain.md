@@ -44,7 +44,7 @@ For cloud-only users, consistency means that the Proxy Addresses match a verifie
 For synchronized users, consistency means that the Proxy Addresses match the on-premises Proxy Address(es) value(s) (i.e ShadowProxyAddresses). **ProxyAddresses** are expected to be in sync with **ShadowProxyAddresses**. If the synchronized user has an Exchange license assigned, then the Proxy Addresses must match the on-premises Proxy Address(es) value(s) and must also match a verified domain suffix. In this scenario, **ProxyCalc** will sanitize the inconsistent Proxy Address with an unverified domain suffix and will be removed from the object in Microsoft Entra ID. If that unverified domain is verified later, **ProxyCalc** will recompute and add the Proxy Address from **ShadowProxyAddresses** back to the object in Microsoft Entra ID.  
 
 > [!NOTE]
-> For synchronized objects, to avoid **ProxyCalc** logic from calculating unexpected results, it is best to set Proxy Addresses to a Microsoft Entra verified domain on the On-Premises object.  
+> For synchronized objects, to avoid **ProxyCalc** logic from calculating unexpected results, it is best to set Proxy Addresses to a Microsoft Entra ID verified domain on the On-Premises object.  
 
   
 One of the admin tasks that could trigger **ProxyCalc** is whenever there’s a verified domain change. This task occurs every time a verified domain is added/removed from a Microsoft Entra tenant, which internally triggers **ProxyCalc**.  

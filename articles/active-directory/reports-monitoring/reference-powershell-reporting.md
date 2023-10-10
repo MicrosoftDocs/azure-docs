@@ -28,7 +28,7 @@ Install-module AzureADPreview
 
 For more information on how to connect to Microsoft Entra ID using PowerShell, see the article [Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2).  
 
-With Microsoft Entra ID reports, you can get details on activities around all the write operations in your direction (audit logs) and authentication data (sign-in logs). Although the information is available by using the MS Graph API, now you can retrieve the same data by using the Azure AD PowerShell cmdlets for reporting.
+With Microsoft Entra reports, you can get details on activities around all the write operations in your direction (audit logs) and authentication data (sign-in logs). Although the information is available by using the MS Graph API, now you can retrieve the same data by using the Azure AD PowerShell cmdlets for reporting.
 
 This article gives you an overview of the PowerShell cmdlets to use for audit logs and sign-in logs.
 
@@ -49,7 +49,7 @@ You get access to the audit logs using the `Get-AzureADAuditDirectoryLogs` cmdle
 
 The following image shows an example for this command. 
 
-![Screenshot shows the result of the `Get Azure A D Audit Directory Logs command.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Screenshot shows the result of the `Get Microsoft Entra audit Directory Logs command.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -71,12 +71,12 @@ You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs cmdlet.
 
 The following image shows an example for this command. 
 
-![Screenshot shows the result of the Get Azure A D Audit Sign In Logs command.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Screenshot shows the result of the Get Microsoft Entra audit Sign In Logs command.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 
 ## Next steps
 
-- [Microsoft Entra ID reports overview](overview-reports.md).
+- [Microsoft Entra reports overview](overview-reports.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Microsoft Entra ID reports](./howto-configure-prerequisites-for-reporting-api.md)
+- [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)
