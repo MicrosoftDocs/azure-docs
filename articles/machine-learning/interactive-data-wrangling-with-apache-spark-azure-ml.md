@@ -78,7 +78,7 @@ The session configuration changes persist and become available to another notebo
 
 > [!TIP]
 >
-> If you use session-level Conda packages, you can [improve](./how-to-submit-spark-jobs.md#improving-serverless-spark-session-start-up-time-while-using-session-level-conda-packages) the Spark session *cold start* time if you set the configuration variable `spark.hadoop.aml.enable_cache` to true. A session cold start with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session cold starts after setting the configuration variable typically take three to five minutes.
+> If you use session-level Conda packages, you can [improve](./how-to-submit-spark-jobs.md#improving-serverless-spark-session-start-up-time-while-using-session-level-conda-packages) the Spark session *cold start* time if you set the configuration variable `spark.hadoop.aml.enable_cache` to true. A session cold start with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session cold starts with the configuration variable set to true typically take three to five minutes.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
