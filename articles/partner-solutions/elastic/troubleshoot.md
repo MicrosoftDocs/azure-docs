@@ -44,17 +44,17 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 To contact support about the Elastic integration with Azure, select the **New Support request** in the left pane. Select **Open an Elastic Support ticket**.
 
-:::image type="content" source="media/troubleshoot/open-ticket.png" alt-text="Open support ticket":::
+:::image type="content" source="media/troubleshoot/open-ticket.png" alt-text="Screenshot of opening a support ticket for the Elastic integration with Azure.":::
 
 In the Elastic site, open a support request.
 
-:::image type="content" source="media/troubleshoot/elastic-support.png" alt-text="Open Elastic support":::
+:::image type="content" source="media/troubleshoot/elastic-support.png" alt-text="Screenshot of opening a support ticket on the Elastic site.":::
 
 ## Suggest a feature
 
 To suggest a new feature for the Elastic integration with Azure, select the **Suggest a feature** link at the top of the resource overview page.
 
-:::image type="content" source="media/troubleshoot/suggest-a-feature.png" alt-text="Suggest a feature for Elastic integration with Azure":::
+:::image type="content" source="media/troubleshoot/suggest-a-feature.png" alt-text="Screenshot of suggesting a feature for the Elastic integration with Azure.":::
 
 This link takes you to the **Developer community forum** where you can suggest a new feature. You can also view, upvote, or comment on feature suggestions from other customers.
 
