@@ -49,7 +49,7 @@ This list summarizes the required setup steps:
 1. In your feature store workspace, create an offline materialization store. Create an Azure Data Lake Storage Gen2 account and a container inside it, and attach it to the feature store. Optionally, you can use an existing storage container.
 1. Create and assign a UAI to the feature store. Optionally, you can use an existing managed identity. The system-managed materialization jobs - in other words, the recurrent jobs - use the managed identity. The third tutorial in the series relies on it.
 1. Grant required role-based access control (RBAC) permissions to the UAI.
-1. Grant required RBAC permissions to your Azure Active Directory (Azure AD) identity. Users, including you, need read access to the sources and the materialization store.
+1. Grant required RBAC permissions to your Microsoft Entra identity. Users, including you, need read access to the sources and the materialization store.
 
 ### Configure the Azure Machine Learning Spark notebook
 
@@ -214,7 +214,7 @@ The next CLI commands assign the first two roles to the UAI. In this example, th
 
 If the feature data is materialized, you need the Storage Blob Data Reader role to read feature data from the offline materialization store.
 
-Obtain your Azure AD object ID value from the Azure portal, as described in [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+Obtain your Microsoft Entra object ID value from the Azure portal, as described in [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
 
 To learn more about access control, see [Manage access control for managed feature store](./how-to-setup-access-control-feature-store.md).
 
