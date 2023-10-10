@@ -160,14 +160,14 @@ You can filter the view to focus on specific problems, such as dates. Double-cli
 
 This information provides detailed steps and where the synchronization problem is occurring. In this way, you can pinpoint the exact spot of the problem.
 
-#### Azure Active Directory Object Deletion Threshold
+#### Microsoft Entra ID Object Deletion Threshold
 
-If you have an implementation topology with Azure AD Connect and Azure AD Connect cloud sync, both exporting to the same Azure AD Tenant, or if you completely moved from using Azure AD Connect to Azure AD Connect cloud sync, you may get the following export error message, when deleting or moving multiple objects out of the defined scope:
+If you have an implementation topology with Microsoft Entra Connect and Microsoft Entra Connect cloud sync, both exporting to the same Microsoft Entra ID Tenant, or if you completely moved from using Microsoft Entra Connect to Microsoft Entra Connect cloud sync, you may get the following export error message, when deleting or moving multiple objects out of the defined scope:
 
 ![Screenshot that shows the export error.](media/how-to-troubleshoot/log-4.png)
 
-This error is not related to the [Azure AD Cloud Sync accidental deletions prevention feature](../app-provisioning/accidental-deletions.md). It is triggered by the [accidental deletion prevention feature](../hybrid/connect/how-to-connect-sync-feature-prevent-accidental-deletes.md) set in the Azure directory from Azure AD Connect.
-If you don't have an Azure AD Connect server installed any longer from which you could toggle the feature, you can use the ["AADCloudSyncTools"](reference-powershell.md) PowerShell module installed with the Azure AD Connect cloud sync agent, to disable the setting on the tenant and allow the blocked deletions to export, after confirming they are expected and should be allowed. Use the following command:
+This error is not related to the [Microsoft Entra Connect Cloud Sync accidental deletions prevention feature](../cloud-sync/how-to-accidental-deletes.md). It is triggered by the [accidental deletion prevention feature](../connect/how-to-connect-sync-feature-prevent-accidental-deletes.md) set in the Microsoft Entra ID directory from Microsoft Entra Connect.
+If you don't have a Microsoft Entra Connect server installed any longer from which you could toggle the feature, you can use the ["AADCloudSyncTools"](../cloud-sync/reference-powershell.md) PowerShell module installed with the Microsoft Entra Connect cloud sync agent, to disable the setting on the tenant and allow the blocked deletions to export, after confirming they are expected and should be allowed. Use the following command:
 
 ```PowerShell
 Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId "340ab039-c6b1-48a5-9ba7-28fe88f83980"
