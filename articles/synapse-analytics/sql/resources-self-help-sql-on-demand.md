@@ -51,11 +51,11 @@ Finally, make sure the appropriate roles are granted and have not been revoked.
 
 ### Unable to create new database as the request will use the old/expired key
 
-This error is caused by changing workspace customer managed key used for enryption. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. Learn here how to [manage the workspace keys](../security/workspaces-encryption.md#manage-the-workspace-customer-managed-key).
+This error is caused by changing workspace customer managed key used for encryption. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. Learn here how to [manage the workspace keys](../security/workspaces-encryption.md#manage-the-workspace-customer-managed-key).
 
-### Synapse serverless SQL pool is unavailable after transfering a subscription to a different Azure AD tenant
+### Synapse serverless SQL pool is unavailable after transferring a subscription to a different Azure AD tenant
 
-If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure suport will contact you to resolve the issue.
+If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure support will contact you to resolve the issue.
 
 ## Storage access
 
@@ -576,7 +576,7 @@ There are reasons why this error code can happen:
 
 #### [0x80070005](#tab/x80070005)
 
-This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires.
+This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour. 
 
 The error message might also resemble: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
@@ -639,7 +639,7 @@ To read or download a blob in the Archive tier, rehydrate it to an online tier. 
 
 #### [0x80070057](#tab/x80070057)
 
-This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires.
+This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour.
 
 The error message might also resemble the following pattern: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
@@ -676,7 +676,7 @@ If your query returns NULL values instead of partitioning columns or can't find 
 
 The error `Inserting value to batch for column type DATETIME2 failed` indicates that the serverless pool can't read the date values from the underlying files. The datetime value stored in the Parquet or Delta Lake file can't be represented as a `DATETIME2` column.
 
-Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the Spark 2.4 version or with the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
+Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the [Spark 2.4 (unsupported runtime version)](../spark/apache-spark-24-runtime.md) version or with the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
 
 There might be a two-day difference between the Julian calendar used to write the values in Parquet (in some Spark versions) and the proleptic Gregorian calendar used in serverless SQL pool. This difference might cause conversion to a negative date value, which is invalid.
 
@@ -952,7 +952,7 @@ If you are exporting your [Dataverse table to Azure Data Lake storage](/power-ap
 
 ### Delta tables in Lake databases are not available in serverless SQL pool
 
-Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
+Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta logs that are placed in ADLS and uses the workspace Managed Identity to access the Delta transaction logs.
 
 Try to set up a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
 

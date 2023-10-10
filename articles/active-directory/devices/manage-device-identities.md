@@ -46,7 +46,7 @@ From there, you can go to **All devices** to:
 [![Screenshot that shows the All devices view.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
 
 > [!TIP]
-> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner. If you're looking for a device by owner and don't find it, search by the device ID.
+> - Microsoft Entra hybrid joined Windows 10 or newer devices don't have an owner unless the primary user is set in Microsoft Intune. If you're looking for a device by owner and don't find it, search by the device ID.
 >
 > - If you see a device that's **Microsoft Entra hybrid joined** with a state of **Pending** in the **Registered** column, the device has been synchronized from Microsoft Entra Connect and is waiting to complete registration from the client. See [How to plan your Microsoft Entra hybrid join implementation](hybrid-join-plan.md). For more information, see [Device management frequently asked questions](faq.yml).
 >
@@ -107,15 +107,15 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Security Administrator
 - Security Reader
 
-## View and filter your devices (preview)
+## View and filter your devices
 
-In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
+You can filter the device list by these attributes:
 
 - Enabled state
 - Compliant state
 - Join type (Microsoft Entra joined, Microsoft Entra hybrid joined, Microsoft Entra registered)
 - Activity timestamp
-- OS Type and Version
+- OS type and OS version
    - Windows is displayed for Windows 11 and Windows 10 devices (with KB5006738).
    - Windows Server is displayed for [supported versions managed with Microsoft Defender for Endpoint](/mem/intune/protect/mde-security-integration#supported-platforms).
 - Device type (printer, secure VM, shared device, registered device)
@@ -125,16 +125,6 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - Administrative unit
 - Owner
 
-To enable the preview in the **All devices** view:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-1. Browse to **Identity** > **Devices** > **All devices**.
-1. Select the **Preview features** button.
-1. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
-1. Refresh your browser.
-
-You can now experience the enhanced **All devices** view.
-
 ## Download devices
 
 Global readers, Cloud Device Administrators, Intune Administrators, and Global Administrators can use the **Download devices** option to export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices are listed. An export task might run for as long as an hour, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.
@@ -142,6 +132,15 @@ Global readers, Cloud Device Administrators, Intune Administrators, and Global A
 The exported list includes these device identity attributes:
 
 `displayName,accountEnabled,operatingSystem,operatingSystemVersion,joinType (trustType),registeredOwners,userNames,mdmDisplayName,isCompliant,registrationTime,approximateLastSignInDateTime,deviceId,isManaged,objectId,profileType,systemLabels,model`
+
+The following filters can be applied for the export task:
+
+- Enabled state
+- Compliant state
+- Join type
+- Activity timestamp
+- OS type
+- Device type
 
 ## Configure device settings
 

@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/14/2023
 ms.topic: how-to
-ms.custom: build-2023, moe-wsvnet
+ms.custom: build-2023
 ---
 
 # Plan for network isolation

@@ -13,7 +13,7 @@ The following table shows which languages supported by Functions can run on Linu
 
 | Language | Runtime stack | Linux | Windows | In-portal editing |
 |:--- |:-- |:--|:--- |:--- |
-| [C# (isolated worker model))](../articles/azure-functions/dotnet-isolated-process-guide.md) |.NET|✓ |✓ | | 
+| [C# (isolated worker model)](../articles/azure-functions/dotnet-isolated-process-guide.md) |.NET|✓ |✓ | | 
 | [C# (in-process model)](../articles/azure-functions/functions-dotnet-class-library.md)|.NET|✓ |✓ | | 
 | [C# script](../articles/azure-functions/functions-reference-csharp.md) | .NET | ✓ |✓ |✓ |
 | [JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |

@@ -1,8 +1,8 @@
 ---
 title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps

@@ -8,73 +8,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 10/09/2023
 ---
 
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly specified query patterns. This article describes query requests and the kinds of queries you can create.
-
-In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. To illustrate, the following query example calls the [Search Documents (REST API)](/rest/api/searchservice/search-documents). It's a parameterized, free text query with a boolean operator, targeting the [hotels-sample-index](search-get-started-portal.md) documents collection. It also selects which fields are returned in results.
-
-```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "queryType": "simple",
-    "searchMode": "all",
-    "search": "restaurant +view",
-    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
-    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
-    "top": "10",
-    "count": "true",
-    "orderby": "Rating desc"
-}
-```
-
-Parameters used during query execution include:
-
-+ **`queryType`** sets the parser: `simple`, `full`. The [default simple query parser](search-query-simple-examples.md) is optimal for full text search. The [full Lucene query parser](search-query-lucene-examples.md) is for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. This parameter can also be set to `semantic` for [semantic ranking](semantic-search-overview.md) for advanced semantic modeling on the query response.
-
-+ **`searchMode`** specifies whether matches are based on "all" criteria (favors precision) or "any" criteria (favors recall) in the expression. The default is "any".
-
-+ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as "searchable" in the index schema is a candidate for this parameter.
-
-+ **`searchFields`** constrains query execution to specific searchable fields. During development, it's helpful to use the same field list for select and search. Otherwise a match might be based on field values that you can't see in the results, creating uncertainty as to why the document was returned.
-
-Parameters used to shape the response:
-
-+ **`select`** specifies which fields to return in the response. Only fields marked as "retrievable" in the index can be used in a select statement.
-
-+ **`top`** returns the specified number of best-matching documents. In this example, only 10 hits are returned. You can use top and skip (not shown) to page the results.
-
-+ **`count`** tells you how many documents in the entire index match overall, which can be more than what are returned. 
-
-+ **`orderby`** is used if you want to sort results by a value, such as a rating or location. Otherwise, the default is to use the relevance score to rank results. A  field must be attributed as "sortable" to be a candidate for this parameter.
-
-The above list is representative but not exhaustive. For the full list of parameters on a query request, see [Search Documents (REST API)](/rest/api/searchservice/search-documents).
+Azure Cognitive Search supports query constructs for a broad range of scenarios, from free-form text search, to highly specified query patterns, to vector search. All queries execute over a search index that stores searchable content.
 
 <a name="types-of-queries"></a>
 
 ## Types of queries
 
-With a few notable exceptions, a full text query request iterates over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. In Cognitive Search, the primary methodology for finding matches is either full text search or filters, but you can also implement other well-known search experiences like autocomplete, or geo-location search. The rest of this article summarizes queries in Cognitive Search and provides links to more information and examples.
+| Query form | Parameter | Searchable content | Description |
+|------------|--------------------|-------------|
+| [full text search](search-lucene-query-architecture.md) | `search` | Inverted indexes of tokenized terms. | Full text queries iterate over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. Text is analyzed and tokenized for full text search.|
+| [Vector search](vector-search-overview.md) | `vectors` | Vector indexes of generated embeddings. | Vector queries iterate over vector fields in a search index. |
+| [Hybrid search](hybrid-search-overview.md) | `search`, `vectors` | All of the above, in a single search index. | Combines text search and vector search in a single query request. Text search works on plain text content in "searchable" and "filterable" fields. Vector search works on content in vector fields. |
+| Others | `filters`, `facets`, `search=''&queryType=full` | Plain text and alphanumeric content.| Raw content, extracted verbatim from source documents, supporting filters and pattern matching queries like geo-spatial search, fuzzy search, and fielded search. |
 
-## Full text search
-
-Full text search accepts terms or phrases passed in a **`search`** parameter in all "searchable" fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
-
-In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the" and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
-
-When matching terms are found, the query engine reconstitutes a search document containing the match using the document key or ID to assemble field values, ranks the documents in order of relevance, and returns the top 50 (by default) in the response or a different number if you specified **`top`**.
-
-If you're implementing full text search, understanding how your content is tokenized will help you debug any query anomalies. Queries over hyphenated strings or special characters could necessitate using an analyzer other than the default standard Lucene to ensure the index contains the right tokens. You can override the default with [language analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized analyzers](index-add-custom-analyzers.md#built-in-analyzers) that modify lexical analysis. One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
-
-> [!TIP]
-> If you anticipate heavy use of Boolean operators, which is more likely in indexes that contain large text blocks (a content field or long descriptions), be sure to test queries with the **`searchMode=Any|All`** parameter to evaluate the impact of that setting on boolean search.
+This article brings focus to queries that work on plain text and alphanumeric content, extracted intact from original source, used for filters and other specialized query forms.
 
 ## Autocomplete and suggested queries
 
-[Autocomplete or suggested results](search-add-autocomplete-suggestions.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you can't use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine never returns a string or suggestion that is nonexistent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
+[Autocomplete or suggested results](search-add-autocomplete-suggestions.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this walkthrough](tutorial-csharp-type-ahead-and-suggestions.md), but you can't use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine never returns a string or suggestion that is nonexistent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
 
 ## Filter search
 
@@ -98,7 +54,23 @@ Geospatial search matches on a location's latitude and longitude coordinates for
 + Verify the incoming documents include the appropriate coordinates.
 + After indexing is complete, build a query that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). 
 
-For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
+Geospatial search uses kilometers for distance. Coordinates are specified in this format: `(longitude, latitude`).
+
+Here's an example of a filter for geospatial search. This filter finds other `Location` fields in the search index that have coordinates within a 300-kilometer radius of the geography point (in this example, Washington D.C.). It returns address information in the result, and includes an optional `facets` clause for self-navigation based on location.
+
+```http
+POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-07-01-Preview
+{
+    "count": true,
+    "search": "*",
+    "filter": "geo.distance(Location, geography'POINT(-77.03241 38.90166)') le 300",
+    "facets": [ "Address/StateProvince"],
+    "select": "HotelId, HotelName, Address/StreetAddress, Address/City, Address/StateProvince",
+    "top": 7
+}
+```
+
+For more information and examples, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
 
 ## Document look-up
 

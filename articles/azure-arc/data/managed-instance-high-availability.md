@@ -10,7 +10,7 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
 # High Availability with Azure Arc-enabled SQL Managed Instance

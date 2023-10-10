@@ -40,7 +40,7 @@ For managed online endpoints, Azure Machine Learning reserves 20% of your comput
 
 Each flow will have a folder which contains codes/prompts, definition and other artifacts of the flow. If you have developed your flow with UI, you can download the flow folder from the flow details page. If you have developed your flow with CLI or SDK, you should have the flow folder already.
 
-This article will use the [sample flow "basic-chat"](https://github.com/Azure/azureml-examples/examples/flows/chat/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
+This article will use the [sample flow "basic-chat"](https://github.com/microsoft/promptflow/tree/main/examples/flows/chat/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
 
 > [!IMPORTANT]
 >
@@ -255,6 +255,11 @@ az ml online-deployment create --file blue-deployment.yml --all-traffic
 ```
 
 This deployment might take up to 20 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
+You need to give the following permissions to the system-assigned identity after the endpoint is created:
+
+- AzureML Data Scientist role or a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" permission to workspace
+- Storage Blob Data Contributor permission, and Storage Table Data Contributor to the default storage of the workspace
+ 
 
 > [!TIP]
 >
@@ -280,9 +285,29 @@ az ml online-deployment get-logs --name blue --endpoint basic-chat-endpoint
 
 ### Invoke the endpoint to score data by using your model
 
-```Azure CLI
-az ml online-endpoint invoke --name basic-chat-endpoint --request-file endpoints/online/model-1/sample-request.json
+You can create a sample-request.json file like this:
+
+```json
+{
+  "question": "What is Azure Machine Learning?",
+  "chat_history":  []
+}
 ```
+
+```Azure CLI
+az ml online-endpoint invoke --name basic-chat-endpoint --request-file sample-request.json
+```
+
+You can also call it with an HTTP client, for example with curl:
+
+```bash
+ENDPOINT_KEY=<your-endpoint-key>
+ENDPOINT_URI=<your-endpoint-uri>
+
+curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
+```
+
+Note that you can get your endpoint key and your endpoint URI from the AzureML workspace in **Endpoints** > **Consume** > **Basic consumption info**.
 
 ## Next steps
 

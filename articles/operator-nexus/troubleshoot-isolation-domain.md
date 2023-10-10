@@ -41,7 +41,7 @@ For further instructions, see [Change the administrative state of an L3 isolatio
 
 When you're creating an isolation domain, VLAN IDs below 500 are reserved for infrastructure purposes and shouldn't be used. Instead, establish an external network with a VLAN ID higher than 500 on the partner end (PE) side to enable peering between the customer end (CE) and the PE (Option A peering).
 
-For further instructions, see [Create external networks](./howto-configure-isolation-domain.md#create-an-external-network-by-using-option-a).
+For further instructions, see [Create external networks](./howto-configure-isolation-domain.md#create-an-external-network-with-option-a).
 
 ## Isolation domain stuck in a disabled state (Option A)
 

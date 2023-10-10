@@ -20,7 +20,7 @@ Your application sends data to a [data collection endpoint (DCE)](../essentials/
 
 You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
-:::image type="content" source="media/data-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="media/data-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram that shows an overview of logs ingestion API.":::
+:::image type="content" source="media/logs-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="media/logs-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram that shows an overview of logs ingestion API.":::
 
 > [!NOTE]
 > To migrate solutions from the [Data Collector API](data-collector-api.md), see [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md).
@@ -44,7 +44,7 @@ The following tables can receive data from the ingestion API.
 | Azure tables | The Logs Ingestion API can send data to the following Azure tables. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
 > [!NOTE]
-> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`).  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Authentication
 

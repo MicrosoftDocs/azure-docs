@@ -41,8 +41,8 @@
     href: commitment-tier.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
-  - name: Manage resources
-    href: manage-resources.md
+  - name: Recover or purge deleted resources
+    href: recover-purge-resources.md
   - name: Deploy containers
     items:
     - name: Azure AI containers documentation

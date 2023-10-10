@@ -20,7 +20,7 @@ If your deployment contains multiple sites, we recommend upgrading the packet co
 
 - You must have a running packet core. Use Azure monitor platform metrics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## View the current packet core version
 
@@ -116,7 +116,7 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the version you were previously running.
 
-If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
+If any of the configuration options you set while your packet core instance was running a newer version aren't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
 1. Navigate to the **Packet Core Control Plane** resource that you want to roll back as described in [View the current packet core version](#view-the-current-packet-core-version).

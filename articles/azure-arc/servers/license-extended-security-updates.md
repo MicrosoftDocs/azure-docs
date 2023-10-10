@@ -12,8 +12,9 @@ Flexibility is critical when enrolling end of support infrastructure in Extended
 When provisioning WS2012 ESU licenses, you need to specify:
 
 * Either virtual core or physical core license
-* Standard or datacenter license
-* Attest to the number of associated cores (broken down by the number of 2-core and 16-core packs).
+* Standard or Datacenter license
+
+You'll also need to attest to the number of associated cores (broken down by the number of 2-core and 16-core packs).
 
 To assist with the license provisioning process, this article provides general guidance and sample customer scenarios for planning your deployment of WS2012 ESUs through Azure Arc.
 
@@ -34,8 +35,12 @@ If you choose to license based on virtual cores, the licensing requires a minimu
 An additional scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
 
 > [!IMPORTANT]
-> In all cases, you are required to attest to their conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You will be able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
->
+> Customers that choose virtual core licensing will always be charged at the Standard edition rate, even if the actual operating system used is Datacenter edition. Additionally, virtual core licensing is not available for physical servers.
+> 
+
+### SA/SPLA conformance
+
+In all cases, you're required to attest to conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You will be able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
 
 ## Cost savings with migration and modernization of workloads
 
@@ -76,9 +81,9 @@ In this scenario, you can deactivate or decommission the ESU Licenses associated
 
 In this scenario, you should provision a Windows Server 2012 Datacenter license associated with 128 physical cores and link this license to the Arc-enabled Windows Server 2012 R2 VMs running on it. The deletion of the underlying VM also deletes the corresponding Arc-enabled server resource, enabling you to link another Arc-enabled server.
 
-### Scenario 8: A insurance customer is running a 16 node VMware cluster with 1024 cores, licensed with Windows Server Datacenter for maximum virtualization use rights. There are 120 Windows VMs ranging from 4 to 12 cores, with 44 Windows Server 2012 R2 machines with a total of 506 cores.
+### Scenario 8: An insurance customer is running a 16 node VMware cluster with 1024 cores, licensed with Windows Server Datacenter for maximum virtualization use rights. There are 120 Windows VMs ranging from 4 to 12 cores, with 44 Windows Server 2012 R2 machines with a total of 506 cores.
 
-In this scenario, you should purchase an Arc ESU Windows Server 2012 Datacenter edition license associated with 506 physical cores and link this license to their 44 machines. Each of the 44 machines should be onboarded to Azure Arc, and can be onboarded at scale with Arc-enabled VMware vSphere (AVS). If you migrate to AVS, these servers are eligible for free WS2012 ESUs.
+In this scenario, you should purchase an Arc ESU Windows Server 2012 Datacenter edition license associated with 506 physical cores and link this license to your 44 machines. Each of the 44 machines should be onboarded to Azure Arc, and can be onboarded at scale with Arc-enabled VMware vSphere (AVS). If you migrate to AVS, these servers are eligible for free WS2012 ESUs.
 
 ## Next steps
 

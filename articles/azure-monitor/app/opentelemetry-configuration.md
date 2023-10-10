@@ -487,7 +487,9 @@ const credential = new ManagedIdentityCredential();
 
 // Create a new AzureMonitorOpenTelemetryOptions object and set the credential property to the credential object.
 const options: AzureMonitorOpenTelemetryOptions = {
-  credential: credential
+    azureMonitorExporterOptions: {
+        credential: credential
+    }
 };
 
 // Enable Azure Monitor integration using the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions object.

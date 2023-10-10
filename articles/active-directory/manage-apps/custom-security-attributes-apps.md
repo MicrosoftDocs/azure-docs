@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/28/2023
+ms.date: 10/01/2023
 ms.author: jomondi
 ms.reviewer: rolyon
 zone_pivot_groups: enterprise-apps-all
@@ -268,7 +268,7 @@ For other similar Microsoft Graph API examples for users, see [Assign, update, l
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 
-Use the [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a string value to an application.
+Use the [Update servicePrincipal](/graph/api/serviceprincipal-update) API to assign a custom security attribute with a string value to an application.
 
 Given the values
 
@@ -278,7 +278,7 @@ Given the values
 - Attribute value: "Baker"
 
 ```http
-PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/{id}
 Content-type: application/json
 
 {
@@ -299,7 +299,7 @@ Content-type: application/json
 Provide the new set of attribute values that you would like to reflect on the application. In this example, we're adding one more value for project attribute.
 
 ```http
-PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/{id}
 Content-type: application/json
 
 {
@@ -320,7 +320,7 @@ Content-type: application/json
 This example filters a list of applications with a custom security attribute assignment that equals the specified value.
 
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Engineering/Project eq 'Baker'ConsistencyLevel: eventual
+GET https://graph.microsoft.com/v1.0/servicePrincipals?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Engineering/Project eq 'Baker'ConsistencyLevel: eventual
 ```
 
 ### Remove custom security attribute assignments from an application
@@ -328,7 +328,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals?$count=true&$select=id,di
 In this example, we remove a custom security attribute assignment that supports multiple values. 
 
 ```http
-PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/{id}
 Content-type: application/json
 
 {

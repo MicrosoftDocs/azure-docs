@@ -74,6 +74,10 @@
       href: chaos-studio-tutorial-dynamic-target-cli.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
+  - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
+    href: chaos-studio-set-up-azure-monitor.md
+  - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
+    href: chaos-studio-set-up-app-insights.md
 - name: Reference
   items:
   - name: Fault library

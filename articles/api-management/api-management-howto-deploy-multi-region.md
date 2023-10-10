@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
