@@ -32,17 +32,15 @@ Finish the quickstart: [Create a Python app with Azure App Configuration](./quic
 
 A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
 
-The suggested usage of a sentinel key is to create a key with a value that either increments or use a timestamp.
-
-Add the following key-value to the App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key-value to your App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key            | Value             | Label       | Content type       |
 |----------------|-------------------|-------------|--------------------|
-| *Sentinel*     | *1*               | Leave empty | Leave empty        |
+| *sentinel*     | *1*               | Leave empty | Leave empty        |
 
 ## Console applications
 
-1. Add the following key-values to the App Configuration store.
+1. Add the following key-values to your App Configuration store if you didn't add it already during the quickstart.
 
     | Key            | Value             | Label       | Content type       |
     |----------------|-------------------|-------------|--------------------|
@@ -57,28 +55,26 @@ Add the following key-value to the App Configuration store. For more information
 
     connection_string = os.environ.get("APPCONFIGURATION_CONNECTION_STRING")
 
-    # Connecting to Azure App Configuration using connection string, and refreshing when the configuration setting message changes
+    # Connecting to Azure App Configuration using connection string
+    # Setting up to refresh when the Sentinel key is changed.
     config = load(
         connection_string=connection_string,
-        refresh_on=[SentinelKey("Sentinel")],
+        refresh_on=[SentinelKey("sentinel")],
         refresh_interval=10, # Default value is 30 seconds, shorted for this sample
     )
 
-    # Printing the initial value
-    print("Starting configuration values:")
-    print(config["message"])
+    print("Update the `message` in your App Configuration store using Azure portal or CLI.")
+    print("First, update the `message` value, and then update the `sentinel` key value.")
 
-    print("Update the configuration setting values now! First update message value, then update the sentinel key value.")
-
-    while (config.get("message") == "Hello"):
-        # Waiting for the refresh interval to pass
-        time.sleep(11)
-
+    while (true):
         # Refreshing the configuration setting
         config.refresh()
 
         # Current value of message
         print(config["message"])
+
+        # Waiting before the next refresh
+        time.sleep(5)
     ```
 
 1. Run your script:
@@ -99,7 +95,7 @@ Add the following key-value to the App Configuration store. For more information
     | Key            | Value                     | Label       | Content type       |
     |----------------|---------------------------|-------------|--------------------|
     | *message*      | *Hello World Refreshed!*  | Leave empty | Leave empty        |
-    | *Sentinel*     | *2*                       | Leave empty | Leave empty        |
+    | *sentinel*     | *2*                       | Leave empty | Leave empty        |
 
 1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print again with new values.
 
@@ -123,14 +119,22 @@ AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_
 Update your view endpoints to check for updated configuration values.
 
 ```python
+from django.shortcuts import render
 from django.conf import settings
 
 def index(request):
     # Refresh the configuration from Azure App Configuration.
     settings.AZURE_APPCONFIGURATION.refresh()
 
-    # Once this returns CONFIG will be updated with the latest values
-    ...
+    # Once this returns AZURE_APPCONFIGURATION will be updated with the latest values
+
+    context = {
+    "message": settings.AZURE_APPCONFIGURATION.get('message'),
+    "key": settings.AZURE_APPCONFIGURATION.get('secret_key'),
+    "color": settings.AZURE_APPCONFIGURATION.get('color'),
+    "font_size": settings.AZURE_APPCONFIGURATION.get('font_size')
+    }
+    return render(request, 'hello_azure/index.html', context)
 ```
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
