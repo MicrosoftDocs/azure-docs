@@ -165,7 +165,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 2. click on your workspace name in the top left, then go to **Settings & administration** -> **Workspace settings**.
 
-     ![Screenshot of Configure single sign-on On Microsoft Azure AD.](./media/slack-tutorial/tutorial-slack-team-settings.png)
+     ![Screenshot of Configure single sign-on for Microsoft Microsoft Entra ID.](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. In the **Settings & permissions** section, click the **Authentication** tab, and then click **Configure** button at SAML authentication method.
 
