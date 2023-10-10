@@ -47,21 +47,24 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 
 |  K8s version | Nexus GA  | End of life | Platform support      |
 |--------------|-----------|-------------|-----------------------|
-| 1.24         | Jul 2022  | Jul 2023    | Until 1.29 GA         |
-| 1.25         | Dec 2022  | Dec 2023    | Until 1.30 GA         |
-| 1.26         | Apr 2023  | Mar 2024    | Until 1.31 GA         |
-| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   | -         |
-| 1.28         | Nov 2023  |             | Until 1.33 GA         |
+| 1.24         | Jul 2022  | Jul 2023    | Until 1.30 GA         |
+| 1.25         | Dec 2022  | Dec 2023    | Until 1.31 GA         |
+| 1.26         | Apr 2023  | Mar 2024    | Until 1.32 GA         |
+| 1.27*        | Sep 2023  | Jul 2024, LTS until Jul 2025   | -  |
+| 1.28         | Nov 2023  |             | Until 1.34 GA         |
+
 <!--
-                 Upstream
-| 1.29         | Dec 2023  |             | Until 1.34 GA         |
-| 1.30         | Apr 2024  |             | Until 1.35 GA         |
-| 1.31         | Aug 2024  |             | Until 1.36 GA         |
-| 1.32         | Dec 2024  |             | Until 1.37 GA         |
-| 1.33         | Apr 2025  |             | Until 1.38 GA         |
-| 1.34         | Aug 2025  |             | Until 1.39 GA         |
-| 1.35*        | Dec 2025  |             | Until 1.40 GA         |
-| 1.36         | Apr 2026  |             | Until 1.41 GA         |
+------------------------------------------------------------------
+| K8s version  | Upstream  | End of life | Platform support      |
+------------------------------------------------------------------
+| 1.29         | Dec 2023  |             | Until 1.35 GA         |
+| 1.30         | Apr 2024  |             | Until 1.36 GA         |
+| 1.31         | Aug 2024  |             | Until 1.37 GA         |
+| 1.32         | Dec 2024  |             | Until 1.38 GA         |
+| 1.33         | Apr 2025  |             | Until 1.39 GA         |
+| 1.34         | Aug 2025  |             | Until 1.40 GA         |
+| 1.35*        | Dec 2025  |             | Until 1.41 GA         |
+| 1.36         | Apr 2026  |             | Until 1.42 GA         |
 -->
 
 *\* Indicates the version is designated for Long Term Support*
