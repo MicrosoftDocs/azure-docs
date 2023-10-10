@@ -22,7 +22,7 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
   * Protect users, apps, and data in the cloud and on-premises 
   * [Use it to publish on-premises web applications externally](../app-proxy/what-is-application-proxy.md)
   
-* **[Secure hybrid access through Microsoft Entra partner integrations](#partner-integrations-for-apps-on-premises-and-legacy-authentication)**:
+* **[Secure hybrid access through Microsoft Entra ID partner integrations](#partner-integrations-for-apps-on-premises-and-legacy-authentication)**:
 
   * [Pre-built solutions](#secure-hybrid-access-through-azure-ad-partner-integrations)
   * [Apply Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies)
@@ -58,7 +58,9 @@ Microsoft partners with various companies that deliver pre-built solutions for o
 
 <a name='secure-hybrid-access-through-azure-ad-partner-integrations'></a>
 
-### Secure hybrid access through Microsoft Entra partner integrations
+<a name='secure-hybrid-access-through-microsoft-entra-partner-integrations'></a>
+
+### Secure hybrid access through Microsoft Entra ID partner integrations
 
 
 The following partners offer solutions to support [Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies). Use the tables in the following sections to learn about the partners and Microsoft Entra integration documentation.
