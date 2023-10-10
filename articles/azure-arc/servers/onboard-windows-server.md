@@ -60,7 +60,7 @@ The Azure Arc system tray icon at the bottom of your Windows Server machine indi
 
 To uninstall Azure Arc Setup and remove the machine from Azure Arc, follow these steps:
 
-1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. See [Remove roles, role services, and features by using the remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features) for more information.
+1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. (See [Remove roles, role services, and features by using the remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard) for more information.)
 
 1. On the Features page, uncheck the box for **Azure Arc Setup**.
 
