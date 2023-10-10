@@ -59,7 +59,7 @@ A web hook is another notification channel by using an endpoint that is provided
 
 **Step1.** 	Enable Managed Identity in your Metrics Advisor resource
 
-A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Azure AD, so you don’t have to store any credentials in code. 
+A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Microsoft Entra ID, so you don’t have to store any credentials in code. 
 
 Go to Metrics Advisor resource in Azure portal, and select "Identity", turn it to "on" then Managed Identity is enabled. 
 
