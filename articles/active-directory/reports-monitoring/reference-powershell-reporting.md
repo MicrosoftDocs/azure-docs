@@ -49,7 +49,7 @@ You get access to the audit logs using the `Get-AzureADAuditDirectoryLogs` cmdle
 
 The following image shows an example for this command. 
 
-![Screenshot shows the result of the `Get Microsoft Entra audit Directory Logs command.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Screenshot shows the result of the `Get Azure AD Audit Directory Logs` command.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -57,7 +57,7 @@ The following image shows an example for this command.
 
 The [sign-ins](concept-sign-ins.md) logs provide information about the usage of managed applications and user sign-in activities.
 
-You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs cmdlet.
+You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs` cmdlet.
 
 
 | Scenario                      | PowerShell command |
@@ -71,7 +71,7 @@ You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs cmdlet.
 
 The following image shows an example for this command. 
 
-![Screenshot shows the result of the Get Microsoft Entra audit Sign In Logs command.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Screenshot shows the result of the `Get Azure A D Audit Sign In Logs` command.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 
