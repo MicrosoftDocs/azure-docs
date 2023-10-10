@@ -16,7 +16,7 @@ These scripts can be used for performing custom steps such as:
 - Perform data plane operations, for example, copy blobs or seed database.
 - Look up and validate a license key.
 - Create a self-signed certificate.
-- Create an object in Azure Active Directory (Azure AD).
+- Create an object in Microsoft Entra ID.
 - Look up IP Address blocks from custom system.
 
 The benefits of deployment script:
@@ -193,7 +193,7 @@ Property value details:
 - [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
 - [Sample 4](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-sub.json): it is the same scenario as Sample 1 in this list. A new resource group is created to run the deployment script. This template is a subscription level template.
 - [Sample 5](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-group.json): it is the same scenario as Sample 4. This template is a resource group level template.
-- [Sample 6](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Azure AD applications; in the Bicep file, use a deployment script to create an Azure AD application and service principal, and output the object IDs and client ID.
+- [Sample 6](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the Bicep file, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs and client ID.
 
 ## Use inline scripts
 
@@ -637,7 +637,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Use Microsoft Graph within a deployment script
 
-A deployment script can use [Microsoft Graph](/graph/overview) to create and work with objects in Azure AD.
+A deployment script can use [Microsoft Graph](/graph/overview) to create and work with objects in Microsoft Entra ID.
 
 ### Commands
 
