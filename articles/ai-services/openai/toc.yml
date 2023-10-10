@@ -82,7 +82,7 @@ items:
     items:
       - name: Manage models
         href: ./how-to/working-with-models.md
-  - name: Networking and Security
+  - name: Networking and security
     items:
       - name: Use virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
