@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 10/09/2023
 ---
 
 # How to create a full-text query in Azure Cognitive Search
@@ -23,7 +23,7 @@ If you're building a query for [full text search](search-lucene-query-architectu
 
 ## Example of a full text query request
 
-In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. 
+In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index, with parameters that both inform query execution and shape the response coming back. 
 
 A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
 
@@ -37,9 +37,30 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "searchMode": "all",
     "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "top": "10",
     "count": "true"
 }
 ```
+
+**Key points:**
+
++ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as "searchable" in the index schema is a candidate for this parameter.
+
++ **`queryType`** sets the parser: `simple`, `full`. The [default simple query parser](search-query-simple-examples.md) is optimal for full text search. The [full Lucene query parser](search-query-lucene-examples.md) is for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. This parameter can also be set to `semantic` for [semantic ranking](semantic-search-overview.md) for advanced semantic modeling on the query response.
+
++ **`searchMode`** specifies whether matches are based on "all" criteria (favors precision) or "any" criteria (favors recall) in the expression. The default is "any". If you anticipate heavy use of Boolean operators, which is more likely in indexes that contain large text blocks (a content field or long descriptions), be sure to test queries with the **`searchMode=Any|All`** parameter to evaluate the impact of that setting on boolean search.
+
++ **`searchFields`** constrains query execution to specific searchable fields. During development, it's helpful to use the same field list for select and search. Otherwise a match might be based on field values that you can't see in the results, creating uncertainty as to why the document was returned.
+
+Parameters used to shape the response:
+
++ **`select`** specifies which fields to return in the response. Only fields marked as "retrievable" in the index can be used in a select statement.
+
++ **`top`** returns the specified number of best-matching documents. In this example, only 10 hits are returned. You can use top and skip (not shown) to page the results.
+
++ **`count`** tells you how many documents in the entire index match overall, which can be more than what are returned. 
+
++ **`orderby`** is used if you want to sort results by a value, such as a rating or location. Otherwise, the default is to use the relevance score to rank results. A  field must be attributed as "sortable" to be a candidate for this parameter.
 
 ## Choose a client
 
