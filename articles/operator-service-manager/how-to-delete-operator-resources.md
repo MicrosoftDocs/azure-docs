@@ -20,13 +20,26 @@ In this how-to guide, you learn how to delete operator resources that include Si
 ## Delete Site Network Service
 
 1. Search for the Site Network Service (SNS) within Azure portal. 
+
+    :::image type="content" source="media/how-to-delete-operator-resources-search-for-site-network-services.png" alt-text="Screenshot showing Azure portal and search for Site Network Services." lightbox="media/how-to-delete-operator-resources-search-for-site-network-services.png":::
+
 1. Select the Site Network Service (SNS) within the Azure portal you wish to delete.
+
+    :::image type="content" source="media/how-to-delete-operator-resource.png" alt-text="Screenshot showing the Site Network Service selected for deletion." lightbox="media/how-to-delete-operator-resource.png" lightbox="media/how-to-delete-operator-resources-search-for-resource-groups.png":::
+
+     :::image type="content" source="media/how-to-delete-operator-resources-resource-groups.png" alt-text="Screenshot showing the Resource Group that the Configuration Group Values was deployed." lightbox="media/how-to-delete-operator-resources-resource-groups.png":::
 
 1. Under the Overview section, take note of the *Site* and the *resource group* within the **Properties**.
 
+    :::image type="content" source="media/how-to-delete-operator-resource-site-resource-group.png" alt-text="Screenshot showing the Site and resource group within the properties section." lightbox="media/how-to-delete-operator-resource-site-resource-group.png":::
+
 1. Under the **Overview** section, take note of the *Configuration Group Value* and the *resource group* within **Desired configuration**.
 
+    :::image type="content" source="media/how-to-delete-operator-resource-config-group-value.png" alt-text="Screenshot showing the Configuration Group Value and Site information in the desired configuration tab." lightbox="media/how-to-delete-operator-resource-config-group-value.png":::
+
 1. Once you have listed the resources, select **Delete** against the Site Network Service (SNS).
+
+    :::image type="content" source="media/how-to-delete-operator-resource-delete.png" alt-text="Screenshot showing the Site Network Service to delete." lightbox="media/how-to-delete-operator-resource-delete.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
 
@@ -45,9 +58,15 @@ While deleting a Site Network Service (SNS) is a straightforward task, here are 
 ## Delete Configuration Group Values
 
 1. Navigate to the Azure portal and search for **Resource Group** in which the Configuration Group Value was deployed.
+
+    :::image type="content" source="media/how-to-delete-operator-resources-search-for-resource-groups.png" alt-text="Screenshot showing the Azure portal and search for Resource Groups.":::
+
+    :::image type="content" source="media/how-to-delete-operator-resources-resource-groups.png" alt-text="Screenshot showing the Resource Group in which the Configuration Group Value was deployed." lightbox="media/how-to-delete-operator-resources-resource-groups.png":::
    
 1. Select the specific **Configuration Group Value(s)** you wish to delete. 
 1. Select **Delete**.
+
+    :::image type="content" source="media/how-to-delete-operator-resource-config-group-value.png" alt-text="Screenshot showing the selected Configuration Group Values to be deleted." lightbox="media/how-to-delete-operator-resource-config-group-value.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
 
@@ -56,5 +75,7 @@ While deleting a Site Network Service (SNS) is a straightforward task, here are 
 1. Navigate to the Azure portal and search for the Resource Group in which the Site was deployed.
 1. Select the specific **Site** you wish to delete.
 1. Select **Delete**.
+
+    :::image type="content" source="media/how-to-delete-operator-resource-delete-site.png" alt-text="Screenshot showing the Site selected for deletion." lightbox="media/how-to-delete-operator-resource-delete-site.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
