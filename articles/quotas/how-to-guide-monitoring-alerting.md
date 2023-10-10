@@ -2,7 +2,7 @@
 title: Monitoring & Alerting - How-To Guide
 description: Learn how to Create Alerts for Quotas
 ms.date: 10/01/2023
-ms.topic: how-to create alerts for Quota usages
+ms.topic: How-to guides
 ---
 
 # Monitoring & Alerting: How-To Guide
@@ -13,8 +13,8 @@ ms.topic: how-to create alerts for Quota usages
 
 | Requirement | Description |
 |:--------|:-----------|
-| Access to Create Alerts | Users who are creating Alert should have [Access to Create Alert](../azure-monitor/alerts/alerts-overview#azure-role-based-access-control-for-alerts) |
-| [Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) | When utilizing an existing Managed Identity, ensure it has **Subscription Reader** access for accessing usage data. In cases where a new Managed Identity is generated, the Subscription **Owner** is responsible for **granting** Subscription **Reader** access to this newly created Managed Identity. |
+| Access to Create Alerts | Users who are creating Alert should have [Access to Create Alert](../azure-monitor/alerts/alerts-overview.md#azure-role-based-access-control-for-alerts) |
+| [Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) | When utilizing an existing Managed Identity, ensure it has **Subscription Reader** access for accessing usage data. In cases where a new Managed Identity is generated, the Subscription **Owner** is responsible for **granting** Subscription **Reader** access to this newly created Managed Identity. |
 
 
 ### Create Alerts from Portal
@@ -34,13 +34,13 @@ Step-by-Step instructions to create an alert rule for your quota in the Azure po
     | Alert Rule Name | Alert rule name must be **distinct** and can't be duplicated, even across different resource groups |
     | Alert me when the usage % reaches | **Adjust** the slider to select your desired usage percentage for **triggering** alerts. For example, at the default 80%, you receive an alert when your quota reaches 80% capacity.|
     | Severity | Select the **severity** of the alert when the **rule’s condition** is met.|
-    | [Frequency of evaluation](../azure-monitor/alerts/alerts-overview#stateful-alerts) | Choose how **often** the alert rule should **run**, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, frequency of evaluation results in sliding window evaluation. |
-    | [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal) | Resource Group is a collection of resources that share the same lifecycles, permissions, and policies. Select a resource group similar to other quotas in your subscription, or create a new resource group. |
-    | [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace?tabs=azure-portal) | A workspace within the subscription that is being **monitored** and is used as the **scope for rule execution**. Select from the dropdown or create a new workspace. If you create a new workspace, use it for all alerts in your subscription. |
-    | [Managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) | Select from the dropdown, or **Create New**. Managed Identity should have **read permissions** to the Subscription (to read Usage data from ARG) and Log Analytics workspace that is chosen(to read the log alerts). |
+    | [Frequency of evaluation](../azure-monitor/alerts/alerts-overview.md#stateful-alerts) | Choose how **often** the alert rule should **run**, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, frequency of evaluation results in sliding window evaluation. |
+    | [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal.md) | Resource Group is a collection of resources that share the same lifecycles, permissions, and policies. Select a resource group similar to other quotas in your subscription, or create a new resource group. |
+    | [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal) | A workspace within the subscription that is being **monitored** and is used as the **scope for rule execution**. Select from the dropdown or create a new workspace. If you create a new workspace, use it for all alerts in your subscription. |
+    | [Managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) | Select from the dropdown, or **Create New**. Managed Identity should have **read permissions** to the Subscription (to read Usage data from ARG) and Log Analytics workspace that is chosen(to read the log alerts). |
     | Notify me by | There are three notifications methods and you can check one or all three check boxes, depending on your notification preference. |
     | [Use an existing action group](../azure-monitor/alerts/action-groups.md) | Check the box to use an existing action group. An action group **invokes** a defined set of **notifications** and actions when an alert is triggered. You can create Action Group to automatically Increase the Quota whenever possible. |
-    | [Dimensions](../azure-monitor/alerts/alerts-types#dimensions-in-log-alert-rules) | Here are the options for selecting **multiple Quotas** and **regions** within a single alert rule. Adding dimensions is a cost-effective approach compared to creating a new alert for each quota or region.|
+    | [Dimensions](../azure-monitor/alerts/alerts-types.md#dimensions-in-log-alert-rules) | Here are the options for selecting **multiple Quotas** and **regions** within a single alert rule. Adding dimensions is a cost-effective approach compared to creating a new alert for each quota or region.|
     | [Estimated cost](https://azure.microsoft.com/pricing/details/monitor/) |Estimated cost is automatically calculated cost associated with running this **new alert rule** against your quota. Each alert creation costs $0.50 USD, and each additional dimension adds $0.05 USD to the cost. |
     
     > [!TIP]
@@ -55,7 +55,8 @@ Step-by-Step instructions to create an alert rule for your quota in the Azure po
 
 ### Create Alerts using API
 
-Alerts can be created programmatically using existing [**Monitoring API**](https://learn.microsoft.com/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update?tabs=HTTP). 
+Alerts can be created programmatically using existing [**Monitoring API**]
+(https://learn.microsoft.com/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update?tabs=HTTP). 
 
 Monitoring API helps to **create or update log search rule**. 
 
@@ -114,9 +115,9 @@ Monitoring API helps to **create or update log search rule**.
 
 ### Create Alerts using ARG Query
 
-Use existing **Azure Monitor Alerts** blade to [create alerts using query](../azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log). **Resource Graph Explorer** allows you to run and test queries before using them to create an alert. To learn on how to create Alerts using Alerts page visit this [Tutorial](/training/modules/configure-azure-alerts/?source=recommendations).
+Use existing **Azure Monitor Alerts** blade to [create alerts using query](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log). **Resource Graph Explorer** allows you to run and test queries before using them to create an alert. To learn on how to create Alerts using Alerts page visit this [Tutorial](/training/modules/configure-azure-alerts/?source=recommendations).
 
-For Quota alerts, make sure Scope is selected as the Log analytics workspace that is created and the signal type is Customer Query log. Add **Sample Query** for Quota usages. Follow the remaining steps as mentioned in the [create alerts](../azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log). 
+For Quota alerts, make sure Scope is selected as the Log analytics workspace that is created and the signal type is Customer Query log. Add **Sample Query** for Quota usages. Follow the remaining steps as mentioned in the [create alerts](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log). 
 
 >[!Note]
 >Our **recommendation** for creating alerts in the Portal is to use the **Quota Alerts page**, as it offers the simplest and most user-friendly approach. 
@@ -177,8 +178,8 @@ Use `Test_SetQuota()` code to write an Azure function to set the Quota.
 
 ## Query using Resource Graph Explorer
 
-Using [Azure Resource Graph](../governance/resource-graph/overview), Alerts can be [Managed programatically](../azure-monitor/alerts/alerts-manage-alert-instances#manage-your-alerts-programmatically) where you can query your alerts instances and analyze your alerts to identify patterns and trends. 
-For Usages, the **QuotaResources** table in [Azure Resource Graph](../governance/resource-graph/overview) explorer provides **usage and limit/quota data** for a given resource x region x subscription. Customers can query usage and quota data across multiple subscriptions with Azure Resource Graph queries. 
+Using [Azure Resource Graph](../governance/resource-graph/overview.md), Alerts can be [Managed programatically](../azure-monitor/alerts/alerts-manage-alert-instances.md#manage-your-alerts-programmatically) where you can query your alerts instances and analyze your alerts to identify patterns and trends. 
+For Usages, the **QuotaResources** table in [Azure Resource Graph](../governance/resource-graph/overview.md) explorer provides **usage and limit/quota data** for a given resource x region x subscription. Customers can query usage and quota data across multiple subscriptions with Azure Resource Graph queries. 
 
 As a **prerequisite**, users must have at least a **Subscription Reader** role for the subscription.
 
@@ -213,7 +214,7 @@ QuotaResources
 | order by ['usagePercent'] desc
 ```
 
-## Feedback 
+## Provide Feedback 
 
 User can find **Feedback** button on every Quota page and can use to share thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any problem while creating alert rules for quotas.
 

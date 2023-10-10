@@ -1,8 +1,8 @@
 ---
 title:  Quota Monitoring & Alerting
 description: Monitoring and Alerting for Quota Usages.
-ms.date: 30/09/2023
-ms.topic: Overview
+ms.date: 10/11/2023
+ms.topic: how-to
 ---
 
 # Quota Monitoring and Alerting
@@ -23,12 +23,12 @@ To view the features on **Quotas** page, sign in to the [Azure portal](https://p
 **Quota alerts** in Azure are notifications triggered when the usage of a specific Azure resource nears the **predefined quota limit**. These alerts are crucial for informing Azure users and administrators about resource consumption, facilitating proactive resource management. Azure’s alert rule capabilities allow you to create multiple alert rules for a given quota or across quotas in your subscription.  
 
 > [!NOTE]
-> [General Role based access control](../azure-monitor/alerts/alerts-overview#azure-role-based-access-control-for-alerts) applies while creating alerts.  
+> [General Role based access control](../azure-monitor/alerts/alerts-overview.md#azure-role-based-access-control-for-alerts) applies while creating alerts.  
 
 
 ## Next steps
 
 - Learn [how to Create Quota alert](how-to-guide-monitoring-alerting.md).
-- Learn more about [Alerts](../azure-monitor/alerts/alerts-overview)
-- Learn about [Azure Resource Graph](../governance/resource-graph/overview)
+- Learn more about [Alerts](../azure-monitor/alerts/alerts-overview.md)
+- Learn about [Azure Resource Graph](../governance/resource-graph/overview.md)
 
