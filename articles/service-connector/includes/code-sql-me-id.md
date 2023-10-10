@@ -77,7 +77,7 @@ For other languages, you can use the connection string and username that Service
 
 For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code).
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 
 For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect to the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 

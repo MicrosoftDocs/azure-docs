@@ -98,7 +98,7 @@ Reference the connection details and sample codes in following tables, according
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
 
-#### [NodeJS](#tab/node)
+#### [NodeJS](#tab/nodejs)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -193,7 +193,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 
 
-#### [NodeJS](#tab/node)
+#### [NodeJS](#tab/nodejs)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -286,7 +286,7 @@ After created a `springboot` client type connection, Service Connector service w
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
 
-#### [NodeJS](#tab/node)
+#### [NodeJS](#tab/nodejs)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -396,7 +396,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
 
-#### [NodeJS](#tab/node)
+#### [NodeJS](#tab/nodejs)
 
 | Default environment variable name   | Description           | Example value                                          |
 |-------------------------------------|-----------------------|--------------------------------------------------------|

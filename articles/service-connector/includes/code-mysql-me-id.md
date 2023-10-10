@@ -228,7 +228,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    }
    ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install --save @azure/identity

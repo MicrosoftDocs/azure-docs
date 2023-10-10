@@ -240,7 +240,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 	conn.Close()
     ```    
 
-#### [NodeJS](#tab/node)
+#### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
     ```bash

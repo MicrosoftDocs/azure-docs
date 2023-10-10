@@ -131,7 +131,7 @@ ms.author: yungez
     ```
 
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
    ```bash
