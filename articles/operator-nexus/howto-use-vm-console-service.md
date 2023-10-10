@@ -76,7 +76,7 @@ This section provides a step-by-step guide to help you to establish a private ne
 
 :::image type="content" source="media/vm-console-private-link.png" alt-text="Diagram of Private Link networking." lightbox="media/vm-console-private-link.png":::
 
-1. You need to retrieve the resource identifier for the PLS associated to the VM Console service running in the Cluster Manager.
+<!-- 1. You need to retrieve the resource identifier for the PLS associated to the VM Console service running in the Cluster Manager. You will have to create at least one Console resource and extract its `privateLinkServiceId` attribute. See section Creating Console Resource
 
     ```bash
         # retrieve the infrastructure resource group of the AKS cluster
@@ -88,7 +88,7 @@ This section provides a step-by-step guide to help you to establish a private ne
             --resource-group ${pls_resource_group} \
             --query id \
             --output tsv)
-    ```
+    ``` -->
 
 1. Create the PLE for establishing a private and secure connection between your network and the Cluster Manager's private network. You need the PLS resource ID obtained in [Creating Console Resource](#creating-console-resource).
 
@@ -138,7 +138,16 @@ This section provides step-by-step guide to help you to create a Console resourc
     > [!NOTE]
     > For a complete synopsis for this command, invoke `az networkcloud console create --help`.
 
-1. Upon successful creation of the Console resource, retrieve the VM Access ID. You must use this unique identifier as `user` of the `ssh` session.
+1. Upon successful creation of the Console resource, retrieve the **Private Link Service** identifier that can be used to create Private Link Endpoint (PLE)
+
+    ```bash
+        export pls_resourceid=$(az networkcloud virtualmachine console show \
+            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
+            --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
+            --query "privateLinkServiceId")
+    ```
+
+1. Also, retrieve the **VM Access ID**. You must use this unique identifier as `user` of the `ssh` session.
 
     ```bash
         virtual_machine_access_id=$(az networkcloud virtualmachine console show \
