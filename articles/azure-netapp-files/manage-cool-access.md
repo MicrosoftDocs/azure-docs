@@ -92,7 +92,7 @@ Before creating or enabling a cool-access volume, you need to configure a Standa
 
 You can enable cool access support on an existing Standard service-level capacity pool that uses the auto QoS type. This action allows you to add or modify volumes in the pool to use cool access.  
 
-1. Right-click a **Stand** service-level capacity pool for which you want to enable cool access.   
+1. Right-click a **Standard** service-level capacity pool for which you want to enable cool access.   
 
 2. Select **Enable Cool Access**: 
 
@@ -111,7 +111,7 @@ Standard service with cool access can be enabled during the creation of a new vo
         This option specifies whether the volume will support cool access. 
  
     * **Coolness Period**
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.    
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days.    
 
     * **Cool Access Retrieval Policy**   
         This option defines how data is retrieved from the cool tier, whether it is sent to both the performance tier (Azure NetApp Files Standard service-level storage) and the client, or sent to only the client.
