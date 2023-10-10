@@ -4,7 +4,7 @@ description: Learn how to create and use Azure file shares with the Azure portal
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: quickstart
-ms.date: 10/09/2023
+ms.date: 10/10/2023
 ms.author: kendownie
 ms.custom: engagement-fy23, mode-ui, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
@@ -143,6 +143,9 @@ To create an Azure file share:
 1. On the menu at the top of the **File shares** page, select **+ File share**. The **New file share** page drops down.
 1. In **Name**, type *myshare*. Leave **Transaction optimized** selected for **Tier**.
 1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
+
+   :::image type="content" source="media/storage-how-to-use-files-portal/create-file-share-backup.png" alt-text="Screenshot showing how to enable or disable file share backup." border="true":::
+
 1. Select **Review + create** and then **Create** to create the Azure file share.
 
 File share names must be all lower-case letters, numbers, and single hyphens, and must begin and end with a lower-case letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
