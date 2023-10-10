@@ -61,7 +61,7 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. On the **Select ExpressRoute circuit** tab, select **+ Add ExpressRoute Circuits**. 
 
-1. On the **Add Circuits** page, select the checkbox next to the circuit you would like Traffic Collector to monitor and then select **Add**. Select **Next** to configure where logs gets forwarded to.
+1. On the **Add Circuits** page, select the checkbox next to the circuit you would like Traffic Collector to monitor and then select **Add**. Select **Next** to configure where logs get forwarded to.
 
     :::image type="content" source="./media/how-to-configure-traffic-collector/select-circuits.png" alt-text="Screenshot of the select ExpressRoute circuits tab and add circuits page.":::
 
