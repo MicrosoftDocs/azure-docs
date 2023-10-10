@@ -33,7 +33,7 @@ The match is only evaluated for new objects coming from Connect. If you change a
 If Microsoft Entra ID finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Microsoft Entra ID, then the object in Microsoft Entra ID is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes in Microsoft Entra ID with a value in on-premises AD are overwritten with the on-premises value.
 
 > [!WARNING]
-> Since all attributes in Microsoft Entra ID are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Microsoft 365 and not kept it updated in on-premises AD DS, then you lose any values in Azure AD/Microsoft 365 not present in AD DS.
+> Since all attributes in Microsoft Entra ID are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Microsoft 365 and not kept it updated in on-premises AD DS, then you lose any values in Microsoft Entra ID / Microsoft 365 not present in AD DS.
 
 > [!IMPORTANT]
 > If you use password sync, which is always used by express settings, then the password in Microsoft Entra ID is overwritten with the password in on-premises AD. If your users are used to manage different passwords, then you need to inform them that they should use the on-premises password when you have installed Connect.

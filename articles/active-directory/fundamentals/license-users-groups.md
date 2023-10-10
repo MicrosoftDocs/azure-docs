@@ -1,6 +1,6 @@
 ---
 title: Assign or remove licenses
-description: Instructions about how to assign or remove Microsoft Entra licenses from your users or groups.
+description: Instructions about how to assign or remove Microsoft Entra ID licenses from your users or groups.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -20,7 +20,7 @@ Many Microsoft Entra services require you to license each of your users or group
 
 ## Available license plans
 
-There are several Microsoft Entra license plans:
+There are several Microsoft Entra ID license plans:
 
 - Microsoft Entra ID Free
 

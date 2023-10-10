@@ -148,7 +148,7 @@ This section lists the statuses of various attributes for users who are currentl
 - **WamDefaultSet**: Set the state to *YES* if a Web Account Manager (WAM) default WebAccount is created for the logged-in user. This field could display an error if `dsregcmd /status` is run from an elevated command prompt.
 - **WamDefaultAuthority**: Set the state to *organizations* for Microsoft Entra ID.
 - **WamDefaultId**: Always use *https://login.microsoft.com* for Microsoft Entra ID.
-- **WamDefaultGUID**: The WAM provider's (Azure AD/Microsoft account) GUID for the default WAM WebAccount.
+- **WamDefaultGUID**: The WAM provider's (Microsoft Entra ID / Microsoft account) GUID for the default WAM WebAccount.
 
 ### Sample user state output
 
