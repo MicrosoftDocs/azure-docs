@@ -43,7 +43,7 @@ A typical negotiation response has this format:
 }
 ```
 
-The `accessToken` value is generated through the same algorithm described in the [authentication section](#authenticate-via-accesskey-in-azure-signalr-service). The only difference is that the `aud` claim should be the same as `url`.
+The `accessToken` value is generated through the same algorithm described in the [authentication section](#authentication-via-accesskey-in-azure-signalr-service). The only difference is that the `aud` claim should be the same as `url`.
 
 You should host your negotiation API in `https://<hub_url>/negotiate` so that you can still use a SignalR client to connect to the hub URL. Read more about redirecting clients to Azure SignalR Service in [Client connections](./signalr-concept-internals.md#client-connections).
 

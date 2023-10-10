@@ -168,7 +168,7 @@ On this page, you can choose among authentication types (access key, managed ide
 > [!NOTE]
 > Information that you enter isn't saved after you leave the page. You need to copy and save your connection string to use it in your application.
 
-For more information about how access tokens are generated and validated, see the [Authenticate via Microsoft Entra token](signalr-reference-data-plane-rest-api.md#authenticate-via-microsoft-entra-token) section in the Azure SignalR Service data plane REST API reference.
+For more information about how access tokens are generated and validated, see the [Authenticate via Microsoft Entra token](signalr-reference-data-plane-rest-api.md#authentication-via-microsoft-entra-token) section in the Azure SignalR Service data plane REST API reference.
 
 ## Provide client and server endpoints
 
