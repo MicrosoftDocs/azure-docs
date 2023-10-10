@@ -11,6 +11,7 @@ ms.author: ruslanzdor
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- Complete the Teams tenant setup in [Teams calling and chat interoperability](/communication-services/concepts/interop/calling-chat)
 
 ## Setting up
 
@@ -29,7 +30,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 > This quickstart uses the Azure Communication Services Calling SDK version `latest`.
 
 ```console
-npm install @azure/communication-common@next --save
+npm install @azure/communication-common@latest --save
 npm install @azure/communication-calling@latest --save
 ```
 

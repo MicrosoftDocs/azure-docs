@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB for MongoDB online by using Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 09/21/2021
 ms.service: dms
 ms.topic: tutorial

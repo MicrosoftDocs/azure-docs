@@ -9,7 +9,7 @@ ms.reviewer: rijolly
 
 # Azure AD authentication for Application Insights
 
-Application Insights now supports [Azure Active Directory (Azure AD) authentication](../../active-directory/authentication/overview-authentication.md#what-is-azure-active-directory-authentication). By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources.
+Application Insights now supports [Azure Active Directory (Azure AD) authentication](../../active-directory/authentication/overview-authentication.md). By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources.
 
 Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts)and [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
 
@@ -37,7 +37,7 @@ The following SDKs and features are unsupported for use with Azure AD authentica
 - [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps).<br>
  Azure AD authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
-- [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
+- [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
 - [Certificate/secret-based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use managed identities instead.
 - On-by-default codeless monitoring (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Availability tests](availability-overview.md).
@@ -161,11 +161,9 @@ The following example shows how to configure the Java agent to use system-assign
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint", 
-  "preview": { 
-    "authentication": { 
-      "enabled": true, 
-      "type": "SAMI" 
-    } 
+  "authentication": { 
+    "enabled": true, 
+    "type": "SAMI" 
   } 
 } 
 ```
@@ -177,13 +175,11 @@ The following example shows how to configure the Java agent to use user-assigned
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint", 
-  "preview": { 
-    "authentication": { 
-      "enabled": true, 
-      "type": "UAMI", 
-      "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
-    } 
-  }     
+  "authentication": { 
+    "enabled": true, 
+    "type": "UAMI", 
+    "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
+  } 
 } 
 ```
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot that shows user-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
@@ -195,14 +191,12 @@ The following example shows how to configure the Java agent to use a service pri
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint",
-   "preview": { 
-        "authentication": { 
-          "enabled": true, 
-          "type": "CLIENTSECRET", 
-          "clientId":"<YOUR CLIENT ID>", 
-          "clientSecret":"<YOUR CLIENT SECRET>", 
-          "tenantId":"<YOUR TENANT ID>" 
-    } 
+  "authentication": { 
+    "enabled": true, 
+    "type": "CLIENTSECRET", 
+    "clientId":"<YOUR CLIENT ID>", 
+    "clientSecret":"<YOUR CLIENT SECRET>", 
+    "tenantId":"<YOUR TENANT ID>" 
   } 
 } 
 ```

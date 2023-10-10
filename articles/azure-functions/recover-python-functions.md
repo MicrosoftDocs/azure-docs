@@ -10,7 +10,7 @@ zone_pivot_groups: python-mode-functions
 
 # Troubleshoot Python errors in Azure Functions
 
-This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose the model you want to use from the selector at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
+This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose the model you want to use from the selector at the top of the article.
 
 > [!NOTE]
 > The Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).

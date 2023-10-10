@@ -58,8 +58,6 @@
   items:
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
-    - name: Scale a container app
-      href: tutorial-scaling.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
     - name: Connect to apps & services
@@ -138,8 +136,10 @@
       href: alerts.md
 - name: Scaling and performance
   items:
-    - name: Scale an app
+    - name: Overview
       href: scale-app.md
+    - name: Scale a container app
+      href: tutorial-scaling.md
 - name: Domains & certificates
   items:
     - name: Custom domains & certificates

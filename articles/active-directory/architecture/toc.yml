@@ -5,7 +5,7 @@ items:
   - name: Architecture
     expanded: true
     items:
-    - name: Azure AD architecture
+    - name: Microsoft Entra architecture
       href: architecture.md
     - name: Microsoft Entra architecture icons
       href: architecture-icons.md
@@ -15,7 +15,7 @@ items:
         href: road-to-the-cloud-introduction.md
       - name: Cloud transformation posture
         href: road-to-the-cloud-posture.md
-      - name: Establish an Azure AD footprint
+      - name: Establish a Microsoft Entra footprint
         href: road-to-the-cloud-establish.md
       - name: Implement a cloud-first approach
         href: road-to-the-cloud-implement.md
@@ -45,11 +45,11 @@ items:
         href: multilateral-federation-introduction.md
       - name: Baseline
         href: multilateral-federation-baseline.md     
-      - name: Solution 1 - Azure AD with Cirrus Bridge
+      - name: Solution 1 - Microsoft Entra ID with Cirrus Bridge
         href: multilateral-federation-solution-one.md
-      - name: Solution 2 - Azure AD to Shibboleth as SP Proxy
+      - name: Solution 2 - Microsoft Entra ID to Shibboleth as SP Proxy
         href: multilateral-federation-solution-two.md
-      - name: Solution 3 - Azure AD with ADFS and Shibboleth
+      - name: Solution 3 - Microsoft Entra ID with ADFS and Shibboleth
         href: multilateral-federation-solution-three.md    
       - name: Decision tree
         href: multilateral-federation-decision-tree.md    
@@ -61,7 +61,7 @@ items:
         href: auth-passwordless.md
       - name: SAML authentication
         href: auth-saml.md
-      - name: Open ID Connect authentication
+      - name: OpenID Connect authentication
         href: auth-oidc.md
       - name: OAuth 2.0 authentication
         href: auth-oauth2.md
@@ -145,7 +145,7 @@ items:
           href: ../develop/howto-build-services-resilient-to-metadata-refresh.md?toc=/azure/active-directory/architecture/toc.json
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
-    - name: Secure with Azure Active Directory
+    - name: Secure with Microsoft Entra ID
       items:
       - name: Introduction
         href: secure-introduction.md
@@ -161,11 +161,11 @@ items:
         href: secure-best-practices.md
   - name: Deployment guide
     items:
-    - name: Azure Active Directory deployment plans
+    - name: Microsoft Entra deployment plans
       href: deployment-plans.md
     - name: Azure Active Directory B2C deployment plans
       href: b2c-deployment-plans.md
-  - name: Azure AD Operations reference
+  - name: Microsoft Entra Operations reference
     items:
     - name: Introduction
       href: ops-guide-intro.md

@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/26/2023
+ms.date: 09/12/2023
 ---
 
 # Create parameters files for Bicep deployment
@@ -45,6 +45,35 @@ You can reference environment variables as parameter values. For example:
 using './main.bicep'
 
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
+```
+
+You can define and use variables. Bicep CLI version 0.21.1 or newer is required for using variables in .bicepparam file.  Here are some examples:
+
+```bicep
+using './main.bicep'
+
+var storagePrefix = 'myStorage'
+param primaryStorageName = '${storagePrefix}Primary'
+param secondaryStorageName = '${storagePrefix}Secondary'
+```
+
+```bicep
+using './main.bicep'
+
+var testSettings = {
+  instanceSize: 'Small'
+  instanceCount: 1
+}
+
+var prodSettings = {
+  instanceSize: 'Large'
+  instanceCount: 4
+}
+
+param environmentSettings = {
+  test: testSettings
+  prod: prodSettings
+}
 ```
 
 # [JSON parameters file](#tab/JSON)

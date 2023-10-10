@@ -10,8 +10,8 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
-zone_pivot_groups: programming-languages-vision-40-sdk 
+ms.custom: devx-track-python, devx-track-csharp, devx-track-extended-java
+zone_pivot_groups: programming-languages-vision-40-sdk
 ---
 
 # Install the Vision SDK
@@ -28,6 +28,10 @@ zone_pivot_groups: programming-languages-vision-40-sdk
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](../includes/setup-sdk/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java include](../includes/setup-sdk/java.md)]
 ::: zone-end
 
 ## Next steps

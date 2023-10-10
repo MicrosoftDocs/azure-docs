@@ -1,6 +1,6 @@
 ---
-title: Azure AD built-in roles
-description: Describes the Azure Active Directory built-in roles and permissions.
+title: Microsoft Entra built-in roles
+description: Describes the Microsoft Entra built-in roles and permissions.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -16,11 +16,11 @@ ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD built-in roles
+# Microsoft Entra built-in roles
 
-In Azure Active Directory (Azure AD), if another administrator or non-administrator needs to manage Azure AD resources, you assign them an Azure AD role that provides the permissions they need. For example, you can assign roles to allow adding or changing users, resetting user passwords, managing user licenses, or managing domain names.
+In Microsoft Entra ID, if another administrator or non-administrator needs to manage Microsoft Entra resources, you assign them an Microsoft Entra role that provides the permissions they need. For example, you can assign roles to allow adding or changing users, resetting user passwords, managing user licenses, or managing domain names.
 
-This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [Assign Azure AD roles to users](manage-roles-portal.md). If you are looking for roles to manage Azure resources, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+This article lists the Microsoft Entra built-in roles you can assign to allow management of Microsoft Entra resources. For information about how to assign roles, see [Assign Microsoft Entra roles to users](manage-roles-portal.md). If you are looking for roles to manage Azure resources, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## All roles
 
@@ -31,13 +31,13 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Application Developer](#application-developer) | Can create application registrations independent of the 'Users can register applications' setting.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | cf1c38e5-3621-4004-a7cb-879624dced7c |
 > | [Attack Payload Author](#attack-payload-author) | Can create attack payloads that an administrator can initiate later. | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f |
 > | [Attack Simulation Administrator](#attack-simulation-administrator) | Can create and manage all aspects of attack simulation campaigns. | c430b396-e693-46cc-96f3-db01bf8bb62a |
-> | [Attribute Assignment Administrator](#attribute-assignment-administrator) | Assign custom security attribute keys and values to supported Azure AD objects. | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
-> | [Attribute Assignment Reader](#attribute-assignment-reader) | Read custom security attribute keys and values for supported Azure AD objects. | ffd52fa5-98dc-465c-991d-fc073eb59f8f |
+> | [Attribute Assignment Administrator](#attribute-assignment-administrator) | Assign custom security attribute keys and values to supported Microsoft Entra objects. | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
+> | [Attribute Assignment Reader](#attribute-assignment-reader) | Read custom security attribute keys and values for supported Microsoft Entra objects. | ffd52fa5-98dc-465c-991d-fc073eb59f8f |
 > | [Attribute Definition Administrator](#attribute-definition-administrator) | Define and manage the definition of custom security attributes. | 8424c6f0-a189-499e-bbd0-26c1753c96d4 |
 > | [Attribute Definition Reader](#attribute-definition-reader) | Read the definition of custom security attributes. | 1d336d2c-4ae8-42ef-9711-b3604ce3fc2c |
 > | [Authentication Administrator](#authentication-administrator) | Can access to view, set and reset authentication method information for any non-admin user.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | c4e39bd9-1100-46d3-8c65-fb160da0071f |
 > | [Authentication Policy Administrator](#authentication-policy-administrator) | Can create and manage the authentication methods policy, tenant-wide MFA settings, password protection policy, and verifiable credentials. | 0526716b-113d-4c15-b2c8-68e3c22b9f80 |
-> | [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator) | Users assigned to this role are added to the local administrators group on Azure AD-joined devices. | 9f06204d-73c1-4d4c-880a-6edb90606fd8 |
+> | [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator) | Users assigned to this role are added to the local administrators group on Microsoft Entra joined devices. | 9f06204d-73c1-4d4c-880a-6edb90606fd8 |
 > | [Azure DevOps Administrator](#azure-devops-administrator) | Can manage Azure DevOps policies and settings. | e3973bdf-4987-49ae-837a-ba8e231c7286 |
 > | [Azure Information Protection Administrator](#azure-information-protection-administrator) | Can manage all aspects of the Azure Information Protection product. | 7495fdc4-34c4-4d15-a289-98788ce399fd |
 > | [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator) | Can manage secrets for federation and encryption in the Identity Experience Framework (IEF).<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | aaf43236-0c0d-4d5f-883a-6955382ac081 |
@@ -45,14 +45,14 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Billing Administrator](#billing-administrator) | Can perform common billing related tasks like updating payment information. | b0f54661-2d74-4c50-afa3-1ec803f12efe |
 > | [Cloud App Security Administrator](#cloud-app-security-administrator) | Can manage all aspects of the Defender for Cloud Apps product. | 892c5842-a9a6-463a-8041-72aa08ca3cf6 |
 > | [Cloud Application Administrator](#cloud-application-administrator) | Can create and manage all aspects of app registrations and enterprise apps except App Proxy.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 158c047a-c907-4556-b7ef-446551a6b5f7 |
-> | [Cloud Device Administrator](#cloud-device-administrator) | Limited access to manage devices in Azure AD.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 7698a772-787b-4ac8-901f-60d6b08affd2 |
-> | [Compliance Administrator](#compliance-administrator) | Can read and manage compliance configuration and reports in Azure AD and Microsoft 365. | 17315797-102d-40b4-93e0-432062caca18 |
+> | [Cloud Device Administrator](#cloud-device-administrator) | Limited access to manage devices in Microsoft Entra ID.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 7698a772-787b-4ac8-901f-60d6b08affd2 |
+> | [Compliance Administrator](#compliance-administrator) | Can read and manage compliance configuration and reports in Microsoft Entra ID and Microsoft 365. | 17315797-102d-40b4-93e0-432062caca18 |
 > | [Compliance Data Administrator](#compliance-data-administrator) | Creates and manages compliance content. | e6d1a23a-da11-4be4-9570-befc86d067a7 |
 > | [Conditional Access Administrator](#conditional-access-administrator) | Can manage Conditional Access capabilities.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9 |
 > | [Customer LockBox Access Approver](#customer-lockbox-access-approver) | Can approve Microsoft support requests to access customer organizational data. | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91 |
 > | [Desktop Analytics Administrator](#desktop-analytics-administrator) | Can access and manage Desktop management tools and services. | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4 |
 > | [Directory Readers](#directory-readers) | Can read basic directory information. Commonly used to grant directory read access to applications and guests. | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b |
-> | [Directory Synchronization Accounts](#directory-synchronization-accounts) | Only used by Azure AD Connect service.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | d29b2b05-8046-44ba-8758-1e26182fcf32 |
+> | [Directory Synchronization Accounts](#directory-synchronization-accounts) | Only used by Microsoft Entra Connect service.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | d29b2b05-8046-44ba-8758-1e26182fcf32 |
 > | [Directory Writers](#directory-writers) | Can read and write basic directory information. For granting access to applications, not intended for users.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 9360feb5-f418-4baa-8175-e2a00bac4301 |
 > | [Domain Name Administrator](#domain-name-administrator) | Can manage domain names in cloud and on-premises. | 8329153b-31d0-4727-b945-745eb3bc5f31 |
 > | [Dynamics 365 Administrator](#dynamics-365-administrator) | Can manage all aspects of the Dynamics 365 product. | 44367163-eba1-44c3-98af-f5787879f96a |
@@ -63,14 +63,14 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [External ID User Flow Attribute Administrator](#external-id-user-flow-attribute-administrator) | Can create and manage the attribute schema available to all user flows. | 0f971eea-41eb-4569-a71e-57bb8a3eff1e |
 > | [External Identity Provider Administrator](#external-identity-provider-administrator) | Can configure identity providers for use in direct federation. | be2f45a1-457d-42af-a067-6ec1fa63bc45 |
 > | [Fabric Administrator](#fabric-administrator) | Can manage all aspects of the Fabric and Power BI products. | a9ea8996-122f-4c74-9520-8edcd192826c |
-> | [Global Administrator](#global-administrator) | Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 62e90394-69f5-4237-9190-012177145e10 |
+> | [Global Administrator](#global-administrator) | Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 62e90394-69f5-4237-9190-012177145e10 |
 > | [Global Reader](#global-reader) | Can read everything that a Global Administrator can, but not update anything.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | f2ef992c-3afb-46b9-b7cf-a126ee74c451 |
 > | [Global Secure Access Administrator](#global-secure-access-administrator) | Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access, including managing access to public and private endpoints. | ac434307-12b9-4fa1-a708-88bf58caabc1 |
 > | [Groups Administrator](#groups-administrator) | Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Guest Inviter](#guest-inviter) | Can invite guest users independent of the 'members can invite guests' setting. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Helpdesk Administrator](#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning, Azure AD Connect, Pass-through Authentication (PTA), Password hash synchronization (PHS), Seamless Single sign-on (Seamless SSO), and federation settings.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
-> | [Identity Governance Administrator](#identity-governance-administrator) | Manage access using Azure AD for identity governance scenarios. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
+> | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage Active Directory to Microsoft Entra cloud provisioning, Microsoft Entra Connect, Pass-through Authentication (PTA), Password hash synchronization (PHS), Seamless Single sign-on (Seamless SSO), and federation settings.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Identity Governance Administrator](#identity-governance-administrator) | Manage access using Microsoft Entra ID for identity governance scenarios. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Insights Administrator](#insights-administrator) | Has administrative access in the Microsoft 365 Insights app. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Insights Analyst](#insights-analyst) | Access the analytical capabilities in Microsoft Viva Insights and run custom queries. | 25df335f-86eb-4119-b717-0ff02de207e9 |
 > | [Insights Business Leader](#insights-business-leader) | Can view and share dashboards and insights via the Microsoft 365 Insights app. | 31e939ad-9672-4796-9c2e-873181342d2d |
@@ -79,7 +79,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Knowledge Administrator](#knowledge-administrator) | Can configure knowledge, learning, and other intelligent features. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
 > | [Knowledge Manager](#knowledge-manager) | Can organize, create, manage, and promote topics and knowledge. | 744ec460-397e-42ad-a462-8b3f9747a02c |
 > | [License Administrator](#license-administrator) | Can manage product licenses on users and groups. | 4d6ac14f-3453-41d0-bef9-a3e0c569773a |
-> | [Lifecycle Workflows Administrator](#lifecycle-workflows-administrator) | Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Azure AD. | 59d46f88-662b-457b-bceb-5c3809e5908f |
+> | [Lifecycle Workflows Administrator](#lifecycle-workflows-administrator) | Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Microsoft Entra ID. | 59d46f88-662b-457b-bceb-5c3809e5908f |
 > | [Message Center Privacy Reader](#message-center-privacy-reader) | Can read security messages and updates in Office 365 Message Center only. | ac16e43d-7b2d-40e0-ac05-243ff356ab5b |
 > | [Message Center Reader](#message-center-reader) | Can read messages and updates for their organization in Office 365 Message Center only. | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b |
 > | [Microsoft Hardware Warranty Administrator](#microsoft-hardware-warranty-administrator) | Create and manage all aspects warranty claims and entitlements for Microsoft manufactured hardware, like Surface and HoloLens. | 1501b917-7653-4ff9-a4b5-203eaf33784f |
@@ -96,13 +96,13 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Printer Administrator](#printer-administrator) | Can manage all aspects of printers and printer connectors. | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f |
 > | [Printer Technician](#printer-technician) | Can register and unregister printers and update printer status. | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477 |
 > | [Privileged Authentication Administrator](#privileged-authentication-administrator) | Can access to view, set and reset authentication method information for any user (admin or non-admin).<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13 |
-> | [Privileged Role Administrator](#privileged-role-administrator) | Can manage role assignments in Azure AD, and all aspects of Privileged Identity Management.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | e8611ab8-c189-46e8-94e1-60213ab1f814 |
+> | [Privileged Role Administrator](#privileged-role-administrator) | Can manage role assignments in Microsoft Entra ID, and all aspects of Privileged Identity Management.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | e8611ab8-c189-46e8-94e1-60213ab1f814 |
 > | [Reports Reader](#reports-reader) | Can read sign-in and audit reports. | 4a5d8f65-41da-4de4-8968-e035b65339cf |
 > | [Search Administrator](#search-administrator) | Can create and manage all aspects of Microsoft Search settings. | 0964bb5e-9bdb-4d7b-ac29-58e794862a40 |
 > | [Search Editor](#search-editor) | Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan. | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9 |
-> | [Security Administrator](#security-administrator) | Can read security information and reports, and manage configuration in Azure AD and Office 365.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 194ae4cb-b126-40b2-bd5b-6091b380977d |
+> | [Security Administrator](#security-administrator) | Can read security information and reports, and manage configuration in Microsoft Entra ID and Office 365.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 194ae4cb-b126-40b2-bd5b-6091b380977d |
 > | [Security Operator](#security-operator) | Creates and manages security events.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f |
-> | [Security Reader](#security-reader) | Can read security information and reports in Azure AD and Office 365.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 5d6b6bb7-de71-4623-b4af-96380a352509 |
+> | [Security Reader](#security-reader) | Can read security information and reports in Microsoft Entra ID and Office 365.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | 5d6b6bb7-de71-4623-b4af-96380a352509 |
 > | [Service Support Administrator](#service-support-administrator) | Can read service health information and manage support tickets. | f023fd81-a637-4b56-95fd-791ac0226033 |
 > | [SharePoint Administrator](#sharepoint-administrator) | Can manage all aspects of the SharePoint service. | f28a1f50-f6e7-4571-818b-6a12f2af6b6c |
 > | [Skype for Business Administrator](#skype-for-business-administrator) | Can manage all aspects of the Skype for Business product. | 75941009-915a-4869-abe7-691bff18279e |
@@ -111,8 +111,8 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Communications Support Engineer](#teams-communications-support-engineer) | Can troubleshoot communications issues within Teams using advanced tools. | f70938a0-fc10-4177-9e90-2178f8765737 |
 > | [Teams Communications Support Specialist](#teams-communications-support-specialist) | Can troubleshoot communications issues within Teams using basic tools. | fcf91098-03e3-41a9-b5ba-6f0ec8188a12 |
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
-> | [Tenant Creator](#tenant-creator) | Create new Azure AD or Azure AD B2C tenants. | 112ca1a2-15ad-4102-995e-45b0bc479a6a |
-> | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
+> | [Tenant Creator](#tenant-creator) | Create new Microsoft Entra or Azure AD B2C tenants. | 112ca1a2-15ad-4102-995e-45b0bc479a6a |
+> | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Read Usage reports and Adoption Score, but can't access user details. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins.<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) | fe930be7-5e62-47db-91af-98c3a49a38b1 |
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
 > | [Viva Goals Administrator](#viva-goals-administrator) | Manage and configure all aspects of Microsoft Viva Goals. | 92b086b3-e367-4ef2-b869-1de128fb986e |
@@ -137,8 +137,8 @@ This role also grants the ability to consent for delegated permissions and appli
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Azure AD |
-> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Azure AD |
+> | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Microsoft Entra ID |
+> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Microsoft Entra ID |
 > | microsoft.directory/applications/create | Create all types of applications |
 > | microsoft.directory/applications/delete | Delete all types of applications |
 > | microsoft.directory/applications/applicationProxy/read | Read all application proxy properties |
@@ -247,11 +247,11 @@ For more information, see [Microsoft Defender for Office 365 permissions in the 
 
 ## Attribute Assignment Administrator
 
-Users with this role can assign and remove custom security attribute keys and values for supported Azure AD objects such as users, service principals, and devices.
+Users with this role can assign and remove custom security attribute keys and values for supported Microsoft Entra objects such as users, service principals, and devices.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
-For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-manage.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -267,11 +267,11 @@ For more information, see [Manage access to custom security attributes in Azure 
 
 ## Attribute Assignment Reader
 
-Users with this role can read custom security attribute keys and values for supported Azure AD objects.
+Users with this role can read custom security attribute keys and values for supported Microsoft Entra objects.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
-For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-manage.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -284,11 +284,11 @@ For more information, see [Manage access to custom security attributes in Azure 
 
 ## Attribute Definition Administrator
 
-Users with this role can define a valid set of custom security attributes that can be assigned to supported Azure AD objects. This role can also activate and deactivate custom security attributes.
+Users with this role can define a valid set of custom security attributes that can be assigned to supported Microsoft Entra objects. This role can also activate and deactivate custom security attributes.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
-For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-manage.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -302,7 +302,7 @@ Users with this role can read the definition of custom security attributes.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
-For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-manage.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -329,12 +329,12 @@ Users with this role **cannot** do the following:
 [!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!IMPORTANT]
-> Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
+> Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Microsoft Entra ID. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 >
->* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Microsoft Entra ID and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
->* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->* Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
+>* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Microsoft Entra ID and elsewhere.
+>* Administrators in other services outside of Microsoft Entra ID like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 > [!div class="mx-tableFixed"]
@@ -402,7 +402,7 @@ Users with this role **cannot** do the following:
 
 ## Azure AD Joined Device Local Administrator
 
-This role is available for assignment only as an additional local administrator in [Device settings](../devices/assign-local-admin.md). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
+This role is available for assignment only as an additional local administrator in [Device settings](../devices/assign-local-admin.md). Users with this role become local machine administrators on all Windows 10 devices that are joined to Microsoft Entra ID. They do not have the ability to manage devices objects in Microsoft Entra ID.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -412,7 +412,7 @@ This role is available for assignment only as an additional local administrator 
 
 ## Azure DevOps Administrator
 
-Users with this role can manage all enterprise Azure DevOps policies, applicable to all Azure DevOps organizations backed by the Azure AD. Users in this role can manage these policies by navigating to any Azure DevOps organization that is backed by the company's Azure AD. Additionally, users in this role can claim ownership of orphaned Azure DevOps organizations. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
+Users with this role can manage all enterprise Azure DevOps policies, applicable to all Azure DevOps organizations backed by Microsoft Entra ID. Users in this role can manage these policies by navigating to any Azure DevOps organization that is backed by the company's Microsoft Entra ID. Additionally, users in this role can claim ownership of orphaned Azure DevOps organizations. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Microsoft Entra organization.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -501,8 +501,8 @@ This role also grants the ability to consent for delegated permissions and appli
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Azure AD |
-> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Azure AD |
+> | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Microsoft Entra ID |
+> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Microsoft Entra ID |
 > | microsoft.directory/applications/create | Create all types of applications |
 > | microsoft.directory/applications/delete | Delete all types of applications |
 > | microsoft.directory/applications/appRoles/update | Update the appRoles property on all types of applications |
@@ -563,7 +563,7 @@ This role also grants the ability to consent for delegated permissions and appli
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users in this role can enable, disable, and delete devices in Azure AD and read Windows 10 BitLocker keys (if present) in the Azure portal. The role does not grant permissions to manage any other properties on the device.
+This is a [privileged role](privileged-roles-permissions.md). Users in this role can enable, disable, and delete devices in Microsoft Entra ID and read Windows 10 BitLocker keys (if present) in the Azure portal. The role does not grant permissions to manage any other properties on the device.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -573,10 +573,10 @@ This is a [privileged role](privileged-roles-permissions.md). Users in this role
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/deletedItems.devices/delete | Permanently delete devices, which can no longer be restored |
 > | microsoft.directory/deletedItems.devices/restore | Restore soft deleted devices to original state |
-> | microsoft.directory/devices/delete | Delete devices from Azure AD |
-> | microsoft.directory/devices/disable | Disable devices in Azure AD |
-> | microsoft.directory/devices/enable | Enable devices in Azure AD |
-> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
+> | microsoft.directory/devices/delete | Delete devices from Microsoft Entra ID |
+> | microsoft.directory/devices/disable | Disable devices in Microsoft Entra ID |
+> | microsoft.directory/devices/enable | Enable devices in Microsoft Entra ID |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -602,7 +602,7 @@ In | Can do
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
-> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
+> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Microsoft Entra entitlement management |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
@@ -637,7 +637,7 @@ In | Can do
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users with this role have the ability to manage Azure Active Directory Conditional Access settings.
+This is a [privileged role](privileged-roles-permissions.md). Users with this role have the ability to manage Microsoft Entra Conditional Access settings.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -694,16 +694,16 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/applications/standard/read | Read standard properties of applications |
 > | microsoft.directory/applications/owners/read | Read owners of applications |
 > | microsoft.directory/applications/policies/read | Read policies of applications |
-> | microsoft.directory/contacts/standard/read | Read basic properties on contacts in Azure AD |
-> | microsoft.directory/contacts/memberOf/read | Read the group membership for all contacts in Azure AD |
+> | microsoft.directory/contacts/standard/read | Read basic properties on contacts in Microsoft Entra ID |
+> | microsoft.directory/contacts/memberOf/read | Read the group membership for all contacts in Microsoft Entra ID |
 > | microsoft.directory/contracts/standard/read | Read basic properties on partner contracts |
 > | microsoft.directory/devices/standard/read | Read basic properties on devices |
 > | microsoft.directory/devices/memberOf/read | Read device memberships |
 > | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
-> | microsoft.directory/directoryRoles/standard/read | Read basic properties in Azure AD roles |
-> | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Azure AD roles |
-> | microsoft.directory/directoryRoles/members/read | Read all members of Azure AD roles |
+> | microsoft.directory/directoryRoles/standard/read | Read basic properties in Microsoft Entra roles |
+> | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Microsoft Entra roles |
+> | microsoft.directory/directoryRoles/members/read | Read all members of Microsoft Entra roles |
 > | microsoft.directory/domains/standard/read | Read basic properties on domains |
 > | microsoft.directory/groups/standard/read | Read standard properties of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups/appRoleAssignments/read | Read application role assignments of groups |
@@ -740,14 +740,14 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/users/ownedObjects/read | Read owned objects of users |
 > | microsoft.directory/users/photo/read | Read photo of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
-> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Microsoft Entra role, that is scoped to an administrative unit |
 > | microsoft.directory/users/sponsors/read | Read sponsors of users |
 
 ## Directory Synchronization Accounts
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
+This is a [privileged role](privileged-roles-permissions.md). Do not use. This role is automatically assigned to the Microsoft Entra Connect service, and is not intended or supported for any other use.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -765,11 +765,11 @@ This is a [privileged role](privileged-roles-permissions.md). Do not use. This r
 > | microsoft.directory/applications/policies/update | Update policies of applications |
 > | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
-> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Azure AD<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
+> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Microsoft Entra ID<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/organization/dirSync/update | Update the organization directory sync property |
-> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
-> | microsoft.directory/policies/create | Create policies in Azure AD |
-> | microsoft.directory/policies/delete | Delete policies in Azure AD |
+> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Microsoft Entra ID |
+> | microsoft.directory/policies/create | Create policies in Microsoft Entra ID |
+> | microsoft.directory/policies/delete | Delete policies in Microsoft Entra ID |
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
 > | microsoft.directory/policies/policyAppliedTo/read | Read policies.policyAppliedTo property |
@@ -820,7 +820,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users in this role
 > | microsoft.directory/groups/dynamicMembershipRule/update | Update the dynamic membership rule on Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/groupType/update | Update properties that would affect the group type of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
-> | microsoft.directory/groups/onPremWriteBack/update | Update Azure Active Directory groups to be written back to on-premises with Azure AD Connect |
+> | microsoft.directory/groups/onPremWriteBack/update | Update Microsoft Entra groups to be written back to on-premises with Microsoft Entra Connect |
 > | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
 > | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -848,7 +848,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users in this role
 
 ## Domain Name Administrator
 
-Users with this role can manage (read, add, verify, update, and delete) domain names. They can also read directory information about users, groups, and applications, as these objects possess domain dependencies. For on-premises environments, users with this role can configure domain names for federation so that associated users are always authenticated on-premises. These users can then sign into Azure AD-based services with their on-premises passwords via single sign-on. Federation settings need to be synced via Azure AD Connect, so users also have permissions to manage Azure AD Connect.
+Users with this role can manage (read, add, verify, update, and delete) domain names. They can also read directory information about users, groups, and applications, as these objects possess domain dependencies. For on-premises environments, users with this role can configure domain names for federation so that associated users are always authenticated on-premises. These users can then sign into Microsoft Entra based services with their on-premises passwords via single sign-on. Federation settings need to be synced via Microsoft Entra Connect, so users also have permissions to manage Microsoft Entra Connect.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -923,7 +923,7 @@ Users with this role have read access to recipients and write access to the attr
 
 ## External ID User Flow Administrator
 
-Users with this role can create and manage user flows (also called "built-in" policies) in the Azure portal. These users can customize HTML/CSS/JavaScript content, change MFA requirements, select claims in the token, manage API connectors and their credentials, and configure session settings for all user flows in the Azure AD organization. On the other hand, this role does not include the ability to review user data or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework policies (also known as custom policies) are also outside the scope of this role.
+Users with this role can create and manage user flows (also called "built-in" policies) in the Azure portal. These users can customize HTML/CSS/JavaScript content, change MFA requirements, select claims in the token, manage API connectors and their credentials, and configure session settings for all user flows in the Microsoft Entra organization. On the other hand, this role does not include the ability to review user data or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework policies (also known as custom policies) are also outside the scope of this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -932,7 +932,7 @@ Users with this role can create and manage user flows (also called "built-in" po
 
 ## External ID User Flow Attribute Administrator
 
-Users with this role add or delete custom attributes available to all user flows in the Azure AD organization. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
+Users with this role add or delete custom attributes available to all user flows in the Microsoft Entra organization. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -941,10 +941,10 @@ Users with this role add or delete custom attributes available to all user flows
 
 ## External Identity Provider Administrator
 
-This administrator manages federation between Azure AD organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Azure AD organization to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of organization:
+This administrator manages federation between Microsoft Entra organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Microsoft Entra organization to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of organization:
 
-* Azure AD organizations for employees and partners: The addition of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](../external-identities/google-federation.md).
-* Azure Active Directory B2C organizations: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end-user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](../../active-directory-b2c/identity-provider-microsoft-account.md) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
+* Microsoft Entra organizations for employees and partners: The addition of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](../external-identities/google-federation.md).
+* Azure Active Directory B2C organizations: The addition of a federation (for example, with Facebook, or with another Microsoft Entra organization) does not immediately impact end-user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](../../active-directory-b2c/identity-provider-microsoft-account.md) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -970,19 +970,19 @@ Users with this role have global permissions within Microsoft Fabric and Power B
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft Purview compliance portal, Exchange Online, SharePoint Online, and Skype for Business Online. Global Administrators can view Directory Activity logs. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators. A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has zero Global Administrators.
+This is a [privileged role](privileged-roles-permissions.md). Users with this role have access to all administrative features in Microsoft Entra ID, as well as services that use Microsoft Entra identities like the Microsoft 365 Defender portal, the Microsoft Purview compliance portal, Exchange Online, SharePoint Online, and Skype for Business Online. Global Administrators can view Directory Activity logs. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Microsoft Entra tenant. The person who signs up for the Microsoft Entra organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators. A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has zero Global Administrators.
 
 > [!NOTE]
-> As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
+> As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Microsoft Entra roles](best-practices.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/allTasks | (Deprecated) Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
-> | microsoft.directory/accessReviews/definitions/allProperties/allTasks | Manage access reviews of all reviewable resources in Azure AD |
-> | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Azure AD |
+> | microsoft.directory/accessReviews/allProperties/allTasks | (Deprecated) Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Microsoft Entra ID |
+> | microsoft.directory/accessReviews/definitions/allProperties/allTasks | Manage access reviews of all reviewable resources in Microsoft Entra ID |
+> | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Microsoft Entra ID |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
-> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Azure AD |
+> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Microsoft Entra ID |
 > | microsoft.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
@@ -1010,19 +1010,19 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
-> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/deviceRegistrationPolicy/basic/update | Update basic properties on device registration policies<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/directoryRoles/allProperties/allTasks | Create and delete directory roles, and read and update all properties |
-> | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete Azure AD role templates, and read and update all properties |
+> | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete Microsoft Entra role templates, and read and update all properties |
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/create | Create federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/delete | Delete federation configuration for domains |
-> | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
+> | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Microsoft Entra entitlement management |
 > | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties |
 > | microsoft.directory/groupsAssignableToRoles/create | Create role-assignable groups |
 > | microsoft.directory/groupsAssignableToRoles/delete | Delete role-assignable groups |
@@ -1030,27 +1030,27 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update role-assignable groups |
 > | microsoft.directory/groupSettings/allProperties/allTasks | Create and delete group settings, and read and update all properties |
 > | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Create and delete group setting templates, and read and update all properties |
-> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Azure AD<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
-> | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Azure AD Identity Protection<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
+> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Microsoft Entra ID<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
+> | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Entra ID Protection<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/loginOrganizationBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/organization/allProperties/allTasks | Read and update all properties for an organization |
-> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
+> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Microsoft Entra ID |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Microsoft Entra B2B collaboration settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Microsoft Entra B2B direct connect settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Microsoft Entra B2B collaboration settings of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Microsoft Entra B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/create | Create cross-tenant sync policy for partners |
@@ -1080,7 +1080,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.directory/servicePrincipalCreationPolicies/delete | Delete service principal creation policies |
 > | microsoft.directory/servicePrincipalCreationPolicies/standard/read | Read standard properties of service principal creation policies |
 > | microsoft.directory/servicePrincipalCreationPolicies/basic/update | Update basic properties of service principal creation policies |
-> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Azure Active Directory |
+> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Microsoft Entra ID |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/revoke | Revoke a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/create | Create a verifiable credential contract |
@@ -1090,7 +1090,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.directory/verifiableCredentials/configuration/delete | Delete configuration required to create and manage verifiable credentials and delete all of its verifiable credentials |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/update | Update configuration required to create and manage verifiable credentials |
-> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks | Manage all aspects of lifecycle workflows and tasks in Azure AD |
+> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks | Manage all aspects of lifecycle workflows and tasks in Microsoft Entra ID |
 > | microsoft.directory/pendingExternalUserProfiles/create | Create external user profiles in the extended directory for Teams |
 > | microsoft.directory/pendingExternalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
 > | microsoft.directory/pendingExternalUserProfiles/basic/update | Update basic properties of external user profiles in the extended directory for Teams |
@@ -1166,7 +1166,7 @@ Users with this role **cannot** do the following:
 >- [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) - Global Reader can't read SCC audit logs, do content search, or see Secure Score.
 >- [Teams admin center](/microsoftteams/manage-teams-in-modern-portal) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management**, and **App catalog**. For more information, see [Use Microsoft Teams administrator roles to manage Teams](/microsoftteams/using-admin-roles).
 >- [Privileged Access Management](/microsoft-365/compliance/privileged-access-management) doesn't support the Global Reader role.
->- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+>- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Microsoft Entra organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 > - [SharePoint](/sharepoint/get-started-new-admin-center) - Global Reader currently can't access SharePoint using PowerShell.
 > - [Power Platform admin center](/power-platform/admin/admin-documentation) - Global Reader is not yet supported in the Power Platform admin center.
 > - Microsoft Purview doesn't support the Global Reader role.
@@ -1175,10 +1175,10 @@ Users with this role **cannot** do the following:
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/accessReviews/allProperties/read | (Deprecated) Read all properties of access reviews |
-> | microsoft.directory/accessReviews/definitions/allProperties/read | Read all properties of access reviews of all reviewable resources in Azure AD |
-> | microsoft.directory/adminConsentRequestPolicy/allProperties/read | Read all properties of admin consent request policies in Azure AD |
+> | microsoft.directory/accessReviews/definitions/allProperties/read | Read all properties of access reviews of all reviewable resources in Microsoft Entra ID |
+> | microsoft.directory/adminConsentRequestPolicy/allProperties/read | Read all properties of admin consent request policies in Microsoft Entra ID |
 > | microsoft.directory/administrativeUnits/allProperties/read | Read all properties of administrative units, including members |
-> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Azure AD |
+> | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Microsoft Entra ID |
 > | microsoft.directory/applications/allProperties/read | Read all properties (including privileged properties) on all types of applications |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
@@ -1190,18 +1190,18 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/contacts/allProperties/read | Read all properties for contacts |
 > | microsoft.directory/customAuthenticationExtensions/allProperties/read | Read custom authentication extensions |
-> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, except the password |
 > | microsoft.directory/devices/allProperties/read | Read all properties of devices |
 > | microsoft.directory/directoryRoles/allProperties/read | Read all properties of directory roles |
 > | microsoft.directory/directoryRoleTemplates/allProperties/read | Read all properties of directory role templates |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
-> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
+> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Microsoft Entra entitlement management |
 > | microsoft.directory/externalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
 > | microsoft.directory/groups/allProperties/read | Read all properties (including privileged properties) on Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groupSettings/allProperties/read | Read all properties of group settings |
 > | microsoft.directory/groupSettingTemplates/allProperties/read | Read all properties of group setting templates |
-> | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
+> | microsoft.directory/identityProtection/allProperties/read | Read all resources in Microsoft Entra ID Protection |
 > | microsoft.directory/loginOrganizationBranding/allProperties/read | Read all properties for your organization's branded sign-in page |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/read | Read all properties of OAuth 2.0 permission grants |
@@ -1231,7 +1231,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Read a verifiable credential contract |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
-> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/read | Read all properties of lifecycle workflows and tasks in Azure AD |
+> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/read | Read all properties of lifecycle workflows and tasks in Microsoft Entra ID |
 > | microsoft.cloudPC/allEntities/allProperties/read | Read all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/allProperties/read | Read all resources of Office 365 billing |
 > | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
@@ -1314,7 +1314,7 @@ Users in this role can create/manage groups and its settings like naming and exp
 > | microsoft.directory/groups/dynamicMembershipRule/update | Update the dynamic membership rule on Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/groupType/update | Update properties that would affect the group type of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
-> | microsoft.directory/groups/onPremWriteBack/update | Update Azure Active Directory groups to be written back to on-premises with Azure AD Connect |
+> | microsoft.directory/groups/onPremWriteBack/update | Update Microsoft Entra groups to be written back to on-premises with Microsoft Entra Connect |
 > | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
 > | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -1326,7 +1326,7 @@ Users in this role can create/manage groups and its settings like naming and exp
 
 ## Guest Inviter
 
-Users in this role can manage Azure Active Directory B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](../external-identities/what-is-b2b.md). It does not include any other permissions.
+Users in this role can manage Microsoft Entra B2B guest user invitations when the **Members can invite** user setting is set to No. More information about B2B collaboration at [About Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md). It does not include any other permissions.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1344,7 +1344,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 > | microsoft.directory/users/ownedObjects/read | Read owned objects of users |
 > | microsoft.directory/users/photo/read | Read photo of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
-> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Microsoft Entra role, that is scoped to an administrative unit |
 > | microsoft.directory/users/sponsors/read | Read sponsors of users |
 
 ## Helpdesk Administrator
@@ -1358,12 +1358,12 @@ Users with this role **cannot** do the following:
 - Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!IMPORTANT]
-> Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
+> Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Microsoft Entra ID. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
 >
->- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Helpdesk Administrators. Through this path a Helpdesk Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Microsoft Entra ID and elsewhere not granted to Helpdesk Administrators. Through this path a Helpdesk Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >- Azure subscription owners, who might have access to sensitive or private information or critical configuration in Azure.
->- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->- Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
+>- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Microsoft Entra ID and elsewhere.
+>- Administrators in other services outside of Microsoft Entra ID like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](administrative-units.md).
@@ -1374,7 +1374,7 @@ This role was previously named Password Administrator in the [Azure portal](../.
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
-> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, except the password |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/users/password/update | Reset passwords for all users<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -1387,7 +1387,7 @@ This role was previously named Password Administrator in the [Azure portal](../.
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users in this role can create, manage and deploy provisioning configuration setup from AD to Azure AD using Cloud Provisioning as well as manage Azure AD Connect, Pass-through Authentication (PTA), Password hash synchronization (PHS), Seamless Single Sign-On (Seamless SSO), and federation settings. Users can also troubleshoot and monitor logs using this role.
+This is a [privileged role](privileged-roles-permissions.md). Users in this role can create, manage and deploy provisioning configuration setup from Active Directory to Microsoft Entra ID using Cloud Provisioning as well as manage Microsoft Entra Connect, Pass-through Authentication (PTA), Password hash synchronization (PHS), Seamless Single Sign-On (Seamless SSO), and federation settings. Users can also troubleshoot and monitor logs using this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1406,7 +1406,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users in this role
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
-> | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
+> | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Microsoft Entra Cloud Provisioning service. |
 > | microsoft.directory/deletedItems.applications/delete | Permanently delete applications, which can no longer be restored |
 > | microsoft.directory/deletedItems.applications/restore | Restore soft deleted applications to original state |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
@@ -1415,9 +1415,9 @@ This is a [privileged role](privileged-roles-permissions.md). Users in this role
 > | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/create | Create federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/delete | Delete federation configuration for domains |
-> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Azure AD<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
+> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Microsoft Entra ID<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/organization/dirSync/update | Update the organization directory sync property |
-> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
+> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Microsoft Entra ID |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/servicePrincipals/create | Create service principals |
 > | microsoft.directory/servicePrincipals/delete | Delete service principals |
@@ -1447,19 +1447,19 @@ This is a [privileged role](privileged-roles-permissions.md). Users in this role
 
 ## Identity Governance Administrator
 
-Users with this role can manage Azure AD identity governance configuration, including access packages, access reviews, catalogs and policies, ensuring access is approved and reviewed and guest users who no longer need access are removed.
+Users with this role can manage Microsoft Entra ID Governance configuration, including access packages, access reviews, catalogs and policies, ensuring access is approved and reviewed and guest users who no longer need access are removed.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks | Manage access reviews of application role assignments in Azure AD |
+> | microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks | Manage access reviews of application role assignments in Microsoft Entra ID |
 > | microsoft.directory/accessReviews/definitions.entitlementManagement/allProperties/allTasks | Manage access reviews for access package assignments in entitlement management |
 > | microsoft.directory/accessReviews/definitions.groups/allProperties/read | Read all properties of access reviews for membership in Security and Microsoft 365 groups, including role-assignable groups. |
 > | microsoft.directory/accessReviews/definitions.groups/allProperties/update | Update all properties of access reviews for membership in Security and Microsoft 365 groups, excluding role-assignable groups. |
 > | microsoft.directory/accessReviews/definitions.groups/create | Create access reviews for membership in Security and Microsoft 365 groups. |
 > | microsoft.directory/accessReviews/definitions.groups/delete | Delete access reviews for membership in Security and Microsoft 365 groups. |
-> | microsoft.directory/accessReviews/allProperties/allTasks | (Deprecated) Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
-> | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
+> | microsoft.directory/accessReviews/allProperties/allTasks | (Deprecated) Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Microsoft Entra ID |
+> | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Microsoft Entra entitlement management |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 
@@ -1529,17 +1529,17 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
 > | microsoft.directory/deletedItems.devices/delete | Permanently delete devices, which can no longer be restored |
 > | microsoft.directory/deletedItems.devices/restore | Restore soft deleted devices to original state |
-> | microsoft.directory/devices/create | Create devices (enroll in Azure AD) |
-> | microsoft.directory/devices/delete | Delete devices from Azure AD |
-> | microsoft.directory/devices/disable | Disable devices in Azure AD |
-> | microsoft.directory/devices/enable | Enable devices in Azure AD |
+> | microsoft.directory/devices/create | Create devices (enroll in Microsoft Entra ID) |
+> | microsoft.directory/devices/delete | Delete devices from Microsoft Entra ID |
+> | microsoft.directory/devices/disable | Disable devices in Microsoft Entra ID |
+> | microsoft.directory/devices/enable | Enable devices in Microsoft Entra ID |
 > | microsoft.directory/devices/basic/update | Update basic properties on devices |
 > | microsoft.directory/devices/extensionAttributeSet1/update | Update the extensionAttribute1 to extensionAttribute5 properties on devices |
 > | microsoft.directory/devices/extensionAttributeSet2/update | Update the extensionAttribute6 to extensionAttribute10 properties on devices |
 > | microsoft.directory/devices/extensionAttributeSet3/update | Update the extensionAttribute11 to extensionAttribute15 properties on devices |
 > | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
-> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
@@ -1634,7 +1634,7 @@ Users in this role can read, add, remove, and update license assignments on user
 
 Assign the Lifecycle Workflows Administrator role to users who need to do the following tasks:
 
-- Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Azure AD
+- Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Microsoft Entra ID
 - Check the execution of scheduled workflows
 - Launch on-demand workflow runs
 - Inspect workflow execution logs
@@ -1642,7 +1642,7 @@ Assign the Lifecycle Workflows Administrator role to users who need to do the fo
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks | Manage all aspects of lifecycle workflows and tasks in Azure AD |
+> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks | Manage all aspects of lifecycle workflows and tasks in Microsoft Entra ID |
 > | microsoft.directory/organization/strongAuthentication/read | Read strong authentication properties of an organization |
 
 ## Message Center Privacy Reader
@@ -1658,7 +1658,7 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 ## Message Center Reader
 
-Users in this role can monitor notifications and advisory health updates in [Message center](/microsoft-365/admin/manage/message-center) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
+Users in this role can monitor notifications and advisory health updates in [Message center](/microsoft-365/admin/manage/message-center) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Microsoft Entra ID, users assigned to this role will only have read-only access on Microsoft Entra services such as users and groups. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1724,7 +1724,7 @@ Users with the Modern Commerce User role typically have administrative permissio
 
 * **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Fabric, Power BI, Power Apps, Power automate) through [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). For more information, see [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
 * **Purchases from Microsoft commercial marketplace** – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce User role is assigned if they don’t have the Global Administrator or Billing Administrator role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](../../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-).
-* **Proposals from Microsoft** – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global Administrator or Billing Administrator role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
+* **Proposals from Microsoft** – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global Administrator or Billing Administrator role in Microsoft Entra ID, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
 * **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global Administrator or Billing Administrator, they get the Modern Commerce User role so they can access the admin center.
 
 If the Modern Commerce User role is unassigned from a user, they lose access to Microsoft 365 admin center. If they were managing any products, either for themselves or for your organization, they won’t be able to manage them. This might include assigning licenses, changing payment methods, paying bills, or other tasks for managing subscriptions.
@@ -1783,7 +1783,7 @@ Assign the Organizational Messages Writer role to users who need to do the follo
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
+This is a [privileged role](privileged-roles-permissions.md). Do not use. This role has been deprecated and will be removed from Microsoft Entra ID in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
 > [!IMPORTANT]
 > This role can reset passwords and invalidate refresh tokens for only non-administrators. This role should not be used because it is deprecated.
@@ -1835,7 +1835,7 @@ This is a [privileged role](privileged-roles-permissions.md). Do not use. This r
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
+This is a [privileged role](privileged-roles-permissions.md). Do not use. This role has been deprecated and will be removed from Microsoft Entra ID in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
 > [!IMPORTANT]
 > This role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). This role should not be used because it is deprecated.
@@ -1975,12 +1975,12 @@ Users with this role **cannot** do the following:
 [!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!IMPORTANT]
-> Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
+> Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Microsoft Entra ID. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 >
->* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Microsoft Entra ID and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
->* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->* Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, and Microsoft Purview compliance portal, and human resources systems.
+>* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Microsoft Entra ID and elsewhere.
+>* Administrators in other services outside of Microsoft Entra ID like Exchange Online, Microsoft 365 Defender portal, and Microsoft Purview compliance portal, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 > [!div class="mx-tableFixed"]
@@ -2011,19 +2011,19 @@ Users with this role **cannot** do the following:
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. They can create and manage groups that can be assigned to Azure AD roles. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
+This is a [privileged role](privileged-roles-permissions.md). Users with this role can manage role assignments in Microsoft Entra ID, as well as within Microsoft Entra Privileged Identity Management. They can create and manage groups that can be assigned to Microsoft Entra roles. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
 > [!IMPORTANT]
-> This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
+> This role grants the ability to manage assignments for all Microsoft Entra roles including the Global Administrator role. This role does not include any other privileged abilities in Microsoft Entra ID like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/definitions.applications/allProperties/read | Read all properties of access reviews of application role assignments in Azure AD |
-> | microsoft.directory/accessReviews/definitions.directoryRoles/allProperties/allTasks | Manage access reviews for Azure AD role assignments |
-> | microsoft.directory/accessReviews/definitions.groupsAssignableToRoles/allProperties/update | Update all properties of access reviews for membership in groups that are assignable to Azure AD roles |
-> | microsoft.directory/accessReviews/definitions.groupsAssignableToRoles/create | Create access reviews for membership in groups that are assignable to Azure AD roles |
-> | microsoft.directory/accessReviews/definitions.groupsAssignableToRoles/delete | Delete access reviews for membership in groups that are assignable to Azure AD roles |
+> | microsoft.directory/accessReviews/definitions.applications/allProperties/read | Read all properties of access reviews of application role assignments in Microsoft Entra ID |
+> | microsoft.directory/accessReviews/definitions.directoryRoles/allProperties/allTasks | Manage access reviews for Microsoft Entra role assignments |
+> | microsoft.directory/accessReviews/definitions.groupsAssignableToRoles/allProperties/update | Update all properties of access reviews for membership in groups that are assignable to Microsoft Entra roles |
+> | microsoft.directory/accessReviews/definitions.groupsAssignableToRoles/create | Create access reviews for membership in groups that are assignable to Microsoft Entra roles |
+> | microsoft.directory/accessReviews/definitions.groupsAssignableToRoles/delete | Delete access reviews for membership in groups that are assignable to Microsoft Entra roles |
 > | microsoft.directory/accessReviews/definitions.groups/allProperties/read | Read all properties of access reviews for membership in Security and Microsoft 365 groups, including role-assignable groups. |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | Manage all aspects of authorization policy<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
@@ -2044,7 +2044,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 
 ## Reports Reader
 
-Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Fabric and Power BI. Additionally, the role provides access to all sign-in logs, audit logs, and activity reports in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
+Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Fabric and Power BI. Additionally, the role provides access to all sign-in logs, audit logs, and activity reports in Microsoft Entra ID and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2085,13 +2085,13 @@ Users in this role can create, manage, and delete content for Microsoft Search i
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
+This is a [privileged role](privileged-roles-permissions.md). Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Microsoft Entra ID Protection, Microsoft Entra Authentication, Azure Information Protection, and Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 In | Can do
 --- | ---
 [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
 [Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Perform all Identity Protection operations except for resetting passwords
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role<br>**Cannot** manage Azure AD role assignments or settings
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role<br>**Cannot** manage Microsoft Entra role assignments or settings
 [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | Manage security policies<br>View, investigate, and respond to security threats<br>View reports
 Azure Advanced Threat Protection | Monitor and respond to suspicious security activity
 [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | Assign roles<br>Manage machine groups<br>Configure endpoint threat detection and automated remediation<br>View, investigate, and respond to alerts<br/>View machines/device inventory
@@ -2113,35 +2113,35 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Microsoft Entra B2B collaboration settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Microsoft Entra B2B direct connect settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Microsoft Entra B2B collaboration settings of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Microsoft Entra B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/create | Create cross-tenant sync policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/basic/update | Update basic settings of cross-tenant sync policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read | Read basic properties of cross-tenant sync policy |
-> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, except the password |
 > | microsoft.directory/domains/federation/update | Update federation property of domains |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/create | Create federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/delete | Delete federation configuration for domains |
-> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
-> | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
-> | microsoft.directory/identityProtection/allProperties/update | Update all resources in Azure AD Identity Protection<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
+> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Microsoft Entra entitlement management |
+> | microsoft.directory/identityProtection/allProperties/read | Read all resources in Microsoft Entra ID Protection |
+> | microsoft.directory/identityProtection/allProperties/update | Update all resources in Microsoft Entra ID Protection<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
-> | microsoft.directory/policies/create | Create policies in Azure AD |
-> | microsoft.directory/policies/delete | Delete policies in Azure AD |
+> | microsoft.directory/policies/create | Create policies in Microsoft Entra ID |
+> | microsoft.directory/policies/delete | Delete policies in Microsoft Entra ID |
 > | microsoft.directory/policies/basic/update | Update basic properties on policies<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/policies/owners/update | Update owners of policies |
 > | microsoft.directory/policies/tenantDefault/update | Update default organization policies |
@@ -2174,7 +2174,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 Defender portal, Azure Active Directory, Identity Protection, Privileged Identity Management and Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
+This is a [privileged role](privileged-roles-permissions.md). Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 Defender portal, Microsoft Entra ID Protection, Privileged Identity Management and Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 | In | Can do |
 | --- | --- |
@@ -2193,7 +2193,7 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Defender for Cloud Apps |
-> | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Azure AD Identity Protection<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
+> | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Entra ID Protection<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
@@ -2208,13 +2208,13 @@ This is a [privileged role](privileged-roles-permissions.md). Users with this ro
 
 [![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md)
 
-This is a [privileged role](privileged-roles-permissions.md). Users with this role have global read-only access on security-related feature, including all information in Microsoft 365 Defender portal, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
+This is a [privileged role](privileged-roles-permissions.md). Users with this role have global read-only access on security-related feature, including all information in Microsoft 365 Defender portal, Microsoft Entra ID Protection, Privileged Identity Management, as well as the ability to read Microsoft Entra sign-in reports and audit logs, and in Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 In | Can do
 --- | ---
 [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
 [Identity Protection](../identity-protection/overview-identity-protection.md) | View all Identity Protection reports and Overview
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Has read-only access to all information surfaced in Azure AD Privileged Identity Management: Policies and reports for Azure AD role assignments and security reviews.<br>**Cannot** sign up for Azure AD Privileged Identity Management or make any changes to it. In the Privileged Identity Management portal or via PowerShell, someone in this role can activate additional roles (for example, Global Administrator or Privileged Role Administrator), if the user is eligible for them.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Has read-only access to all information surfaced in Microsoft Entra Privileged Identity Management: Policies and reports for Microsoft Entra role assignments and security reviews.<br>**Cannot** sign up for Microsoft Entra Privileged Identity Management or make any changes to it. In the Privileged Identity Management portal or via PowerShell, someone in this role can activate additional roles (for example, Global Administrator or Privileged Role Administrator), if the user is eligible for them.
 [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | View security policies<br>View and investigate security threats<br>View reports
 [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | View and investigate alerts<br/>When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Security Reader role lose access until they are assigned a Microsoft Defender for Endpoint role.
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
@@ -2224,14 +2224,14 @@ In | Can do
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/definitions/allProperties/read | Read all properties of access reviews of all reviewable resources in Azure AD |
+> | microsoft.directory/accessReviews/definitions/allProperties/read | Read all properties of access reviews of all reviewable resources in Microsoft Entra ID |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices<br/>[![Privileged label icon.](./media/permissions-reference/privileged-label.png)](privileged-roles-permissions.md) |
-> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Microsoft Entra joined devices, except the password |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
-> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
-> | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
+> | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Microsoft Entra entitlement management |
+> | microsoft.directory/identityProtection/allProperties/read | Read all resources in Microsoft Entra ID Protection |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
@@ -2299,7 +2299,7 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 
 ## Skype for Business Administrator
 
-Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. For more information, see [Skype for Business Online Admin](/skypeforbusiness/skype-for-business-online) and Teams licensing information at [Skype for Business add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing).
+Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Microsoft Entra ID. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. For more information, see [Skype for Business Online Admin](/skypeforbusiness/skype-for-business-online) and Teams licensing information at [Skype for Business add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing).
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is named Lync Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Skype for Business Administrator.
@@ -2414,18 +2414,26 @@ Users with this role can manage [Teams-certified devices](https://www.microsoft.
 ## Tenant Creator
 
 Assign the Tenant Creator role to users who need to do the following tasks:
--	Create both Azure Active Directory and Azure Active Directory B2C tenants even if the tenant creation toggle is turned off in the user settings
+-	Create both Microsoft Entra and Azure Active Directory B2C tenants even if the tenant creation toggle is turned off in the user settings
 > [!NOTE]
 >The tenant creators will be assigned the Global administrator role on the new tenants they create.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Azure Active Directory |
+> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Microsoft Entra ID |
 
 ## Usage Summary Reports Reader
 
-Users with this role can access tenant level aggregated data and associated insights in Microsoft 365 admin center for Usage and Productivity Score but cannot access any user level details or insights. In Microsoft 365 admin center for the two reports, we differentiate between tenant level aggregated data and user level details. This role gives an extra layer of protection on individual user identifiable data, which was requested by both customers and legal teams.
+Assign the Usage Summary Reports Reader role to users who need to do the following tasks in the Microsoft 365 admin center:
+
+- View the Usage reports and Adoption Score
+- Read organizational insights, but not personally identifiable information (PII) of users
+
+This role only allows users to view organizational-level data with the following exceptions:
+
+- Member users can view user management data and settings.
+- Guest users assigned this role can not view user management data and settings.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2464,19 +2472,19 @@ Users with this role **cannot** do the following:
 - Cannot manage shared mailboxes.
 
 > [!IMPORTANT]
-> Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
+> Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Microsoft Entra ID. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
 >
->- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to User Administrators. Through this path a User Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Microsoft Entra ID and elsewhere not granted to User Administrators. Through this path a User Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >- Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
->- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->- Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
+>- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Microsoft Entra ID and elsewhere.
+>- Administrators in other services outside of Microsoft Entra ID like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks | Manage access reviews of application role assignments in Azure AD |
-> | microsoft.directory/accessReviews/definitions.directoryRoles/allProperties/read | Read all properties of access reviews for Azure AD role assignments |
+> | microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks | Manage access reviews of application role assignments in Microsoft Entra ID |
+> | microsoft.directory/accessReviews/definitions.directoryRoles/allProperties/read | Read all properties of access reviews for Microsoft Entra role assignments |
 > | microsoft.directory/accessReviews/definitions.entitlementManagement/allProperties/allTasks | Manage access reviews for access package assignments in entitlement management |
 > | microsoft.directory/accessReviews/definitions.groups/allProperties/update | Update all properties of access reviews for membership in Security and Microsoft 365 groups, excluding role-assignable groups. |
 > | microsoft.directory/accessReviews/definitions.groups/create | Create access reviews for membership in Security and Microsoft 365 groups. |
@@ -2487,7 +2495,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
 > | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/deletedItems.users/restore | Restore soft deleted users to original state |
-> | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
+> | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Microsoft Entra entitlement management |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
 > | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -2499,7 +2507,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/groups/dynamicMembershipRule/update | Update the dynamic membership rule on Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/groupType/update | Update properties that would affect the group type of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
-> | microsoft.directory/groups/onPremWriteBack/update | Update Azure Active Directory groups to be written back to on-premises with Azure AD Connect |
+> | microsoft.directory/groups/onPremWriteBack/update | Update Microsoft Entra groups to be written back to on-premises with Microsoft Entra Connect |
 > | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
 > | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -2550,7 +2558,7 @@ Assign the Viva Goals Administrator role to users who need to do the following t
 
 - Manage and configure all aspects of the Microsoft Viva Goals application
 - Configure Microsoft Viva Goals admin settings
-- Read Azure AD tenant information
+- Read Microsoft Entra tenant information
 - Monitor Microsoft 365 service health
 - Create and manage Microsoft 365 service requests
 
@@ -2595,7 +2603,7 @@ This role can create and manage security groups, but does not have administrator
 Assign the Windows 365 Administrator role to users who need to do the following tasks:
 
 - Manage Windows 365 Cloud PCs in Microsoft Intune
-- Enroll and manage devices in Azure AD, including assigning users and policies
+- Enroll and manage devices in Microsoft Entra ID, including assigning users and policies
 - Create and manage security groups, but not role-assignable groups
 - View basic properties in the Microsoft 365 admin center
 - Read usage reports in the Microsoft 365 admin center
@@ -2606,10 +2614,10 @@ Assign the Windows 365 Administrator role to users who need to do the following 
 > | --- | --- |
 > | microsoft.directory/deletedItems.devices/delete | Permanently delete devices, which can no longer be restored |
 > | microsoft.directory/deletedItems.devices/restore | Restore soft deleted devices to original state |
-> | microsoft.directory/devices/create | Create devices (enroll in Azure AD) |
-> | microsoft.directory/devices/delete | Delete devices from Azure AD |
-> | microsoft.directory/devices/disable | Disable devices in Azure AD |
-> | microsoft.directory/devices/enable | Enable devices in Azure AD |
+> | microsoft.directory/devices/create | Create devices (enroll in Microsoft Entra ID) |
+> | microsoft.directory/devices/delete | Delete devices from Microsoft Entra ID |
+> | microsoft.directory/devices/disable | Disable devices in Microsoft Entra ID |
+> | microsoft.directory/devices/enable | Enable devices in Microsoft Entra ID |
 > | microsoft.directory/devices/basic/update | Update basic properties on devices |
 > | microsoft.directory/devices/extensionAttributeSet1/update | Update the extensionAttribute1 to extensionAttribute5 properties on devices |
 > | microsoft.directory/devices/extensionAttributeSet2/update | Update the extensionAttribute6 to extensionAttribute10 properties on devices |
@@ -2675,7 +2683,7 @@ Assign the Yammer Administrator role to users who need to do the following tasks
 
 ## Deprecated roles
 
-The following roles should not be used. They have been deprecated and will be removed from Azure AD in the future.
+The following roles should not be used. They have been deprecated and will be removed from Microsoft Entra ID in the future.
 
 * AdHoc License Administrator
 * Device Join
@@ -2704,6 +2712,6 @@ Not every role returned by PowerShell or MS Graph API is visible in Azure portal
 
 ## Next steps
 
-- [Assign Azure AD roles to groups](groups-assign-role.md)
+- [Assign Microsoft Entra roles to groups](groups-assign-role.md)
 - [Understand the different roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [Assign a user as an administrator of an Azure subscription](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

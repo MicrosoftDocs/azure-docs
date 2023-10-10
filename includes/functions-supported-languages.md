@@ -11,11 +11,11 @@ The following table shows the runtime and language versions supported for C# fun
 
 The supported version of .NET depends on both your Functions runtime version and your chosen .NET worker process model:
 
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 Your function code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). To learn more, see [Develop .NET isolated worker process functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
-### [In-process](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
@@ -30,6 +30,8 @@ Your function code runs in the same process as the Functions host process. Suppo
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 
 ### [v1.x](#tab/v1/in-process)
+
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
@@ -46,7 +48,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
 | .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)  |
 
-<sup>*</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
+<sup>*</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version.
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -74,6 +76,7 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April, 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |

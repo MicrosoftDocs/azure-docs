@@ -1,6 +1,6 @@
 ---
-title: Customize and filter the activity logs in Azure AD
-description: Learn how to customize the columns and filter of the Azure Active Directory activity logs so you can analyze the results.
+title: Customize and filter the activity logs in Microsoft Entra ID
+description: Learn how to customize the columns and filter of the Microsoft Entra activity logs so you can analyze the results.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.reviewer: besiler
 
 # How to customize and filter identity activity logs
 
-Sign-in logs are a commonly used tool to troubleshoot user access issues and investigate risky sign-in activity. Audit logs collect every logged event in Azure Active Directory (Azure AD) and can be used to investigate changes to your environment. There are over 30 columns you can choose from to customize your view of the sign-in logs in the Azure AD portal. Audit logs and Provisioning logs can also be customized and filtered for your needs.
+Sign-in logs are a commonly used tool to troubleshoot user access issues and investigate risky sign-in activity. Audit logs collect every logged event in Microsoft Entra ID and can be used to investigate changes to your environment. There are over 30 columns you can choose from to customize your view of the sign-in logs in the Microsoft Entra admin center. Audit logs and Provisioning logs can also be customized and filtered for your needs.
 
 This article shows you how to customize the columns and then filter the logs to find the information you need more efficiently.
 
@@ -25,14 +25,14 @@ The required roles and licenses may vary based on the report. Global Administrat
 
 | Log / Report | Roles | Licenses |
 |--|--|--|
-| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
-| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
+| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
 | Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
 | Conditional Access data in the sign-in logs | Company Administrator<br>Global Reader<br>Security Administrator<br>Security Reader<br>Conditional Access Administrator | Premium P1/P2 |
 
-## How to access the activity logs in the Azure portal
+## How to access the activity logs in the Microsoft Entra admin center
 
-You can always access your own sign-in history at [https://mysignins.microsoft.com](https://mysignins.microsoft.com). You can also access the sign-in logs from **Users** and **Enterprise applications** in Azure AD.
+You can always access your own sign-in history at [https://mysignins.microsoft.com](https://mysignins.microsoft.com). You can also access the sign-in logs from **Users** and **Enterprise applications** in Microsoft Entra ID.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -41,11 +41,11 @@ You can always access your own sign-in history at [https://mysignins.microsoft.c
 
 ## [Audit logs](#tab/audit-logs)
 
-With the information in the Azure AD audit logs, you can access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section of Azure AD, where you can sort and filter on every category and activity. You can also access audit logs in the area of the portal for the service you're investigating.
+With the information in the Microsoft Entra audit logs, you can access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section of Microsoft Entra ID, where you can sort and filter on every category and activity. You can also access audit logs in the area of the admin center for the service you're investigating.
 
 ![Screenshot of the audit logs option on the side menu.](media/howto-customize-filter-logs/audit-logs-navigation.png)
 
-For example, if you're looking into changes to Azure AD groups, you can access the Audit logs from **Azure AD** > **Groups**. When you access the audit logs from the service, the filter is automatically adjusted according to the service.
+For example, if you're looking into changes to Microsoft Entra groups, you can access the Audit logs from **Microsoft Entra ID** > **Groups**. When you access the audit logs from the service, the filter is automatically adjusted according to the service.
 
 ![Screenshot of the audit logs option from the Groups menu.](media/howto-customize-filter-logs/audit-logs-groups.png)
 
@@ -63,7 +63,7 @@ When you filter the logs by **Service**, the **Category** and **Activity** detai
 
 - **Service**: Defaults to all available services, but you can filter the list to one or more by selecting an option from the dropdown list.
 
-- **Category**: Defaults to all categories, but can be filtered to view the category of activity, such as changing a policy or activating an eligible Azure AD role.
+- **Category**: Defaults to all categories, but can be filtered to view the category of activity, such as changing a policy or activating an eligible Microsoft Entra role.
 
 - **Activity**: Based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all.
  
@@ -80,7 +80,7 @@ When you filter the logs by **Service**, the **Category** and **Activity** detai
 
 ## [Sign-in logs](#tab/sign-in-logs)
 
-On the sign-in logs page, you can switch between four sign-in log types. For more information on the four types of logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
+On the sign-in logs page, you can switch between four sign-in log types. For more information on the four types of logs, see [What are Microsoft Entra sign-in logs?](concept-sign-ins.md).
 
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-logs-types.png" alt-text="Screenshot of the sign-in log types." lightbox="media/howto-customize-filter-logs/sign-in-logs-types-expanded.png":::
 
@@ -190,8 +190,8 @@ When you filter your provisioning data, some filter values are dynamically popul
 The **Identity** filter enables you to specify the name or the identity that you care about. This identity might be a user, group, role, or other object. 
 
 You can search by the name or ID of the object. The ID varies by scenario.
-- If you're provisioning an object *from Azure AD to Salesforce*, the **source ID** is the object ID of the user in Azure AD. The **target ID** is the ID of the user at Salesforce.
-- If you're provisioning *from Workday to Azure AD*, the **source ID** is the Workday worker employee ID. The **target ID** is the ID of the user in Azure AD.
+- If you're provisioning an object *from Microsoft Entra ID to Salesforce*, the **source ID** is the object ID of the user in Microsoft Entra ID. The **target ID** is the ID of the user at Salesforce.
+- If you're provisioning *from Workday to Microsoft Entra ID*, the **source ID** is the Workday worker employee ID. The **target ID** is the ID of the user in Microsoft Entra ID.
 - If you're provisioning users for [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md), the **source ID** is ID of the user in the source tenant. The **target ID** is ID of the user in the target tenant.
 
 > [!NOTE]
@@ -228,9 +228,9 @@ In addition to the filters of the default view, you can set the following filter
 
 - **Change ID**: The change ID is a unique identifier for the provisioning event. You can share this ID with product support to look up the provisioning event.   
 
-- **Source System**: You can specify where the identity is getting provisioned from. For example, when you're provisioning an object from Azure AD to ServiceNow, the source system is Azure AD. 
+- **Source System**: You can specify where the identity is getting provisioned from. For example, when you're provisioning an object from Microsoft Entra ID to ServiceNow, the source system is Microsoft Entra ID. 
 
-- **Target System**: You can specify where the identity is getting provisioned to. For example, when you're provisioning an object from Azure AD to ServiceNow, the target system is ServiceNow. 
+- **Target System**: You can specify where the identity is getting provisioned to. For example, when you're provisioning an object from Microsoft Entra ID to ServiceNow, the target system is ServiceNow. 
 
 - **Application**: You can show only records of applications with a display name or object ID that contains a specific string. For [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md), use the object ID of the configuration and not the application ID.
 

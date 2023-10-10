@@ -1,6 +1,6 @@
 ---
-title: What are protected actions in Azure AD?
-description: Learn about protected actions in Azure Active Directory.
+title: What are protected actions in Microsoft Entra ID?
+description: Learn about protected actions in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.date: 04/10/2023
 ---
 
-# What are protected actions in Azure AD?
+# What are protected actions in Microsoft Entra ID?
 
-Protected actions in Azure Active Directory (Azure AD) are permissions that have been assigned [Conditional Access policies](../conditional-access/overview.md). When a user attempts to perform a protected action, they must first satisfy the Conditional Access policies assigned to the required permissions. For example, to allow administrators to update Conditional Access policies, you can require that they first satisfy the [Phishing-resistant MFA](../authentication/concept-authentication-strengths.md#built-in-authentication-strengths) policy.
+Protected actions in Microsoft Entra ID are permissions that have been assigned [Conditional Access policies](../conditional-access/overview.md). When a user attempts to perform a protected action, they must first satisfy the Conditional Access policies assigned to the required permissions. For example, to allow administrators to update Conditional Access policies, you can require that they first satisfy the [Phishing-resistant MFA](../authentication/concept-authentication-strengths.md#built-in-authentication-strengths) policy.
 
 This article provides an overview of protected action and how to get started using them.
 
@@ -52,12 +52,12 @@ Here's the initial set of permissions:
 > | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of the cross-tenant access policy|
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Microsoft Entra B2B collaboration settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Microsoft Entra B2B direct connect settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy.
 > | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy.
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners. |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Microsoft Entra B2B collaboration settings of cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Microsoft Entra B2B direct connect settings of cross-tenant access policy for partners. |
 > | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners. |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings  of cross-tenant access policy for partners. |
 > | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners. |
@@ -82,7 +82,7 @@ Here's the initial set of permissions:
 
 1. **Configure Conditional Access policy**
 
-    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](./protected-actions-add.md#step-1-configure-conditional-access-policy)
+    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Microsoft Entra permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](./protected-actions-add.md#step-1-configure-conditional-access-policy)
 
 1. **Add protected actions**
 
@@ -96,7 +96,7 @@ Here's the initial set of permissions:
 
 If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. The following applications support step-up authentication for protected actions:
 
-- Azure Active Directory administrator experiences for the actions in the [Microsoft Entra admin center](https://entra.microsoft.com)
+- Microsoft Entra administrator experiences for the actions in the [Microsoft Entra admin center](https://entra.microsoft.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
 - [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 
@@ -118,7 +118,7 @@ Here are some best practices for using protected actions.
 
 - **Move user and sign-in risk policies to Conditional Access**
 
-    Conditional Access permissions aren't used when managing Azure AD Identity Protection risk policies. We recommend moving user and sign-in risk policies to Conditional Access.
+    Conditional Access permissions aren't used when managing Microsoft Entra ID Protection risk policies. We recommend moving user and sign-in risk policies to Conditional Access.
 
 - **Use named network locations**
 
@@ -134,4 +134,4 @@ Here are some best practices for using protected actions.
 
 ## Next steps
 
-- [Add, test, or remove protected actions in Azure AD](./protected-actions-add.md)
+- [Add, test, or remove protected actions in Microsoft Entra ID](./protected-actions-add.md)

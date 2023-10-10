@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: A user guide for understanding the end-to-end customized machine translation process.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.author: lajanuar
 ms.date: 07/18/2023
 ms.topic: overview

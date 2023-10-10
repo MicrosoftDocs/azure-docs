@@ -104,15 +104,15 @@ In a non-RAG pattern, queries make a round trip from a search client. The query 
 
 In a RAG pattern, queries and responses are coordinated between the search engine and the LLM. A user's question or query is forwarded to both the search engine and to the LLM as a prompt. The search results come back from the search engine and are redirected to an LLM. The response that makes it back to the user is generative AI, either a summation or answer from the LLM.
 
-There's no query type in Cognitive Search - not even semantic search or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used to formulate queries:
+There's no query type in Cognitive Search - not even semantic or vector search - that composes new answers. Only the LLM provides generative AI. Here are the capabilities in Cognitive Search that are used to formulate queries:
 
 | Query feature | Purpose | Why use it |
 |---------------|---------|------------|
 | [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and non-vector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the [BM25 algorithm](index-similarity-and-scoring.md) and support relevance tuning through scoring profiles. It also supports filters and facets. |
 | [Filters](search-filters.md) and [facets](search-faceted-navigation.md) | Applies to text or numeric (non-vector) fields only. Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
-| [Semantic search](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
+| [Semantic ranking](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
-| [Hybrid search](vector-search-ranking.md#hybrid-search) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
+| [Hybrid search](hybrid-search-overview.md) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
 
 ### Structure the query response
 
@@ -196,7 +196,7 @@ if len(history) > 0:
 else:
     search = user_input
 
-# Alternatively simply use search_client.search(q, top=3) if not using semantic search
+# Alternatively simply use search_client.search(q, top=3) if not using semantic ranking
 print("Searching:", search)
 print("-------------------")
 filter = "category ne '{}'".format(exclude_category.replace("'", "''")) if exclude_category else None

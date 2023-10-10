@@ -1,6 +1,6 @@
 ---
 title: Invite internal users to B2B collaboration
-description: If you have internal user accounts for partners, distributors, suppliers, vendors, and other guests, you can change to Azure AD B2B collaboration by inviting them to sign in with their own external credentials or sign-in. Use either PowerShell or the Microsoft Graph invitation API.
+description: If you have internal user accounts for partners, distributors, suppliers, vendors, and other guests, you can change to Microsoft Entra B2B collaboration by inviting them to sign in with their own external credentials or sign-in. Use either PowerShell or the Microsoft Graph invitation API.
 
 services: active-directory
 ms.service: active-directory
@@ -19,7 +19,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # Invite internal users to B2B collaboration
 
-Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like these, you can invite them to use B2B collaboration instead. These B2B guest users will be able to sign in using their own identities and credentials, eliminating the need for password maintenance or account lifecycle management.
+Before the availability of Microsoft Entra B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like these, you can invite them to use B2B collaboration instead. These B2B guest users will be able to sign in using their own identities and credentials, eliminating the need for password maintenance or account lifecycle management.
 
 
 Sending an invitation to an existing internal account lets you retain that user’s object ID, UPN, group memberships, and app assignments. You don’t need to manually delete and re-invite the user or reassign resources. To invite the user, you use the invitation API to pass both the internal user object and the guest user’s email address along with the invitation. When the user accepts the invitation, the B2B service changes the existing internal user object to a B2B user. Going forward, the user must sign in to cloud resources services using their B2B credentials.
@@ -28,7 +28,7 @@ Sending an invitation to an existing internal account lets you retain that user�
 
 - **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is email one-time passcode authentication; if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
 
-- **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be linked to an Azure subscription to activate MAU billing.
+- **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Microsoft Entra tenant must be linked to an Azure subscription to activate MAU billing.
 
 - **Invitation is one-way**: You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
 
@@ -37,7 +37,7 @@ Sending an invitation to an existing internal account lets you retain that user�
 - **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
 
 > [!NOTE]
-> In Azure AD Connect sync, there’s a default rule that writes the onPremisesUserPrincipalName attribute to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/connect/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
+> In Microsoft Entra Connect Sync, there’s a default rule that writes the onPremisesUserPrincipalName attribute to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Microsoft Entra Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/connect/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
 ## How to invite internal users to B2B collaboration
 
 You can use the Microsoft Entra admin center, PowerShell, or the invitation API to send a B2B invitation to the internal user. Some things to note:
@@ -73,7 +73,7 @@ You can use the Microsoft Entra admin center, PowerShell, or the invitation API 
 
 ## Use PowerShell to send a B2B invitation
 
-You'll need Azure AD PowerShell module version 2.0.2.130 or later. Use the following command to update to the latest AzureAD PowerShell module and invite the internal user to B2B collaboration:
+You'll need Azure AD PowerShell module version 2.0.2.130 or later. Use the following command to update to the latest module and invite the internal user to B2B collaboration:
 
 ```powershell
 Uninstall-Module AzureAD

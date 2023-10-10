@@ -132,7 +132,7 @@ Finally, if you're using a custom domain to reach your web application and want 
 
 ## Lock down your web application
 
-We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-).
+We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-).
 
 ## Clean up resources
 

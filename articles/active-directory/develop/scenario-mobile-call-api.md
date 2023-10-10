@@ -28,7 +28,7 @@ MSAL provides the following values:
 - `AccessToken` calls protected web APIs in an HTTP bearer request.
 - `IdToken` contains useful information about the signed-in user. This information includes the user's name, the home tenant, and a unique identifier for storage.
 - `ExpiresOn` is the expiration time of the token. MSAL handles an app's automatic refresh.
-- `TenantId` is the identifier of the tenant where the user signed in. For guest users in Azure Active Directory (Azure AD) B2B, this value identifies the tenant where the user signed in. The value doesn't identify the user's home tenant.
+- `TenantId` is the identifier of the tenant where the user signed in. For guest users in Microsoft Entra B2B, this value identifies the tenant where the user signed in. The value doesn't identify the user's home tenant.
 - `Scopes` indicates the scopes that were granted with your token. The granted scopes might be a subset of the scopes that you requested.
 
 MSAL also provides an abstraction for an `Account` value. An `Account` value represents the current user's signed-in account:

@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from RDS PostgreSQL to Azure Database for PostgreSQL by using the Azure Database Migration Service.
 author: apduvuri
 ms.author: adityaduvuri
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 04/11/2020
 ms.service: dms
 ms.topic: tutorial

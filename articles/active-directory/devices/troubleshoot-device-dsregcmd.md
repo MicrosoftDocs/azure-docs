@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot devices by using the dsregcmd command
-description: This article covers how to use the output from the dsregcmd command to understand the state of devices in Azure AD.
+description: This article covers how to use the output from the dsregcmd command to understand the state of devices in Microsoft Entra ID.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshoot devices by using the dsregcmd command
 
-This article covers how to use the output from the `dsregcmd` command to understand the state of devices in Azure Active Directory (Azure AD). The `dsregcmd /status` utility must be run as a domain user account.
+This article covers how to use the output from the `dsregcmd` command to understand the state of devices in Microsoft Entra ID. The `dsregcmd /status` utility must be run as a domain user account.
 
 ## Device state
 
@@ -24,15 +24,15 @@ This section lists the device join state parameters. The criteria that are requi
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Device state |
 | ---	| ---	| ---	| ---	|
-| YES | NO | NO | Azure AD Joined |
+| YES | NO | NO | Microsoft Entra joined |
 | NO | NO | YES | Domain Joined |
-| YES | NO | YES | Hybrid AD Joined |
+| YES | NO | YES | Microsoft Entra hybrid joined |
 | NO | YES | YES | On-premises DRS Joined |
 
 > [!NOTE]
-> The Workplace Joined (Azure AD registered) state is displayed in the ["User state"](#user-state) section.
+> The Workplace Joined (Microsoft Entra registered) state is displayed in the ["User state"](#user-state) section.
 
-- **AzureAdJoined**: Set the state to *YES* if the device is joined to Azure AD. Otherwise, set the state to *NO*.
+- **AzureAdJoined**: Set the state to *YES* if the device is joined to Microsoft Entra ID. Otherwise, set the state to *NO*.
 - **EnterpriseJoined**: Set the state to *YES* if the device is joined to an on-premises data replication service (DRS). A device can't be both EnterpriseJoined and AzureAdJoined.
 - **DomainJoined**: Set the state to *YES* if the device is joined to a domain (Active Directory).
 - **DomainName**: Set the state to the name of the domain if the device is joined to a domain.
@@ -52,18 +52,18 @@ This section lists the device join state parameters. The criteria that are requi
 
 ## Device details
 
-The state is displayed only when the device is Azure AD-joined or hybrid Azure AD-joined (not Azure AD-registered). This section lists device-identifying details that are stored in Azure AD.
+The state is displayed only when the device is Microsoft Entra joined or Microsoft Entra hybrid joined (not Microsoft Entra registered). This section lists device-identifying details that are stored in Microsoft Entra ID.
 
-- **DeviceId**: The unique ID of the device in the Azure AD tenant.
+- **DeviceId**: The unique ID of the device in the Microsoft Entra tenant.
 - **Thumbprint**: The thumbprint of the device certificate.
 - **DeviceCertificateValidity**: The validity status of the device certificate.
 - **KeyContainerId**: The containerId of the device private key that's associated with the device certificate.
 - **KeyProvider**: The KeyProvider (Hardware/Software) that's used to store the device private key.
 - **TpmProtected**: The state is set to *YES* if the device private key is stored in a hardware Trusted Platform Module (TPM).
-- **DeviceAuthStatus**: Performs a check to determine the device's health in Azure AD. The health statuses are:  
-  * *SUCCESS* if the device is present and enabled in Azure AD.  
-  * *FAILED. Device is either disabled or deleted* if the device is either disabled or deleted. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). 
-  * *FAILED. ERROR* if the test was unable to run. This test requires network connectivity to Azure AD.
+- **DeviceAuthStatus**: Performs a check to determine the device's health in Microsoft Entra ID. The health statuses are:  
+  * *SUCCESS* if the device is present and enabled in Microsoft Entra ID.  
+  * *FAILED. Device is either disabled or deleted* if the device is either disabled or deleted. For more information about this issue, see [Microsoft Entra device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). 
+  * *FAILED. ERROR* if the test was unable to run. This test requires network connectivity to Microsoft Entra ID under the system context.
     > [!NOTE]
     > The **DeviceAuthStatus** field was added in the Windows 10 May 2021 update (version 21H1).  
 
@@ -86,10 +86,10 @@ The state is displayed only when the device is Azure AD-joined or hybrid Azure A
 
 ## Tenant details
 
-The tenant details are displayed only when the device is Azure AD-joined or hybrid Azure AD-joined, not Azure AD-registered. This section lists the common tenant details that are displayed when a device is joined to Azure AD.
+The tenant details are displayed only when the device is Microsoft Entra joined or Microsoft Entra hybrid joined, not Microsoft Entra registered. This section lists the common tenant details that are displayed when a device is joined to Microsoft Entra ID.
 
 > [!NOTE]
-> If the mobile device management (MDM) URL fields in this section are empty, it indicates either that the MDM was not configured or that the current user isn't in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
+> If the mobile device management (MDM) URL fields in this section are empty, it indicates either that the MDM was not configured or that the current user isn't in scope of MDM enrollment. Check the Mobility settings in Microsoft Entra ID to review your MDM configuration.
 
 > [!NOTE]
 > Even if you see MDM URLs, this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself isn't managed.
@@ -136,10 +136,10 @@ This section lists the statuses of various attributes for users who are currentl
 - **NgcKeyId**: The ID of the Windows Hello key if one is set for the current logged-in user.
 - **CanReset**: Denotes whether the Windows Hello key can be reset by the user.
 - **Possible values**: DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error.
-- **WorkplaceJoined**: Set the state to *YES* if Azure AD-registered accounts have been added to the device in the current NTUSER context.
+- **WorkplaceJoined**: Set the state to *YES* if Microsoft Entra registered accounts have been added to the device in the current NTUSER context.
 - **WamDefaultSet**: Set the state to *YES* if a Web Account Manager (WAM) default WebAccount is created for the logged-in user. This field could display an error if `dsregcmd /status` is run from an elevated command prompt.
-- **WamDefaultAuthority**: Set the state to *organizations* for Azure AD.
-- **WamDefaultId**: Always use *https://login.microsoft.com* for Azure AD.
+- **WamDefaultAuthority**: Set the state to *organizations* for Microsoft Entra ID.
+- **WamDefaultId**: Always use *https://login.microsoft.com* for Microsoft Entra ID.
 - **WamDefaultGUID**: The WAM provider's (Azure AD/Microsoft account) GUID for the default WAM WebAccount.
 
 ### Sample user state output
@@ -163,7 +163,7 @@ This section lists the statuses of various attributes for users who are currentl
 
 ## SSO state
 
-You can ignore this section for Azure AD registered devices.
+You can ignore this section for Microsoft Entra registered devices.
 
 > [!NOTE]
 > The command must run in a user context to retrieve that user's valid status.
@@ -171,9 +171,9 @@ You can ignore this section for Azure AD registered devices.
 - **AzureAdPrt**: Set the state to *YES* if a Primary Refresh Token (PRT) is present on the device for the logged-in user.
 - **AzureAdPrtUpdateTime**: Set the state to the time, in Coordinated Universal Time (UTC), when the PRT was last updated.
 - **AzureAdPrtExpiryTime**: Set the state to the time, in UTC, when the PRT is going to expire if it isn't renewed.
-- **AzureAdPrtAuthority**: The Azure AD authority URL
+- **AzureAdPrtAuthority**: The Microsoft Entra authority URL
 - **EnterprisePrt**: Set the state to *YES* if the device has a PRT from on-premises 
-Active Directory Federation Services (AD FS). For hybrid Azure AD-joined devices, the device could have a PRT from both Azure AD and on-premises Active Directory simultaneously. On-premises joined devices will have only an Enterprise PRT.
+Active Directory Federation Services (AD FS). For Microsoft Entra hybrid joined devices, the device could have a PRT from both Microsoft Entra ID and on-premises Active Directory simultaneously. On-premises joined devices will have only an Enterprise PRT.
 - **EnterprisePrtUpdateTime**: Set the state to the time, in UTC, when the Enterprise PRT was last updated.
 - **EnterprisePrtExpiryTime**: Set the state to the time, in UTC, when the PRT is going to expire if it isn't renewed.
 - **EnterprisePrtAuthority**: The AD FS authority URL
@@ -182,7 +182,7 @@ Active Directory Federation Services (AD FS). For hybrid Azure AD-joined devices
 > The following PRT diagnostics fields were added in the Windows 10 May 2021 update (version 21H1).
 
 >[!NOTE]
-> * The diagnostics information that's displayed in the **AzureAdPrt** field is for Azure AD PRT acquisition or refresh, and the diagnostics information that's displayed in the **EnterprisePrt** field is for Enterprise PRT acquisition or refresh.
+> * The diagnostics information that's displayed in the **AzureAdPrt** field is for Microsoft Entra PRT acquisition or refresh, and the diagnostics information that's displayed in the **EnterprisePrt** field is for Enterprise PRT acquisition or refresh.
 > * The diagnostics information is displayed only if the acquisition or refresh failure happened after the last successful PRT update time (AzureAdPrtUpdateTime/EnterprisePrtUpdateTime).  
 >On a shared device, this diagnostics information could be from a different user's login attempt.
 
@@ -246,7 +246,7 @@ The diagnostics information fields are same as **AcquirePrtDiagnostics**
 
 ### Pre-join diagnostics
 
-This diagnostics section is displayed only if the device is domain-joined and unable to hybrid Azure AD-join.
+This diagnostics section is displayed only if the device is domain-joined and unable to Microsoft Entra hybrid join.
 
 This section performs various tests to help diagnose join failures. The information includes the error phase, the error code, the server request ID, the server response http status, and the server response error message.
 
@@ -260,7 +260,7 @@ This section performs various tests to help diagnose join failures. The informat
 - **AD Configuration Test**: This test reads and verifies whether the Service Connection Point (SCP) object is configured properly in the on-premises Active Directory forest. Errors in this test would likely result in join errors in the discover phase with the error code 0x801c001d.
 - **DRS Discovery Test**: This test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in join errors in the discover phase.
 - **DRS Connectivity Test**: This test performs a basic connectivity test to the DRS endpoint.
-- **Token Acquisition Test**: This test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in join errors in the authentication phase. If authentication fails, sync-join will be attempted as fallback, unless fallback is explicitly disabled with the following registry key settings:
+- **Token Acquisition Test**: This test tries to get a Microsoft Entra authentication token if the user tenant is federated. Errors in this test would likely result in join errors in the authentication phase. If authentication fails, sync-join will be attempted as fallback, unless fallback is explicitly disabled with the following registry key settings:
 
   ```
   Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
@@ -306,7 +306,7 @@ The following example shows a diagnostics test failing with a discovery error.
 +----------------------------------------------------------------------+
 ```
 
-The following example shows that diagnostics tests are passing but the registration attempt failed with a directory error, which is expected for sync-join. After the Azure AD Connect synchronization job finishes, the device is able to join.
+The following example shows that diagnostics tests are passing but the registration attempt failed with a directory error, which is expected for sync-join. After the Microsoft Entra Connect synchronization job finishes, the device is able to join.
 
 ```
 +----------------------------------------------------------------------+
@@ -340,7 +340,7 @@ The following example shows that diagnostics tests are passing but the registrat
 This diagnostics section displays the output of sanity checks performed on a device that's joined to the cloud.
 
 - **AadRecoveryEnabled**: If the value is *YES*, the keys stored in the device aren't usable, and the device is marked for recovery. The next sign-in will trigger the recovery flow and re-register the device.
-- **KeySignTest**: If the value is *PASSED*, the device keys are in good health. If KeySignTest fails, the device is usually marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD-joined devices, the recovery is silent. While the devices are Azure AD-joined or Azure AD registered, they'll prompt for user authentication to recover and re-register the device, if necessary. 
+- **KeySignTest**: If the value is *PASSED*, the device keys are in good health. If KeySignTest fails, the device is usually marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For Microsoft Entra hybrid joined devices, the recovery is silent. While the devices are Microsoft Entra joined or Microsoft Entra registered, they'll prompt for user authentication to recover and re-register the device, if necessary. 
    > [!NOTE]
    > The KeySignTest requires elevated privileges.
 
@@ -363,8 +363,8 @@ This diagnostics section performs the prerequisites check for setting up Windows
 > [!NOTE]
 > You might not see NGC prerequisites check details in `dsregcmd /status` if the user has already configured WHFB successfully.
 
-- **IsDeviceJoined**: Set the state to *YES* if the device is joined to Azure AD.
-- **IsUserAzureAD**: Set the state to *YES* if the logged-in user is present in Azure AD.
+- **IsDeviceJoined**: Set the state to *YES* if the device is joined to Microsoft Entra ID.
+- **IsUserAzureAD**: Set the state to *YES* if the logged-in user is present in Microsoft Entra ID.
 - **PolicyEnabled**: Set the state to *YES* if the WHFB policy is enabled on the device.
 - **PostLogonEnabled**: Set the state to *YES* if WHFB enrollment is triggered natively by the platform. If the state is set to *NO*, it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism.
 - **DeviceEligible**: Set the state to *YES* if the device meets the hardware requirement for enrolling with WHFB.

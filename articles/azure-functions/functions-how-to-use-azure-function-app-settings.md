@@ -35,7 +35,7 @@ These settings are stored encrypted. To learn more, see [Application settings se
 
 Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 To find the application settings, see [Get started in the Azure portal](#get-started-in-the-azure-portal). 
 
@@ -44,7 +44,7 @@ To add a setting in the portal, select **New application setting** and add the n
 
 ![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command returns the existing application settings, as in the following example:
 
@@ -62,7 +62,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 The [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet returns the existing application settings, as in the following example: 
 
@@ -84,6 +84,47 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-develop-local.md#local-settings-file).
 
+## FTPS deployment settings
+
+Azure Functions supports deploying project code to your function app by using FTPS. Because this deployment method requires you to [sync triggers](functions-deployment-technologies.md#trigger-syncing), it's not recommended. To securely transfer project files, always use FTPS and not FTP.
+
+You can get the credentials required for FTPS deployment using one of these methods:
+
+### [Portal](#tab/portal)
+
+You can get the FTPS publishing credentials in the Azure portal by downloading the publishing profile for your function app. 
+
+> [!IMPORTANT]
+> The publishing profile contains important security credentials. You should always secure the downloaded file on your local computer.  
+
+[!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
+
+3. In the file, locate the `publishProfile` element with the attribute `publishMethod="FTP"`. In this element, the `publishUrl`, `userName`, and `userPWD` attributes contain the target URL and credentials for FTPS publishing.   
+
+### [Azure CLI](#tab/azure-cli)
+
+Run this Azure CLI command that returns the FTPS credentials from the publishing profile.
+
+```azurecli
+az functionapp deployment list-publishing-profiles --name <APP_NAME> --resource-group <GROUP_NAME> --query "[?publishMethod=='FTP'].{URL:publishUrl, username:userName, password:userPWD}" -o table
+```
+
+In this example, replace `<APP_NAME>` with your function app name and `<GROUP_NAME>` with the resource group. The returned `URL`, `username`, and `password` columns contain the target URL and credentials for FTPS publishing.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Run this Azure PowerShell command that returns the FTPS credentials from the publishing profile.
+
+```azurepowershell
+$profile = [xml](Get-AzWebAppPublishingProfile -ResourceGroupName "<GROUP_NAME>" -Name "<APP_NAME>" -Format "Ftp") 
+$profile.publishData.publishProfile | Where-Object -Property publishMethod -eq Ftp | Select-Object -Property @{Name="URL"; Expression = {$_.publishUrl}}, 
+@{Name="username"; Expression = {$_.userName}}, @{Name="password"; Expression = {$_.userPWD}} | Format-Table
+```
+
+In this example, replace `<APP_NAME>` with your function app name and `<GROUP_NAME>` with the resource group. The returned `URL`, `username`, and `password` columns contain the target URL and credentials for FTPS publishing.
+
+---
+
 ## Hosting plan type
 
 When you create a function app, you also create a hosting plan in which the app runs. A plan can have one or more function apps. The functionality, scaling, and pricing of your functions depend on the type of plan. To learn more, see [Azure Functions hosting options](functions-scale.md).
@@ -98,13 +139,13 @@ The following values indicate the plan type:
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
 | [Dedicated (App Service)](dedicated-plan.md) | Various | Various |
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 To determine the type of plan used by your function app, see **App Service plan** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). To see the pricing tier, select the name of the **App Service Plan**, and then select **Properties** from the left pane.
 
 ![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Run the following Azure CLI command to get your hosting plan type:
 

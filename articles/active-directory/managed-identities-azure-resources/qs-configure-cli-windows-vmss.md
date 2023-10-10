@@ -22,7 +22,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using the Azure CLI:
 
@@ -44,7 +44,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
   - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 
   > [!NOTE]
-  > No additional Azure AD directory role assignments required.
+  > No additional Microsoft Entra directory role assignments required.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

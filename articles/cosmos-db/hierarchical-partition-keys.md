@@ -217,7 +217,14 @@ You can test the subpartitioning feature by using the latest version of the loca
 .\CosmosDB.Emulator.exe /EnablePreview
 ```
 
-For more information, see [Azure Cosmos DB emulator](./local-emulator.md).
+> [!WARNING]
+> The emulator doesn't currently support all of the hiearchical partition key features as the portal. The emulator currently doesn't support:
+>
+> - Using the Data Explorer to create containers with hierarchical partition keys
+> - Using the Data Explorer to navigate to and interact with items using hierarchical partition keys
+>   
+
+For more information, see [Azure Cosmos DB emulator](emulator.md).
 
 <a name="use-the-sdks-to-work-with-containers-with-hierarchical-partition-keys"></a>
 

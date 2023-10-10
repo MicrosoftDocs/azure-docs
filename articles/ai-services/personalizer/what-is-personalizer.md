@@ -4,8 +4,7 @@ description: Personalizer is a cloud-based service that allows you to choose the
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: overview
 ms.date: 11/17/2022
 ms.custom: cog-serv-seo-aug-2020

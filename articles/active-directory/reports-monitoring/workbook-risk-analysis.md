@@ -1,6 +1,6 @@
 ---
 
-title: Identity protection risk analysis workbook in Azure AD
+title: Identity protection risk analysis workbook in Microsoft Entra ID
 description: Learn how to use the identity protection risk analysis workbook.
 services: active-directory
 author: shlipsey3
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Identity protection risk analysis workbook
 
-Azure AD Identity Protection detects, remediates, and prevents compromised identities. As an IT administrator, you want to understand risk trends in your organizations and opportunities for better policy configuration. With the Identity Protection Risky Analysis Workbook, you can answer common questions about your Identity Protection implementation.
+Microsoft Entra ID Protection detects, remediates, and prevents compromised identities. As an IT administrator, you want to understand risk trends in your organizations and opportunities for better policy configuration. With the Identity Protection Risky Analysis Workbook, you can answer common questions about your Identity Protection implementation.
 
 This article provides you with an overview of this workbook.
 
@@ -70,4 +70,4 @@ Risky Users:
 ## Next steps
 
 - To learn more about identity protection, see [What is identity protection](../identity-protection/overview-identity-protection.md). 
-- For more information about Azure AD workbooks, see [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md).
+- For more information about Microsoft Entra workbooks, see [How to use Microsoft Entra workbooks](howto-use-azure-monitor-workbooks.md).

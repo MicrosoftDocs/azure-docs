@@ -41,7 +41,7 @@ To instrument your Node.js application, use the [SDK](./nodejs.md).
 
 ### [Python](#tab/python)
 
-To monitor Python apps, use the [SDK](./opencensus-python.md).
+To monitor Python apps, use the [SDK](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 ---
 

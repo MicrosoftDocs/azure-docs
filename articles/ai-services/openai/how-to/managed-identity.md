@@ -2,8 +2,7 @@
 title: How to configure Azure OpenAI Service with managed identities
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Azure Active Directory
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to 
 ms.date: 06/24/2022
 author: ChrisHMSFT

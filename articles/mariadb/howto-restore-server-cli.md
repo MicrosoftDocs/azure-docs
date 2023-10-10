@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 ---
 # How to back up and restore a server in Azure Database for MariaDB using the Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure Database for MariaDB servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

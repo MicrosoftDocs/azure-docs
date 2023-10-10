@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 09/13/2023
 ms.author: jfields
 ---
 
@@ -27,27 +27,27 @@ Before you begin, you need access to these tools for the onboarding process:
 
 - Access to a local BASH shell with the Azure CLI or Azure Cloud Shell using BASH environment (Azure CLI is included). 
 - Access to AWS, Azure, and GCP consoles.
-- A user must have *Global Administrator* or *Permissions Management Administrator* role assignments to create a new app registration in Entra ID tenant is required for AWS and GCP onboarding. 
+- A user must have the *Global Administrator* role assignment to create a new app registration in Microsoft Entra tenant is required for AWS and GCP onboarding. 
 
 
 ## Step 1: Set-up Permissions Management
 
-To enable Permissions Management, you must have a Microsoft Entra ID tenant (example, Entra admin center).  
-- If you have an Azure account, you automatically have an Entra admin center tenant. 
+To enable Permissions Management, you must have a Microsoft Entra tenant (example, Microsoft Entra admin center).  
+- If you have an Azure account, you automatically have a Microsoft Entra admin center tenant. 
 - If you don’t already have one, create a free account at [entra.microsoft.com.](https://entra.microsoft.com)
 
 If the above points are met, continue with:
 
 [Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
 
-Ensure you're a *Global Administrator* or *Permissions Management Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
+Ensure you're a Global Administrator. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
 
  
 ## Step 2: Onboard your multicloud environment
 
 So far you’ve,  
 
-1. Been assigned the *Permissions Management Administrator* role in your Entra admin center tenant. 
+1. Been assigned the *Permissions Management Administrator* role in your Microsoft Entra admin center tenant. 
 2. Purchased licenses or activated your 45-day free trial for Permissions Management. 
 3. Successfully launched Permissions Management.
 
@@ -85,20 +85,20 @@ Permissions Management automatically discovers all current subscriptions. Once d
 > To use **Automatic** or **Select** modes, the controller must be enabled while configuring data collection. 
 
 To configure data collection:
-1. In Permissions Management, navigate to the data collectors page.
-2. Select a cloud environment: AWS, Azure, or GCP.
+1. In Permissions Management, go to the **Data Collectors** page.
+2. Select a cloud environment: **AWS**, **Azure**, or **GCP**.
 3. Click **Create configuration**.
 
 ### Onboard Amazon Web Services (AWS)
 Since Permissions Management is hosted on Microsoft Entra, there are more steps to take to onboard your AWS environment.  
 
-To connect AWS to Permissions Management, you must create an Entra ID application in the Entra admin center tenant where Permissions Management is enabled. This Entra ID application is used to set up an OIDC connection to your AWS environment.   
+To connect AWS to Permissions Management, you must create a Microsoft Entra application in the Microsoft Entra admin center tenant where Permissions Management is enabled. This Microsoft Entra application is used to set up an OIDC connection to your AWS environment.   
 
 *OpenID Connect (OIDC) is an interoperable authentication protocol based on the OAuth 2.0 family of specifications.*
 
 ### Prerequisites 
 
-A user must have *Global Administrator* or *Permissions Management Administrator* role assignments to create a new app registration in Entra ID. 
+A user must have *Global Administrator* or *Permissions Management Administrator* role assignments to create a new app registration in Microsoft Entra ID. 
 
 Account IDs and roles for: 
 - AWS OIDC account: An AWS member account designated by you to create and host the OIDC connection through an OIDC IdP
@@ -113,11 +113,11 @@ During this step, you can enable the controller by entering the name of the S3 b
 To onboard your AWS environment and configure data collection, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
 
 ### Onboard Microsoft Azure
-When you enabled Permissions Management in the Entra ID tenant, an enterprise application for CIEM was created. To onboard your Azure environment, you grant permissions to this application for Permissions management.
+When you enabled Permissions Management in the Microsoft Entra tenant, an enterprise application for CIEM was created. To onboard your Azure environment, you grant permissions to this application for Permissions management.
 
-1. In the Entra ID tenant where Permissions management is enabled, locate the **Cloud Infrastructure Entitlement Management (CIEM)** enterprise application.  
+1. In the Microsoft Entra tenant where Permissions management is enabled, locate the **Cloud Infrastructure Entitlement Management (CIEM)** enterprise application.  
 
-2. Assign the *Reader* role to the CIEM application to allow Permissions management to read the Entra subscriptions in your environment. 
+2. Assign the *Reader* role to the CIEM application to allow Permissions management to read the Microsoft Entra subscriptions in your environment. 
 
 ### Prerequisites 
 - A user with ```Microsoft.Authorization/roleAssignments/write``` permissions at the subscription or management group scope. 
@@ -132,13 +132,13 @@ To onboard your Azure environment and configure data collection, see [Onboard a 
 ### Onboard Google Cloud Platform (GCP)
 Because Permissions Management is hosted on Microsoft Azure, there are additional steps to take to onboard your GCP environment.
 
-To connect GCP to Permissions Management, you must create an Entra admin center application in the Entra ID tenant where Permissions Management is enabled. This Entra admin center application is used to set up an OIDC connection to your GCP environment.   
+To connect GCP to Permissions Management, you must create a Microsoft Entra admin center application in the Microsoft Entra tenant where Permissions Management is enabled. This Microsoft Entra admin center application is used to set up an OIDC connection to your GCP environment.   
 
 *OpenID Connect (OIDC) is an interoperable authentication protocol based on the OAuth 2.0 family of specifications.* 
 
  
 ### Prerequisites 
-A user with the ability to create a new app registration in Entra (needed to facilitate the OIDC connection) is needed for AWS and GCP onboarding. 
+A user with the ability to create a new app registration in Microsoft Entra (needed to facilitate the OIDC connection) is needed for AWS and GCP onboarding. 
  
 ID details for: 
 - GCP OIDC project: a GCP project designated by you to create and host the OIDC connection through an OIDC IdP. 

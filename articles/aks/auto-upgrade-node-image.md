@@ -15,7 +15,7 @@ AKS now supports an exclusive channel dedicated to controlling node-level OS sec
 
 ## How does node OS auto-upgrade work with cluster auto-upgrade?
 
-Node-level OS security updates come in at a faster cadence than Kubernetes patch or minor version updates. This is the main reason for introducing a separate, dedicated Node OS auto-upgrade channel. With this feature, you can have a flexible and customized strategy for node-level OS security updates and a separate plan for cluster-level Kubernetes version auto-upgrades [auto-upgrade][Autoupgrade].
+Node-level OS security updates come in at a faster cadence than Kubernetes patch or minor version updates. This is the main reason for introducing a separate, dedicated Node OS auto-upgrade channel. With this feature, you can have a flexible and customized strategy for node-level OS security updates and a separate plan for cluster-level Kubernetes version [auto-upgrades][Autoupgrade].
 It's highly recommended to use both cluster-level [auto-upgrades][Autoupgrade] and the node OS auto-upgrade channel together. Scheduling can be fine-tuned by applying two separate sets of [maintenance windows][planned-maintenance] - `aksManagedAutoUpgradeSchedule` for the cluster [auto-upgrade][Autoupgrade] channel and `aksManagedNodeOSUpgradeSchedule` for the node OS auto-upgrade channel.
 
 ## Using node OS auto-upgrade
@@ -32,8 +32,8 @@ The following upgrade channels are available. You're allowed to choose one of th
 |---|---|
 | `None`| Your nodes won't have security updates applied automatically. This means you're solely responsible for your security updates.|N/A|
 | `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially and will be patched at some point by the OS's infrastructure.|Ubuntu applies security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows doesn't automatically apply security patches, so this option behaves equivalently to `None`. Azure Linux CPU node pools don't automatically apply security patches, so this option behaves equivalently to `None`.|
-| `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There may be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs.|
-| `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|
+| `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There may be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs. `SecurityPatch` will work on patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
+| `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. Node image upgrades will work on patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 
 To set the node OS auto-upgrade channel when creating a cluster, use the *node-os-upgrade-channel* parameter, similar to the following example.
 
@@ -109,7 +109,11 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 
 * How can I check the current nodeOsUpgradeChannel value on a cluster?
 
-Run the `az aks show` command and check the "autoUpgradeProfile" to determine what value the `nodeOsUpgradeChannel` is set to. 
+Run the `az aks show` command and check the "autoUpgradeProfile" to determine what value the `nodeOsUpgradeChannel` is set to:
+
+```azurecli-interactive
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "autoUpgradeProfile"
+```
 
 * How can I monitor the status of node OS auto-upgrades?
 

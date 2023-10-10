@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The ISO 27001 App Service Environment/SQL Database workload blueprint sample provides additional
 infrastructure to the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
 This blueprint helps customers deploy cloud-based architectures that offer solutions to scenarios

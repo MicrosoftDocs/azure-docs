@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 06/23/2023
+ms.date: 09/15/2023
 ms.author: radeltch
 
 ---
@@ -207,7 +207,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
       sudo mkfs.xfs /dev/vg_hana_log_<HANA SID>/hana_log
       sudo mkfs.xfs /dev/vg_hana_shared_<HANA SID>/hana_shared
       ```
-    
+
    1. Create the mount directories and copy the universally unique identifier (UUID) of all the logical volumes:
 
       ```bash
@@ -499,8 +499,8 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as root:
 
    ```bash
-   cat << EOF > /etc/sudoers.d/20-saphana
-   # Needed for SAPHanaSR and susChkSrv Python hooks
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR and susChkSrv Python hooks
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=HN1 --case=fenceMe
     EOF
@@ -513,7 +513,7 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as \<SAP SID\>adm:
 
    ```bash
-   sapcontrol -nr <instance number> -function StartSystem 
+    sapcontrol -nr <instance number> -function StartSystem 
    ```
 
 1. **[1]** Verify the hook installation.
@@ -521,13 +521,13 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as \<SAP SID\>adm on the active HANA system replication site:
 
    ```bash
-     cdtrace
-     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
-     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
-     # Example output
-     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
-     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
-     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+    cdtrace
+    awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+    { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+    # Example output
+    # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+    # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+    # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
    ```
 
     Verify the susChkSrv hook installation.
@@ -535,12 +535,12 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    Run the following command as \<SAP SID\>adm on all HANA VMs:
 
    ```bash
-     cdtrace
-     egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
-     # Example output
-     # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
-     # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
-     # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
+    cdtrace
+    egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
+    # Example output
+    # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+    # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
+    # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
    ```
 
 ## Create SAP HANA cluster resources

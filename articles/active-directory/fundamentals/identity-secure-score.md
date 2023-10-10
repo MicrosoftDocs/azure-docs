@@ -69,7 +69,7 @@ The secure score helps you to:
 
 ### Who can use the identity secure score?
 
-To access identity secure score, you must be assigned one of the following roles in Azure Active Directory.
+To access identity secure score, you must be assigned one of the following roles in Microsoft Entra ID.
 
 #### Read and write roles
 

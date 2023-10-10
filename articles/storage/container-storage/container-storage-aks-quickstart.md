@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/12/2023
+ms.date: 09/20/2023
 ms.author: kendownie
 ---
 
@@ -17,45 +17,12 @@ ms.author: kendownie
 
 - You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't already have an AKS cluster, follow [these instructions](install-container-storage-aks.md#getting-started) to create one.
 
+> [!IMPORTANT]
+> If you created your AKS cluster using the Azure portal, it will likely have two node pools: a user node pool and a system/agent node pool. Before you can install Azure Container Storage, you must label the user node pool. In this article, this is done automatically by passing the user node pool name to the script as a parameter. However, if your cluster consists of only a system node pool, which is often the case with test/dev clusters, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) before running the script. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` gets added to the agent/system nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI. 
+
 ## Install Azure Container Storage
 
-Follow these instructions to install Azure Container Storage on your AKS cluster using an installation script.
-
-1. Run the `az login` command to sign in to Azure.
-
-1. Download and save [this shell script](https://github.com/Azure-Samples/azure-container-storage-samples/blob/main/acstor-install.sh).
-
-1. Navigate to the directory where the file is saved using the `cd` command. For example, `cd C:\Users\Username\Downloads`.
-   
-1. Run the following command to change the file permissions:
-
-   ```bash
-   chmod +x acstor-install.sh 
-   ```
-
-1. Run the installation script and specify the parameters.
-   
-   | **Flag** | **Parameter**      | **Description** |
-   |----------|----------------|-------------|
-   | -s   | --subscription | The subscription identifier. Defaults to the current subscription.|
-   | -g   | --resource-group | The resource group name.|
-   | -c   | --cluster-name | The name of the cluster where Azure Container Storage is to be installed.|
-   | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster.|
-   | -r   | --release-train | The release train for the installation. Defaults to stable.|
-   
-   For example:
-
-   ```bash
-   bash ./acstor-install.sh -g <resource-group-name> -s <subscription-id> -c <cluster-name> -n <nodepool-name> -r <release-train-name>
-   ```
-
-Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says **Succeeded**:
-
-```azurecli-interactive
-az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type managedClusters
-```
-
-Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
+[!INCLUDE [container-storage-script-install](../../../includes/container-storage-script-install.md)]
 
 ## Choose a data storage option
 

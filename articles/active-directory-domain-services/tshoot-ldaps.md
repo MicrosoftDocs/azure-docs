@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot secure LDAP in Azure AD Domain Services | Microsoft Docs
-description: Learn how to troubleshoot secure LDAP (LDAPS) for an Azure Active Directory Domain Services managed domain
+title: Troubleshoot secure LDAP in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to troubleshoot secure LDAP (LDAPS) for a Microsoft Entra Domain Services managed domain
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -14,15 +14,15 @@ ms.date: 01/29/2023
 ms.author: justinha
 
 ---
-# Troubleshoot secure LDAP connectivity issues to an Azure Active Directory Domain Services managed domain
+# Troubleshoot secure LDAP connectivity issues to a Microsoft Entra Domain Services managed domain
 
-Applications and services that use lightweight directory access protocol (LDAP) to communicate with Azure Active Directory Domain Services (Azure AD DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
+Applications and services that use lightweight directory access protocol (LDAP) to communicate with Microsoft Entra Domain Services (Microsoft Entra DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
 
-This article helps you troubleshoot issues with secure LDAP access in Azure AD DS.
+This article helps you troubleshoot issues with secure LDAP access in Microsoft Entra DS.
 
 ## Common connection issues
 
-If you have trouble connecting to an Azure AD DS managed domain using secure LDAP, review the following troubleshooting steps. After each troubleshooting step, try to connect to the managed domain again:
+If you have trouble connecting to a Microsoft Entra DS managed domain using secure LDAP, review the following troubleshooting steps. After each troubleshooting step, try to connect to the managed domain again:
 
 * The issuer chain of the secure LDAP certificate must be trusted on the client. You can add the Root certification authority (CA) to the trusted root certificate store on the client to establish the trust.
     * Make sure you [export and apply the certificate to client computers][client-cert].
@@ -40,7 +40,7 @@ If you have trouble connecting to an Azure AD DS managed domain using secure LDA
 If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
 [configure-ldaps]: tutorial-configure-ldaps.md
 [certs-prereqs]: tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap
 [client-cert]: tutorial-configure-ldaps.md#export-a-certificate-for-client-computers

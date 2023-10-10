@@ -1,5 +1,5 @@
 ---
-title: Trial User Guide - Microsoft Entra Permissions Management
+title: Trial User Guide - Microsoft Entra Permissions Management - OBSOLETE
 description: How to get started with your Microsoft Entra Permissions Management free trial
 services: active-directory
 author: jenniferf-skc
@@ -35,12 +35,12 @@ Permissions Management helps your organization tackle cloud permissions by enabl
 ## Step 1: Set-up Permissions Management
 
 Before you enable Permissions Management in your organization:
--  You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+-  You must have a Microsoft Entra tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 -  You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
 
 If the above points are met, continue with the following steps:
 
-1.  [Enabling Permissions Management on your Azure AD tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
+1.  [Enabling Permissions Management on your Microsoft Entra tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
 2.  Use the **Data Collectors** dashboard in Permissions Management to configure data collection settings for your authorization system. [Configure data collection settings](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#configure-data-collection-settings).
 
     Note that for each cloud platform, you will have 3 options for onboarding:
@@ -195,7 +195,7 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
     ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-user-guide/custom-alerts-3.png)
 
--   Use of break glass accounts like root in AWS, Global Administrator in Azure AD accessing subscriptions, etc.
+-   Use of break glass accounts like root in AWS, Global Administrator in Microsoft Entra ID accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 

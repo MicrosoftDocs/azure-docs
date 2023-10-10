@@ -25,6 +25,8 @@ In this quickstart you are going to learn how to start a call from Azure Communi
 
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
+[!INCLUDE [Enable interoperability in your Teams tenant](../../concepts/includes/enable-interoperability-for-teams-tenant.md)]
+
 ## Create or select Teams Auto Attendant
 
 Teams Auto Attendant is system that provides an automated call handling system for incoming calls. It serves as a virtual receptionist, allowing callers to be automatically routed to the appropriate person or department without the need for a human operator. You can select existing or create new Auto Attendant via [Teams Admin Center](https://aka.ms/teamsadmincenter).
@@ -48,7 +50,7 @@ In results we'll are able to find "ID" field
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-[!INCLUDE [Call Queue with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
+[!INCLUDE [Auto Attendant with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
 
 ## Clean up resources
 

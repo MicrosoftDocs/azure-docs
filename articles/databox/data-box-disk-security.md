@@ -81,7 +81,7 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Shipping address** – After the order is placed, Data Box service provides the shipping address to third party carriers such as UPS or DHL. 
 
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trust-center).
 
 
 ## Next steps

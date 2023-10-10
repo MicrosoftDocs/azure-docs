@@ -97,6 +97,7 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * UAE Central
 * UAE North
 * UK South
+* US Gov Virginia 
 * West Europe
 * West US
 * West US 2

@@ -1,6 +1,6 @@
 ---
 title: Use tenant restrictions to manage access to SaaS apps
-description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
+description: How to use tenant restrictions to manage which users can access apps based on their Microsoft Entra tenant.
 author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
@@ -18,11 +18,11 @@ ms.custom: contperf-fy22q3, enterprise-apps-article
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
-The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for [single sign-on](what-is-single-sign-on.md). For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
+The Microsoft Entra solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Microsoft Entra tenant the applications use for [single sign-on](what-is-single-sign-on.md). For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
 
-With tenant restrictions, organizations can specify the list of tenants that users on their network are permitted to access. Azure AD then only grants access to these permitted tenants - all other tenants are blocked, even ones that your users may be guests in. 
+With tenant restrictions, organizations can specify the list of tenants that users on their network are permitted to access. Microsoft Entra ID then only grants access to these permitted tenants - all other tenants are blocked, even ones that your users may be guests in. 
 
-This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (For example, in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
+This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Microsoft Entra ID for single sign-on. If you use SaaS apps with a different Microsoft Entra tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (For example, in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
 The tenant restrictions feature also supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of this article.
 
@@ -30,15 +30,15 @@ The tenant restrictions feature also supports [blocking the use of all Microsoft
 
 The overall solution comprises the following components:
 
-1. **Azure AD**: If the `Restrict-Access-To-Tenants: <permitted tenant list>` header is present, Azure AD only issues security tokens for the permitted tenants.
+1. **Microsoft Entra ID**: If the `Restrict-Access-To-Tenants: <permitted tenant list>` header is present, Microsoft Entra-only issues security tokens for the permitted tenants.
 
-2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Transport Layer Security (TLS) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Azure AD.
+2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Transport Layer Security (TLS) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Microsoft Entra ID.
 
-3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Microsoft 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
+3. **Client software**: To support tenant restrictions, client software must request tokens directly from Microsoft Entra ID, so that the proxy infrastructure can intercept traffic. Browser-based Microsoft 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
 
 4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Microsoft 365 cloud services to use modern authentication protocols by default. For the latest information on Microsoft 365 support for modern authentication, read [Updated Office 365 modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016).
 
-The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
+The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Microsoft Entra ID, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Microsoft Entra ID is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
 :::image type="content" source="./media/tenant-restrictions/traffic-flow.png" alt-text="Diagram of tenant restrictions traffic flow.":::
 
@@ -48,7 +48,7 @@ There are two steps to get started with tenant restrictions. First, make sure th
 
 ### URLs and IP addresses
 
-To use tenant restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: 
+To use tenant restrictions, your clients must be able to connect to the following Microsoft Entra URLs to authenticate: 
 
 - login.microsoftonline.com
 - login.microsoft.com
@@ -66,7 +66,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal public key infrastructure (PKI) are used, the internal issuing root certificate authority certificate must be trusted.
 
-- Azure AD Premium 1 licenses are required for use of tenant restrictions.
+- Microsoft Entra ID P1 or P2 1 licenses are required for use of tenant restrictions.
 
 #### Configuration
 
@@ -161,7 +161,7 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 
    1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
 
-   2. Add the following lines within the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Azure AD GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant.
+   2. Add the following lines within the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Microsoft Entra GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant.
 
    ```JScript.NET
     // Allows access to the listed tenants.
@@ -215,7 +215,7 @@ Some organizations attempt to fix this by blocking `login.live.com` in order to 
 
 While the `Restrict-Access-To-Tenants` header functions as an allowlist, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
 
-At this time, authentication to consumer applications doesn't appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Azure AD.
+At this time, authentication to consumer applications doesn't appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Microsoft Entra ID.
 
 ### What the header does and doesn't block
 
@@ -224,8 +224,8 @@ The `restrict-msa` policy blocks the use of consumer applications, but allows th
 1. User-less traffic for devices.  This includes traffic for Autopilot, Windows Update, and organizational telemetry.
 1. B2B authentication of consumer accounts. Users with Microsoft accounts that are [invited to collaborate with a tenant](../external-identities/redemption-experience.md#invitation-redemption-flow) authenticate to login.live.com in order to access a resource tenant.
     1. This access is controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to that resource tenant.
-1. "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
-    1. This access is also controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to the special "passthrough" tenant (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  If this tenant doesn't appear in your `Restrict-Access-To-Tenants` list of allowed domains, consumer accounts will be blocked by Azure AD from signing into these apps.
+1. "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Microsoft Entra ID to sign in consumer users in a consumer context.
+    1. This access is also controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to the special "passthrough" tenant (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  If this tenant doesn't appear in your `Restrict-Access-To-Tenants` list of allowed domains, consumer accounts will be blocked by Microsoft Entra ID from signing into these apps.
 
 ## Platforms that don't support TLS break and inspect
 
@@ -235,7 +235,7 @@ Take the example of Android 7.0 and onwards. Android changed how it handles trus
 
 Following the recommendation from Google, Microsoft client apps ignore user certificates by default thus making such apps unable to work with tenant restrictions, since the certificates used by the network proxy are installed in the user certificate store, which isn't trusted by client apps.
 
-For such environments that can't break and inspect traffic to add the tenant restrictions parameters onto the header, other features of Azure AD can provide protection. The following list provides more information on such Azure AD features.
+For such environments that can't break and inspect traffic to add the tenant restrictions parameters onto the header, other features of Microsoft Entra ID can provide protection. The following list provides more information on such Microsoft Entra features.
 
 - [Conditional Access: Only allow use of managed/compliant devices](/mem/intune/protect/conditional-access-intune-common-ways-use#device-based-conditional-access)
 - [Conditional Access: Manage access for guest/external users](/microsoft-365/security/office-365-security/identity-access-policies-guest-access)

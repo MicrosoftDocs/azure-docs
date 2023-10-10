@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 7/24/2023
+ms.date: 9/25/2023
 ms.author: greglin
 ---
 
@@ -58,7 +58,7 @@ why a particular condition type has been raised on the Application Gateway for C
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>AlbReasonAccepted indicates the Application Gateway for Containers resource
+<td><p>AlbReasonAccepted indicates that the Application Gateway for Containers resource
 has been accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;Ready&#34;</p></td>
@@ -74,7 +74,8 @@ is in the process of being created, updated or deleted.</p>
 <h3 id="alb.networking.azure.io/v1.AlbConditionType">AlbConditionType
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionType is a type of condition associated with an Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
+<p>AlbConditionType is a type of condition associated with an
+Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
 field.</p>
 </div>
 <table>
@@ -99,7 +100,7 @@ has been accepted by the controller.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.ApplicationLoadBalancer">ApplicationLoadBalancer</a>)
 </p>
 <div>
-<p>AlbSpec defines the specifications for Application Gateway for Containers resource.</p>
+<p>AlbSpec defines the specifications for the Application Gateway for Containers resource.</p>
 </div>
 <table>
 <thead>
@@ -602,7 +603,6 @@ vocabulary to describe BackendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
 <li>&ldquo;Accepted&rdquo;</li>
-<li>&ldquo;Ready&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -705,7 +705,9 @@ Kubernetes core API.</p>
 <td>
 <code>name</code><br/>
 <em>
-string
+<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.ObjectName">
+Gateway API .ObjectName
+</a>
 </em>
 </td>
 <td>
@@ -716,22 +718,13 @@ string
 <td>
 <code>kind</code><br/>
 <em>
-string
+<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.Kind">
+Gateway API .Kind
+</a>
 </em>
 </td>
 <td>
 <p>Kind is the kind of the referent.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>gateway</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Gateway is the name of the Gateway.</p>
 </td>
 </tr>
 <tr>
@@ -1043,7 +1036,6 @@ vocabulary to describe FrontendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
 <li>&ldquo;Accepted&rdquo;</li>
-<li>&ldquo;Ready&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -1295,6 +1287,9 @@ When the given HealthCheckPolicy is correctly configured</p>
 </tr><tr><td><p>&#34;InvalidHealthCheckPolicy&#34;</p></td>
 <td><p>HealthCheckPolicyReasonInvalid is the reason when the HealthCheckPolicy isn't Accepted</p>
 </td>
+</tr><tr><td><p>&#34;InvalidPort&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidPort is used when the port is invalid</p>
+</td>
 </tr><tr><td><p>&#34;InvalidServiceReference&#34;</p></td>
 <td><p>HealthCheckPolicyReasonInvalidServiceReference is used when the service is invalid</p>
 </td>
@@ -1331,7 +1326,7 @@ field.</p>
 <h3 id="alb.networking.azure.io/v1.HealthCheckPolicyConfig">HealthCheckPolicyConfig
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>, <a href="#alb.networking.azure.io/v1.IngressBackendSettings">IngressBackendSettings</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>)
 </p>
 <div>
 <p>HealthCheckPolicyConfig defines the schema for HealthCheck check specification</p>
@@ -1636,6 +1631,58 @@ Protocol
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.IngressBackendSettingStatus">IngressBackendSettingStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressExtensionStatus">IngressExtensionStatus</a>)
+</p>
+<div>
+<p>IngressBackendSettingStatus describes the state of a BackendSetting</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>service</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Service identifies the BackendSetting this status describes</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>validationErrors</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Errors is a list of errors relating to this setting</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>valid</code><br/>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Valid indicates that there are no validation errors present on this BackendSetting</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="alb.networking.azure.io/v1.IngressBackendSettings">IngressBackendSettings
 </h3>
 <p>
@@ -1686,7 +1733,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communciating to the
+<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communicating to the
 backend on a port specified as https</p>
 </td>
 </tr>
@@ -1728,20 +1775,6 @@ IngressTimeouts
 <td>
 <em>(Optional)</em>
 <p>Timeouts define a set of timeout parameters to be applied to an Ingress</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>healthCheck</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.HealthCheckPolicyConfig">
-HealthCheckPolicyConfig
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>HealthCheck defines a health probe which is used to determine if a backend is healthy</p>
 </td>
 </tr>
 </tbody>
@@ -1873,7 +1906,70 @@ IngressExtensionSpec
 </table>
 </td>
 </tr>
+<tr>
+<td>
+<code>status</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.IngressExtensionStatus">
+IngressExtensionStatus
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Status describes the current state of the IngressExtension as enacted by the ALB controller</p>
+</td>
+</tr>
 </tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.IngressExtensionConditionReason">IngressExtensionConditionReason
+(<code>string</code> alias)</h3>
+<div>
+<p>IngressExtensionConditionReason defines the set of reasons that explain why a
+particular IngressExtension condition type has been raised.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>IngressExtensionReasonAccepted is used to set the IngressExtensionConditionAccepted to Accepted</p>
+</td>
+</tr><tr><td><p>&#34;HasValidationErrors&#34;</p></td>
+<td><p>IngressExtensionReasonHasErrors indicates there are some validation errors</p>
+</td>
+</tr><tr><td><p>&#34;NoValidationErrors&#34;</p></td>
+<td><p>IngressExtensionReasonNoErrors indicates there are no validation errors</p>
+</td>
+</tr><tr><td><p>&#34;PartiallyAcceptedWithErrors&#34;</p></td>
+<td><p>IngressExtensionReasonPartiallyAccepted is used to set the IngressExtensionConditionAccepted to Accepted, but with non-fatal validation errors</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.IngressExtensionConditionType">IngressExtensionConditionType
+(<code>string</code> alias)</h3>
+<div>
+<p>IngressExtensionConditionType is a type of condition associated with a
+IngressExtension. This type should be used with the IngressExtensionStatus.Conditions
+field.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>IngressExtensionConditionAccepted indicates if the IngressExtension has been accepted (reconciled) by the controller</p>
+</td>
+</tr><tr><td><p>&#34;Errors&#34;</p></td>
+<td><p>IngressExtensionConditionErrors indicates if there are validation or build errors on the extension</p>
+</td>
+</tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.IngressExtensionSpec">IngressExtensionSpec
 </h3>
@@ -1916,6 +2012,71 @@ IngressExtensionSpec
 <td>
 <em>(Optional)</em>
 <p>BackendSettings defines a set of configuration options for Ingress service backends</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.IngressExtensionStatus">IngressExtensionStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressExtension">IngressExtension</a>)
+</p>
+<div>
+<p>IngressExtensionStatus describes the current state of the IngressExtension</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>listenerSettings</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.IngressListenerSettingStatus">
+[]IngressListenerSettingStatus
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>ListenerSettings has detailed status information regarding each ListenerSetting</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>backendSettings</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.IngressBackendSettingStatus">
+[]IngressBackendSettingStatus
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>BackendSettings has detailed status information regarding each BackendSettings</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>conditions</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Condition">
+[]Kubernetes meta/v1.Condition
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Conditions describe the current conditions of the IngressExtension.
+Known condition types are:</p>
+<ul>
+<li>&ldquo;Accepted&rdquo;</li>
+<li>&ldquo;Errors&rdquo;</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -2058,6 +2219,59 @@ IngressListenerTLS
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.IngressListenerSettingStatus">IngressListenerSettingStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressExtensionStatus">IngressExtensionStatus</a>)
+</p>
+<div>
+<p>IngressListenerSettingStatus describes the state of a listener setting</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>host</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Host identifies the listenerSetting this status describes</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>validationErrors</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Errors is a list of errors relating to this setting</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>valid</code><br/>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Valid indicates that there are no validation errors present on this listenerSetting</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="alb.networking.azure.io/v1.IngressListenerTLS">IngressListenerTLS
 </h3>
 <p>
@@ -2084,6 +2298,7 @@ IngressCertificate
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>Certificate specifies a TLS Certificate to configure a Listener with</p>
 </td>
 </tr>
@@ -2376,7 +2591,8 @@ field.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification. This allows the specification of the following attributes:
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification. 
+This allows the specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
 </div>
@@ -2629,7 +2845,8 @@ int32
 </td>
 <td>
 <em>(Optional)</em>
-<p>Start defines the start of the range of status codes to use for HealthCheck checks.</p>
+<p>Start defines the start of the range of status codes to use for HealthCheck checks.
+This is inclusive.</p>
 </td>
 </tr>
 <tr>
@@ -2641,7 +2858,8 @@ int32
 </td>
 <td>
 <em>(Optional)</em>
-<p>End defines the end of the range of status codes to use for HealthCheck checks.</p>
+<p>End defines the end of the range of status codes to use for HealthCheck checks.
+This is inclusive.</p>
 </td>
 </tr>
 </tbody>

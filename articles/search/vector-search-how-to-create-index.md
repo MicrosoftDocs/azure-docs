@@ -28,7 +28,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields fails on creation. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there is a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
@@ -96,9 +96,9 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
    + Name the configuration. The name must be unique within the index.
    + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
-   + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values should return less noise in the results. 
-   + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
-   + "efSearch default is 500. It's the number of nearest neighbors used during search.
+   + "Bi-directional link count" default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
+   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
    + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric of the embedding model. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
    If you're familiar with HNSW parameters, you might be wondering about how to set the "k" number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).

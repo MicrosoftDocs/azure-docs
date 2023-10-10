@@ -116,14 +116,16 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - User plane access interface
     - User plane data interface(s)  
 
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and up to ten **N6-DNX** (where **X** is the DN number 1-10 in a multiple DN deployment; or just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have the maximum three data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+    > [!IMPORTANT]
+    > If you are using port 3 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-          - **Virtual switch**: select **vswitch-port3** for N2 and N3, and select **vswitch-port4** for N6-DN1, N6-DN2, and N6-DN3.
-          - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
-          - **VLAN**: 0
-          - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
+        - **Virtual switch**: select **vswitch-port3** for N2, N3 and up to four DNs, and select **vswitch-port4** for up to six DNs.
+        - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
+        - **VLAN**: 0
+        - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *255.255.255.0* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
@@ -134,11 +136,12 @@ You can input all the settings on this page before selecting **Apply** at the bo
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
-
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have the maximum three data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+    > [!IMPORTANT]
+    > If you are using port 5 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-        - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
-        - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
+        - **Virtual switch**: select **vswitch-port5** for N2, N3 and up to four DNs, and select **vswitch-port6** for up to six DNs.
+        - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
         - **VLAN**: VLAN ID, or 0 if not using VLANs
         - **Subnet mask** and **Gateway** must match the external values for the port.
             - For example, *255.255.255.0* and *10.232.44.1*
@@ -160,9 +163,9 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
       1. Enter one IP address in a range for the service IP address, also on the management network.
       1. Select **Modify** at the bottom of the panel to save the configuration.
-1. Under **Virtual network**, select a virtual network (from **N2**, **N3**, **N6-DN1**, **N6-DN2**, and **N6-DN3**). In the side panel:
-      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier. For example, *10.10.10.20-10.10.10.20*.
-      1. Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
+1. Under **Virtual network**, select a virtual network, from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
+      1. Repeat for each of the N2, N3, and N6-DNX virtual networks.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
 

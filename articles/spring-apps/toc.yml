@@ -229,8 +229,6 @@ items:
         href: tutorial-alerts-action-groups.md
       - name: Circuit Breaker Dashboard
         href: tutorial-circuit-breaker.md
-      - name: Distributed tracing and App Insights
-        href: how-to-distributed-tracing.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
       - name: Stream logs in real time
@@ -443,8 +441,6 @@ items:
         href: tutorial-alerts-action-groups.md
       - name: Circuit Breaker Dashboard
         href: tutorial-circuit-breaker.md
-      - name: Distributed tracing and App Insights
-        href: how-to-distributed-tracing.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
       - name: Stream logs in real time

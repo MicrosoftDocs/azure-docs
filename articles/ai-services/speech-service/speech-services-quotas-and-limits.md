@@ -5,8 +5,7 @@ description: Quick reference, detailed description, and best practices on the qu
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: alexeyo

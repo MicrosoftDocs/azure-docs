@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 08/16/2023
+ms.date: 09/18/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -32,23 +32,27 @@ This section provides guidance for cluster administrators who want to provision 
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
-|skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
-|protocol | Specify file share protocol. | `smb`, `nfs` | No | `smb` |
+|accountAccessTier | [Access tier for storage account][access-tiers-overview] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
+|accountQuota | Limits the quota for an account. You can specify a maximum quota in GB (102400GB by default). If the account exceeds the specified quota, the driver skips selecting the account. ||No |`102400` |
+|allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
+|disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
+|enableLargeFileShares |Specify whether to use a storage account with large file shares enabled or not. If this flag is set to `true` and a storage account with large file shares enabled doesn't exist, a new storage account with large file shares enabled is created. This flag should be used with the Standard sku as the storage accounts created with Premium sku have `largeFileShares` option enabled by default. |`true` or `false` |No |false |
+|folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name doesn't exist in file share, the mount fails. |
+|getLatestAccount |Determins whether to get the latest account key based on the creation time. This driver gets the first key by default. |`true` or `false` |No |`false` |
 |location | Specify the Azure region of the Azure storage account.| For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
+|matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
+|networkEndpointType | Specify network endpoint type for the storage account created by driver. If `privateEndpoint` is specified, a private endpoint is created for the storage account. For other cases, a service endpoint is created by default. | "",`privateEndpoint`| No | "" |
+|protocol | Specify file share protocol. | `smb`, `nfs` | No | `smb` |
+|requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
 |resourceGroup | Specify the resource group for the Azure Disks.| Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
+|selectRandomMatchingAccount | Determines whether to randomly select a matching account. By default, the driver always selects the first matching account in alphabetical order (Note: This driver uses account search cache, which results in uneven distribution of file creation across multiple accounts). | `true` or `false` |No | `false` |
+|server | Specify Azure storage account server address. | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
+|shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
 |shareName | Specify Azure file share name. | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
 |shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
-|folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name doesn't exist in file share, the mount fails. |
-|shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
-|accountAccessTier | [Access tier for storage account][access-tiers-overview] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
-|server | Specify Azure storage account server address. | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
-|disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
-|allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
-|networkEndpointType | Specify network endpoint type for the storage account created by driver. If `privateEndpoint` is specified, a private endpoint is created for the storage account. For other cases, a service endpoint is created by default. | "",`privateEndpoint`| No | "" |
-|requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
+|skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
 |tags | [Tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
-|matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
 |--- | **Following parameters are only for SMB protocol** | --- | --- |
 |subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
 |storeAccountKey | Specify whether to store account key to Kubernetes secret. | `true` or `false`<br>`false` means driver uses kubelet identity to get account key. | No | `true` |
@@ -56,13 +60,13 @@ This section provides guidance for cluster administrators who want to provision 
 |secretNamespace | Specify the namespace of secret to store account key. <br><br> **Note:** <br> If `secretNamespace` isn't specified, the secret is created in the same namespace as the pod. | `default`,`kube-system`, etc. | No | PVC namespace, for example `csi.storage.k8s.io/pvc/namespace` |
 |useDataPlaneAPI | Specify whether to use [data plane API][data-plane-api] for file share create/delete/resize, which could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there's firewall or Vnet settings on storage account. | `true` or `false` | No | `false` |
 |--- | **Following parameters are only for NFS protocol** | --- | --- |
-|rootSquashType | Specify root squashing behavior on the share. The default is `NoRootSquash` | `AllSquash`, `NoRootSquash`, `RootSquash` | No |
 |mountPermissions | Mounted folder permissions. The default is `0777`. If set to `0`, driver doesn't perform `chmod` after mount | `0777` | No |
+|rootSquashType | Specify root squashing behavior on the share. The default is `NoRootSquash` | `AllSquash`, `NoRootSquash`, `RootSquash` | No |
 |--- | **Following parameters are only for VNet setting. For example, NFS, private end point** | --- | --- |
-|vnetResourceGroup | Specify VNet resource group where virtual network is defined. | Existing resource group name. | No | If empty, driver uses the `vnetResourceGroup` value in Azure cloud config file. |
-|vnetName | Virtual network name | Existing virtual network name. | No | If empty, driver uses the `vnetName` value in Azure cloud config file. |
-|subnetName | Subnet name | Existing subnet name of the agent node. | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
 |fsGroupChangePolicy | Indicates how the driver changes volume's ownership. Pod `securityContext.fsGroupChangePolicy` is ignored. | `OnRootMismatch` (default), `Always`, `None` | No | `OnRootMismatch`|
+|subnetName | Subnet name | Existing subnet name of the agent node. | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
+|vnetName | Virtual network name | Existing virtual network name. | No | If empty, driver uses the `vnetName` value in Azure cloud config file. |
+|vnetResourceGroup | Specify VNet resource group where virtual network is defined. | Existing resource group name. | No | If empty, driver uses the `vnetResourceGroup` value in Azure cloud config file. |
 
 ### Create a storage class
 

@@ -1,6 +1,6 @@
 ---
 
-title: Multifactor Authentication Gaps workbook in Azure AD
+title: Multifactor Authentication Gaps workbook in Microsoft Entra ID
 description: Learn how to use the MFA Gaps workbook.
 services: active-directory
 author: shlipsey3
@@ -45,14 +45,14 @@ The summary widget provides a detailed look at sign-ins related to multifactor a
 * **Number of sign-ins not protected by multi-factor authentication requirement by location:** This widget shows the sign-ins counts that are not protected by MFA requirement in map bubble chart on the world map. 
 
 ## How to import the workbook
-1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**.
+1. Navigate to **Identity** > **Monitoring & health** > **Workbooks**.
 1. Select **+ New**.
 1. Select the **Advanced Editor** button from the top of the page. A JSON editor opens.
     ![Screenshot of the Advanced Editor button on the new workbook page.](./media/workbook-mfa-gaps/advanced-editor-button.png)
 
-1. Navigate to the Azure AD workbooks GitHub repository
+1. Navigate to the Microsoft Entra workbooks GitHub repository
     - **Direct link to the Multifactor Authentication Gaps JSON file**: https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Active%20Directory/MultiFactorAuthenticationGaps/MultiFactorAuthenticationGaps.workbook
-    - Select the link provided in the JSON editor, select the **Application-Insights-Workbooks** breadcrumb from the top of the page, select the **Workbooks** folder, select the **Azure Active Directory** folder, select the **MultiFactorAuthenticationGaps** folder, and open the **.workbook** file.
+    - Select the link provided in the JSON editor, select the **Application-Insights-Workbooks** breadcrumb from the top of the page, select the **Workbooks** folder, select the **Microsoft Entra ID** folder, select the **MultiFactorAuthenticationGaps** folder, and open the **.workbook** file.
     ![Screenshot of the GitHub repository with the breadcrumbs and copy file button highlighted.](./media/workbook-mfa-gaps/github-repository.png)
 1. Copy the entire JSON file from the GitHub repository.
 1. Return Advanced Editor window on the Azure portal and paste the JSON file over the exiting text.

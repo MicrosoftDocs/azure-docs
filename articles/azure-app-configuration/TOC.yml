@@ -73,6 +73,8 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
+        - name: Python
+          href: enable-dynamic-configuration-python.md
     - name: Enable dynamic configuration using push model
       items:
         - name: .NET Core
@@ -134,6 +136,8 @@
       href: quickstart-python.md
     - name: Samples on GitHub
       href: https://github.com/Azure/AppConfiguration/tree/main/examples
+    - name: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_configuration
 - name: Concepts
   items:
     - name: Keys and values
@@ -178,7 +182,7 @@
   items:
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
-    - name: Create and manage Snapshots
+    - name: Manage and use snapshots
       href: howto-create-snapshots.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
@@ -202,43 +206,11 @@
       href: howto-set-up-private-access.md
 - name: Reference
   items:
-    - name: Client libraries
+    - name: REST API
       items:
-        - name: .NET provider
-          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-        - name: .NET Framework builder
-          href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Java Spring provider
-          href: https://go.microsoft.com/fwlink/?linkid=2180917
-        - name: Python provider
-          href: https://pypi.org/project/azure-appconfiguration-provider/
-        - name: Azure SDK for .NET
-          href: https://go.microsoft.com/fwlink/?linkid=2092056
-        - name: Azure SDK for Java
-          href: https://go.microsoft.com/fwlink/?linkid=2098196
-        - name: Azure SDK for Python
-          href: https://go.microsoft.com/fwlink/?linkid=2103727
-        - name: Azure SDK for JavaScript
-          href: https://go.microsoft.com/fwlink/?linkid=2103664
-    - name: Feature management
-      items:
-        - name: .NET Core/.NET Standard
-          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
-        - name: Java Spring
-          href: https://azure.github.io/azure-sdk-for-java/springboot.html
-    - name: Control plane
-      items:
-        - name: REST API
-          href: /rest/api/appconfiguration/
-        - name: Azure CLI
-          href: /cli/azure/appconfig
-        - name: PowerShell
-          href: /powershell/module/az.appconfiguration/
-        - name: Terraform
-          href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_configuration
-    - name: Data plane
-      items:
-        - name: REST API
+        - name: Control plane
+          href: /rest/api/appconfiguration/      
+        - name: Data plane
           items:
             - name: Overview
               href: rest-api.md
@@ -286,12 +258,44 @@
                 href: ./rest-api-fiddler.md
               - name: Postman
                 href: ./rest-api-postman.md
-        - name: Azure CLI
-          href: /cli/azure/appconfig
+    - name: Client libraries
+      items:
+        - name: .NET provider
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+        - name: .NET Framework builder
+          href: https://go.microsoft.com/fwlink/?linkid=2074663
+        - name: Java Spring provider
+          href: https://go.microsoft.com/fwlink/?linkid=2180917
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
+        - name: Azure SDK for .NET
+          href: https://go.microsoft.com/fwlink/?linkid=2092056
+        - name: Azure SDK for Java
+          href: https://go.microsoft.com/fwlink/?linkid=2098196
+        - name: Azure SDK for Python
+          href: https://go.microsoft.com/fwlink/?linkid=2103727
+        - name: Azure SDK for JavaScript
+          href: https://go.microsoft.com/fwlink/?linkid=2103664
+    - name: Feature management
+      items:
+        - name: .NET Core/.NET Standard
+          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
+        - name: Java Spring
+          href: https://azure.github.io/azure-sdk-for-java/springboot.html
+    - name: Deployment
+      items:
+      - name: ARM template
+        href: /azure/templates/microsoft.appconfiguration/configurationstores?pivots=deployment-language-arm-template
+      - name: Bicep
+        href: /azure/templates/microsoft.appconfiguration/configurationstores?pivots=deployment-language-bicep
+      - name: Terraform
+        href: /azure/templates/microsoft.appconfiguration/configurationstores?pivots=deployment-language-terraform
+    - name: Azure CLI
+      href: /cli/azure/appconfig
+    - name: Azure PowerShell
+      href: /powershell/module/az.appconfiguration/
     - name: Kubernetes provider
       href: reference-kubernetes-provider.md
-    - name: Deployment
-      href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
@@ -299,6 +303,8 @@
   items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-configuration/
+    - name: Roadmap
+      href: https://github.com/Azure/AppConfiguration/projects/1
     - name: Videos
       items:
         - name: Getting started with App Configuration

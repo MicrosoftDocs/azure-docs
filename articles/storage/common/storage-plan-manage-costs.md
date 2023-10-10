@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 09/07/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
@@ -109,6 +109,12 @@ Requests can originate from any of these sources:
 The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
+
+#### Find the price of each operation
+
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
+
+To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
 ### Using Azure Prepayment with Azure Blob Storage
 

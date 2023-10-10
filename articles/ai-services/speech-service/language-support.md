@@ -5,8 +5,7 @@ description: The Speech service supports numerous languages for speech to text a
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 01/12/2023
 ms.author: eur

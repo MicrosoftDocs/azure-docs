@@ -152,6 +152,8 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
+Automatic instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+
 Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
@@ -205,13 +207,20 @@ To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `Co
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add runtime instrumentation.
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddRuntimeInstrumentation());
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
@@ -220,6 +229,8 @@ app.Run();
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
 ```csharp
+// Create a new OpenTelemetry meter provider and add runtime instrumentation and the Azure Monitor metric exporter.
+// It is important to keep the MetricsProvider instance active throughout the process lifetime.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddRuntimeInstrumentation()
     .AddAzureMonitorMetricExporter();
@@ -233,22 +244,33 @@ You can't extend the Java Distro with community instrumentation libraries. To re
 Other OpenTelemetry Instrumentations are available [here](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node) and could be added using TraceHandler in ApplicationInsightsClient.
 
  ```javascript
+    // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-    const { metrics, trace } = require("@opentelemetry/api");
+    const { metrics, trace, ProxyTracerProvider } = require("@opentelemetry/api");
+
+    // Import the OpenTelemetry instrumentation registration function and Express instrumentation
     const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
     const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
 
-    useAzureMonitor();
-    const tracerProvider = trace.getTracerProvider().getDelegate();
+    // Get the OpenTelemetry tracer provider and meter provider
+    const tracerProvider = (trace.getTracerProvider() as ProxyTracerProvider).getDelegate();
     const meterProvider = metrics.getMeterProvider();
+
+    // Enable Azure Monitor integration
+    useAzureMonitor();
+    
+    // Register the Express instrumentation
     registerInstrumentations({
-        instrumentations: [
-            new ExpressInstrumentation(),
-        ],
-        tracerProvider: tracerProvider,
-        meterProvider: meterProvider
+      // List of instrumentations to register
+      instrumentations: [
+        new ExpressInstrumentation(), // Express instrumentation
+      ],
+    // OpenTelemetry tracer provider
+      tracerProvider: tracerProvider,
+      // OpenTelemetry meter provider
+      meterProvider: meterProvider
     });
-```
+ ```
 
 ### [Python](#tab/python)
 
@@ -258,21 +280,23 @@ To add a community instrumentation library (not officially supported/included in
 > Instrumenting a [supported instrumentation library](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries) manually with `instrument()` in conjunction with the distro `configure_azure_monitor()` is not recommended. This is not a supported scenario and you may get undesired behavior for your telemetry.
 
 ```python
+# Import the `configure_azure_monitor()`, `SQLAlchemyInstrumentor`, `create_engine`, and `text` functions from the appropriate packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 from sqlalchemy import create_engine, text
 
+# Configure OpenTelemetry to use Azure Monitor.
 configure_azure_monitor()
 
+# Create a SQLAlchemy engine.
 engine = create_engine("sqlite:///:memory:")
-# SQLAlchemy instrumentation is not officially supported by this package
-# However, you can use the OpenTelemetry instrument() method manually in
-# conjunction with configure_azure_monitor
+
+# SQLAlchemy instrumentation is not officially supported by this package, however, you can use the OpenTelemetry `instrument()` method manually in conjunction with `configure_azure_monitor()`.
 SQLAlchemyInstrumentor().instrument(
     engine=engine,
 )
 
-# Database calls using the SqlAlchemy library will be automatically captured
+# Database calls using the SQLAlchemy library will be automatically captured.
 with engine.connect() as conn:
     result = conn.execute(text("select 'hello world'"))
     print(result.all())
@@ -314,6 +338,7 @@ The following table represents the currently supported custom telemetry types:
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Events Extension        |   Yes         |                |              |            |            |          | Yes    |
 
 > [!NOTE]
 > Application Insights Java 3.x listens for telemetry that's sent to the Application Insights [Classic API](api-custom-events-metrics.md). Similarly, Application Insights Node.js 3.x collects events created with the Application Insights [Classic API](api-custom-events-metrics.md). This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
@@ -354,23 +379,36 @@ describes the instruments and provides examples of when you might use each one.
 Application startup must subscribe to a Meter by name.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add a meter named "OTel.AzureMonitor.Demo".
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
 The `Meter` must be initialized using that same name.
 
 ```csharp
+// Create a new meter named "OTel.AzureMonitor.Demo".
 var meter = new Meter("OTel.AzureMonitor.Demo");
+
+// Create a new histogram metric named "FruitSalePrice".
 Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
 
+// Create a new Random object.
 var rand = new Random();
+
+// Record a few random sale prices for apples and lemons, with different colors.
 myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
 myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
 myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
@@ -384,18 +422,35 @@ myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "
 ```csharp
 public class Program
 {
+    // Create a static readonly Meter object named "OTel.AzureMonitor.Demo".
+    // This meter will be used to track metrics about the application.
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
+        // Create a new MeterProvider object using the OpenTelemetry SDK.
+        // The MeterProvider object is responsible for managing meters and sending
+        // metric data to exporters.
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
+        //
+        // The MeterProviderBuilder is configured to add a meter named
+        // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
             .AddAzureMonitorMetricExporter()
             .Build();
 
+        // Create a new Histogram metric named "FruitSalePrice".
+        // This metric will track the distribution of fruit sale prices.
         Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
 
+        // Create a new Random object. This object will be used to generate random sale prices.
         var rand = new Random();
+        
+        // Record a few random sale prices for apples and lemons, with different colors.
+        // Each record includes a timestamp, a value, and a set of attributes.
+        // The attributes can be used to filter and analyze the metric data.
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
@@ -403,6 +458,9 @@ public class Program
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
 
+        // Display a message to the user and wait for them to press Enter.
+        // This allows the user to see the message and the console before the
+        // application exits.
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
     }
@@ -431,12 +489,20 @@ public class Program {
 #### [Node.js](#tab/nodejs)
 
  ```javascript
+    // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { metrics } = require("@opentelemetry/api");
 
+    // Enable Azure Monitor integration
     useAzureMonitor();
+
+    // Get the meter for the "testMeter" namespace
     const meter =  metrics.getMeter("testMeter");
+
+    // Create a histogram metric
     let histogram = meter.createHistogram("histogram");
+
+    // Record values to the histogram metric with different tags
     histogram.record(1, { "testKey": "testValue" });
     histogram.record(30, { "testKey": "testValue2" });
     histogram.record(100, { "testKey2": "testValue" });
@@ -445,19 +511,26 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+# Import the `configure_azure_monitor()` and `metrics` functions from the appropriate packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Get a meter provider and a meter with the name "otel_azure_monitor_histogram_demo".
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
 
+# Record three values to the histogram.
 histogram = meter.create_histogram("histogram")
 histogram.record(1.0, {"test_key": "test_value"})
 histogram.record(100.0, {"test_key2": "test_value"})
 histogram.record(30.0, {"test_key": "test_value2"})
 
+# Wait for background execution.
 input()
 ```
 
@@ -470,22 +543,33 @@ input()
 Application startup must subscribe to a Meter by name.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add a meter named "OTel.AzureMonitor.Demo".
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
 The `Meter` must be initialized using that same name.
 
 ```csharp
+// Create a new meter named "OTel.AzureMonitor.Demo".
 var meter = new Meter("OTel.AzureMonitor.Demo");
+
+// Create a new counter metric named "MyFruitCounter".
 Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
 
+// Record the number of fruits sold, grouped by name and color.
 myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
 myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
 myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
@@ -499,17 +583,30 @@ myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 ```csharp
 public class Program
 {
+    // Create a static readonly Meter object named "OTel.AzureMonitor.Demo".
+    // This meter will be used to track metrics about the application.
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
+        // Create a new MeterProvider object using the OpenTelemetry SDK.
+        // The MeterProvider object is responsible for managing meters and sending
+        // metric data to exporters.
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
+        //
+        // The MeterProviderBuilder is configured to add a meter named
+        // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
             .AddAzureMonitorMetricExporter()
             .Build();
 
+        // Create a new counter metric named "MyFruitCounter".
+        // This metric will track the number of fruits sold.
         Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
 
+        // Record the number of fruits sold, grouped by name and color.
         myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
         myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
         myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
@@ -517,6 +614,9 @@ public class Program
         myFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
         myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 
+        // Display a message to the user and wait for them to press Enter.
+        // This allows the user to see the message and the console before the
+        // application exits.
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
     }
@@ -554,12 +654,20 @@ public class Program {
 #### [Node.js](#tab/nodejs)
 
 ```javascript
+    // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { metrics } = require("@opentelemetry/api");
 
+    // Enable Azure Monitor integration
     useAzureMonitor();
+
+    // Get the meter for the "testMeter" namespace
     const meter =  metrics.getMeter("testMeter");
+
+    // Create a counter metric
     let counter = meter.createCounter("counter");
+
+    // Add values to the counter metric with different tags
     counter.add(1, { "testKey": "testValue" });
     counter.add(5, { "testKey2": "testValue" });
     counter.add(3, { "testKey": "testValue2" });
@@ -568,19 +676,30 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+# Import the `configure_azure_monitor()` and `metrics` functions from the appropriate packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+# Get a meter provider and a meter with the name "otel_azure_monitor_counter_demo".
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_counter_demo")
 
+# Create a counter metric with the name "counter".
 counter = meter.create_counter("counter")
+
+# Add three values to the counter.
+# The first argument to the `add()` method is the value to add.
+# The second argument is a dictionary of dimensions.
+# Dimensions are used to group related metrics together.
 counter.add(1.0, {"test_key": "test_value"})
 counter.add(5.0, {"test_key2": "test_value"})
 counter.add(3.0, {"test_key": "test_value2"})
 
+# Wait for background execution.
 input()
 ```
 
@@ -593,28 +712,42 @@ input()
 Application startup must subscribe to a Meter by name.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add a meter named "OTel.AzureMonitor.Demo".
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
 The `Meter` must be initialized using that same name.
 
 ```csharp
+// Get the current process.
 var process = Process.GetCurrentProcess();
 
+// Create a new meter named "OTel.AzureMonitor.Demo".
 var meter = new Meter("OTel.AzureMonitor.Demo");
+
+// Create a new observable gauge metric named "Thread.State".
+// This metric will track the state of each thread in the current process.
 ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
 
 private static IEnumerable<Measurement<int>> GetThreadState(Process process)
 {
+    // Iterate over all threads in the current process.
     foreach (ProcessThread thread in process.Threads)
     {
+        // Create a measurement for each thread, including the thread state, process ID, and thread ID.
         yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
     }
 }
@@ -625,27 +758,45 @@ private static IEnumerable<Measurement<int>> GetThreadState(Process process)
 ```csharp
 public class Program
 {
+    // Create a static readonly Meter object named "OTel.AzureMonitor.Demo".
+    // This meter will be used to track metrics about the application.
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
+        // Create a new MeterProvider object using the OpenTelemetry SDK.
+        // The MeterProvider object is responsible for managing meters and sending
+        // metric data to exporters. 
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
+        //
+        // The MeterProviderBuilder is configured to add a meter named
+        // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
             .AddAzureMonitorMetricExporter()
             .Build();
 
+        // Get the current process.
         var process = Process.GetCurrentProcess();
         
+        // Create a new observable gauge metric named "Thread.State".
+        // This metric will track the state of each thread in the current process.
         ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
 
+        // Display a message to the user and wait for them to press Enter.
+        // This allows the user to see the message and the console before the
+        // application exits.
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
     }
     
     private static IEnumerable<Measurement<int>> GetThreadState(Process process)
     {
+        // Iterate over all threads in the current process.
         foreach (ProcessThread thread in process.Threads)
         {
+            // Create a measurement for each thread, including the thread state, process ID, and thread ID.
             yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
         }
     }
@@ -678,32 +829,51 @@ public class Program {
 #### [Node.js](#tab/nodejs)
 
 ```typescript
+    // Import the useAzureMonitor function and the metrics module from the @azure/monitor-opentelemetry and @opentelemetry/api packages, respectively.
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { metrics } = require("@opentelemetry/api");
 
+    // Enable Azure Monitor integration.
     useAzureMonitor();
-    const meter =  metrics.getMeter("testMeter");
+
+    // Get the meter for the "testMeter" meter name.
+    const meter = metrics.getMeter("testMeter");
+
+    // Create an observable gauge metric with the name "gauge".
     let gauge = meter.createObservableGauge("gauge");
+
+    // Add a callback to the gauge metric. The callback will be invoked periodically to generate a new value for the gauge metric.
     gauge.addCallback((observableResult: ObservableResult) => {
-        let randomNumber = Math.floor(Math.random() * 100);
-        observableResult.observe(randomNumber, {"testKey": "testValue"});
+      // Generate a random number between 0 and 99.
+      let randomNumber = Math.floor(Math.random() * 100);
+
+      // Set the value of the gauge metric to the random number.
+      observableResult.observe(randomNumber, {"testKey": "testValue"});
     });
 ```
 
 #### [Python](#tab/python)
 
 ```python
+# Import the necessary packages.
 from typing import Iterable
 
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 from opentelemetry.metrics import CallbackOptions, Observation
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Get a meter provider and a meter with the name "otel_azure_monitor_gauge_demo".
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_gauge_demo")
 
+# Define two observable gauge generators.
+# The first generator yields a single observation with the value 9.
+# The second generator yields a sequence of 10 observations with the value 9 and a different dimension value for each observation.
 def observable_gauge_generator(options: CallbackOptions) -> Iterable[Observation]:
     yield Observation(9, {"test_key": "test_value"})
 
@@ -715,9 +885,11 @@ def observable_gauge_sequence(options: CallbackOptions) -> Iterable[Observation]
         )
     return observations
 
+# Create two observable gauges using the defined generators.
 gauge = meter.create_observable_gauge("gauge", [observable_gauge_generator])
 gauge2 = meter.create_observable_gauge("gauge2", [observable_gauge_sequence])
 
+# Wait for background execution.
 input()
 ```
 
@@ -734,12 +906,15 @@ to draw attention in relevant experiences including the failures section and end
 
 - To log an Exception using an Activity:
   ```csharp
+  // Start a new activity named "ExceptionExample".
   using (var activity = activitySource.StartActivity("ExceptionExample"))
   {
+      // Try to execute some code.
       try
       {
           throw new Exception("Test exception");
       }
+      // If an exception is thrown, catch it and set the activity status to "Error".
       catch (Exception ex)
       {
           activity?.SetStatus(ActivityStatusCode.Error);
@@ -749,14 +924,18 @@ to draw attention in relevant experiences including the failures section and end
   ```
 - To log an Exception using `ILogger`:
   ```csharp
+  // Create a logger using the logger factory. The logger category name is used to filter and route log messages.
   var logger = loggerFactory.CreateLogger(logCategoryName);
 
+  // Try to execute some code.
   try
   {
       throw new Exception("Test Exception");
   }
   catch (Exception ex)
   {
+      // Log an error message with the exception. The log level is set to "Error" and the event ID is set to 0.
+      // The log message includes a template and a parameter. The template will be replaced with the value of the parameter when the log message is written.
       logger.Log(
           logLevel: LogLevel.Error,
           eventId: 0,
@@ -770,12 +949,15 @@ to draw attention in relevant experiences including the failures section and end
 
 - To log an Exception using an Activity:
   ```csharp
+  // Start a new activity named "ExceptionExample".
   using (var activity = activitySource.StartActivity("ExceptionExample"))
   {
+      // Try to execute some code.
       try
       {
           throw new Exception("Test exception");
       }
+      // If an exception is thrown, catch it and set the activity status to "Error".
       catch (Exception ex)
       {
           activity?.SetStatus(ActivityStatusCode.Error);
@@ -785,14 +967,18 @@ to draw attention in relevant experiences including the failures section and end
   ```
 - To log an Exception using `ILogger`:
   ```csharp
+  // Create a logger using the logger factory. The logger category name is used to filter and route log messages.
   var logger = loggerFactory.CreateLogger("ExceptionExample");
 
   try
   {
+      // Try to execute some code.
       throw new Exception("Test Exception");
   }
   catch (Exception ex)
   {
+      // Log an error message with the exception. The log level is set to "Error" and the event ID is set to 0.
+      // The log message includes a template and a parameter. The template will be replaced with the value of the parameter when the log message is written.
       logger.Log(
           logLevel: LogLevel.Error,
           eventId: 0,
@@ -810,7 +996,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -830,17 +1016,27 @@ You can use `opentelemetry-api` to update the status of a span and record except
 #### [Node.js](#tab/nodejs)
 
 ```javascript
+    // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { trace } = require("@opentelemetry/api");
 
+    // Enable Azure Monitor integration
     useAzureMonitor();
+
+    // Get the tracer for the "testTracer" namespace
     const tracer = trace.getTracer("testTracer");
+
+    // Start a span with the name "hello"
     let span = tracer.startSpan("hello");
+
+    // Try to throw an error
     try{
-        throw new Error("Test Error");
+      throw new Error("Test Error");
     }
+
+    // Catch the error and record it to the span
     catch(error){
-        span.recordException(error);
+      span.recordException(error);
     }
 ```
 
@@ -849,16 +1045,22 @@ You can use `opentelemetry-api` to update the status of a span and record except
 The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown are automatically captured and recorded. See the following code sample for an example of this behavior.
 
 ```python
+# Import the necessary packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Get a tracer for the current module.
 tracer = trace.get_tracer("otel_azure_monitor_exception_demo")
 
 # Exception events
 try:
+    # Start a new span with the name "hello".
     with tracer.start_as_current_span("hello") as span:
         # This exception will be automatically recorded
         raise Exception("Custom exception message.")
@@ -872,8 +1074,10 @@ within the context manager and use `record_exception()` directly as shown in the
 
 ```python
 ...
+# Start a new span with the name "hello" and disable exception recording.
 with tracer.start_as_current_span("hello", record_exception=False) as span:
     try:
+        # Raise an exception.
         raise Exception("Custom exception message.")
     except Exception as ex:
         # Manually record exception
@@ -895,25 +1099,35 @@ You may want to add a custom span in two scenarios. First, when there's a depend
 
 
 ```csharp
+// Define an activity source named "ActivitySourceName". This activity source will be used to create activities for all requests to the application.
 internal static readonly ActivitySource activitySource = new("ActivitySourceName");
 
+// Create an ASP.NET Core application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry tracer provider to add a source named "ActivitySourceName". This will ensure that all activities created by the activity source are traced.
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
+
+// Add the Azure Monitor telemetry service to the application. This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core application.
 var app = builder.Build();
 
+// Map a GET request to the root path ("/") to the specified action.
 app.MapGet("/", () =>
 {
+    // Start a new activity named "CustomActivity". This activity will be traced and the trace data will be sent to Azure Monitor.
     using (var activity = activitySource.StartActivity("CustomActivity"))
     {
         // your code here
     }
 
+    // Return a response message.
     return $"Hello World!";
 });
 
+// Start the ASP.NET Core application.
 app.Run();
 ```
 
@@ -927,13 +1141,17 @@ app.Run();
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ```csharp
+// Create an OpenTelemetry tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("ActivitySourceName")
         .AddAzureMonitorTraceExporter()
         .Build();
 
+// Create an activity source named "ActivitySourceName".
 var activitySource = new ActivitySource("ActivitySourceName");
 
+// Start a new activity named "CustomActivity". This activity will be traced and the trace data will be sent to Azure Monitor.
 using (var activity = activitySource.StartActivity("CustomActivity"))
 {
     // your code here
@@ -985,7 +1203,7 @@ you can add your spans by using the OpenTelemetry API.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1016,15 +1234,22 @@ you can add your spans by using the OpenTelemetry API.
 #### [Node.js](#tab/nodejs)
 
 ```javascript
+    // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { trace } = require("@opentelemetry/api");
 
+    // Enable Azure Monitor integration
     useAzureMonitor();
+
+    // Get the tracer for the "testTracer" namespace
     const tracer = trace.getTracer("testTracer");
+
+    // Start a span with the name "hello"
     let span = tracer.startSpan("hello");
+
+    // End the span
     span.end();
 ```
-
 
 #### [Python](#tab/python)
 
@@ -1034,15 +1259,20 @@ The code example shows how to use the `tracer.start_as_current_span()` method to
 
 ```python
 ...
+# Import the necessary packages.
 from opentelemetry import trace
 
+# Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
 
+# Start a new span with the name "my first span" and make it the current span.
 # The "with" context manager starts, makes the span current, and ends the span within it's context
 with tracer.start_as_current_span("my first span") as span:
     try:
-        # Do stuff within the context of this
+        # Do stuff within the context of this span.
+        # All telemetry generated within this scope will be attributed to this span.
     except Exception as ex:
+        # Record the exception on the span.
         span.record_exception(ex)
 ...
 
@@ -1054,11 +1284,16 @@ If your method represents a background job not already captured by autoinstrumen
 
 ```python
 ...
+# Import the necessary packages.
 from opentelemetry import trace
 from opentelemetry.trace import SpanKind
 
+# Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
+
+# Start a new span with the name "my request span" and the kind set to SpanKind.SERVER.
 with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as span:
+    # Do stuff within the context of this span.
 ...
 ```
 
@@ -1091,7 +1326,7 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1196,13 +1431,16 @@ Not available in .NET.
 
 #### [Node.js](#tab/nodejs)
 
+If you want to add custom events or access the Application Insights API, replace the @azure/monitor-opentelemetry package with the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta). It offers the same methods and interfaces, and all sample code for @azure/monitor-opentelemetry applies to the v3 Beta package.
 
-You need to use `applicationinsights` v3 Beta package to achieve this. (https://www.npmjs.com/package/applicationinsights/v/beta)
+You need to use the `applicationinsights` v3 Beta package to send custom telemetry using the Application Insights classic API. (https://www.npmjs.com/package/applicationinsights/v/beta)
 
 ```javascript
+    // Import the TelemetryClient class from the Application Insights SDK for JavaScript.
     const { TelemetryClient } = require("applicationinsights");
 
-    const appInsights = new TelemetryClient();
+    // Create a new TelemetryClient instance.
+    const telemetryClient = new TelemetryClient();
 ```
 
 Then use the `TelemetryClient` to send custom telemetry:
@@ -1210,39 +1448,73 @@ Then use the `TelemetryClient` to send custom telemetry:
 ##### Events
 
 ```javascript
+    // Create an event telemetry object.
     let eventTelemetry = {
-        name: "testEvent"
+      name: "testEvent"
     };
-    appInsights.trackEvent(eventTelemetry);
+
+    // Send the event telemetry object to Azure Monitor Application Insights.
+    telemetryClient.trackEvent(eventTelemetry);
 ```
 
 ##### Logs
 
 ```javascript
+    // Create a trace telemetry object.
     let traceTelemetry = {
-        message: "testMessage",
-        severity: "Information"
+      message: "testMessage",
+      severity: "Information"
     };
-    appInsights.trackTrace(traceTelemetry);
+
+    // Send the trace telemetry object to Azure Monitor Application Insights.
+    telemetryClient.trackTrace(traceTelemetry);
 ```
     
 ##### Exceptions
 
 ```javascript
+    // Try to execute a block of code.
     try {
-        ...
-    } catch (error) {
-        let exceptionTelemetry = {
-            exception: error,
-            severity: "Critical"
-        };
-        appInsights.trackException(exceptionTelemetry);
+      ...
     }
+
+    // If an error occurs, catch it and send it to Azure Monitor Application Insights as an exception telemetry item.
+    catch (error) {
+      let exceptionTelemetry = {
+        exception: error,
+        severity: "Critical"
+      };
+      telemetryClient.trackException(exceptionTelemetry);
+}
 ```
 
 #### [Python](#tab/python)
   
-It isn't available in Python.
+Unlike other languages, Python doesn't have an Application Insights SDK. You can meet all your monitoring needs with the Azure Monitor OpenTelemetry Distro, except for sending `customEvents`. Until the OpenTelemetry Events API stabilizes, use the [Azure Monitor Events Extension](https://pypi.org/project/azure-monitor-events-extension/0.1.0/) with the Azure Monitor OpenTelemetry Distro to send `customEvents` to Application Insights.
+
+Install the distro and the extension:
+
+```console
+pip install azure-monitor-opentelemetry
+pip install azure-monitor-events-extension
+```
+
+Use the `track_event` API offered in the extension to send customEvents.
+
+```python
+...
+from azure.monitor.events.extension import track_event
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor()
+
+# Use the track_event() api to send custom event telemetry
+# Takes event name and custom dimensions
+track_event("Test event", {"key1": "value1", "key2": "value2"})
+
+input()
+...
+```
 
 ---
 
@@ -1278,13 +1550,19 @@ To add span attributes, use either of the following two ways:
 > Add the processor shown here *before* adding Azure Monitor.
 
 ```csharp
+// Create an ASP.NET Core application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry tracer provider to add a new processor named ActivityEnrichingProcessor.
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityEnrichingProcessor()));
+
+// Add the Azure Monitor telemetry service to the application. This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core application.
 var app = builder.Build();
 
+// Start the ASP.NET Core application.
 app.Run();
 ```
 
@@ -1324,10 +1602,13 @@ To add span attributes, use either of the following two ways:
 > Add the processor shown here *before* the Azure Monitor Exporter.
 
 ```csharp
+// Create an OpenTelemetry tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .AddSource("OTel.AzureMonitor.Demo")
-        .AddProcessor(new ActivityEnrichingProcessor())
-        .AddAzureMonitorTraceExporter()
+        // Add a source named "OTel.AzureMonitor.Demo".
+        .AddSource("OTel.AzureMonitor.Demo") // Add a new processor named ActivityEnrichingProcessor.
+        .AddProcessor(new ActivityEnrichingProcessor()) // Add the Azure Monitor trace exporter.
+        .AddAzureMonitorTraceExporter() // Add the Azure Monitor trace exporter.
         .Build();
 ```
 
@@ -1336,10 +1617,13 @@ Add `ActivityEnrichingProcessor.cs` to your project with the following code:
 ```csharp
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
+    // The OnEnd method is called when an activity is finished. This is the ideal place to enrich the activity with additional data.
     public override void OnEnd(Activity activity)
     {
+        // Update the activity's display name.
         // The updated activity will be available to all processors which are called after this processor.
         activity.DisplayName = "Updated-" + activity.DisplayName;
+        // Set custom tags on the activity.
         activity.SetTag("CustomDimension1", "Value1");
         activity.SetTag("CustomDimension2", "Value2");
     }
@@ -1356,7 +1640,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1375,29 +1659,40 @@ Adding one or more span attributes populates the `customDimensions` field in the
 ##### [Node.js](#tab/nodejs)
 
 ```typescript
-    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-    const { trace } = require("@opentelemetry/api");
-    const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
-    const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
+// Import the necessary packages.
+const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
+const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
+const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
 
-    useAzureMonitor();
-    const tracerProvider = trace.getTracerProvider().getDelegate();
+// Enable Azure Monitor integration.
+useAzureMonitor();
 
-    class SpanEnrichingProcessor implements SpanProcessor{
-        forceFlush(): Promise<void>{
-            return Promise.resolve();
-        }
-        shutdown(): Promise<void>{
-            return Promise.resolve();
-        }
-        onStart(_span: Span): void{}
-        onEnd(span: ReadableSpan){
-            span.attributes["CustomDimension1"] = "value1";
-            span.attributes["CustomDimension2"] = "value2";
-        }
-    }
+// Get the NodeTracerProvider instance.
+const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
 
-    tracerProvider.addSpanProcessor(new SpanEnrichingProcessor());
+// Create a new SpanEnrichingProcessor class.
+class SpanEnrichingProcessor implements SpanProcessor {
+  forceFlush(): Promise<void> {
+    return Promise.resolve();
+  }
+
+  shutdown(): Promise<void> {
+    return Promise.resolve();
+  }
+
+  onStart(_span: Span): void {}
+
+  onEnd(span: ReadableSpan) {
+    // Add custom dimensions to the span.
+    span.attributes["CustomDimension1"] = "value1";
+    span.attributes["CustomDimension2"] = "value2";
+  }
+}
+
+// Add the SpanEnrichingProcessor instance to the NodeTracerProvider instance.
+tracerProvider.addSpanProcessor(new SpanEnrichingProcessor());
 ```
 
 ##### [Python](#tab/python)
@@ -1406,14 +1701,20 @@ Use a custom processor:
 
 ```python
 ...
+# Import the necessary packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Create a SpanEnrichingProcessor instance.
 span_enrich_processor = SpanEnrichingProcessor()
-# Add the processor shown below to the current `TracerProvider`
+
+# Add the span enrich processor to the current TracerProvider.
 trace.get_tracer_provider().add_span_processor(span_enrich_processor)
 ...
 ```
@@ -1421,13 +1722,17 @@ trace.get_tracer_provider().add_span_processor(span_enrich_processor)
 Add `SpanEnrichingProcessor.py` to your project with the following code:
 
 ```python
+# Import the SpanProcessor class from the opentelemetry.sdk.trace module.
 from opentelemetry.sdk.trace import SpanProcessor
 
 class SpanEnrichingProcessor(SpanProcessor):
 
     def on_end(self, span):
+        # Prefix the span name with the string "Updated-".
         span._name = "Updated-" + span.name
+        # Add the custom dimension "CustomDimension1" with the value "Value1".
         span._attributes["CustomDimension1"] = "Value1"
+         # Add the custom dimension "CustomDimension2" with the value "Value2".
         span._attributes["CustomDimension2"] = "Value2"
 ```
 
@@ -1442,6 +1747,7 @@ You can populate the _client_IP_ field for requests by setting the `http.client_
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
@@ -1451,6 +1757,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
@@ -1465,14 +1772,16 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 ```typescript
 ...
+    // Import the SemanticAttributes class from the @opentelemetry/semantic-conventions package.
     const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
 
-    class SpanEnrichingProcessor implements SpanProcessor{
-        ...
+    // Create a new SpanEnrichingProcessor class.
+    class SpanEnrichingProcessor implements SpanProcessor {
 
-        onEnd(span){
-            span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
-        }
+      onEnd(span) {
+        // Set the HTTP_CLIENT_IP attribute on the span to the IP address of the client.
+        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+      }
     }
 ```
 
@@ -1481,6 +1790,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `SpanEnrichingProcessor.py`:
 
 ```python
+# Set the `http.client_ip` attribute of the span to the specified IP address.
 span._attributes["http.client_ip"] = "<IP Address>"
 ```
 
@@ -1498,6 +1808,7 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
 ```csharp
+// Add the user ID to the activity as a tag, but only if the activity is not null.
 activity?.SetTag("enduser.id", "<User Id>");
 ```
 
@@ -1506,6 +1817,7 @@ activity?.SetTag("enduser.id", "<User Id>");
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
 ```csharp
+// Add the user ID to the activity as a tag, but only if the activity is not null.
 activity?.SetTag("enduser.id", "<User Id>");
 ```
 
@@ -1517,7 +1829,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1537,14 +1849,16 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 ```typescript
 ...
+    // Import the SemanticAttributes class from the @opentelemetry/semantic-conventions package.
     import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
 
-    class SpanEnrichingProcessor implements SpanProcessor{
-        ...
+    // Create a new SpanEnrichingProcessor class.
+    class SpanEnrichingProcessor implements SpanProcessor {
 
-        onEnd(span: ReadableSpan){
-            span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
-        }
+      onEnd(span: ReadableSpan) {
+        // Set the ENDUSER_ID attribute on the span to the ID of the user.
+        span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
+      }
     }
 ```
 
@@ -1553,6 +1867,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
 ```python
+# Set the `enduser.id` attribute of the span to the specified user ID.
 span._attributes["enduser.id"] = "<User ID>"
 ```
 
@@ -1579,27 +1894,31 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
 #### [Node.js](#tab/nodejs)
-  
-Attributes could be added only when calling manual track APIs only. Log attributes for console, bunyan and Winston are currently not supported.
 
 ```typescript
+    // Import the useAzureMonitor function and the logs module from the @azure/monitor-opentelemetry and @opentelemetry/api-logs packages, respectively.
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { logs } = require("@opentelemetry/api-logs");
+    import { Logger } from "@opentelemetry/sdk-logs";
 
+    // Enable Azure Monitor integration.
     useAzureMonitor();
-    const logger = logs.getLogger("testLogger");
+
+    // Get the logger for the "testLogger" logger name.
+    const logger = (logs.getLogger("testLogger") as Logger);
+
+    // Create a new log record.
     const logRecord = {
-        body : "testEvent",
-        attributes:  {
-            "testAttribute1": "testValue1",
-            "testAttribute2": "testValue2",
-            "testAttribute3": "testValue3"
-        }
+      body: "testEvent",
+      attributes: {
+        "testAttribute1": "testValue1",
+        "testAttribute2": "testValue2",
+        "testAttribute3": "testValue3"
+      }
     };
-    logger.emit({
-        name: "testEvent",
-        properties: attributes
-    });
+
+    // Emit the log record.
+    logger.emit(logRecord);
 ```
 
 #### [Python](#tab/python)
@@ -1608,6 +1927,7 @@ The Python [logging](https://docs.python.org/3/howto/logging.html) library is [a
 
 ```python
 ...
+# Create a warning log message with the properties "key1" and "value1".
 logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 ...
 
@@ -1631,14 +1951,20 @@ You might use the following ways to filter out telemetry before it leaves your a
     > Add the processor shown here *before* adding Azure Monitor.
 
     ```csharp
+    // Create an ASP.NET Core application builder.
     var builder = WebApplication.CreateBuilder(args);
 
+    // Configure the OpenTelemetry tracer provider to add a new processor named ActivityFilteringProcessor.
     builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityFilteringProcessor()));
+    // Configure the OpenTelemetry tracer provider to add a new source named "ActivitySourceName".
     builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
+    // Add the Azure Monitor telemetry service to the application. This service will collect and send telemetry data to Azure Monitor.
     builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+    // Build the ASP.NET Core application.
     var app = builder.Build();
 
+    // Start the ASP.NET Core application.
     app.Run();
     ```
     
@@ -1647,6 +1973,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```csharp
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
+        // The OnStart method is called when an activity is started. This is the ideal place to filter activities.
         public override void OnStart(Activity activity)
         {
             // prevents all exporters from exporting internal activities
@@ -1670,10 +1997,12 @@ You might use the following ways to filter out telemetry before it leaves your a
 1. Use a custom processor:
     
     ```csharp
+    // Create an OpenTelemetry tracer provider builder.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
     using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddProcessor(new ActivityFilteringProcessor())
-            .AddAzureMonitorTraceExporter()
+            .AddSource("OTel.AzureMonitor.Demo") // Add a source named "OTel.AzureMonitor.Demo".
+            .AddProcessor(new ActivityFilteringProcessor()) // Add a new processor named ActivityFilteringProcessor.
+            .AddAzureMonitorTraceExporter() // Add the Azure Monitor trace exporter.
             .Build();
     ```
     
@@ -1682,6 +2011,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```csharp
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
+        // The OnStart method is called when an activity is started. This is the ideal place to filter activities.
         public override void OnStart(Activity activity)
         {
             // prevents all exporters from exporting internal activities
@@ -1707,35 +2037,45 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
     The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
     
     ```typescript
+    // Import the useAzureMonitor function and the ApplicationInsightsOptions class from the @azure/monitor-opentelemetry package.
     const { useAzureMonitor, ApplicationInsightsOptions } = require("@azure/monitor-opentelemetry");
-    const { IncomingMessage } = require("http");
-    const { RequestOptions } = require("https");
+
+    // Import the HttpInstrumentationConfig class from the @opentelemetry/instrumentation-http package.
     const { HttpInstrumentationConfig }= require("@opentelemetry/instrumentation-http");
 
+    // Import the IncomingMessage and RequestOptions classes from the http and https packages, respectively.
+    const { IncomingMessage } = require("http");
+    const { RequestOptions } = require("https");
+
+    // Create a new HttpInstrumentationConfig object.
     const httpInstrumentationConfig: HttpInstrumentationConfig = {
-        enabled: true,
-        ignoreIncomingRequestHook: (request: IncomingMessage) => {
-            // Ignore OPTIONS incoming requests
-            if (request.method === 'OPTIONS') {
-                return true;
-            }
-            return false;
-        },
-        ignoreOutgoingRequestHook: (options: RequestOptions) => {
-            // Ignore outgoing requests with /test path
-            if (options.path === '/test') {
-                return true;
-            }
-            return false;
+      enabled: true,
+      ignoreIncomingRequestHook: (request: IncomingMessage) => {
+        // Ignore OPTIONS incoming requests.
+        if (request.method === 'OPTIONS') {
+          return true;
         }
+        return false;
+      },
+      ignoreOutgoingRequestHook: (options: RequestOptions) => {
+        // Ignore outgoing requests with the /test path.
+        if (options.path === '/test') {
+          return true;
+        }
+        return false;
+      }
     };
+
+    // Create a new ApplicationInsightsOptions object.
     const config: ApplicationInsightsOptions = {
-        instrumentationOptions: {
-            http: {
-                httpInstrumentationConfig
-            },
-        },
+      instrumentationOptions: {
+        http: {
+          httpInstrumentationConfig
+        }
+      }
     };
+
+    // Enable Azure Monitor integration using the useAzureMonitor function and the ApplicationInsightsOptions object.
     useAzureMonitor(config);
     ```
 
@@ -1743,16 +2083,18 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
     ```typescript
+    // Import the SpanKind and TraceFlags classes from the @opentelemetry/api package.
     const { SpanKind, TraceFlags } = require("@opentelemetry/api");
 
+    // Create a new SpanEnrichingProcessor class.
     class SpanEnrichingProcessor {
-        ...
 
-        onEnd(span) {
-            if(span.kind == SpanKind.INTERNAL){
-                span.spanContext().traceFlags = TraceFlags.NONE;
-            }
+      onEnd(span) {
+        // If the span is an internal span, set the trace flags to NONE.
+        if(span.kind == SpanKind.INTERNAL){
+          span.spanContext().traceFlags = TraceFlags.NONE;
         }
+      }
     }
     ```
 
@@ -1766,17 +2108,21 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```python
     ...
+    # Import the Flask and Azure Monitor OpenTelemetry SDK libraries.
     import flask
     from azure.monitor.opentelemetry import configure_azure_monitor
     
-    # Configure Azure monitor collection telemetry pipeline
+    # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+    # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
     )
+    
+    # Create a Flask application.
     app = flask.Flask(__name__)
 
-    # Requests sent to this endpoint will not be tracked due to
-    # flask_config configuration
+    # Define a route. Requests sent to this endpoint will not be tracked due to
+    # flask_config configuration.
     @app.route("/ignore")
     def ignore():
         return "Request received but not tracked."
@@ -1787,12 +2133,17 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```python
     ...
+    # Import the necessary libraries.
     from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
 
+    # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+    # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
     )
+    
+    # Add a SpanFilteringProcessor to the tracer provider.
     trace.get_tracer_provider().add_span_processor(SpanFilteringProcessor())
     ...
     ```
@@ -1800,14 +2151,23 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     Add `SpanFilteringProcessor.py` to your project with the following code:
     
     ```python
+    # Import the necessary libraries.
     from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
     from opentelemetry.sdk.trace import SpanProcessor
     
+    # Define a custom span processor called `SpanFilteringProcessor`.
     class SpanFilteringProcessor(SpanProcessor):
     
-        # prevents exporting spans from internal activities
+        # Prevents exporting spans from internal activities.
         def on_start(self, span):
+            # Check if the span is an internal activity.
             if span._kind is SpanKind.INTERNAL:
+                # Create a new span context with the following properties:
+                #   * The trace ID is the same as the trace ID of the original span.
+                #   * The span ID is the same as the span ID of the original span.
+                #   * The is_remote property is set to `False`.
+                #   * The trace flags are set to `DEFAULT`.
+                #   * The trace state is the same as the trace state of the original span.
                 span._context = SpanContext(
                     span.context.trace_id,
                     span.context.span_id,
@@ -1832,8 +2192,11 @@ You might want to get the trace ID or span ID. If you have logs sent to a destin
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ```csharp
+// Get the current activity.
 Activity activity = Activity.Current;
+// Get the trace ID of the activity.
 string traceId = activity?.TraceId.ToHexString();
+// Get the span ID of the activity.
 string spanId = activity?.SpanId.ToHexString();
 ```
 
@@ -1843,8 +2206,11 @@ string spanId = activity?.SpanId.ToHexString();
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ```csharp
+// Get the current activity.
 Activity activity = Activity.Current;
+// Get the trace ID of the activity.
 string traceId = activity?.TraceId.ToHexString();
+// Get the span ID of the activity.
 string spanId = activity?.SpanId.ToHexString();
 ```
 
@@ -1856,7 +2222,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1877,22 +2243,26 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
 Get the request trace ID and the span ID in your code:
 
    ```javascript
-   const { trace } = require("@opentelemetry/api");
+   // Import the trace module from the OpenTelemetry API.
+    const { trace } = require("@opentelemetry/api");
 
-   let spanId = trace.getActiveSpan().spanContext().spanId;
-   let traceId = trace.getActiveSpan().spanContext().traceId;
+    // Get the span ID and trace ID of the active span.
+    let spanId = trace.getActiveSpan().spanContext().spanId;
+    let traceId = trace.getActiveSpan().spanContext().traceId;
    ```
 
 ### [Python](#tab/python)
 
 Get the request trace ID and the span ID in your code:
 
-   ```python
-   from opentelemetry import trace
+```python
+# Import the necessary libraries.   
+from opentelemetry import trace
 
-   trace_id = trace.get_current_span().get_span_context().trace_id
-   span_id = trace.get_current_span().get_span_context().span_id
-   ```
+# Get the trace ID and span ID of the current span.
+trace_id = trace.get_current_span().get_span_context().trace_id
+span_id = trace.get_current_span().get_span_context().span_id
+```
 
 ---
 
@@ -1904,7 +2274,7 @@ Get the request trace ID and the span ID in your code:
 
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
-- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
+- To install the Nuget package, check for updates, or view release notes, see the [Azure Monitor AspNetCore Nuget Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
 - To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
@@ -1913,7 +2283,7 @@ Get the request trace ID and the span ID in your code:
 
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
-- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) page.
+- To install the Nuget package, check for updates, or view release notes, see the [Azure Monitor Exporter Nuget Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) page.
 - To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).

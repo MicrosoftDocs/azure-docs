@@ -53,7 +53,7 @@ The **ClaimsProvider** element contains the following child elements:
 | DisplayName | 1:1 | A string that contains the name of the claims provider. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
 
-**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
+**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Microsoft Entra claims provider with the Microsoft Entra technical profiles:
 
 ```xml
 <ClaimsProvider>

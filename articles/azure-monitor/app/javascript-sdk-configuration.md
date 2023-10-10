@@ -325,6 +325,30 @@ This section only applies to you if you're using the deprecated functions and yo
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I update my third-party server configuration for the JavaScript SDK?
+
+The server side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server side, it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context`, and `traceparent` (W3C distributed header).
+
+Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
+
+### How can I disable distributed tracing for the JavaScript SDK?
+
+Distributed tracing can be disabled in configuration.
+
+### Are the HTTP 502 and 503 responses always captured by Application Insights?
+
+No. The "502 bad gateway" and "503 service unavailable" errors aren't always captured by Application Insights. If only client-side JavaScript is being used for monitoring, this behavior would be expected because the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered.
+          
+If the 502 or 503 response was sent from a server with server-side monitoring enabled, the errors are collected by the Application Insights SDK.
+          
+Even when server-side monitoring is enabled on an application's web server, sometimes a 502 or 503 error isn't captured by Application Insights. Many modern web servers don't allow a client to communicate directly. Instead, they employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
+          
+In this scenario, a 502 or 503 response might be returned to a client because of an issue at the reverse proxy layer, so it isn't captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see [Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service](../../app-service/troubleshoot-http-502-http-503.md).
+
 ## Next steps
 
 * [Track usage](usage-overview.md)

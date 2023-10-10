@@ -299,7 +299,7 @@ sections:
 
       - question: What is the TCP Idle Timeout for Azure Firewall?
         answer: |
-          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound connections up to 30 minutes. Idle Timeout for outbound or east-west traffic cannot be changed.
+          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound connections up to 30 minutes. Idle Timeout for east-west traffic cannot be changed.
 
           If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive).
 
@@ -320,3 +320,13 @@ sections:
           Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of flows per virtual machine is 250k.
 
           The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.
+
+      - question: What is the SNAT TCP/UDP Port Reuse Behavior in Azure Firewall?
+        answer: |
+           Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
+
+           As a workaround for certain architectures, you can deploy and scale with [NAT Gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md) to provide a wider pool of SNAT ports for variability and availability.
+
+
+
+

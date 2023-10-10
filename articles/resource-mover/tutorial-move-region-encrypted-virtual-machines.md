@@ -193,7 +193,7 @@ To select the resources, do the following:
 
 To resolve dependencies before the move, follow these steps:
 
-1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
+1. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Screenshot showing the 'Validate dependencies' button." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 

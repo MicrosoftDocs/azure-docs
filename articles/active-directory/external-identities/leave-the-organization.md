@@ -1,8 +1,8 @@
 ---
 
 title: Leave an organization as a guest user
-titleSuffix: Azure Active Directory External Identities
-description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
+titleSuffix: Microsoft Entra External ID
+description: Shows how a Microsoft Entra B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
 ms.service: active-directory
@@ -22,7 +22,7 @@ adobe-target: true
 
 # Leave an organization as an external user
 
-As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
+As a Microsoft Entra B2B collaboration or B2B direct connect user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
 
 ## Before you begin
 
@@ -82,7 +82,7 @@ In these cases, you can select **Leave**, but then you'll see a message saying y
 Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
 
 > [!IMPORTANT]
-> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
+> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Microsoft Entra tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
 
@@ -97,7 +97,7 @@ Administrators can use the **External user leave settings** to control whether e
 
 ### Account removal
 
-When a B2B collaboration user leaves an organization, the user's account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD, but permanent deletion doesn't start for 30 days. This soft deletion enables the administrator to restore the user account, including groups and permissions, if the user makes a request to restore the account before it's permanently deleted.
+When a B2B collaboration user leaves an organization, the user's account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Microsoft Entra ID, but permanent deletion doesn't start for 30 days. This soft deletion enables the administrator to restore the user account, including groups and permissions, if the user makes a request to restore the account before it's permanently deleted.
 
 If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period with the following steps. This action is irrevocable.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/13/2023
+ms.date: 09/25/2023
 ms.author: henrymbugua
 ms.reviewer: OwenRichards1
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
@@ -19,8 +19,6 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript
 
 This quickstart uses a sample JavaScript (JS) single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
-
-In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample JS SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
 
 ## Prerequisites
 
@@ -57,85 +55,14 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-javascript-tutorial
     ```
-
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/archive/refs/heads/main.zip).
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Configure the project
 
 1. In your IDE, open the project folder, *ms-identity-javascript-tutorial/angular-spa*, containing the sample.
 1. Open *1-Authentication/1-sign-in/App/authConfig.js* and replace the file contents with the following snippet:
 
-    ```javascript
-        /**
-     * Configuration object to be passed to MSAL instance on creation. 
-     * For a full list of MSAL.js configuration parameters, visit:
-     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
-     */
-    
-    const msalConfig = {
-        auth: {
-            clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-            authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Info_Here', // Defaults to "https://login.microsoftonline.com/common"
-            redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
-            navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
-        },
-        cache: {
-            cacheLocation: 'sessionStorage', // Configures cache location. "sessionStorage" is more secure, but "localStorage" gives you SSO.
-            storeAuthStateInCookie: false, // set this to true if you have to support IE
-        },
-        system: {
-            loggerOptions: {
-                loggerCallback: (level, message, containsPii) => {
-                    if (containsPii) {
-                        return;
-                    }
-                    switch (level) {
-                        case msal.LogLevel.Error:
-                            console.error(message);
-                            return;
-                        case msal.LogLevel.Info:
-                            console.info(message);
-                            return;
-                        case msal.LogLevel.Verbose:
-                            console.debug(message);
-                            return;
-                        case msal.LogLevel.Warning:
-                            console.warn(message);
-                            return;
-                    }
-                },
-            },
-        },
-    };
-    
-    /**
-     * Scopes you add here will be prompted for user consent during sign-in.
-     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
-     * For more information about OIDC scopes, visit: 
-     * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
-     */
-    const loginRequest = {
-      scopes: ["openid", "profile"],
-    };
-    
-    /**
-     * An optional silentRequest object can be used to achieve silent SSO
-     * between applications by providing a "login_hint" property.
-     */
-    
-    // const silentRequest = {
-    //   scopes: ["openid", "profile"],
-    //   loginHint: "example@domain.net"
-    // };
-    
-    // exporting config object for jest
-    if (typeof exports !== 'undefined') {
-      module.exports = {
-          msalConfig: msalConfig,
-          loginRequest: loginRequest,
-      };
-    }
-    ```
+    :::code language="csharp" source="~/ms-identity-docs-code-javascript/js-spa/App/authConfig.js":::
 
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
@@ -151,7 +78,7 @@ Run the project with a web server by using Node.js:
     npm install
     npm start
     ```
-1. Copy the https URL that appears in the terminal, for example, `https://localhost:3000`, and paste it into a browser. We recommend using a private or incognito browser session.
+1. Copy the `https` URL that appears in the terminal, for example, `https://localhost:3000`, and paste it into a browser. We recommend using a private or incognito browser session.
 1. Follow the steps and enter the necessary details to sign in with your Microsoft account. You'll be requested an email address so a one time passcode can be sent to you. Enter the code when prompted.
 1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
