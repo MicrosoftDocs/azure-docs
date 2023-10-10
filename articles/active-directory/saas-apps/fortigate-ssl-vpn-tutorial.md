@@ -167,8 +167,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting that us
 
 In this section, you'll create a security group in Microsoft Entra ID for the test user. FortiGate will use this security group to grant the user network access via the VPN.
 
-1. In the left pane of the Azure portal, select **Microsoft Entra ID**. Then select **Groups**.
-1. Select **New group** at the top of the screen.
+1. In the Microsoft Entra admin center, navigate to **Identity** > **Groups** > **New group**.
 1. In the **New Group** properties, complete these steps:
    1. In the **Group type** list, select **Security**.
    1. In the **Group name** box, enter **FortiGateAccess**.

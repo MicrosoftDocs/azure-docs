@@ -66,7 +66,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal public key infrastructure (PKI) are used, the internal issuing root certificate authority certificate must be trusted.
 
-- Microsoft Entra ID P1 or P2 1 licenses are required for use of tenant restrictions.
+- Microsoft Entra ID P1 or P2 licenses are required for use of tenant restrictions.
 
 #### Configuration
 

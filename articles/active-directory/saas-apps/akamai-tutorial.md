@@ -447,7 +447,7 @@ Click Save and to go Deployment.
 
 ### Kerberos Authentication
 
-In the below example we will publish an Internal web server <code>http://frp-app1.superdemo.live</code> and enable SSO using KCD.
+In the below example we will publish an internal web server at `http://frp-app1.superdemo.live` and enable SSO using KCD.
 
 #### General Tab
 

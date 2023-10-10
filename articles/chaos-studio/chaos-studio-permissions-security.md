@@ -89,6 +89,9 @@ Chaos Studio encrypts all data by default. Chaos Studio only accepts input for s
 
 These properties shouldn't be used to store sensitive data, such as payment information or passwords. For more information on how Chaos Studio protects your data, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md).
 
+## Data Residency
+Azure Chaos Studio doesn't store customer data outside the region the customer deploys the service instance in.
+
 ## Next steps
 Now that you understand how to secure your chaos experiment, you're ready to:
 
