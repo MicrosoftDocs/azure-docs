@@ -899,7 +899,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
     - under `dataFlows`, include destination name.
 
-    See the resource definition example above for a sample.
+    See the example Azure Resource Manager template for a sample.
 
     ### [Storage table](#tab/storage-table)
 
@@ -908,7 +908,7 @@ Create a data collection rule for collecting events and sending to storage and e
     - `tableName` is the name of Table where JSON blob with event data is uploaded to.
     - Under `dataFlows`, include destination name.
 
-    See the resource definition example above for a sample. Table is created if it doesn’t already exists.
+    See the example Azure Resource Manager template for a sample. Table is created if it doesn’t already exists.
 
     ### [Storage blob](#tab/storage-blob)
 
@@ -918,7 +918,7 @@ Create a data collection rule for collecting events and sending to storage and e
     - `containerName` is name of container where JSON blob with event data is uploaded to. 
     - Under `dataFlows`, include destination name. 
 
-    See the resource definition example above for a sample. Container is created if it doesn’t already exist.
+    See the example Azure Resource Manager template for a sample. Container is created if it doesn’t already exist.
 
     ---
 
@@ -926,7 +926,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
 ## Create an Azure VM
 
-[Create the Azure VM](../../virtual-machines/overview.md). If you already have a VM, make sure that the same managed identity is assigned to it that was used to configure Storage account and Event Hub and then move to the next step.
+[Create the Azure VM](../../virtual-machines/overview.md). If you already have a VM, make sure that the same managed identity is assigned to it that was used to configure Storage account and Event Hub. Then move to the next step.
 
 ## Create DCR association and deploy AzureMonitorAgent
 
@@ -1056,7 +1056,7 @@ No, this support isn't a part of the roadmap. Application Insights are now power
 
 ### Will the Azure Monitoring Agent support Windows Crash Dumps as a data type to upload?
 
-No, this support isn't a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, please indicate so in the [feedback form](#questions-and-feedback).
+No, this support isn't a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, indicate so in the [feedback form](#questions-and-feedback).
 
 ### Does this mean the Linux (LAD) and Windows (WAD) Diagnostic Extensions are no longer supported/retired?
 
@@ -1072,4 +1072,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For a full list of information on creating a data collection rule and associating resources to it, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
+- For more information on creating a data collection rule, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
