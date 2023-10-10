@@ -786,6 +786,13 @@ The component input DataFrame should contain a `mltable` with the processed data
 
 ### Component output signature
 
+The component output port should have the following signature.
+
+  | signature name | type | description | 
+  |---|---|---|
+  | signal_metrics | mltable | The ml table which contains the metrics. |
+  
+#### signal_metrics schema
 The component output DataFrame should contain four columns: `group`, `metric_name`, `metric_value`, and `threshold_value`:
 
   | signature name | type | description | example value |
@@ -834,22 +841,17 @@ create_monitor:
       type: custom
       component_id: azureml:my_custom_signal:1.0.0
       input_data:
-        test_data_1:
+        production_data:
           input_data:
-            type: mltable
-            path: azureml:Direct:1
-          data_context: test
-        test_data_2:
-          input_data:
-            type: mltable
-            path: azureml:Direct:1
+            type: uri_folder
+            path: azureml:my_production_data:1
           data_context: test
           data_window:
             trailing_window_size: P30D
             trailing_window_offset: P7D
           pre_processing_component: azureml:custom_preprocessor:1.0.0
       metric_thresholds:
-        - metric_name: std_dev
+        - metric_name: std_deviation
           threshold: 2
   alert_notification:
     emails:
