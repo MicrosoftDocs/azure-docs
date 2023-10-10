@@ -108,7 +108,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Web applications
 
-The following examples show how to update an existing web application to use refreshable configuration values, with the setup already done in the quick start.
+The following examples show how to update an existing web application to use refreshable configuration values.
 
 ### [Django](#tab/django)
 
