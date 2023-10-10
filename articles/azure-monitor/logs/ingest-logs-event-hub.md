@@ -333,15 +333,15 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
 
-2. Select **Azure Event Hubs Data Receiver** and select **Next**.   
+1. Select **Azure Event Hubs Data Receiver** and select **Next**.   
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" alt-text="Screenshot that shows the Add Role Assignment screen for the event hub with the Azure Event Hubs Data Receiver role highlighted.":::
 
-1. Select **Managed identity** for **Assign access to** and click **Select members**. Select **Data collection rule**,  search your DCR by name and click **Select**.
+1. Select **Managed identity** for **Assign access to** and click **Select members**. Select **Data collection rule**, search for your data collection rule by name, and click **Select**.
 
-[ ![Screenshot of how to assign access to managed identity.](media/ingest-logs-event-hub/assign-access-to-managed-identity.png) ](media/ingest-logs-event-hub/assign-access-to-managed-identity.png#lightbox)
+    :::image type="content" source="media/ingest-logs-event-hub/assign-access-to-managed-identity.png" lightbox="media/ingest-logs-event-hub/assign-access-to-managed-identity.png" alt-text="Screenshot that shows how to assign access to managed identity.":::
 
-4. Select **Review + assign** and verify the details before saving your role assignment.
+1. Select **Review + assign** and verify the details before saving your role assignment.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" alt-text="Screenshot that shows the Review and Assign tab of the Add Role Assignment screen.":::
 
