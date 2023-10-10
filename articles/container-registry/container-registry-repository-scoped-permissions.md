@@ -141,7 +141,7 @@ The output shows details about the token. By default, two passwords are generate
 
 ### Use wildcards to assign permissions to multiple repositories
 
-Scope maps allow to use wildcards to define permissions to multiple repositories that share the same prefix.
+Scope maps allow to use wildcards to define permissions to multiple repositories that share the same prefix. Repository specific permissions and wildcards can be used in the same scope map. 
 
 These can be created when a scope map is created and assigned to a token, or when a token is created and directly assigned to a repository.
 
@@ -172,10 +172,10 @@ In this example, if a token is assigned to a scope map with the following reposi
   |`sample/teamA/*`    | `content/write`  |
   |`sample/teamA/projectB`    | `content/delete`  |
 
-The token would have `[content/read, content/write, content/delete]` when accessing repository `sample/teamA/projectB`. And will have only `[content/read, content/write]` when accessing respository `sample/teamA/projectC`.
+The token would have `[content/read, content/write, content/delete]` when accessing repository `sample/teamA/projectB`. And will have only `[content/read, content/write]` when accessing repository `sample/teamA/projectC`.
 
 > [!NOTE]
-> Repositories using wildcards in the scope map should always end with a `/*` suffix to be valid and have a single wildcard character in the repository name.
+> Repositories using wildcards in the scope map should always end with a `/*` suffix to be valid, and have a single wildcard character in the repository name.
 > - `sample/*/teamA`: This is not a valid wildcard because it has a wildcard in the middle of the repository name.
 > - `sample/teamA*`: This is not a valid wildcard because it does not end with `/*`.
 > - `sample/teamA/*/projectB/*`: This is not a valid wildcard because it has multiple wildcards in the repository name.
@@ -184,7 +184,7 @@ The token would have `[content/read, content/write, content/delete]` when access
 
 Wildcards can also be applied at a root level. This means that any permissions assigned to the repository defined as `*`, will be applied registry wide.
 
-The following example creates a token with a root level wild card.
+The following example creates a token with a root level wild card that would give the token `[content/read, content/write]` permission to all repositories in the registry.
 ```azurecli
  az acr token create --name MyTokenWildcard --registry myregistry \
   --repository * \
