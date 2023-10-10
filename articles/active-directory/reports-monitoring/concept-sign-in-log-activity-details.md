@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/31/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -28,7 +28,7 @@ The Basic info tab contains most of the details that are also displayed in the t
 
 ### Sign-in error codes
 
-If a sign-in failed, you can get more information about the reason in the Basic info tab of the related log item. The error code and associated failure reason appear in the details. For more information, see [How to troubleshoot sign-in errors.](howto-troubleshoot-sign-in-errors.md).
+If a sign-in failed, you can get more information about the reason in the Basic info tab of the related log item. The error code and associated failure reason appear in the details. For more information, see [How to troubleshoot sign-in errors](howto-troubleshoot-sign-in-errors.md).
 
 ![Screenshot of the sign-in error code on the basics tab.](media/concept-sign-in-log-activity-details/sign-in-error-code.png)
 

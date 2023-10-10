@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/08/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ---
@@ -39,7 +39,7 @@ Application owners can view logs for their own applications. The following roles
 There are several ways to view or analyze the Provisioning logs:
 
 - View in the Azure portal.
-- Stream logs to [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md) through Diagnostic settings.
+- Stream logs to [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md) through diagnostic settings.
 - Analyze logs through [Workbook](howto-use-workbooks.md) templates.
 - Access logs programmatically through the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary).
 - [Download the logs](howto-download-logs.md) as a CSV or JSON file.
