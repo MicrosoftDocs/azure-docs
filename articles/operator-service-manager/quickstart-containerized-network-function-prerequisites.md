@@ -39,7 +39,7 @@ az extension add --name aosm
 
 ## Register and verify required resource providers
 
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process may take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
@@ -107,7 +107,7 @@ Following these guidelines ensures a well organized and structured approach to d
 
 ### Download nginx image to local docker repo
 
-For this quickstart, you  download docker to your local repository. The Azure Operator Service Manager (AOSM) Azure CLI extension pushes the image from there to the Azure Operator Service Manager (AOSM) Artifact Store ACR. The CLI extension also supports copying the image from an existing ACR. Copying the image is the expected default use-case, but  it's slower for a quickstart to create an ACR to copy from so this method isn't used here.
+For this quickstart, you  download the nginx docker image to your local repository. The Azure Operator Service Manager (AOSM) Azure CLI extension pushes the image from there to the Azure Operator Service Manager (AOSM) Artifact Store ACR. The CLI extension also supports copying the image from an existing ACR. Copying the image is the expected default use-case, but  it's slower for a quickstart to create an ACR to copy from so this method isn't used here.
 
 Issue the following command: `docker pull nginx:stable`
 
