@@ -183,7 +183,7 @@ Product state | Data | Access to data
 
 ## Delete a self-service sign-up product
 
-You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Microsoft Entra admin portal:
+You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Microsoft Entra admin center:
 
 >[!NOTE]
 > If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
