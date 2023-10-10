@@ -39,7 +39,10 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 1. In Chaos Studio, go to **Experiments** > **Create** > **New from template**.
 
    [![Screenshot that shows the Experiments screen, with the New from template button highlighted.](images/tutorial-aad-outage-create.png)](images/tutorial-aad-outage-create.png#lightbox)
-
 1. Select **AAD Outage**.
 
+   [![Screenshot that shows the experiment templates screen, with the AAD outage template button highlighted.](images/tutorial-aad-outage-select.png)](images/tutorial-aad-outage-select.png#lightbox)
+1. Add a name for your experiment that complies with resource naming guidelines. Select **Next: Experiment designer**.
+
+   
 
