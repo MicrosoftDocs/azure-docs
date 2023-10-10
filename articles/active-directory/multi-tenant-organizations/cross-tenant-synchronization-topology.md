@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 10/10/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -28,6 +28,8 @@ The following example shows the simplest topology where users in a single tenant
 ## Single source with multiple targets
 
 The following example shows a central user hub tenant where users need access to applications in smaller resource tenants across your organization.
+
+Customers commonly rely on this pattern when they have their organization in a single tenant, but parts of the organization need more control and autonomy to manage things like Azure resources. This topology allows you to create a single tenant for things like user onboarding, M365, etc. and have resource tenants that are used to provide access to applications such as Azure resources. 
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/topology-single-source-multiple-targets.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
 
