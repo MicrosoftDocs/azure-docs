@@ -106,13 +106,30 @@ Specifying one of the available regions, create a resource group for your contai
 
 1. In the Azure portal, navigate to your resource group and select **Deployments** to track the deployment status.
 
-## Verify the Result
+   :::image type="content" source="media/dapr-functions-extension/deployment-status.png" alt-text="Screenshot showing the deployment group deployment status in the Azure portal.":::
 
-Once the template has deployed successfully, run the following CURL command to initiate an `OrderService` function that triggers the `CreateNewOrder` process. A new order is created and stored in the Redis statestore.
 
-In the CURL command, replace `{quickstart-functionapp-url}` with your actual function app URL. For example: `https://daprext-funcapp.wittyglacier-20884174.eastus.azurecontainerapps.io`.
+## Verify the result
 
-Replace {quickstart-functionapp-name} with your function app name.
+Once the template has deployed successfully, run the following command to initiate an `OrderService` function that triggers the `CreateNewOrder` process. A new order is created and stored in the Redis statestore.
+
+In the command:
+- Replace `{quickstart-functionapp-url}` with your actual function app URL. For example: `https://daprext-funcapp.wittyglacier-20884174.eastus.azurecontainerapps.io`.
+- Replace `{quickstart-functionapp-name}` with your function app name.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Invoke-RestMethod -Uri 'https://{quickstart-functionapp-url.io}/api/invoke/{quickstart-functionapp-name}/CreateNewOrder' -Method POST -Headers @{"Content-Type" = "application/json"} -Body '{
+    "data": {
+        "value": {
+            "orderId": "Order22"
+        }
+    }
+}'
+```
+
+# [Curl](#tab/curl)
 
 ```sh
 curl --location 'https://{quickstart-functionapp-url.io}/api/invoke/{quickstart-functionapp-name}/CreateNewOrder' \
@@ -126,13 +143,15 @@ curl --location 'https://{quickstart-functionapp-url.io}/api/invoke/{quickstart-
 }'
 ```
 
-## View Logs
+---
+
+## View logs
 
 Data logged via a function app is stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. Wait a few minutes for the analytics to arrive for the first time before you query the logged data.
 
 You can view logs through the Azure portal or from the command line.
 
-# [Azure portal](#tab/portal)
+### Via the Azure portal
 
 1. Navigate to your container app environment.
 
@@ -147,16 +166,26 @@ You can view logs through the Azure portal or from the command line.
    | project Log_s
    ```
 
-# [Azure CLI](#tab/cli)
+:::image type="content" source="media/dapr-functions-extension/check-console-logs.png" alt-text="Screenshot demonstrating how to run a Console Log query to view the logs.":::
 
-Run the following CURL command to view the saved state.
+
+### Via the Azure CLI
+
+Run the following command to view the saved state.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Invoke-RestMethod -Uri 'https://{quickstart-functionapp-url.io}/api/retrieveorder' -Method GET
+```
+
+# [Curl](#tab/curl)
 
 ```sh
 curl --location 'https://{quickstart-functionapp-url.io}/api/retrieveorder'
 ```
 
 ---
-
 
 ## Clean up resources
 
@@ -165,6 +194,7 @@ Once you're finished with this tutorial, run the following command to delete you
 ```
 az group delete --resource-group $RESOURCE_GROUP
 ```
+
 ## Related links
 
 - [Learn more about the Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md)
