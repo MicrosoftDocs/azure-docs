@@ -37,7 +37,7 @@
   - name: View service health notifications by using the Azure portal
     href: service-notifications.md
   - name: Elevated access requirement for viewing Security Advisories
-    href: security-advisories-elevated-access 
+    href: security-advisories-elevated-access.md 
   - name: Send alerts to outside systems via webhook
     href: service-health-alert-webhook-guide.md
   - name: Send alerts to ServiceNow
