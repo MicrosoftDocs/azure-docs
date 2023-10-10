@@ -238,7 +238,7 @@ For example, if the tenant admin has two username bindings on PrincipalName mapp
 
 Here's an example of potential values for UPN and certificateUserIDs:
 
-Microsoft Entra user Principal Name = Bob.Smith@Contoso.com <br>
+Microsoft Entra User Principal Name = Bob.Smith@Contoso.com <br>
 certificateUserIDs = [x509:\<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
 
 Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits mapping PrincipalName to Microsoft Entra UPN & SKI values in certificateUserIds, that certificate can only match a single Microsoft Entra account. With unique constraint on both UserPrincipalName and certificateUserIds, no other user account can have the same values and can't successfully authenticate with the same certificate. 
