@@ -18,7 +18,7 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
-## Release date:  September 7th, 2023
+## Release date:  September 7, 2023
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2308221128**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
