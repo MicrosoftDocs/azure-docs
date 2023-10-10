@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn the different ways you can deploy the Document Intelligence Sample Labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar

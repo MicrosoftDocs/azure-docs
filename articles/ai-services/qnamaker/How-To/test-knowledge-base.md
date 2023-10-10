@@ -1,11 +1,11 @@
 ---
 title: How to test a knowledge base - QnA Maker
 description: Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021

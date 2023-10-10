@@ -28,11 +28,20 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## September 2023
 
+- **Flexible Maintenance for Azure Database for MySQL - Flexible server(Public Preview)**
+Flexible Maintenance for Azure Database for MySQL - Flexible Server enables a tailored maintenance schedule to suit your operational rhythm. This feature allows you to reschedule maintenance tasks within a maximum 14-day window and initiate on-demand maintenance, granting you unprecedented control over server upkeep timing. Stay tuned for more customizable experiences in the future. [Learn more](concepts-maintenance.md).
+
 - **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
 Azure Database for MySQL - Flexible server now supports Universal Read Replicas in Public regions. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
 
 - **Private Link for Azure Database for MySQL - Flexible Server (General Availability)**
 You can now enable private endpoints to provide a secure means to access Azure Database for MySQL Flexible Server via a Private Link, allowing both public and private access simultaneously. If necessary, you have the choice to restrict public access, ensuring that connections are exclusively routed through private endpoints for heightened network security. It's also possible to configure or update Private Link settings either during or after the creation of the server. [Learn more](./concepts-networking-private-link.md).
+
+- **Azure MySQL Import Smart Defaults for Azure Database for MySQL - Single to Flexible Server migration (Public Preview)**
+You can now migrate an Azure Database for MySQL Single Server to an Azure Database for MySQL Flexible Server by running a single CLI command with minimal inputs as the command leverages smart defaults for target Flexible Server provisioning based on the source server SKU and properties! [Learn more](../migrate/migrate-single-flexible-mysql-import-cli.md)
+
+- **Nominate eligible Azure DB for MySQL Single Server instance for in-place automigration to Flexible Server**
+If you own a Azure DB for MySQL Single Server workload with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for in-place automigration to Flexible Server by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u)
 
 ## August 2023
   

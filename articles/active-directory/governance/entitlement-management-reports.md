@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # View reports and logs in entitlement management
 
-The entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or  determining the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
+The entitlement management reports and Microsoft Entra audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or  determining the status of a user's request. This article describes how to use the entitlement management reports and Microsoft Entra audit logs.
 
 Watch the following video to learn how to view what resources users have access to in entitlement management:
 
@@ -95,7 +95,7 @@ This report enables you to list the resources currently assigned to a user in en
 
 ## Determine the status of a user's request
 
-To get additional details on how a user requested and received access to an access package, you can use the Azure AD audit log. In particular, you can use the log records in the `EntitlementManagement` and `UserManagement` categories to get additional details on the processing steps for each request.  
+To get additional details on how a user requested and received access to an access package, you can use the Microsoft Entra audit log. In particular, you can use the log records in the `EntitlementManagement` and `UserManagement` categories to get additional details on the processing steps for each request.  
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -107,9 +107,9 @@ To get additional details on how a user requested and received access to an acce
 
 1. To download the logs, select **Download**.
 
-When Azure AD receives a new request, it writes an audit record, in which the **Category** is `EntitlementManagement` and the **Activity** is typically `User requests access package assignment`.  In the case of a direct assignment created in the Azure portal, the **Activity** field of the audit record is `Administrator directly assigns user to access package`, and the user performing the assignment is identified by the **ActorUserPrincipalName**.
+When Microsoft Entra ID receives a new request, it writes an audit record, in which the **Category** is `EntitlementManagement` and the **Activity** is typically `User requests access package assignment`.  In the case of a direct assignment created in the Microsoft Entra admin center, the **Activity** field of the audit record is `Administrator directly assigns user to access package`, and the user performing the assignment is identified by the **ActorUserPrincipalName**.
 
-Azure AD writes additional audit records while the request is in progress, including:
+Microsoft Entra ID writes additional audit records while the request is in progress, including:
 
 | Category | Activity | Request status |
 | :---- | :------------ | :------------ |
@@ -119,11 +119,11 @@ Azure AD writes additional audit records while the request is in progress, inclu
 | `EntitlementManagement` | `Approve access package assignment request` | Request approved |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Request approved, or doesn't require approval |
 
-When a user is assigned access, Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** `Fulfill access package assignment`.  The user who received the access is identified by **ActorUserPrincipalName** field.
+When a user is assigned access, Microsoft Entra ID writes an audit record for the `EntitlementManagement` category with **Activity** `Fulfill access package assignment`.  The user who received the access is identified by **ActorUserPrincipalName** field.
 
-If access wasn't assigned, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** either `Deny access package assignment request`, if the request was denied by an approver, or `Access package assignment request timed out (no approver action taken)`, if the request timed out before an approver could approve.
+If access wasn't assigned, then Microsoft Entra ID writes an audit record for the `EntitlementManagement` category with **Activity** either `Deny access package assignment request`, if the request was denied by an approver, or `Access package assignment request timed out (no approver action taken)`, if the request timed out before an approver could approve.
 
-When the user's access package assignment expires, is canceled by the user, or removed by an administrator, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** of `Remove access package assignment`.
+When the user's access package assignment expires, is canceled by the user, or removed by an administrator, then Microsoft Entra ID writes an audit record for the `EntitlementManagement` category with **Activity** of `Remove access package assignment`.
 
 ## Download list of connected organizations
 

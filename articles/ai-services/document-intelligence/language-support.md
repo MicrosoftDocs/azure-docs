@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn more about the human languages that are available with Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 monikerRange: '<=doc-intel-3.1.0'
@@ -38,7 +37,7 @@ Model | Description |
 |:::image type="icon" source="media/overview/icon-id-document.png" link="concept-id-document.md#supported-document-types"::: [**ID document**](concept-id-document.md#supported-document-types)| Extract identification and verification details.|
 |:::image type="icon" source="media/overview/icon-invoice.png" link="concept-invoice.md#supported-languages-and-locales"::: [**Invoice**](concept-invoice.md#supported-languages-and-locales)| Extract customer and vendor details.|
 |:::image type="icon" source="media/overview/icon-receipt.png" link="concept-receipt.md#supported-languages-and-locales"::: [**Receipt**](concept-receipt.md#supported-languages-and-locales)| Extract sales transaction details.|
-|:::image type="icon" source="media/overview/icon-w2.png" link="concept-w2.md#supported-languages-and-locales":::  [**W-2 form**](concept-w2.md#supported-languages-and-locales)| Extract taxable compensation details.|
+|:::image type="icon" source="media/overview/icon-w2.png" link="concept-tax-document.md#supported-languages-and-locales":::  [**Tax document models**](concept-tax-document.md#supported-languages-and-locales)| Extract taxable form details.|
 
 ## Custom models and containers
 

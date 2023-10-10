@@ -25,7 +25,7 @@ The PowerShell [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-
 
 This sample script creates a Windows Server 2019 Datacenter VM. The sample also includes properties to add a second data disk under `dataDiskParameters`.
 
- ```powershell
+```powershell
 [CmdletBinding()]
 
 Param(
@@ -186,7 +186,7 @@ You can also call the DevTest Labs REST API to get the properties of existing la
 In training, demo, and trial scenarios, you can avoid unnecessary costs by deleting VMs automatically on a certain date. You can set the VM `expirationDate` property when you create a VM. The PowerShell VM creation script earlier in this article sets an expiration date under `properties`:
 
 ```json
-          "expirationDate"          = "2022-12-01"
+  "expirationDate": "2022-12-01"
 ```
 
 You can also set expiration dates on existing VMs by using PowerShell. The following PowerShell script sets an expiration date for an existing lab VM if it doesn't already have an expiration date:

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 09/18/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -149,6 +149,7 @@ This section provides references to SAP on Azure solutions.
 * [DB2 Installation Guide on Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/db2-installation-guide-on-anf/ba-p/3709437)
 * [Manual Recovery Guide for SAP DB2 on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
 * [SAP ASE 16.0 on Azure NetApp Files for SAP Workloads on SLES15](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
+* [SAP Netweaver 7.5 with MaxDB 7.9 on Azure using Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-netweaver-7-5-with-maxdb-7-9-on-azure-using-azure-netapp/ba-p/3905041)
 
 ### SAP IQ-NLS
 

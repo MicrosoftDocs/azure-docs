@@ -7,8 +7,7 @@ metadata:
   title: Azure AI Immersive Reader documentation
   description: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
   services: service
-  ms.service: applied-ai-services
-  ms.subservice: immersive-reader
+  ms.service: azure-ai-immersive-reader
   ms.topic: landing-page
   ms.collection: collection
   author: rwallerms

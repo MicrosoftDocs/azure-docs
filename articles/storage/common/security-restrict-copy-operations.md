@@ -2,9 +2,10 @@
 title: Permitted scope for copy operations (preview)
 titleSuffix: Azure Storage
 description: Learn how to use the "Permitted scope for copy operations (preview)" Azure storage account setting to limit the source accounts of copy operations to the same tenant or with private links to the same virtual network.
-author: jimmart-dev
-ms.author: jammart
+author: akashdubey-ms
+ms.author: akashdubey
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.reviewer: santoshc 
@@ -180,5 +181,5 @@ az storage account update \
 ## Next steps
 
 - [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md)
-- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
+- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
 - [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)

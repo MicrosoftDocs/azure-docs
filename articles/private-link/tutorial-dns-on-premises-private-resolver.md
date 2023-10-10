@@ -14,6 +14,8 @@ ms.custom: template-tutorial
 
 When an Azure Private Endpoint is created, it uses Azure Private DNS Zones for name resolution by default. For on-premises workloads to access the endpoint, a forwarder to a virtual machine in Azure hosting DNS or on-premises DNS records for the private endpoint were required. Azure Private Resolver alleviates the need to deploy a VM in Azure for DNS or manage the private endpoint DNS records on an on-premises DNS server.
 
+:::image type="content" source="./media/tutorial-dns-on-premises-private-resolver/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-dns-on-premises-private-resolver/resources-diagram.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

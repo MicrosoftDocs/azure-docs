@@ -1,6 +1,6 @@
 ---
 title: Conditional Access service dependencies 
-description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
+description: Learn how conditions are used in Microsoft Entra Conditional Access to trigger a policy.
 
 services: active-directory
 ms.service: active-directory
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I need to understand what service dependencies are in Conditional Access so that I can assess how policies are applied
 ---
-# What are service dependencies in Azure Active Directory Conditional Access? 
+# What are service dependencies in Microsoft Entra Conditional Access? 
 
 With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multifactor authentication (MFA) or [managed devices](./concept-conditional-access-grant.md). 
 
@@ -24,6 +24,8 @@ When you access a site or service directly, the impact of a related policy is ty
 
 > [!TIP]
 > Using the [Office 365](concept-conditional-access-cloud-apps.md#office-365) app will target all Office apps to avoid issues with service dependencies in the Office stack.
+
+<!-- docutune:ignore "Windows Azure Active Directory" -->
 
 ## Policy enforcement 
 
@@ -71,8 +73,8 @@ The below table lists some more service dependencies, where the client apps must
 
 ## Troubleshooting service dependencies
 
-The Azure Active Directory sign-ins log is a valuable source of information when troubleshooting why and how a Conditional Access policy applied in your environment. For more information about troubleshooting unexpected sign-in outcomes related to Conditional Access, see the article [Troubleshooting sign-in problems with Conditional Access](troubleshoot-conditional-access.md#service-dependencies).
+The Microsoft Entra sign-in log is a valuable source of information when troubleshooting why and how a Conditional Access policy applied in your environment. For more information about troubleshooting unexpected sign-in outcomes related to Conditional Access, see the article [Troubleshooting sign-in problems with Conditional Access](troubleshoot-conditional-access.md#service-dependencies).
 
 ## Next steps
 
-To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).
+To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Microsoft Entra ID](plan-conditional-access.md).

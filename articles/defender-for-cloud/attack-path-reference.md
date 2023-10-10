@@ -122,7 +122,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 ### Azure containers
 
-Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
+Prerequisite: [Enable agentless container posture](concept-agentless-containers.md). This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
 
 | Attack path display name | Attack path description |
 |--|--|

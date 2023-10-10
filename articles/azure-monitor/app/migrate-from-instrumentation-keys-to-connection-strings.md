@@ -2,7 +2,7 @@
 title: Migrate from Application Insights instrumentation keys to connection strings
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 09/12/2023
 ms.reviewer: cogoodson
 ---
 

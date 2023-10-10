@@ -9,7 +9,7 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande 
 ms.custom: devplatv2
 ---
 
@@ -134,7 +134,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 32: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 32: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
@@ -149,7 +149,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Python](#tab/sdk)
 
-1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 1. To authenticate using a service principal, indicate the tenant ID, client ID and client secret of the service principal using environment variables as demonstrated:
 
     ```python
@@ -178,7 +178,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [REST](#tab/rest)
 
-1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 
 1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine Learning is `https://ml.azure.com`. The request would look as follows:
 

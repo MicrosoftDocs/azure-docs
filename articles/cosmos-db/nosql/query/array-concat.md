@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/17/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -51,7 +51,7 @@ The following example shows how to concatenate two arrays.
 
 - This function doesn't utilize the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

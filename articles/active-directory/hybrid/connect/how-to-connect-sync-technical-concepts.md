@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Technical concepts'
-description: Explains the technical concepts of Azure AD Connect sync.
+title: 'Microsoft Entra Connect Sync: Technical concepts'
+description: Explains the technical concepts of Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Technical Concepts
+# Microsoft Entra Connect Sync: Technical Concepts
 This article is a summary of the topic [Understanding architecture](how-to-connect-sync-technical-concepts.md).
 
-Azure AD Connect sync builds upon a solid metadirectory synchronization platform.
+Microsoft Entra Connect Sync builds upon a solid metadirectory synchronization platform.
 The following sections introduce the concepts for metadirectory synchronization.
 Building upon MIIS (Microsoft Identity Integration Server), ILM (Identity Lifecycle Manager), and FIM (Forefront Identity Manager), the Azure Active Directory Sync Services provides the next platform for connecting to data sources, synchronizing data between data sources, as well as the provisioning and deprovisioning of identities.
 
@@ -38,7 +38,7 @@ The following sections provide more details about the following aspects of the F
 ## Connector
 The code modules that are used to communicate with a connected directory are called connectors (formerly known as  management agents (MAs)).
 
-These are installed on the computer running Azure AD Connect sync.
+These are installed on the computer running Microsoft Entra Connect Sync.
 The connectors provide the agentless ability to converse by using remote system protocols instead of relying on the deployment of specialized agents. This means decreased risk and deployment times, especially when dealing with critical applications and systems.
 
 In the picture above, the connector is synonymous with the connector space but encompasses all communication with the external system.
@@ -55,7 +55,7 @@ Attribute flow occurs between the connector space and the metaverse bi-direction
 Attribute flow only occurs when these synchronizations are run. Attribute flows are defined in Synchronization Rules. These can be inbound (ISR in the picture above) or outbound (OSR in the picture above).
 
 ## Connected system
-Connected system is referring to the remote system Azure AD Connect sync has connected to and reading and writing identity data to and from.
+Connected system is referring to the remote system Microsoft Entra Connect Sync has connected to and reading and writing identity data to and from.
 
 ## Connector space
 Each connected data source is represented as a filtered subset of the objects and attributes in the connector space.
@@ -70,9 +70,9 @@ As identities are linked together and authority is assigned for various attribut
 
 Objects are created when an authoritative system projects them into the metaverse. As soon as all connections are removed, the metaverse object is deleted.
 
-Objects in the metaverse can't be edited directly. All data in the object must be contributed through attribute flow. The metaverse maintains persistent connectors with each connector space. These connectors don't require reevaluation for each synchronization run. This means that Azure AD Connect sync doesn't have to locate the matching remote object each time. This avoids the need for costly agents to prevent changes to attributes that would normally be responsible for correlating the objects.
+Objects in the metaverse can't be edited directly. All data in the object must be contributed through attribute flow. The metaverse maintains persistent connectors with each connector space. These connectors don't require reevaluation for each synchronization run. This means that Microsoft Entra Connect Sync doesn't have to locate the matching remote object each time. This avoids the need for costly agents to prevent changes to attributes that would normally be responsible for correlating the objects.
 
-When discovering new data sources that may have preexisting objects that need to be managed, Azure AD Connect sync uses a process called a join rule to evaluate potential candidates with which to establish a link.
+When discovering new data sources that may have preexisting objects that need to be managed, Microsoft Entra Connect Sync uses a process called a join rule to evaluate potential candidates with which to establish a link.
 Once the link is established, this evaluation doesn't reoccur and normal attribute flow can occur between the remote connected data source and the metaverse.
 
 ## Provisioning
@@ -83,8 +83,8 @@ This inherently establishes a link, and attribute flow can proceed bi-directiona
 Whenever a rule determines that a new connector space object needs to be created, it's called provisioning. However, because this operation only takes place within the connector space, it doesn't carry over into the connected data source until an export is performed.
 
 ## Additional Resources
-* [Azure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png

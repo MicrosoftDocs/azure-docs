@@ -29,7 +29,7 @@ In this article, you'll find the currently supported open standards for Microsof
 
 ## Supported standards
 
-Entra Verified ID supports the following open standards:
+Microsoft Entra Verified ID supports the following open standards:
 
 | Technology stack component | Open standard | Standard body |
 |:------|:-----|:-----|

@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 09/14/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -220,7 +220,7 @@ When persistent storage is disabled, then writes to the `/home` directory are no
 
 The only exception is the `/home/LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
 
-It is recommended to write data to `/home` or a [mounted azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths will not be persistent during restarts and will be saved to platform-managed host disk space separate from the App Service Plans file storage quota.
+It is recommended to write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths will not be persistent during restarts and will be saved to platform-managed host disk space separate from the App Service Plans file storage quota.
 
 By default, persistent storage is *enabled* on Linux custom containers. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `false` via the [Cloud Shell](https://shell.azure.com). In Bash:
 
@@ -293,7 +293,20 @@ To download all the logs together in one ZIP file, access `https://<app-name>.sc
 
 ## Customize container memory
 
-By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default all Windows Containers deployed in Azure App Service have a memory limit configured.  The following table lists the default settings per App Service Plan SKU. 
+
+| App Service Plan SKU | Default memory limit per app in MB |
+|-|-|
+| P1v3 | 1024 |
+| P1Mv3 | 1024 |
+| P2v3 | 1536 |
+| P2Mv3 | 1536 |
+| P3v3 | 2048 |
+| P3Mv3 | 2048 |
+| P4Mv3 | 2560 |
+| P5Mv3 | 3072 |
+
+You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_MEMORY_LIMIT_MB=2000

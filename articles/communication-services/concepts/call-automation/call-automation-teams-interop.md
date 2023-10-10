@@ -65,19 +65,23 @@ The following list presents the set of features that are currently available in 
 > During Public preview, you won't be able to stop the call recording if it started after adding the Teams participant.
 
 ## Supported clients
+> [!IMPORTANT]
+> Teams phone license is a must to use this feature.
+
 | Clients          | Support     |
 | -----------------| ----------- |
 | Microsoft Teams Desktop | ✔️ |
 | Microsoft Teams Web | ✔️ |
-| Microsoft Teams iOS | ❌ |
-| Microsoft Teams Android | ❌ |
+| Microsoft Teams iOS | ✔️ |
+| Microsoft Teams Android | ✔️ |
 | Azure Communications Services signed in with Microsoft 365 Identity | ❌ |
 
-Teams phone license is a must to use this feature. 
+> [!NOTE]
+> While in preview, the support for Microsoft Teams mobile apps is available with limited functionality and some features might not work properly.   
 
 ## Roadmap
 1. Support for Azure Communications Services signed in with Microsoft 365 Identity coming soon.
-2. Support for Microsoft Teams iOS and Android clients coming soon. 
+
 
 ## Next steps
 

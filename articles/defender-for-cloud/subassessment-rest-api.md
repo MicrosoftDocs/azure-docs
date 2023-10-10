@@ -4,206 +4,165 @@ title: Container vulnerability assessments powered by Microsoft Defender Vulnera
 description: Learn about container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 author: dcurwin
 ms.author: dacurwin
-ms.date: 08/16/2023
+ms.date: 09/18/2023
 ms.topic: how-to
 ---
 
-# Container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments
-
-API Version:  2019-01-01-preview
-
-Get security subassessments on all your scanned resources inside a scope.
+# Container vulnerability assessments REST API
 
 ## Overview
 
-You can access vulnerability assessment results pragmatically for both registry and runtime recommendations using the subassessments rest API.
+Azure Resource Graph (ARG) provides a REST API that can be used to pragmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
+Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
-For more information on how to get started with our REST API, see [Azure REST API reference](/rest/api/azure/). Use the following information for specific information for the container vulnerability assessment results powered by Microsoft Defender Vulnerability Management.
+Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources. For more information, see:
+- [Security Resources ARG Query Samples](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
+- [Generic Security Sub Assessment Query](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
 
-## HTTP Requests
+## ARG query examples
 
-### Get
+To pull specific sub assessments, you need the assessment key. For Container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`. 
 
-#### GET
-
-`https://management.azure.com/{scope}/providers/Microsoft.Security/assessments/{assessmentName}/subAssessments/{subAssessmentName}?api-version=2019-01-01-preview`
-
-#### URI Parameters
-
-| Name              | In    | Required | Type   | Description                                                  |
-| ----------------- | ----- | -------- | ------ | ------------------------------------------------------------ |
-| assessmentName    | path  | True     | string | The  Assessment Key - Unique key for the assessment type     |
-| scope             | path  | True     | string | Scope of the  query. Can be subscription  (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group  (/providers/Microsoft.Management/managementGroups/mgName). |
-| subAssessmentName | path  | True     | string | The  Sub-Assessment Key - Unique key for the subassessment type |
-| api-version       | query | True     | string | API version  for the operation                               |
-
-#### Responses
-
-| Name                | Type                                                         | Description                                          |
-| ------------------- | ------------------------------------------------------------ | ---------------------------------------------------- |
-| 200 OK              | [SecuritySubAssessment](/rest/api/defenderforcloud/sub-assessments/get#securitysubassessment) | OK                                                   |
-| Other Status  Codes | [CloudError](/rest/api/defenderforcloud/sub-assessments/get#clouderror) | Error  response describing why the operation failed. |
-
-### List
-
-#### GET
-
-`https://management.azure.com/{scope}/providers/Microsoft.Security/assessments/{assessmentName}/subAssessments?api-version=2019-01-01-preview`
-
-#### URI parameters
-
-| **Name**           | **In** | **Required** | **Type** | **Description**                                              |
-| ------------------ | ------ | ------------ | -------- | ------------------------------------------------------------ |
-| **assessmentName** | path   | True         | string   | The  Assessment Key - Unique key for the assessment type     |
-| **scope**          | path   | True         | string   | Scope of the  query. The scope for AzureContainerVulnerability is the registry itself. |
-| **api-version**    | query  | True         | string   | API version  for the operation                               |
-
-#### Responses
-
-| Name               | Type                                                         | Description                                         |
-| ------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
-| 200 OK             | [SecuritySubAssessmentList](/rest/api/defenderforcloud/sub-assessments/list#securitysubassessmentlist) | OK                                                  |
-| Other Status Codes | [CloudError](/rest/api/defenderforcloud/sub-assessments/list#clouderror) | Error response describing why the operation failed. |
-
-## Security
-
-### azure_auth
-
-Azure Active Directory OAuth2 Flow
-
-Type: oauth2
-Flow: implicit
-Authorization URL: `https://login.microsoftonline.com/common/oauth2/authorize`
-
-Scopes
-
-| Name               | Description                   |
-| ------------------ | ----------------------------- |
-| user_impersonation | impersonate your user account |
-
-### Example
-
-### HTTP
-
-#### GET
-
-`https://management.azure.com/subscriptions/ 6ebb89c4-0e91-4f62-888f-c9518e662293/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/providers/Microsoft.Security/assessments/ cf02effd-8e33-4b84-a012-1e61cf1a5638/subAssessments?api-version=2019-01-01-preview`
-
-#### Sample Response
-
+The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
+```kql
+securityresources 
+| where type =~ "microsoft.security/assessments/subassessments" and properties.additionalData.assessedResourceType == "AzureContainerRegistryVulnerability"
+| extend assessmentKey=extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id)
+| where assessmentKey == "c0b7cfc6-3172-465a-b378-53c7ff2cc0d5"
+| extend timeGenerated = properties.timeGenerated
+| where timeGenerated > ago(1h)
+```
+### Query result
 ```json
-{
-    "value": [
-        {
-            "type": "Microsoft.Security/assessments/subAssessments",
-            "id": "/subscriptions/3905431d-c062-4c17-8fd9-c51f89f334c4/resourceGroups/PytorchEnterprise/providers/Microsoft.ContainerRegistry/registries/ptebic/providers/Microsoft.Security/assessments/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5/subassessments/3f069764-2777-3731-9698-c87f23569a1d",
-            "name": "3f069764-2777-3731-9698-c87f23569a1d",
-            "properties": {
-                "id": "CVE-2021-39537",
-                "displayName": "CVE-2021-39537",
-                "status": {
-                    "code": "NotApplicable",
-                    "severity": "High",
-                    "cause": "Exempt",
-                    "description": "Disabled parent assessment"
-                },
-                "remediation": "Create new image with updated package libncursesw5 with version 6.2-0ubuntu2.1 or higher.",
-                "description": "This vulnerability affects the following vendors: Gnu, Apple, Red_Hat, Ubuntu, Debian, Suse, Amazon, Microsoft, Alpine. To view more details about this vulnerability please visit the vendor website.",
-                "timeGenerated": "2023-08-08T08:14:13.742742Z",
-                "resourceDetails": {
-                    "source": "Azure",
-                    "id": "/repositories/public/azureml/aifx/stable-ubuntu2004-cu116-py39-torch1121/images/sha256:7f107db187ff32acfbc47eaa262b44d13d725f14dd08669a726a81fba87a12d6"
-                },
-                "additionalData": {
-                    "assessedResourceType": "AzureContainerRegistryVulnerability",
-                    "artifactDetails": {
-                        "repositoryName": "public/azureml/aifx/stable-ubuntu2004-cu116-py39-torch1121",
-                        "registryHost": "ptebic.azurecr.io",
-                        "digest": "sha256:7f107db187ff32acfbc47eaa262b44d13d725f14dd08669a726a81fba87a12d6",
-                        "tags": [
-                            "biweekly.202305.2"
-                        ],
-                        "artifactType": "ContainerImage",
-                        "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
-                        "lastPushedToRegistryUTC": "2023-05-15T16:00:40.2938142Z"
-                    },
-                    "softwareDetails": {
-                        "osDetails": {
-                            "osPlatform": "linux",
-                            "osVersion": "ubuntu_linux_20.04"
-                        },
-                        "packageName": "libncursesw5",
-                        "category": "OS",
-                        "fixReference": {
-                            "id": "USN-6099-1",
-                            "url": "https://ubuntu.com/security/notices/USN-6099-1",
-                            "description": "USN-6099-1: ncurses vulnerabilities 2023 May 23",
-                            "releaseDate": "2023-05-23T00:00:00+00:00"
-                        },
-                        "vendor": "ubuntu",
-                        "version": "6.2-0ubuntu2",
-                        "evidence": [
-                            "dpkg-query -f '${Package}:${Source}:\\n' -W | grep -e ^libncursesw5:.* -e .*:libncursesw5: | cut -f 1 -d ':' | xargs dpkg-query -s",
-                            "dpkg-query -f '${Package}:${Source}:\\n' -W | grep -e ^libncursesw5:.* -e .*:libncursesw5: | cut -f 1 -d ':' | xargs dpkg-query -s"
-                        ],
-                        "language": "",
-                        "fixedVersion": "6.2-0ubuntu2.1",
-                        "fixStatus": "FixAvailable"
-                    },
-                    "vulnerabilityDetails": {
-                        "cveId": "CVE-2021-39537",
-                        "references": [
-                            {
-                                "title": "CVE-2021-39537",
-                                "link": "https://nvd.nist.gov/vuln/detail/CVE-2021-39537"
-                            }
-                        ],
-                        "cvss": {
-                            "2.0": null,
-                            "3.0": {
-                                "base": 7.8,
-                                "cvssVectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:P/RL:U/RC:R"
-                            }
-                        },
-                        "workarounds": [],
-                        "publishedDate": "2020-08-04T00:00:00",
-                        "lastModifiedDate": "2023-07-07T00:00:00",
-                        "severity": "High",
-                        "cpe": {
-                            "uri": "cpe:2.3:a:ubuntu:libncursesw5:*:*:*:*:*:ubuntu_linux_20.04:*:*",
-                            "part": "Applications",
-                            "vendor": "ubuntu",
-                            "product": "libncursesw5",
-                            "version": "*",
-                            "update": "*",
-                            "edition": "*",
-                            "language": "*",
-                            "softwareEdition": "*",
-                            "targetSoftware": "ubuntu_linux_20.04",
-                            "targetHardware": "*",
-                            "other": "*"
-                        },
-                        "weaknesses": {
-                            "cwe": [
-                                {
-                                    "id": "CWE-787"
-                                }
-                            ]
-                        },
-                        "exploitabilityAssessment": {
-                            "exploitStepsVerified": false,
-                            "exploitStepsPublished": false,
-                            "isInExploitKit": false,
-                            "types": [],
-                            "exploitUris": []
-                        }
-                    },
-                    "cvssV30Score": 7.8
-                }
+[
+  {
+    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.ContainerRegistry/registries/{Registry Name}/providers/Microsoft.Security/assessments/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5/subassessments/{SubAssessmentId}",
+    "name": "{SubAssessmentId}",
+    "type": "microsoft.security/assessments/subassessments",
+    "tenantId": "{TenantId}",
+    "kind": "",
+    "location": "global",
+    "resourceGroup": "{ResourceGroup}",
+    "subscriptionId": "{SubscriptionId}",
+    "managedBy": "",
+    "sku": null,
+    "plan": null,
+    "properties": {
+      "id": "CVE-2022-42969",
+      "additionalData": {
+        "assessedResourceType": "AzureContainerRegistryVulnerability",
+        "vulnerabilityDetails": {
+          "severity": "High",
+          "exploitabilityAssessment": {
+            "exploitStepsPublished": false,
+            "exploitStepsVerified": false,
+            "isInExploitKit": false,
+            "exploitUris": [],
+            "types": [
+              "Remote"
+            ]
+          },
+          "lastModifiedDate": "2023-09-12T00:00:00Z",
+          "publishedDate": "2022-10-16T06:15:00Z",
+          "workarounds": [],
+          "references": [
+            {
+              "title": "CVE-2022-42969",
+              "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-42969"
+            },
+            {
+              "title": "oval:org.opensuse.security:def:202242969",
+              "link": "https://ftp.suse.com/pub/projects/security/oval/suse.linux.enterprise.server.15.xml.gz"
+            },
+            {
+              "title": "oval:com.microsoft.cbl-mariner:def:11166",
+              "link": "https://raw.githubusercontent.com/microsoft/CBL-MarinerVulnerabilityData/main/cbl-mariner-1.0-oval.xml"
+            },
+            {
+              "title": "ReDoS in py library when used with subversion ",
+              "link": "https://github.com/advisories/GHSA-w596-4wvx-j9j6"
             }
-        }
-    ]
-}
+          ],
+          "weaknesses": {
+            "cwe": [
+              {
+                "id": "CWE-1333"
+              }
+            ]
+          },
+          "cveId": "CVE-2022-42969",
+          "cvss": {
+            "2.0": null,
+            "3.0": {
+              "cvssVectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "base": 7.5
+            }
+          },
+          "cpe": {
+            "language": "*",
+            "softwareEdition": "*",
+            "version": "*",
+            "targetHardware": "*",
+            "targetSoftware": "python",
+            "vendor": "py",
+            "edition": "*",
+            "product": "py",
+            "update": "*",
+            "other": "*",
+            "part": "Applications",
+            "uri": "cpe:2.3:a:py:py:*:*:*:*:*:python:*:*"
+          }
+        },
+        "artifactDetails": {
+          "lastPushedToRegistryUTC": "2023-09-04T16:05:32.8223098Z",
+          "repositoryName": "public/azureml/aifx/stable-ubuntu2004-cu117-py39-torch200",
+          "registryHost": "ptebic.azurecr.io",
+          "artifactType": "ContainerImage",
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:4af8e6f002401a965bbe753a381af308b40d8947fad2b9e1f6a369aa81abee59",
+          "tags": [
+            "biweekly.202309.1"
+          ]
+        },
+        "softwareDetails": {
+          "category": "Language",
+          "language": "python",
+          "fixedVersion": "",
+          "version": "1.11.0.0",
+          "vendor": "py",
+          "packageName": "py",
+          "osDetails": {
+            "osPlatform": "linux",
+            "osVersion": "ubuntu_linux_20.04"
+          },
+          "fixStatus": "FixAvailable",
+          "evidence": []
+        },
+        "cvssV30Score": 7.5
+      },
+      "description": "This vulnerability affects the following vendors: Pytest, Suse, Microsoft, Py. To view more details about this vulnerability please visit the vendor website.",
+      "displayName": "CVE-2022-42969",
+      "resourceDetails": {
+        "id": "/repositories/public/azureml/aifx/stable-ubuntu2004-cu117-py39-torch200/images/sha256:4af8e6f002401a965bbe753a381af308b40d8947fad2b9e1f6a369aa81abee59",
+        "source": "Azure"
+      },
+      "timeGenerated": "2023-09-12T13:36:15.0772799Z",
+      "remediation": "No remediation exists",
+      "status": {
+        "description": "Disabled parent assessment",
+        "severity": "High",
+        "code": "NotApplicable",
+        "cause": "Exempt"
+      }
+    },
+    "tags": null,
+    "identity": null,
+    "zones": null,
+    "extendedLocation": null,
+    "assessmentKey": "c0b7cfc6-3172-465a-b378-53c7ff2cc0d5",
+    "timeGenerated": "2023-09-12T13:36:15.0772799Z"
+  }
+]
 ```
 
 ## Definitions
@@ -211,12 +170,9 @@ Scopes
 | Name                        | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
 | AzureResourceDetails        | Details of  the Azure resource that was assessed             |
-| CloudError                  | Common error  response for all Azure Resource Manager APIs to return error details for  failed operations. (This definition also follows the OData error response format.). |
-| CloudErrorBody              | The error  detail                                            |
 | AzureContainerVulnerability | More  context fields for container registry Vulnerability assessment |
 | CVE                         | CVE Details                                                  |
 | CVSS                        | CVSS Details                                                 |
-| ErrorAdditionalInfo         | The resource  management error additional info.              |
 | SecuritySubAssessment       | Security  subassessment on a resource                       |
 | SecuritySubAssessmentList   | List of  security subassessments                            |
 | ArtifactDetails             | Details for  the affected container image                    |
@@ -231,7 +187,7 @@ Scopes
 
 ### AzureContainerRegistryVulnerability (MDVM)
 
-Additional context fields for Azure container registry vulnerability assessment
+Other context fields for Azure container registry vulnerability assessment
 
 | **Name**             | **Type**                                     | **Description**               |
 | -------------------- | -------------------------------------------- | ----------------------------- |
@@ -253,7 +209,7 @@ Context details for the affected container image
 | artifactType               | String:  ContainerImage |                                      |
 | mediaType                  | String                  | Layer media type                     |
 | Digest                     | String                  | Digest of vulnerable  image          |
-| Tags                       | String[]                | Tags of  vulnerable image            |
+| Tags                       | String                  | Tags of  vulnerable image            |
 
 ### Software Details
 
@@ -269,7 +225,7 @@ Details for the affected software package
 | vendor       | String       |                                                              |
 | packageName  | String       |                                                              |
 | fixStatus    | String       | Unknown,      FixAvailable,      NoFixAvailable,      Scheduled,      WontFix |
-| evidence     | String[]     | Evidence for  the package                                    |
+| evidence     | String       | Evidence for  the package                                    |
 | fixReference | FixReference |                                                              |
 
 ### FixReference
@@ -303,9 +259,9 @@ Details on the detected vulnerability
 | publishedDate            | Timestamp                  | Published  date                                      |
 | ExploitabilityAssessment | ExploitabilityAssessment   |                                                      |
 | CVSS                     | Dictionary  <string, CVSS> | Dictionary  from cvss version to cvss details object |
-| Workarounds              | Workaround[]               | Published  workarounds for vulnerability             |
+| Workarounds              | Workaround                 | Published  workarounds for vulnerability             |
 | References               | VulnerabilityReference      |                                                      |
-| Weaknesses               | Weakness[]                 |                                                      |
+| Weaknesses               | Weakness                   |                                                      |
 | cveId                    | String                     | CVE ID                                               |
 | Cpe                      | CPE                        |                                                      |
 
@@ -329,7 +285,7 @@ Details on the detected vulnerability
 
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
-| Cwe      | Cwe[]    |                 |
+| Cwe      | Cwe      |                 |
 
 ### Cwe (Common weakness enumeration)
 
@@ -354,11 +310,11 @@ Reference links to an example exploit
 
 | **Name**              | **Type** | **Description**                                              |
 | --------------------- | -------- | ------------------------------------------------------------ |
-| exploitUris           | String[] |                                                              |
+| exploitUris           | String   |                                                              |
 | exploitStepsPublished | Boolean  | Had the  exploits steps been published                       |
 | exploitStepsVerified  | Boolean  | Had the  exploit steps verified                              |
 | isInExploitKit        | Boolean  | Is part of  the exploit kit                                  |
-| types                 | String[] | Exploit  types, for example: NotAvailable, Dos, Local, Remote, WebApps, PrivilegeEscalation |
+| types                 | String   | Exploit  types, for example: NotAvailable, Dos, Local, Remote, WebApps, PrivilegeEscalation |
 
 ### AzureResourceDetails
 
@@ -368,39 +324,6 @@ Details of the Azure resource that was assessed
 | -------- | -------------- | ------------------------------------------------ |
 | ID       | string         | Azure resource ID of the assessed resource       |
 | source   | string:  Azure | The platform where the assessed resource resides |
-
-### CloudError
-
-Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This response also follows the OData error response format.).
-
-| **Name**             | **Type**                                                     | **Description**            |
-| -------------------- | ------------------------------------------------------------ | -------------------------- |
-| error.additionalInfo | [ErrorAdditionalInfo](/rest/api/defenderforcloud/sub-assessments/list#erroradditionalinfo)[] | The error additional info. |
-| error.code           | string                                                       | The error code.            |
-| error.details        | [CloudErrorBody](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#clouderrorbody)[] | The error details.         |
-| error.message        | string                                                       | The error message.         |
-| error.target         | string                                                       | The error target.          |
-
-### CloudErrorBody
-
-The error detail.
-
-| **Name**       | **Type**                                                     | **Description**            |
-| -------------- | ------------------------------------------------------------ | -------------------------- |
-| additionalInfo | [ErrorAdditionalInfo](/rest/api/defenderforcloud/sub-assessments/list#erroradditionalinfo)[] | The error additional info. |
-| code           | string                                                       | The error code.            |
-| details        | [CloudErrorBody](/rest/api/defenderforcloud/sub-assessments/list#clouderrorbody)[] | The error details.         |
-| message        | string                                                       | The error message.         |
-| target         | string                                                       | The error target.          |
-
-### ErrorAdditionalInfo
-
-The resource management error additional info.
-
-| **Name** | **Type** | **Description**           |
-| -------- | -------- | ------------------------- |
-| info     | object   | The additional info.      |
-| type     | string   | The additional info type. |
 
 ### SecuritySubAssessment
 
@@ -429,4 +352,4 @@ List of security subassessments
 | **Name** | **Type**                                                     | **Description**                       |
 | -------- | ------------------------------------------------------------ | ------------------------------------- |
 | nextLink | string                                                       | The URI to fetch the next page.       |
-| value    | [SecuritySubAssessment](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#securitysubassessment)[] | Security subassessment on a resource |
+| value    | [SecuritySubAssessment](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#securitysubassessment) | Security subassessment on a resource |

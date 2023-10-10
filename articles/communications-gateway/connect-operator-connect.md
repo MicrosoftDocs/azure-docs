@@ -1,17 +1,17 @@
 ---
 title: Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
-description:  After deploying Azure Communications Gateway, you must configure it to connect to the Operator Connect and Teams Phone Mobile environments.
+description:  After deploying Azure Communications Gateway, you can configure it to connect to the Operator Connect and Teams Phone Mobile environments.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: integration
-ms.date: 07/07/2023
+ms.date: 10/09/2023
 ms.custom:
     - template-how-to-pattern
     - has-azure-ad-ps-ref
 ---
 
-# Connect to Operator Connect or Teams Phone Mobile
+# Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
 
 After you have deployed Azure Communications Gateway, you need to connect it to the Microsoft Phone System and to your core network. You also need to onboard to the Operator Connect or Teams Phone Mobile environments.
 
@@ -23,10 +23,10 @@ You must have carried out all the steps in [Deploy Azure Communications Gateway]
 
 You must have access to a user account with the Azure Active Directory Global Admin role.
 
-## 1. Add the Project Synergy application to your Azure tenancy
+## Add the Project Synergy application to your Azure tenancy
 
 > [!NOTE]
->This step and the next step ([2. Assign an Admin user to the Project Synergy application](#2-assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. If you've already gone through onboarding, go to [3. Find the Object ID and Application ID for your Azure Communication Gateway resource](#3-find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
+>This step and the next step ([Assign an Admin user to the Project Synergy application](#assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. If you've already gone through onboarding, go to [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
 
 The Operator Connect and Teams Phone Mobile programs require your Azure Active Directory tenant to contain a Microsoft application called Project Synergy. Operator Connect and Teams Phone Mobile inherit permissions and identities from your Azure Active Directory tenant through the Project Synergy application. The Project Synergy application also allows configuration of Operator Connect or Teams Phone Mobile and assigning users and groups to specific roles.
 
@@ -57,7 +57,7 @@ To add the Project Synergy application:
     New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
     ```
 
-## 2. Assign an Admin user to the Project Synergy application
+## Assign an Admin user to the Project Synergy application
 
 The user who sets up Azure Communications Gateway needs to have the Admin user role in the Project Synergy application. Assign them this role in the Azure portal.
 
@@ -70,9 +70,9 @@ The user who sets up Azure Communications Gateway needs to have the Admin user r
 1. Select **Add user/group**.
 1. Specify the user you want to use for setting up Azure Communications Gateway and give them the **Admin** role.
 
-## 3. Find the Object ID and Application ID for your Azure Communication Gateway resource
+## Find the Object ID and Application ID for your Azure Communication Gateway resource
 
-Each Azure Communications Gateway resource automatically receives a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), which Azure Communications Gateway uses to connect to the Operator Connect environment. You need to find the Object ID and Application ID of the managed identity, so that you can connect Azure Communications Gateway to the Operator Connect or Teams Phone Mobile environment in [4. Set up application roles for Azure Communications Gateway](#4-set-up-application-roles-for-azure-communications-gateway) and [7. Add the Application ID for Azure Communications Gateway to Operator Connect](#7-add-the-application-id-for-azure-communications-gateway-to-operator-connect).
+Each Azure Communications Gateway resource automatically receives a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), which Azure Communications Gateway uses to connect to the Operator Connect environment. You need to find the Object ID and Application ID of the managed identity, so that you can connect Azure Communications Gateway to the Operator Connect or Teams Phone Mobile environment in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway) and [Add the Application ID for Azure Communications Gateway to Operator Connect](#add-the-application-id-for-azure-communications-gateway-to-operator-connect).
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
 1. In the search bar at the top of the page, search for your Communications Gateway resource.
@@ -85,12 +85,12 @@ Each Azure Communications Gateway resource automatically receives a [system-assi
 1. Check that the **Object ID** matches the **Object (principal) ID** value that you copied.
 1. Make a note of the **Application ID**.
 
-## 4. Set up application roles for Azure Communications Gateway
+## Set up application roles for Azure Communications Gateway
 
-Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to the system-assigned managed identity for Azure Communications Gateway under the Project Synergy Enterprise Application. You created the Project Synergy Enterprise Application in [1. Add the Project Synergy application to your Azure tenancy](#1-add-the-project-synergy-application-to-your-azure-tenancy).
+Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to the system-assigned managed identity for Azure Communications Gateway under the Project Synergy Enterprise Application. You created the Project Synergy Enterprise Application in [Add the Project Synergy application to your Azure tenancy](#add-the-project-synergy-application-to-your-azure-tenancy).
 
 > [!IMPORTANT]
-> Granting permissions has two parts: configuring the system-assigned managed identity for Azure Communications Gateway with the appropriate roles (this step) and adding the application ID of the managed identity to the Operator Connect or Teams Phone Mobile environment. You'll add the application ID to the Operator Connect or Teams Phone Mobile environment later, in [7. Add the Application ID for Azure Communications Gateway to Operator Connect](#7-add-the-application-id-for-azure-communications-gateway-to-operator-connect).
+> Granting permissions has two parts: configuring the system-assigned managed identity for Azure Communications Gateway with the appropriate roles (this step) and adding the application ID of the managed identity to the Operator Connect or Teams Phone Mobile environment. You'll add the application ID to the Operator Connect or Teams Phone Mobile environment later, in [Add the Application ID for Azure Communications Gateway to Operator Connect](#add-the-application-id-for-azure-communications-gateway-to-operator-connect).
 
 Do the following steps in the tenant that contains your Project Synergy application.
 
@@ -117,7 +117,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
     ```azurepowershell
     Connect-AzureAD -TenantId "<AADTenantID>"
     ```
-1. Run the following cmdlet, replacing *`<CommunicationsGatewayObjectID>`* with the Object ID you noted down in [3. Find the Object ID and Application ID for your Azure Communication Gateway resource](#3-find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
+1. Run the following cmdlet, replacing *`<CommunicationsGatewayObjectID>`* with the Object ID you noted down in [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
     ```azurepowershell
     $commGwayObjectId = "<CommunicationsGatewayObjectID>"
     ```
@@ -146,7 +146,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
     
     ```
 
-## 5. Provide additional information to your onboarding team
+## Provide additional information to your onboarding team
 
 > [!NOTE]
 >This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already onboarded to TPM or OC.
@@ -159,28 +159,28 @@ Before your onboarding team can finish onboarding you to the Operator Connect an
 
 If you don't already have an onboarding team, contact azcog-enablement@microsoft.com, providing your Azure subscription ID and contact details.
 
-## 6. Test your Operator Connect portal access
+## Test your Operator Connect portal access
 
 > [!IMPORTANT]
 > Before testing your Operator Connect portal access, wait for your onboarding team to confirm that the onboarding process is complete.
 
 Go to the [Operator Connect homepage](https://operatorconnect.microsoft.com/) and check that you're able to sign in.
 
-## 7. Add the Application ID for Azure Communications Gateway to Operator Connect
+## Add the Application ID for Azure Communications Gateway to Operator Connect
 
-You must enable the Azure Communications Gateway application within the Operator Connect or Teams Phone Mobile environment. Enabling the application allows Azure Communications Gateway to use the roles that you set up in [4. Set up application roles for Azure Communications Gateway](#4-set-up-application-roles-for-azure-communications-gateway).
+You must enable the Azure Communications Gateway application within the Operator Connect or Teams Phone Mobile environment. Enabling the application allows Azure Communications Gateway to use the roles that you set up in [Set up application roles for Azure Communications Gateway](#set-up-application-roles-for-azure-communications-gateway).
 
-To enable the application, add the Application ID of the system-assigned managed identity representing Azure Communications Gateway to your Operator Connect or Teams Phone Mobile environment. You found this ID in [3. Find the Object ID and Application ID for your Azure Communication Gateway resource](#3-find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
+To enable the application, add the Application ID of the system-assigned managed identity representing Azure Communications Gateway to your Operator Connect or Teams Phone Mobile environment. You found this ID in [Find the Object ID and Application ID for your Azure Communication Gateway resource](#find-the-object-id-and-application-id-for-your-azure-communication-gateway-resource).
 
 1. Log into the [Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Add a new **Application Id**, using the Application ID that you found.
 
-## 8. Register your deployment's domain name in Active Directory
+## Register your deployment's domain name in Active Directory
 
 Microsoft Teams only sends traffic to domains that you've confirmed that you own. Your Azure Communications Gateway deployment automatically receives an autogenerated fully qualified domain name (FQDN). You need to add this domain name to your Active Directory tenant as a custom domain name, share the details with your onboarding team and then verify the domain name. This process confirms that you own the domain.
 
 1. Navigate to the **Overview** of your Azure Communications Gateway resource and select **Properties**. Find the field named **Domain**. This name is your deployment's domain name.
-1. Complete the following procedure: [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name-to-azure-ad).
+1. Complete the following procedure: [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name).
 1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
 1. Complete the following procedure: [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name).
 

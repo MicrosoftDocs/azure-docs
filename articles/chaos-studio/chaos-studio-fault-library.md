@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 06/16/2022
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022, devx-track-arm-template
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Azure Chaos Studio Preview fault and action library
@@ -865,6 +865,39 @@ Configure the shutdown fault:
 
 ### Limitations
 Currently, only virtual machine scale sets configured with the **Uniform** orchestration mode are supported. If your virtual machine scale set uses **Flexible** orchestration, you can use the Azure Resource Manager virtual machine shutdown fault to shut down selected instances.
+
+## Virtual Machine redeploy
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Redeploy-1.0 |
+| Target type | Microsoft-VirtualMachine |
+| Description | Redeploys a VM by shutting it down, moving it to a new node in the Azure infrastructure, and powering it back on. This helps validate your workload's resilience to maintenance events. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachine:redeploy/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | None. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:virtualMachine:redeploy/1.0",
+      "parameters":[],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* The Virtual Machine Redeploy operation is throttled within an interval of 10 hours. If your experiment fails with a "Too many redeploy requests" error, please wait for 10 hours to retry the experiment.
+
 
 ## Azure Cosmos DB failover
 

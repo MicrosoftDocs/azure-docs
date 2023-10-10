@@ -1,29 +1,29 @@
 ---
-title: Azure AD user data collection
-description: What information is used to help authenticate users by self-service password reset and Azure AD Multi-Factor Authentication?
+title: Microsoft Entra user data collection
+description: What information is used to help authenticate users by self-service password reset and Microsoft Entra multifactor authentication?
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 09/13/2021
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD user data collection for multifactor authentication and self-service password reset 
+# Microsoft Entra user data collection for multifactor authentication and self-service password reset 
 
-This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server), Azure AD MFA (Cloud-based), and self-service password reset (SSPR) in the event you would like to remove it.
+This document explains how to find user information collected by Azure multifactor authentication Server (MFA Server), Microsoft Entra multifactor authentication (Cloud-based), and self-service password reset (SSPR) in the event you would like to remove it.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## MFA information collected
 
-MFA Server, the NPS Extension, and the Windows Server 2016 Azure AD MFA AD FS Adapter collect and store the following information for 90 days.
+MFA Server, the NPS Extension, and the Windows Server 2016 Microsoft Entra multifactor authentication AD FS Adapter collect and store the following information for 90 days.
 
 Authentication Attempts (used for reporting and troubleshooting):
 
@@ -113,7 +113,7 @@ Bypasses (used for reporting):
 - Completion Reason
 - Bypass Used
 
-Changes (used to sync user changes to MFA Server or Azure AD):
+Changes (used to sync user changes to MFA Server or Microsoft Entra ID):
 
 - Change Timestamp
 - Username
@@ -149,39 +149,47 @@ From the command line of the MFA Server, run the following command changing the 
 
 ## Gather data from NPS Extension
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
+Use the Microsoft Privacy portal to make a request for Export.
 
 - MFA information is included in the export, which may take hours or days to complete.
 - Occurrences of the username in the AzureMfa/AuthN/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh, and AzureMfa/AuthZ/AuthZOptCh event logs are considered operational and duplicative to the information provided in the export.
 
 ## Delete data from NPS Extension
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Use the Microsoft Privacy portal to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
-## Gather data from Windows Server 2016 Azure AD MFA AD FS Adapter
+<a name='gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter'></a>
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export. 
+## Gather data from Windows Server 2016 Microsoft Entra multifactor authentication AD FS Adapter
+
+Use the Microsoft Privacy portal to make a request for Export. 
 
 - MFA information is included in the export, which may take hours or days to complete.
 - Occurrences of the username in the AD FS Tracing/Debug event logs (if enabled) are considered operational and duplicative to the information provided in the export.
 
-## Delete data from Windows Server 2016 Azure AD MFA AD FS Adapter
+<a name='delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter'></a>
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+## Delete data from Windows Server 2016 Microsoft Entra multifactor authentication AD FS Adapter
+
+Use the Microsoft Privacy portal to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
-## Gather data for Azure AD MFA
+<a name='gather-data-for-azure-ad-mfa'></a>
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
+## Gather data for Microsoft Entra multifactor authentication
+
+Use the Microsoft Privacy portal to make a request for Export.
 
 - MFA information is included in the export, which may take hours or days to complete.
 
-## Delete data for Azure AD MFA
+<a name='delete-data-for-azure-ad-mfa'></a>
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+## Delete data for Microsoft Entra multifactor authentication
+
+Use the Microsoft Privacy portal to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
@@ -189,7 +197,7 @@ Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azu
 
 Users can add answers to security questions as part of SSPR. Security questions and answers are hashed to prevent unauthorized access. Only the hashed data is saved, so the security questions and answers can't be exported. Users can go to [My sign-ins](https://mysignins.microsoft.com/security-info) to edit or delete them. The only other information saved for SSPR is the user email address. 
 
-Global Administrators can remove data collected for any user. On the **Users** page in Azure AD, click **Authentication methods** and select a user to remove their phone or email address. 
+Global Administrators can remove data collected for any user. On the **Users** page in Microsoft Entra ID, click **Authentication methods** and select a user to remove their phone or email address. 
 
 ## Next steps
 

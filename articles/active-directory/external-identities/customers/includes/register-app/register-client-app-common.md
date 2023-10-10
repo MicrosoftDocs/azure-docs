@@ -8,11 +8,11 @@ ms.author: kengaderdus
 ---
 <!--Doesn't apply to daemon app-->
 
-To enable your application to sign in users with Microsoft Entra, Azure Active Directory (Azure AD) for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and Microsoft Entra. When you register an application, Azure AD generates a unique identifier known as an **Application (client) ID**, a value used to identify your app when creating authentication requests.
+To enable your application to sign in users with Microsoft Entra, Microsoft Entra ID for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and Microsoft Entra. When you register an application, External ID generates a unique identifier known as an **Application (client) ID**, a value used to identify your app when creating authentication requests.
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 1. Browse to **Identity** >**Applications** > **App registrations**.
 1. Select **+ New registration**.
