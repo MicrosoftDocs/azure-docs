@@ -157,7 +157,7 @@ If you want to deploy the web sample to Tomcat, make a couple changes to the sou
           ```
 
 3. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
-    - This command will generate a *msal-web-sample-0.1.0.war* file in your */targets* directory.
+    - This command will generate a *MSAL-web-sample-0.1.0.war* file in your */targets* directory.
     - Rename this file to *msal4jsample.war*.
     - Deploy the WAR file by using Tomcat or any other J2EE container solution.
         - To deploy the msal4jsample.war file, copy it to the */webapps/* directory in your Tomcat installation, and then start the Tomcat server.
