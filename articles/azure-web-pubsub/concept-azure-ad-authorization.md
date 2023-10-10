@@ -15,7 +15,7 @@ The Azure Web PubSub Service enables the authorization of requests to Azure Web 
 
 By utilizing role-based access control (RBAC) with Microsoft Entra ID, permissions can be granted to a security principal<sup>[<a href="#security-principal">1</a>]</sup>. Microsoft Entra authorizes this security principal and returns an OAuth 2.0 token, which Web PubSub resources can then use to authorize a request.
 
-Using Microsoft Entra ID for authorization of Web PubSub requests offers improved security and ease of use compared to Access Key authorization. Microsoft recommends utilizing Microsoft Entra ID authorization with Web PubSub resources when possible to ensure access with the minimum necessary privileges.
+Using Microsoft Entra ID for authorization of Web PubSub requests offers improved security and ease of use compared to Access Key authorization. Microsoft recommends utilizing Microsoft Entra authorization with Web PubSub resources when possible to ensure access with the minimum necessary privileges.
 
 <a id="security-principal"></a>
 _[1] security principal: a user/resource group, an application, or a service principal such as system-assigned identities and user-assigned identities._
@@ -41,7 +41,7 @@ We provided helper functions (for example `GenerateClientAccessUri) for supporte
 
 ## Assign Azure roles for access rights
 
-Microsoft Entra ID authorizes access rights to secured resources through [Azure role-based access control](../role-based-access-control/overview.md). Azure Web PubSub defines a set of Azure built-in roles that encompass common sets of permissions used to access Web PubSub resources. You can also define custom roles for access to Web PubSub resources.
+Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control](../role-based-access-control/overview.md). Azure Web PubSub defines a set of Azure built-in roles that encompass common sets of permissions used to access Web PubSub resources. You can also define custom roles for access to Web PubSub resources.
 
 ### Resource scope
 
@@ -85,7 +85,7 @@ To learn how to create an Azure application and use Microsoft Entra authorizatio
 
 - [Authorize request to Web PubSub resources with Microsoft Entra ID from applications](howto-authorize-from-application.md)
 
-To learn how to configure a managed identity and use Microsoft Entra ID auth, see
+To learn how to configure a managed identity and use Microsoft Entra auth, see
 
 - [Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities](howto-authorize-from-managed-identity.md)
 
