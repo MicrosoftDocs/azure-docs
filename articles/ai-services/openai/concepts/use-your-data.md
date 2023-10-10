@@ -73,7 +73,7 @@ See the following table for a summary of virtual network and private endpoint su
 | The resource allows access from all networks.                                           | The resource allows access from all networks. | Regardless of the availability of an embedding model.                                            | Supported.                   | Supported.   |
 | The resource allows access from selected networks or only private endpoint connections. | The resource allows access from all networks. | An embedding model is available to enable vector search. | Not supported.                |Supported. |
 | The resource allows access from selected networks or only private endpoint connections.  | The resource allows access from all networks.  | An embedding model is not available. |   Supported. |  Supported. |
-| Regardless of resource access allowances.                                 | The resource allows access from selected networks or only private endpoint connections.   |     Regardless of the availability of an embedding model.                                     |   Supported.    | Not supported. |
+| Regardless of resource access allowances.                                 | The resource allows access from selected networks or only private endpoint connections.   |     Regardless of the availability of an embedding model.                                     |   Not supported.    | Supported.  |
 
 Additionally, the ingestion API has the following configuration requirements:
 
