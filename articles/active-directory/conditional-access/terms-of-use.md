@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 10/10/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -266,48 +266,12 @@ The following procedure describes how to add a ToU language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use policy on every device they're accessing from. The end user is required to register their device in Microsoft Entra ID. When the device is registered, the device ID is used to enforce the terms of use policy on each device.
-
-Supported platforms and software.
-
-> [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Other |
-> | --- | --- | --- | --- | --- |
-> | **Native app** | Yes | Yes | Yes |  |
-> | **Microsoft Edge** | Yes | Yes | Yes |  |
-> | **Internet Explorer** | Yes | Yes | Yes |  |
-> | **Chrome (with extension)** | Yes | Yes | Yes |  |
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use policy on every device they're accessing from. The end user's device must be registered in Microsoft Entra ID. When the device is registered, the device ID is used to enforce the terms of use policy on each device. Their experience is dependent on permissions to join devices as well as the platform and software used, for more information see, [device identity in Microsoft Entra ID](../devices/overview).
 
 Per-device terms of use have the following constraints:
 
-- A device can only be joined to one tenant.
-- A user must have permissions to join their device.
 - The Intune Enrollment app isn't supported. Ensure that it's excluded from any Conditional Access policy requiring Terms of Use policy.
 - Microsoft Entra B2B users aren't supported.
-
-If the user's device isn't joined, they receive a message that they need to join their device. Their experience is dependent on the platform and software.
-
-### Join a Windows 10 device
-
-If a user is using Windows 10 and Microsoft Edge, they receive a message similar to the following to [join their device](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973#to-join-an-already-configured-windows-10-device).
-
-![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
-
-If they're using Chrome, they're prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
-
-### Register an iOS device
-
-If a user is using an iOS device, they're prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
-
-### Register an Android device
-
-If a user is using an Android device, they're prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
-
-### Browsers
-
-If a user is using browser that isn't supported, they're asked to use a different browser.
-
-![Message indicating your device must be registered, but browser is not supported](./media/terms-of-use/per-device-browser-unsupported.png)
 
 ## Delete terms of use
 
