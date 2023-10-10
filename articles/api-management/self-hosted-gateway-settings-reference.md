@@ -94,7 +94,7 @@ Here is an overview of settings that need to be configured to be able to work wi
 
 | Name                              | Public                                         | Azure China                          | US Government  |
 |-----------------------------------|------------------------------------------------|--------------------------------------|----------------|
-| config.service.auth.tokenAudience | Default, `https://azure-api.net/configuration` | `https://azure-api.cn/configuration` | `azure-api.us` |
+| config.service.auth.tokenAudience | `https://azure-api.net/configuration` (Default) | `https://azure-api.cn/configuration` | `https://azure-api.us/configuration` |
 
 ## How to configure settings
 
