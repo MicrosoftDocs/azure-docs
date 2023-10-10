@@ -57,23 +57,23 @@ conceptualContent:
               itemType: concept
               text: Build apps with Zero Trust
         # Card
-        - title: Microsoft Learn
+        - title: Microsoft Learn training
           links:
             - url: /training/modules/describe-identity-principles-concepts/
               itemType: learn
               text: Identity concepts
             - url: /training/modules/explore-basic-services-identity-types/
               itemType: learn
-              text: Services and identity types
+              text: Function and identity types
             - url: /training/modules/create-users-and-groups-in-azure-active-directory/
               itemType: learn
               text: Create users and groups
             - url: /training/modules/allow-users-reset-their-password/
               itemType: learn
               text: Allow users to reset their password
-            - url: /training/modules/secure-access-azure-identity-services/
+            - url: /training/modules/secure-aad-users-with-mfa/
               itemType: learn
-              text: Secure access to your apps
+              text: Secure users with MFA
             - url: /training/browse/?products=entra&resource_type=module
               itemType: learn
               text: See more >
