@@ -25,7 +25,7 @@ Permissions Required:
 | Okta                 | API Access Management Administrator     | Admin can add the application in the Okta portal and add or edit the API scope.    |
 | AWS   | AWS permissions explicitly     |  Admin should be able to run the cloudformation stack to create  1. AWS Secret in Secrets Manager; 2. Managed policy to allow the role to read the AWS secret. | 
 
-> [!NOTE:]
+> [!NOTE]
 > While configuring the Amazon Web Services (AWS) app in Okta, the suggested AWS role group syntax is (```aws#{account alias]#{role name}#{account #]```).
  Sample RegEx pattern for the group filter name are:
  - ```^aws\#\S+\#?{{role}}[\w\-]+)\#(?{{accountid}}\d+)$```
@@ -73,10 +73,10 @@ Once located, note the Okta URL in an app such as Notepad. You will need this UR
     - **Or URL** Your organization's Okta URL, example: *https://companyname.okta.com*
     - **Client Id** - From the **Client Credentials** section of your Okta application
     - **Public Key Id** - Click **Add > Generate new key**. The public key is generated 
-    - **Private Key (in PEM format) - Base64 encoded string of the PEM format of the **Private key**
+    - **Private Key (in PEM format)** - Base64 encoded string of the PEM format of the **Private key**
      > [!NOTE]
      > You must copy all text in the field before converting to a Base64 string, including the dash before BEGIN PRIVATE KEY and after END PRIVATE KEY.
-2. When the **CloudFromation Template Specify stack details** screen is complete, click **Next**.
+2. When the **CloudFormation Template Specify stack details** screen is complete, click **Next**.
 3. On the **Configure stack options** screen, click **Next**.
 4. Review the information you've entered, then click **Submit**.
 5. Select the **Resources** tab, then copy the **Physical ID** (this ID is the Secret ARN) for future use.
