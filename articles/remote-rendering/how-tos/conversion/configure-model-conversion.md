@@ -161,6 +161,8 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
     For GLTF files, this data comes from the [extras object on nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). For FBX files, this data comes from the `Properties70` data on `Model nodes`. For more information, see the documentation for your 3D Asset Tool.
 
+When loading a model with meta data enabled, a specific entity's list of meta data entries can be retrieved through the [asynchronous QueryMetadataAsync function](../../concepts/entities#querying-metadata)
+
 ### Vertex format
 
 It's possible to adjust the vertex format for a mesh to trade precision for memory savings. If your model has a lower memory footprint, you can load larger models or achieve better performance. However, depending on your data, the wrong format can significantly affect rendering quality.

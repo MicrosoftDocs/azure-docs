@@ -96,7 +96,7 @@ Bounds queries are asynchronous calls that operate on a full object hierarchy, u
 
 ### Querying metadata
 
-Metadata is additional data stored on objects, that is ignored by the server. Object metadata is essentially a set of (name, value) pairs, where _value_ can be of numeric, boolean or string type. Metadata can be exported with the model.
+Metadata is additional data stored on objects, that is ignored by the server. Object metadata is essentially a set of (name, value) pairs, where _value_ can be of numeric, boolean or string type. Metadata can be [exported with the model](../how-tos/conversion/configure-model-conversion#node-metadata).
 
 Metadata queries are asynchronous calls on a specific entity. The query only returns the metadata of a single entity, not the merged information of a sub graph.
 
