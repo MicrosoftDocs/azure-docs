@@ -3,7 +3,7 @@ title: Develop Azure AI services applications with Key Vault
 description: Learn how to develop Azure AI services applications securely by using Key Vault.
 author: aahill
 ms.author: aahi
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 09/13/2022
