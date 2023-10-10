@@ -56,7 +56,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
    [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/tutorial-aad-outage-fault-params.png)](images/tutorial-aad-outage-fault-params.png#lightbox)
 1. Select the network security group resource that you want to use in the experiment. Select **Save**.
 
-   [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/tutorial-aad-outage-fault-targets.png)](images/tutorial-aad-outage-fault-targets.png#lightbox)
+   [![Screenshot that shows the fault targets pane, with the save button highlighted.](images/tutorial-aad-outage-targets.png)](images/tutorial-aad-outage-targets.png#lightbox)
 1. Select **Review + create** > **Create** to save the experiment.
 
 ## Run your experiment
