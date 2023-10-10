@@ -87,7 +87,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot shows the Certificate download link](common/metadataxml.png "Certificate")
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up Splashtop Secure Workspace** section, copy the appropriate URL(s) based on your requirement.
 
