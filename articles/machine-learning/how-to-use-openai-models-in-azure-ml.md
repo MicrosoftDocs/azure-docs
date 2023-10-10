@@ -49,7 +49,7 @@ You can filter the list of models in the model catalog by inference task, or by 
 
 
 ### Connect to Azure OpenAI service
-In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI resource](https://azure.microsoft.com/products/cognitive-services/openai-service/). You can create an Azure OpenAI resource following the instructions [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
+In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI resource](https://azure.microsoft.com/products/cognitive-services/openai-service/). You can create an Azure OpenAI resource following the instructions [here](../ai-services/openai/how-to/create-resource.md).
 
 ### Deploying Azure OpenAI models
 To deploy an Azure Open Model from Azure Machine Learning, in order to deploy an Azure OpenAI model: 
