@@ -88,7 +88,7 @@ Changes to the configuration of a deployed Azure Operator Nexus Kubernetes clust
 
 When we follow these principles, it becomes easier to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Nexus Kubernetes service.
 
-We can easily upgrade from any small update in one Nexus Kubernetes version to any small update in the next version, giving you flexibility. For example, an upgrade from 1.24.1-x to 1.25.5-x would be allowed, regardless of the presence of an intermediate 1.24.2-x version.
+We can easily upgrade from any small update in one Nexus Kubernetes version to any small update in the next version, giving you flexibility. For example, an upgrade from 1.24.1-x to 1.25.4-x would be allowed, regardless of the presence of an intermediate 1.24.2-x version.
 
 ### Components version and breaking changes
 
