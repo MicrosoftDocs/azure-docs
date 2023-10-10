@@ -1428,6 +1428,8 @@
     items:
     - name: Change disk types
       href: disks-convert-types.md
+    - name: Migrate from LRS to ZRS
+      href: disks-migrate-lrs-zrs.md
     - name: Migrate to the same or different subscription
       items:
       - name: Copy a managed disk to the same or different subscription - CLI

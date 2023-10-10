@@ -1,6 +1,6 @@
 ---
 title: Convert a disk from LRS to ZRS
-description: Examples of disk bursting metrics
+description: Learn how to convert a managed disk from locally redundant storage to zone-redundant storage.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.author: rogarana
 
 # Convert a disk from LRS to ZRS
 
-Before you convert a disk from locally-redundant storage (LRS) to zone-redundant storage (ZRS) you must first identify whether the disk is using infrastructure redundancy. Disks using infrastructure redundancy have a different migration path.
+Before you convert a disk from locally redundant storage (LRS) to zone-redundant storage (ZRS) you must first identify whether the disk is zonal or regional. The migration path your disk requires changes based on whether it is zonal or regional
 
 ## Determine infrastructure redundancy
 
