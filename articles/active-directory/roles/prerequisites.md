@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/17/2022
+ms.date: 10/10/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
@@ -35,6 +35,8 @@ You must have the Microsoft Graph PowerShell SDK installed:
 
 ## Azure AD PowerShell module
 
+[!INCLUDE [Azure AD PowerShell migration](../includes/aad-powershell-migration-include.md)]
+
 To use PowerShell commands to do the following:
 
 - List role assignments
@@ -43,8 +45,7 @@ To use PowerShell commands to do the following:
 
 You must have the following module installed:
 
-- [Microsoft Entra ID](https://www.powershellgallery.com/packages/AzureAD) (current version)
-
+- [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) (current version)
 
 <a name='check-azuread-version'></a>
 
