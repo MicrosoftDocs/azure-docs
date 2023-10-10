@@ -21,6 +21,8 @@
           href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Optimize costs
           href: best-practices-cost.md
+        - name: Windows vs. Linux containers
+          href: windows-vs-linux-containers.md
 - name: Quickstarts
   expanded: true
   items:

@@ -53,7 +53,7 @@ Azure Monitor currently supports ingestion from Event Hubs in these regions:
 
 ## Collect required information
 
-You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub resource ID in subsequent steps:
+You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub instance resource ID in subsequent steps:
 
 1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** and copy your **Subscription ID**, **Resource group**, and **Workspace name**. You'll need these details to create resources in this tutorial. 
 
@@ -63,7 +63,7 @@ You need your subscription ID, resource group name, workspace name, workspace re
 
     :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing the Resource JSON screen with the workspace resource ID highlighted.":::
 
-1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub's **Resource ID**. You'll need the event hub's resource ID to associate the data collection rule with the event hub.
+1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub instance's **Resource ID**. You'll need the event hub instance's resource ID to associate the data collection rule with the event hub.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-resource-id.png" lightbox="media/ingest-logs-event-hub/event-hub-resource-id.png" alt-text="Screenshot showing the Resource JSON screen with the event hub resource ID highlighted.":::
 ## Create a destination table in your Log Analytics workspace
@@ -404,7 +404,7 @@ To create a data collection rule association in the Azure portal:
 1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule association and then provide values for the parameters defined in the template, including: 
 
     - **Region** - Populated automatically based on the resource group you select.
-    - **Event Hub Resource ID** - See [Collect required information](#collect-required-information).  
+    - **Event Hub Instance Resource ID** - See [Collect required information](#collect-required-information).  
     - **Association Name** - Give the association a name.
     - **Data Collection Rule ID** - Generated when you [create the data collection rule](#create-a-data-collection-rule).
   
