@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/15/2023
+ms.date: 10/09/2023
 ---
 
 # Reference for X12 message settings in agreements for Azure Logic Apps
@@ -231,7 +231,7 @@ This table lists the affected message types, any variants, and the document vers
 
 You also need to disable EDI validation when you use these document version numbers because they result in an error that the character length is invalid.
 
-To specify these document version numbers and message types, follow these steps:
+To specify these document version numbers and message types, follow these steps. Please note that each 837 message type needs a seperate agreement.
 
 1. In your HIPAA schema, replace the current message type with the variant message type for the document version number that you want to use.
 
@@ -257,23 +257,12 @@ To specify these document version numbers and message types, follow these steps:
    ]
    ```
 
-   In this `schemaReferences` section, add another entry that has these values:
-
-   * `"messageId": "837_P"`
-   * `"schemaVersion": "00501"`
-   * `"schemaName": "X12_00501_837_P"`
-
-   When you're done, your `schemaReferences` section looks like this:
+   You modify your `schemaReferences` section to look like this:
 
    ```json
    "schemaReferences": [
       {
          "messageId": "837",
-         "schemaVersion": "00501",
-         "schemaName": "X12_00501_837"
-      },
-      {
-         "messageId": "837_P",
          "schemaVersion": "00501",
          "schemaName": "X12_00501_837_P"
       }
