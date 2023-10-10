@@ -119,6 +119,8 @@ To use Azure AD PowerShell, follow these steps to make sure it is imported into 
 
 ## AzureADPreview module
 
+[!INCLUDE [Azure AD PowerShell migration](../includes/aad-powershell-migration-include.md)]
+
 To use PowerShell commands to do the following:
 
 - Assign roles to users or groups
