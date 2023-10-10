@@ -144,7 +144,7 @@ These terms and conditions (hereinafter referred to as "terms") govern the limit
 |`F8s`|`F8s v2`|`Fsv2 Type2`|`Fsv2 Type3`|
 |`Fsv2 Type4`|`SQLG7_AMD_IaaS`|`SQLG7_AMD_NVME`| |
  
-The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Central region running for 36 months at a pay-as-you-go rate as of September 2023. Actual savings may vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs.
+The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Central region running for 36 months at a pay-as-you-go rate as of September 2023. Actual savings vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs.
 
 **Eligibility** - The Offer is open to individuals who meet the following criteria:
 
@@ -157,7 +157,7 @@ The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Ce
 
 **Offer details** - Upon successful purchase and payment for the one or three-year Azure Reserved VM Instance in Poland Central for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in Poland Central that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json).
 
-- Additional taxes may apply.
+- Additional taxes might apply.
 - Payment will be processed using the payment method on file for the selected subscriptions.
 - Estimated savings are calculated based on your current on-demand rate.
 
