@@ -102,7 +102,7 @@ Sign in to the Azure portal.
 
 1. If you accept all defaults, skip to the next step.
 
-    If you want to make changes to the replication settings, select **Next: Advanced settings**. For users of Azure-to-Azure disaster recovery, this tab might seem familiar. For more details about the options on this tab, see [Tutorial: Set up disaster recovery for Azure VMs](./azure-to-azure-tutorial-enable-replication.md).
+    If you want to make changes to the replication settings, select **Next: Advanced settings**. For users of Azure-to-Azure disaster recovery, this tab might seem familiar. For details about the options on this tab, see [Tutorial: Set up disaster recovery for Azure VMs](./azure-to-azure-tutorial-enable-replication.md).
 
     :::image type="Advanced Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings.png" alt-text="Screenshot of advanced settings for disaster recovery.":::
 
