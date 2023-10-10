@@ -10,7 +10,7 @@ ms.topic: conceptual
 Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
 
 > [!NOTE]
-> This feature only applies to Windows Server 2022 and later. It was released in the Cumulative Update of 10/10/2023.
+> This feature only applies to Windows Server 2022 and later. It was released in the [Cumulative Update of 10/10/2023](https://support.microsoft.com/en-us/topic/october-10-2023-kb5031364-os-build-20348-2031-7f1d69e7-c468-4566-887a-1902af791bbc).
 > 
 ## Prerequisites
 
@@ -18,7 +18,9 @@ Windows Server machines can be onboarded directly to Azure Arc through a graphic
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Launch Azure Arc Server Setup and connect to Azure Arc
+* Modern browser (Microsoft Edge) for authentication to Microsoft Azure. Configuration of the Azure Connected Machine agent requires authentication to your Azure account, either through interactive authentication on a modern browser or device code log-in on a separate device (if the machine doesn't have a modern browser).
+
+## Launch Azure Arc Setup and connect to Azure Arc
 
 The Azure Arc Setup wizard is launched from a system tray icon at the bottom of the Windows Server machine when the Azure Arc Setup feature is enabled. This feature is enabled by default. Alternatively, you can launch the wizard from a pop-up window in the Server Manager or from the Windows Server Start menu.
 
