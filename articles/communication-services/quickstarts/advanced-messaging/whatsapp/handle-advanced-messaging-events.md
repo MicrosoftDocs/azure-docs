@@ -27,7 +27,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 [Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you learn how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send the events to a web app that collects and displays the messages.
 
-## Setup Event Grid Viewer
+## Set up Event Grid Viewer
 
 The Event Grid Viewer is a sample site that allows you to view incoming events from Event Grid.
 
