@@ -35,7 +35,7 @@ Cognitive Search doesn't provide built-in vectorization of the query input strin
 
 All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result shows "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
-## Query syntax for hybrid search
+## Hybrid query request
 
 A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
@@ -65,7 +65,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### Hybrid search with filter
+## Hybrid search with filter
 
 This example adds a filter, which is applied to the nonvector content of the search index.
 
@@ -93,7 +93,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### Semantic hybrid search
+## Semantic hybrid search
 
 Assuming that you've [enabled semantic search](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
@@ -126,7 +126,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### Semantic hybrid search with filter
+## Semantic hybrid search with filter
 
 Here's the last query in the collection. It's the same semantic hybrid query as the previous example, but with a filter.
 

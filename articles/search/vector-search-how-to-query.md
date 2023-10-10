@@ -20,7 +20,7 @@ In Azure Cognitive Search, if you added vector fields to a search index, this ar
 > [!div class="checklist"]
 > + [Query vector fields](#query-syntax-for-vector-search).
 > + [Filter and query vector fields](#filter-and-vector-queries)
-> + [Combine vector, full text search, and semantic search in a hybrid query](#query-syntax-for-hybrid-search).
+<!-- > + [Combine vector, full text search, and semantic search in a hybrid query](#query-syntax-for-hybrid-search). -->
 > + [Query multiple vector fields at once](#query-syntax-for-vector-query-over-multiple-fields).
 > + [Run multiple vector queries in parallel](#query-syntax-for-multiple-vector-queries).
 
@@ -34,7 +34,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
-+ (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
+<!-- + (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md). -->
 
 ## Limitations
 
@@ -97,7 +97,7 @@ The actual response for this POST call to the deployment model includes 1536 emb
 }
 ```
 
-## Query syntax for vector search
+## Vector query request
 
 You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
 
@@ -151,7 +151,7 @@ The response includes five matches, and each result provides a search score, tit
 
 Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result, so it's often excluded in the results.
 
-### Vector query response
+## Vector query response
 
 Here's a modified example so that you can see the basic structure of a response from a pure vector query. 
 
@@ -222,7 +222,7 @@ Here's a modified example so that you can see the basic structure of a response 
 
 ---
 
-## Filter and vector queries
+## Vector query with filter
 
 A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can include filters on other fields in the same index.
 
@@ -256,7 +256,7 @@ api-key: {{admin-api-key}}
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a filter.
 
-## Query syntax for multiple vector fields
+## Multiple vector fields
 
 You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". A single vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
@@ -281,7 +281,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for multiple vector queries
+## Multiple vector queries
 
 Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
 
@@ -320,7 +320,7 @@ The following query example looks for similarity in both `myImageVector` and `my
 
 Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
 
-## Query syntax for cross-field vector search
+<!-- ## Query syntax for cross-field vector search
 
 A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md):
 
@@ -343,7 +343,7 @@ api-key: {{admin-api-key}}
         }
     ]
 }
-```
+``` -->
 
 ## Configure a query response
 

@@ -235,14 +235,14 @@ Use the [Search Documents](/rest/api/searchservice/preview-api/search-documents)
 
 There are several queries to demonstrate the patterns. We use the same query string (*"what Azure services support full text search"*) across all of them so that you can compare results and relevance.
 
-+ [Single vector search](#single-vector-search)
+<!-- + [Single vector search](#single-vector-search)
 + [Single vector search with filter](#single-vector-search-with-filter)
 + [Cross-field vector search](#cross-field-vector-search)
 + [Multi-query vector search](#multi-query-vector-search)
 + [Hybrid search](#hybrid-search)
 + [Hybrid search with filter](#hybrid-search-with-filter)
 + [Semantic hybrid search](#semantic-hybrid-search)
-+ [Semantic hybrid search with filter](#semantic-hybrid-search-with-filter)
++ [Semantic hybrid search with filter](#semantic-hybrid-search-with-filter) -->
 
 <!-- ### Single vector search
 
