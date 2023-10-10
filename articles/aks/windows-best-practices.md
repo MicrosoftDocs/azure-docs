@@ -4,12 +4,12 @@ description: Learn about best practices for running Windows containers in Azure 
 ms.service: azure-kubernetes-service
 ms.author: schaffererin
 ms.topic: article
-ms.date: 10/06/2023
+ms.date: 10/10/2023
 ---
 
 # Best practices for Windows containers on Azure Kubernetes Service (AKS)
 
-In AKS, you can create node pools that run Linux as the operating system (OS) on the nodes or Windows Server as the guest OS. Windows Server nodes can run native Windows container applications, such as .NET Framework. The Linux OS and Windows OS have different container support and configuration considerations. For more information, see [Windows container considerations in Kubernetes][windows-vs-linux].
+In AKS, you can create node pools that run Linux or Windows Server as the operating system (OS) on the nodes. Windows Server nodes can run native Windows container applications, such as .NET Framework. The Linux OS and Windows OS have different container support and configuration considerations. For more information, see [Windows container considerations in Kubernetes][windows-vs-linux].
 
 This article outlines best practices for running Windows containers on AKS.
 
@@ -61,7 +61,7 @@ To help you decide which networking mode to use, see [Choosing a network model][
 
 When managing traffic between pods, you should apply the principle of least privilege. The Network Policy feature in Kubernetes allows you to define and enforce ingress and egress traffic rules between the pods in your cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policies-aks].
 
-Windows pods on AKS clusters that use the Calico Network Policy enable [Direct Server Return (DSR)][dsr] by default.
+Windows pods on AKS clusters that use the Calico Network Policy enable [Floating IP][dsr] by default.
 
 ## Upgrades and updates
 
@@ -77,6 +77,8 @@ Windows nodes on AKS follow a monthly update schedule. Every month, AKS creates 
 
 > [!NOTE]
 > Upgrades on Windows systems include both OS version upgrades and monthly node OS updates.
+
+You can stay up to date with the availability of new monthly releases using the [AKS release tracker][aks-release-tracker] and [AKS release notes][aks-release-notes].
 
 ### Windows node OS version upgrades
 
@@ -105,7 +107,7 @@ To learn more about Windows containers on AKS, see the following resources:
 
 <!-- LINKS - internal -->
 [azure-cni-overlay]: ./azure-cni-overlay.md
-[azure-cni-dynamic-ip-allocation]: ./azure-cni-dynamic-ip-allocation.md
+[azure-cni-dynamic-ip-allocation]: ./configure-azure-cni-dynamic-ip-allocation.md
 [azure-cni-choose-network-model]: ./azure-cni-overlay.md#choosing-a-network-model-to-use
 [network-concepts-for-aks-applications]: ./concepts-network.md
 [windows-vs-linux]: ./windows-vs-linux-containers.md
@@ -119,3 +121,4 @@ To learn more about Windows containers on AKS, see the following resources:
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
+[aks-release-tracker]: https://releases.aks.azure.com/
