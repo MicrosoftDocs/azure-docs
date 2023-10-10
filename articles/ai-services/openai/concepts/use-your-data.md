@@ -66,6 +66,16 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Virtual network support & private endpoint support
 
+See the following table for a summary of virtual network and private endpoint support. The Azure OpenAI Studio and Azure OpenAI on your data API access can vary based on how your resources are configured.   
+
+| Azure OpenAI resource                                                                  | Search resource                              | Embedding model                                | Azure OpenAI studio support | API support |
+|----------------------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------|-----------------------------|-------------|
+| The resource allows access from all networks.                                           | The resource allows access from all networks. | N/A                                            | Supported.                   | Supported.   |
+| The resource allows access from selected networks or only private endpoint connections. | The resource allows access from all networks. | An embedding model is available to enable vector search. | Not supported.                |Supported. |
+| The resource allows access from selected networks or only private endpoint connections.  | The resource allows access from all networks.  | An embedding model is not available. |   Supported. |  Supported. |
+| -                                | The resource allows access from selected networks or only private endpoint connections.   |     -                                     |   Supported.    | Not supported. |
+
+
 ### Azure OpenAI resources
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
