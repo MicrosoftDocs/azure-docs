@@ -58,7 +58,7 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
 ```
 
 > [!NOTE]
-> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 > - If the storage account is in a different resource group or subscription, you must specify the full ID of the storage account instead of only its name. For example, if **myStorageAccount** storage account is in a resource group named **StorageRG** while the network security group is in the resource group **myResourceGroup**, you must use `/subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount` for `--storage-account` parameter instead of `myStorageAccount`.
 
 ```azurecli-interactive
@@ -87,7 +87,7 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
 
 > [!NOTE]
 > - The storage account can't have network rules that restrict network access to only Microsoft services or specific virtual networks.
-> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 > - If the storage account is in a different resource group or subscription, the full ID of the storage account must be used. For example, if **myStorageAccount** storage account is in a resource group named **StorageRG** while the network security group is in the resource group **myResourceGroup**, you must use `/subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount` for `--storage-account` parameter instead of `myStorageAccount`.
 
 ```azurecli-interactive

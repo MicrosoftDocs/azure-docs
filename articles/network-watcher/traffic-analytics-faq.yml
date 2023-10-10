@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I store raw logs in a different subscription?
         answer: |
-          Yes. You can configure NSG flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group. The network security group and the destination storage account must also share the same Azure Active Directory Tenant.
+          Yes. You can configure NSG flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group. The network security group and the destination storage account must also share the same Microsoft Entra tenant.
 
       - question: |
           Can my flow log resources and storage accounts be in different tenants?
