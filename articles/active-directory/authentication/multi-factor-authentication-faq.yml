@@ -18,16 +18,16 @@ summary: |
   This FAQ answers common questions about Microsoft Entra multifactor authentication and using the multifactor authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
   
   > [!IMPORTANT]
-  > In September 2022, Microsoft announced deprecation of Multi-Factor Authentication Server. Beginning September 30, 2024, multifactor authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Microsoft Entra multifactor authentication service by using the latest Migration Utility included in the most recent [MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+  > In September 2022, Microsoft announced deprecation of Multi-Factor Authentication Server. Beginning September 30, 2024, Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Microsoft Entra multifactor authentication service by using the latest Migration Utility included in the most recent [MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
   
 
 sections:
   - name: General
     questions:
       - question: |
-          How does Microsoft Entra multifactor authentication Server handle user data?
+          How does Azure Multi-Factor Authentication Server handle user data?
         answer: |
-          With multifactor authentication Server, user data is only stored on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, multifactor authentication Server sends data to the Microsoft Entra multifactor authentication cloud service for authentication. Communication between multifactor authentication Server and the multifactor authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
+          With Multi-Factor Authentication Server, user data is only stored on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, Multi-Factor Authentication Server sends data to the Microsoft Entra multifactor authentication cloud service for authentication. Communication between Multi-Factor Authentication Server and the multifactor authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
           
           When authentication requests are sent to the cloud service, data is collected for authentication and usage reports. The following data fields are included in two-step verification logs:
           
@@ -46,7 +46,7 @@ sections:
           
           The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
           
-          For more information, see [Data residency and customer data for Azure AD Multi-Factor Authentication](concept-mfa-data-residency.md).
+          For more information, see [Data residency and customer data for Microsoft Entra multifactor authentication](concept-mfa-data-residency.md).
           
       - question: |
           What short codes are used for sending text messages to my users?
@@ -91,9 +91,9 @@ sections:
         answer: |
           When you create a per-user or per-authentication MFA provider, your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and Web Apps.
           
-          When you purchase a subscription for Azure AD Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Microsoft 365, Microsoft Entra ID P1 or P2, or Enterprise Mobility + Security bundles are billed this way.
+          When you purchase a subscription for Microsoft Entra multifactor authentication, your organization only pays the annual license fee for each user. MFA licenses and Microsoft 365, Microsoft Entra ID P1 or P2, or Enterprise Mobility + Security bundles are billed this way.
           
-          For more information, see [How to get Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
+          For more information, see [How to get Microsoft Entra multifactor authentication](concept-mfa-licensing.md).
           
       - question: |
           Is there a free version of Microsoft Entra multifactor authentication?
@@ -107,25 +107,25 @@ sections:
         answer: |
           If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You can't change the billing model after an MFA provider is created. 
           
-          If your MFA provider is *not* linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings, and configuration options aren't transferred. Also, existing MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
+          If your MFA provider is *not* linked to a Microsoft Entra tenant, or you link the new MFA provider to a different Microsoft Entra tenant, user settings, and configuration options aren't transferred. Also, existing MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
           
-          Learn more about MFA providers in [Getting started with an Azure Multi-Factor Auth Provider](concept-mfa-authprovider.md).
+          Learn more about MFA providers in [Getting started with an Azure multifactor authentication Provider](concept-mfa-authprovider.md).
           
       - question: |
           Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?
         answer: |
           In some instances, yes.
           
-          If your directory has a *per-user* Azure AD Multi-Factor Authentication provider, you can add MFA licenses. Users with licenses aren't counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all your users configured to use multifactor authentication, you can delete the Microsoft Entra multifactor authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future.
+          If your directory has a *per-user* Microsoft Entra multifactor authentication provider, you can add MFA licenses. Users with licenses aren't counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all your users configured to use multifactor authentication, you can delete the Microsoft Entra multifactor authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future.
           
-          If your directory has a *per-authentication* Azure AD Multi-Factor Authentication provider, you're always billed for each authentication, as long as the MFA provider is linked to your subscription. You can assign MFA licenses to users, but you'll still be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not.
+          If your directory has a *per-authentication* Microsoft Entra multifactor authentication provider, you're always billed for each authentication, as long as the MFA provider is linked to your subscription. You can assign MFA licenses to users, but you'll still be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not.
           
       - question: |
           Does my organization have to use and synchronize identities to use Microsoft Entra multifactor authentication?
         answer: |
-          If your organization uses a consumption-based billing model, Microsoft Entra ID is optional, but not required. If your MFA provider isn't linked to a Microsoft Entra tenant, you can only deploy Microsoft Entra multifactor authentication Server on-premises.
+          If your organization uses a consumption-based billing model, Microsoft Entra ID is optional, but not required. If your MFA provider isn't linked to a Microsoft Entra tenant, you can only deploy Azure Multi-Factor Authentication Server on-premises.
           
-          Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
+          Microsoft Entra ID is required for the license model because licenses are added to the Microsoft Entra tenant when you purchase and assign them to users in the directory.
           
   - name: Manage and support user accounts
     questions:
@@ -187,12 +187,12 @@ sections:
           
           If users don't respond to the SMS within the defined timeout period, their authentication is denied.
           
-          For one-way SMS with Azure AD MFA in the cloud (including the AD FS adapter or the Network Policy Server extension), you can't configure the timeout setting. Microsoft Entra ID stores the verification code for 180 seconds.
+          For one-way SMS with Microsoft Entra multifactor authentication in the cloud (including the AD FS adapter or the Network Policy Server extension), you can't configure the timeout setting. Microsoft Entra ID stores the verification code for 180 seconds.
           
       - question: |
-          Can I use hardware tokens with multifactor authentication Server?
+          Can I use hardware tokens with Multi-Factor Authentication Server?
         answer: |
-          If you're using multifactor authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
+          If you're using Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
           
           You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key in a CSV file and import to Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Internet Information Server (IIS) forms-based authentication, and Remote Authentication Dial-In User Service (RADIUS) as long as the client system can accept the user input.
           
@@ -202,7 +202,7 @@ sections:
           - CSV if the file contains a serial number, a secret key in Base 32 format, and a time interval
           
       - question: |
-          Can I use multifactor authentication Server to secure Terminal Services?
+          Can I use Multi-Factor Authentication Server to secure Terminal Services?
         answer: |
           Yes, but if you're using Windows Server 2012 R2 or later, you can only secure Terminal Services by using Remote Desktop Gateway (RD Gateway).
           
@@ -257,6 +257,6 @@ additionalContent: |
     If your question isn't answered here, the following support options are available:
           
     * Search the [Microsoft Support Knowledge Base](https://support.microsoft.com) for solutions to common technical issues.
-    * Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory Q&A](/answers/topics/azure-active-directory.html).
+    * Search for and browse technical questions and answers from the community, or ask your own question in the [Microsoft Entra Q&A](/answers/topics/azure-active-directory.html).
     * Contact Microsoft professional through [Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
     * If you're a legacy PhoneFactor customer and you have questions or need help with resetting a password, use the [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) e-mail address to open a support case.
