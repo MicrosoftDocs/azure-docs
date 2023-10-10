@@ -268,15 +268,9 @@ items:
           href: app/usage-flows.md
         - name: HEART Framework
           href: app/usage-heart.md
-      - name: GitHub and Azure DevOps integration
-        items:
-        - name: Work Item integration
-          href: app/work-item-integration.md
-        - name: Release annotations
-          href: app/annotations.md
-        - name: Continuous monitoring
-          href: app/continuous-monitoring.md
-    - name: Code-level diagnostics
+      - name: Release and work item insights
+        href: app/release-and-work-item-insights.md
+    - name: Code analysis
       items:
       - name: Profiler
         items:
@@ -284,7 +278,7 @@ items:
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-overview.md
         - name: Enable Profiler
-          items:        
+          items:
           - name: Azure App Service
             href: profiler/profiler.md
           - name: Azure Functions app
@@ -303,7 +297,7 @@ items:
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-data.md
         - name: Configure
-          items:        
+          items:
           - name: Configure Profiler
             href: profiler/profiler-settings.md
           - name: Configure BYOS (Bring Your Own Storage)
