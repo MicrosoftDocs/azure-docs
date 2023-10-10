@@ -103,8 +103,6 @@ To learn more about Windows containers on AKS, see the following resources:
 * Open an issue or provide feedback in the [Windows containers GitHub repository](https://github.com/microsoft/Windows-Containers/issues).
 * Review the [third-party partner solutions for Windows on AKS][windows-on-aks-partner-solutions].
 
-
-
 <!-- LINKS - internal -->
 [azure-cni-overlay]: ./azure-cni-overlay.md
 [azure-cni-dynamic-ip-allocation]: ./configure-azure-cni-dynamic-ip-allocation.md
