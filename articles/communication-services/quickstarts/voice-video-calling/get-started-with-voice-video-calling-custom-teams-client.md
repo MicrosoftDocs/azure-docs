@@ -8,7 +8,7 @@ ms.date: 12/1/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-zone_pivot_groups: acs-plat-web-android-windows
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other, devx-track-js
 ---
 
@@ -24,6 +24,10 @@ ms.custom: mode-other, devx-track-js
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Video Calling with Android](./includes/custom-teams-endpoint/voice-video-calling-cte-java.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Video Calling with iOS](./includes/custom-teams-endpoint/voice-video-calling-cte-ios.md)]
 ::: zone-end
 
 ## Clean up resources
