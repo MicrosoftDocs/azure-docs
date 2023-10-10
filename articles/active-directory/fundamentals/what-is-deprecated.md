@@ -15,7 +15,7 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 
 # What's deprecated in Microsoft Entra ID?
 
-The lifecycle of functionality, features, and services are governed by policy, support timelines, data, also leadership and engineering team decisions. Lifecycle information allows customers to predictably plan long-term deployment aspects, transition from outdated to new technology, and help improve business outcomes. Use the definitions below to understand the following table with change information about Microsoft Entra ID and Microsoft Entra features, services, and functionality. 
+The lifecycle of functionality, features, and services are governed by policy, support timelines, data, also leadership and engineering team decisions. Lifecycle information allows customers to predictably plan long-term deployment aspects, transition from outdated to new technology, and help improve business outcomes. Use the definitions below to understand the following table with change information about Microsoft Entra features, services, and functionality. 
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22What's+deprecated+in+Azure+Active+Directory%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
