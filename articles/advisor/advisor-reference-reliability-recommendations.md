@@ -55,12 +55,6 @@ We have detected that you have an Azure OpenAI resource that is being used with 
 
 Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/azure/cognitive-services/openai/reference).
 
-### Upgrade your application to use the latest API version from Azure OpenAI
-
-We have detected that you have an Azure OpenAI resource that is being used with an older API version. Use the latest REST API version to take advantage of the latest features and functionality.
-
-Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/azure/cognitive-services/openai/reference).
-
 
 
 ## Analytics
@@ -71,9 +65,9 @@ We detected that your HDInsight cluster still uses Ubuntu 16.04 LTS. End of supp
 
 Learn more about [HDInsight cluster - ubuntu1604HdiClusters (Your cluster running Ubuntu 16.04 is out of support)](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions).
 
-### Upgrade your HDInsight Cluster
+### Upgrade your HDInsight cluster
 
-We detected your cluster isn't using the latest image. We recommend customers to use the latest versions of HDInsight Images as they bring in the best of open source updates, Azure updates and security fixes. HDInsight release happens every 30 to 60 days. Consider moving to the latest release.
+We detected your cluster isn't using the latest image. We recommend customers to use the latest versions of HDInsight images as they bring in the best of open source updates, Azure updates and security fixes. HDInsight release happens every 30 to 60 days. Consider moving to the latest release.
 
 Learn more about [HDInsight cluster - upgradeHDInsightCluster (Upgrade your HDInsight Cluster)](/azure/hdinsight/hdinsight-release-notes).
 
@@ -83,7 +77,7 @@ We detected your cluster was created one year ago. As part of the best practices
 
 Learn more about [HDInsight cluster - clusterOlderThanAYear (Your cluster was created one year ago)](/azure/hdinsight/hdinsight-overview-before-you-start#keep-your-clusters-up-to-date).
 
-### Your Kafka Cluster Disks are almost full
+### Your Kafka cluster disks are almost full
 
 The data disks used by Kafka brokers in your HDInsight cluster are almost full. When that happens, the Apache Kafka broker process can't start and fails because of the disk full error. To mitigate, find the retention time for every topic, back up the files that are older and restart the brokers.
 
@@ -127,7 +121,7 @@ Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and re
 
 ### Apply critical updates to your HDInsight clusters
 
-The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources  associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources such as Load balancer, Network interface and Public IP address, associated with your clusters. Do this before January 21, 2021 05:00 PM UTC when the HDInsight team is performing updates between January 21, 2021 05:00 PM UTC and January 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources in the same resource group and subnet where your cluster is. Failure to apply this update might result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before January 25, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
+The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources  associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources such as load balancer, network interface and public IP address, associated with your clusters. Do this before January 21, 2021 05:00 PM UTC when the HDInsight team is performing updates between January 21, 2021 05:00 PM UTC and January 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources in the same resource group and subnet where your cluster is. Failure to apply this update might result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before January 25, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
 
 Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -178,13 +172,13 @@ Learn more about [Virtual machine - Rhui3ToRhui4MigrationV2 (Update your firewal
 
 ### Virtual machines in your subscription are running on images that have been scheduled for deprecation
 
-Virtual machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs can't be created from the deprecated image. Upgrade to newer Offer of the image to prevent disruption to your workloads.
+Virtual machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs can't be created from the deprecated image. Upgrade to a newer version of the image to prevent disruption to your workloads.
 
 Learn more about [Virtual machine - VMRunningDeprecatedOfferLevelImage (Virtual machines in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
 
 ### Virtual machines in your subscription are running on images that have been scheduled for deprecation
 
-Virtual machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs can't be created from the deprecated image. Upgrade to newer SKU of the image to prevent disruption to your workloads.
+Virtual machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs can't be created from the deprecated image. Upgrade to a newer SKU of the image to prevent disruption to your workloads.
 
 Learn more about [Virtual machine - VMRunningDeprecatedPlanLevelImage (Virtual machines in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
 
@@ -202,7 +196,7 @@ Learn more about [Virtual machine - AvailabilityZoneVM (Use Availability zones f
 
 ### Access to mandatory URLs missing for your Azure Virtual Desktop environment
 
-In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you might also search Application event log for event 3702.
+In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you might also search your application event log for event 3702.
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
 
@@ -214,7 +208,7 @@ Learn more about [Virtual machine scale set - Rhui3ToRhui4MigrationVMSS (Update 
 
 ### Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation
 
-Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your Virtual Machine Scale Sets workloads would no longer scale out. Upgrade to newer Offer of the image to prevent disruption to your workload.
+Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your Virtual Machine Scale Sets workloads would no longer scale out. Upgrade to a newer version of the image to prevent disruption to your workload.
 
 Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedOfferImage (Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
 
@@ -226,7 +220,7 @@ Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedImage (
 
 ### Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation
 
-Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your Virtual Machine Scale Sets workloads would no longer scale out. Upgrade to newer Plan of the image to prevent disruption to your workload.
+Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your Virtual Machine Scale Sets workloads would no longer scale out. Upgrade to newer plan of the image to prevent disruption to your workload.
 
 Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedPlanImage (Virtual Machine Scale Sets in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
 
@@ -246,15 +240,15 @@ We detected the custom domain certificate you uploaded is near expiration. Renew
 
 Learn more about [Microsoft App Container App - ContainerAppCustomDomainCertificateNearExpiration (Renew custom domain certificate)](https://aka.ms/containerappcustomdomaincert).
 
-### A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues
+### A potential networking issue has been identified with your Container Apps environment that requires it to be re-created to avoid DNS issues
 
-A potential networking issue has been identified for your Container Apps Environments. To prevent this potential networking issue from impacting your Container Apps Environment, create a new Container Apps Environment, re-create your Container Apps in the new environment, and delete the old Container Apps Environment
+A potential networking issue has been identified for your Container Apps environments. To prevent this potential networking issue, create a new Container Apps environment, re-create your Container Apps in the new environment, and delete the old Container Apps environment
 
 Learn more about [Managed Environment - CreateNewContainerAppsEnvironment (A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues)](https://aka.ms/createcontainerapp).
 
 ### Domain verification required to renew your App Service Certificate
 
-You have an App Service Certificate that's currently in a Pending Issuance status and requires domain verification. Failure to validate domain ownership results in an unsuccessful certificate issuance. Domain verification isn't automated for App Service Certificates and requires your action.
+You have an App Service certificate that's currently in a Pending Issuance status and requires domain verification. Failure to validate domain ownership results in an unsuccessful certificate issuance. Domain verification isn't automated for App Service certificates and requires your action.
 
 Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domain verification required to renew your App Service Certificate)](https://aka.ms/ASCDomainVerificationRequired).
 
@@ -272,7 +266,7 @@ Learn more about [Kubernetes service - UseStandardpricingtier (Upgrade to Standa
 
 ### Pod Disruption Budgets Recommended
 
-Pod Disruption Budgets Recommended. Improve service high availability.
+Pod Disruption budgets recommended. Improve service high availability.
 
 Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets).
 
@@ -479,13 +473,13 @@ Learn more about [IoT hub - IoTHubQuotaExceededAdvisor (IoT Hub Quota Exceeded D
 
 ### Upgrade device client SDK to a supported version for Iot Hub
 
-Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
+Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the link given.
 
 Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
 
 ### Upgrade Edge Device Runtime to a supported version for Iot Hub
 
-Some or all of your Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the recommendation.
+Some or all of your Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the link given.
 
 Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Edge Device Runtime to a supported version for Iot Hub)](https://aka.ms/IOTEdgeSDKCheck).
 
@@ -495,7 +489,7 @@ Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Edge Device Runtime to a sup
 
 ### Increase Media Services quotas or limits to ensure continuity of service
 
-Your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Don't create extra Azure Media accounts in an attempt to obtain higher limits.
+Your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Don't create extra Azure Media accounts in an attempt to obtain higher limits.
 
 Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](https://aka.ms/ams-quota-recommendation/).
 
@@ -586,7 +580,7 @@ Learn more about [Virtual network gateway - ExpressRouteGatewayRedundancy (Imple
 
 ### Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit
 
-We have detected that ExpressRoute Monitor on Network Performance Monitor isn't currently monitoring your ExpressRoute circuit. ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
+We have detected that ExpressRoute Monitor on Network Performance Monitor isn't currently monitoring your ExpressRoute circuit. ExpressRoute monitor provides end-to-end monitoring capabilities including: loss, latency, and performance from on-premises to Azure and Azure to on-premises
 
 Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Implement ExpressRoute Monitor on Network Performance Monitor for end-to-end monitoring of your ExpressRoute circuit)](../expressroute/how-to-npm.md).
 
@@ -598,7 +592,7 @@ Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute G
 
 ### Add at least one more endpoint to the profile, preferably in another Azure region
 
-Profiles should have more than one endpoint to ensure availability if one of the endpoints fails. We also recommend that endpoints be in different regions.
+Profiles require more than one endpoint to ensure availability if one of the endpoints fails. We also recommend that endpoints be in different regions.
 
 Learn more about [Traffic Manager profile - GeneralProfile (Add at least one more endpoint to the profile, preferably in another Azure region)](https://aka.ms/AA1o0x4).
 
@@ -716,7 +710,7 @@ Learn more about [Central Server Instance - StonithEnabledHAASCS (Ensure that st
 
 ### Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup
 
-The stonith-timeout should be set to 900 for reliable function of the Pacemaker for ASCS HA setup. This stonith-timeout setting is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
+Set the stonith-timeout to 900 for reliable function of the Pacemaker for ASCS HA setup. This stonith-timeout setting is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Central Server Instance - StonithTimeOutHAASCSSLE (Set stonith-timeout to 900 in Pacemaker configuration with Azure fence agent for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -738,11 +732,11 @@ The softdog timer is loaded as a kernel module in linux OS. This timer  triggers
 
 Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
+### Ensure that there is one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
 
 The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in the pacemaker configuration for ASCS HA setup. The fence_azure_arm requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
-Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (There should be one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads
 
@@ -812,7 +806,7 @@ Learn more about [Database Instance - CorosyncTokenHASLE (Set the corosync token
 
 ### Set parameter PREFER_SITE_TAKEOVER to 'true' in the Pacemaker cofiguration for HANA DB HA setup
 
-The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent should prefer to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
+The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent prefers to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
 
 Learn more about [Database Instance - PreferSiteTakeOverHARH (Set parameter PREFER_SITE_TAKEOVER to 'true' in the Pacemaker cofiguration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
 
@@ -824,13 +818,13 @@ Learn more about [Database Instance - ConcurrentFencingHARH (Enable the 'concurr
 
 ### Set parameter PREFER_SITE_TAKEOVER to 'true' in the cluster cofiguration in HA enabled SAP workloads
 
-The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent should prefer to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
+The parameter PREFER_SITE_TAKEOVER in SAP HANA topology defines if the HANA SR resource agent prefers to takeover to the secondary instance instead of restarting the failed primary locally. Set it to 'true' for reliable function of HANA DB HA setup.
 
 Learn more about [Database Instance - PreferSiteTakeoverHDB (Set parameter PREFER_SITE_TAKEOVER to 'true' in the cluster cofiguration in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads
 
-The corosync token_retransmits_before_loss_const determines how many token retransmits should be attempted before timeout in HA clusters.  Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
+The corosync token_retransmits_before_loss_const determines how many token retransmits are attempted before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
 
 Learn more about [Database Instance - TokenRetransmitsHDB (Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -876,11 +870,11 @@ The softdog timer is loaded as a kernel module in linux OS. This timer  triggers
 
 Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
+### Ensure that there is one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
 The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. The fence_azure-arm instance requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
-Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Database Instance - FenceAzureArmSuseHDB (Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads
 
@@ -1040,11 +1034,11 @@ Consider scaling out your App Service Plan to at least two instances to avoid co
 
 Learn more about [App Service plan - AppServiceNumberOfInstances (Consider scaling out your App Service Plan to optimize user experience and availability.)](https://aka.ms/appsvcnuminstances).
 
-### Application code should be fixed as worker process crashed due to Unhandled Exception
+### Application code needs fixing when the worker process crashes due to Unhandled Exception
 
-We identified the following thread resulted in an unhandled exception for your App and application code should be fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
+We identified the following thread that resulted in an unhandled exception for your App and the application code must fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
 
-Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code should be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
+Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code must be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
 
 ### Consider changing your App Service configuration to 64-bit
 
@@ -1054,7 +1048,7 @@ Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-servic
 
 ### Upgrade your Azure Fluid Relay client library
 
-You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality and enhancements in performance and stability. For more information on the latest version to use and how to upgrade, see the following article.
+You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library must now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality and enhancements in performance and stability. For more information on the latest version to use and how to upgrade, see the following article.
 
 Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure Fluid Relay client library)](https://github.com/microsoft/FluidFramework).
 
