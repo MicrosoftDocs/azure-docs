@@ -17,7 +17,7 @@ ms.collection:
 
 # Data operational considerations
 
-In this article, learn about data operational considerations for your configuration. There's information about how log files and other features work in relation to Microsoft Entra ID, such as usage data and operator security. You’ll learn about physical security considerations in addition to guidance on how the Microsoft Entra ID team defines deployments and change. 
+In this article, learn about data operational considerations for your configuration. There's information about how log files and other features work in relation to Microsoft Entra ID, such as usage data and operator security. You’ll learn about physical security considerations in addition to guidance on how the Microsoft Entra team defines deployments and change. 
 
 ## Log files
 
@@ -45,7 +45,7 @@ Learn more: [Azure facilities, premises, and physical security](../../security/f
 
 ## Change control process
 
-To roll out changes to the service across data centers, the Microsoft Entra ID team defines the layers of a deployment environment. Applying the change layers is constrained by strict exit criteria. The amount of time to roll a change across layers is defined by the operations team and is based on potential effects. Typically a rollout takes between 1 to 2 weeks. Critical changes, such as security fixes or hot fixes, can be deployed faster. If a change doesn't meet the exit criteria when applied to a deployment layer, it's rolled back to the prior, stable state. 
+To roll out changes to the service across data centers, the Microsoft Entra team defines the layers of a deployment environment. Applying the change layers is constrained by strict exit criteria. The amount of time to roll a change across layers is defined by the operations team and is based on potential effects. Typically a rollout takes between 1 to 2 weeks. Critical changes, such as security fixes or hot fixes, can be deployed faster. If a change doesn't meet the exit criteria when applied to a deployment layer, it's rolled back to the prior, stable state. 
 
 ## Resources
 
