@@ -35,7 +35,7 @@ At the pipeline level, inputs and outputs are useful for submitting pipeline job
 
 ### Types of Inputs and Outputs
 
-The following types are supported as outputs of a component or a pipeline.
+The following types are supported as **outputs** of a component or a pipeline.
  
 - Data types. Check [data types in Azure Machine Learning](./concept-data.md#data-types) to learn more about data types. 
      - `uri_file`
@@ -46,17 +46,20 @@ The following types are supported as outputs of a component or a pipeline.
      - `mlflow_model`
      - `custom_model`
 
-Using data or model type output requires customer to serilize the output to corresponding type (file, folder or mlflow_model in most scenarios) in the component's source code. Below are a few examples to help you understand how this works. 
+Using data or model output essentially saves the output in a storage location. In subsequent steps, this location can be mounted, downloaded, or uploaded to the compute target filesystem, enabling the next step to access the file or folder during job execution. It's crucial to save the output in the correct type (either file or folder, as model types are essentially folder) in the component's source code. Following are a few examples showing how to save the output. 
 
-- [train component] has an mlflow_model output,  in the component source code, it use ``
+- uri_file:  
+- uri_folder: In the nyc_taxi_data_regression example, the [prep component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/prep.yml) processes the data from input folder and write processed CSV files to the output folder. 
+- mlflow_model: In the nyc_taxi_data_regression example, the [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has an `mlflow_model` output, in the component source code it saves the trained model using `mlflow.sklearn.save_model`
 
 
-In addition to above data or model types, input can aslo be following primitive types. 
+In addition to above data or model types, **input** can also be following primitive types. 
  - `string`
  - `number`
  - `integer`
- - `boolean`.
+ - `boolean`
 
+In the nyc_taxi_data_regression example, [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has a `number` input named `test_split_ratio`. 
 
 > [!NOTE]
 >Primitive types output is not supported. 
@@ -76,8 +79,8 @@ For data asset input/output, you must specify a `path` parameter that points to 
 > [!NOTE]
 > For input/output on storage, we highly suggest to use Azure Machine Learning datastore path instead of direct Azure Storage path. Datastore path are supported across various job types in pipeline.   
 
-For data input/output, you can choose from various modes (download or mount) to define how the data is accessed in the compute target.
-This table shows the possible modes for different type/mode/input/output combinations. To learn more, see [data asset modes](./how-to-read-write-data-v2.md#modes). 
+For data input/output, you can choose from various modes (download, mount or upload) to define how the data is accessed in the compute target.
+This table shows the possible modes for different type/mode/input/output combinations. 
 
 Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` | `eval_download` | `eval_mount` 
 ------ | ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---:
@@ -88,12 +91,16 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 `uri_file`   | Output | ✓  |   |    | ✓  |   |  | 
 `mltable`   | Output | ✓  |   |    | ✓  | ✓  |  | 
 
+> [!NOTE]
+> In most cases, we suggest to use `ro_mount` or `rw_mount` mode. To learn more about mode, see [data asset modes](./how-to-read-write-data-v2.md#modes). 
+
+
 
 ### Visual representation in Azure Machine Learning studio
 
 The following screenshots provide an example of how inputs and outputs are displayed in a pipeline job in Azure Machine Learning studio. This particular job, named `nyc-taxi-data-regression`, can be found in [azureml-example.](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression) 
 
-In the pipeline job page of studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
+In the pipeline job page of studio, the data/model type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
 
 The pipeline level output is displayed as a purple box for easy identification.
 
