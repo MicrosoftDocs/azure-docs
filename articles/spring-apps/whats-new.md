@@ -25,7 +25,7 @@ The following update is now available in the Consumption plan:
 
 The following updates are now available in the Enterprise plan:
 
-- **Spring Cloud Gateway allows user to set log level per logger name**: Spring Cloud Gateway supports you can now exercise precise control over the generation of log messages and their respective verbosity levels. This enhancement enables you to concentrate your attention on specific areas within the codebase that warrant closer inspection and monitoring. Learn more on [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal) and [Troubleshoot VMware Spring Cloud Gateway](how-to-troubleshoot-enterprise-spring-cloud-gateway.md).
+- **Spring Cloud Gateway allows user to set log level per logger name**: Spring Cloud Gateway supports you can now exercise precise control over the generation of log messages and their respective verbosity levels. This enhancement enables you to concentrate your attention on specific areas within the codebase that warrant closer inspection and monitoring. Learn more on [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#configure-log-levels) and [Troubleshoot VMware Spring Cloud Gateway](how-to-troubleshoot-enterprise-spring-cloud-gateway.md).
 
 - **Spring Cloud Gateway supports restart operation on Azure portal and Azure CLI**: This enhancement empowers you to initiate a restart of Spring Cloud Gateway conveniently, either through the Azure portal or by utilizing Azure CLI commands, in alignment with your preferred schedule. [Learn More](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#restart-vmware-spring-cloud-gateway).
 
