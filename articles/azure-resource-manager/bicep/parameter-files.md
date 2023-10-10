@@ -171,6 +171,85 @@ To deploy to different environments, you create more than one parameters file. W
 
 ---
 
+## U using
+
+The `using` statement ties the Bicep parameters file to a Bicep file, an ARM JSON template, or a Bicep module, or a template spec. A `using` declaration must be present in any Bicep parameters file.
+
+
+The syntaxes:
+
+- To use Bicep file:
+
+  ```bicep
+  using '<path>/<file-name>.bicep'
+  ```
+
+- To use ARM JSON template:
+
+  ```bicep
+  using '<path>/<file-name>.json'
+  ```
+
+- To use public module:
+
+  ```bicep
+  using 'br/public:<file-path>:<tag>'
+  ```
+
+  For example:
+
+  ```bicep
+  using 'br/public:storage/storage-account:3.0.1'
+
+  param name = 'mystorage'
+  ```
+
+- To use private module:
+
+  ```bicep
+  using 'br:<acr-name>.azurecr.io/bicep/<file-path>:<tag>'
+  ```
+
+  For example:
+
+  ```bicep
+  using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
+  ```
+
+  To use aliases defined in [bicepconfig.json](./bicep-config.md):
+
+  ```bicep
+  using 'br/<alias>:<file>:<tag>'
+  ```
+
+  For example:
+
+  ```bicep
+  using 'br/storageModule:storage:v1'
+  ```
+
+- To use template spec:
+
+  ```bicep
+  using 'ts:<subscription-id>/<resource-group-name>/<template-spec-name>:<tag>
+  ```
+
+  ```bicep
+  using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
+  ```
+
+  To use aliases defined in [bicepconfig.json](./bicep-config.md):
+
+  ```bicep
+  using 'ts/<alias>:<template-spec-name>:<tag>'
+  ```
+
+  For example:
+
+  ```bicep
+  using 'ts/myStorage:storageSpec:1.0'
+  ```
+
 ## Define parameter values
 
 To determine how to define the parameter names and values, open your Bicep file. Look at the parameters section of the Bicep file. The following examples show the parameters from a Bicep file called `main.bicep`.

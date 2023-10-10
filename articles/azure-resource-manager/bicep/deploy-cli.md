@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 10/10/2023
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -174,21 +174,11 @@ However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShe
 
 The evaluation of parameters follows a sequential order, meaning that if a value is assigned multiple times, only the last assigned value is used. To ensure proper parameter assignment, it is advised to provide your parameters file initially and selectively override specific parameters using the _KEY=VALUE_ syntax. It's important to mention that if you are supplying a `bicepparam` parameters file, you can use this argument only once.
 
-### Parameters files
+### JSON parameters files
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a `.bicepparam` file or a JSON file that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
 For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
-
-To pass a local Bicep parameters file, specify the path and file name. The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
-
-```azurecli-interactive
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-file storage.bicep \
-  --parameters storage.bicepparam
-```
 
 The following example shows a parameters file named _storage.parameters.json_. The file is in the same directory where the command is run.
 
@@ -198,6 +188,17 @@ az deployment group create \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
   --parameters storage.parameters.json
+```
+
+### Bicep parameter files
+
+Using Azure CLI version 2.53.0 or later and Bicep CLI version 0.22.6 or later, it is possible to deploy an ARM JSON template using a [Bicep parameter file](../bicep/parameter-files.md). Because of the `using statement` in Bicep parameter file, you don't need to provide the `--template-file` switch if specify a Bicep parameter file for the `--parameters` switch. You get the "Only a .bicep template is allowed with a .bicepparam file" error if the `--template-file` switch is also included.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --parameters storage.bicepparam
 ```
 
 ## Preview changes
