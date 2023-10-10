@@ -257,7 +257,7 @@ To specify these document version numbers and message types, follow these steps.
    ]
    ```
 
-   You modify your `schemaReferences` section to look like this:
+   Edit your `schemaReferences` section to look like the following example:
 
    ```json
    "schemaReferences": [
