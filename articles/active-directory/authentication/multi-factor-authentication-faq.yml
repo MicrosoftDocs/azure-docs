@@ -109,7 +109,7 @@ sections:
           
           If your MFA provider is *not* linked to a Microsoft Entra tenant, or you link the new MFA provider to a different Microsoft Entra tenant, user settings, and configuration options aren't transferred. Also, existing MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
           
-          Learn more about MFA providers in [Getting started with an Azure multifactor authentication Provider](concept-mfa-authprovider.md).
+          Learn more about MFA providers in [Getting started with an Azure multifactor authentication provider](concept-mfa-authprovider.md).
           
       - question: |
           Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?
