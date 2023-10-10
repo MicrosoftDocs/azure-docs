@@ -5,7 +5,7 @@ description: Learn how to create an Azure container instance resource from the A
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 04/01/2020

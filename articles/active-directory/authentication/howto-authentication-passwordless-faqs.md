@@ -230,7 +230,7 @@ Like any other DC, the Microsoft Entra Kerberos server encryption *krbtgt* keys 
 
 ### Why do we need Microsoft Entra Connect? Does it write any info back to AD DS from Microsoft Entra ID?
 
-Microsoft Entra Connect doesn't write info back from Microsoft Entra ID to AD DS. The utility includes the PowerShell module to create the Kerberos Server Object in AD DS and publish it in Microsoft Entra ID.
+Microsoft Entra Connect doesn't write info back from Microsoft Entra ID to Active Directory DS. The utility includes the PowerShell module to create the Kerberos Server Object in AD DS and publish it in Microsoft Entra ID.
 
 ### What does the HTTP request/response look like when requesting PRT+ partial TGT?
 
@@ -249,7 +249,7 @@ Microsoft Entra ID combines the encrypted client key and message buffer into the
 | tgt_message_buffer | string | Base64 encoded KERB_MESSAGE_BUFFER. |
 
 ### Do users need to be a member of the Domain Users Active Directory group?
-Yes. A user must be in the Domain Users group to be able to sign-in using Azure AD Kerberos.
+Yes. A user must be in the Domain Users group to be able to sign-in using Microsoft Entra Kerberos.
 
 ## Next steps
 
