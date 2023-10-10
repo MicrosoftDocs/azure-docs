@@ -10,8 +10,8 @@ ms.date: 08/10/2021
 This article provides information on authenticating clients that publish events to Azure Event Grid topics, domains, partner namespaces using **access key** or **Shared Access Signature (SAS)** token. 
 
 > [!IMPORTANT]
-> - Authenticating and authorizing users or applications using Azure AD identities provides superior security and ease of use over key-based and shared access signatures (SAS) authentication. With Azure AD, there is no need to store secrets used for authentication in your code and risk potential security vulnerabilities. We strongly recommend you use Azure AD with your Azure Event Grid event publishing applications. For more information, see [Authenticate publishing clients using Azure Active Directory](authenticate-with-active-directory.md).
-> - Azure AD authentication isn't supported for namespace topics. 
+> - Authenticating and authorizing users or applications using Microsoft Entra identities provides superior security and ease of use over key-based and shared access signatures (SAS) authentication. With Microsoft Entra ID, there is no need to store secrets used for authentication in your code and risk potential security vulnerabilities. We strongly recommend you use Microsoft Entra ID with your Azure Event Grid event publishing applications. For more information, see [Authenticate publishing clients using Microsoft Entra ID](authenticate-with-active-directory.md).
+> - Microsoft Entra authentication isn't supported for namespace topics. 
 
 
 ## Authenticate using access key
