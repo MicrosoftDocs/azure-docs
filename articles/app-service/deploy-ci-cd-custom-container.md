@@ -138,11 +138,12 @@ App Service supports CI/CD integration with Azure Container Registry and Docker 
 When you enable this option, App Service adds a webhook to your repository in Azure Container Registry or Docker Hub. Your repository posts to this webhook whenever your selected image is updated with `docker push`. The webhook causes your App Service app to restart and run `docker pull` to get the updated image.
 
 > [!NOTE]
-> To ensure the proper functioning of the webhook, it is essential to enable the **"Basic Auth Publishing Credentials"** option within your Web App. Failure to do so may result in a 401 unauthorized error for the webhook.
->To verify whether **"Basic Auth Publishing Credentials"** is enabled, follow these steps:
+> 
+> To ensure the proper functioning of the webhook, it's essential to enable the **Basic Auth Publishing Credentials** option within your Web App. Failure to do so may result in a 401 unauthorized error for the webhook.
+>To verify whether **Basic Auth Publishing Credentials** is enabled, follow these steps:
+> 
 > - Navigate to your Web App's **Configuration > General Settings**.
-> - Look for the **"Platform Setting"** section, where you will find the **"Basic Auth Publishing Credentials"** option.
-
+> - Look for the **Platform Setting** section, where you will find the **Basic Auth Publishing Credentials** option.
 
 **For other private registries**, your can post to the webhook manually or as a step in a CI/CD pipeline. In **Webhook URL**, **click** the **Copy** button to get the webhook URL.
 
