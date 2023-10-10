@@ -270,7 +270,7 @@ items:
           href: app/usage-heart.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
-    - name: Code-level diagnostics
+    - name: Code analysis
       items:
       - name: Profiler
         items:
@@ -278,7 +278,7 @@ items:
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-overview.md
         - name: Enable Profiler
-          items:        
+          items:
           - name: Azure App Service
             href: profiler/profiler.md
           - name: Azure Functions app
@@ -297,7 +297,7 @@ items:
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-data.md
         - name: Configure
-          items:        
+          items:
           - name: Configure Profiler
             href: profiler/profiler-settings.md
           - name: Configure BYOS (Bring Your Own Storage)
