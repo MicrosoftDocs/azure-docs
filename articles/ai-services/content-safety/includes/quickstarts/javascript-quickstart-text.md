@@ -43,10 +43,10 @@ Install the `@azure-rest/ai-content-safety` npm package:
 npm install @azure-rest/ai-content-safety
 ```
 
-Also install the `@azure/core-auth` module:
+Also install the `dotenv` module to use environment variables:
 
 ```console
-npm install @azure/core-auth
+npm install dotenv
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -104,5 +104,8 @@ node index.js
 ## Output
 
 ```console
-tbd
+Hate severity:  0
+SelfHarm severity:  0
+Sexual severity:  0
+Violence severity:  0
 ```

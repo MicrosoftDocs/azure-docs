@@ -46,10 +46,10 @@ Install the `@azure-rest/ai-content-safety` npm package:
 npm install @azure-rest/ai-content-safety
 ```
 
-Also install the `@azure/core-auth` module:
+Also install the `dotenv` module to use environment variables:
 
 ```console
-npm install @azure/core-auth
+npm install dotenv
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -79,7 +79,7 @@ async function main() {
     const client = ContentSafetyClient(endpoint, credential);
     
     // replace with your own sample image file path 
-    const image_path = path.resolve(__dirname, "./resources/image.png");
+    const image_path = path.resolve(__dirname, "./resources/image.jpg");
     
     const imageBuffer = fs.readFileSync(image_path);
     const base64Image = imageBuffer.toString("base64");
@@ -112,5 +112,8 @@ node index.js
 ## Output
 
 ```console
-tbd
+Hate severity:  0
+SelfHarm severity:  0
+Sexual severity:  0
+Violence severity:  0
 ```
