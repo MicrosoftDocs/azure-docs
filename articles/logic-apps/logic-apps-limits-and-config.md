@@ -309,7 +309,7 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 | Name | Multi-tenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
-| Request trigger (inbound) and webhook-type triggers - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger or any webhook-type triggers. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling for the request trigger, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. For any webhook-type trigger, you may need to use multiple workflows to split the load to avoid throttling |
+| Request trigger (inbound) and webhook-based triggers - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger or any webhook trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling for the Request trigger, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. For a webhook trigger, you might have to use multiple workflows, which splits the load and avoids throttling. |
 
 <a name="message-size-limits"></a>
 
