@@ -101,7 +101,7 @@ landingContent:
         links:
         - text: Azure DDoS Solution for Microsoft Sentinel
           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/new-azure-ddos-solution-for-microsoft-sentinel/ba-p/3732013
-        - text: Maximizing Effectiveness: Best Practices for Azure DDoS Protection and Application Resilience
+        - text: 'Maximizing Effectiveness: Best Practices for Azure DDoS Protection and Application Resilience'
           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/maximizing-effectiveness-best-practices-for-azure-ddos/ba-p/3914324
         - text: Defending Against UDP Flood Attacks with Azure DDoS Protection
           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/defending-against-udp-flood-attacks-with-azure-ddos-protection/ba-p/3941758
