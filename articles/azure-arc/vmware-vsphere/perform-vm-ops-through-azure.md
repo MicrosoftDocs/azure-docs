@@ -9,7 +9,7 @@ ms.subservice: azure-arc-vmware-vsphere
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you will learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
+In this article, you'll learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
 
 - Start, stop, and restart a VM
 
@@ -35,7 +35,7 @@ Before you can install an extension, you must enable guest management on the VMw
 
    - is running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
 
-   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/network-requirements.md#urls) are not blocked.
+   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/network-requirements.md#urls) aren't blocked.
 
    - has VMware tools installed and running.
 

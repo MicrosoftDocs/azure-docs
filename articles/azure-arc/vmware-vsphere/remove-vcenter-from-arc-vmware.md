@@ -28,7 +28,7 @@ To cleanly remove guest management, you must follow the steps below to remove an
 ### Step 1: Remove VM extensions
 
 If you have deployed Azure VM extensions to an Azure Arc-enabled VMware vSphere VM, you must uninstall the extensions before disconnecting the agent or uninstalling the software. Uninstalling the Azure Connected Machine agent doesn't automatically remove extensions, and they won't be recognized if you late connect the VM to Azure Arc again.
-Uninstall extensions using following steps:
+Uninstall extensions using the following steps:
 
 1. Go to [Azure Arc center in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview)
 
@@ -89,7 +89,7 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
 
 ## 2. Remove your VMware vCenter environment from Azure Arc
 
-You can remove your VMware vSphere resources from Azure Arc either using the deboarding script or manually.
+You can remove your VMware vSphere resources from Azure Arc using either the deboarding script or manually.
 
 ### Remove VMware vSphere resources from Azure Arc using deboarding script
 
@@ -356,20 +356,24 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 #### Inputs for the script
 
 **-vCenterId**
+
 The Azure resource ID of the VMware vCenter resource. For example, /subscriptions/204898ee-cd13-4332-1111-88ca5c11111c/resourceGroups/Synthetics/providers/Microsoft.ConnectedVMwarevSphere/VCenters/vcenterresource
 
 **-AVSId**
+
 The Azure resource ID of the AVS instance. Specifying vCenterId or AVSId is mandatory.
 
 **-ApplianceConfigFilePath (optional)**
+
 Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath will also delete the appliance VM running on the vCenter.
 
 **-Force**
-Using Force flag will delete all the Azure resources without reaching Resource Bridge. Use this option if Resource Bridge VM isn't in running state.  
+
+Using Force flag will delete all the Azure resources without reaching resource bridge. Use this option if resource bridge VM isn't in running state.  
 
 ### Remove VMware vSphere resources from Azure manually
 
-If you aren't using the deboarding script, follow these steps to remove the VMware vSphere resources manually.
+If you aren't using the deboarding script, follow these steps to remove the VMware vSphere resources manually:
 
 >[!NOTE]
 >When you enable VMware vSphere resources in Azure, an Azure resource representing them is created. Before you can delete the vCenter resource in Azure, you must delete all the Azure resources that represent your related vSphere resources.
@@ -396,9 +400,9 @@ If you aren't using the deboarding script, follow these steps to remove the VMwa
 
 10. Select **Remove from Azure** to remove the vCenter resource from Azure.
 
-11. Go to the **Custom location** resource and click **Delete**
+11. Go to the **Custom location** resource and select **Delete**
 
-12. Go to the **Azure Arc Resource bridge** resource and click **Delete**
+12. Go to the **Azure Arc Resource bridge** resource and select **Delete**
 
 At this point, all your Arc-enabled VMware vSphere resources are removed from Azure.
 
@@ -410,4 +414,4 @@ You can find both the virtual machine and the template on the resource pool/clus
 
 ## Next steps
 
-- [Connect the vCenter to Azure Arc again](quick-start-connect-vcenter-to-arc-using-script.md)
+[Connect the vCenter to Azure Arc again](quick-start-connect-vcenter-to-arc-using-script.md).
