@@ -16,11 +16,17 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## October 2023
+
+### Content Safety Java and JavaScript SDKs
+
+The Azure AI Content Safety service is now available through Java and JavaScript SDKs. The SDKs are available on [Maven](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) and [npm](https://www.npmjs.com/package/@azure-rest/ai-content-safety). Follow a [quickstart](./quickstart-text.md) to get started.
+
 ## July 2023
 
 ### Content Safety C# SDK
 
-The Azure AI Content Safety service is now available through a C# SDK. The SDK is available on [NuGet](https://www.nuget.org/packages/Azure.AI.ContentSafety/). Follow the [quickstart](./quickstart-text.md) to get started.
+The Azure AI Content Safety service is now available through a C# SDK. The SDK is available on [NuGet](https://www.nuget.org/packages/Azure.AI.ContentSafety/). Follow a [quickstart](./quickstart-text.md) to get started.
 
 ## May 2023
 
