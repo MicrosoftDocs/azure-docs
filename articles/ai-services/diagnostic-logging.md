@@ -5,7 +5,7 @@ description: This guide provides step-by-step instructions to enable diagnostic 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 07/19/2021
 ms.author: pafarley

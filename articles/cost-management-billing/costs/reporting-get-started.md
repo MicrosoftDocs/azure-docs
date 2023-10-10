@@ -1,6 +1,6 @@
 ---
-title: Get started with Cost Management + Billing reporting - Azure
-description: This article helps you to get started with Cost Management + Billing to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
+title: Get started with Cost Management reporting - Azure
+description: This article helps you to get started with Cost Management to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
 ms.date: 10/18/2022
@@ -10,9 +10,9 @@ ms.subservice: cost-management
 ms.reviewer: micflan
 ---
 
-# Get started with Cost Management + Billing reporting
+# Get started with Cost Management reporting
 
-Cost Management + Billing includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
+Cost Management includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
 
 ## Cost analysis
 

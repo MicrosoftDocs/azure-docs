@@ -92,7 +92,7 @@ You must already have a user managed identity created. To create a new identity,
 
 ## Verify access
 
-1. Go to the Azure Front Door profile you enabled managed identity and select **Secret** from under *Settings*.
+1. Go to the Azure Front Door profile you enabled managed identity and select **Secrets** from under *Security*.
 
     :::image type="content" source="./media/managed-identity/secrets.png" alt-text="Screenshot of accessing secrets from under settings of a Front Door profile.":::
 

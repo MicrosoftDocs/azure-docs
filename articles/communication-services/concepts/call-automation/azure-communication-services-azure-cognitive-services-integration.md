@@ -24,7 +24,7 @@ All this is possible with one-click where enterprises can access a secure soluti
 BYO Azure AI services can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the BYO option and provide the URL to the Azure AI services. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
 > [!NOTE]
-> This integration is only supported in limited regions for Azure AI services, for more information about which regions are supported please view the limitations section at the bottom of this document. It is also recommended that when you're creating a new Azure Cognitive Service resource that you create a Multi-service Cognitive Service resource.
+> This integration is only supported in limited regions for Azure AI services, for more information about which regions are supported please view the limitations section at the bottom of this document. This integration only supports Multi-service Cognitive Service resource, so we recommend if you're creating a new Azure Cognitive Service resource you create a Multi-service Cognitive Service resource or when you're connecting an existing resource confirm that it is a Multi-service Cognitive Service resource.
 
 ## Common use cases
 

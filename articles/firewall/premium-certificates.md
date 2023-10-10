@@ -51,7 +51,7 @@ Ensure your CA certificate complies with the following requirements:
 
 - It must have the `KeyUsage` extension marked as Critical with the `KeyCertSign` flag (RFC 5280; 4.2.1.3 Key Usage).
 
-- It must have the `BasicContraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
+- It must have the `BasicConstraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
 
 - The `CA` flag must be set to TRUE.
 

@@ -45,7 +45,7 @@ For some components of a service, work is in progress to be included in the EU D
 
 **EU Data Boundary:**
 
-See more information on Microsoft Entra temporary partial customer data transfers from the EU Data Boundary [Services that temporarily transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-temporary-partial-transfers.md#security-services). 
+See more information on Microsoft Entra temporary partial customer data transfers from the EU Data Boundary [Services that temporarily transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-temporary-partial-transfers#security-services). 
 
 ## Services that will permanently transfer a subset of customer data out of the EU Data Residency and EU Data Boundary 
 
@@ -57,7 +57,7 @@ Some components of a service will continue to transfer a limited amount of custo
 
 **EU Data Boundary:**
 
-See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers.md#security-services).
+See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers#security-services).
 
 ## Other considerations
 
@@ -72,7 +72,7 @@ Some services include capabilities that are optional (in some cases requiring a 
 
 **EU Data  Boundary:**
 
-See more information on optional service capabilities that transfer customer data out of the EU Data Boundary [Optional service capabilities that transfer customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-transfers-for-optional-capabilities.md#microsoft-entra-id).
+See more information on optional service capabilities that transfer customer data out of the EU Data Boundary [Optional service capabilities that transfer customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-transfers-for-optional-capabilities#microsoft-entra-id).
 
 ### Other EU Data Boundary online services
 

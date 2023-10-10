@@ -779,7 +779,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```r
-mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, list("input": 20))
 ```
 
 After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
@@ -825,7 +825,7 @@ Sample1 run success with input is 10
 You can run the **Sample1** in another notebook and set the **input** value as 20:
 
 ```r
-exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, list("input": 20))
 print (exitVal)
 ```
 
