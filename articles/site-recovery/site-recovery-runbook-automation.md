@@ -257,7 +257,6 @@ To deploy sample scripts to your Automation account, select the **Deploy to Azur
 ## Next steps
 
 - Learn about:
-    - [Azure Automation Run As account](../automation/manage-runas-account.md).
     - [Running failovers](site-recovery-failover.md)
 - Review:
     -  [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).

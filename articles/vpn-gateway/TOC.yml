@@ -211,6 +211,8 @@
           href: about-vpn-profile-download.md 
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
+      - name: Azure VPN Client versions
+        href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
   - name: Routing, BGP, and VNet Peering

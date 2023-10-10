@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Access and customize the developer portal - Azure API Management | Microsoft Docs
-description: Follow this to tutorial to learn how to customize the API Management developer portal, an automatically generated, fully customizable website with the documentation of your APIs. 
+description: In this tutorial, customize the API Management developer portal, an automatically generated, fully customizable website with the documentation of your APIs. 
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 09/06/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -40,8 +40,12 @@ You can find more details on the developer portal in the [Azure API Management d
 Follow the steps below to access the managed version of the portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
-
+1. If you created your instance in a v2 service tier that supports the developer portal, first enable the developer portal. 
+    1. In the left menu, under **Developer portal**, select **Portal settings**. 
+    1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
+    
+    It might take a few minutes to enable the developer portal.
+1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
 ## Developer portal architectural concepts
 

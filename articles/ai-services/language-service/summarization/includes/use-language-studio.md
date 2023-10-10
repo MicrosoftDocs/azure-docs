@@ -3,7 +3,7 @@
  description: include file
  services: cognitive-services
  author: jboback
- ms.service: cognitive-services
+ ms.service: azure-ai-language
  ms.topic: include
  ms.date: 08/15/2022
  ms.author: aahi

@@ -52,6 +52,8 @@ The rows in a downloaded CSV template are as follows:
 
 If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 
+[!INCLUDE [Bulk update warning](~/articles/active-directory/includes/bulk-export.md)]
+
 ## Check status
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.

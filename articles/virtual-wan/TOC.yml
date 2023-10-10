@@ -292,6 +292,8 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
+    - name: Monitoring - best practices
+      href: monitoring-best-practices.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
