@@ -170,19 +170,9 @@ You can check the following items to troubleshoot the issue:
 
 #### ERROR: RefreshExtensionIdentityNotSet
 
-This error occurs when the extension is installed but the extension identity is not correctly set by the installer. You can follow on of the two way to resolve it.
+This error occurs when the extension is installed but the extension identity is not correctly assigned. You can try to re-install the extension to fix it.
 
-##### Solution 1
-1. Check the error message and find the cluster node that have this issue. Remember the node pool name of that node, which can be aquired by `kubectl describe node <node name>`, the `agentpool` label.
-2. Open the resources group page for your AKS nodes in portal. The resources group is in the same subscription and the resource group name is `MC_<AKS resource group name>_<AKS name>-<location>`. You can search your AKS name to query it.
-3. Find a managed identity named `ext-<random numbers>-<AKS name>` and remember it.
-4. Open the "virtual machine scale set" page of the node pool in portal, go to the "identity" subpage and then select the "User Assigned" tab.
-5. Add the remembered managed identity and wait several minutes. Then you can create deployments in this cluster.
-
-##### Solution 2
-You can delete the extension and re-create it.
-
-If neither of the solutions not work, please contact Azure Arc team for support.
+> Please notice this error is only for managed clusters
 
 
 
