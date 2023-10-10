@@ -122,7 +122,7 @@ Popular vector similarity metrics include the following, which are all supported
 
 ### Approximate Nearest Neighbors
 
-Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach depends on the algorithm. While this approach sacrifices some accuracy, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
+Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach depends on the algorithm. While this approach sacrifices some accuracy, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You can adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
 Azure Cognitive Search uses Hierarchical Navigable Small Worlds (HNSW), which is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
 
