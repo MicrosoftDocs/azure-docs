@@ -60,7 +60,7 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 1. On the Microsoft Entra Connect server, open the **Microsoft Entra Connect** app.
 2. Select **Configure**.
 
-   ![Screenshot of the Microsoft Entra icon and the Configure button in the Microsoft Entra Connect app.](media/migrate-okta-federation/configure.png)
+   ![Screenshot of the Microsoft Entra ID icon and the Configure button in the Microsoft Entra Connect app.](media/migrate-okta-federation/configure.png)
 
 3. Select **Change user sign-in**.
 4. Select **Next**.
