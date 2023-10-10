@@ -8,10 +8,7 @@ ms.author: xiaofanzhou
 
 
 #### [.NET](#tab/dotnet)
-
-For .NET, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). **Uncomment the corresponding part of the code snippet according to the authentication type.**
-
-First, import the required Azure packages and the .NET data provider for PostgreSQL.
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
 ```csharp
 using Azure.Identity;
