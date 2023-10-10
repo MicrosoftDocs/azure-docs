@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you'd like to install and use PowerShell locally, you'll need the Azure PowerShell module Az version 7.0.0 or later. We recommend installing the latest available version. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
+If you'd like to install and use PowerShell locally, you'll need the Azure PowerShell module Az version 7.0.0 or later. We recommend installing the latest available version. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multifactor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
 
 # [Azure CLI](#tab/azure-cli)
 
