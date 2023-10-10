@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-This section isn't required to prepare the jar package for deployment, the `Deploy to azure` button process downloads the jar from [GitHub release](https://github.com/Azure/spring-cloud-azure-tools/releases).
+This section isn't required to prepare the JAR package for deployment. The **Deploy to azure** button process downloads the JAR package from [GitHub release](https://github.com/Azure/spring-cloud-azure-tools/releases).
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -186,7 +186,8 @@ Deploying the application can take a few minutes.
 
 Use the following steps to import the project:
 
-1. Open IntelliJ IDEA and then select **Open**.
+1. Open IntelliJ IDEA and select **Open**.
+
 1. In the **Open File or Project** dialog box, select the *demo* folder.
 
    :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA that shows the Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
@@ -205,14 +206,19 @@ Use the following steps to build and deploy your app:
    :::image type="content" source="../../media/quickstart/intellij-deploy-azure.png" alt-text="Screenshot of the IntelliJ IDEA menu that shows the Deploy to Azure Spring Apps option." lightbox="../../media/quickstart/intellij-deploy-azure.png":::
 
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
+
 1. In the **Artifact** textbox, select **Maven:demo(Java 17)**.
+
 1. In the **Subscription** textbox, verify that your subscription is correct.
+
 1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created.
+
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
    :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of the IntelliJ IDEA that shows the Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
 
 1. In the **App name:** textbox under **App Basics**, enter *demo*, and then select **More settings**.
+
 1. Select the **Enable** button next to **Public endpoint**. The button changes to **Disable \<to be enabled\>**. Then, select **OK**.
 
    :::image type="content" source="../../media/quickstart/intellij-more-settings.png" alt-text="Screenshot of IntelliJ IDEA Create app dialog box with public endpoint Disable button highlighted." lightbox="../../media/quickstart/intellij-more-settings.png":::
