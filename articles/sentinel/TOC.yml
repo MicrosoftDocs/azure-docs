@@ -13,7 +13,7 @@
     href: quickstart-onboard.md
 - name: Plan
   items:
-  - name: Deployment guide  
+  - name: Deployment planning guide  
     href: deploy-overview.md
   - name: Prerequisites      
     href: prerequisites.md
