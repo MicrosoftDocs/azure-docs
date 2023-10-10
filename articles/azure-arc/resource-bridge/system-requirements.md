@@ -11,6 +11,12 @@ This article describes the system requirements for deploying Azure Arc resource 
 
 Arc resource bridge is used with other partner products, such as [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), [Arc-enabled VMware vSphere](../vmware-vsphere/index.yml), and [Arc-enabled System Center Virtual Machine Manager (SCVMM)](../system-center-virtual-machine-manager/index.yml). These products may have additional requirements.  
 
+## Required Azure permissions
+
+- To onboard Arc resource bridge, you must have the [Contributor](/azure/role-based-access-control/built-in-roles) role for the resource group.
+
+- To read, modify, and delete Arc resource bridge, you must have the [Contributor](/azure/role-based-access-control/built-in-roles) role for the resource group.
+
 ## Management tool requirements
 
 [Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
@@ -58,6 +64,7 @@ Management machine requirements:
 - Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command).
 - Open communication to Appliance VM IP. 
 - Open communication to the reserved Appliance VM IP. 
+- if applicable, communication over port 443 to the private cloud management console (ex: VMware vCenter host machine)
 - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
 - Internet access
   
@@ -175,9 +182,7 @@ Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/
 
 ## AKS on Azure Stack HCI with Arc resource bridge
    
-To use AKS and Arc resource bridge together on Azure Stack HCI, AKS must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be deployed unless you delete Arc resource bridge first. Once AKS is deployed to Azure Stack HCI, you can deploy Arc resource bridge.
-
-When you deploy Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the following configurations must be applied:
+When you deploy Arc resource bridge with AKS on Azure Stack HCI (AKS-HCI), the following configurations must be applied:
 
 - Arc resource bridge and AKS-HCI should share the same `vswitchname` and be in the same subnet, sharing the same value for the parameter, `ipaddressprefix` .
 
@@ -198,6 +203,7 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 
 
