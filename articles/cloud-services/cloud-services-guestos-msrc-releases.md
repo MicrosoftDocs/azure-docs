@@ -19,6 +19,65 @@ ms.custom: compute-evergreen
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## October 2023 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 23-10 |  [5031361]  |  Latest Cumulative Update(LCU) | [6.63] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031364]  |  Latest Cumulative Update(LCU) | [7.32] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031362]  |  Latest Cumulative Update(LCU) | [5.87] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029938]  |  .NET Framework 3.5 Security and Quality Rollup | [2.143] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029933]  |  .NET Framework 4.7.2 Cumulative Update LKG | [2.143] | Sep 12, 2023 |
+|  Rel 23-10 |  [5029915]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [4.123] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029916]  |  .NET Framework 4.7.2 Cumulative Update LKG | [4.123] | Oct 10, 2023 |
+|  Rel 23-10 |  [5030160]  |  .NET Framework 4.7.2 Security and Quality Rollup | [2.142] | Oct 10, 2023 |
+|  Rel 23-10 |  [5030160]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [3.131] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029932]  |  .NET Framework 4.7.2 Cumulative Update LKG | [3.131] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029931]  |  .NET Framework DotNet | [6.63] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029928]  |  .NET Framework 4.8 Security and Quality Rollup LKG | [7.32] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031408]  |  Monthly Rollup | [2.143] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031442]  |  Monthly Rollup | [3.131] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031419]  |  Monthly Rollup | [4.123] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031469]  |  Servicing Stack Update | [3.131] | Oct 10, 2023 |
+|  Rel 23-10 |  [5030329]  |  Servicing Stack Update LKG | [4.123] | Sep 12, 2023 |
+|  Rel 23-10 |  [5030504]  |  Servicing Stack Update LKG | [5.87] | Sep 12, 2023 |
+|  Rel 23-10 |  [5031658]  |  Servicing Stack Update LKG | [2.143] | Oct 10, 2023 |
+|  Rel 23-10 |  [4494175]  |  January '20 Microcode | [5.87] | Sep 1, 2020 |
+|  Rel 23-10 |  [4494175]  |  January '20 Microcode | [6.63] | Sep 1, 2020 |
+|  Rel 23-10 |  5031590  |  Servicing Stack Update | [7.31] |  |
+|  Rel 23-10 |  5031589  |  Servicing Stack Update | [6.62] |  |
+
+[5031361]: https://support.microsoft.com/kb/5031361
+[5031364]: https://support.microsoft.com/kb/5031364
+[5031362]: https://support.microsoft.com/kb/5031362
+[5029938]: https://support.microsoft.com/kb/5029938
+[5029933]: https://support.microsoft.com/kb/5029933
+[5029915]: https://support.microsoft.com/kb/5029915
+[5029916]: https://support.microsoft.com/kb/5029916
+[5030160]: https://support.microsoft.com/kb/5030160
+[5029932]: https://support.microsoft.com/kb/5029932
+[5029931]: https://support.microsoft.com/kb/5029931
+[5029928]: https://support.microsoft.com/kb/5029928
+[5031408]: https://support.microsoft.com/kb/5031408
+[5031442]: https://support.microsoft.com/kb/5031442
+[5031419]: https://support.microsoft.com/kb/5031419
+[5031469]: https://support.microsoft.com/kb/5031469
+[5030329]: https://support.microsoft.com/kb/5030329
+[5030504]: https://support.microsoft.com/kb/5030504
+[5031658]: https://support.microsoft.com/kb/5031658
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.143]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.131]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.123]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.87]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.63]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.32]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+
+
+
 ## September 2023 Guest OS
 
 
