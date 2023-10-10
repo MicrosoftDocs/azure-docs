@@ -166,6 +166,7 @@ This example creates a token with a wildcard.
 Wildcard permissions are additive, meaning that given a specific repository the resulting permissions will include the permissions for all the scope map rules that match the wildcard prefix.
 
 In this example, if a token is assigned to a scope map with the following repositories defined:
+
   |Repository  |Permission  |
   |---------|---------|
   |`sample/*`    | `content/read`  |
