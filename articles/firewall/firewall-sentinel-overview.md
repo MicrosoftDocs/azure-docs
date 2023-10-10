@@ -20,20 +20,6 @@ Combining prevention and detection allows you to ensure that you both prevent so
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
-
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
-
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
-
--->
 
 ## Key capabilities
 
@@ -115,4 +101,5 @@ The security researcher removed the malware from the new device, completed mitig
 
 > [!div class="nextstepaction"]
 > [Learn more about Microsoft Sentinel](../sentinel/overview.md)
+>
 > [Microsoft security](https://www.microsoft.com/en-us/security/business)
