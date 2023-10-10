@@ -5,7 +5,7 @@ description: "Learn how to rotate API keys for better security, without interrup
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 11/08/2022
 ms.author: pafarley
