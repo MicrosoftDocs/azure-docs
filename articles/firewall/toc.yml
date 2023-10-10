@@ -123,6 +123,8 @@ items:
       href: explicit-proxy.md
     - name: Multi hub and spoke
       href: firewall-multi-hub-spoke.md
+    - name: Azure Firewall with Microsoft Sentinel
+      href: firewall-sentinel-overview.md
 - name: How-to guides
   items:
   - name: Deploy
