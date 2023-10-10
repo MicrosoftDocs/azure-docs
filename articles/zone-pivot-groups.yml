@@ -750,6 +750,10 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-two-with-js-spx
 # Owner: erhopf
   title: Programming languages
