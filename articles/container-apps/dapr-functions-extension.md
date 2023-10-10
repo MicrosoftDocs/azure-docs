@@ -42,7 +42,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 1. Set up your Azure login with the active subscription you'd like to use.
 
    ```azurecli
-   az account set --subscription <subscription-id-or-name>
+   az account set --subscription {subscription-id-or-name}
    ```
 
 1. Clone the [Dapr extension for Azure Functions repo](https://github.com/Azure/azure-functions-dapr-extension).
