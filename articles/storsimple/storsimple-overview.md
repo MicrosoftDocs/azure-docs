@@ -60,7 +60,7 @@ Decommission operations can't be undone. We recommend that you complete your dat
     ```azurepowershell
     Reset-HcsFactoryDefault
     ```
-    To instead reset a single controller, use the [Reset-HcsFactoryDefault](https://learn.microsoft.com/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
+    To instead reset a single controller, use the [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
 
     The system reboots multiple times. You're notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 

@@ -10,6 +10,8 @@ ms.author: itnorman
 
 # Create a classic Azure AI Video Indexer account
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 This topic shows how to create a new classic account connected to Azure using the [Azure AI Video Indexer website](https://aka.ms/vi-portal-link). You can also create an Azure AI Video Indexer classic account through our [API](https://aka.ms/avam-dev-portal).

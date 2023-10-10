@@ -13,14 +13,15 @@ ms.date: 08/16/2023
 
 # Migrate from diagnostic settings storage retention to Azure Storage lifecycle management
 
-The Diagnostic Settings Storage Retention feature is being deprecated. To configure retention for logs and metrics use Azure Storage Lifecycle Management.  
+The Diagnostic Settings Storage Retention feature is being deprecated. To configure retention for logs and metrics sent to an Azure Storage account, use Azure Storage Lifecycle Management.  
 
 This guide walks you through migrating from using Azure diagnostic settings storage retention to using [Azure Storage lifecycle management](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) for retention.
+For logs sent to a Log Analytics workspace, retention is set for each table on the **Tables** page of your workspace.
 
 > [!IMPORTANT]
 > **Deprecation Timeline.**
 > - March 31, 2023 –  The Diagnostic Settings Storage Retention feature will no longer be available to configure new retention rules for log data. This includes using the portal, CLI PowerShell, and ARM and Bicep templates.  If you have configured retention settings, you'll still be able to see and change them in the portal. 
-> - September 30, 2023 –  You will no longer be able to use the API (CLI, Powershell, or templates), or Azure portal to configure retention setting unless you're changing them to *0*. Existing retention rules will still be respected.
+> - March 31, 2024 –  You will no longer be able to use the API (CLI, Powershell, or templates), or Azure portal to configure retention setting unless you're changing them to *0*. Existing retention rules will still be respected.
 > - September 30, 2025 –  All retention functionality for the Diagnostic Settings Storage Retention feature will be disabled across all environments.
 
 
@@ -31,6 +32,8 @@ An existing diagnostic setting logging to a storage account.
 
 ## Migration Procedures
 
+
+## [Azure portal](#tab/portal)
 To migrate your diagnostics settings retention rules, follow the steps below:
 
 1. Go to the Diagnostic Settings page for your logging resource and locate the diagnostic setting you wish to migrate
@@ -62,6 +65,124 @@ To set the rule for a specific webapp app, use *insights-activity-logs/ResourceI
 
 1. Select **Add** to save the rule.
 :::image type="content" source="./media/retention-migration/lifecycle-management-add-rule-filter-set.png" lightbox="./media/retention-migration/lifecycle-management-add-rule-filter-set.png" alt-text="A screenshot showing the filters tab for adding a lifecycle rule.":::
+
+
+## [CLI](#tab/cli)
+
+Use the [az storage account management-policy create](https://docs.microsoft.com/cli/azure/storage/account/management-policy?view=azure-cli-latest#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. See the Azure portal section above for more information.
+
+
+
+```azurecli
+
+az storage account management-policy create   --account-name <storage account name> --resource-group <resource group name> --policy @<policy definition file>
+```
+
+The sample policy definition file below sets the retention for all blobs in the container *insights-activity-logs* for the given subscription ID. For more information, see [Lifecycle management policy definition](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview#lifecycle-management-policy-definition).
+
+```json
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "Susbcription level lifecycle rule",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
+          },
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90,
+              "daysAfterLastTierChangeGreaterThan": 7
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "insights-activity-logs/ResourceId=/SUBSCRIPTIONS/ABCD1234-5849-ABCD-1234-9876543210AB"
+          ]
+        }
+      }
+    }
+  ]
+}
+
+```
+
+## [Templates](#tab/templates)
+
+Apply the following template to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. See the Azure portal section above for more information.
+
+```azurecli
+
+az deployment group create  --resource-group <resource group name> --template-file <template file>
+
+```
+
+The following template sets the retention for storage account *azmonstorageaccount001* for all blobs in the container *insights-activity-logs* for all resources for the subscription ID *ABCD1234-5849-ABCD-1234-9876543210AB*.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+            "apiVersion": "2021-02-01",
+            "name": "azmonstorageaccount001/default",
+            "properties": {
+                "policy": {
+                    "rules": [
+                        {
+                            "enabled": true,
+                            "name": "Edtest",
+                            "type": "Lifecycle",
+                            "definition": {
+                                "filters": {
+                                    "blobTypes": [
+                                        "blockBlob"
+                                    ],
+                                    "prefixMatch": [
+                                        "insights-activity-logs/ResourceId=/SUBSCRIPTIONS/ABCD1234-5849-ABCD-1234-9876543210AB"
+                                    ]
+                                },
+                                "actions": {
+                                    "baseBlob": {
+                                        "tierToCool": {
+                                            "daysAfterModificationGreaterThan": 30
+                                        },
+                                        "tierToArchive": {
+                                            "daysAfterModificationGreaterThan": 90
+                                        },
+                                        "delete": {
+                                            "daysAfterModificationGreaterThan": 1000
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+---
 
 ## Next steps
 

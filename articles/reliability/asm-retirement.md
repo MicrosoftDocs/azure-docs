@@ -16,11 +16,11 @@ Azure Service Manager (ASM) is the old control plane of Azure responsible for cr
 ## Benefits of migrating to ARM 
 Migrating from the classic resource model to ARM offers several benefits, including: 
 
-- **Simplified management**: ARM provides a [unified platform](https://learn.microsoft.com/azure/azure-resource-manager/management/overview) for managing and deploying resources, allowing for easier provisioning, monitoring, and updating of infrastructure components.
-- **Improved security**: ARM incorporates robust security features, such as [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview) and [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), to help protect resources and provide automatic credential management
-- **High Availability and Resiliency**: [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview) allow customers to run mission-critical applications with higher availability and fault tolerance to datacenter failures
-- **High Scalability**: ARM enables [automatic scaling](https://learn.microsoft.com/azure/well-architected/scalability/design-scale) of resources based on demand, ensuring applications can handle increased workloads efficiently.
-- **Cost optimization**: ARM provides features like [cost management](https://learn.microsoft.com/azure/cost-management-billing/) and [resource tagging](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources), enabling better visibility and control over resource usage, leading to cost optimization and efficient resource allocation.
+- **Simplified management**: ARM provides a [unified platform](/azure/azure-resource-manager/management/overview) for managing and deploying resources, allowing for easier provisioning, monitoring, and updating of infrastructure components.
+- **Improved security**: ARM incorporates robust security features, such as [role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview), to help protect resources and provide automatic credential management
+- **High Availability and Resiliency**: [Availability Zones](/azure/reliability/availability-zones-overview) allow customers to run mission-critical applications with higher availability and fault tolerance to datacenter failures
+- **High Scalability**: ARM enables [automatic scaling](/azure/well-architected/scalability/design-scale) of resources based on demand, ensuring applications can handle increased workloads efficiently.
+- **Cost optimization**: ARM provides features like [cost management](/azure/cost-management-billing/) and [resource tagging](/azure/azure-resource-manager/management/tag-resources), enabling better visibility and control over resource usage, leading to cost optimization and efficient resource allocation.
 
 
 There are many service-related benefits which can be found in the migration guides. 

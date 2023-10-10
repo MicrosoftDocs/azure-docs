@@ -23,7 +23,7 @@ After completing your [investigation](howto-identity-protection-investigate-risk
 
 All active risk detections contribute to the calculation of the user's risk level. The user risk level is an indicator (low, medium, high) of the probability that the user's account has been compromised. As an administrator, after thorough investigation of the risky users and the corresponding risky sign-ins and detections, you want to remediate the risky users so that they're no longer at risk and won't be blocked.
 
-Identity Protection marks some risk detections and the corresponding risky sign-ins as dismissed with risk state **Dismissed** and risk detail **Azure AD Identity Protection assessed sign-in safe**. It takes this action, because those events were no longer determined to be risky.
+Microsoft Entra ID Protection marks some risk detections and the corresponding risky sign-ins as dismissed with risk state **Dismissed** and risk detail **Azure AD Identity Protection assessed sign-in safe**. It takes this action, because those events were no longer determined to be risky.
 
 Administrators have the following options to remediate:
 
@@ -34,23 +34,23 @@ Administrators have the following options to remediate:
 
 ### Self-remediation with risk-based policy
 
-You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as multifactor authentication or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users are reported with the risk state "Remediated" instead of "At risk". 
+You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as multifactor authentication or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users are reported with the risk state **Remediated** instead of **At risk**. 
 
-Here are the prerequisites on users before risk-based policies can be applied to them to allow self-remediation of risks:
+The prerequisites for users before risk-based policies can be applied to allow self-remediation of risks are:
 
 - To perform MFA to self-remediate a sign-in risk: 
-   - The user must be registered for multifactor authentication.
+   - The user must have registered for Microsoft Entra multifactor authentication.
 - To perform secure password change to self-remediate a user risk:
-   - The user must be registered for multifactor authentication.
-   - For hybrid users that are synced from on-premises to cloud, password writeback must be enabled.
+   -  The user must have registered for Microsoft Entra multifactor authentication.
+   -  For hybrid users that are synced from on-premises to cloud, password writeback must be enabled.
 
 If a risk-based policy is applied to a user during sign-in before the above prerequisites are met, then the user is blocked. This block action is because they aren't able to perform the required access control, and admin intervention is required to unblock the user. 
 
-Risk-based policies are configured based on risk levels and only apply if the risk level of the sign-in or user matches the configured level. Some detections may not raise risk to the level where the policy applies, and administrators need to handle those risky users manually. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
+Risk-based policies are configured based on risk levels and only apply if the risk level of the sign-in or user matches the configured level. Some detections might not raise risk to the level where the policy applies, and administrators need to handle those risky users manually. Administrators can determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
 ### Self-remediation with self-service password reset
 
-If a user has registered for self-service password reset (SSPR), then they can also remediate their own user risk by performing a self-service password reset.
+If a user has registered for self-service password reset (SSPR), then they can remediate their own user risk by performing a self-service password reset.
 
 ### Manual password reset
 
@@ -59,8 +59,8 @@ If requiring a password reset using a user risk policy isn't an option, or time 
 Administrators have options they can choose from:
 
 - **Generate a temporary password** - By generating a temporary password, you can immediately bring an identity back into a safe state. This method requires contacting the affected users because they need to know what the temporary password is. Because the password is temporary, the user is prompted to change the password to something new during the next sign-in.
-   - They can do this for both cloud and hybrid users in the Microsoft Entra admin center.
-   - They can do this for hybrid users from an on-premises directory when password hash synchronization and the [Allow on-premises password change to reset user risk](#enable-on-premises-password-reset-signals-preview) setting is enabled. 
+   - They can generate passwords for cloud and hybrid users in the Microsoft Entra admin center.
+   - They can generate passwords for hybrid users from an on-premises directory when password hash synchronization and the [Allow on-premises password change to reset user risk](#enable-on-premises-password-reset-signals-preview) setting is enabled. 
 
       > [!WARNING]
       > Don't select the option **User must change password at next logon**. This is unsupported.
@@ -69,15 +69,20 @@ Administrators have options they can choose from:
    - Cloud and hybrid users can complete a secure password change. This method only applies to users that can perform MFA already. For users that haven't registered, this option isn't available.
    - Hybrid users can complete a password change by pressing Ctrl+Alt+Del and changing their password from an on-premises or hybrid joined Windows device, when password hash synchronization and the [Allow on-premises password change to reset user risk](#enable-on-premises-password-reset-signals-preview) setting is enabled.
 
-#### Enable on-premises password reset signals (Preview)
+#### Allow on-premises password reset to remediate user risks (Preview)
 
 Organizations who have enabled [password hash synchronization](../hybrid/connect/whatis-phs.md) can allow password changes on-premises to remediate user risk.
 
+This configuration provides organizations two new capabilities:
+
+- Risky hybrid users can self-remediate without administrators intervention. When a password is changed on-premises, user risk is now automatically remediated within Entra ID Protection, bringing the user to a safe state.
+- Organizations can proactively deploy [user risk policies that require password changes](howto-identity-protection-configure-risk-policies.md#user-risk-policy-in-conditional-access) to confidently protect their hybrid users. This option strengthens your organization's security posture and simplifies security management by ensuring that user risks are promptly addressed, even in complex hybrid environments.
+
 :::image type="content" source="media/howto-identity-protection-remediate-unblock/allow-on-premises-password-reset-user-risk.png" alt-text="Screenshot showing the location of the Allow on-premises password change to reset user risk checkbox." lightbox="media/howto-identity-protection-remediate-unblock/allow-on-premises-password-reset-user-risk.png":::
 
-The following configuration task requires the Global Administrator role.
+To configure this setting
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Operator](../roles/permissions-reference.md#security-operator).
 1. Browse to **Protection** > **Identity Protection** > **Settings**.
 1. Check the box to **Allow on-premises password change to reset user risk**.
 1. Select **Save**.
@@ -120,7 +125,7 @@ It isn't possible for administrators to dismiss risk for users who have been del
 
 ## Unblocking users
 
-An administrator may choose to block a sign-in based on their risk policy or investigations. A block may occur based on either sign-in or user risk.
+An administrator can choose to block a sign-in based on their risk policy or investigations. A block can occur based on either sign-in or user risk.
 
 ### Unblocking based on user risk
 
@@ -141,7 +146,7 @@ To unblock an account based on sign-in risk, administrators have the following o
 
 ## PowerShell preview
 
-Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in our [GitHub repository](https://github.com/AzureAD/IdentityProtectionTools). 
+Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Microsoft Entra GitHub repo](https://github.com/AzureAD/IdentityProtectionTools). 
 
 The `Invoke-AzureADIPDismissRiskyUser.ps1` script included in the repository allows organizations to dismiss all risky users in their directory.
 

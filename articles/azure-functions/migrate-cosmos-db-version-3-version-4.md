@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 08/16/2023
+ms.date: 10/05/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -16,6 +16,10 @@ This article highlights considerations for upgrading your existing Azure Functio
 > On August 31, 2024 the Azure Cosmos DB extension version 3.x will be retired. The extension and all applications using the extension will continue to function, but Azure Cosmos DB will cease to provide further maintenance and support for this extension. We recommend migrating to the latest version 4.x of the extension.
 
 This article walks you through the process of migrating your function app to run on version 4.x of the Azure Cosmos DB extension. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+## Changes to item ID generation
+
+Item ID is no longer auto populated in the Extension. Therefore, the Item ID must specifically include a generated ID for cases where you were using the Output Binding to create items.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -29,6 +33,32 @@ This article walks you through the process of migrating your function app to run
 |[Isolated worker model](./dotnet-isolated-process-guide.md) |[Microsoft.Azure.Functions.Worker.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB)|>= 4.4.1 |
 
 Update your `.csproj` project file to use the latest extension version for your process model. The following `.csproj` file uses version 4 of the Azure Cosmos DB extension.
+
+### [Isolated worker model](#tab/isolated-process)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.CosmosDB" Version="4.4.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
 
 ### [In-process model](#tab/in-process)
 
@@ -54,31 +84,9 @@ Update your `.csproj` project file to use the latest extension version for your 
 </Project>
 ```
 
-### [Isolated worker model](#tab/isolated-worker)
+## Azure Cosmos DB SDK changes
 
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.CosmosDB" Version="4.4.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-</Project>
-```
+The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, for cases where you were using SDK related types, please look at the [Azure Cosmos DB SDK V3 migration guide](../cosmos-db/nosql/migrate-dotnet-v3.md) for more information.
 
 ---
 

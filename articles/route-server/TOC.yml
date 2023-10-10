@@ -37,8 +37,6 @@
     href: path-selection.md
   - name: Multi-region design
     href: multiregion.md
-  - name: Injecting routes to AVS
-    href: vmware-solution-default-route.md
   - name: Default route injection in spoke VNets
     href: route-injection-in-spokes.md
   - name: IP anycast

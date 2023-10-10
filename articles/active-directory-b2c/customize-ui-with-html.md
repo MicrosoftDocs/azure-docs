@@ -207,14 +207,14 @@ Create a custom page content with your product's brand name in the title.
 In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable CORS on your web server](https://enable-cors.org/server.html).
 
 > [!NOTE]
-> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Azure AD tenant.
+> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Microsoft Entra tenant.
 
 To host your HTML content in Blob storage, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant, and which has a subscription: 
+1. Make sure you're using the directory that contains your Microsoft Entra tenant, and which has a subscription: 
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the Directory name list, and then select **Switch**.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the Directory name list, and then select **Switch**.
 1. In the Azure portal, search for and select **Storage accounts**
 1. Select **+ Create**.
 1. Select a **Subscription** for your storage account.
@@ -223,7 +223,7 @@ To host your HTML content in Blob storage, use the following steps:
 1. Select the geographical **Region** for your storage account.
 1. **Performance** can remain **Standard**.
 1. **Redundancy** can remain **Geo-redundant storage (GRS)**
-1. Select **Review + create** and wait a few seconds for Azure AD to run a validation. 
+1. Select **Review + create** and wait a few seconds for Microsoft Entra ID to run a validation. 
 1. Select **Create** to create the storage account. After the deployment is completed, the storage account page opens automatically or you need to select **Go to resource**.
 
 #### 2.1 Create a container

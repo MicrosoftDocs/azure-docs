@@ -68,8 +68,6 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
 
-[!INCLUDE [authorization-resources-summarize-count](../../includes/resource-graph/query/authorization-resources-summarize-count.md)]
-
 ## Azure Service Health
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../../../../includes/resource-graph/samples/bycat/azure-service-health.md)]

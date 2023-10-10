@@ -196,14 +196,14 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     "passwords": [
         {
         "name": "password",
-        "value": "Iv0lRZQ9762LUJrFiffo3P4sWgk4q+nW"
+        "value": "abcdefghijklmmopqrstuv1234567890"
         },
         {
         "name": "password2",
-        "value": "=pKCxHatX96jeoYBWZLsPR6opszr==mg"
+        "value": "1234567890abcdefghijklmmopqrstuv"
         }
     ],
-    "username": "myml08024f78fd10"
+    "username": "charlie.roy"
     }
     ```
 
@@ -318,3 +318,4 @@ After a few moments, the resource group and all of its resources are deleted.
 * Learn to configure your function app in the [Functions](../azure-functions/functions-create-function-linux-custom-image.md) documentation.
 * [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions)
 * Create a [Python app that uses Azure Cache for Redis](./cache-python-get-started.md)
+

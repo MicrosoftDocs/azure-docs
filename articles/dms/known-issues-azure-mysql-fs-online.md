@@ -7,7 +7,9 @@ ms.reviewer: sanjaymi
 ms.date: 10/04/2022
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sql-migration-content
 ---
 
 # Known Issues With Migrations To Azure Database for MySQL
@@ -16,14 +18,14 @@ Known issues associated with migrations to Azure Database for MySQL are describe
 
 ## Schema Migration Issue for v8.0 MySQL Flexible Server target
 
-- **Error**: Fatal error migrating the source's schema to target MySQL Flexible Server with engine version 8.0. This error indicates that the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server  has been set to ON.
+- **Error**: A migration to a MySQL Flexible Server with engine version 8.0.30 or higher can fail when the feature to generate invisible primary keys for InnoDB tables is enabled (see [MySQL :: MySQL 8.0 Reference Manual :: 13.1.20.11 Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)).  The failure may occur when migrating table schema from the source to the target, when applying changes during the replication phase of online migrations, when retrying a migration, or when migrating to a target where the schema has been migrated manually.
 
-  **Potential error message**: 
+  **Potential error message**:
   - "Unknown error."
   - "Failed to generate invisible primary key. Auto-increment column already exists."
   - "The column 'my_row_id' in the target table 'table name' in database 'database' does not exist on the source table."
 
-  **Limitation**: This error occurs during the schema migration phase or change data capture phase, if the schema migration option has been selected for the DMS migration project and the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server has been set to ON.
+  **Limitation**: Migration to MySQL Flexible Server instance where sql_generate_invisible_primary_key is enabled is not supported by DMS.
 
   **Workaround**: Set the server parameter sql_generate_invisible_primary_key for target MySQL Flexible Server to OFF. The server parameter can be found in the Server parameters Blade under the All tab for the target MySQL Flexible Server. Additionally, drop the target database and start over the DMS migration to not have any mismatched schemas.
 

@@ -80,6 +80,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         catch (Exception e)
         {
             requestTelemetry.Success = false;
+            requestTelemetry.ResponseCode;
             telemetryClient.TrackException(e);
             throw;
         }

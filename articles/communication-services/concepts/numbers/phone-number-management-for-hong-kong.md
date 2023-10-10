@@ -1,7 +1,7 @@
 ---
-title: Phone Number Management for Hong Kong
+title: Phone Number Management for Hong Kong SAR
 titleSuffix: An Azure Communication Services concept document
-description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Hong Kong.
+description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Hong Kong SAR.
 author: krkutser
 manager: rcole
 services: azure-communication-services
@@ -13,14 +13,14 @@ ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# Phone number management for Hong Kong
-Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Hong Kong.
+# Phone number management for Hong Kong SAR
+Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Hong Kong SAR.
 
 ## Number types and capabilities availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   | -                    | -                    | -                    | Public Preview\*       |
+| Toll-Free   | -                    | -                    | -                    | General Availability\*       |
 
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -39,7 +39,7 @@ More details on eligible subscription types are as follows:
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 
-## Azure subscription billing locations where Hong Kong phone numbers are available
+## Azure subscription billing locations where Hong Kong SAR phone numbers are available
 | Country/Region |
 | :---------- |
 |Australia|

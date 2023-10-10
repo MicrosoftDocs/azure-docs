@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Kubernetes Service (AKS) cluster node
 ms.topic: article
 ms.date: 09/06/2023
 ms.reviewer: mattmcinnes
-ms.custom: contperf-fy21q4, devx-track-linux
+ms.custom: contperf-fy21q4, devx-track-linux, devx-track-azurecli
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -33,8 +33,7 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     The following example resembles output from the command:
     
     ```output
-    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE
-               KERNEL-VERSION      CONTAINER-RUNTIME
+    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
     aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
     aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
     aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure

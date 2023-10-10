@@ -8,7 +8,7 @@ manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 06/28/2022
-# Customer intent: As a developer, I want to build a custom wallet using Entra Verified ID Wallet Library.
+# Customer intent: As a developer, I want to build a custom wallet using Microsoft Entra Verified ID Wallet Library.
 
 ---
 
@@ -24,13 +24,13 @@ In this tutorial, you learn how a mobile app can use the Microsoft Entra Wallet 
 - An [Apple developer account](https://developer.apple.com/account/), Mac with [Xcode](https://developer.apple.com/xcode/) and an iOS test device with [developer mode](https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device) enabled. The iOS version needs to be 16 and above.
 - Install the [QR Code Reader](https://apps.apple.com/us/app/qr-code-reader/id1200318119) app on your test device. The WalletLibraryDemo app doesn't come with the ability to scan QR codes, so you need the QR Code Reader app to scan the QR codes with.
 
-You don't need to be a mobile developer to follow this tutorial and get the demo app up and running. The tools and a test device and the courage to try is all you need. You also don't need an Entra Verified ID tenant onboarded as you can test the demo app with our public end to end demo website.
+You don't need to be a mobile developer to follow this tutorial and get the demo app up and running. The tools and a test device and the courage to try is all you need. You also don't need a Microsoft Entra Verified ID tenant onboarded as you can test the demo app with our public end to end demo website.
 
 ## What is the Microsoft Entra Wallet Library?
 The Microsoft Entra Wallet Library for iOS and Android gives your mobile app the ability to begin using the Microsoft Entra Verified ID platform. Using the Wallet Library, your mobile app can issue and present verifiable credentials in accordance with industry standards.
 
 ## When should I use the Microsoft Entra Wallet Library?
-Microsoft Authenticator has all the functionality to act as the wallet for Entra Verified ID. But in cases where you can’t use the Microsoft Authenticator, the Wallet Library is your alternative. An example could be when you already have a mobile app that your users are familiar with and where it makes more sense to include verifiable credentials technology into this app. 
+Microsoft Authenticator has all the functionality to act as the wallet for Microsoft Entra Verified ID. But in cases where you can’t use the Microsoft Authenticator, the Wallet Library is your alternative. An example could be when you already have a mobile app that your users are familiar with and where it makes more sense to include verifiable credentials technology into this app. 
 
 You can use the Microsoft Authenticator and a mobile app using the Wallet Library side-by-side on the same mobile device. The Authenticator, if installed, will be the app that has registered the protocol handler for openid://, so your app needs to make sure that the issuance and presentation requests find your app. Use of embedded deep links in HTML-pages that relies on the openid:// protocol will result in the Microsoft Authenticator being launched. 
 

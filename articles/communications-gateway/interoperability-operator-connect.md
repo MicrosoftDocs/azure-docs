@@ -1,11 +1,11 @@
 ---
-title: Overview of Operator Connect and Teams Phone Mobile interoperating with Azure Communications Gateway
+title: Overview of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
 description: Understand how Azure Communications Gateway fits into your fixed and mobile networks and into the Operator Connect and Teams Phone Mobile environments
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 09/01/2023
 ms.custom: template-concept
 ---
 
@@ -26,11 +26,11 @@ Azure Communications Gateway sits at the edge of your fixed line and mobile netw
 
 Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
 
-### Compliance with Certified SBC specifications
+## Compliance with Certified SBC specifications
 
 Azure Communications Gateway supports the Microsoft specifications for Certified SBCs for Operator Connect and Teams Phone Mobile. For more information about certification and these specifications, see [Session Border Controllers certified for Direct Routing](/microsoftteams/direct-routing-border-controllers) and the Operator Connect or Teams Phone Mobile documentation provided by your Microsoft representative.
 
-### Call control integration for Teams Phone Mobile
+## Call control integration for Teams Phone Mobile
 
 [Teams Phone Mobile](/microsoftteams/operator-connect-mobile-plan) allows you to offer Microsoft Teams call services for calls made from the native dialer on mobile handsets, for example presence and call history. These features require anchoring the calls in Microsoft's Intelligent Conversation and Communications Cloud (IC3), part of the Microsoft Phone System.
 
@@ -67,7 +67,7 @@ You can arrange more interworking function as part of your initial network desig
 - Interworking away from inband DTMF tones
 - Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in `tgrp` parameters
 
-The Microsoft Phone System requires calling (A-) and called (B-)  telephone numbers to be in E.164 format. This requirement applies to both SIP and TEL numbers. We recommend that you configure your network to use the E.164 format for all numbers. If your network can't convert numbers to the E.164 format, contact your onboarding team or raise a support request to discuss your requirements for number conversion.
+[!INCLUDE [microsoft-phone-system-requires-e164-numbers](includes/communications-gateway-e164-for-phone-system.md)]
 
 [!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
 
@@ -102,7 +102,7 @@ For more information, see [Manage an enterprise with Azure Communications Gatewa
 > [!TIP]
 > The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
-### Providing call duration data to Microsoft Teams
+## Providing call duration data to Microsoft Teams
 
 Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls (CallDuration information) into the Microsoft Teams environment. This information allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf.
 

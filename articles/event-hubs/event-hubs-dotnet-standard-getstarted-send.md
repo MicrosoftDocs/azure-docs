@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Send or receive events using .NET'
-description: A quickstart to create a .NET Core application that sends events to Azure Event Hubs and then receive those events by using the Azure.Messaging.EventHubs package.
+description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
@@ -162,7 +162,6 @@ This section shows you how to create a .NET Core console application to send eve
         {
             // if it is too large for the batch
             throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
-            Console.ReadLine();
         }
     }
     

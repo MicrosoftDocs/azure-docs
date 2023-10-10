@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Choose the best Document Intelligence model to meet your needs.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -39,7 +38,10 @@ The following decision charts highlight the features of each **Document Intellig
 
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
-|**U.S. W-2 tax form**|You want to extract key information such as salary, wages, and taxes withheld.|[**W-2 model**](concept-w2.md)|
+|**US W-2 tax form**|You want to extract key information such as salary, wages, and taxes withheld.|[**US tax W-2 model**](concept-tax-document.md)|
+|**US Tax 1098 form**|You want to extract mortgage interest details such as principal, points, and tax.|[**US tax 1098 model**](concept-tax-document.md)|
+|**US Tax 1098-E form**|You want to extract student loan interest details such as lender and interest amount.|[**US tax 1098-E model**](concept-tax-document.md)|
+|**US Tax 1098T form**|You want to extract qualified tuition details such as scholarship adjustments, student status, and lender information..|[**US tax 1098-T mode**l](concept-tax-document.md)|
 |**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-health-insurance-card.md)|
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
  |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|

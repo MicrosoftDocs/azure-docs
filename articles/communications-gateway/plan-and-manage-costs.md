@@ -6,12 +6,12 @@ ms.author: rdunstan
 ms.custom: subject-cost-optimization
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 10/09/2023
 ---
 
 # Plan and manage costs for Azure Communications Gateway
 
-This article describes how you are charged for Azure Communications Gateway and how you can plan for and manage these costs.
+This article describes how you're charged for Azure Communications Gateway and how you can plan for and manage these costs.
 
 After you've started using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
 
@@ -19,7 +19,7 @@ Costs for Azure Communications Gateway are only a portion of the monthly costs i
 
 ## Prerequisites
 
-Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Understand the full billing model for Azure Communications Gateway
 
@@ -31,6 +31,8 @@ When you deploy Azure Communications Gateway, you're charged for how you use the
 
 - A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
     - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
+    - Operator Connect and Microsoft Teams Direct Routing are fixed networks.
+    - Teams Phone Mobile is a mobile network.
     - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
 - A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
 
@@ -45,7 +47,9 @@ For example, if you have 28,000 users assigned to the deployment each month, you
 If you choose to deploy the Number Management Portal by selecting the API Bridge option, you'll also be charged for the Number Management Portal. Fees work in the same way as the other meters: a service fee meter and a per-user meter. The number of users charged for the Number Management Portal is always the same as the number of users charged on the other Azure Communications Gateway meters.
 
 > [!NOTE]
-> A user is any telephone number that meets all the following criteria.
+> A Microsoft Teams Direct Routing user is any telephone number configured with Direct Routing on Azure Communications Gateway. Billing for the user starts as soon as you have configured the number.
+> 
+> An Operator Connect or Teams Phone Mobile user is any telephone number that meets all the following criteria.
 >
 > - You have provisioned the number within your Operator Connect or Teams Phone Mobile environment.
 > - The number is configured for connectivity through Azure Communications Gateway.
@@ -64,6 +68,7 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 You must pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
 
 - If you're connecting to the public internet with Microsoft Azure Peering Service (MAPS), you might need to pay a third party for the cross-connect at the exchange location.
+- If you're connecting to the public internet with ExpressRoute Microsoft Peering, you must purchase ExpressRoute circuits with a specified bandwidth and data billing model.
 - If you're connecting into Azure as a next hop, you might need to pay virtual network peering costs.
 
 ### Costs if you cancel or change your deployment
@@ -107,7 +112,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 ## Next steps
 
 - View [Azure Communications Gateway pricing](https://azure.microsoft.com/pricing/details/communications-gateway/).
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

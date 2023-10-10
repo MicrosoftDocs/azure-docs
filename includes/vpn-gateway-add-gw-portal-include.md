@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/23/2023
+ ms.date: 10/05/2023
  ms.author: cherylmc
 ---
 
@@ -19,8 +19,7 @@
    * **Name**: Name your gateway. Naming your gateway not the same as naming a gateway subnet. It's the name of the gateway object you're creating.
    * **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
-   * **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
-   * **SKU**: Select the gateway SKU  you want to use from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select. Make sure to select a SKU that supports the features you want to use. For example, if you select an **'AZ'** SKU such as 'VPNGw2AZ', you're selecting an availability zone SKU, which has different settings than shown in this example. For more information, see [Zone redundant virtual network gateway in Azure availability zones](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md). For more information about gateway SKUs, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). In the portal, the SKUs available in the dropdown depend on the `VPN type` you select. [!INCLUDE [Basic SKU](vpn-gateway-basic-sku.md)]
    * **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    * **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway. If you can't see the VNet for which you want to create a gateway, make sure you selected the correct subscription and region in the previous settings.
    * **Gateway subnet address range**: This field only appears if your VNet doesn't have a gateway subnet. It's best to specify /27 or larger (/26,/25 etc.). This allows enough IP addresses for future changes, such as adding an ExpressRoute gateway. If you already have a gateway subnet, you can view GatewaySubnet details by navigating to your virtual network. Select **Subnets** to view the range. If you want to change the range, you can delete and recreate the GatewaySubnet.

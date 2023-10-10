@@ -2,8 +2,8 @@
 title: 'Call Grafana APIs programmatically with Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
 description: Learn how to call Grafana APIs programmatically with Azure Active Directory and an Azure service principal
-author: mcleanbyron 
-ms.author: mcleans 
+author: maud-lv 
+ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: tutorial
 ms.date: 04/05/2023

@@ -21,7 +21,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, using PowerShell, you learn how to perform the managed identities for Azure resources operations on a virtual machine scale set:
 
@@ -39,7 +39,7 @@ In this article, using PowerShell, you learn how to perform the managed identiti
 - To perform the management operations in this article, your account needs the following Azure role-based access control assignments:
 
     > [!NOTE]
-    > No additional Azure AD directory role assignments required.
+    > No additional Microsoft Entra directory role assignments required.
 
     - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system-assigned managed and/or user-assigned managed identity from a virtual machine scale set.
     - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.

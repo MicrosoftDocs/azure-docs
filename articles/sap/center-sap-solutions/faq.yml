@@ -93,14 +93,14 @@ sections:
                 - SAP systems running on Windows, SUSE and RHEL Linux Operating Systems
                 - SAP systems running on HANA, DB2, SQL Server, Oracle, Max DB, SAP ASE databases
                 
-                Refer to the [product documentation](https://learn.microsoft.com/azure/sap/center-sap-solutions/register-existing-system#prerequisites) to review the complete list of supported and unsupported scenarios.   
+                Refer to the [product documentation](/azure/sap/center-sap-solutions/register-existing-system#prerequisites) to review the complete list of supported and unsupported scenarios.   
 
                 > [!NOTE]
                 > If you are registering a system based on Oracle Linux OS and/or Oracle Database, there will be limited support for quality checks, health and status and start-stop offerings. 
 
       - question:  What are the prerequisites to register an existing SAP system as an Azure Virtual Instance for SAP solutions? 
         answer: |
-                Here are the pre-requisites for registering existing SAP systems as a Virtual Instance for SAP (VIS) resource. More details can be found in the [product documentation](https://learn.microsoft.com/azure/sap/center-sap-solutions/register-existing-system#prerequisites).
+                Here are the pre-requisites for registering existing SAP systems as a Virtual Instance for SAP (VIS) resource. More details can be found in the [product documentation](/azure/sap/center-sap-solutions/register-existing-system#prerequisites).
 
                 - Appropriate role access on the Azure subscription or resource groups where you have the SAP system resources.  
                     - *Azure Center for SAP solutions administrator* and *Managed Identity Operator* or equivalent role access. 
@@ -149,11 +149,11 @@ sections:
 
       - question:  How do I log on to an SAP system after deploying it from ACSS? 
         answer: | 
-                Once you have deployed and installed an SAP S/4/HANA system through ACSS, you can use the [SAP master password](https://learn.microsoft.com/azure/sap/center-sap-solutions/manage-virtual-instance#find-sap-and-hana-passwords) and HANA database [username](https://learn.microsoft.com/azure/sap/center-sap-solutions/manage-virtual-instance#connect-to-hana-database) and password available in the Managed resource group key vault to log on to the SAP GUI or and connect to the SAP HANA database.  
+                Once you have deployed and installed an SAP S/4/HANA system through ACSS, you can use the [SAP master password](/azure/sap/center-sap-solutions/manage-virtual-instance#find-sap-and-hana-passwords) and HANA database [username](/azure/sap/center-sap-solutions/manage-virtual-instance#connect-to-hana-database) and password available in the Managed resource group key vault to log on to the SAP GUI or and connect to the SAP HANA database.  
 
       - question:  How do I find the instance number(s) for SAP instances deployed through ACSS? 
         answer: | 
-                Please refer to [the documentation here](https://learn.microsoft.com/azure/sap/center-sap-solutions/manage-virtual-instance#default-instance-numbers) to understand the instance numbers configured through ACSS. Please note instance numbers are currently not configurable. 
+                Please refer to [the documentation here](/azure/sap/center-sap-solutions/manage-virtual-instance#default-instance-numbers) to understand the instance numbers configured through ACSS. Please note instance numbers are currently not configurable. 
 
   - name: Management and Miscellaneous Questions 
     questions: 

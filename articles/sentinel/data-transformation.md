@@ -105,13 +105,13 @@ Only the following tables are currently supported for custom log ingestion:
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
 - [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs)
 
-## Known issues
+## Limitations
 
 Ingestion-time data transformation currently has the following known issues for Microsoft Sentinel data connectors:
 
 - Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR.
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible.
 
 - The following configurations are supported only via API:
 
@@ -122,6 +122,8 @@ Ingestion-time data transformation currently has the following known issues for 
 - It make take up to 60 minutes for the data transformation configurations to apply.
 
 - KQL syntax: Not all operators are supported. For more information, see [**KQL limitations** and **Supported KQL features**](../azure-monitor/essentials/data-collection-transformations-structure.md#kql-limitations) in the Azure Monitor documentation.
+
+- You can only send logs from one specific data source to one workspace. To send data from a single data source to multiple workspaces (destinations) with a standard DCR, please create one DCR per workspace. 
 
 ## Next steps
 

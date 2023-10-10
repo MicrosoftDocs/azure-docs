@@ -354,13 +354,11 @@
           href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Reliability
       items:
-        - name: Reliability overview 
+        - name: Availability zones and disaster recovery 
           href: ../reliability/reliability-functions.md?toc=/azure/azure-functions/TOC.json
-          displayName: availability zones, high-availability, zone redundancy
+          displayName: availability zones, high-availability, zone redundancy, disaster recovery
         - name: Migrate to a zone-redundant plan
-          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Geo-disaster recovery
-          href: functions-geo-disaster-recovery.md  
+          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json 
     - name: Monitor function executions
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
@@ -383,23 +381,19 @@
       href: supported-languages.md
     - name: C#
       items: 
-        - name: In-process
-          href: functions-dotnet-class-library.md
-        - name: Isolated worker process 
-          displayName: .NET isolated, .NET 5
+        - name: Isolated worker model 
+          displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
+        - name: In-process model
+          href: functions-dotnet-class-library.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
         - name: Execution mode comparison
           href: dotnet-isolated-in-process-differences.md
-    - name: Node.js
-      items:
-        - name: JavaScript
-          href: functions-reference-node.md?tabs=javascript
-        - name: TypeScript
-          href: functions-reference-node.md?tabs=typescript
-        - name: Upgrade to model v4.x
-          href: functions-node-upgrade-v4.md
+    - name: JavaScript
+      href: functions-reference-node.md?tabs=javascript
+    - name: TypeScript
+      href: functions-reference-node.md?tabs=typescript
     - name: Java
       href: functions-reference-java.md
     - name: PowerShell
@@ -545,6 +539,12 @@
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
           href: migrate-version-1-version-4.md
+        - name: Node.js
+          items:
+            - name: Migrate to model v4.x
+              href: functions-node-upgrade-v4.md
+        - name: Update Java versions
+          href: update-java-versions.md  
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -633,7 +633,9 @@
                 - name: JavaScript
                   href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
                 - name: Python
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json                  
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json
+            - name: Web PubSub
+              href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -675,8 +677,10 @@
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
           href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
-          displayName: troubleshoot 
-        - name: Python functions
+          displayName: troubleshoot
+        - name: Node.js
+          href: functions-node-troubleshoot.md
+        - name: Python
           items:
             - name: General troubleshooting
               href: recover-python-functions.md
@@ -906,6 +910,8 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+        - name: Web PubSub
+          href: ../azure-web-pubsub/reference-functions-bindings.md?toc=/azure/azure-functions/toc.json
     - name: Errors and diagnostics
       items:
         - name: .NET worker rules

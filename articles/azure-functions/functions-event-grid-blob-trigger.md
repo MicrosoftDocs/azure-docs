@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 8/22/2023
 ms.author: cachai
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want learn how to create an Event Grid-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
 
@@ -24,12 +24,16 @@ This article shows how to create a function that runs based on events raised whe
 > * Debug locally using ngrok by uploading files.
 > * Deploy to Azure and create a filtered event subscription.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
+
 ## Prerequisites
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-requirements-visual-studio-code-csharp](../../includes/functions-requirements-visual-studio-code-csharp.md)]
 ::: zone-end
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 [!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
@@ -95,7 +99,7 @@ When you create a Blob Storage-triggered function using Visual Studio Code, you 
     |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
     |**Select a storage account**| Select the storage account you created from the list. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Add to workspace`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
     ::: zone-end
     ::: zone pivot="programming-language-python"
     |Prompt|Action|
@@ -107,7 +111,7 @@ When you create a Blob Storage-triggered function using Visual Studio Code, you 
     |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
     |**Select a storage account**| Select the storage account you created from the list. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Add to workspace`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
     ::: zone-end
     ::: zone pivot="programming-language-java"
     |Prompt|Action|
@@ -120,18 +124,31 @@ When you create a Blob Storage-triggered function using Visual Studio Code, you 
     | **Provide a package name** | Select `com.function`. |
     | **Provide an app name** | Accept the generated name starting with `BlobTriggerEventGrid`. |
     | **Select the build tool for Java project** | Select `Maven`. |
-    |**Select how you would like to open your project**| Select `Add to workspace`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
     ::: zone-end
-    ::: zone pivot="programming-language-javascript"
+    ::: zone pivot="programming-language-typescript"
     |Prompt|Action|
     |--|--|
-    |**Select a language for your function project**| Select `JavaScript`. |
+    |**Select a language for your function project**| Select `TypeScript`. |
+    |**Select a TypeScript programming model**| Select `Model V4`. |
     |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
     |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
     |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
     |**Select a storage account**| Select the storage account you created. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Add to workspace`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript"
+    |Prompt|Action|
+    |--|--|
+    |**Select a language for your function project**| Select `JavaScript`. |
+    |**Select a JavaScript programming model**| Select `Model V4`. |
+    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
+    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+    |**Select a storage account**| Select the storage account you created. |
+    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
     |Prompt|Action|
@@ -142,7 +159,7 @@ When you create a Blob Storage-triggered function using Visual Studio Code, you 
     |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
     |**Select a storage account**| Select the storage account you created. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**| Select `Add to workspace`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
     ::: zone-end
 
 1. After the prompt appears, select **Select storage account** > **Add to workspace**. 
@@ -167,7 +184,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.1.3
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"  
 
 1. Open the host.json project file, and inspect the `extensionBundle` element. 
 
@@ -255,7 +272,67 @@ After you create the function, in the function.json configuration file, add `"so
     ```
 1. Remove the associated unit test file, which no longer applies to the new trigger type.
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+After you create the function, add `source: "EventGrid"` to the `options` object in your TypeScript file, for example:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
+
+```json
+{
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "source": "EventGrid",
+            "connection": "<NAMED_STORAGE_CONNECTION>"
+        }
+    ]
+}
+```
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+After you create the function, add `source: "EventGrid"` to the `options` object in your JavaScript file, for example:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
+
+```json
+{
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "source": "EventGrid",
+            "connection": "<NAMED_STORAGE_CONNECTION>"
+        }
+    ]
+}
+```
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell"
 After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
 
 ```json
@@ -294,7 +371,7 @@ http://localhost:7071/runtime/webhooks/blobs?functionName=BlobTriggerEventGrid
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"   
 ```http
 http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid
 ```
@@ -348,7 +425,7 @@ The following screenshot shows an example of how the final endpoint URL should l
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"   
   ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
 ::: zone-end  
 
@@ -364,10 +441,10 @@ With ngrok already running, start your local project as follows:
     Open a new terminal and run the following `mvn` command to start the debugging session.
 
     ```bash
-    mvn azure-functions:run
+    mvn azure-functions:run -DenableDebug
     ```
     ::: zone-end  
-    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-csharp"   
+    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-csharp"   
     Press **F5** to start a debugging session.
     ::: zone-end
 
@@ -484,7 +561,7 @@ https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionNam
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"  
 ```http
 https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid&code=<BLOB_EXTENSION_KEY>
 ```

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Test your SCIM endpoint for compatibility with the Azure Active Directory (Azure AD) provisioning service.
-description: This tutorial describes how to use the Azure AD SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client.
+title: Tutorial - Test your SCIM endpoint for compatibility with the Microsoft Entra provisioning service.
+description: This tutorial describes how to use the Microsoft Entra SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/20/2023
+ms.date: 09/15/2023
 ms.custom: template-tutorial
 ms.reviewer: arvinh
 ---
@@ -16,7 +16,7 @@ ms.reviewer: arvinh
 
 # Tutorial: Validate a SCIM endpoint
 
-This tutorial describes how to use the Azure AD SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client. The tutorial is intended for developers who want to build a SCIM compatible server to manage their identities with the Azure AD provisioning service.
+This tutorial describes how to use the Microsoft Entra SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client. The tutorial is intended for developers who want to build a SCIM compatible server to manage their identities with the Microsoft Entra provisioning service.
 
 In this tutorial, you learn how to:
 
@@ -27,8 +27,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure Active Directory account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A SCIM endpoint that conforms to the SCIM 2.0 standard and meets the provision service requirements. To learn more, see [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
+- A Microsoft Entra account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A SCIM endpoint that conforms to the SCIM 2.0 standard and meets the provision service requirements. To learn more, see [Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID](use-scim-to-provision-users-and-groups.md).
 
 
 ## Select a testing method
@@ -43,7 +43,7 @@ The first step is to select a testing method to validate your SCIM endpoint.
 
 **Discover schema** - If your end point supports /Schema, this option lets the tool discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
 
-**Upload Azure AD Schema** - Upload the schema you've downloaded from your sample app on Azure AD.
+**Upload Microsoft Entra Schema** - Upload the schema you've downloaded from your sample app on Microsoft Entra ID.
 
 
 ## Configure the testing method
@@ -53,7 +53,7 @@ Now that you've selected a testing method, the next step is to configure it.
 
 1. If you're using the default attributes option, then fill in all of the indicated fields.
 2. If you're using the discover schema option, then enter the SCIM endpoint URL and token.
-3. If you're uploading a schema, then select your .json file to upload. The option accepts a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). 
+3. If you're uploading a schema, then select your .json file to upload. The option accepts a .json file exported from your sample app on the Microsoft Entra admin center. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). 
 > [!NOTE]
 > To test *group attributes*, make sure to select **Enable Group Tests**.
 
@@ -80,9 +80,9 @@ In addition to using the SCIM Validator tool, you can also use Postman to valida
 The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
 
 > [!NOTE]
-> You can only use HTTP endpoints for local tests. The Azure AD provisioning service requires that your endpoint support HTTPS.
+> You can only use HTTP endpoints for local tests. The Microsoft Entra provisioning service requires that your endpoint support HTTPS.
 
-1. Download [Postman](https://www.getpostman.com/downloads/) and start the application.
+1. Download [Postman](https://www.postman.com/downloads/) and start the application.
 1. Copy and paste this link into Postman to import the test collection: `https://aka.ms/ProvisioningPostman`.
 
     ![Screenshot that shows importing the test collection in Postman.](media/scim-validator-tutorial/postman-collection.png)
@@ -117,7 +117,9 @@ That's it! You can now run the **Postman** collection to test the SCIM endpoint 
 
 If you created any Azure resources in your testing that are no longer needed, don't forget to delete them.
 
-## Known Issues with Azure AD SCIM Validator
+<a name='known-issues-with-azure-ad-scim-validator'></a>
+
+## Known Issues with Microsoft Entra SCIM Validator
 
 - Soft deletes (disables) aren’t yet supported.
 - The time zone format is randomly generated and fails for systems that try to validate it.
@@ -126,4 +128,4 @@ If you created any Azure resources in your testing that are no longer needed, do
 
 
 ## Next steps
-- [Learn how to add an app that's not in the Azure AD app gallery](../manage-apps/overview-application-gallery.md)
+- [Learn how to add an app that's not in the Microsoft Entra app gallery](../manage-apps/overview-application-gallery.md)

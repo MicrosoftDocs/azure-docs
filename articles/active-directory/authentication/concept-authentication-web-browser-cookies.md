@@ -1,6 +1,6 @@
 ---
-title: Web browser cookies used in Azure Active Directory authentication
-description: Learn about Web browser cookies used in Azure Active Directory authentication.
+title: Web browser cookies used in Microsoft Entra authentication
+description: Learn about Web browser cookies used in Microsoft Entra authentication.
 
 services: active-directory
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.reviewer: sahenry, michmcla
 
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an Azure AD administrator, I want to understand which weh browser cookies are used for Azure AD.
+# Customer intent: As a Microsoft Entra administrator, I want to understand which weh browser cookies are used for Microsoft Entra ID.
 ---
-# Web browser cookies used in Azure Active Directory authentication
+# Web browser cookies used in Microsoft Entra authentication
 
-During authentication against Azure Active Directory (Azure AD) through a web browser, multiple cookies are involved in the process. Some of the cookies are common on all requests. Other cookies are used for specific authentication flows or specific client-side conditions.  
+During authentication against Microsoft Entra ID through a web browser, multiple cookies are involved in the process. Some of the cookies are common on all requests. Other cookies are used for specific authentication flows or specific client-side conditions.  
 
 Persistent session tokens are stored as persistent cookies on the web browser's cookie jar. Non-persistent session tokens are stored as session cookies on the web browser, and are destroyed when the browser session is closed. 
 
@@ -29,7 +29,7 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | ESTSAUTHPERSISTENT | Common | Contains user's session information to facilitate SSO. Persistent. |
 | ESTSAUTHLIGHT | Common  | Contains Session GUID Information. Lite session state cookie used exclusively by client-side JavaScript in order to facilitate OIDC sign-out. Security feature. |
 | SignInStateCookie | Common | Contains list of services accessed to facilitate sign-out. No user information. Security feature. |
-| CCState | Common | Contains session information state to be used between Azure AD and the [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). |
+| CCState | Common | Contains session information state to be used between Microsoft Entra ID and the [Microsoft Entra Backup Authentication Service](../conditional-access/resilience-defaults.md). |
 | build | Common | Tracks browser related information. Used for service telemetry and protection mechanisms. |
 | fpc | Common | Tracks browser related information. Used for tracking requests and throttling. |
 | esctx | Common | Session context cookie information. For CSRF protection. Binds a request to a specific browser instance so the request can't be replayed outside the browser. No user information. |
@@ -44,17 +44,17 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | clrc | Common | Client-side cookie (set by JavaScript) to control local cached sessions on the client. |
 | CkTst | Common | Client-side cookie (set by JavaScript). No longer in active use. | 
 | wlidperf | Common | Client-side cookie (set by JavaScript) that tracks local time for performance purposes. |
-| x-ms-gateway-slice | Common | Azure AD Gateway cookie used for tracking and load balance purposes. |
-| stsservicecookie | Common | Azure AD Gateway cookie also used for tracking purposes. |
+| x-ms-gateway-slice | Common | Microsoft Entra Gateway cookie used for tracking and load balance purposes. |
+| stsservicecookie | Common | Microsoft Entra Gateway cookie also used for tracking purposes. |
 | x-ms-refreshtokencredential | Specific | Available when [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) is in use. |
 | estsStateTransient | Specific | Applicable to new session information model only. Transient. | 
 | estsStatePersistent | Specific | Same as estsStateTransient, but persistent. |
 | ESTSNCLOGIN | Specific | National Cloud Login related Cookie. | 
 | UsGovTraffic | Specific | US Gov Cloud Traffic Cookie. | 
 | ESTSWCTXFLOWTOKEN | Specific | Saves flowToken information when redirecting to ADFS. |
-| CcsNtv | Specific | To control when Azure AD Gateway will send requests to [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). Native flows. | 
-| CcsWeb | Specific | To control when Azure AD Gateway will send requests to [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). Web flows. | 
-| Ccs* | Specific | Cookies with prefix Ccs*, have the same purpose as the ones without prefix, but only apply when [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md) is in use. | 
+| CcsNtv | Specific | To control when Microsoft Entra Gateway will send requests to [Microsoft Entra Backup Authentication Service](../conditional-access/resilience-defaults.md). Native flows. | 
+| CcsWeb | Specific | To control when Microsoft Entra Gateway will send requests to [Microsoft Entra Backup Authentication Service](../conditional-access/resilience-defaults.md). Web flows. | 
+| Ccs* | Specific | Cookies with prefix Ccs*, have the same purpose as the ones without prefix, but only apply when [Microsoft Entra Backup Authentication Service](../conditional-access/resilience-defaults.md) is in use. | 
 | threxp | Specific | Used for throttling control. | 
 | rrc | Specific | Cookie used to identify a recent B2B invitation redemption. | 
 | debug | Specific | Cookie used to track if user's browser session is enabled for DebugMode. |
@@ -63,15 +63,14 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 > [!NOTE] 
 > Cookies identified as client-side cookies are set locally on the client device by JavaScript, hence, will be marked with HttpOnly=false.  
 >
-> Cookie definitions and respective names are subject to change at any moment in time according to Azure AD service requirements.  
+> Cookie definitions and respective names are subject to change at any moment in time according to Microsoft Entra service requirements.  
 
 ## Next steps
 
-To learn more about self-service password reset concepts, see [How Azure AD self-service password reset works][concept-sspr].
+To learn more about self-service password reset concepts, see [How Microsoft Entra self-service password reset works][concept-sspr].
 
-To learn more about multi-factor authentication concepts, see [How Azure AD Multi-Factor Authentication works][concept-mfa].
+To learn more about multifactor authentication concepts, see [How Microsoft Entra multifactor authentication works][concept-mfa].
 
 <!-- INTERNAL LINKS -->
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md
-

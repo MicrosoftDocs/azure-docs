@@ -10,8 +10,7 @@ metadata:
   description: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series.
   services: cognitive-services
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: openai
+  ms.service: azure-ai-openai
   ms.topic: hub-page
   ms.date: 02/17/2023
 
