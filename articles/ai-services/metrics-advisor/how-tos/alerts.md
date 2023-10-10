@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # How-to: Configure alerts and get notifications using a hook
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 After an anomaly is detected by Metrics Advisor, an alert notification will be triggered based on alert settings, using a hook. An alert setting can be used with multiple detection configurations, various parameters are available to customize your alert rule.
 
 ## Create a hook
