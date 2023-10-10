@@ -55,7 +55,7 @@ In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI reso
 To deploy an Azure Open Model from Azure Machine Learning, in order to deploy an Azure OpenAI model: 
 
 1. Select on **Model Catalog** in the left pane.
-1. Select **View Models** under Azure OpenAI language models. Then Select a model to deploy.
+1. Select **View Models** under Azure OpenAI language models. Then select a model to deploy.
 1. Select `Deploy` to deploy the model to the Azure OpenAI service.
 
     :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai-turbo.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai-turbo.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
