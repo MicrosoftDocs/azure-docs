@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: aahi
