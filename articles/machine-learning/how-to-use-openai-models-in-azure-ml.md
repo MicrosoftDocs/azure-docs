@@ -119,7 +119,7 @@ Here are some steps to help you resolve any of the following issues with your Az
 You might receive any of the following errors when you try to deploy an Azure OpenAI model.
 
 - **Only one deployment can be made per model name and version**
-    - **Fix**: You'll need to go to the [Azure OpenAI Studio](https://oai.azure.com/portal) and delete the deployments of the model you're trying to deploy.  
+    - **Fix**: Go to the [Azure OpenAI Studio](https://oai.azure.com/portal) and delete the deployments of the model you're trying to deploy.
 
 - **Failed to create deployment**
     - **Fix**: Azure OpenAI failed to create. This is due to Quota issues, make sure you have enough quota for the deployment.
