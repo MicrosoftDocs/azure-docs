@@ -52,6 +52,15 @@ The Azure Arc Setup wizard is launched from a system tray icon at the bottom of 
 
     :::image type="content" source="media/onboard-windows-server/server-manager-enabled.png" alt-text="Screenshot of Server Manager local server pane showing machine status is enabled.":::
 
+
+## Server Manager functions
+
+You can select the **Enabled/Disabled** link in the **Azure Arc Management** field of the Server Manager to launch different functions based on the status of the machine:
+
+- If Azure Arc Setup isn't installed, selecting **Enabled/Disabled** launches the **Add Roles and Features Wizard**.
+- If Azure Arc Setup is installed and the Azure Connected Machine agent hasn't been installed, selecting **Disabled** launches `AzureArcSetup.exe`.
+- If Azure Arc Setup is installed and the Azure Connected Machine agent is already installed, selecting **Enabled/Disabled** launches `AzureArcConfiguration.exe`.
+    
 ## Viewing the connected machine
 
 The Azure Arc system tray icon at the bottom of your Windows Server machine indicates if the machine is connected to Azure Arc; a red symbol means the machine does not have the Azure Connected Machine agent installed. To view a connected machine in Azure Arc, select the icon and then select **View Machine in Azure**. You can then view the machine in the [Azure portal](https://portal.azure.com/), just as you would other Azure Arc-enabled resources.
