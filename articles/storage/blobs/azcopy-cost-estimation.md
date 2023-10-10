@@ -12,28 +12,28 @@ ms.custom: subject-cost-optimization
 
 # Estimate the cost to transfer data to, from, or between containers
 
-You can estimate the cost of a transfer by knowing the number of blobs, the size of each blob, and the REST operations that AzCopy uses to complete the transfer. Block size impacts only the cost of uploading data and network egress charges impact only the movement of data between regions. 
+This article helps you estimate what it will cost to transfer data to, from, or between containers by using AzCopy commands.
 
-This article provides example calculations for common data transfer scenarios.
+Each section of this article presents a data transfer scenario. Each section describes the components that impact cost along with a calculation of the cost based on fictitious numbers. You can use these example calculations to model the cost of your planned data transfers. 
 
 ## Calculate the cost to upload
 
-The cost to upload is impacted by which endpoint you use in your `azcopy copy` command.
+You can upload blobs by using the `azcopy copy` command. The destination endpoint of that command impacts the cost of the upload. 
 
-**The cost to upload to the Blob Service endpoint**
+### Cost to use the Blob Service endpoint
 
-If you upload data to the Blob Service endpoint (`https://<storage-account>.blob.core.windows.net`), AzCopy uploads each blob in 8 MiB blocks. 
+If you upload data to the Blob Service endpoint (`blob.core.windows.net`), then AzCopy uploads each blob in 8 MiB blocks. 
 
-AzCopy uses the [Put Block](/rest/api/storageservices/put-block-list) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
+AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
 
-The table below calculates the number of write operations required to upload `1,000,000` blobs that are `10 GiB` each in size. 
+The table below calculates the number of write operations required to upload `1,000` blobs that are `5 GiB` each in size. 
 
 | Calculation | Value
 |---|---|
-| Number of MiB in 10 Gib | 10,240 |
-| PutBlock operations per per blob (10,240 MiB / 8 MiB block) | 1,280 |
-| Write operations per blob (1,280 + 1 PutBlockList operation) | 1,281 |
-| Total write operations (1,000,000 * 1,281) | **1,281,000,000** |
+| Number of MiB in 10 Gib | 5,120 |
+| PutBlock operations per per blob (5,120 MiB / 8 MiB block) | 640 |
+| PutBlockList operations per blob | 1 |
+| **Total write operations (1,000 * 641)** | **641,000** |
 
 > [!TIP]
 > You can reduce the number of operations by configuring AzCopy to use a larger block size.  
@@ -44,21 +44,24 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 |------------------------------------------------------------|---------------|-------------|-------------|-------------|
 | Price of write transactions (per 10,000)                   | $0.055        | $0.10       | $0.18       | $0.10       |
 | Price of a single write operation (price / 10,000)         | $0.0000055    | $0.00001    | $0.000018   | $0.00001    |
-| Total cost (write operations * price of a write operation) | **$7,045.50** | **$12,810** | **$23,058** | **$12,810** |
+| Total cost (write operations * price of a write operation) | **$3.53** | **$6.41** | **$11.538** | **$3.53** |
 
-**The cost to upload to the Data Lake Storage endpoint**
+> [!NOTE]
+> If you upload to the archive tier, each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. Each [Put Block List](/rest/api/storageservices/put-block-list) operation is charged the price of an **archive** write operation. In this example, there is no impact to cost.  
 
-If you upload data to the Data Lake Storage endpoint (`https://<storage-account>.dfs.core.windows.net`), AzCopy uploads each blob in 4 MiB blocks. This value is non-configurable. 
+### Cost to use the Data Lake Storage endpoint
+
+If you upload data to the Data Lake Storage endpoint (`https://<storage-account>.dfs.core.windows.net`), then AzCopy uploads each blob in 4 MiB blocks. This value is non-configurable. 
 
 AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block which is billed as a write operation.
 
-The table below calculates the number of write operations required to upload `1,000,000` blobs that are `10 GiB` each in size. 
+The table below calculates the number of write operations required to upload `1,000` blobs that are `5 GiB` each in size. 
 
 | Calculation | Value
 |---|---|
-| Number of MiB in 10 Gib | 10,240 |
-| Path - Update operations per per blob (10,240 MiB / 4 MiB block) | 2,560 |
-| Total write operations (1,000,000 * 2,560) | **2,560,000,000** |
+| Number of MiB in 10 Gib | 5,120 |
+| Path - Update operations per per blob (5,120 MiB / 4 MiB block) | 1,280 |
+| **Total write operations (1,000 * 1,280)** | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost of these write operations.
 
@@ -66,28 +69,31 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 |------------------------------------------------------------|-------------|-------------|-------------|-------------|
 | Price of write transactions (every 4MB, per 10,000)        | $0.0715     | $0.13       | $0.234      | $0.143      |
 | Price of a single write operation (price / 10,000)         | $0.00000715 | $0.000013   | $0.0000234  | $0.0000143  |
-| Total cost (write operations * price of a write operation) | **$18,304** | **$33,280** | **$59,904** | **$36,608** |
+| Total cost (write operations * price of a write operation) | **$9.152** | **$16.64** | **$29.952** | **$18.304** |
 
 ## Calculate the cost to download
 
-The cost to download is impacted by which endpoint you use in your `azcopy copy` command.
+You can download blobs by using the `azcopy copy` command. The source endpoint of that command impacts the cost of the upload. 
 
-**The cost to download from the Blob Service endpoint**
+> [!NOTE]
+> These examples exclude downloading from archive, because it is not possible to do so. To read a blob in archive, you must first rehydrate that blob to an online tier. Then you can download that blob from the online tier. For information about how to rehydrate a blob from archive, see [Blob rehydration from the archive tier](archive-rehydrate-overview.md). For information about what it costs to rehydrate blobs, see [The cost to rehydrate](archive-cost-estimation.md#the-cost-to-rehydrate).
+
+### Cost to download from the Blob Service endpoint
 
 If you download blobs from the Blob Service endpoint (`https://<storage-account>.blob.core.windows.net`), AzCopy uses the [Get Blob](/rest/api/storageservices/get-blob) operation which is billed as a read operation. If you read blobs from the cool, cold, and archive tiers, your also charged a data retrieval per GiB downloaded. 
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost of downloading `500` blobs that are `10 GiB` in size.
 
-| Price factor                                                      | Hot          | Cool        | Cold        | Archive    |
-|-------------------------------------------------------------------|--------------|-------------|-------------|------------|
-| Price of read transactions (per 10,000)                           | $0.0044      | $0.01       | $0.10       | $5.00      |
-| Price of a single read operation (price / 10,000)                 | $0.00000044  | $0.000001   | $0.00001    | $0.0005    |
-| **Cost of read operations (500 * price of read operation)** | **$0.00022** | **$0.0005** | **$0.005**  | **$0.25**  |
-| Price of data retrieval (per GiB)                                 | Free         | $0.01       | $0.03       | $0.02      |
-| **Cost of data retrieval (500 * price of data retrieval)**        | **$0.00**    | **$5.00**   | **$15.00**  | **$10.00** |
-| **Total cost (cost of read operations + cost of data retrieval)**  | **$0.00022** | **$5.0005** | **$15.005** | **$10.25** |
+| Price factor                                                      | Hot          | Cool        | Cold        |
+|-------------------------------------------------------------------|--------------|-------------|-------------|
+| Price of read transactions (per 10,000)                           | $0.0044      | $0.01       | $0.10       |
+| Price of a single read operation (price / 10,000)                 | $0.00000044  | $0.000001   | $0.00001    |
+| **Cost of read operations (500 * price of read operation)** | **$0.00022** | **$0.0005** | **$0.005**  |
+| Price of data retrieval (per GiB)                                 | Free         | $0.01       | $0.03       | 
+| **Cost of data retrieval (500 * price of data retrieval)**        | **$0.00**    | **$5.00**   | **$15.00**  |
+| **Total cost (cost of read operations + cost of data retrieval)**  | **$0.00022** | **$5.0005** | **$15.005** |
 
-**The cost to download from the Data Lake Storage endpoint**
+### Cost to download from the Data Lake Storage endpoint
 
 If you download blobs by using the Data Lake Storage endpoint (`https://<storage-account>.dfs.core.windows.net`), AzCopy reads each blob in 4 MiB blocks. This value is non-configurable. 
 
@@ -114,7 +120,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Cost of data retrieval (1,280,000 * price of data retrieval)** | **$0.00** | **$5.00**   | **$15.00**  | **$11.00** |
 | **Total cost (cost of read operations + cost of data retrieval)**  | **$0.7296** | **$6.664** | **$31.64** | **$926.2** |
 
-## Copying between containers
+## Calculate the cost to copy between containers
 
 Scenario description
 
@@ -128,7 +134,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-## Synchronizing changes
+## Calculate the cost to synchronize changes
 
 Scenario description
 
@@ -142,7 +148,7 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
-## Updating tags, metadata, and properties
+## Calculate the cost to update tags, metadata, and properties
 
 Scenario description
 
