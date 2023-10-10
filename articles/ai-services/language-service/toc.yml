@@ -579,8 +579,8 @@ items:
             items:
               - name: Text analysis runtime API (v2023-04-01)
                 href: https://go.microsoft.com/fwlink/?linkid=2239169
-              - name: Text analysis runtime API (v2022-10-01-preview)
-                href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
+              - name: Text analysis runtime API (v2022-04-15-preview)
+                href: /rest/api/language/2023-04-15-preview/text-analysis-runtime
               - name: Previous versions
                 items:
                 - name: v3.2-preview.2

@@ -527,7 +527,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/containers/index.md",
-      "redirect_url": "/azure/ai-services/containers/index",
+      "redirect_url": "/azure/ai-services/cognitive-services-container-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/containers/index.yml",
+      "redirect_url": "/azure/ai-services/cognitive-services-container-support",
       "redirect_document_id": true
     },
     {
