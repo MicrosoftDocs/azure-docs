@@ -266,7 +266,7 @@ The following procedure describes how to add a ToU language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use policy on every device they're accessing from. The end user's device must be registered in Microsoft Entra ID. When the device is registered, the device ID is used to enforce the terms of use policy on each device. Their experience is dependent on permissions to join devices as well as the platform and software used, for more information see, [device identity in Microsoft Entra ID](../devices/overview).
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use policy on every device they're accessing from. The end user's device must be registered in Microsoft Entra ID. When the device is registered, the device ID is used to enforce the terms of use policy on each device. Their experience is dependent on permissions to join devices as well as the platform and software used, for more information see, [device identity in Microsoft Entra ID](../devices/overview.md).
 
 Per-device terms of use have the following constraints:
 
