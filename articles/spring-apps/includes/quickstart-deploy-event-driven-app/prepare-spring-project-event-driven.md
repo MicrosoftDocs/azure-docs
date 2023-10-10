@@ -18,7 +18,7 @@ Use the following steps to prepare the sample locally.
 
 ### [Azure portal](#tab/Azure-portal)
 
-This section isn't required to prepare the jar package for deployment, the `Deploy to azure` button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application/releases).
+This section isn't required to prepare the JAR package for deployment. The **Deploy to azure** process downloads the JAR from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 

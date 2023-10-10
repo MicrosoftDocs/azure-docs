@@ -39,7 +39,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 1. Select **Review and Create** to review your selections. Select **Create** to deploy the app to Azure Spring Apps.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is complete, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/custom-deployment-notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the custom deployment notifications pane open." lightbox="../../media/quickstart-deploy-event-driven-app/custom-deployment-notifications.png":::
 
