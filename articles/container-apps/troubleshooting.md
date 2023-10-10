@@ -331,21 +331,21 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 	- **Ingress Traffic** is set to **Accepting traffic from anywhere**.
 	- Your Container Apps environment has *internalOnly* set to *false*. TODO1 Where is that?
 
-TODO1 These four items might not be useful. Check with PMs before we replicate to console.
+TODO1 These next four items might not be useful. Check with PMs before we replicate to console.
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) your client uses to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - If your client uses HTTP/1, verify **Transport** is set to **Auto** or **HTTP/1**. If your client uses HTTP/2, verify **Transport** is set to **Auto** or **HTTP/2**.
 - If your client cannot use a secure connection, verify **Insecure connections** > **Allowed** is enabled.
 
-- Verify **Target port** is set to the same port your container app is listening on. TODO1 Link to where we configure that.
+- Verify **Target port** is set to the same port your container app is listening on, or the same port exposed by your container app's Dockerfile.
 - If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
 
 TODO1
-x Where is environment configuration in Portal? Have to know your environment name and search for it.
+x Where is environment configuration in Portal? You have to know your environment name and search for it.
 - How to set env internalOnly to true/false on env in Portal?
 - Portal ingress traffic setting is confusing. It sounds like env internalOnly setting partially overrides this.
 - env show in console does not show internalOnly.
-- How to find what env your app belongs to in console?
+/ How to find what env your app belongs to in console? containerapp show > managedEnvironmentId. Can we then query on that ID?
 x Console does not show setting for HTTP/TCP. Okay, it's --transport.
 - Things to note:
 	- Port mismatch. For HTTP ingress your port is always 443. However that is the exposed port, not the target port.
@@ -380,6 +380,10 @@ az containerapp ingress show `
 ---
 
 You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
+
+TODO1 Repeat this in Configure health probes section?
+> [!NOTE]
+> If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy. If your container app doesn't listen for HTTP traffic, you should disable ingress.
 
 # [Bash](#tab/bash)
 
@@ -483,24 +487,121 @@ TODO1 What about CORS?
 
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
 
-## Verify Health Probes are Configured Correctly
+## Verify health probes are configured correctly
+
+TODO1 Source:
+https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Health Probes
 
 ::: zone pivot="portal"
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** bar at the top, enter your Azure Container Apps application name.
+1. In the search results, under *Resources*, select your container app name.
+1. In the navigation bar at the left, expand *Application* and select **Containers**.
+1. In the *Containers* page, select **Health probes**.
+
+For all health probe types (liveness, readiness, and startup) that use TCP as their transport, verify their port numbers match the ingress target port you have configured for your container app.
+
+If your container app takes an extended amount of time to start, verify you have configured your liveness and readiness probes' *Initial delay seconds* settings to accommodate this.
+
+If your health probes are not configured correctly:
+
+1. Select **Edit and deploy** to create a new revision.
+
+1. In the *Create and deploy new revision* page, select the checkbox next to your container image and select **Edit**. The *Edit a container* pane appears at the right.
+
+1. In the *Edit a container* pane, select **Health probes**. Update the configuration for your health probes as needed. Select the **Save** button.
+
+1. In the *Create and deploy new revision* page, select the **Create** button.
 
 ::: zone-end
 
 ::: zone pivot="console"
 
-::: zone-end
+TODO1 Can we configure health probes from command line? We can view them. containerapp show > template > containers > probes.
 
-- If you're using TCP probes, verify their port numbers match the ingress target port you have configured for your container app.
-- If your container app takes an extended amount of time to start, verify you have configured your liveness and readiness probes' *initialDelaySeconds* settings accordingly.
+::: zone-end
 
 For more information, see [Use Health Probes](./health-probes.md).
 
-## TODO1 Other issues
+## Verify traffic is routed to correct revision
 
-TODO1 Verify traffic isn't being routed to wrong revision. Latest revision is the default.
+::: zone pivot="portal"
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** bar at the top, enter your Azure Container Apps application name.
+1. In the search results, under *Resources*, select your container app name.
+1. In the navigation bar at the left, expand *Application* and select **Revisions**.
+
+In the *Revisions* page, if **Revision Mode** is set to `Single`, all traffic is routed to your latest revision by default. The **Active revisions** tab should list only one revision, with a *Traffic* value of `100%`.
+
+If **Revision Mode** is set to `Multiple`, verify you are not routing any traffic to outdated revisions.
+
+::: zone-end
+
+::: zone-pivot="console"
+
+Use the [`az containerapp show`](/cli/azure/containerapp#az-containerapp-show(containerapp)) command to view the revision mode and traffic routing settings for your container app.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp show \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+az containerapp show `
+  --name <YOUR_CONTAINER_APP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+```
+
+---
+
+You can expect output like the following example:
+
+```json
+{
+  "id": "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.App/containerapps/<YOUR_CONTAINER_APP_NAME>",
+  ...
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Multiple",
+	  ...
+      "ingress": {
+        ...
+        "traffic": [
+          {
+            "revisionName": "<REVISION_2>",
+            "weight": 100
+          },
+          {
+            "revisionName": "<REVISION_1>",
+            "weight": 0
+          }
+        ],
+        ...
+	  }
+	  ...
+	}
+	...
+  }
+  ...
+}
+```
+
+If `activeRevisionsMode` is `Single`, all traffic is routed to your latest revision by default. That revision should have a `weight` of `100`, and all other revisions should have `weight`s of `0`.
+
+If `activeRevisionsMode` is `Multiple`, verify you are not routing any traffic to outdated revisions.
+
+You can change the revision mode for your container app with the [az containerapp revision set-mode](/cli/azure/containerapp/revision#az-containerapp-revision-set-mode(containerapp)) command.
+
+TODO1 Can you configure traffic routing in command line? The doc for [`az containerapp revision label`](/cli/azure/containerapp/revision/label) says "Manage revision labels assigned to traffic weights." but there is nothing in the actual commands/flags relating to traffic weights.
+
+::: zone-end
 
 ## Conclusion
 
