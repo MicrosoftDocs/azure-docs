@@ -120,7 +120,7 @@ Learn more:
 
 See the following diagram of app authentication simplified by Microsoft Entra ID.
 
-   ![Diagram of app authentication with Azure AD.](./media/five-steps-to-full-application-integration/integration-2.png)
+   ![Diagram of app authentication with Microsoft Entra ID.](./media/five-steps-to-full-application-integration/integration-2.png)
 
 After Microsoft Entra ID is the central IdP, you might be able to discontinue ADFS. 
 
