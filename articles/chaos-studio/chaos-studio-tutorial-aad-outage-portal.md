@@ -51,4 +51,4 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 1. Within the **NSG Security Rule (version 1.1)** fault, select **Edit**.
 
    [![Screenshot that shows the experiment designer screen, with the edit button within the NSG fault highlighted.](images/tutorial-aad-outage-edit-fault.png)](images/tutorial-aad-outage-edit-fault.png#lightbox)
-
+1. Review fault parameters and select **Next: Target resources**.
