@@ -263,7 +263,7 @@
         - name: Azure portal
           href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
         - name: Azure REST API
-          href: flexible-server/howto-restore-to-different-subscription-or-resource-group-api.md 
+          href: flexible-server/howto-restore-different-subscription-resource-group-api.md 
       - name: Restart a server
         items:
         - name: Azure portal
