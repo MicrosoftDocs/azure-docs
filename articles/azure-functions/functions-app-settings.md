@@ -573,8 +573,6 @@ The following considerations apply when using an Azure Resource Manager (ARM) te
 + Don't make `WEBSITE_CONTENTSHARE` a slot setting. 
 + When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names). 
 
-To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
-
 ## WEBSITE\_DNS\_SERVER
 
 Sets the DNS server used by an app when resolving IP addresses. This setting is often required when using certain networking functionality, such as [Azure DNS private zones](functions-networking-options.md#azure-dns-private-zones) and [private endpoints](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).

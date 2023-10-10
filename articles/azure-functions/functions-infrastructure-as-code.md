@@ -673,8 +673,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'node|14'
       appSettings: [
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsights.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsights.properties.ConnectionString
         }
         {
           name: 'AzureWebJobsStorage'
@@ -716,8 +716,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         "linuxFxVersion": "node|14",
         "appSettings": [
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02).ConnectionString]"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -750,8 +750,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
     siteConfig: {
       appSettings: [
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsights.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsights.properties.ConnectionString
         }
         {
           name: 'AzureWebJobsStorage'
@@ -803,8 +803,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       "siteConfig": {
         "appSettings": [
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -854,8 +854,8 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
       linuxFxVersion: 'node|14'
       appSettings: [
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
         }
         {
           name: 'AzureWebJobsStorage'
@@ -905,8 +905,8 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         "linuxFxVersion": "node|14",
         "appSettings": [
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -947,8 +947,8 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
     siteConfig: {
       appSettings: [
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
         }
         {
           name: 'AzureWebJobsStorage'
@@ -1000,8 +1000,8 @@ resource functionAppName_resource 'Microsoft.Web/sites@2022-03-01' = {
       "siteConfig": {
         "appSettings": [
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -1051,8 +1051,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       alwaysOn: true
       appSettings: [
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
         }
         {
           name: 'AzureWebJobsStorage'
@@ -1097,8 +1097,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         "alwaysOn": true,
         "appSettings": [
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -1138,8 +1138,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'node|14'
       appSettings: [
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
         }
         {
           name: 'AzureWebJobsStorage'
@@ -1182,8 +1182,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         "linuxFxVersion": "node|14",
         "appSettings": [
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -1544,7 +1544,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 :::zone pivot="container-apps"
 When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), you must set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. You must also set the `managedEnvironmentId` site property to the fully-qualified URI of the Container Apps environment. If you are creating a `Microsoft.App/managedEnvironments` resource at the same time as the site, make sure to include this resources in the `dependsOn` collection in the site definition. 
 
-The definition of a containerized function app deployed from a private container registry might look like this example:
+The definition of a containerized function app deployed from a private container registry to an existing Container Apps environment might look like this example:
 
 #### [Bicep](#tab/bicep)
 
@@ -1570,8 +1570,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
         }
       ]
     }
@@ -1613,8 +1613,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
             "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
           },
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           }
         ],
       },
@@ -1663,8 +1663,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: applicationInsightsName.properties.InstrumentationKey
+          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+          value: applicationInsightsName.properties.ConnectionString
         }
       ]
       alwaysOn: true
@@ -1709,8 +1709,8 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
             "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
           },
           {
-            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
           }
         ],
         "alwaysOn": true
@@ -1725,30 +1725,51 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ::: zone-end
 ## Application configuration
 
-Functions provides the following options for configuring your app: 
+Functions provides the following options for configuring your function app in Azure: 
 
 | Configuration | `Microsoft.Web/sites` property |  
 | ---- | ---- |
-| Application settings | `siteConfig.appSettings` collection |
 | Site settings | `siteConfig` |
+| Application settings | `siteConfig.appSettings` collection |
 
-The following application settings are required for a given operating system and hosting option:
+The following site settings might be required on the `siteConfig` property:
 
 ### [Linux](#tab/linux)
 
-+ [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)<sup>1</sup>
+:::zone pivot="dedicated-plan"  
++ [`alwaysOn`](functions-app-settings.md#alwayson)
+::: zone-end  
++ [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
+ 
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+
+### [Windows](#tab/windows)
+
+:::zone pivot="dedicated-plan"  
++ [`alwaysOn`](functions-app-settings.md#alwayson)
+::: zone-end
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+
+---
+
+<sup>*</sup>Only required for .NET (C#) apps.
+
+The following application settings are required for a specific operating system and hosting option:
+
+### [Linux](#tab/linux)
 
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
 
 + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
 
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
-
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
+::: zone-end
 :::zone pivot="consumption-plan,premium-plan"  
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
 
-+ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
 ::: zone-end  
 :::zone pivot="dedicated-plan,premium-plan"  
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
@@ -1758,19 +1779,17 @@ These settings are only required when deploying from a private container registr
 
 + [`DOCKER_REGISTRY_SERVER_URL`](../app-service/reference-app-settings.md#custom-containers) 
 
-+ [`DOCKER_REGISTRY_SERVER_USERNAME](../app-service/reference-app-settings.md#custom-containers) 
++ [`DOCKER_REGISTRY_SERVER_USERNAME`](../app-service/reference-app-settings.md#custom-containers) 
 
 + [`DOCKER_REGISTRY_SERVER_PASSWORD`](../app-service/reference-app-settings.md#custom-containers) 
 
 For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
 ::: zone-end 
-
-<sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.  
-<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
+:::zone pivot="consumption-plan,premium-plan"  
+<sup>1</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
+::: zone-end  
 
 ### [Windows](#tab/windows)
-
-+ [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)<sup>1</sup>
 
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
 
@@ -1787,34 +1806,17 @@ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../a
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan"   
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
 
-+ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>3</sup>
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
+::: zone-end    
+<sup>1</sup>Supported only for Node.js deployments. 
+:::zone pivot="consumption-plan,premium-plan"  
+<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
 ::: zone-end  
-<sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.    
-<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.   
-<sup>3</sup>Supported only for Node.js deployments on Windows.  
 
 ---
 
 >[!IMPORTANT]  
 >When adding or updating application settings using Bicep or ARM templates, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. You can instead use the Azure CLI, Azure PowerShell, or the Azure portal to more easily modify application settings. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#work-with-application-settings). 
-
-The following site settings might be required on the `siteConfig` property:
-
-### [Linux](#tab/linux)
-
-+ [`alwaysOn`](functions-app-settings.md#alwayson)
-+ [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) 
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
-
-
-### [Windows](#tab/windows)
-
-+ [`alwaysOn`](functions-app-settings.md#alwayson)
-+ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
-
----
-
-<sup>*</sup>Only required for .NET (C#) apps.
 
 ## Validate your template
 
