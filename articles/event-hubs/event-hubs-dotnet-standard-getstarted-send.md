@@ -162,7 +162,6 @@ This section shows you how to create a .NET Core console application to send eve
         {
             // if it is too large for the batch
             throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
-            Console.ReadLine();
         }
     }
     

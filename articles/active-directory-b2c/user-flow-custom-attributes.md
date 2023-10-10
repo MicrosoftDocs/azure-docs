@@ -100,7 +100,7 @@ Extension attributes can only be registered on an application object, even thoug
 
 ## Modify your custom policy
 
-To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the AAD-Common technical profile metadata. The *AAD-Common* technical profile is found in the base [Azure Active Directory](active-directory-technical-profile.md) technical profile, and provides support for Azure AD user management. Other Azure AD technical profiles include the AAD-Common to use its configuration. Override the AAD-Common technical profile in the extension file.
+To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the **AAD-Common** technical profile metadata. The **AAD-Common*** technical profile is found in the base [Microsoft Entra ID](active-directory-technical-profile.md) technical profile, and provides support for Microsoft Entra user management. Other Microsoft Entra technical profiles include **AAD-Common** to use its configuration. Override the **AAD-Common** technical profile in the extension file.
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
@@ -138,7 +138,7 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 1. Select **Upload Custom Policy**, and then upload the TrustFrameworkExtensions.xml policy files that you changed.
 
 > [!NOTE]
-> The first time the Azure AD technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
+> The first time the Microsoft Entra technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
 
 ## Create a custom attribute through Azure portal
 
@@ -187,7 +187,7 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 ## Manage extension attributes through Microsoft Graph
 
-You can use Microsoft Graph to create and manage the custom attributes then set the values for a user. Extension attributes are also called directory or Azure AD extensions.
+You can use Microsoft Graph to create and manage the custom attributes then set the values for a user. Extension attributes are also called directory or Microsoft Entra extensions.
 
 Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `25883231-668a-43a7-80b2-5685c3f874bc` and the attribute name is `loyaltyId`, then the custom attribute is named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
 

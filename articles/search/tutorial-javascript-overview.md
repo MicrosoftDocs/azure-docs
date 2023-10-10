@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 09/13/2023
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -30,9 +30,9 @@ The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tr
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
-|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client-v4](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/client-v4)|
-|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using JavaScript SDK |[/search-website-functions-v4/api-v4](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/api-v4)|
-|Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert-v4](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/bulk-insert-v4)|
+|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/client)|
+|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using JavaScript SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/api)|
+|Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/bulk-insert)|
 
 ## Set up your development environment
 

@@ -1,6 +1,6 @@
 ---
 title: Bulk delete users in the Azure portal
-description: Delete users in bulk in the Azure admin center in Azure Active Directory 
+description: Delete users in bulk in the Azure admin center in Microsoft Entra ID 
 services: active-directory 
 author: barclayn
 ms.author: barclayn
@@ -15,9 +15,9 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk delete users in Azure Active Directory
+# Bulk delete users in Microsoft Entra ID
 
-Using the admin center in Azure Active Directory (Azure AD), part of Microsoft Entra, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
+Using the admin center in Microsoft Entra ID, part of Microsoft Entra, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
 ## CSV template structure
 
@@ -41,7 +41,7 @@ The rows in a downloaded CSV template are as follows:
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **Users** > **All users** > **Bulk operations** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
 1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Save the file.
@@ -52,18 +52,20 @@ The rows in a downloaded CSV template are as follows:
 
 If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 
+[!INCLUDE [Bulk update warning](~/articles/active-directory/includes/bulk-export.md)]
+
 ## Check status
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
    [![Check delete status in the Bulk Operations Results page.](./media/users-bulk-delete/bulk-center.png)](./media/users-bulk-delete/bulk-center.png#lightbox)
 
-Next, you can check to see that the users you deleted exist in the Azure AD organization either in the Azure portal or by using PowerShell.
+Next, you can check to see that the users you deleted exist in the Microsoft Entra organization either in the Azure portal or by using PowerShell.
 
 ## Verify deleted users in the Azure portal
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **All users** only and verify that the users you deleted are no longer listed.
 
 ### Verify deleted users with PowerShell

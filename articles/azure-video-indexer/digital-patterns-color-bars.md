@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Enable and view digital patterns with color bars (preview)
+# Enable and view digital patterns with color bars
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to enable and view digital patterns with color bars (preview). 
 

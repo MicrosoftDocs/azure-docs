@@ -1,7 +1,7 @@
 ---
 description: This article covers troubleshooting Cloud Shell common scenarios.
 ms.contributor: jahelmic
-ms.date: 05/03/2023
+ms.date: 09/29/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -60,9 +60,9 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using an Azure Active Directory subscription, you can't create storage.
-- **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD
-  subscriptions aren't able to create Azure resources.
+- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
+  ID subscriptions aren't able to create Azure resources.
 
 ### Terminal output - Error: Failed to connect terminal: websocket can't be established
 
@@ -84,8 +84,8 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 - **Details**: Cloud Shell uses a container to host your shell environment, as a result running
   the daemon is disallowed.
-- **Resolution**: Utilize [docker-machine][04], which is installed by default, to manage docker
-  containers from a remote Docker host.
+- **Resolution**: Use the [docker CLI][04], which is installed by default, to remotely manage docker
+  containers.
 
 ## PowerShell troubleshooting
 
@@ -123,10 +123,10 @@ Azure Cloud Shell has the following known limitations:
 
 ### Quota limitations
 
-Azure Cloud Shell has a limit of 20 concurrent users per tenant per region. Opening more than 20
-simultaneous sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to
-have more than 20 sessions open, such as for training sessions, contact Support to request a quota
-increase before your anticipated usage.
+Azure Cloud Shell has a limit of 20 concurrent users per tenant. Opening more than 20 simultaneous
+sessions produces a "Tenant User Over Quota" error. If you have a legitimate need to have more than
+20 sessions open, such as for training sessions, contact Support to request a quota increase before
+your anticipated usage.
 
 Cloud Shell is provided as a free service for managing your Azure environment. It's not as a general
 purpose computing platform. Excessive automated usage may be considered in breach to the Azure Terms
@@ -141,8 +141,6 @@ considerations include:
 
 - With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash,
   your `$HOME` directory is also persisted.
-- Azure fileshares can be mounted only from within your [assigned region][05].
-  - In Bash, run `env` to find your region set as `ACC_LOCATION`.
 - Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ### Browser support
@@ -158,15 +156,21 @@ Cloud Shell supports the latest versions of following browsers:
 
 ### Copy and paste
 
-- Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
-  <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
+- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy is supported but use
+  <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
   - FireFox/IE may not support clipboard permissions properly.
-- macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
+- macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
+- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
+
+> [!NOTE]
+> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>C</kbd>, Cloud Shell sends the `Ctrl C`
+> character to the shell. This could terminate the currently running command.
 
 ### Usage limits
 
-Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive
-sessions are ended without warning.
+Cloud Shell is intended for interactive use cases. Cloud Shell sessions time out after 20 minutes
+without interactive activity. As a result, any long-running non-interactive sessions are ended
+without warning.
 
 ### User permissions
 
@@ -175,11 +179,11 @@ directory isn't persisted.
 
 ### Supported entry point limitations
 
-Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal,
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code and Windows Terminal,
 don't support various Cloud Shell functionalities:
 
 - Use of commands that modify UX components in Cloud Shell, such as `Code`
-- Fetching non-arm access tokens
+- Fetching non-ARM access tokens
 
 ## Bash limitations
 
@@ -283,6 +287,5 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 > Connecting to GCC-High or Government DoD Clouds for Exchange Online is currently not supported.
 
 <!-- link references -->
-[04]: https://docs.docker.com/machine/overview/
-[05]: persisting-shell-storage.md#mount-a-new-clouddrive
+[04]: https://docs.docker.com/desktop/
 [06]: /powershell/microsoftgraph/migration-steps

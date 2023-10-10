@@ -6,6 +6,8 @@ ms.topic: conceptual
 ---
 # Understand the deployment sequence in Azure Blueprints
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 Azure Blueprints uses a **sequencing order** to determine the order of resource creation when
 processing the assignment of a blueprint definition. This article explains the following concepts:
 

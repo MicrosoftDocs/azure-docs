@@ -1,6 +1,6 @@
 ---
 title: Add or delete users
-description: Instructions about how to add new users or delete existing users using Azure Active Directory.
+description: Instructions about how to add new users or delete existing users using Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -49,7 +49,7 @@ You can create a new user for your organization or invite an external user from 
 
 ## Add a new guest user
 
-You can also invite new guest user to collaborate with your organization by selecting **Invite external user** from the **New user** page. If your organization's external collaboration settings are configured to allow guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../external-identities/add-users-administrator.md).
+You can also invite new guest user to collaborate with your organization by selecting **Invite external user** from the **New user** page. If your organization's external collaboration settings are configured to allow guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Microsoft Entra ID](../external-identities/add-users-administrator.md).
 
 The process for inviting a guest is the same as [adding a new user](./add-users.md#add-a-new-user), with two exceptions. The email address won't follow the same domain rules as users from your organization. You can also include a personal message. 
 
@@ -57,7 +57,7 @@ The process for inviting a guest is the same as [adding a new user](./add-users.
 
 There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
 
-If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+If you have an environment with both Microsoft Entra ID (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
 
 ## Delete a user
 

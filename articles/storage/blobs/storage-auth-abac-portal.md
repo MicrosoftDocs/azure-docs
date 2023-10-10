@@ -2,11 +2,11 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using the Azure portal and Azure attribute-based access control (Azure ABAC).
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.date: 03/15/2023
 
@@ -69,7 +69,7 @@ Here is what the condition looks like in code:
 
 1. Create a storage account that is compatible with the blob index tags feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
-1. Create a new container within the storage account and set the Public access level to **Private (no anonymous access)**.
+1. Create a new container within the storage account and set the anonymous access level to **Private (no anonymous access)**.
 
 1. In the container, click **Upload** to open the Upload blob pane.
 

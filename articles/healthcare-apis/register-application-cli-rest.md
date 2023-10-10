@@ -2,11 +2,11 @@
 title: Register a client application in Azure AD using CLI and REST API - Azure Health Data Services
 description: This article describes how to register a client application Azure AD using CLI and REST API.
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 05/03/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Register a client application using CLI and REST API

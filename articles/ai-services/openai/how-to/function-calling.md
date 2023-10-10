@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to use function calling with the GPT-35-Turbo and GPT-4 models 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 07/20/2023
 manager: nitinme

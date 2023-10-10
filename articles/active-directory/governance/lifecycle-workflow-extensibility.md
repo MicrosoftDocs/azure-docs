@@ -67,7 +67,7 @@ The response can be authorized in one of the following ways:
 The high-level steps for the Azure Logic Apps integration are as follows:
 
 > [!NOTE]
-> Creating a custom task extension and logic app through the Azure portal will automate most of these steps. For a guide on creating a custom task extension this way, see: [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md).
+> Creating a custom task extension and logic app through the Microsoft Entra admin center will automate most of these steps. For a guide on creating a custom task extension this way, see: [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md).
 
 - **Create a consumption-based Azure Logic App**: A consumption-based Azure Logic App that is used to be called to from the custom task extension.
 - **Configure the Azure Logic App so its compatible with Lifecycle workflows**: Configuring the consumption-based Azure Logic App so that it can be used with the custom task extension. For more information, see: [Configure a Logic App for Lifecycle Workflow use](configure-logic-app-lifecycle-workflows.md)

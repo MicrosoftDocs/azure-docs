@@ -24,11 +24,11 @@ The Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password 
 
 > [!IMPORTANT]
 >
-> * The Microsoft identity platform only supports the ROPC grant within Azure AD tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
-> * Personal accounts that are invited to an Azure AD tenant can't use the ROPC flow.
+> * The Microsoft identity platform only supports the ROPC grant within Microsoft Entra tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
+> * Personal accounts that are invited to a Microsoft Entra tenant can't use the ROPC flow.
 > * Accounts that don't have passwords can't sign in with ROPC, which means features like SMS sign-in, FIDO, and the Authenticator app won't work with that flow. If your app or users require these features, use a grant type other than ROPC. 
 > * If users need to use [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to log in to the application, they will be blocked instead.
-> * ROPC is not supported in [hybrid identity federation](../hybrid/connect/whatis-fed.md) scenarios (for example, Azure AD and ADFS used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity provider, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/connect/how-to-connect-pta.md) is supported with ROPC, however.
+> * ROPC is not supported in [hybrid identity federation](../hybrid/connect/whatis-fed.md) scenarios (for example, Microsoft Entra ID and AD FS used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity provider, Microsoft Entra ID is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/connect/how-to-connect-pta.md) is supported with ROPC, however.
 > * An exception to a hybrid identity federation scenario would be the following: Home Realm Discovery policy with **AllowCloudPasswordValidation** set to TRUE will enable ROPC flow to work for federated users when an on-premises password is synced to the cloud. For more information, see [Enable direct ROPC authentication of federated users for legacy applications](../manage-apps/home-realm-discovery-policy.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 > * Passwords with leading or trailing whitespaces are not supported by the ROPC flow.
 

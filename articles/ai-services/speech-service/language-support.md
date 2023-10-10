@@ -5,10 +5,9 @@ description: The Speech service supports numerous languages for speech to text a
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 01/12/2023
+ms.date: 10/6/2023
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -106,7 +105,7 @@ The table in this section summarizes the locales supported for Speech translatio
 
 #### Translate from language
 
-To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech to text language table](?tabs=stt#supported-languages). The default language is `en-US` if you don't specify a language.
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech to text language table](?tabs=stt#supported-languages). All languages are supported except `jv-ID` and `wuu-CN`. The default language is `en-US` if you don't specify a language.
 
 #### Translate to text language
 

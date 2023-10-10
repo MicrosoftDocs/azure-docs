@@ -99,8 +99,8 @@ Select your enablement approach:
     - [ASP.NET](./asp-net.md)
     - [ASP.NET Core](./asp-net-core.md)
     - [Node.js](./nodejs.md)
-    - [Python](./opencensus-python.md)
+    - [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
     - [JavaScript: Web](./javascript.md)
 - [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md)
 
-Check out the [Azure Monitor Application Insights FAQ](/azure/azure-monitor/faq#application-insights) and [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry) for more information.
+Check out the [Azure Monitor Application Insights FAQ](./app-insights-overview.md#frequently-asked-questions) and [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry) for more information.

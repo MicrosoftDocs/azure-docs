@@ -5,8 +5,8 @@ description: Learn how to use feature filters to enable conditional feature flag
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.topic: conceptual
 ms.date: 3/9/2020
 ---

@@ -2,7 +2,7 @@
 title: Migrate apps from Azure Functions version 3.x to 4.x 
 description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli
 ms.topic: how-to 
 ms.date: 07/31/2023
 zone_pivot_groups: programming-languages-set-functions
@@ -110,7 +110,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
@@ -136,7 +136,7 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -162,7 +162,7 @@ A program.cs file isn't required when running in-process.
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
 
@@ -196,7 +196,7 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -246,7 +246,7 @@ Some key classes changed names between versions. These changes are a result eith
 | `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 | .NET Core 3.1  | .NET 5 |.NET Framework 4.8 | 
 | --- | --- | --- | 
@@ -293,7 +293,7 @@ Sames as version 3.x (in-process).
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 

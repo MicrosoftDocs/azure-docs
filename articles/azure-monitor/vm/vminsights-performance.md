@@ -4,13 +4,12 @@ description: This article discusses the VM insights Performance feature that dis
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
-
+ms.date: 09/28/2023
 ---
 
 # Chart performance with VM insights
 
-VM insights includes a set of performance charts that target several key performance indicators to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time. You can use them to identify bottlenecks and anomalies. You can also switch to a perspective that lists each machine to view resource utilization based on the metric selected.
+VM insights includes a set of performance charts that target several key [performance indicators](vminsights-log-query.md#performance-records) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time. You can use them to identify bottlenecks and anomalies. You can also switch to a perspective that lists each machine to view resource utilization based on the metric selected.
 
 VM insights monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps to:
 
@@ -132,3 +131,5 @@ Selecting the pushpin icon in the upper-right corner of a chart pins it to the l
 
 - Learn how to use [workbooks](vminsights-workbooks.md) that are included with VM insights to further analyze performance and network metrics.
 - To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
+
+

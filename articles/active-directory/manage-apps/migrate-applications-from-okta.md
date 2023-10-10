@@ -1,7 +1,7 @@
 ---
 
-title: Tutorial to migrate your applications from Okta to Azure Active Directory
-description: Learn how to migrate your applications from Okta to Azure Active Directory.
+title: Tutorial to migrate your applications from Okta to Microsoft Entra ID
+description: Learn how to migrate your applications from Okta to Microsoft Entra ID.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -14,15 +14,15 @@ ms.subservice: app-mgmt
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Migrate your applications from Okta to Azure Active Directory 
+# Tutorial: Migrate your applications from Okta to Microsoft Entra ID 
 
-In this tutorial, you'll learn how to migrate your applications from Okta to Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to migrate your applications from Okta to Microsoft Entra ID.
 
 ## Prerequisites
 
-To manage the application in Azure AD, you need:
+To manage the application in Microsoft Entra ID, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 
@@ -88,18 +88,20 @@ We recommend you copy and convert this JSON list to a CSV format:
 >[!NOTE]
 >To have a record of the applications in your Okta tenant, download the CSV.
 
-## Migrate a SAML application to Azure AD
+<a name='migrate-a-saml-application-to-azure-ad'></a>
 
-To migrate a SAML 2.0 application to Azure AD, configure the application in your Azure AD tenant for application access. In this example, we convert a Salesforce instance. 
+## Migrate a SAML application to Microsoft Entra ID
+
+To migrate a SAML 2.0 application to Microsoft Entra ID, configure the application in your Microsoft Entra tenant for application access. In this example, we convert a Salesforce instance. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
 
     ![Screenshot of the New Application option on All applications.](media/migrate-applications-from-okta/list-of-new-applications.png)
 
-3. In **Azure AD Gallery**, search for **Salesforce**, select the application, and then select **Create**.
+3. In **Microsoft Entra Gallery**, search for **Salesforce**, select the application, and then select **Create**.
 
-    ![Screenshot of applications in the Azure AD Gallery.](media/migrate-applications-from-okta/salesforce-application.png)
+    ![Screenshot of applications in the Microsoft Entra Gallery.](media/migrate-applications-from-okta/salesforce-application.png)
 
 4. After the application is created, on the **Single sign-on** (SSO) tab, select **SAML**.
 
@@ -128,7 +130,7 @@ To migrate a SAML 2.0 application to Azure AD, configure the application in your
 
     ![Screenshot of the Download Metadata option, also entries for Entity ID and Your Organization.](media/migrate-applications-from-okta/record-values-for-azure.png)
 
-11. To upload the file to the Microsoft Entra admin center, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
+11. To upload the file to the Microsoft Entra admin center, in the Microsoft Entra ID **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
 12. Ensure the imported values match the recorded values. Select **Save**.
 
     ![Screenshot of entries for SAML-based sign-on, and Basic SAML Configuration.](media/migrate-applications-from-okta/upload-metadata-file.png)
@@ -141,7 +143,7 @@ To migrate a SAML 2.0 application to Azure AD, configure the application in your
 
      ![Screenshot of Authentication Service options under Authentication Configuration.](media/migrate-applications-from-okta/save-saml-provider.png)
 
-15. In Azure AD, on the **Enterprise applications** page, select **Users and groups**. Then add test users.
+15. In Microsoft Entra ID, on the **Enterprise applications** page, select **Users and groups**. Then add test users.
 
      ![Screenshot of Users and groups with a list of test users.](media/migrate-applications-from-okta/add-test-user.png)
 
@@ -159,7 +161,7 @@ To migrate a SAML 2.0 application to Azure AD, configure the application in your
 18. On the **Enterprise applications** page, assign the remaining users to the Salesforce application, with the correct roles.
 
 >[!NOTE]
->After you add the remaining users to the Azure AD application, users can test the connection to ensure they have access. Test the connection before the next step.
+>After you add the remaining users to the Microsoft Entra application, users can test the connection to ensure they have access. Test the connection before the next step.
 
 19. On the Salesforce administration console, select **Company Settings** > **My Domain**.
 
@@ -167,11 +169,13 @@ To migrate a SAML 2.0 application to Azure AD, configure the application in your
 
     ![Screenshot of the Save option and Authentication Service options, under Authentication Configuration.](media/migrate-applications-from-okta/deselect-okta.png)
 
-## Migrate an OpenID Connect or OAuth 2.0 application to Azure AD
+<a name='migrate-an-openid-connect-or-oauth-20-application-to-azure-ad'></a>
+
+## Migrate an OpenID Connect or OAuth 2.0 application to Microsoft Entra ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To migrate an OpenID Connect (OIDC) or OAuth 2.0 application to Azure AD, in your Azure AD tenant, configure the application for access. In this example, we convert a custom OIDC app.
+To migrate an OpenID Connect (OIDC) or OAuth 2.0 application to Microsoft Entra ID, in your Microsoft Entra tenant, configure the application for access. In this example, we convert a custom OIDC app.
 
 To complete the migration, repeat configuration for all applications in the Okta tenant.
 
@@ -179,13 +183,13 @@ To complete the migration, repeat configuration for all applications in the Okta
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 2. Select **New application**.
 3. Select **Create your own application**. 
-4. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. 
+4. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Microsoft Entra ID**. 
 5. Select **Create**.
-6. On the next page, set up the tenancy of your application registration. For more information, see [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md). Go to **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** > **Register**.
+6. On the next page, set up the tenancy of your application registration. For more information, see [Tenancy in Microsoft Entra ID](../develop/single-and-multi-tenant-apps.md). Go to **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)** > **Register**.
 
-    ![Screenshot of the option for Accounts in any organizational directory (Any Azure AD directory - Multitenant).](media/migrate-applications-from-okta/multitenant-register-app.png)
+    ![Screenshot of the option for Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant).](media/migrate-applications-from-okta/multitenant-register-app.png)
 
-7. On the **App registrations** page, under **Azure Active Directory**, open the created registration.
+7. On the **App registrations** page, under **Microsoft Entra ID**, open the created registration.
 
 >[!NOTE]
 >Depending on the [application scenario](../develop/authentication-flows-app-scenarios.md), there are various configuration actions. Most scenarios require an app client secret.
@@ -222,7 +226,9 @@ To complete the migration, repeat configuration for all applications in the Okta
 >[!NOTE]
 >Use the previous steps to configure your application with settings such as Client ID, Secret, and Scopes.
 
-## Migrate a custom authorization server to Azure AD
+<a name='migrate-a-custom-authorization-server-to-azure-ad'></a>
+
+## Migrate a custom authorization server to Microsoft Entra ID
 
 Okta authorization servers map one-to-one to application registrations that [expose an API](../develop/quickstart-configure-app-expose-web-apis.md#add-a-scope).
 
@@ -232,6 +238,6 @@ Map the default Okta authorization server to Microsoft Graph scopes or permissio
 
 ## Next steps
 
-- [Migrate Okta federation to Azure AD](migrate-okta-federation.md)
-- [Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning.md)
-- [Migrate Okta sign-on policies to Azure AD Conditional Access](./migrate-okta-sign-on-policies-conditional-access.md)
+- [Migrate Okta federation to Microsoft Entra ID](migrate-okta-federation.md)
+- [Migrate Okta sync provisioning to Microsoft Entra Connect-based synchronization](migrate-okta-sync-provisioning.md)
+- [Migrate Okta sign-on policies to Microsoft Entra Conditional Access](./migrate-okta-sign-on-policies-conditional-access.md)

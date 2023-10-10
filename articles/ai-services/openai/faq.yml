@@ -5,10 +5,9 @@ metadata:
   description: Get answers to the most popular questions about Azure OpenAI Service
   services: cognitive-services
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: openai
+  ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 08/22/2023
+  ms.date: 10/06/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -26,7 +25,7 @@ sections:
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
-          Azure OpenAI supports the latest GPT-4 models. These models are currently only available by request. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+          Azure OpenAI supports the latest GPT-4 models.  It supports both GPT-4 and GPT-4-32K.
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
@@ -91,7 +90,7 @@ sections:
       - question: |
           How do I get access to Azure OpenAI? 
         answer: |
-          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. In addition to applying for initial access, all solutions using Azure OpenAI are required to go through a use case review before they can be released for production use. Apply here for initial access or for a production review: [Apply now](https://aka.ms/oaiapply)          
+          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. Apply here for initial access: [Apply now](https://aka.ms/oaiapply)          
       - question: |
           After I apply for access, how long will I have to wait to get approved?
         answer: |

@@ -135,6 +135,8 @@
       href: license-extended-security-updates.md
     - name: Deliver Extended Security Updates
       href: deliver-extended-security-updates.md
+    - name: Programmatically manage Extended Security Updates licenses
+      href: api-extended-security-updates.md
     - name: Troubleshoot Extended Security Updates
       href: troubleshoot-extended-security-updates.md
   - name: Troubleshooting

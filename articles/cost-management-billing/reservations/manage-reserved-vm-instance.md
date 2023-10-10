@@ -85,6 +85,10 @@ If you're a billing administrator, use following steps to view and manage all re
 
 We don’t allow changing Billing subscription after a reservation is purchased. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
 
+## Change billing frequency for an Azure Reservation
+
+We don’t allow changing billing frequency after a reservation is purchased. If you want to change the billing frequency, use the exchange process to set the right billing frequency for the reservation or select a different billing frequency when setting up a renewal for an already purchased reservation.
+
 ## Split a single reservation into two reservations
 
  After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription, resource group or shared. Lets say, you bought a reservation for 10 VM instances and specified the scope to be subscription A. You now want to change the scope for seven VM instances to subscription A and the remaining three to subscription B. Splitting a reservation allows you todo that. After you split a reservation, the original ReservationID is canceled and two new reservations are created. Split doesn't impact the reservation order - there's no new commercial transaction with split and the new reservations have the same end date as the one that was split.

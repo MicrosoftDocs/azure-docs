@@ -39,6 +39,7 @@ Azure:
 - [CIS Microsoft Azure Foundations Benchmark 1.1.0](./cis-azure-1-1-0.md)
 - [CIS Microsoft Azure Foundations Benchmark 1.3.0](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark 1.4.0](./cis-azure-1-4-0.md)
+- [CIS Microsoft Azure Foundations Benchmark 2.0.0](./cis-azure-2-0-0.md)
 - [CMMC Level 3](./cmmc-l3.md)
 - [FedRAMP High](./fedramp-high.md)
 - [FedRAMP Moderate](./fedramp-moderate.md)

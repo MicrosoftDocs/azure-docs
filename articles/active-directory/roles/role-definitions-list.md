@@ -1,5 +1,5 @@
 ---
-title: List Azure AD role definitions
+title: List Microsoft Entra role definitions
 description: Learn how to list Azure built-in and custom roles.
 services: active-directory
 author: rolyon
@@ -15,11 +15,11 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
-# List Azure AD role definitions
+# List Microsoft Entra role definitions
 
-A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically just called a role. Azure Active Directory has over 60 built-in roles or you can create your own custom roles. If you ever wondered "What the do these roles really do?", you can see a detailed list of permissions for each of the roles.
+A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically just called a role. Microsoft Entra ID has over 60 built-in roles or you can create your own custom roles. If you ever wondered "What the do these roles really do?", you can see a detailed list of permissions for each of the roles.
 
-This article describes how to list the Azure AD built-in and custom roles along with their permissions.
+This article describes how to list the Microsoft Entra built-in and custom roles along with their permissions.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## PowerShell
 
-Follow these steps to list Azure AD roles using PowerShell.
+Follow these steps to list Microsoft Entra roles using PowerShell.
 
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -76,7 +76,7 @@ Follow these steps to list Azure AD roles using PowerShell.
 
 ## Microsoft Graph API
 
-Follow these instructions to list Azure AD roles using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+Follow these instructions to list Microsoft Entra roles using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **GET** as the HTTP method from the dropdown. 
@@ -96,6 +96,6 @@ Follow these instructions to list Azure AD roles using the Microsoft Graph API i
 
 ## Next steps
 
-* [List Azure AD role assignments](view-assignments.md).
-* [Assign Azure AD roles to users](manage-roles-portal.md).
-* [Azure AD built-in roles](permissions-reference.md).
+* [List Microsoft Entra role assignments](view-assignments.md).
+* [Assign Microsoft Entra roles to users](manage-roles-portal.md).
+* [Microsoft Entra built-in roles](permissions-reference.md).

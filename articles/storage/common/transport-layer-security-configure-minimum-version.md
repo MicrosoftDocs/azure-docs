@@ -3,12 +3,12 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/30/2022
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -126,6 +126,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
+    -AllowBlobPublicAccess $false `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
@@ -152,6 +153,7 @@ az storage account create \
     --resource-group <resource-group> \
     --kind StorageV2 \
     --location <location> \
+    --allow-blob-public-access false \
     --min-tls-version TLS1_1
 
 az storage account show \

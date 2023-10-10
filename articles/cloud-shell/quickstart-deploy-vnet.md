@@ -1,40 +1,40 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 06/29/2023
+ms.date: 09/29/2023
 ms.topic: article
 ms.custom: devx-track-arm-template
-title: Deploy Azure Cloud Shell in a VNET with quickstart templates
+title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
 ---
 
-# Deploy Azure Cloud Shell in a VNET with quickstart templates
+# Deploy Azure Cloud Shell in a virtual network with quickstart templates
 
-Before you can deploy Azure Cloud Shell in a virtual network (VNET) configuration using the
+Before you can deploy Azure Cloud Shell in a virtual network (VNet) configuration using the
 quickstart templates, there are several prerequisites to complete before running the templates.
 
 This document guides you through the process to complete the configuration.
 
-## Steps to deploy Azure Cloud Shell in a VNET
+## Steps to deploy Azure Cloud Shell in a virtual network
 
-This article walks you through the following steps to deploy Azure Cloud Shell in a VNET:
+This article walks you through the following steps to deploy Azure Cloud Shell in a virtual network:
 
 1. Collect the required information
-1. Provision the virtual networks using the **Azure Cloud Shell - VNet** ARM template
-1. Provision the VNET storage account using the **Azure Cloud Shell - VNet storage** ARM template
-1. Configure and use Azure Cloud Shell in a VNET
+1. Create the virtual networks using the **Azure Cloud Shell - VNet** ARM template
+1. Create the virtual network storage account using the **Azure Cloud Shell - VNet storage** ARM template
+1. Configure and use Azure Cloud Shell in a virtual network
 
 ## 1. Collect the required information
 
 There are several pieces of information that you need to collect before you can deploy Azure Cloud.
 You can use the default Azure Cloud Shell instance to gather the required information and create the
-necessary resources. You should create dedicated resources for the Azure Cloud Shell VNET
+necessary resources. You should create dedicated resources for the Azure Cloud Shell VNet
 deployment. All resources must be in the same Azure region and contained in the same resource group.
 
 - **Subscription** - The name of your subscription containing the resource group used for the Azure
-  Cloud Shell VNET deployment
-- **Resource Group** - The name of the resource group used for the Azure Cloud Shell VNET deployment
+  Cloud Shell VNet deployment
+- **Resource Group** - The name of the resource group used for the Azure Cloud Shell VNet deployment
 - **Region** - The location of the resource group
-- **Virtual Network** - The name of the virtual network created for Azure Cloud Shell VNET
+- **Virtual Network** - The name of the virtual network created for Azure Cloud Shell VNet
 - **Azure Container Instance OID** - The ID of the Azure Container Instance for your resource group
 - **Azure Relay Namespace** - The name that you want to assign to the Relay resource created by the
   template
@@ -104,7 +104,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
 
 ### Azure Container Instance ID
 
-To configure the VNET for Cloud Shell using the quickstarts, retrieve the `Azure Container Instance`
+To configure the virtual network for Cloud Shell using the quickstarts, retrieve the `Azure Container Instance`
 ID for your organization.
 
 ```powershell
@@ -120,12 +120,14 @@ Azure Container Instance Service 8fe7fd25-33fe-4f89-ade3-0e705fcf4370 34fbe509-d
 Take note of the **Id** value for the `Azure Container Instance` service principal. It's needed for
 the **Azure Cloud Shell - VNet storage** template.
 
-## 2. Provision the virtual network using the ARM template
+## 2. Create the virtual network using the ARM template
 
 Use the [Azure Cloud Shell - VNet][08] template to create Cloud Shell resources in a virtual
 network. The template creates three subnets under the virtual network created earlier. You may
 choose to change the supplied names of the subnets or use the defaults. The virtual network, along
-with the subnets, require valid IP address assignments.
+with the subnets, require valid IP address assignments. You need at least one IP address for the
+Relay subnet and enough IP addresses in the container subnet to support the number of concurrent
+sessions you expect to use.
 
 The ARM template requires specific information about the resources you created earlier, along with
 naming information for new resources. This information is filled out along with the prefilled
@@ -134,10 +136,10 @@ information in the form.
 Information needed for the template:
 
 - **Subscription** - The name of your subscription containing the resource group for Azure Cloud
-  Shell VNET
+  Shell VNet
 - **Resource Group** - The resource group name of either an existing or newly created resource group
 - **Region** - Location of the resource group
-- **Virtual Network** - The name of the virtual network created for Azure Cloud Shell VNET
+- **Virtual Network** - The name of the virtual network created for Azure Cloud Shell virtual network
 - **Azure Container Instance OID** - The ID of the Azure Container Instance for your resource group
 
 Fill out the form with the following information:
@@ -150,7 +152,7 @@ Fill out the form with the following information:
 |        Instance details         |                                                                     Value                                                                      |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Region                          | Prefilled with your default region.<br>For this example, we're using `East US`.                                                                |
-| Existing VNET Name              | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `vnet-cloudshell-eastus`.                   |
+| Existing virtual network Name              | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `vnet-cloudshell-eastus`.                   |
 | Relay Namespace Name            | Create a name that you want to assign to the Relay resource created by the template.<br>For this example, we're using `arn-cloudshell-eastus`. |
 | Azure Container Instance OID    | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
@@ -166,10 +168,10 @@ Fill out the form with the following information:
 Once the form is complete, select **Review + Create** and deploy the network ARM template to your
 subscription.
 
-## 3. Provision the VNET storage using the ARM template
+## 3. Create the virtual network storage using the ARM template
 
 Use the [Azure Cloud Shell - VNet storage][09] template to create Cloud Shell resources in a virtual
-network. The template creates the storage account and assigns it to the private VNET.
+network. The template creates the storage account and assigns it to the private virtual network.
 
 The ARM template requires specific information about the resources you created earlier, along
 with naming information for new resources.
@@ -177,10 +179,10 @@ with naming information for new resources.
 Information needed for the template:
 
 - **Subscription** - The name of the subscription containing the resource group for Azure Cloud
-  Shell VNET.
+  Shell virtual network.
 - **Resource Group** - The resource group name of either an existing or newly created resource group
 - **Region** - Location of the resource group
-- **Existing VNET name** - The name of the virtual network created earlier
+- **Existing virtual network name** - The name of the virtual network created earlier
 - **Existing Storage Subnet Name** - The name of the storage subnet created with the Network
   quickstart template
 - **Existing Container Subnet Name** - The name of the container subnet created with the Network
@@ -196,7 +198,7 @@ Fill out the form with the following information:
 |        Instance details        |                                              Value                                               |
 | ------------------------------ | ------------------------------------------------------------------------------------------------ |
 | Region                         | Prefilled with your default region.<br>For this example, we're using `East US`.                  |
-| Existing VNET Name             | For this example, we're using `vnet-cloudshell-eastus`.                                          |
+| Existing virtual network Name             | For this example, we're using `vnet-cloudshell-eastus`.                                          |
 | Existing Storage Subnet Name   | Fill in the name of the resource created by the network template.                                |
 | Existing Container Subnet Name | Fill in the name of the resource created by the network template.                                |
 | Storage Account Name           | Create a name for the new storage account.<br>For this example, we're using `myvnetstorage1138`. |
@@ -209,7 +211,7 @@ subscription.
 
 ## 4. Configuring Cloud Shell to use a virtual network
 
-After deploying your private Cloud Shell instance, each Cloud Shell user must change their
+After you have deployed your private Cloud Shell instance, each Cloud Shell user must change their
 configuration to use the new private instance.
 
 If you have used the default Cloud Shell before deploying the private instance, you must reset your

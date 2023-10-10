@@ -26,7 +26,7 @@ highlightedContent:
     - title: What is Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
-    - title: Azure AD features supported in Azure AD B2C
+    - title: Microsoft Entra features supported in Azure AD B2C
       url: supported-azure-ad-features.md
       itemType: overview
     - title: Get started with Azure AD B2C
@@ -96,7 +96,7 @@ conceptualContent:
         ##- text: What is Azure AD B2C?
          ## url: overview.md
           ##itemType: overview
-        ##- text: Compare Azure AD and Azure AD B2C
+        ##- text: Compare Microsoft Entra ID and Azure AD B2C
           ##url: supported-azure-ad-features.md
          ## itemType: overview
        ## - text: Get started with Azure AD B2C

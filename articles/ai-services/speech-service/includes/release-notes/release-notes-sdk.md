@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 07/31/2023
 ms.author: eur
@@ -10,6 +10,10 @@ ms.author: eur
 
 * With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This will streamline usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
+
+### Upcoming Plans for JavaScript SDK:
+
+* JS SDK is planning to move our compiled JS output target from ES5 to ES6 with the 1.33 release.
 
 ### Speech SDK 1.32.1: September 2023 release    
 

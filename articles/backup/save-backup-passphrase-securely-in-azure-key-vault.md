@@ -116,24 +116,36 @@ Based on the Key Vault permission model (either role-based access permissions or
 To assign the permissions, follow these steps:
 
 1. Go to your *Azure Key Vault* > **Settings** > **Access Configuration** to ensure that the permission model is **RBAC**.
- 
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/open-access-configuration.png" alt-text="Screenshot shows how to open access configuration under settings." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/open-access-configuration.png":::
+
 2. Select **Access control (IAM)** > **+Add** to add role assignment.
 
 3. The Recovery Services vault identity requires the **Set permission on Secret** to create and add the passphrase as a Secret to the Key Vault. 
 
    You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or [create a custom role](../key-vault/general/rbac-guide.md?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
 
-   Select **Details** to view the permissions granted by the role and ensure Set permission on Secret is available.
+   Under **Details**, select **View** to view the permissions granted by the role and ensure *Set* permission on *Secret* is available.
  
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/view-permission-details.png" alt-text="Screenshot shows how to view the permission details." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/view-permission-details.png":::
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission-availability-on-secret.png" alt-text="Screenshot shows how to check the Set permission availability." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission-availability-on-secret.png":::
+
 4. Select **Next** to proceed to select Members for assignment. 
 
 5. Select **Managed identity** and then **+ Select members**. choose the **Subscription** of the target Recovery Services vault, select Recovery Services vault under **System-assigned managed identity**.
 
    Search and select the *name of the Recovery Services vault*.
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/add-members-in-managed-identity.png" alt-text="Screenshot shows how to add members in managed identity." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/add-members-in-managed-identity.png":::
  
 6. Select **Next**, review the assignment, and select **Review + assign**.
- 
-7.	Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
+
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-assign-permissions.png" alt-text="Screenshot shows how to review and assign permissions." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-assign-permissions.png":::
+
+7. Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
+
+     :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png" alt-text="Screenshot shows the Recovery Services vault is listed in access control." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png":::
  
 
 # [PowerShell](#tab/powershell)

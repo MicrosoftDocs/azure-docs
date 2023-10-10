@@ -1,6 +1,6 @@
 ---
 title: Publish native client apps
-description: Covers how to enable native client apps to communicate with Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
+description: Covers how to enable native client apps to communicate with Microsoft Entra application proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -16,11 +16,11 @@ ms.reviewer: ashishj
 
 # How to enable native client applications to interact with proxy applications
 
-You can use Azure Active Directory (Azure AD) Application Proxy to publish web apps, but it also can be used to publish native client applications that are configured with the Microsoft Authentication Library (MSAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
+You can use Microsoft Entra application proxy to publish web apps, but it also can be used to publish native client applications that are configured with the Microsoft Authentication Library (MSAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
 
-To support native client applications, Application Proxy accepts Azure AD-issued tokens that are sent in the header. The Application Proxy service does the authentication for the users. This solution doesn't use application tokens for authentication.
+To support native client applications, Application Proxy accepts Microsoft Entra ID-issued tokens that are sent in the header. The Application Proxy service does the authentication for the users. This solution doesn't use application tokens for authentication.
 
-![Relationship between end users, Azure AD, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
+![Relationship between end users, Microsoft Entra ID, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
 To publish native applications, use the Microsoft Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Desktop app that calls a web API on behalf of a signed-in user](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) scenario.
 
@@ -34,13 +34,13 @@ Publish your proxy application as you would any other application and assign use
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You now need to register your application in Azure AD, as follows:
+You now need to register your application in Microsoft Entra ID, as follows:
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
 1. Browse to **Identity** > **Applications** > **App registrations**. The list of all app registrations appears.
 1. Select **New registration**. The **Register an application** page appears.
 
-   ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+   ![Create a new app registration in the Microsoft Entra admin center](./media/application-proxy-configure-native-client-application/create.png)
 
 1. In the **Name** heading, specify a user-facing display name for your application.
 1. Under the **Supported account types** heading, select an access level using these guidelines:
@@ -51,7 +51,7 @@ You now need to register your application in Azure AD, as follows:
 1. Under **Redirect URI**, select **Public client (mobile & desktop)**, and then type the redirect URI `https://login.microsoftonline.com/common/oauth2/nativeclient` for your application.
 1. Select and read the **Microsoft Platform Policies**, and then select **Register**. An overview page for the new application registration is created and displayed.
 
-For more detailed information about creating a new application registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-register-app.md).
+For more detailed information about creating a new application registration, see [Integrating applications with Microsoft Entra ID](../develop/quickstart-register-app.md).
 
 ## Step 3: Grant access to your proxy application
 
@@ -96,16 +96,16 @@ if (authResult != null)
   //Use the Access Token to access the Proxy Application
 
   HttpClient httpClient = new HttpClient();
-  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+  httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
   HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
  }
 ```
 
-The required info in the sample code can be found in the Azure portal, as follows:
+The required info in the sample code can be found in the Microsoft Entra admin center, as follows:
 
-| Info required | How to find it in the Azure portal |
+| Info required | How to find it in the Microsoft Entra admin center |
 | --- | --- |
-| \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
+| \<Tenant ID> | **Identity** > **Overview** > **Properties** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
 | \<Scope> | **Application registration** > *your native application* > **API permissions** > Click on the Permission API (user_impersonation) > A panel with the caption **user_impersonation** appears on the right hand side. > The scope is the URL in the edit box.
 | \<Proxy App URL> | the External URL and path to the API
@@ -114,6 +114,6 @@ After you edit the MSAL code with these parameters, your users can authenticate 
 
 ## Next steps
 
-For more information about the native application flow, see [mobile](../develop/authentication-flows-app-scenarios.md#mobile-app-that-calls-a-web-api-on-behalf-of-an-interactive-user) and [desktop](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) apps in Azure Active Directory.
+For more information about the native application flow, see [mobile](../develop/authentication-flows-app-scenarios.md#mobile-app-that-calls-a-web-api-on-behalf-of-an-interactive-user) and [desktop](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) apps in Microsoft Entra ID.
 
-Learn about setting up [Single sign-on to applications in Azure Active Directory](../manage-apps/plan-sso-deployment.md#choosing-a-single-sign-on-method).
+Learn about setting up [Single sign-on to applications in Microsoft Entra ID](../manage-apps/plan-sso-deployment.md#choosing-a-single-sign-on-method).

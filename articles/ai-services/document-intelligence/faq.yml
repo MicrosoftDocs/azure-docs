@@ -4,8 +4,7 @@ metadata:
   description: Frequently asked questions about Document Intelligence service.
   author: laujan
   manager: nitinme
-  ms.service: applied-ai-services
-  ms.subservice: forms-recognizer
+  ms.service: azure-ai-document-intelligence
   ms.topic: faq
   ms.date: 08/17/2023
   ms.author: lajanuar

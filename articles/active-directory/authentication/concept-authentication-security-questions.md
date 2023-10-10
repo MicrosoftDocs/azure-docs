@@ -1,12 +1,12 @@
 ---
 title: Security questions authentication method
-description: Learn about using security questions in Azure Active Directory to help improve and secure sign-in events
+description: Learn about using security questions in Microsoft Entra ID to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -14,15 +14,15 @@ manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to understand how to use security questions in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to understand how to use security questions in Microsoft Entra ID to improve and secure user sign-in events.
 ---
-# Authentication methods in Azure Active Directory - security questions
+# Authentication methods in Microsoft Entra ID - security questions
 
 Security questions aren't used as an authentication method during a sign-in event. Instead, security questions can be used during the self-service password reset (SSPR) process to confirm who you are. Administrator accounts can't use security questions as verification method with SSPR.
 
 When users register for SSPR, they're prompted to choose the authentication methods to use. If they choose to use security questions, they pick from a set of questions to prompt for and then provide their own answers.
 
-![Screenshot of the Azure portal that shows authentication methods and options for security questions](media/concept-authentication-methods/security-questions-authentication-method.png)
+![Screenshot of the Microsoft Entra admin center that shows authentication methods and options for security questions](media/concept-authentication-methods/security-questions-authentication-method.png)
 
 > [!NOTE]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There's no way for an administrator to read or modify a user's questions or answers.
@@ -90,7 +90,7 @@ For both default and custom security questions, the following requirements and l
 
 To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr].
 
-To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
+To learn more about SSPR concepts, see [How Microsoft Entra self-service password reset works][concept-sspr].
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 

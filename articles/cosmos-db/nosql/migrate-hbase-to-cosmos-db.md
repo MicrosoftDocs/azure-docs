@@ -329,13 +329,13 @@ sqlline.py ZOOKEEPER/hbase-unsecure
 
 #### Get the index details
 
- ```console
+```console
 !indexes <Table Name>
 ```
 
 ### Get the primary key details
 
- ```console
+```console
 !primarykeys <Table Name>
 ```
 
@@ -696,7 +696,7 @@ DELETE FROM TableName WHERE id = "xxx";
 
 The deletion method by Document ID is shown below.
 
- ```java
+```java
 container.deleteItem(documentId, new PartitionKey(documentLastName), new CosmosItemRequestOptions());
 ```
 
@@ -728,7 +728,7 @@ SELECT * FROM FamilyTable WHERE lastName = "Witherspoon"
 
 Filter operation
 
- ```java
+```java
 String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
 CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(), Family.class);
 ```

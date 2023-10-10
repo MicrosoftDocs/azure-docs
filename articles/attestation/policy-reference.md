@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Attestation
 description: Lists Azure Policy built-in policy definitions for Azure Attestation. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 09/13/2023
+ms.date: 09/19/2023
 ms.topic: reference
 ms.service: attestation
 author: msmbaldwin

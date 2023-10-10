@@ -1,6 +1,6 @@
 ---
-title: Custom domains in Azure Active Directory Application Proxy
-description: Configure and manage custom domains in Azure Active Directory Application Proxy. 
+title: Custom domains in Microsoft Entra application proxy
+description: Configure and manage custom domains in Microsoft Entra application proxy. 
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -13,15 +13,15 @@ ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Configure custom domains with Azure AD Application Proxy
+# Configure custom domains with Microsoft Entra application proxy
 
-When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you publish an app named *Expenses* in your tenant named *Contoso*, the external URL is *https:\//expenses-contoso.msappproxy.net*. If you want to use your own domain name instead of *msappproxy.net*, you can configure a custom domain for your application. 
+When you publish an application through Microsoft Entra application proxy, you create an external URL for your users. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you publish an app named *Expenses* in your tenant named *Contoso*, the external URL is *https:\//expenses-contoso.msappproxy.net*. If you want to use your own domain name instead of *msappproxy.net*, you can configure a custom domain for your application. 
 
 ## Benefits of custom domains
 
 It's a good idea to set up custom domains for your apps whenever possible. Some reasons to use custom domains include:
 
-- Links between apps work even outside the corporate network. Without a custom domain, if your app has hard-coded internal links to targets outside the Application Proxy, and the links aren't externally resolvable, they will break. When your internal and external URLs are the same, you avoid this problem. If you're not able to use custom domains, see [Redirect hardcoded links for apps published with Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md) for other ways to address this issue. 
+- Links between apps work even outside the corporate network. Without a custom domain, if your app has hard-coded internal links to targets outside the Application Proxy, and the links aren't externally resolvable, they will break. When your internal and external URLs are the same, you avoid this problem. If you're not able to use custom domains, see [Redirect hardcoded links for apps published with Microsoft Entra application proxy](./application-proxy-configure-hard-coded-link-translation.md) for other ways to address this issue. 
   
 - Your users will have an easier experience, because they can get to the app with the same URL from inside or outside your network. They don’t need to learn different internal and external URLs, or track their current location. 
 
@@ -51,7 +51,7 @@ When you select a custom domain for an external URL, an information bar shows th
 
 ## Set up and use custom domains
 
-To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. 
+To configure an on-premises app to use a custom domain, you need a verified Microsoft Entra custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. 
 
 > [!IMPORTANT]
 > You are responsible for maintaining DNS records that redirect your custom domains to the *msappproxy.net* domain. If you choose to later delete your application or tenant, make sure to also delete associated DNS records for Application Proxy to prevent misuse of dangling DNS records. 
@@ -59,15 +59,15 @@ To configure an on-premises app to use a custom domain, you need a verified Azur
 ### Create and verify a custom domain
 
 To create and verify a custom domain:
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Settings** > **Domain names**.
 1. Select **Add custom domain**. 
 1. Enter your custom domain name and select **Add Domain**. 
 1. On the domain page, copy the TXT record information for your domain. 
 1. Go to your domain registrar and create a new TXT record for your domain, based on your copied DNS information.
-1. After you register the domain, on the domain's page in Azure Active Directory, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
+1. After you register the domain, on the domain's page in Microsoft Entra ID, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Microsoft Entra configurations, including Application Proxy. 
 
-For more detailed instructions, see [Add your custom domain name using the Azure portal](../fundamentals/add-custom-domain.md).
+For more detailed instructions, see [Add your custom domain name using the Microsoft Entra admin center](../fundamentals/add-custom-domain.md).
 
 ### Configure an app to use a custom domain
 
@@ -105,7 +105,7 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-10. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain in Azure DNS. If a different DNS provider is used, please contact the vendor for the instructions.
+10. Follow the instructions at [Manage DNS records and record sets by using the Microsoft Entra admin center](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain in Azure DNS. If a different DNS provider is used, please contact the vendor for the instructions.
 
    > [!IMPORTANT] 
    > Ensure that you are properly using a CNAME record that points to the *msappproxy.net* domain. Do not point records to IP addresses or server DNS names since these are not static and may impact the resiliency of the service.
@@ -116,7 +116,7 @@ Your application is now set up to use the custom domain. Be sure to assign users
 
 To change the domain for an app, select a different domain from the dropdown list in **External URL** on the app's **Application proxy** page. Upload a certificate for the updated domain, if necessary, and update the DNS record. If you don't see the custom domain you want in the dropdown list in **External URL**, it might not be verified.
 
-For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
+For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](application-proxy-add-on-premises-application.md).
 
 ## Certificates for custom domains
 
@@ -144,5 +144,5 @@ When a certificate expires, you get a warning telling you to upload another cert
 
 ## Next steps
 
-* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
+* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Microsoft Entra authentication.
 * [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) for your published cloud apps.

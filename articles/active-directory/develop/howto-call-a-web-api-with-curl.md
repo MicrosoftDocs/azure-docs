@@ -34,7 +34,7 @@ This article shows you how to call a protected ASP.NET Core web API using Client
 ::: zone pivot="no-api"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/). 
-- This Azure account must have permissions to manage applications. Any of the following Azure Active Directory (Azure AD) roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   - Application administrator 
   - Application developer 
   - Cloud application administrator 
@@ -46,7 +46,7 @@ This article shows you how to call a protected ASP.NET Core web API using Client
 ::: zone pivot="api"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/). 
-- This Azure account must have permissions to manage applications. Any of the following Azure Active Directory (Azure AD) roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   - Application administrator 
   - Application developer 
   - Cloud application administrator 
@@ -261,7 +261,7 @@ The authorization code flow begins with the client directing the user to the `/a
    - `{tenant_id}` is the web app **Directory (tenant) ID**.  
    - `{web-app-calls-web-api_application_client_id}` is the **Application (client) ID** on the web app's (*web-app-calls-web-api*) **Overview** pane.
    - `{web_API_application_client_id}` is the **Application (client) ID** on the web API's (*NewWebAPI1*) **Overview** pane.
-1. Sign in as a user in the Azure AD tenant in which the apps are registered. Consent to any requests for access, if necessary.  
+1. Sign in as a user in the Microsoft Entra tenant in which the apps are registered. Consent to any requests for access, if necessary.  
 1. Your browser will be redirected to `http://localhost/`. Refer to your browser's navigation bar and copy the `{authorization_code}` to use in the following steps. The URL takes the form of the following snippet:  
 
    ```http

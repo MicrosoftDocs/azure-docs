@@ -5,10 +5,9 @@ description: This document helps developers migrate code from v3.0 to v3.1 of th
 services: cognitive-services
 author: heikora
 manager: dongli
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 09/15/2023
 ms.author: heikora
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -19,7 +18,9 @@ ms.custom: devx-track-csharp
 The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
-> Speech to text REST API v3.1 is generally available. Version 3.0 of the [Speech to text REST API](rest-speech-to-text.md) will be retired.
+> Speech to text REST API v3.2 is available in preview. 
+> [Speech to text REST API](rest-speech-to-text.md) v3.1 is generally available. 
+> Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
 
 ## Base path
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect cloud sync troubleshooting
+title: Microsoft Entra Connect cloud sync troubleshooting
 description: This article describes how to troubleshoot problems that might arise with the cloud provisioning agent.
 author: billmath
 ms.author: billmath
@@ -16,7 +16,7 @@ Cloud sync has many different dependencies and interactions, which can give rise
 
 ## Agent problems
 
-When you troubleshoot agent problems, you verify that the agent was installed correctly, and that it communicates with Azure Active Directory (Azure AD). In particular, some of the first things that you want to verify with the agent are:
+When you troubleshoot agent problems, you verify that the agent was installed correctly, and that it communicates with Microsoft Entra ID. In particular, some of the first things that you want to verify with the agent are:
 
 - Is it installed?
 - Is the agent running locally?
@@ -25,7 +25,7 @@ When you troubleshoot agent problems, you verify that the agent was installed co
 
 You can verify these items in the portal and on the local server that's running the agent.
 
-### Entra portal agent verification
+### Microsoft Entra admin center agent verification
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -37,7 +37,7 @@ To verify that Azure detects the agent, and that the agent is healthy, follow th
 
 ### Verify the required open ports
 
-Verify that the Azure AD Connect provisioning agent is able to communicate successfully with Azure datacenters. If there's a firewall in the path, make sure that the following ports to outbound traffic are open:
+Verify that the Microsoft Entra Connect provisioning agent is able to communicate successfully with Azure datacenters. If there's a firewall in the path, make sure that the following ports to outbound traffic are open:
 
 | Port number | How it's used |
 | ----------- | ------------------------------------------------------------ |
@@ -60,11 +60,13 @@ Allow access to the following URLs:
 You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other of the preceding URLs, if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and service tags - public cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 
 > [!IMPORTANT]
-> Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy cloud services.
+> Avoid all forms of inline inspection and termination on outbound TLS communications between Microsoft Entra application proxy connectors and Microsoft Entra application proxy cloud services.
 
-### DNS name resolution for Azure AD Application Proxy endpoints
+<a name='dns-name-resolution-for-azure-ad-application-proxy-endpoints'></a>
 
-Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records, pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`.
+### DNS name resolution for Microsoft Entra application proxy endpoints
+
+Public DNS records for Microsoft Entra application proxy endpoints are chained CNAME records, pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Microsoft Entra application proxy connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`.
 
 However, during the name resolution, the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device can resolve all the records in the chain, and allows connection to the resolved IP addresses. Because the DNS records in the chain might be changed from time to time, we can't provide you with any list DNS records.
 
@@ -73,7 +75,7 @@ However, during the name resolution, the CNAME records might contain DNS records
 To verify that the agent is running, follow these steps:
 
 1. On the server with the agent installed, open **Services**. Do this by going to **Start** > **Run** > **Services.msc**.
-1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there. Also confirm that their status is *Running*.
+1. Under **Services**, make sure **Microsoft Entra Connect Agent Updater** and **Microsoft Entra Connect Provisioning Agent** are there. Also confirm that their status is *Running*.
 
    ![Screenshot of local services and their status.](media/how-to-troubleshoot/troubleshoot-1.png)
 
@@ -85,7 +87,7 @@ The following sections describe some common agent installation problems, and typ
 
 You might receive an error message that states:
 
-*Service 'Microsoft Azure AD Connect Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services.* 
+*Service 'Microsoft Entra Connect Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services.* 
 
 This problem is typically caused by a group policy. The policy prevented permissions from being applied to the local NT Service sign-in account created by the installer (`NT SERVICE\AADConnectProvisioningAgent`). These permissions are required to start the service.
 
@@ -93,7 +95,7 @@ To resolve this problem, follow these steps:
 
 1. Sign in to the server with an administrator account.
 1. Open **Services** by going to **Start** > **Run** > **Services.msc**.
-1. Under **Services**, double-click **Microsoft Azure AD Connect Provisioning Agent**.
+1. Under **Services**, double-click **Microsoft Entra Connect Provisioning Agent**.
 1. On the **Log On** tab, change **This account** to a domain admin. Then restart the service. 
 
    ![Screenshot that shows options available from the log on tab.](media/how-to-troubleshoot/troubleshoot-3.png)
@@ -218,7 +220,7 @@ If you need to repair the cloud sync service account, you can use the `Repair-AA
       Connect-AADCloudSyncTools
       ```
 
-   1. Enter your Azure AD Global Administrator credentials.
+   1. Enter your Microsoft Entra Global Administrator credentials.
 
    1. Type, or copy and paste, the following:
 

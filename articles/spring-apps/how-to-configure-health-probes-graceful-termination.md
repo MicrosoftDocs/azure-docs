@@ -198,7 +198,7 @@ Use the following steps to customize your application using Azure CLI.
 
 ## Best practices
 
-Use the following best practices when adding your own persistent storage to Azure Spring Apps:
+Use the following best practices when adding health probes to Azure Spring Apps:
 
 - Use liveness and readiness probes together. Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance is removed only from Kubernetes service discovery. A properly configured liveness probe can remove the issued app instance from Eureka service discovery to avoid unexpected cases. For more information about service discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
 

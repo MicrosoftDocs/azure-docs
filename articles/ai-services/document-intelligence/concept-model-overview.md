@@ -4,10 +4,9 @@ titleSuffix: Azure AI services
 description: Document processing models for OCR, document layout, invoices, identity, custom  models, and more to extract text, structure, and key-value pairs.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 09/20/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -43,7 +42,8 @@ monikerRange: '<=doc-intel-3.1.0'
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
-| [US Tax document models](#us-tax-documents) | Process W2 forms to extract employee, employer, wage, and other information.  |
+| [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
+| [Contract](#contract) | Extract agreement and party details.|
 | [Invoice](#invoice)  | Automate invoices. |
 | [Receipt](#receipt)  | Extract receipt data from receipts.|
 | [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
@@ -133,6 +133,19 @@ The US tax document models analyze and extract key fields and line items from a 
 
 > [!div class="nextstepaction"]
 > [Learn more: Tax document models](concept-tax-document.md)
+
+### Contract
+
+:::image type="icon" source="media/overview/icon-contract.png":::
+
+ The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
+
+***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)***:
+
+:::image type="content" source="media/studio/analyze-contract.png" alt-text="Screenshot of contract model extraction using Document Intelligence Studio.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: contract model](concept-contract.md)
 
 ### Invoice
 
