@@ -125,7 +125,7 @@ Nexus Kubernetes service provides a standardized duration of support for each mi
 * Duration of support – How long is a version actively maintained. At the end of the supported period, the version is “End of life.”
 * Platform support – How long can a version be selected for deployment after "End of life."
 
-> [NOTE]
+> [!NOTE]
 > Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported or LTS version of Kubernetes to receive full support.
 
 The supported window of Kubernetes versions on Nexus is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
@@ -213,8 +213,8 @@ This table outlines support guidelines for Community Support compared to Platfor
 | Kubernetes API support                   | Supported               | Not supported                    |
 | Node image upgrade                       | Supported               | Not supported                    |
 
- > [!NOTE]
-  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components aren't supported for N-3.
+> [!NOTE]
+> The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components aren't supported for N-3.
 
 ## Supported `kubectl` versions
 
