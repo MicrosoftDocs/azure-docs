@@ -231,7 +231,11 @@ This table lists the affected message types, any variants, and the document vers
 
 You also need to disable EDI validation when you use these document version numbers because they result in an error that the character length is invalid.
 
-To specify these document version numbers and message types, follow these steps. Please note that each 837 message type needs a seperate agreement.
+To specify these document version numbers and message types, follow these steps:
+
+> [!NOTE]
+>
+> Each message with 837_P, 837_I, or 837_D type requires a separate agreement.
 
 1. In your HIPAA schema, replace the current message type with the variant message type for the document version number that you want to use.
 
