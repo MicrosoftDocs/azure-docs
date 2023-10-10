@@ -118,25 +118,25 @@ Nexus supports three minor versions of Kubernetes:
 
 * The latest GA minor version released in Nexus (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version
+  * Each supported minor version also supports a maximum of two latest stable patches while the previous patches are under platform support for the lifetime of the minor version.
 
 Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
 
 * Duration of support – How long is a version actively maintained. At the end of the supported period, the version is “End of life.”
-* Platform support – How long can a version be selected for deployment after End of life.
+* Platform support – How long can a version be selected for deployment after "End of life."
 
 > [NOTE]
-> Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
+> Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported or LTS version of Kubernetes to receive full support.
 
-The supported window of Kubernetes versions on AKS is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
+The supported window of Kubernetes versions on Nexus is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
 
-For example, if AKS introduces *1.17.a* today, support is provided for the following versions:
+For example, if Nexus introduces *1.17.a* today, support is provided for the following versions:
 
 New minor version    |    Supported Version List
 -----------------    |    ----------------------
 1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
 
-When a new minor version is introduced, the oldest supported minor version and patch releases are deprecated and removed. For example, the current supported version list is:
+When a new minor version is introduced, the oldest supported minor version and patch releases are out of support. For example, the current supported version list is:
 
 ```
 1.17.a
@@ -147,7 +147,7 @@ When a new minor version is introduced, the oldest supported minor version and p
 1.15.f
 ```
 
-When AKS releases 1.18.\*, all the 1.15.\* versions go out of support.
+When Nexus releases 1.18.\*, all the 1.15.\* versions go out of support.
 
 ### Support timeline
 
@@ -160,7 +160,9 @@ Supported versions:
 * Are eligible for any provided SLA or agreement for support.
 * May have extra patches or Version Bundles within the minor version.
 
+<!--
 :::image type="content" source="./media/nexus-kubernetes/nexus-kubernetes-service-version-lifecycle.png" alt-text="Diagram of the Nexus Kubernetes service and lifecycle." lightbox="./media/nexus-kubernetes/nexus-kubernetes-service-version-lifecycle.png":::
+-->
 
 ### End of life (EOL)
 
