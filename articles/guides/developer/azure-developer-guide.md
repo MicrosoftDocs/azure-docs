@@ -175,15 +175,15 @@ Azure provides several ways to use containers in your applications.
 
 It's crucial to not only know who is using your applications, but also to prevent unauthorized access to your resources. Azure provides several ways to authenticate your app clients.
 
-* **Azure Active Directory (Azure AD)**: The Microsoft multitenant, cloud-based identity and access management service. You can add single-sign on (SSO) to your applications by integrating with Azure AD. You can access directory properties by using the Microsoft Graph API. You can integrate with Azure AD support for the OAuth2.0 authorization framework and Open ID Connect by using native HTTP/REST endpoints and the multiplatform Azure AD authentication libraries.
+* **Microsoft Entra ID**: The Microsoft multitenant, cloud-based identity and access management service. You can add single-sign on (SSO) to your applications by integrating with Microsoft Entra ID. You can access directory properties by using the Microsoft Graph API. You can integrate with Microsoft Entra ID support for the OAuth2.0 authorization framework and OpenID Connect by using native HTTP/REST endpoints and the multiplatform Microsoft Entra authentication libraries.
 
   > **When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
   >
-  > **Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v2-overview.md).
+  > **Get started**: To learn more, see the [Microsoft Entra developer's guide](../../active-directory/develop/v2-overview.md).
 
-* **App Service Authentication**: When you choose App Service to host your app, you also get built-in authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter/X.
+* **App Service Authentication**: When you choose App Service to host your app, you also get built-in authentication support for Microsoft Entra ID, along with social identity providers—including Facebook, Google, Microsoft, and Twitter/X.
 
-  > **When to use**: When you want to enable authentication in an App Service app by using Azure AD, social identity providers, or both.
+  > **When to use**: When you want to enable authentication in an App Service app by using Microsoft Entra ID, social identity providers, or both.
   >
   > **Get started**: To learn more about authentication in App Service, see [Authentication and authorization in Azure App Service](../../app-service/overview-authentication-authorization.md).
 
@@ -294,11 +294,11 @@ As developers, we like to dive right into the code and try to get started as fas
 
 ### What is an Azure account?
 
-To create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in some other directory, such as a work or school organization, that Azure AD trusts. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
+To create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Microsoft Entra ID or in some other directory, such as a work or school organization, that Microsoft Entra ID trusts. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Microsoft Entra ID. To learn more about integrating on-premises Windows Server Active Directory with Microsoft Entra ID, see [Integrating your on-premises identities with Microsoft Entra ID](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
-Every Azure subscription has a trust relationship with an Azure AD instance. This means the subscription delegates the task of authenticating users, services, and devices to that Azure AD instance. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Every Azure subscription has a trust relationship with a Microsoft Entra instance. This means the subscription delegates the task of authenticating users, services, and devices to that Microsoft Entra instance. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-As well as defining individual Azure account identities, also called *users*, you can define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
+As well as defining individual Azure account identities, also called *users*, you can define *groups* in Microsoft Entra ID. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Microsoft Entra ID preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 
 ### Manage your subscriptions
 
