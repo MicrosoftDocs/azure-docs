@@ -10,11 +10,24 @@ ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
 
-# Estimate the cost to transfer data to, from, or between containers
+# Estimate the cost of using AzCopy to transfer blobs
 
-This article helps you estimate what it will cost to transfer data to, from, or between containers by using AzCopy commands.
+This article helps you estimate what it will cost to transfer blobs by using AzCopy. 
 
-Each section of this article presents a data transfer scenario. Each section describes the components that impact cost along with a calculation of the cost based on fictitious numbers. You can use these example calculations to model the cost of your planned data transfers. 
+Each example uses fictitious prices. You can find these sample prices in the [Sample prices](#sample-prices) section at the end of this article. These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+
+Because all models must start with a set of assumptions, Each example in this article assumes the transfer of **1000** blobs that are **5 GiB** each in size. By using the [sample prices](#sample-prices)(#sample-prices) that appear in this article, the following table estimates the cost of each type of transfer. 
+
+| Scenario                                    | Hot     | Cool    | Cold   | Archive       |
+|---------------------------------------------|---------|---------|--------|---------------|
+| Upload blobs (Blob Service endpoint)        | $3.53   | $6.41   | $11.54 | $3.53         |
+| Upload blobs (Data Lake Storage endpoint)   | $9.15   | $16.64  | $29.95 | $18.30        |
+| Download blobs (Blob Service endpoint)      | $0.0059 | $5.01   | $15.02 | Not supported |
+| Download blobs (Data Lake Storage endpoint) | $0.73   | $11.67  | $46.65 | Not supported |
+| Copy blobs                                  | $3.53   | $0.0055 | $0.01  | $0.01         |
+| Copy blobs to another account               | $3.53   | $10.01  | $30.02 | $20.00        |
+
+The sections in this article explain how each cost is calculated and explains the individual components that impact the cost estimate.
 
 ## Calculate the cost to upload
 
@@ -127,19 +140,36 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ## Calculate the cost to copy between containers
 
-You can copy blobs between containers by using the `azcopy copy` command. In that command, you'll specify a source and destination endpoint. Each endpoint must be a Blob Service endpoint (`blob.core.windows.net`).
+This section calculates the cost to copy `1,000` blobs between containers. Each blob is `5 GiB` in size. 
 
+You copy blobs by using the `azcopy copy` command.  In that command, you'll specify a source and destination endpoint. Each endpoint must be a Blob Service endpoint (`blob.core.windows.net`).
 
+### Cost of copying blobs within the same account
 
-Show rest operations called
+AzCopy uses the [Copy Blob](/rest/api/storageservices/copy-blob) operation to upload each block which is billed as a write operation that is based on the destination tier.
 
-Cost table (Blob Storage endpoint)
+| Price factor                                       | Hot        | Cool        | Cold      | Archive   |
+|----------------------------------------------------|------------|-------------|-----------|-----------|
+| Price of a single write operation (price / 10,000) | $0.0000055 | $0.00001    | $0.000018 | $0.00001  |
+| **Total cost (1000 * operation price)**            | **$3.53**  | **$0.0055** | **$0.01** | **$0.01** |
 
-Cost table (Data Lake Storage endpoint)
+### Cost of copying blobs to another account in the same region
 
-- Gen2 endpoints charge at 4MB transactions.
+AzCopy uses the [Copy Blob](/rest/api/storageservices/copy-blob) operation to upload each block. To complete the operation, you're billed for read operation that is based on the source tier and a write operation that is based on the destination tier. This example assumes both source and destination are in the same access tier.
 
-Tips to optimize cost
+| Price factor                                          | Hot          | Cool        | Cold       | Archive    |
+|-------------------------------------------------------|--------------|-------------|------------|------------|
+| Price of a single read operation (price / 10,000)     | $0.00000044  | $0.000001   | $0.00001   | $0.0005    |
+| **Cost of read operations (1,000 * operation price)** | **$0.00044** | **$0.001**  | **$0.01**  | **$0.5**   |
+| Price of a single write operation (price / 10,000)    | $0.0000055   | $0.00001    | $0.000018  | $0.00001   |
+| **Total cost (1000 * operation price)**               | **$3.53**    | **$0.0055** | **$0.01**  | **$0.01**  |
+| Price of data retrieval (per GiB)                     | Free         | $0.01       | $0.03      | $0.02      |
+| **Cost of data retrieval (1000 * operation price)**   | **$0.00**    | **$10.00**  | **$30.00** | **$20.00** |
+| **Total cost (read + write + retrieval)**             | **$3.53**    | **$10.01**  | **$30.02** | **$20.00** |
+
+### Cost of copying blobs to an account located in another region
+
+Read charge on source and write charge on destination + egress fees.
 
 ## Calculate the cost to synchronize changes
 
@@ -166,6 +196,7 @@ Cost table (Blob Storage endpoint)
 Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
+
 
 ## Map of commands to REST operations
 
