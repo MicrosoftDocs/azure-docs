@@ -65,7 +65,7 @@
   items:
   - name: Create and manage a VPN gateway
     items:
-    - name: Create a route-based VPN gateway
+    - name: Create a VPN gateway
       items:
       - name: Azure portal
         href: tutorial-create-gateway-portal.md
