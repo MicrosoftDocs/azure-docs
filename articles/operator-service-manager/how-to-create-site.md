@@ -23,6 +23,8 @@ In this how-to guide, you learn how to create a site. A *site* refers to a speci
 1. Search for **Sites** then select **Create**.
 1. On the **Basics** tab, enter the *Subscription*, *Resource group*, *Name* and *Region*. You can accept the default values for the remaining settings.
 
+    :::image type="content" source="media/how-to-create-site-basics-tab.png" alt-text="Screenshot of the Basics tab showing mandatory fields Subscription, Resource group, Name and Region." lightbox="media/how-to-create-site-basics-tab.png":::
+
 > [!NOTE]
 > The site must be in the same region as the prerequisite resources.
 
@@ -38,6 +40,8 @@ Use the information in the table to add the Network Function Virtualization Infr
 
 
 1. Add the Network Function Virtualization Infrastructure (NFVIs) you wish to deploy your network service on by selecting the **Add the NFVIs** tab, then *Add NFVI* once field information is input.
+
+    :::image type="content" source="media/how-to-create-site-add-network-function-virtual-infrastructure.png" alt-text="Screenshot showing Add the NFVIs tab and fields NFVI name, NFVI type and NFVI location." lightbox="media/how-to-create-site-add-network-function-virtual-infrastructure.png":::
 
     > [!NOTE]
     > Consult the documentation from your NSD Designer or directly contact them to obtain the list of NFVIs.
