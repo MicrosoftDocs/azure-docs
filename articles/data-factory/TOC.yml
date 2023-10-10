@@ -1007,7 +1007,7 @@ items:
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
-    - name: Enable Azure AD authentication for Azure-SSIS IR
+    - name: Enable Microsoft Entra authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
       displayName: active directory
     - name: Connect to data with Windows Authentication
