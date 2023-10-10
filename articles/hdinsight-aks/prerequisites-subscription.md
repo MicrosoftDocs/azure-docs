@@ -12,6 +12,24 @@ ms.date: 08/29/2023
 
 If you're using Azure subscription first time for HDInsight on AKS, the following features might need to be enabled.
 
+## Tenant registration
+
+If you're trying to onboard a new tenant to HDInsight on AKS, you need to provide consent to first party App of HDInsight on AKS to Access API. This app will try to provision the application used to authenticate cluster users and groups.
+
+> [!NOTE] Resource owner would be able to run the command to provision the first party service principal on the given tenant.
+
+
+**Commands**: 
+
+```azurecli
+az ad sp create --id d3d1a4fe-edb2-4b09-bc39-e41d342323d6
+```
+
+```azurepowershell
+New-AzureADServicePrincipal -AppId d3d1a4fe-edb2-4b09-bc39-e41d342323d6
+```
+
+
 ## Enable features 
 
 1. Sign in to [Azure portal](https://portal.azure.com).
