@@ -155,7 +155,7 @@ Microsoft Entra ID also provides a portal and the Microsoft Graph API to allow o
 
 * Applications used to access
 
-Microsoft Entra ID also provides information on the actions that are being performed within Microsoft Entra ID, and reports on security risks. For more information, see [Microsoft Entra ID reports and monitoring](../reports-monitoring/index.yml).
+Microsoft Entra ID also provides information on the actions that are being performed within Microsoft Entra ID, and reports on security risks. For more information, see [Microsoft Entra reports and monitoring](../reports-monitoring/index.yml).
 
 **Auditing**. Auditing provides traceability through logs for all changes done by specific features within Microsoft Entra ID. Examples of activities found in audit logs include changes made to any resources within Microsoft Entra ID like adding or removing users, apps, groups, roles, and policies. Reporting in Microsoft Entra ID enables you to audit sign-in activities, risky sign-ins, and users flagged for risk. For more information, see [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md).
 
