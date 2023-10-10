@@ -55,7 +55,7 @@ In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI reso
 To deploy an Azure Open Model from Azure Machine Learning, in order to deploy an Azure OpenAI model: 
 
 1. Select on **Model Catalog** in the left pane.
-1. Select a model to deploy
+1. Select **View Models** under Azure OpenAI language models. Then Select a model to deploy.
 1. Select `Deploy` to deploy the model to the Azure OpenAI service.
 
     :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai-turbo.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai-turbo.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
@@ -87,7 +87,7 @@ For models with completion task type, the training data you use must be formatte
 
 :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data.png" alt-text="Screenshot showing the training data in the finetune UI section.":::
 
-For models with chat task type, each row in the dataset should be a list of JSON objects. Each row corresponds to a conversation and each object in the row is a turn/utterance in the conversation.
+For models with a chat task type, each row in the dataset should be a list of JSON objects. Each row corresponds to a conversation and each object in the row is a turn/utterance in the conversation.
 
 :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" alt-text="Screenshot showing the training data after the data is uploaded into Azure.":::
 
