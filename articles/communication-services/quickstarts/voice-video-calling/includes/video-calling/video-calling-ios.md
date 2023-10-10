@@ -400,16 +400,16 @@ func startCall() {
         }
         let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
         self.callAgent?.startCall(participants: callees, options: startCallOptions) { (call, error) in
-            setCallAndObersever(call: call, error: error)
+            setCallAndObserver(call: call, error: error)
         }
     }
 ```
 
-`CallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setCallAndOberserver` function.
+`CallObserver` and `RemoteParticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setCallAndObserver` function.
 
 ```Swift
-func setCallAndObersever(call:Call!, error:Error?) {
-    if (error == nil) {
+func setCallAndObserver(call: Call!, error: Error?) {
+    if error == nil {
         self.call = call
         self.callObserver = CallObserver(self)
         self.call!.delegate = self.callObserver
@@ -498,12 +498,12 @@ func answerIncomingCall() {
             options.videoOptions = videoOptions
         }
         self.incomingCall!.accept(options: options) { (call, error) in
-            setCallAndObersever(call: call, error: error)
+            setCallAndObserver(call: call, error: error)
         }
     }
 }
 
-func declineIncomingCall(){
+func declineIncomingCall() {
     self.incomingCall!.reject { (error) in }
     isIncomingCall = false
 }
