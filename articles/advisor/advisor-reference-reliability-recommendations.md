@@ -254,7 +254,7 @@ Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domai
 
 ### Clusters having node pools using unrecommended B-Series
 
-Cluster has one or more node pools using a unrecommended burstable VM SKU. With burstable VMs, full vCPU capability 100% is unguaranteed. Make sure B-series VMs aren't used in a Production environment.
+Cluster has one or more node pools using an unrecommended burstable VM SKU. With burstable VMs, full vCPU capability 100% is unguaranteed. Make sure B-series VMs aren't used in a Production environment.
 
 Learn more about [Kubernetes service - ClustersUsingBSeriesVMs (Clusters having node pools using unrecommended B-Series)](/azure/virtual-machines/sizes-b-series-burstable).
 
@@ -722,7 +722,7 @@ Learn more about [Central Server Instance - ConcurrentFencingHAASCSSLE (Enable t
 
 ### Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads
 
-The softdog timer is loaded as a kernel module in linux OS. This timer  triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster forASCS HA set up.
+The softdog timer is loaded as a kernel module in linux OS. This timer triggers a system reset if it detects that the system has hung. Ensure that the softdog configuration file is created in the Pacemaker cluster for ASCS HA setup.
 
 Learn more about [Central Server Instance - SoftdogConfigHAASCSSLE (Create the softdog config file in Pacemaker configuration for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -1036,7 +1036,7 @@ Learn more about [App Service plan - AppServiceNumberOfInstances (Consider scali
 
 ### Application code needs fixing when the worker process crashes due to Unhandled Exception
 
-We identified the following thread that resulted in an unhandled exception for your App and the application code must fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
+We identified the following thread that resulted in an unhandled exception for your App and the application code must be fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
 
 Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code must be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
 
