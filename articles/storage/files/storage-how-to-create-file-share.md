@@ -211,11 +211,11 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
 1. The new file share blade should appear on the screen. Complete the fields in the **Basic** tab of the new file share blade to create a file share:
    
-   - **Name**: The name of the file share to be created. File share names must be all lower-case letters, numbers, and single hyphens, and must begin and end with a lower-case letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+   - **Name**: The name of the file share to be created.
 
-   - **Tier**: The selected tier for a standard file share. This field is only available in a **general purpose (GPv2) storage account**. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
+   - **Tier**: The selected tier for a standard file share. This field is only available in a **general purpose (GPv2)** storage account type. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
    
-   - **Provisioned capacity**: For premium file shares only, the provisioned capacity is the amount that you'll be billed for regardless of actual usage. The IOPS and throughput available on a premium file share is based on the provisioned capacity, so you can provision more capacity to get more performance. The minimum size for a premium file share is 100 GiB. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
+   - **Provisioned capacity**: For premium file shares only, the provisioned capacity is the amount that you'll be billed for regardless of actual usage. This field is only available in a **FileStorage** storage account type. The IOPS and throughput available on a premium file share is based on the provisioned capacity, so you can provision more capacity to get more performance. The minimum size for a premium file share is 100 GiB. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
    
 1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
 
@@ -265,13 +265,13 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+> The name of your file share must be all lower-case letters, numbers, and single hyphens, and must begin and end with a lower-case letter or number. The name can't contain two consecutive hyphens. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### Change the tier of an Azure file share
-File shares deployed in **general purpose v2 (GPv2) storage account** can be in the transaction optimized, hot, or cool tiers. You can change the tier of the Azure file share at any time, subject to transaction costs as described above.
+File shares deployed in a **general purpose v2 (GPv2)** storage account can be in the transaction optimized, hot, or cool tiers. You can change the tier of the Azure file share at any time, subject to transaction costs as described above.
 
 # [Portal](#tab/azure-portal)
-On the main storage account page, select **File shares**  select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
+On the main storage account page, select **File shares**, and select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
 
 :::image type="content" source="media/storage-files-quick-create-use-windows/click-files.png" alt-text="Screenshot of storage account blade, file shares selected.":::
 
@@ -284,7 +284,7 @@ On the resulting dialog, select the desired tier: transaction optimized, hot, or
 ![A screenshot of the change tier dialog](media/storage-how-to-create-file-share/change-tier-1.png)
 
 # [PowerShell](#tab/azure-powershell)
-The following PowerShell cmdlet assumes that you have set the `$resourceGroupName`, `$storageAccountName`, `$shareName` variables as described in the earlier sections of this document.
+The following PowerShell cmdlet assumes that you've set the `$resourceGroupName`, `$storageAccountName`, `$shareName` variables as described in the earlier sections of this document.
 
 ```PowerShell
 Update-AzRmStorageShare `
@@ -295,7 +295,7 @@ Update-AzRmStorageShare `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-The following Azure CLI command assumes that you have set the `$resourceGroupName`, `$storageAccountName`, and `$shareName` variables as described in the earlier sections of this document.
+The following Azure CLI command assumes that you've set the `$resourceGroupName`, `$storageAccountName`, and `$shareName` variables as described in the earlier sections of this document.
 
 ```azurecli
 az storage share-rm update \
