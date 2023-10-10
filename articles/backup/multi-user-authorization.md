@@ -18,7 +18,7 @@ ms.author: v-abhmallick
 
 This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults.
 
-This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
+This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
 >[!NOTE]
 >- Multi-user authorization for Azure Backup is available in all public Azure regions.
@@ -248,14 +248,18 @@ Depicted below is an illustration of what happens when the Backup admin tries to
 
    :::image type="content" source="./media/multi-user-authorization/test-vault-properties-security-settings-inline.png" alt-text="Screenshot showing the Test Vault properties security settings." lightbox="./media/multi-user-authorization/test-vault-properties-security-settings-expanded.png":::
 
-## Authorize critical (protected) operations using Azure Active Directory Privileged Identity Management
+<a name='authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management'></a>
 
-The following sections discuss authorizing these requests using PIM. There are cases where you may need to perform critical operations on your backups and MUA can help you ensure that these are performed only when the right approvals or permissions exist. As discussed earlier, the Backup admin needs to have a Contributor role on the Resource Guard to perform critical operations that are in the Resource Guard scope. One of the ways to allow just-in-time for such operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+## Authorize critical (protected) operations using Microsoft Entra Privileged Identity Management
+
+The following sections discuss authorizing these requests using PIM. There are cases where you may need to perform critical operations on your backups and MUA can help you ensure that these are performed only when the right approvals or permissions exist. As discussed earlier, the Backup admin needs to have a Contributor role on the Resource Guard to perform critical operations that are in the Resource Guard scope. One of the ways to allow just-in-time for such operations is through the use of [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
->Though using Azure AD PIM is the recommended approach, you can use manual or custom methods to manage access for the Backup admin on the Resource Guard. For managing access to the Resource Guard manually, use the ‘Access control (IAM)’ setting on the left navigation bar of the Resource Guard and grant the **Contributor** role to the Backup admin.
+>Though using Microsoft Entra PIM is the recommended approach, you can use manual or custom methods to manage access for the Backup admin on the Resource Guard. For managing access to the Resource Guard manually, use the ‘Access control (IAM)’ setting on the left navigation bar of the Resource Guard and grant the **Contributor** role to the Backup admin.
 
-### Create an eligible assignment for the Backup admin (if using Azure Active Directory Privileged Identity Management)
+<a name='create-an-eligible-assignment-for-the-backup-admin-if-using-azure-active-directory-privileged-identity-management'></a>
+
+### Create an eligible assignment for the Backup admin (if using Microsoft Entra Privileged Identity Management)
 
 The Security admin can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation. To do so, the **security admin** performs the following:
 
@@ -289,7 +293,7 @@ By default, the setup above may not have an approver (and an approval flow requi
 > [!Note]
 > If this isn't configured, any requests will be automatically approved without going through the security admins or a designated approver’s review. More details on this can be found [here](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
 
-1. In Azure AD PIM, select **Azure Resources** on the left navigation bar and select your Resource Guard.
+1. In Microsoft Entra PIM, select **Azure Resources** on the left navigation bar and select your Resource Guard.
 
 1. Go to **Settings** and then go to the **Contributor** role.
 
@@ -307,7 +311,7 @@ By default, the setup above may not have an approver (and an approval flow requi
 
 After the security admin creates an eligible assignment, the Backup admin needs to activate the assignment for the Contributor role to be able to perform protected actions. The following actions are performed by the **Backup admin** to activate the role assignment.
 
-1. Go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). If the Resource Guard is in another directory, switch to that directory and then go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+1. Go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). If the Resource Guard is in another directory, switch to that directory and then go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Go to **My roles** > **Azure resources** on the left menu.
 1. The Backup admin can see an Eligible assignment for the contributor role. Select **Activate** to activate it.
 1. The Backup admin is informed via portal notification that the request is sent for approval.
@@ -317,7 +321,7 @@ After the security admin creates an eligible assignment, the Backup admin needs 
 ### Approve activation of requests to perform critical operations
 
 Once the Backup admin raises a request for activating the Contributor role, the request is to be reviewed and approved by the **security admin**.
-1. In the security tenant, go to [Azure AD Privileged Identity Management.](../active-directory/privileged-identity-management/pim-configure.md)
+1. In the security tenant, go to [Microsoft Entra Privileged Identity Management.](../active-directory/privileged-identity-management/pim-configure.md)
 1. Go to **Approve Requests**.
 1. Under **Azure resources**, the request raised by the Backup admin requesting activation as a **Contributor** can be seen.
 1. Review the request. If genuine, select the request and select **Approve** to approve it.
@@ -345,7 +349,7 @@ Disabling MUA is a protected operation, so, so, vaults are protected using MUA. 
 
 To disable MUA on a vault, follow these steps:
 
-1. The Backup admin requests the Security admin for **Contributor** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures. 
+1. The Backup admin requests the Security admin for **Contributor** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures. 
 1. The Security admin approves the request (if they find it worthy of being approved) and informs the Backup admin. Now the Backup admin has the ‘Contributor’ role on the Resource Guard.
 1. The Backup admin goes to the vault > **Properties** > **Multi-user Authorization**.
 1. Select **Update**.
@@ -403,7 +407,7 @@ The tenant ID is required if the resource guard exists in a different tenant.
 
 This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Backup vault.
 
-This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
+This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
 >[!NOTE]
 >- Multi-user authorization using Resource Guard for Backup vault is now generally available.
@@ -542,16 +546,20 @@ To perform a protected operation (disabling MUA), follow these steps:
 
    :::image type="content" source="./media/multi-user-authorization/test-vault-properties-security-settings-inline.png" alt-text="Screenshot showing the test Backup vault properties security settings." lightbox="./media/multi-user-authorization/test-vault-properties-security-settings-expanded.png":::
 
-## Authorize critical (protected) operations using Azure Active Directory Privileged Identity Management
+<a name='authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management'></a>
+
+## Authorize critical (protected) operations using Microsoft Entra Privileged Identity Management
 
 There are scenarios where you may need to perform critical operations on your backups and you can perform them with the right approvals or permissions with MUA. The following sections explain how to authorize the critical operation requests using Privileged Identity Management (PIM).
 
-The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT) operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT) operations is through the use of [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
->We recommend that you use the Azure AD PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
+>We recommend that you use the Microsoft Entra PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
 
-### Create an eligible assignment for the Backup admin using Azure Active Directory Privileged Identity Management
+<a name='create-an-eligible-assignment-for-the-backup-admin-using-azure-active-directory-privileged-identity-management'></a>
+
+### Create an eligible assignment for the Backup admin using Microsoft Entra Privileged Identity Management
 
 The **Security admin** can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation.
 
@@ -587,7 +595,7 @@ By default, the above setup may not have an approver (and an approval flow requi
 >[!Note]
 >If the approver setup isn't configured, the requests are automatically approved without going through the Security admins or a designated approver’s review. [Learn more](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md).
 
-1. In Azure AD PIM, select **Azure Resources** on the left pane and select your Resource Guard.
+1. In Microsoft Entra PIM, select **Azure Resources** on the left pane and select your Resource Guard.
 
 1. Go to **Settings** > **Contributor** role.
 
@@ -609,7 +617,7 @@ After the Security admin creates an eligible assignment, the Backup admin needs 
 
 To activate the role assignment, follow the steps:
 
-1. Go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). If the Resource Guard is in another directory, switch to that directory and then go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+1. Go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). If the Resource Guard is in another directory, switch to that directory and then go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Go to **My roles** > **Azure resources** in the left pane.
 1. Select **Activate**  to activate the eligible assignment for *Contributor* role.
 
@@ -623,7 +631,7 @@ Once the Backup admin raises a request for activating the Contributor role, the 
 
 To review and approve the request, follow these steps:
 
-1. In the security tenant, go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+1. In the security tenant, go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Go to **Approve Requests**.
 1. Under **Azure resources**, you can see the request awaiting approval.
 
@@ -644,7 +652,7 @@ The following screenshot shows an example of [disabling soft delete](backup-azur
 
 ## Disable MUA on a Backup vault
 
-Disabling the MUA is a protected operation that must be done by the Backup admin only. To do this, the Backup admin must have the required *Contributor* role in the Resource Guard. To obtain this permission, the Backup admin must first request the Security admin for the Contributor role on the Resource Guard using the just-in-time (JIT) procedure, such as [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) or internal tools.
+Disabling the MUA is a protected operation that must be done by the Backup admin only. To do this, the Backup admin must have the required *Contributor* role in the Resource Guard. To obtain this permission, the Backup admin must first request the Security admin for the Contributor role on the Resource Guard using the just-in-time (JIT) procedure, such as [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) or internal tools.
 
 Then the Security admin approves the request if it's genuine and updates the Backup admin who now has Contributor role on the Resource guard. Learn more on [how to get this role](?pivots=vaults-backup-vault#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
 
