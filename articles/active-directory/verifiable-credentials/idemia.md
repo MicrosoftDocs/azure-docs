@@ -15,9 +15,6 @@ ms.author: barclayn
 # Configure Verified ID by IDEMIA as your Identity Verification Partner
 
 In this article, we cover the steps needed to integrate Microsoft Entra Verified ID (Verified ID) with [IDEMIA](https://www.idemia.com/).
-Identity proofing is completed using biometric and document capture through customer smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verifications may also be performed for additional assurance. 
-
-The result is a trusted customer identity that gives service providers the assurance they need to proceed with customer onboarding. 
 
 ## Prerequisites
 
@@ -35,6 +32,11 @@ Before you can continue with the steps below you need to meet the following requ
 ## Scenario description
 
 Users of Microsoft Azure AD verifiable credentials can have their identity verified using IDEMIA's identity document capture and verification.
+The Identity proofing process is completed using biometric and document capture via the users smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verifications may also be performed for additional assurance. 
+
+The result is a trusted user identity that gives service providers the assurance they need to proceed with customer onboarding. 
+
+
 After verification, users are issued a reusable identity credential, which expedites the onboarding process for employees, partners, and customers​.
 
 ![Integrate LinkedIn account connections in the organization](./media/idemia/verified-id-deployment-diagram.jpg)
