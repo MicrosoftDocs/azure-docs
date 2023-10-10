@@ -90,7 +90,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     // ... ...
 
     // Add a JSON configuration source 
-    builder.Configuration.AddJsonFile("config/appsettings.json", reloadOnChange:true, optional:false); 
+    builder.Configuration.AddJsonFile("config/appsettings.json", reloadOnChange:true, optional:true); 
 
     var app = builder.Build();
 
