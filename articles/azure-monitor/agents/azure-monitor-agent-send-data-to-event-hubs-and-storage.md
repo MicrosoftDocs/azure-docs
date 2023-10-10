@@ -10,13 +10,13 @@ ms.reviewer: luki
 
 # Send data to Event Hubs and Storage (Private preview)
 
-This article provides all of the required information related to the private preview for using the new Azure Monitor Agent (AMA) feature to upload data to Azure Storage and Event Hubs.
+This article provides all required information for using the new Azure Monitor Agent (AMA) feature to upload data to Azure Storage and Event Hubs. This feature is in private preview.
 
 The Azure Monitor Agent is the new, consolidated telemetry agent for collecting data from IaaS resources like virtual machines. This preview brings us closer to retiring the Diagnostics Extensions for Windows and Linux (WAD/LAD). By using the new upload capability in this preview, you can now upload the logs<sup>[1](#FN1)</sup> you send to Log Analytics workspaces to Event Hubs and Storage. Both new data destinations use data collection rules to configure collection setup for the agents.
 
 **Footnotes**
 
-<a name="FN1">1</a>: Not all data types are supported; please refer to [Preview scope](#preview-scope) for specifics.
+<a name="FN1">1</a>: Not all data types are supported; refer to [Preview scope](#preview-scope) for specifics.
 
 ## Preview scope
 
@@ -892,7 +892,7 @@ Create a data collection rule for collecting events and sending to storage and e
     ### [Event Hub](#tab/event-hub)
 
     - Define `dataSources` as per your requirements. Supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
-    - Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource id of event hub instance (note: it is not event hub namespace resource id). 
+    - Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource id of event hub instance.
     - under `dataFlows`, include destination name.
 
     See the resource definition example above for a sample.
@@ -901,20 +901,20 @@ Create a data collection rule for collecting events and sending to storage and e
 
     - Define `“dataSources”` as per your requirements. Supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`.
     - Use `destinations` as `storageTablesDirect` for direct upload to table storage. `storageAccountResourceId` is the resource id of storage account. 
-    - `tableName` is name of Table where JSON blob with event data will be uploaded to.
+    - `tableName` is the name of Table where JSON blob with event data is uploaded to.
     - Under `dataFlows`, include destination name.
 
-    See the resource definition example above for a sample. Table will be created if doesn’t already exists.
+    See the resource definition example above for a sample. Table is created if it doesn’t already exists.
 
     ### [Storage Blob](#tab/storage-blob)
 
     - Define `dataSources` as per your requirements. Supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`.
     - Use `destinations` as `storageBlobsDirect` for direct upload to blob storage. 
     - `storageAccountResourceId` is resource id of storage account. 
-    - `containerName` is name of container where JSON blob with event data will be uploaded to. 
+    - `containerName` is name of container where JSON blob with event data is uploaded to. 
     - Under `dataFlows`, include destination name. 
 
-    See the resource definition example above for a sample. Container will be created if doesn’t already exist.
+    See the resource definition example above for a sample. Container is created if it doesn’t already exist.
 
     ---
 
@@ -1024,19 +1024,19 @@ Use the following section to troubleshoot sending data to Event Hubs and Storage
 
 - Check that the built-in role `Storage Blob Data Contributor` is assigned with managed identity on the storage account.
 - Check that the managed identity is assigned to the VM.
-- Check that the AMA settings has managed identity parameter.
+- Check that the AMA settings have managed identity parameter.
 
 ### Data not found in storage account table storage
 
 - Check that the built-in role `Storage Table Data Contributor` is assigned with managed identity on storage account.
 - Check that the managed identity is assigned to the VM.
-- Check that the AMA settings has managed identity parameter.
+- Check that the AMA settings have managed identity parameter.
 
 ### Data not flowing to Event Hub
 
 - Check that the built-in role `Azure Event Hubs Data Sender` is assigned with managed identity on storage account.
 - Check that the managed identity is assigned to the VM.
-- Check that the AMA settings has managed identity parameter.
+- Check that the AMA settings have managed identity parameter.
 
 ## Questions and Feedback
 
@@ -1048,19 +1048,19 @@ This section provides answers to common questions.
 
 ### Will the Azure Monitoring Agent support data upload to Application Insights?
 
-No, this is not a part of the roadmap. Application Insights are now powered by Log Analytics Workspaces.
+No, this support is not a part of the roadmap. Application Insights are now powered by Log Analytics Workspaces.
 
 ### Will the Azure Monitoring Agent support Windows Crash Dumps as a data type to upload?
 
-No, this is not a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, please indicate so in the feedback form above.
+No, this support is not a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, please indicate so in the [feedback form](#questions-and-feedback).
 
 ### Does this mean the Linux (LAD) and Windows (WAD) Diagnostic Extensions are no longer supported/retired?
 
-No, not until Azure formally announces the deprecation of these agents, which would start a three-year clock until they are no longer supported. Currently we are planning to announce retirement for LAD and WAD in September of 2023 (subject to change) which would mean end of life in September 2026.
+No, not until Azure formally announces the deprecation of these agents, which would start a three-year clock until they're no longer supported. Currently we are planning to announce retirement for LAD and WAD in September of 2023 (subject to change) which would mean end of life in September 2026.
 
 ### Will there be a similar configuration experience as the WAD and LAD for AMA?
 
-TBD - The configuration and control plane experience will be Data Collection Rules for AMA. The end UX is still being researched. Product group would appreciate any input on this in the feedback form above.
+TBD - The configuration and control plane experience will be Data Collection Rules for AMA. The end UX is still being researched. Product group would appreciate any input on this in the [feedback form](#questions-and-feedback).
 
 ### Will you still be actively developing on WAD and LAD?
 
