@@ -139,15 +139,15 @@ In this section, you test your Microsoft Entra single sign-on configuration with
  
 #### SP initiated:
  
-* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Treasury Intelligence Solution Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Treasury Intelligence Solution (TIS) Sign on URL where you can initiate the login flow.  
  
-* Go to Treasury Intelligence Solution Sign-on URL directly and initiate the login flow from there.
+* Go to Treasury Intelligence Solution (TIS) Sign-on URL directly and initiate the login flow from there.
  
 #### IDP initiated:
  
-* Click on **Test this application** in Microsoft Entra admin center and you should be automatically signed in to the Treasury Intelligence Solution for which you set up the SSO.
+* Click on **Test this application** in Microsoft Entra admin center and you should be automatically signed in to the Treasury Intelligence Solution (TIS) for which you set up the SSO.
  
-You can also use Microsoft My Apps to test the application in any mode. When you click the Treasury Intelligence Solution tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Treasury Intelligence Solution for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Treasury Intelligence Solution (TIS) tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Treasury Intelligence Solution for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
