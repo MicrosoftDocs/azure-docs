@@ -18,7 +18,7 @@ This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
-The application deployment process has been integrated into the **Deploy to Azure** step, which you'll complete in the previous section.
+The application deployment process has been integrated into the **Deploy to Azure** step, which you completed in the previous section.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -32,7 +32,7 @@ Use the following steps to deploy your JAR file with the [Maven plugin for Azure
 
    The following list describes the command interactions:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd>.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd>.
    - **Input the app name(simple-event-driven-app)**: Provide an app name. To use the default project artifact ID as the name, press <kbd>Enter</kbd>.
@@ -47,7 +47,7 @@ Use the following steps to deploy your JAR file with the [Maven plugin for Azure
 
    The following list describes the command interaction:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see the following output, which indicates that the deployment was successful.
 

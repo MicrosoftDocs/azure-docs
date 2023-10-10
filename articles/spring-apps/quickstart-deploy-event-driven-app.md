@@ -34,8 +34,9 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-enterprise"
 
-- The Azure portal is the easiest and fastest way to create resources and deploy applications with one-click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- The Azure CLI is a powerful command line tool to manage Azure resources. It is suitable for Spring developers who are familiar with Azure cloud services.
+- The Azure portal is the easiest and the fastest way to create resources and deploy applications with a single click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The Azure portal and the Maven plugin are a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
+- The Azure Developer CLI is a more efficient way to automatically create resources and deploy applications through simple commands. It covers application code and infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -110,9 +111,9 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
-   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
+   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
 ::: zone-end
 
@@ -124,11 +125,12 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+1. From the navigation pane of
+1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
-   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
+   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
-1. Check each resource deployment details, which is useful for investigating any deployment issues.
+1. Check each resource deployment detail, which is useful for investigating any deployment issues.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -136,9 +138,9 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
+1. Go to the Azure Spring Apps instance **Overview** page and select **Logs** to check the app's logs.
 
-   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
+   :::image type="content" source="media/quickstart-deploy-event-driven-app/logs.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Logs page." lightbox="media/quickstart-deploy-event-driven-app/logs.png":::
 
 1. Use the following command to check the app's log to investigate any deployment issue:
 
