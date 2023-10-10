@@ -319,31 +319,6 @@ The following query example looks for similarity in both `myImageVector` and `my
 
 Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
 
-<!-- ## Query syntax for cross-field vector search
-
-A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md):
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "vectors": [
-        {
-            "value": [
-                -0.009154141,
-                0.018708462,
-                . . . 
-                -0.02178128,
-                -0.00086512347
-            ],
-            "fields": "titleVector, contentVector",
-            "k": 5
-        }
-    ]
-}
-``` -->
-
 ## Configure a query response
 
 When you're setting up the vector query, think about the response structure. The response is a flattened rowset. Parameters on the query determine which fields are in each row and how many rows are in the response. The search engine ranks the matching documents and returns the most relevant results.
