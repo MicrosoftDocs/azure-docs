@@ -160,7 +160,7 @@ You must be assigned one of the following roles to manage device settings:
 - Global Administrator
 - Cloud Device Administrator
 
-![Screenshot that shows device settings related to Azure AD.](./media/manage-device-identities/device-settings-azure-portal.png)
+![Screenshot that shows device settings related to Microsoft Entra ID.](./media/manage-device-identities/device-settings-azure-portal.png)
 
 - **Users may join devices to Microsoft Entra ID**: This setting enables you to select the users who can register their devices as Microsoft Entra joined devices. The default is **All**.
 

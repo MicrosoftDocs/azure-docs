@@ -91,13 +91,13 @@ Scoping filters are configured as part of the attribute mappings for each Micros
 
 ::: zone pivot="app-provisioning"
 
-5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Microsoft Entra Users to ServiceNow".
+5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Microsoft Entra users to ServiceNow".
 
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
 
-5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Microsoft Entra Users".
+5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Microsoft Entra users".
 
 ::: zone-end
 
