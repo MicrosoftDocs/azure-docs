@@ -71,11 +71,11 @@ Download the following files into a folder in your computer:
 
 You need to install the following packages:
 
-- _Microsoft.Identity.Client_ - This package contains the binaries of the Microsoft Authentication Library for .NET (MSAL.NET).
-- _Microsoft.Extensions.Configuration.Json_ - This package contains JSON configuration provider implementation for Microsoft.Extensions.Configuration.
-- _Microsoft.Extensions.Configuration.Binder_ - This package contains functionality to bind an object to data in configuration providers for Microsoft.Extensions.Configuration.
-- _Microsoft.Extensions.Configuration.Abstractions_ - This package contains abstractions of key-value pair based configuration.
-- _Microsoft.Identity.Client.Extensions.MSAL_ - This package contains extensions to Microsoft Authentication Library for .NET (MSAL.NET).
+- `Microsoft.Identity.Client` - This package contains the binaries of the Microsoft Authentication Library for .NET (MSAL.NET).
+- `Microsoft.Extensions.Configuration.Json` - This package contains JSON configuration provider implementation for Microsoft.Extensions.Configuration.
+- `Microsoft.Extensions.Configuration.Binder` - This package contains functionality to bind an object to data in configuration providers for Microsoft.Extensions.Configuration.
+- `Microsoft.Extensions.Configuration.Abstractions` - This package contains abstractions of key-value pair based configuration.
+- `Microsoft.Identity.Client.Extensions.Msal` - This package contains extensions to Microsoft Authentication Library for .NET (MSAL.NET).
 
 ### NuGet Package Manager
 
