@@ -54,7 +54,7 @@ Now we'll walk through each step:
 
 However, with the issue hints feature enabled (coming soon), the new certauth endpoint will change to `https://t{tenantid}.certauth.login.microsoftonline.com`.
 
-The endpoint performs TLS mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-ins log.
+The endpoint performs TLS mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the sign-in log.
 
    >[!NOTE]
    >The network administrator should allow access to the User sign-in page and certauth endpoint `*.certauth.login.microsoftonline.com` for the customer's cloud environment. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
@@ -63,7 +63,7 @@ The endpoint performs TLS mutual authentication, and requests the client certifi
 
    Without this change, certificate-based authentication will fail when you enable Issuer Hints feature.
 
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-ins log in Microsoft Entra ID." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the sign-in log in Microsoft Entra ID." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
    Click the log entry to bring up **Activity Details** and click **Authentication Details**. You'll see an entry for the X.509 certificate.
 
