@@ -17,7 +17,7 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 
 - **Pay-as-you-go:** Flexibility to sign up for a monthly subscription service with the ability to migrate mid-year.
 
-- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Azure Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
+- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Microsoft Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
 
 - **Built-in inventory:** The coverage and enrollment status of Windows Server 2012/2012 R2 ESUs on eligible Arc-enabled servers are identified in the Azure portal, highlighting gaps and status changes.
 
