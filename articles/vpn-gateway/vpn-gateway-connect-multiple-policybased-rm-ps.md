@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 10/10/2023
 ms.author: cherylmc
 ---
 # Connect a VPN gateway to multiple on-premises policy-based VPN devices
@@ -28,7 +28,7 @@ The following diagrams highlight the two models:
 
 **Route-based VPN example**
 
-:::image type="content" source="./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png" alt-text="Diagram of route-based VPN." lightbox="./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png":::
+:::image type="content" source="./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png" alt-text="Diagram of route-based VPN for multiple sites." lightbox="./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png":::
 
 ### Azure support for policy-based VPN
 
@@ -48,7 +48,7 @@ Previously, when working with policy-based VPNs, you were limited to using the p
 
 The following diagram shows why transit routing via VPN gateway doesn't work with the policy-based option:
 
-:::image type="content" source="./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png" alt-text="Diagram of route-based VPN." lightbox="./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png":::
+:::image type="content" source="./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png" alt-text="Diagram of policy-based transit." lightbox="./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png":::
 
 As shown in the diagram, the Azure VPN gateway has traffic selectors from the virtual network to each of the on-premises network prefixes, but not the cross-connection prefixes. For example, on-premises site 2, site 3, and site 4 can each communicate to VNet1 respectively, but can't connect via the Azure VPN gateway to each other. The diagram shows the cross-connect traffic selectors that aren't available in the Azure VPN gateway under this configuration.
 
