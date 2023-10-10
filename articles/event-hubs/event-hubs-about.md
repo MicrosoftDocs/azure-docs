@@ -15,7 +15,7 @@ Using Event Hubs to ingest and store streaming data, businesses can harness the 
 Azure Event Hubs is the preferred event ingestion layer of any event streaming solution that you build on top of Azure. It seamlessly integrates with data and analytics services inside and outside Azure to build your complete data streaming pipeline to serve following use cases. 
 
 - [Real-time analytics with Azure Stream Analytics](./process-data-azure-stream-analytics.md) to generate real-time insights from streaming data. 
-- [Analyze and explore streaming data with Azure Data Explorer](/data-explorer/ingest-data-event-hub-overview). 
+- [Analyze and explore streaming data with Azure Data Explorer](/azure/data-explorer/ingest-data-event-hub-overview). 
 - Create your own cloud native applications, functions, or microservices that run on streaming data from Event Hubs.
 - [Stream events with schema validation using a built-in schema registry to ensure quality and compatibility of streaming data](schema-registry-overview.md). 
 
@@ -43,7 +43,7 @@ For more information, see [Azure Schema Registry in Event Hubs](schema-registry-
 ### Real-time processing of streaming events with Azure Stream Analytics 
 Event Hubs integrates seamlessly with Azure Stream Analytics to enable real-time stream processing. With the built-in no-code editor, you can effortlessly develop a Stream Analytics job using drag-and-drop functionality, without writing any code. 
 
-:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/filter-data-lake-gen2-card-start.png" alt-text="Diagram that shows Stream Analytics no code editor templates.":::
+:::image type="content" source="../stream-analytics/media/filter-ingest-data-lake-storage-gen2/filter-data-lake-gen2-card-start.png" alt-text="Diagram that shows Stream Analytics no code editor templates.":::
 
 Alternatively, developers can use the SQL-based Stream Analytics query language to perform real-time stream processing and take advantage of a wide range of functions for analyzing streaming data.  
 
@@ -54,7 +54,7 @@ Azure Data Explorer is a fully managed platform for big data analytics that deli
 
 :::image type="content" source="./media/event-hubs-about/data-explorer-integration.png" alt-text="Diagram that shows Azure Data explorer query and output.":::
 
-For more information, see [Ingest data from an event hub into Azure Data Explorer](/data-explorer/ingest-data-event-hub-overview) and articles in the same section.
+For more information, see [Ingest data from an event hub into Azure Data Explorer](/azure/data-explorer/ingest-data-event-hub-overview) and articles in the same section.
 
 ### Rich ecosystem– Azure functions, SDKs, and Kafka ecosystem
 Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a partitioned consumer model, enabling multiple applications to process the stream concurrently and letting you control the speed of processing. Azure Event Hubs also integrates with Azure Functions for serverless architectures.
