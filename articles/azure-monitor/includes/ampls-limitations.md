@@ -1,3 +1,11 @@
+---
+author: guywi-ms
+ms.author: guywild
+ms.service: azure-monitor
+ms.topic: include
+ms.date: 10/10/2023
+---
+
 The AMPLS object has the following limits:
 * A virtual network can connect to only *one* AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources to which the virtual network should have access.
 * An AMPLS object can connect to 300 Log Analytics workspaces and 1,000 Application Insights components at most.
