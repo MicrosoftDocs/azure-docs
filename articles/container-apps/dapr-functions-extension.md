@@ -29,7 +29,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 ## Prerequisites
 
 - [An Azure account with an active subscription.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+- [Install Azure CLI](/cli/azure/install-azure-cli.md)
 
 ## Set up the environment
 
@@ -106,7 +106,7 @@ Specifying one of the available regions, create a resource group for your contai
 
 1. In the Azure portal, navigate to your resource group and select **Deployments** to track the deployment status.
 
-   :::image type="content" source="media/dapr-functions-extension/deployment-status.png" alt-text="Screenshot showing the deployment group deployment status in the Azure portal.":::
+   :::image type="content" source="media/dapr-binding-functions/deployment-status.png" alt-text="Screenshot showing the deployment group deployment status in the Azure portal.":::
 
 
 ## Verify the result
@@ -166,7 +166,7 @@ You can view logs through the Azure portal or from the command line.
    | project Log_s
    ```
 
-:::image type="content" source="media/dapr-functions-extension/check-console-logs.png" alt-text="Screenshot demonstrating how to run a Console Log query to view the logs.":::
+:::image type="content" source="media/dapr-binding-functions/check-console-logs.png" alt-text="Screenshot demonstrating how to run a Console Log query to view the logs.":::
 
 
 ### Via the Azure CLI
