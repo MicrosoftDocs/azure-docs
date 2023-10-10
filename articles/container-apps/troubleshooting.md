@@ -316,11 +316,13 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 ## Verify Container Apps can pull container image
 
 TODO1
-- Verify you can pull your container image publicly. TODO1 Give example, like pulling Docker image from command line?
-- Verify your container environment firewall is not blocking access to the container registry. TODO1 How?
-- Verify DNS lookup of the container registry does not fail. TODO1 Publicly, then from container environment? Link to how to get debug console inside environment. Why would this happen? Container environment firewall blocking port 53? Do container environments have their own DNS caching servers, such as dnsmasq?
-
-TODO1 ACI says they sometimes cache container images. Do we? That could lead to using an outdated image.
+- Verify you can pull your container image publicly. Give example, like pulling Docker image from command line?
+- Verify your container environment firewall is not blocking access to the container registry. How? Does firewall only apply to user-defined routes?
+	See: https://learn.microsoft.com/en-us/azure/container-apps/user-defined-routes
+- Verify DNS lookup of the container registry does not fail. Publicly, then from container environment? Link to how to get debug console inside environment. Why would this happen? Container environment firewall blocking port 53? Do container environments have their own DNS caching servers, such as dnsmasq?
+	See: https://learn.microsoft.com/en-us/azure/container-apps/networking#dns
+- What if your container image is stale? How do you force the container app to re-pull the image?
+- ACI says they sometimes cache container images. Do we? That could lead to using an outdated image.
 https://learn.microsoft.com/en-us/azure/container-instances/container-instances-troubleshooting#cached-images
 
 ## Review Ingress Configuration
@@ -357,6 +359,7 @@ TODO1
 - How to set env internalOnly to true/false on env in Portal?
 - Portal ingress traffic setting is confusing. It sounds like env internalOnly setting partially overrides this.
 - env show in console does not show internalOnly.
+- What about CORS?
 
 - Things to note:
 	- Port mismatch. For HTTP ingress your port is always 443. However that is the exposed port, not the target port.
@@ -369,8 +372,6 @@ TODO1
 ### Verify ingress is enabled
 
 Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command. If ingress is disabled, `az containerapp ingress show` returns nothing.
-
-TODO1 This is confusing, especially for Linux people (for whom no output means no error), and should be changed so that az container app ingress show explicitly states ingress is disabled.
 
 # [Bash](#tab/bash)
 
@@ -392,7 +393,10 @@ az containerapp ingress show `
 
 You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
 
-TODO1 Repeat this in Configure health probes section?
+TODO1
+- Repeat this in Configure health probes section?
+- Disable ingress, or just set it to internal?
+
 > [!NOTE]
 > If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy. If your container app doesn't listen for HTTP traffic, you should disable ingress.
 
@@ -494,9 +498,15 @@ If you do not have any IP access restrictions, this command returns an empty lis
 
 ::: zone-end
 
-TODO1 What about CORS?
-
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
+
+## Verify networking configuration is correct
+
+TODO1
+- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function correctly.
+- Anything else we want to call out?
+
+For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
 ## Verify health probes are configured correctly
 
@@ -529,7 +539,7 @@ If your health probes are not configured correctly:
 
 ::: zone pivot="console"
 
-TODO1 Can we configure health probes from command line? We can view them. containerapp show > template > containers > probes.
+TODO1 Can we configure health probes from command line? We can view them. containerapp show > template > containers > probes. ./health-probes.md only shows how to do it in ARM template.
 
 ::: zone-end
 
@@ -610,9 +620,9 @@ If `activeRevisionsMode` is `Multiple`, verify you are not routing any traffic t
 
 You can change the revision mode for your container app with the [az containerapp revision set-mode](/cli/azure/containerapp/revision#az-containerapp-revision-set-mode(containerapp)) command.
 
-TODO1 Can you configure traffic routing in command line? The doc for [`az containerapp revision label`](/cli/azure/containerapp/revision/label) says "Manage revision labels assigned to traffic weights." but there is nothing in the actual commands/flags relating to traffic weights.
-
 ::: zone-end
+
+For more information about configuring traffic splitting, see [Traffic splitting in Azure Container Apps](./traffic-splitting.md).
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
