@@ -25,7 +25,7 @@ In this how-to guide, you learn how to delete operator resources that include Si
 
 1. Select the Site Network Service (SNS) within the Azure portal you wish to delete.
 
-    :::image type="content" source="media/how-to-delete-operator-resource.png" alt-text="Screenshot showing the Site Network Service selected for deletion." lightbox="media/how-to-delete-operator-resource.png" lightbox="media/how-to-delete-operator-resources-search-for-resource-groups.png":::
+    :::image type="content" source="media/how-to-delete-operator-resource.png" alt-text="Screenshot showing the Site Network Service selected for deletion." lightbox="media/how-to-delete-operator-resource.png" 
 
      :::image type="content" source="media/how-to-delete-operator-resources-resource-groups.png" alt-text="Screenshot showing the Resource Group that the Configuration Group Values was deployed." lightbox="media/how-to-delete-operator-resources-resource-groups.png":::
 
