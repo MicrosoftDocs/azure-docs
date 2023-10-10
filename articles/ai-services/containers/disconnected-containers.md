@@ -5,7 +5,7 @@ description: Learn how to run Azure AI services Docker containers disconnected f
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: reference
 ms.date: 07/28/2023
 ms.author: aahi
