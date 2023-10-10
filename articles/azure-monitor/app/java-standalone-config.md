@@ -796,7 +796,7 @@ By default, Application Insights Java 3.x sends a heartbeat metric once every 15
 > [!NOTE]
 > The authentication feature is GA since version 3.4.17.
 
-You can use authentication to configure the agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory authentication.
+You can use authentication to configure the agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Microsoft Entra authentication.
 For more information, see the [Authentication](./azure-ad-authentication.md) documentation.
 
 ## HTTP proxy
