@@ -15,7 +15,7 @@ ms.custom: not-enterprise-apps
 
 ---
 
-# Secure hybrid access with Microsoft Entra ID partner integrations
+# Secure hybrid access with Microsoft Entra integration
 
 Microsoft Entra ID supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Microsoft Entra ID and provide authentication for legacy applications.
 
