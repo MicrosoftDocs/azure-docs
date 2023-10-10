@@ -1,7 +1,7 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 09/29/2023
+ms.date: 10/10/2023
 ms.topic: article
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
@@ -20,7 +20,8 @@ This article walks you through the following steps to deploy Azure Cloud Shell i
 
 1. Collect the required information
 1. Create the virtual networks using the **Azure Cloud Shell - VNet** ARM template
-1. Create the virtual network storage account using the **Azure Cloud Shell - VNet storage** ARM template
+1. Create the virtual network storage account using the **Azure Cloud Shell - VNet storage** ARM
+   template
 1. Configure and use Azure Cloud Shell in a virtual network
 
 ## 1. Collect the required information
@@ -140,6 +141,8 @@ Information needed for the template:
 - **Resource Group** - The resource group name of either an existing or newly created resource group
 - **Region** - Location of the resource group
 - **Virtual Network** - The name of the virtual network created for Azure Cloud Shell virtual network
+- **Network Security Group** - The name that you want to assign to the Network Security Group
+  created by the template
 - **Azure Container Instance OID** - The ID of the Azure Container Instance for your resource group
 
 Fill out the form with the following information:
@@ -152,8 +155,9 @@ Fill out the form with the following information:
 |        Instance details         |                                                                     Value                                                                      |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Region                          | Prefilled with your default region.<br>For this example, we're using `East US`.                                                                |
-| Existing virtual network Name              | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `vnet-cloudshell-eastus`.                   |
+| Existing VNET Name              | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `vnet-cloudshell-eastus`.                   |
 | Relay Namespace Name            | Create a name that you want to assign to the Relay resource created by the template.<br>For this example, we're using `arn-cloudshell-eastus`. |
+| Nsg Name                        | Enter the name of the Network Security Group (NSG). The deployment creates this NSG and assigns an access rule to it.                          |
 | Azure Container Instance OID    | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
 | Container Subnet Address Prefix | For this example, we use `10.1.0.0/16`, which provides 65,543 IP addresses for Cloud Shell instances.                                          |
@@ -198,7 +202,7 @@ Fill out the form with the following information:
 |        Instance details        |                                              Value                                               |
 | ------------------------------ | ------------------------------------------------------------------------------------------------ |
 | Region                         | Prefilled with your default region.<br>For this example, we're using `East US`.                  |
-| Existing virtual network Name             | For this example, we're using `vnet-cloudshell-eastus`.                                          |
+| Existing VNET Name             | For this example, we're using `vnet-cloudshell-eastus`.                                          |
 | Existing Storage Subnet Name   | Fill in the name of the resource created by the network template.                                |
 | Existing Container Subnet Name | Fill in the name of the resource created by the network template.                                |
 | Storage Account Name           | Create a name for the new storage account.<br>For this example, we're using `myvnetstorage1138`. |
