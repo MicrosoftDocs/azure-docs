@@ -323,6 +323,14 @@ To use the Dapr secret input binding, start by setting up a Dapr secret store co
 
 To use the `daprSecret` in **Python v2**, set up your project with the correct dependencies.
 
+1. [Create and activate a virtual environment](./create-first-function-cli-python.md#create-and-activate-a-virtual-environment). 
+
+1. In the terminal, install the Python library.
+
+   ```bash
+   pip install -r .\requirements.txt
+   ```
+
 1. In your `requirements.text` file, add the following line:
 
    ```txt

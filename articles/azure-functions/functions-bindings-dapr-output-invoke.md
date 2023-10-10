@@ -2,7 +2,7 @@
 title: Dapr Invoke output binding for Azure Functions
 description: Learn how to send data to a Dapr Invoke output binding during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 10/03/2023
+ms.date: 10/10/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -341,6 +341,14 @@ To use the Dapr service invocation output binding, learn more about [how to use 
 # [Python v2](#tab/v2)
 
 To use the `daprInvoke` in Python v2, set up your project with the correct dependencies.
+
+1. [Create and activate a virtual environment](./create-first-function-cli-python.md#create-and-activate-a-virtual-environment). 
+
+1. In the terminal, install the Python library.
+
+   ```bash
+   pip install -r .\requirements.txt
+   ```
 
 1. In your `requirements.text` file, add the following line:
 
