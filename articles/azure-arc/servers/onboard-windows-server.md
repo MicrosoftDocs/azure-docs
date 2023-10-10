@@ -1,37 +1,38 @@
 ---
 title: Connect Windows Server machines to Azure through Azure Arc Setup
 description: In this article, you learn how to connect Windows Server machines to Azure Arc using the built-in Windows Server Azure Arc Setup wizard.
-ms.date: 09/21/2023
+ms.date: 10/10/2023
 ms.topic: conceptual
 ---
 
 # Connect Windows Server machines to Azure through Azure Arc Setup
 
-Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Arc onboarding and fetching and installing the latest version of the Connected Machine agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Arc-enabled resource.
+Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
 
+> [!NOTE]
+> This feature only applies to Windows Server 2022 and later. It was released in the Cumulative Update of 10/10/2023.
+> 
 ## Prerequisites
 
 * Azure Arc-enabled servers - Review the [prerequisites](prerequisites.md) and verify that your subscription, your Azure account, and resources meet the requirements.
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Launch Arc Server Setup and connect to Azure Arc
+## Launch Azure Arc Server Setup and connect to Azure Arc
 
-The Azure Arc Setup wizard is launched from a system tray icon at the bottom of the Windows Server machine when the Azure Arc Setup feature is enabled. This feature is enabled by default. Alternatively, you can launch the wizard from a pop-up window in the Server Manager.
+The Azure Arc Setup wizard is launched from a system tray icon at the bottom of the Windows Server machine when the Azure Arc Setup feature is enabled. This feature is enabled by default. Alternatively, you can launch the wizard from a pop-up window in the Server Manager or from the Windows Server Start menu.
 
 1. Select the Azure Arc system tray icon, then select **Launch Azure Arc Setup**.
 
-    :::image type="content" source="media/onboard-windows-server/system-tray-icon.png" alt-text="Screenshot showing Arc system tray icon and window to launch Arc setup process.":::
+    :::image type="content" source="media/onboard-windows-server/system-tray-icon.png" alt-text="Screenshot showing Azure Arc system tray icon and window to launch Azure Arc setup process.":::
    
 1. The introduction window of the Azure Arc Setup wizard explains the benefits of onboarding your machine to Azure Arc. When you're ready to proceed, click **Next**.
 
-    :::image type="content" source="media/onboard-windows-server/get-started-with-arc.png" alt-text="Screenshot of the intro page of the wizard.":::
+    :::image type="content" source="media/onboard-windows-server/get-started-with-arc.png" alt-text="Screenshot of the Getting Started page of the wizard.":::
 
 1. The wizard automatically checks for the prerequisites necessary to install the Azure Connected Machine agent on your Windows Server machine. Once this process completes and the agent is installed, select **Configure**.
 
-1. The configuration window details the steps required to configure the agent. When you're ready to begin configuration, select **Next**.
-
-    :::image type="content" source="media/onboard-windows-server/configure-arc.png" alt-text="Screenshot of the Configure Arc window showing the configuration steps.":::
+1. The configuration window details the steps required to configure the Azure Connected Machine agent. When you're ready to begin configuration, select **Next**.
 
 1. Sign-in to Azure by selecting the applicable Azure cloud, and then selecting **Sign in to Azure**. You'll be asked to provide your sign-in credentials.
 
@@ -51,11 +52,23 @@ The Azure Arc Setup wizard is launched from a system tray icon at the bottom of 
 
 ## Viewing the connected machine
 
-The Azure Arc system tray icon at the bottom of your Windows Server machine indicates if the machine is connected to Azure Arc; a red symbol means the machine is not connected. To view a connected machine is Azure Arc, select the icon and then select **View Machine in Azure**. You can then view the machine in the [Azure portal](https://portal.azure.com/), just as you would other Arc-enabled resources.
+The Azure Arc system tray icon at the bottom of your Windows Server machine indicates if the machine is connected to Azure Arc; a red symbol means the machine does not have the Azure Connected Machine agent installed. To view a connected machine in Azure Arc, select the icon and then select **View Machine in Azure**. You can then view the machine in the [Azure portal](https://portal.azure.com/), just as you would other Azure Arc-enabled resources.
+
+:::image type="content" source="media/onboard-windows-server/view-machine.png" alt-text="Screenshot of the machine connection status window  highlighting the View Machine in Azure button.":::
+
+## Uninstalling Azure Arc Setup
+
+To uninstall Azure Arc Setup and remove the machine from Azure Arc, follow these steps:
+
+1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. See [Remove roles, role services, and features by using the remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features) for more information.
+
+1. On the Features page, uncheck the box for **Azure Arc Setup**.
+
+1. On the confirmation page, select **Restart the destination server automatically if required**, then select **Remove**.
 
 ## Next steps
 
-* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
+* Troubleshooting information can be found in the [Troubleshoot Azure Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
