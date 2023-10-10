@@ -36,19 +36,20 @@ Required: In a series of H2 sections, the article body should discuss the ideas 
 -->
 
 ## Key capabilities
+
 When you integrate Azure Firewall with Microsoft Sentinel, you enable the following capabilities:
 
-- Monitoring and visualizing Azure Firewall activities
-- Detecting threats and applying AI-assisted investigation capabilities
-- Automating response and correlation to other sources 
+- Monitor and visualize Azure Firewall activities
+- Detect threats and apply AI-assisted investigation capabilities
+- Automate responses and correlation to other sources 
 
-The whole experience is packaged as a solution in the Microsoft Sentinel marketplace, which means it can be deployed relatively easily.
+The entire experience is packaged as a solution in the Microsoft Sentinel marketplace, which means it can be deployed relatively easily.
 
 ## Deploy and enable the Azure Firewall solution for Microsoft Sentinel
 
-You can quickly deploy the solution from the Content hub. From your Microsoft Sentinel workspace, select **Analytics** and then **More content at Content hub**.  Search for and select **Azure Firewall** and select **Install**.
+You can quickly deploy the solution from the Content hub. From your Microsoft Sentinel workspace, select **Analytics** and then **More content at Content hub**.  Search for and select **Azure Firewall** and then select **Install**.
 
-Once installed, select **Manage** follow all the steps in the wizard, pass validation, and create the solution. With just a few selections all content, including connectors, detections, workbooks, and playbooks are deployed in your Microsoft Sentinel workspace.
+Once installed, select **Manage** follow all the steps in the wizard, pass validation, and create the solution. With just a few selections, all content, including connectors, detections, workbooks, and playbooks are deployed in your Microsoft Sentinel workspace.
 
 ## Monitor and visualize Azure Firewall activities
 
@@ -65,7 +66,7 @@ The workbook provides a single dashboard for ongoing monitoring of your firewall
 
 The solution’s detection rules provide Microsoft Sentinel a powerful method for analyzing Azure Firewall signals to detect traffic representing malicious activity patterns traversing through the network. This allows rapid response and remediation of the threats.
 
-The attack stages an adversary pursues within the firewall solution are segmented based on the [MITRE ATT&CK](https://attack.mitre.org/) framework. The MITRE framework is a series of steps that trace stages of a cyberattack from the early reconnaissance stages to the exfiltration of data. The framework helps defenders understand and combat ransomware, security breaches, and advanced attacks.
+The attack stages an adversary pursues within the firewall solution are segmented based on the [MITRE ATT&CK](https://attack.mitre.org/) framework. The MITRE framework is a series of steps that trace stages of a cyber attack from the early reconnaissance stages to the exfiltration of data. The framework helps defenders understand and combat ransomware, security breaches, and advanced attacks.
 
 The solution includes detections for common scenarios an adversary might use as part of the attack, spanning from the discovery stage (gaining knowledge about the system and internal network) through the command-and-control (C2) stage (communicating with compromised systems to control them) to the exfiltration stage (adversary trying to steal data from the organization).
 
@@ -99,13 +100,13 @@ Let’s look at what the fully integrated solution looks like in a real-world sc
 
 ### The attack and initial prevention by Azure Firewall
 
-A sales representative in the company has accidentally opened a phishing email and opened a PDF file containing malware. The malware immediately tried to connect to a malicious website but Azure Firewall blocks it. The firewall detected the domain using the Microsoft threat intelligence feed it consumes.
+A sales representative in the company has accidentally opened a phishing email and opened a PDF file containing malware. The malware immediately tries to connect to a malicious website but Azure Firewall blocks it. The firewall detected the domain using the Microsoft threat intelligence feed it consumes.
 
 ### The response
 
 The connection attempt triggers a detection in Azure Sentinel and starts the playbook automation process to notify the security operations team via a Teams channel. There, the analyst can block the computer from communicating with the Internet. The security operations team then notifies the IT department which removes the malware from the sales representative’s computer. However, taking the proactive approach and looking deeper, the security researcher applies the Azure Firewall hunting queries and runs the **Source IP abnormally connects to multiple destinations** query. This reveals that the malware on the infected computer tried to communicate with several other devices on the broader network and tried to access several of them. One of those access attempts succeeded, as there was no proper network segmentation to prevent the lateral movement in the network, and the new device had a known vulnerability the malware exploited to infect it.
 
-## The result
+### The result
 
 The security researcher removed the malware from the new device, completed mitigating the attack, and discovered a network weakness in the process.
 
