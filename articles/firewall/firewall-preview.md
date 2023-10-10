@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/05/2023
+ms.date: 10/10/2023
 ms.author: victorh
 ---
 
@@ -56,11 +56,11 @@ Azure Firewall predefined workbooks are two clicks away and fully available from
 
 For more information, see [Azure Firewall: New Monitoring and Logging Updates](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-new-monitoring-and-logging-updates/ba-p/3897897#:~:text=Embedded%20Firewall%20Workbooks%20are%20now%20in%20public%20preview)
 
-## Parallel IP Group updates (preview)
+### Parallel IP Group updates (preview)
 
 You can now update multiple IP Groups in parallel at the same time. This is particularly useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and PS).
 
-For more information, see [IP Groups in Azure Firewall](ip-groups.md).
+For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
 
 ## Next steps
 
