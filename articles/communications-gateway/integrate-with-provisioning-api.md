@@ -38,6 +38,8 @@ Use the *Key concepts* and *Examples* information in the API Reference to learn 
 - *Account* resources are descriptions of operator customers (typically, an enterprise), and per-customer settings for service provisioning.
 - *Number* resources belong to an account. They describe numbers, the services (for example, Microsoft Teams Direct Routing) that the numbers make use of, and any extra per-number configuration.
 
+[!INCLUDE [limits on the Provisioning API](includes/communications-gateway-provisioning-api-restrictions.md)]
+
 ## Configure your BSS client to connect to Azure Communications Gateway
 
 The Provisioning API is available on port 443 of your Azure Communications Gateway's base domain.
