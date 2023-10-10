@@ -24,7 +24,7 @@ This how-to guide shows how to call an Azure function from a logic app workflow.
 
 * You can create a function directly from inside a Consumption logic app workflow, but not from a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
 
-* Only Consumption workflows support authenticating Azure function calls using a managed identity with Azure Active Directory (Azure AD) authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
+* Only Consumption workflows support authenticating Azure function calls using a managed identity with Microsoft Entra authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
 
 * Azure Logic Apps doesn't support using Azure Functions with deployment slots enabled. Although this scenario might sometimes work, this behavior is unpredictable and might result in authorization problems when your workflow tries call the Azure function.
 
@@ -216,11 +216,11 @@ To call existing functions from your logic app workflow, you can add functions l
 
 ## Enable authentication for function calls (Consumption workflows only)
 
-Your Consumption workflow can authenticate function calls and access to resources protected by Azure Active Directory (Azure AD) by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
+Your Consumption workflow can authenticate function calls and access to resources protected by Microsoft Entra ID by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
 
 > [!NOTE]
 > 
-> Currently, only Consumption workflows support authentication for Azure function calls using a managed identity and Azure Active Directory (Azure AD) authentication. Standard workflows currently don't include this support when using the Azure Functions connector.
+> Currently, only Consumption workflows support authentication for Azure function calls using a managed identity and Microsoft Entra authentication. Standard workflows currently don't include this support when using the Azure Functions connector.
 
 For more information, review the following documentation:
 
@@ -233,7 +233,7 @@ To set up your function app and function so they can use your Consumption logic 
 
 1. [Set up your function for anonymous authentication](#set-authentication-function-app).
 
-1. [Find the required values to set up Azure AD authentication](#find-required-values).
+1. [Find the required values to set up Microsoft Entra authentication](#find-required-values).
 
 1. [Create an app registration for your function app](#create-app-registration).
 
@@ -273,12 +273,14 @@ For your function to use your Consumption logic app's managed identity, you must
 
 <a name="find-required-values"></a>
 
-### Find the required values to set up Azure AD authentication (Consumption workflows only)
+<a name='find-the-required-values-to-set-up-azure-ad-authentication-consumption-workflows-only'></a>
 
-Before you can set up your function app to use Azure AD authentication, you need to find and save the following values by following the steps in this section.
+### Find the required values to set up Microsoft Entra authentication (Consumption workflows only)
+
+Before you can set up your function app to use Microsoft Entra authentication, you need to find and save the following values by following the steps in this section.
 
 1. [Find the object (principal) ID for your logic app's managed identity](#find-object-id).
-1. [Find the tenant ID for your Azure Active Directory (Azure AD)](#find-tenant-id).
+1. [Find the tenant ID for your Microsoft Entra ID](#find-tenant-id).
 
 <a name="find-object-id"></a>
 
@@ -304,23 +306,25 @@ Before you can set up your function app to use Azure AD authentication, you need
 
 <a name="find-tenant-id"></a>
 
-#### Find the tenant ID for your Azure AD
+<a name='find-the-tenant-id-for-your-azure-ad'></a>
 
-To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
+#### Find the tenant ID for your Microsoft Entra ID
 
-1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use **Fabrikam** as the example tenant.
+To find your Microsoft Entra tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
 
-1. On the Azure AD tenant menu, under **Manage**, select **Properties**.
+1. In the [Azure portal](https://portal.azure.com), open your Microsoft Entra tenant. These steps use **Fabrikam** as the example tenant.
+
+1. On the Microsoft Entra tenant menu, under **Manage**, select **Properties**.
 
 1. Copy and save your tenant ID for later use, for example:
 
-   ![Screenshot showing your Azure AD "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
+   ![Screenshot showing your Microsoft Entra ID "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
 <a name="create-app-registration"></a>
 
 ### Create app registration for your function app (Consumption workflows only)
 
-After you find the object ID for your Consumption logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
+After you find the object ID for your Consumption logic app's managed identity and tenant ID for your Microsoft Entra ID, you can set up your function app to use Microsoft Entra authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 
@@ -336,8 +340,8 @@ After you find the object ID for your Consumption logic app's managed identity a
    |----------|----------|-------|-------------|
    | **Application (client) ID** | Yes | <*object-ID*> | The unique identifier to use for this app registration. For this scenario, use the object ID from your logic app's managed identity. |
    | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
-   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Azure-AD-tenant-ID*>/v2.0** | This URL redirects users to the correct Azure AD tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Azure-AD-tenant-ID*>** |
-   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Azure AD expects, including any required trailing slashes. |
+   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Azure-AD-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Azure-AD-tenant-ID*>** |
+   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
    |||||
 
    At this point, your version looks similar to this example:
@@ -352,7 +356,7 @@ After you find the object ID for your Consumption logic app's managed identity a
 
    When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. Your function app can now use this app registration for authentication.
 
-   For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
+   For more information, review [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
 
 1. Copy the app ID (client ID) for your function to use in the **Audience** property later in your workflow.
 
