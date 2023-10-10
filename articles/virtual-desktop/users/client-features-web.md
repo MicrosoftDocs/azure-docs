@@ -45,7 +45,7 @@ You can change the view of remote resources assigned to you between grid view (d
 
 1. In the top-right hand corner, select the **Grid View** icon or the **List View** icon. The change will take effect immediately.
 
-### Light mode and dark mode (preview)
+### Light mode and dark mode
 
 You can change between light mode (default) and dark mode. To change between light mode and dark mode:
 
