@@ -11,9 +11,9 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
 |`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
-|`login.windows.net`|Azure Active Directory|Always| Public |
-|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
-|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`login.windows.net`|Microsoft Entra ID|Always| Public |
+|`login.microsoftonline.com`|Microsoft Entra ID|Always| Public |
+|`pas.windows.net`|Microsoft Entra ID|Always| Public |
 |`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`<region>.his.arc.azure.com`, `gbl.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
