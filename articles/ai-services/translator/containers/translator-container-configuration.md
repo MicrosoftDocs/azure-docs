@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 10/10/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -93,18 +93,6 @@ The general command syntax for logging is as follows:
 ```bash
     -Logging:LogLevel:{Provider}={FilterSpecs}
 ```
-
-Log level (lowest to highest)
-
-| LogLevel | Value | Description |
-| -------- | ----- | ----------- |
-| **Trace** | 0  | Logs containing the most detailed messages. These logs may contain sensitive app data and are disabled by default. Trace logs should **_never_** be enabled in production. |
-| **Debug** | 1  | Logs used for interactive investigation during development. Use with caution in production due to the high volume output. |
-| **Information** | 2 | Logs tracking the general flow of the application.|
-| **Warning** | 3 | Logs highlighting anomalous or unexpected events during the application flow. They typically include errors or conditions that don't cause the app to fail. |
-| **Error** | 4 | Logs highlighting a failure in the current operation or request, not an application-wide failure. |
-| **Critical** | 5 | Logs describing an unrecoverable application, system crash, or catastrophic failure and require immediate attention. Examples: data loss scenarios, out of disk space. |
-| **None** | 6 | Logs specifying that a logging category shouldn't write messages. |
 
 The following command starts the Docker container with the `LogLevel` set to **Warning** and logging provider set to **Console**. This command prints anomalous or unexpected events during the application flow to the console:
 
