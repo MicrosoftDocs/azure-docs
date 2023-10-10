@@ -42,16 +42,16 @@ When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store
 > [!Note]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
 
-## Availability zones for disaster recovery
+## Using availability zones for disaster recovery
 
 Typically, customers use availability zones to deploy VMs in a high-availability configuration. Those VMs might be too close to each other to serve as a disaster recovery solution in natural disaster.
 
 However, in some scenarios, customers can use availability zones for disaster recovery:
 
-- Customers who had a metro disaster recovery strategy while hosting applications on-premises sometimes want to mimic this strategy after they migrate applications to Azure. These customers acknowledge the fact that a metro disaster recovery strategy might not work in a large-scale physical disaster and accept this risk. Such customers can use zone-to-zone disaster recovery.
+- Customers who had a metro disaster recovery strategy while hosting applications on-premises sometimes want to mimic this strategy after they migrate applications to Azure. These customers acknowledge that a metro disaster recovery strategy might not work in a large-scale physical disaster, and they accept this risk. Such customers can use zone-to-zone disaster recovery.
 - Many customers have complicated networking infrastructure and don't want to re-create it in a secondary region because of the associated cost and complexity. Zone-to-zone disaster recovery reduces complexity. It uses redundant networking concepts across availability zones to make configuration simpler. Such customers prefer simplicity and can also use availability zones for disaster recovery.
 - In some regions that don't have a paired region within the same legal jurisdiction (for example, Southeast Asia), zone-to-zone disaster recovery can serve as the disaster recovery solution. It helps ensure legal compliance, because applications and data don't move across national boundaries.
-- Zone-to-zone disaster recovery implies replication of data across shorter distances when compared with Azure-to-Azure disaster recovery. It can reduce latency and therefore reduce RPO.
+- Zone-to-zone disaster recovery implies replication of data across shorter distances when compared with Azure-to-Azure disaster recovery. It can reduce latency and therefore reduce recovery point objective (RPO).
 
 Although these are strong advantages, there's a possibility that zone-to-zone disaster recovery can fall short of resilience requirements in the event of a region-wide natural disaster.
 
@@ -106,7 +106,7 @@ Sign in to the Azure portal.
 
     :::image type="Advanced Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings.png" alt-text="Screenshot of advanced settings for disaster recovery.":::
 
-1. Select **Next: Review + Start replication**, and then select **Start replication**.
+1. Go to the **Review + Start replication** tab, and then select **Start replication**.
 
 ## FAQs
 
@@ -116,7 +116,7 @@ Pricing for zone-to-zone disaster recovery is identical to the pricing for Azure
 The egress charges in zone-to-zone disaster recovery are lower than the egress charges in region-to-region disaster recovery. For information about data transfer charges between availability zones, see the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 **What is the SLA for RTO and RPO?**
-The service-level agreement (SLA) for recovery time objective (RTO) is the same as the SLA for Site Recovery overall. We promise an RTO of up to two hours. There's no defined SLA for recovery point objective (RPO).
+The service-level agreement (SLA) for recovery time objective (RTO) is the same as the SLA for Site Recovery overall. We promise an RTO of up to two hours. There's no defined SLA for RPO.
 
 **Is capacity guaranteed in the secondary zone?**
 The Site Recovery team and the Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure that VM instances protected by Site Recovery deploy to the target zone. For more FAQs on capacity, check the [common questions about Azure-to-Azure disaster recovery](./azure-to-azure-common-questions.md#capacity).
