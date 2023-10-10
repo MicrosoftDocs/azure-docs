@@ -30,7 +30,7 @@ An Identity Protection detection is an indicator of suspicious activity from an 
 
 ## Why should I give risk feedback to Microsoft Entra ID’s risk assessments? 
 
-There are several reasons why you should give Microsoft Entra ID risk feedback:
+There are several reasons why you should give Microsoft Entra risk feedback:
 
 - **You found Microsoft Entra ID’s user or sign-in risk assessment incorrect**. For example, a sign-in shown in ‘Risky sign-ins’ report was benign and all the detections on that sign-in were false positives.
 - **You validated that Microsoft Entra ID’s user or sign-in risk assessment was correct**. For example, a sign-in shown in ‘Risky sign-ins’ report was indeed malicious and you want Microsoft Entra ID to know that all the detections on that sign-in were true positives.

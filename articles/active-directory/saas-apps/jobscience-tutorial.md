@@ -50,25 +50,10 @@ To configure the integration of Jobscience into Microsoft Entra ID, you need to 
 
 **To add Jobscience from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Microsoft Entra ID** icon. 
-
-    ![Active Directory][1]
-
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
-
-    ![Screenshot shows the Azure portal Enterprise Applications selected under Manage, with All applications selected.][2]
-    
-1. To add new application, click **New application** button on the top of dialog.
-
-    ![Screenshot shows New application selected.][3]
-
-1. In the search box, type **Jobscience**.
-
-    ![Screenshot shows Add from the gallery with jobscience entered.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
-
-1. In the results panel, select **Jobscience**, and then click **Add** button to add the application.
-
-    ![Screenshot shows the results which included Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Jobscience** in the search box.
+1. Select **Jobscience** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 <a name='-configuring-and-testing-azure-ad-single-sign-on'></a>
 
@@ -205,11 +190,7 @@ The objective of this section is to create a test user called Britta Simon.
 
 **To create a test user in Microsoft Entra ID, perform the following steps:**
 
-1. In the **Azure portal**, on the left navigation pane, click **Microsoft Entra ID** icon.
-
-    ![Screenshot shows the Microsoft Entra icon.](./media/jobscience-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
+1. In the Microsoft Entra admin center, navigate to **Identity** > **Users** > **All users**.
     
     ![Screenshot shows Users and groups selected from the Manage menu, with All users selected.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
