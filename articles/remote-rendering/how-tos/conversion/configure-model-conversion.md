@@ -127,7 +127,7 @@ The rendering engine expects color values to be in linear space. If a model is d
 
 * `sceneGraphMode`: Defines how the scene graph in the source file is converted.
   * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed and reparented arbitrarily. At runtime, the node hierarchy is identical to the structure in the source file.
-  * `static`: Similar to `dynamic`, but objects in the scene graph can't be reparented to other objects dynamically at runtime. For dynamic models that have many moving parts, such as the explosion view model, the `dynamic` option generates a model that is more efficient to render, but `static` mode still allows for individual part transforms. If dynamic reparenting isn't required, the `static` option is the most suitable for models that have many individual parts.
+  * `static`: Similar to `dynamic`, but objects in the scene graph can't be reparented to other objects dynamically at runtime. For dynamic models that have many moving parts, such as the explosion view, the `dynamic` option generates a model that is more efficient to render, but `static` mode still allows for individual part transforms. If dynamic reparenting isn't required, the `static` option is the most suitable for models that have many individual parts.
   * `none`: The scene graph is collapsed into one object.
 
 Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it's necessary to move many parts or large subgraphs simultaneously. An example is explosion view animation.
@@ -161,7 +161,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
     For GLTF files, this data comes from the [extras object on nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). For FBX files, this data comes from the `Properties70` data on `Model nodes`. For more information, see the documentation for your 3D Asset Tool.
 
-When loading a model with meta data enabled, a specific entity's list of meta data entries can be retrieved through the [asynchronous QueryMetadataAsync function](../../concepts/entities#querying-metadata)
+When loading a model with meta data enabled, a specific entity's list of meta data entries can be retrieved through the [asynchronous QueryMetadataAsync function](../../concepts/entities#querying-metadata).
 
 ### Vertex format
 
@@ -202,7 +202,7 @@ The following table describes formats that are allowed for respective components
 
 | Vertex component | Supported formats | Usage in materials |
 |:-----------------|:------------------|:------------------|
-|`position`| `32_32_32_FLOAT` (*default*), `16_16_16_16_FLOAT` | Vertex position, must always be present. |
+|`position`| `32_32_32_FLOAT` (*default*), `16_16_16_16_FLOAT` | Vertex position. Must always be present. |
 |`color0`| `8_8_8_8_UNSIGNED_NORMALIZED` (*default*), `NONE` | Vertex colors. See `useVertexColor` property both in [color materials](../../overview/features/color-materials.md) and [PBR materials](../../overview/features/pbr-materials.md), and `vertexMix` in [color materials](../../overview/features/color-materials.md). |
 |`color1`| `8_8_8_8_UNSIGNED_NORMALIZED`, `NONE` (*default*)| Unused. Leave as default `NONE`. |
 |`normal`| `8_8_8_8_SIGNED_NORMALIZED` (*default*), `16_16_16_16_FLOAT`, `NONE` | Used for lighting in [PBR materials](../../overview/features/pbr-materials.md). |
@@ -293,7 +293,7 @@ As discussed in [Best practices for component format changes](configure-model-co
 ### Texture sizes
 
 Depending on the type of scenario, the amount of texture data might outweigh the memory that's used for mesh data. Photogrammetry models are candidates.
-The conversion configuration doesn't provide a way to automatically scale down textures. If necessary, texture scaling must be done as a client-side pre-processing step. But the conversion step does choose a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+The conversion configuration doesn't provide a way to automatically scale down textures. If necessary, texture scaling must be done as a client-side preprocessing step. But the conversion step does choose a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
 * BC1 file format for opaque color textures
 * BC7 file format for source color textures with alpha channel
