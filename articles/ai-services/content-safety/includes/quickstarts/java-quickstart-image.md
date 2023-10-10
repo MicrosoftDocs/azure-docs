@@ -79,11 +79,10 @@ dependencies {
 Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace the `source` variable with the path to your sample image.
 
 ```java
-package com.azure.ai.contentsafety;
-
 import com.azure.ai.contentsafety.models.AnalyzeImageOptions;
 import com.azure.ai.contentsafety.models.AnalyzeImageResult;
 import com.azure.ai.contentsafety.models.ImageData;
+import com.azure.ai.contentsafety.*;
 import com.azure.core.credential.KeyCredential;
 import com.azure.core.util.Configuration;
 
@@ -135,5 +134,8 @@ gradle run
 ## Output
 
 ```console
-tbd
+Hate severity: 0
+SelfHarm severity: 0
+Sexual severity: 0
+Violence severity: 0
 ```

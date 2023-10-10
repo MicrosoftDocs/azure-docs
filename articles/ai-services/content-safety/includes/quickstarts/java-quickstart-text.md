@@ -79,14 +79,13 @@ dependencies {
 Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace `<your text sample>` with the text content you'd like to use.
 
 ```Java
-package com.azure.ai.contentsafety;
-
 import com.azure.ai.contentsafety.models.AnalyzeTextOptions;
 import com.azure.ai.contentsafety.models.AnalyzeTextResult;
+import com.azure.ai.contentsafety.*;
 import com.azure.core.credential.KeyCredential;
 import com.azure.core.util.Configuration;
 
-public class AnalyzeText {
+public class ContentSafetyQuickstart {
     public static void main(String[] args) {
 
         // get endpoint and key from environment variables
@@ -122,5 +121,8 @@ gradle run
 ## Output
 
 ```console
-tbd
+Hate severity: 0
+SelfHarm severity: 0
+Sexual severity: 0
+Violence severity: 0
 ```
