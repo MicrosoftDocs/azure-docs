@@ -73,10 +73,13 @@ Collect all the values in the following table to define the packet core instance
 
 ## Collect UE usage tracking values
 
-If you want to configure UE usage tracking for your site, collect all the values in the following table to define the packet core instances's associated Event Hub.
+If you want to configure UE usage tracking for your site, collect all the values in the following table to define the packet core instance's associated Event Hubs instance.
 
 > [!NOTE]
-> You must already have an [Azure Event Hub](/azure/event-hubs) with an associated user assigned managed identity with the **Resource Policy Contributor** role before you can collect the information in the following table.
+> You must already have an [Azure Event Hubs instance](/azure/event-hubs) with an associated user assigned managed identity with the **Resource Policy Contributor** role before you can collect the information in the following table.
+
+> [!NOTE]
+> Azure Private 5G Core does not support Event Hubs with a [log compaction delete cleanup policy](/azure/event-hubs/log-compaction?source=recommendations).
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
