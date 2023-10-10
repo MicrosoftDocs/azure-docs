@@ -1218,9 +1218,9 @@ To successfully deploy your application by using Azure Resource Manager, it's im
 
 Zip deployment is a recommended way to deploy your function app code. By default, functions that use zip deployment run in the deployment package itself. For more information, see [Zip deployment for Azure Functions](deployment-zip-push.md). When using resource deployment automation, you can reference the .zip deployment package in your Bicep or ARM template. 
 :::zone-end 
-:::zone pivot="consumption-plan" 
->![IMPORTANT]  
->Consumption plans on Linux don't support `WEBSITE_RUN_FROM_PACKAGE = 1`. You must instead set the URI of the deployment package directly in the `WEBSITE_RUN_FROM_PACKAGE` setting. For more information, see [WEBSITE\_RUN\_FROM\_PACKAGE](functions-app-settings.md#website_run_from_package).
+:::zone pivot="consumption-plan"  
+>[!IMPORTANT]  
+>Consumption plans on Linux don't support `WEBSITE_RUN_FROM_PACKAGE = 1`. You must instead set the URI of the deployment package directly in the `WEBSITE_RUN_FROM_PACKAGE` setting. For more information, see [WEBSITE\_RUN\_FROM\_PACKAGE](functions-app-settings.md#website_run_from_package).  
 :::zone-end  
 :::zone pivot="dedicated-plan,premium-plan,consumption-plan" 
 To use zip deployment in your template, set the `WEBSITE_RUN_FROM_PACKAGE` setting in the app to `1` and include the `/zipDeploy` resource definition. 
@@ -1291,7 +1291,7 @@ resource functionAppName_ZipDeploy 'Microsoft.Web/sites/extensions@2021-02-01' =
 
 The `packageUri` must be a location that can be accessed by Functions. Consider using Azure blob storage with a shared access signature (SAS).
 
->![IMPORTANT]  
+>[!IMPORTANT]  
 >Make sure to always set all required application settings in the `appSettings` collection when adding or updating settings. Existing settings not explicitly set are removed.
 
 ### Source control deployment 
@@ -1425,14 +1425,7 @@ resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
 :::zone pivot="dedicated-plan,premium-plan"
 ### Container deployment
 
-If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. You also need to set these application settings:
-
-| Setting | Value | Description |
-|----|----|----|
-| [`DOCKER_REGISTRY_SERVER_URL`](../app-service/reference-app-settings.md#custom-containers) | Container service URL | Use with a private container registry service, like Azure Container Registry. |
-| [`DOCKER_REGISTRY_SERVER_USERNAME](../app-service/reference-app-settings.md#custom-containers) | username | Username of the private container registry service account. |
-| [`DOCKER_REGISTRY_SERVER_PASSWORD`](../app-service/reference-app-settings.md#custom-containers) | password | Password for the private container registry service account. |
- [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) | `false` | Don't use the root since your app content is provided in the container itself. |
+If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. You also need to set [additional application settings](#application-configuration) (`DOCKER_REGISTRY_SERVER_*`)when obtaining the container from a private registry. 
 
 #### [Bicep](#tab/bicep)
 
@@ -1548,6 +1541,92 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ---
 
 ::: zone-end
+:::zone pivot="container-apps"
+When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), you must set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. You must also set the `managedEnvironmentId` site property to the fully-qualified URI of the Container Apps environment. If you are creating a `Microsoft.App/managedEnvironments` resource at the same time as the site, make sure to include this resources in the `dependsOn` collection in the site definition. 
+
+The definition of a containerized function app deployed from a private container registry might look like this example:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
+  name: functionAppName
+  kind: 'functionapp,linux,container,azurecontainerapps'
+  location: location
+  extendedLocation: {
+    name: customLocationId
+  }
+  properties: {
+    serverFarmId: hostingPlanName
+    siteConfig: {
+      linuxFxVersion: 'DOCKER|myacr.azurecr.io/myimage:mytag'
+      appSettings: [
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        }
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: applicationInsightsName.properties.InstrumentationKey
+        }
+      ]
+    }
+    managedEnvironmentId: managedEnvironmentId
+  }
+  dependsOn: [
+    storageAccount
+    hostingPlan
+  ]
+}
+```
+
+#### [JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2022-03-01",
+    "name": "[parameters('functionAppName')]",
+    "kind": "functionapp,linux,container,azurecontainerapps",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
+      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    ],
+    "properties": {
+      "serverFarmId": "[parameters('hostingPlanName')]",
+      "siteConfig": {
+        "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag",
+        "appSettings": [
+          {
+            "name": "FUNCTIONS_EXTENSION_VERSION",
+            "value": "~4"
+          },
+          {
+            "name": "AzureWebJobsStorage",
+            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
+          },
+          {
+            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+          }
+        ],
+      },
+      "managedEnvironmentId": "[parameters('managedEnvironmentId')]"
+    }
+  }
+]
+```
+
+---
+
+::: zone-end
 :::zone pivot="azure-arc"
 When deploying functions to Azure Arc, the value you set for the `kind` field of the function app resource depends on the type of deployment:
 
@@ -1558,7 +1637,7 @@ When deploying functions to Azure Arc, the value you set for the `kind` field of
 
 You must also set the `customLocationId` as you did for the [hosting plan resource](#hosting-plan).
 
-The definition of a containerized .NET 6.0 function app might look like this example:
+The definition of a containerized function app, using a .NET 6 quickstart image, might look like this example:
 
 #### [Bicep](#tab/bicep)
 
@@ -1573,7 +1652,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   properties: {
     serverFarmId: hostingPlanName
     siteConfig: {
-      linuxFxVersion: 'DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart'
+      linuxFxVersion: 'DOCKER|mcr.microsoft.com/azure-functions/4-dotnet-isolated6.0-appservice-quickstart'
       appSettings: [
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
@@ -1619,7 +1698,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
     "properties": {
       "serverFarmId": "[parameters('hostingPlanName')]",
       "siteConfig": {
-        "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
+        "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/4-dotnet-isolated6.0-appservice-quickstart",
         "appSettings": [
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -1674,6 +1753,17 @@ The following application settings are required for a given operating system and
 :::zone pivot="dedicated-plan,premium-plan"  
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
 ::: zone-end  
+:::zone pivot="dedicated-plan,premium-plan,azure-arc,container-apps"  
+These settings are only required when deploying from a private container registry:
+
++ [`DOCKER_REGISTRY_SERVER_URL`](../app-service/reference-app-settings.md#custom-containers) 
+
++ [`DOCKER_REGISTRY_SERVER_USERNAME](../app-service/reference-app-settings.md#custom-containers) 
+
++ [`DOCKER_REGISTRY_SERVER_PASSWORD`](../app-service/reference-app-settings.md#custom-containers) 
+
+For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
+::: zone-end 
 
 <sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.  
 <sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
@@ -1720,7 +1810,7 @@ The following site settings might be required on the `siteConfig` property:
 ### [Windows](#tab/windows)
 
 + [`alwaysOn`](functions-app-settings.md#alwayson)
-+ [`netFrameworkVersion](functions-app-settings.md#netframeworkversion)<sup>*</sup>
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
 
 ---
 
