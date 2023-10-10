@@ -19,7 +19,7 @@ In Azure Cognitive Search, if you added vector fields to a search index, this ar
 
 > [!div class="checklist"]
 > + [Query vector fields](#vector-query-request).
-> + [Filter a vector query](#Vector-query-with-filter)
+> + [Filter a vector query](#vector-query-with-filter)
 > + [Query multiple vector fields at once](#multiple-vector-fields).
 > + [Run multiple vector queries in parallel](#multiple-vector-queries).
 

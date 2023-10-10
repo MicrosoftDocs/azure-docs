@@ -10,12 +10,14 @@ ms.topic: quickstart
 ms.date: 10/10/2023
 ---
 
-# Quickstart: Use preview REST APIs for vector search queries
+# Quickstart: Vector search using REST APIs
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. Search indexes now support vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
+Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. 
+
+Search indexes now support vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
 > [!NOTE]
 > This quickstart has been updated to use the fictitious hotels sample data set. Looking for the previous quickstart that used Azure product descriptions? See this [Postman collection](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection) and review the example queries in [Create a hybrid query](hybrid-search-how-to-query.md)
@@ -26,13 +28,13 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
++ Azure Cognitive Search, in any region and on any tier.   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-  Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
+  To also use [semantic search](semantic-search-overview.md), as shown in the last example, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
 
 + [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-07-01-preview** API version of Azure Cognitive Search.
 
-+ Optional. To use the **Generate Embedding** request, you need [Azure OpenAI](https://aka.ms/oai/access) with a deployment of **text-embedding-ada-002**. For this request, provide your Azure OpenAI endpoint, key, model deployment name, and API version in the collection variables.
++ Optional. To use the **Generate Embedding** request in the Postman collection, you need [Azure OpenAI](https://aka.ms/oai/access) with a deployment of **text-embedding-ada-002**. For this request only, provide your Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
 
 ## About the sample data and queries
 
@@ -42,7 +44,9 @@ Sample data consists of text and vector descriptions for seven fictitious hotels
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated separately and copied into the "Upload Documents" request and into the query requests.
 
-  For queries, we used the **Generate Embedding** request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, the following parameters were used: 
+  For queries, we used the **Generate Embedding** request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. 
+
+  For this quickstart, the following parameters were used: 
   
   + Model name: **text-embedding-ada-002**
   + Model version: **2**
@@ -52,9 +56,9 @@ Sample data consists of text and vector descriptions for seven fictitious hotels
 
 If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md) for instructions on how to import collections and set variables.
 
-1. [Fork or clone the repository](https://github.com/Azure/cognitive-search-vector-pr).
+1. [Fork or clone the azure-search-postman-samples repository](https://github.com/Azure-Samples/azure-search-postman-samples).
 
-1. Start Postman and import the collection `Vector Search QuickStart.postman_collection v1.0.json`.
+1. Start Postman and import the collection `AzureSearchQuickstartVectors.postman_collection.json`.
 
 1. Right-click the collection name and select **Edit** to set the collection's variables to valid values for Azure Cognitive Search and Azure OpenAI.
 
@@ -92,32 +96,50 @@ api-key: {{admin-api-key}}
     "fields": [
         {
             "name": "HotelId", "type": "Edm.String",
-            "searchable": false, "filterable": true, "retrievable": true, "sortable": false, "facetable": false,
+            "searchable": false, 
+            "filterable": true, 
+            "retrievable": true, 
+            "sortable": false, 
+            "facetable": false,
             "key": true
         },
         {
             "name": "HotelName", "type": "Edm.String",
-            "searchable": true, "filterable": false, "retrievable": true, "sortable": true, "facetable": false
+            "searchable": true, 
+            "filterable": false, 
+            "retrievable": true, 
+            "sortable": true, 
+            "facetable": false
         },
         {
             "name": "HotelNameVector", "type": "Collection(Edm.Single)",
-            "searchable": true, "retrievable": true,
+            "searchable": true, 
+            "retrievable": true,
             "dimensions": 1536,
             "vectorSearchConfiguration": "my-vector-config"
         },
         {
             "name": "Description", "type": "Edm.String",
-            "searchable": true, "filterable": false, "retrievable": true, "sortable": false, "facetable": false
+            "searchable": true, 
+            "filterable": false, 
+            "retrievable": true, 
+            "sortable": false, 
+            "facetable": false
         },
         {
             "name": "DescriptionVector", "type": "Collection(Edm.Single)",
-            "searchable": true, "retrievable": true,
+            "searchable": true, 
+            "retrievable": true,
             "dimensions": 1536,
             "vectorSearchConfiguration": "my-vector-config"
         },
         {
             "name": "Category", "type": "Edm.String",
-            "searchable": true, "filterable": true, "retrievable": true, "sortable": true, "facetable": true
+            "searchable": true, 
+            "filterable": true, 
+            "retrievable": true, 
+            "sortable": true, 
+            "facetable": true
         },
         {
             "name": "Address", "type": "Edm.ComplexType",
@@ -135,7 +157,11 @@ api-key: {{admin-api-key}}
         {
             "name": "Location",
             "type": "Edm.GeographyPoint",
-            "searchable": false, "filterable": true, "retrievable": true, "sortable": true, "facetable": false
+            "searchable": false, 
+            "filterable": true, 
+            "retrievable": true, 
+            "sortable": true, 
+            "facetable": false
         }
     ],
     "vectorSearch": {
@@ -203,7 +229,8 @@ api-key: {{admin-api-key}}
             "HotelId": "1",
             "HotelName": "Secret Point Motel",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York.",
+            "Description": "The hotel is ideally located on the main commercial artery of the city 
+                in the heart of New York.",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Boutique",
             "Tags": [
@@ -217,7 +244,10 @@ api-key: {{admin-api-key}}
             "HotelId": "2",
             "HotelName": "Twin Dome Hotel",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+            "Description": "The hotel is situated in a  nineteenth century plaza, which has been 
+                expanded and renovated to the highest architectural standards to create a modern, 
+                functional and first-class hotel in which art and unique historical elements 
+                coexist with the most modern comforts.",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Boutique",
             "Tags": [
@@ -232,7 +262,8 @@ api-key: {{admin-api-key}}
             "HotelId": "3",
             "HotelName": "Triple Landscape Hotel",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+            "Description": "The Hotel stands out for its gastronomic excellence under the management of 
+                William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Resort and Spa",
             "Tags": [
@@ -246,7 +277,11 @@ api-key: {{admin-api-key}}
             "HotelId": "4",
             "HotelName": "Sublime Cliff Hotel",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+            "Description": "Sublime Cliff Hotel is located in the heart of the historic center of 
+                Sublime in an extremely vibrant and lively area within short walking distance to 
+                the sites and landmarks of the city and is surrounded by the extraordinary beauty 
+                of churches, buildings, shops and monuments. 
+                Sublime Cliff is part of a lovingly restored 1800 palace.",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Boutique",
             "Tags": [
@@ -260,7 +295,8 @@ api-key: {{admin-api-key}}
             "HotelId": "13",
             "HotelName": "Historic Lion Resort",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "Unmatched Luxury.  Visit our downtown hotel to indulge in luxury accommodations. Moments from the stadium, we feature the best in comfort",
+            "Description": "Unmatched Luxury.  Visit our downtown hotel to indulge in luxury 
+                accommodations. Moments from the stadium, we feature the best in comfort",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Resort and Spa",
             "Tags": [
@@ -274,7 +310,10 @@ api-key: {{admin-api-key}}
             "HotelId": "48",
             "HotelName": "Nordick's Hotel",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "Only 90 miles (about 2 hours) from the nation's capital and nearby most everything the historic valley has to offer.  Hiking? Wine Tasting? Exploring the caverns?  It's all nearby and we have specially priced packages to help make our B&B your home base for fun while visiting the valley.",
+            "Description": "Only 90 miles (about 2 hours) from the nation's capital and nearby 
+                most everything the historic valley has to offer.  Hiking? Wine Tasting? Exploring 
+                the caverns?  It's all nearby and we have specially priced packages to help make 
+                our B&B your home base for fun while visiting the valley.",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Boutique",
             "Tags": [
@@ -288,7 +327,8 @@ api-key: {{admin-api-key}}
             "HotelId": "49",
             "HotelName": "Old Carrabelle Hotel",
             "HotelNameVector": VECTOR OMITTED,
-            "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking access to shopping, dining, entertainment and the city center.",
+            "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking 
+                access to shopping, dining, entertainment and the city center.",
             "DescriptionVector": VECTOR OMITTED,
             "Category": "Luxury",
             "Tags": [
@@ -320,8 +360,8 @@ There are several queries to demonstrate various patterns.
 
 The queries in this section are based on two strings:
 
-+ search string: "historic hotel walk to restaurants and shopping"
-+ vector query string (vectorized into a mathematical representation): "classic lodging near running trails, eateries, retail"
++ search string: *"historic hotel walk to restaurants and shopping"*
++ vector query string (vectorized into a mathematical representation): *"classic lodging near running trails, eateries, retail"*
 
 The vector query string is semantically similar to the search string, but has terms that don't exist in the search index. If you do a keyword search for "classic lodging near running trails, eateries, retail" in a search string, results are zero.
 
@@ -329,7 +369,7 @@ The vector query string is semantically similar to the search string, but has te
 
 In this vector query, which is shortened for brevity, the `"value"` contains the vectorized text of the query input, `"fields"` determines which vector fields are searched, and `"k"` specifies the number of nearest neighbors to return.
 
-The vector query string is "classic lodging near running trails, eateries, retail" - vectorized into 1536 embeddings for this query.
+The vector query string is *"classic lodging near running trails, eateries, retail"* - vectorized into 1536 embeddings for this query.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -463,8 +503,8 @@ Response for the same vector query, with a post-processing filter, returns three
 
 Hybrid search consists of keyword queries and vector queries in a single search request. This example runs the vector query and full text search concurrently:
 
-+ search string: "historic hotel walk to restaurants and shopping"
-+ vector query string (vectorized into a mathematical representation): "classic lodging near running trails, eateries, retail"
++ search string: *"historic hotel walk to restaurants and shopping"*
++ vector query string (vectorized into a mathematical representation): *"classic lodging near running trails, eateries, retail"*
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -487,7 +527,8 @@ api-key: {{admin-api-key}}
 
 Because this is a hybrid query, results are RRF-ranked. RRF evaluates search scores from various search results, takes the inverse, and then merges and sorts the combined results. The `top` number of results are returned.
 
-```{
+```http
+{
     "@odata.count": 7,
     "value": [
         {
