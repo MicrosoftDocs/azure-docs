@@ -49,7 +49,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 2. Select **All groups** > **Groups**, and then select **General** settings.
 
  > [!NOTE]
- > This setting only restricts access of group information in **My Groups**. It does not restrict access to group information via other methods like Microsoft Graph API calls or the Microsoft Entra Admin Center
+ > This setting only restricts access of group information in **My Groups**. It does not restrict access to group information via other methods like Microsoft Graph API calls or the Microsoft Entra admin center.
 
  ![Microsoft Entra groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
    > [!NOTE]
