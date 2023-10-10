@@ -572,7 +572,7 @@ If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the de
 
 To create Flux configurations in [AKS clusters with workload identity enabled](/azure/aks/workload-identity-deploy-cluster), you must modify the flux extension.
 
-1. Retrive the [OIDC issuer URL](#retrieve-the-oidc-issuer-url) for your cluster.
+1. Retrive the [OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) for your cluster.
 1. Create a [managed identity](/azure/aks/workload-identity-deploy-cluster#create-a-managed-identity) and note its client ID.
 1. Create the flux extension on the cluster, using the following command:
 
