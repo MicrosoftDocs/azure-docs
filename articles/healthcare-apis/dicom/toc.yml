@@ -10,8 +10,6 @@ items:
     href: dicom-extended-query-tags-overview.md
   - name: Change feed overview
     href: dicom-change-feed-overview.md
-  - name: DICOMcast overview
-    href: dicom-cast-overview.md
   - name: DICOMweb standard APIs
     href: dicomweb-standard-apis-with-dicom-services.md 
 - name: Quickstarts
