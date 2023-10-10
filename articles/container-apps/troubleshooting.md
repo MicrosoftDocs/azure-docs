@@ -560,7 +560,7 @@ If **Revision Mode** is set to `Multiple`, verify you are not routing any traffi
 
 ::: zone-end
 
-::: zone-pivot="console"
+::: zone pivot="console"
 
 Use the [`az containerapp show`](/cli/azure/containerapp#az-containerapp-show(containerapp)) command to view the revision mode and traffic routing settings for your container app.
 
