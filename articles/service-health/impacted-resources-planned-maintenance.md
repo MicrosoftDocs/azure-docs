@@ -53,7 +53,7 @@ Customers can filter on the results using the below filters
 
 The list of impacted resources can be exported to an excel file by clicking on this option.
 
-:::image type="content" source="./media/impacted-resource-maintenance/ir-csv.PNG" alt-text="Screenshot of export to csv button.":::
+:::image type="content" source="./media/impacted-resource-maintenance/details-csv.PNG" alt-text="Screenshot of export to csv button.":::
 
 ## Next steps
 - [Introduction to the Azure Service Health dashboard](service-health-overview.md)
