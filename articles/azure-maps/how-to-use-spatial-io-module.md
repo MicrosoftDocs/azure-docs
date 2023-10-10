@@ -148,57 +148,57 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
     ```html
     ﻿<!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
         <title>Spatial IO Module Example</title>
-    
+
         <meta charset="utf-8">
-    
+
         <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
-    
+
         <!-- Ensures the web page looks good on all screen sizes. -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
-    
+
         <!-- Add reference to the Azure Maps Spatial IO module. -->
         <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
-    
+
         <script type='text/javascript'>
             var map, datasource, layer;
-    
+
             function GetMap() {
                 //Initialize a map instance.
                 map = new atlas.Map('myMap', {
                     view: 'Auto',
-    
+
                     //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
                     authOptions: {
                         authType: 'subscriptionKey',
                         subscriptionKey: '<Your Azure Maps Key>'
                     }
                 });
-    
+
                 //Wait until the map resources are ready.
                 map.events.add('ready', function() {
-    
+
                     //Create a data source and add it to the map.
                     datasource = new atlas.source.DataSource();
                     map.sources.add(datasource);
-    
+
                     //Add a simple data layer for rendering the data.
                     layer = new atlas.layer.SimpleDataLayer(datasource);
                     map.layers.add(layer);
-    
+
                     //Read an XML file from a URL or pass in a raw XML string.
                     atlas.io.read('superCoolKmlFile.xml').then(r => {
                         if (r) {
                             //Add the feature data to the data source.
                             datasource.add(r);
-    
+
                             //If bounding box information is known for data, set the map view to it.
                             if (r.bbox) {
                                 map.setCamera({
