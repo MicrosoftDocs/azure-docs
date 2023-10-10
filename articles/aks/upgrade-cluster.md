@@ -223,9 +223,7 @@ default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surg
 ...
 ```
 
-## Stop cluster upgrades automatically on API breaking changes (Preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Stop cluster upgrades automatically on API breaking changes
 
 To stay within a supported Kubernetes version, you usually have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and CSI. It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
 
@@ -235,8 +233,6 @@ All of the following criteria must be met in order for the stop to occur:
 
 * The upgrade operation is a Kubernetes minor version change for the cluster control plane.
 * The Kubernetes version you're upgrading to is 1.26 or later
-* If performed via REST, the upgrade operation uses a preview API version of `2023-01-02-preview` or later.
-* If performed via Azure CLI, the `aks-preview` CLI extension 0.5.154 or later must be installed.
 * The last seen usage of deprecated APIs for the targeted version you're upgrading to must occur within 12 hours before the upgrade operation. AKS records usage hourly, so any usage of deprecated APIs within one hour isn't guaranteed to appear in the detection.
 * Even API usage that is actually watching for deprecated resources is covered here. Look at the [Verb][k8s-api] for the distinction.
 
@@ -271,7 +267,7 @@ You can also check past API usage by enabling [Container Insights][container-ins
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
+> This method requires you to use the Azure CLI version 2.53 or `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
 
 Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command, specifying `enable-force-upgrade`, and setting the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
