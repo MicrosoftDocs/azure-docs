@@ -52,3 +52,5 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 
    [![Screenshot that shows the experiment designer screen, with the edit button within the NSG fault highlighted.](images/tutorial-aad-outage-edit-fault.png)](images/tutorial-aad-outage-edit-fault.png#lightbox)
 1. Review fault parameters and select **Next: Target resources**.
+
+   [![Screenshot that shows the fault parameters pane, with the target resources button highlighted.](images/tutorial-aad-outage-fault-params.png)](images/tutorial-aad-outage-fault-params.png#lightbox)
