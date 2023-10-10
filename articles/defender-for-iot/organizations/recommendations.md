@@ -21,6 +21,9 @@ View all current recommendations for your organization on the Defender for IoT *
 
 The **Active recommendations** widget indicates the number of recommendations that represent actionable steps you can currently take on unhealthy devices. We recommend reviewing unhealthy devices regularly, taking recommended actions, and keeping the number of active recommendations as low as possible.
 
+> [!NOTE]
+> Only **relevant** recommendations for your network are shown. 
+
 Recommendations are shown in a grid with details in the following columns:
 
 |Column name  |Description  |
@@ -40,7 +43,7 @@ To export a CSV file of all recommendations for your network, select :::image ty
 
 ## View recommendation details
 
-Select a specific recommendation in the grid to drill down for more details. The recommendation name is shown as the page's title, with details with the recommendation's severity, number of unhealthy devices detected, and last update date and time in widgets on the left.
+Select a specific recommendation in the grid to drill down for more details. The recommendation name is shown as the page's title. Details with the recommendation's severity, number of unhealthy devices detected, and last update date and time in widgets on the left.
 
 The left pane also shows the following information:
 
@@ -63,7 +66,7 @@ On a device details page, select the **Recommendations** tab to view a list of s
 
 For example:
 
-:::image type="content" source="media/recommendations/recommendations-device-details.png" alt-text="Screenshot of the Recommendations tab on a device details page." lightbox="media/recommendations/recommendations-device-details.png":::
+:::image type="content" source="media/recommendations/recommendations-device-details1.png" alt-text="Screenshot of the Recommendations tab on a device details page." lightbox="media/recommendations/recommendations-device-details1.png":::
 
 ## Supported security recommendations
 
@@ -74,13 +77,13 @@ The following recommendations are displayed for devices detected by OT and Enter
 | **OT network sensors** | |
 |**Review PLC operating mode**     | Devices with this recommendation are found with PLCs set to unsecure operating mode states. <br><br>We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.        |
 |**Review unauthorized devices**     | Devices with this recommendation must be identified and authorized as part of the network baseline. <br><br>We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.        |
-| **Secure your vulnerable devices** | Devices with this recommendation are found with one or more vulnerabilities with a critical severity. <br><br> We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency). <br><br> To see required remediation steps: <br><br> 1. Choose a device from the list of unhealthy devices to see its full list of vulnerabilities. <br> 2. From the **Vulnerabilities** tab, choose the link in the **Name** column for the critical CVE you are mitigating. Full details are opened in the NVD (National Vulnerability Database). <br> 3. Scroll to the NVD **References to Advisories, Solutions, and Tools** section and choose any of the listed links for more information. An advisory page opens, either from the vendor or from CISA. <br> 4. Find and perform the remediation steps listed for your scenario. Note that some vulnerabilities cannot be remediated with a patch.  |
+| **Secure your vulnerable \<vendor> devices** | Devices with this recommendation are found with one or more vulnerabilities with a critical severity and are organized by vendor. <br><br> We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency). <br><br> To see required remediation steps: <br><br> 1. Choose a device from the list of unhealthy devices to see its full list of vulnerabilities. <br> 2. From the **Vulnerabilities** tab, choose the link in the **Name** column for the critical CVE you're mitigating. Full details are opened in the NVD (National Vulnerability Database). <br> 3. Scroll to the NVD **References to Advisories, Solutions, and Tools** section and choose any of the listed links for more information. An advisory page opens, either from the vendor or from CISA. <br> 4. Find and perform the remediation steps listed for your scenario. Some vulnerabilities can't be remediated with a patch.  |
 | **Set a secure password for devices with missing authentication** | Devices with this recommendation are found without authentication based on successful sign-ins. <br><br> We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity. |
-| **Set a stronger password with minimum length and complexity** | Devices with this recommendation are found with weak passwords based on successful sign-ins. <br><br> We recommend that you change the device password to a password that has 8 or more characters and that contains characters from 3 of the following categories: <br><br> - Uppercase letters <br> - Lowercase letters <br> - Special characters <br> - Numbers (0-9) |
+| **Set a stronger password with minimum length and complexity** | Devices with this recommendation are found with weak passwords based on successful sign-ins. <br><br> We recommend that you change the device password to a password that has eight or more characters and that contains characters from three of the following categories: <br><br> - Uppercase letters <br> - Lowercase letters <br> - Special characters <br> - Numbers (0-9) |
 | **Enterprise IoT network sensors** | |
 | **Disable insecure administration protocol**| Devices with this recommendation are exposed to malicious threats because they use Telnet, which isn't a secured and encrypted communication protocol. <br><br>We recommend that you switch to a more secure protocol, such as SSH, disable the server altogether, or apply network access restrictions.|
 
-Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
+Other recommendations you might see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
 
 ## Next steps
 
