@@ -400,7 +400,7 @@ items:
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
-    - name: Use Azure AD Authentication
+    - name: Use Microsoft Entra authentication
       href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Resources
   items: 
