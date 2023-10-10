@@ -105,7 +105,6 @@ The following are the current limitations and known issues with PowerShell runbo
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from `Az.Automation` module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference isn't supported in PowerShell 7 runtime.
   **Workaround**: Explicitly set the preference at the start of the runbook as following -
-
   ```
       $VerbosePreference = "Continue"
 
