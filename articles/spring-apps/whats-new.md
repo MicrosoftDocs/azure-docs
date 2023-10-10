@@ -21,7 +21,7 @@ This article is updated quarterly, so revisit it regularly. You can also visit [
 ## Q3 2023
 The following update is now available in the Consumption plan:
 
-- **JHipster Azure Spring Apps**: With the collaboration between the [JHipster](https://www.jhipster.tech/azure/) and Azure Spring Apps teams, Jhipster Azure Spring Apps is designed to streamline your full-stack Spring application development from end to end. [Learn More](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-and-deploy-your-full-stack-spring-app-with-jhipster-azure/ba-p/3923268).
+- **JHipster Azure Spring Apps**: With the collaboration between the [JHipster](https://www.jhipster.tech/azure/) and Azure Spring Apps teams, Jhipster Azure Spring Apps is designed to streamline your full-stack Spring application development and deployment from end to end. [Learn More](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-and-deploy-your-full-stack-spring-app-with-jhipster-azure/ba-p/3923268).
 
 The following updates are now available in the Enterprise plan:
 
@@ -40,7 +40,7 @@ Spring Cloud Gateway now empowers you to restrict access to resources to specifi
 
 - **Accelerator supports fragment and sub path**: Application Accelerator supports fragment enabling the efficient reuse of sections within an accelerator. This functionality saves effort of copy-paste when new accelerators are added.[Learn More](how-to-use-accelerator.md?branch=main&branchFallbackFrom=pr-en-us-249933&tabs=Portal#reference-a-fragment-in-your-own-accelerators).
 
-- **Native image support**: Native images generally have smaller memory footprint and quicker startup times when compared to their JVM counterparts. With this feature, you can deploy Spring Boot native image applications using the java-native-image buildpack.[Learn More](how-to-enterprise-deploy-polyglot-.md?tabs=Portal%2Casa-managed-container-registry#deploy-java-native-image-applications-preview).
+- **Native image support**: Native images generally have smaller memory footprint and quicker startup times when compared to their JVM counterparts. With this feature, you can deploy Spring Boot native image applications using the java-native-image buildpack.[Learn More](how-to-enterprise-deploy-polyglot-apps.md?tabs=Portal%2Casa-managed-container-registry#deploy-java-native-image-applications-preview).
 
 - **Support PHP Buildpack**: You can use the PHP buildpack with PHP runtimes.[Learn More](how-to-enterprise-deploy-polyglot-apps.md?tabs=Portal%2Casa-managed-container-registry#deploy-php-applications).
 
