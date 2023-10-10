@@ -41,14 +41,14 @@ This article describes the process for enrolling in Azure Dev Tools for Teaching
 ## Renew an existing subscription
 
 Your subscription doesn't renew automatically. To see if it's time to renew, go to the 
-[Azure Dev Tools for Teaching Management portal](https://portal.azureforeducation.microsoft.com/) 
+[Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/Order) 
 and look under **Subscriptions**.
 
-Sixty days before your membership expires, you'll receive email reminders to renew your subscription. In a renewal email, you can select the [renewal link](https://portal.azureforeducation.microsoft.com/).
+Sixty days before your membership expires, you'll receive email reminders to renew your subscription. In a renewal email, you can select the [renewal link](https://azureforeducation.microsoft.com/Order).
 
 You can complete the renewal process as early as 90 days before the expiration date:
 
-1. Navigate to the [Azure Dev Tools for Teaching Management portal](https://portal.azureforeducation.microsoft.com/).
+1. Navigate to the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/Order).
 
 1. Select **Enroll or Renew** on the Azure Dev Tools for Teaching banner.
 
