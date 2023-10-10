@@ -30,6 +30,23 @@ In a serverless architecture, clients have persistent connections to Azure Signa
 
 You can find a complete sample of using Azure SignalR Service with Azure Functions in [this GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/RealtimeSignIn).
 
+### Implement the negotiation endpoint
+
+You should implement a `negotiate` function that returns a redirect negotiation response so that clients can connect to the service.
+
+A typical negotiation response has this format:
+
+```json
+{
+  "url": "https://<service_name>.service.signalr.net/client/?hub=<hub_name>",
+  "accessToken": "<a typical JWT token>"
+}
+```
+
+The `accessToken` value is generated through the same algorithm described in the [authentication section](#authenticate-via-accesskey-in-azure-signalr-service). The only difference is that the `aud` claim should be the same as `url`.
+
+You should host your negotiation API in `https://<hub_url>/negotiate` so that you can still use a SignalR client to connect to the hub URL. Read more about redirecting clients to Azure SignalR Service in [Client connections](./signalr-concept-internals.md#client-connections).
+
 ## REST API versions
 
 The following table shows all supported REST API versions. It also provides the Swagger file for each API version.
@@ -59,9 +76,9 @@ The following table lists the available APIs.
 | [Remove a user from the target group](./swagger/signalr-data-plane-rest-v1.md#remove-a-user-from-the-target-group)                                                                       | `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}`               |
 | [Remove a user from all groups](./swagger/signalr-data-plane-rest-v1.md#remove-a-user-from-all-groups)                                                                                   | `DELETE /api/v1/hubs/{hub}/users/{user}/groups`                       |
 
-## REST API tasks
+## Using the REST API
 
-### Authenticate via AccessKey in Azure SignalR Service
+### Authentication via AccessKey in Azure SignalR Service
 
 In each HTTP request, an authorization header with a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) is required to authenticate with Azure SignalR Service.
 
@@ -80,7 +97,7 @@ The following claims must be included in the JWT.
 | `aud`      | `true`        | Needs to be the same as your HTTP request URL, not including the trailing slash and query parameters. For example, a broadcast request's audience should look like: `https://example.service.signalr.net/api/v1/hubs/myhub`. |
 | `exp`      | `true`        | Epoch time when this token expires.                                                                                                                                                                                     |
 
-### Authenticate via Microsoft Entra token
+### Authentication via Microsoft Entra token
 
 Similar to authenticating via `AccessKey`, a [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) is required to authenticate an HTTP request by using a Microsoft Entra token.
 
@@ -88,26 +105,9 @@ The difference is that in this scenario, Microsoft Entra ID generates the JWT. F
 
 You can also use *role-based access control (RBAC)* to authorize the request from your client or server to Azure SignalR Service. For more information, see [Authorize access with Microsoft Entra ID for Azure SignalR Service](./signalr-concept-authorize-azure-active-directory.md).
 
-### Implement the negotiation endpoint
-
-As shown in the [architecture section](#serverless), you should implement a `negotiate` function that returns a redirect negotiation response so that clients can connect to the service.
-
-A typical negotiation response has this format:
-
-```json
-{
-  "url": "https://<service_name>.service.signalr.net/client/?hub=<hub_name>",
-  "accessToken": "<a typical JWT token>"
-}
-```
-
-The `accessToken` value is generated through the same algorithm described in the [authentication section](#authenticate-via-accesskey-in-azure-signalr-service). The only difference is that the `aud` claim should be the same as `url`.
-
-You should host your negotiation API in `https://<hub_url>/negotiate` so that you can still use a SignalR client to connect to the hub URL. Read more about redirecting clients to Azure SignalR Service in [Client connections](./signalr-concept-internals.md#client-connections).
-
 ### User-related REST API
 
-To the call user-related REST API, each of your clients should identify themselves to Azure SignalR Service. Otherwise, Azure SignalR Service can't find target connections from the user ID.
+To call the user-related REST API, each of your clients should identify themselves to Azure SignalR Service. Otherwise, Azure SignalR Service can't find target connections from the user ID.
 
 You can achieve client identification by including a `nameid` claim in each client's JWT when it's connecting to Azure SignalR Service. Azure SignalR Service then uses the value of the `nameid` claim as the user ID for each client connection.
 
