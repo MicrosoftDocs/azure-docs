@@ -66,6 +66,6 @@ You're now ready to run your experiment.
 1. When **Status** changes to *Running*, select **Details** for the latest run under **History** to see details for the running experiment.
 
 ## Next steps
-Now that you've run an Azure Cosmos DB service-direct experiment, you're ready to:
+Now that you've run an AAD outage template experiment, you're ready to:
 - [Manage your experiment](chaos-studio-run-experiment.md)
 - [Create an experiment that shut down all targets in a zone](chaos-studio-tutorial-dynamic-target-portal.md)
