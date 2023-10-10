@@ -26,7 +26,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Finish the quickstart: [Create a Python app with Azure App Configuration](./quickstart-python-provider.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Sentinel key
 
