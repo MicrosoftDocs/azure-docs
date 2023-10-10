@@ -76,9 +76,7 @@ dependencies {
 
 ## Analyze image content
 
-Open *ImageAnalysisQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace the `source` variable with the path to your sample image.
-
-```java
+Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace the `source` variable with the path to your sample image.
 
 ```java
 package com.azure.ai.contentsafety;
