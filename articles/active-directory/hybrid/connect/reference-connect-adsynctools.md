@@ -1008,7 +1008,7 @@ Import ImmutableID from Microsoft Entra ID
 Import-ADSyncToolsSourceAnchor [-Output] <String> [-IncludeSyncUsersFromRecycleBin] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Generates a file with all Azure AD Synchronized users containing the ImmutableID value in GUID format
+Generates a file with all Microsoft Entra ID synchronized users containing the ImmutableID value in GUID format
 Requirements: MSOnline PowerShell Module
 ### EXAMPLES
 #### EXAMPLE 1

@@ -62,21 +62,10 @@ Before configuring Brivo Onair Identity Connector for automatic user provisionin
 
 **To add Brivo Onair Identity Connector from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Microsoft Entra ID**.
-
-    ![The Microsoft Entra button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-    ![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-    ![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Brivo Onair Identity Connector**, select **Brivo Onair Identity Connector** in the search box.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Brivo Onair Identity Connector** in the search box.
 1. Select **Brivo Onair Identity Connector** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-    ![Brivo Onair Identity Connector in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Brivo Onair Identity Connector 
 
