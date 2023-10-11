@@ -21,7 +21,7 @@ In this article, we cover the steps needed to integrate Microsoft Entra Verified
 Before you can continue with the steps below you need to meet the following requirements: 
 
 - A tenant configured with Verified ID.
-   - If you do not have an existing tenant, you can create an Azure account for free. 
+   - If you don't have an existing tenant, you can create an Azure account for free. 
 - You need to have completed the onboarding process with IDEMIA. 
    - Register on the IDEMIA Experience Portal where you can create your own Microsoft verifiable credential application with a few steps low code integration. 
 
@@ -31,8 +31,8 @@ Before you can continue with the steps below you need to meet the following requ
 
 ## Scenario description
 
-Users of Microsoft Azure AD verifiable credentials can have their identity verified using IDEMIA's identity document capture and verification.
-The Identity proofing process is completed using biometric and document capture via the users smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verifications may also be performed for additional assurance. 
+Microsoft Azure AD verifiable credentials users can have their identity verified using IDEMIA's identity document capture and verification.
+The Identity proofing process is completed using biometric and document capture via the users' smartphones. Once a user submits their data, biometric and document data is extracted and verified against one another, or against an authoritative data source such as a national identity database or a trusted system of record. Counter-fraud and high-risk profile verification could also be performed for additional assurance. 
 
 The result is a trusted user identity that gives service providers the assurance they need to proceed with customer onboarding. 
 
