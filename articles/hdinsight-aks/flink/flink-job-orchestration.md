@@ -1,12 +1,12 @@
 ---
 title: Azure data factory managed airflow - HDInsight on AKS
-description: Learn Flink job orchestration using Azure Data Factory managed airflow
+description: Learn how to perform Flink job orchestration using Azure Data Factory managed airflow
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 09/23/2023
+ms.date: 10/11/2023
 ---
 
-# Azure data factory managed airflow
+# Flink job orchestration using Azure Data Factory managed airflow
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
