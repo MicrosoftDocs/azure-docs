@@ -20,7 +20,7 @@ Copy the tenant ID and client ID of the created service principal
 2. On the app's overview page, copy the Directory (tenant) ID value and store it in your application code.
 3. Copy the Application (client) ID value and store it in your application code.
 
-Create a new application secret as described in [Create new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret) and copy the value of the created secret.
+Create a new client secret as described in [Create new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret) and copy the value of the created secret.
 
 set the values of the collected tenant Id, client Id and client secret
 ```
