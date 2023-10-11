@@ -66,13 +66,13 @@ When analyzing authentication details, take note of the following details:
 
 ## Unique identifiers 
 
-In Microsoft Entra ID, a resource access has three relevant components:
+In Microsoft Entra ID, a sign-in activity has three relevant components:
 
 - **Who:** The identity (User) doing the sign-in. 
 - **How:** The client (Application) used for the access.  
 - **What:** The target (Resource) accessed by the identity.
 
-Each component has an associated unique identifier (ID).:
+Each component has an associated unique identifier (ID):
 
 - **Authentication requirement:** Shows the highest level of authentication needed through all the sign-in steps for the sign-in to succeed.
     - Graph API supports `$filter` (`eq` and `startsWith` operators only).
