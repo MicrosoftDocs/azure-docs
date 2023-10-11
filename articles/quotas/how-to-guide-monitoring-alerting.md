@@ -1,6 +1,6 @@
 ---
-title: Monitoring & Alerting - How-To Guide
-description: Learn how to Create Alerts for Quotas
+title: Monitoring and alerting - how to guide
+description: Learn how to create alerts for quotas
 ms.date: 10/11/2023
 ms.topic: how-to
 ---
@@ -23,11 +23,11 @@ Step-by-Step instructions to create an alert rule for your quota in the Azure po
 
 1.	Sign in to the [Azure portal](https://portal.azure.com) and enter **"quotas"** in the search box, then select **Quotas**. In Quotas page, Click **My quotas** and choose **Compute** Resource Provider. Upon page load, you can choose `Quota Name` for creating new alert rule.
 
-    :::image type="content" source="media/monitoring-alerting/myquotas-create-rule-navigation.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+    :::image type="content" source="media/monitoring-alerting/my-quotas-create-rule-navigation-inline.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen." lightbox="media/monitoring-alerting/my-quotas-create-rule-navigation-expanded.png":::
 
 2.	When the Create usage alert rule page appears, **populate the fields** with data as shown in the table.  Make sure you have the **right access** to the subscriptions and Quotas to **create alerts**. 
 
-    :::image type="content" source="media/monitoring-alerting/quota-details-create-rule.png" alt-text="Screenshot showing create Alert rule screen with required fields":::
+    :::image type="content" source="media/monitoring-alerting/quota-details-create-rule-inline.png" alt-text="Screenshot showing create Alert rule screen with required fields." lightbox="media/monitoring-alerting/quota-details-create-rule-expanded.png":::
 
     | **Fields** | **Description** |
     |:--------|:-----------|
@@ -142,28 +142,28 @@ arg("").QuotaResources
 
 Select **Quotas** | **Alert Rules** to see all the rules create for a given subscription. Here, you have the option to edit, enable, or disable them as needed.
 
-  :::image type="content" source="media/monitoring-alerting/view-alert-rules.png" alt-text="Screenshot showing how to navigate to Alert rule screen":::
+  :::image type="content" source="media/monitoring-alerting/view-alert-rules-inline.png" alt-text="Screenshot showing how to navigate to Alert rule screen." lightbox="media/monitoring-alerting/view-alert-rules-expanded.png":::
 
 ### View Fired Alerts
 
 Select **Quotas** | **Fired Alert Rules** to see all the alerts that have been fired create for a given subscription. This page displays an overview of all the alert rules that have been triggered. You can click on each alert to view its details, including the history of how many times it was triggered and the status of each occurrence.
 
-  :::image type="content" source="media/monitoring-alerting/view-fired-alerts.png" alt-text="Screenshot showing how to navigate to Fired Alert screen":::
+  :::image type="content" source="media/monitoring-alerting/view-fired-alerts-inline.png" alt-text="Screenshot showing how to navigate to Fired Alert screen." lightbox="media/monitoring-alerting/view-fired-alerts-expanded.png":::
 
 ### Edit, Update, Enable, Disable Alerts
 
 Multiple ways we can manage the create alerts 
 1. Expand the options below the dots and select appropriate action.
 
-   :::image type="content" source="media/monitoring-alerting/edit-enable-disable-delete.png" alt-text="Screenshot showing how to edit , enable, disable or delete alert rules":::
+   :::image type="content" source="media/monitoring-alerting/edit-enable-disable-delete-inline.png" alt-text="Screenshot showing how to edit , enable, disable or delete alert rules." lightbox="media/monitoring-alerting/edit-enable-disable-delete-expanded.png":::
 
    By using the 'Edit' action, users can also add multiple quotas or locations for the same alert rule.
 
-   :::image type="content" source="media/monitoring-alerting/edit-dimension.png" alt-text="Screenshot showing how to add dimensions while editing a quota rule":::
+   :::image type="content" source="media/monitoring-alerting/edit-dimension-inline.png" alt-text="Screenshot showing how to add dimensions while editing a quota rule." lightbox="media/monitoring-alerting/edit-dimension-expanded.png":::
 
 2. Go to **Alert Rules**, then click on the specific alert rule you want to change. 
 
-   :::image type="content" source="media/monitoring-alerting/alert-rule-edit.png" alt-text="Screenshot showing how to edit rules from Alert Rule screen":::
+   :::image type="content" source="media/monitoring-alerting/alert-rule-edit-inline.png" alt-text="Screenshot showing how to edit rules from Alert Rule screen." lightbox="media/monitoring-alerting/alert-rule-edit-expanded.png":::
   
 
 ## Respond to Alerts
@@ -218,7 +218,7 @@ QuotaResources
 
 User can find **Feedback** button on every Quota page and can use to share thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any problem while creating alert rules for quotas.
 
-:::image type="content" source="media/monitoring-alerting/alert-feedback.png" alt-text="Screenshot showing user can provide feedback":::
+:::image type="content" source="media/monitoring-alerting/alert-feedback-inline.png" alt-text="Screenshot showing user can provide feedback." lightbox="media/monitoring-alerting/alert-feedback-expanded.png":::
 
 
 ## Next steps  

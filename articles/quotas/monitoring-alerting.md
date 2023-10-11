@@ -1,5 +1,5 @@
 ---
-title:  Quota Monitoring & Alerting
+title:  Quota monitoring & alerting
 description: Monitoring and Alerting for Quota Usages.
 ms.date: 10/11/2023
 ms.topic: how-to
