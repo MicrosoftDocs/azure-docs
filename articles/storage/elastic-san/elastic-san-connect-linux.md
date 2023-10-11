@@ -28,23 +28,23 @@ In this article, you'll add the Storage service endpoint to an Azure virtual net
 
 ## Connect to Volumes
 
-You can create multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
-
-When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
-
 ### Set up your client environment
+
+#### Enable iSCSI Initiator
 
 To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
 
 As an example, with Ubuntu you'd use `sudo apt install open-iscsi`, with SUSE Linux Enterprise Server (SLES) you'd use `sudo zypper install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils`.
 
-#### Multipath I/O - for multi-session connectivity
+#### Install Multipath I/O
+
+To achieve higher IOPS and throughput to a volume and reach its maximum limits, you need to create multiple-sessions from the iSCSI initiator to the target volume based on your application's multi-threaded capabilities and performance requirements. You need Multipath I/O to aggregate these multiple paths into a single device, and to improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools`, for SLES the command would be `sudo zypper install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 
 Once you've installed the package, check if **/etc/multipath.conf** exists. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. As an example, `mpathconf --enable` will create **/etc/multipath.conf** on RHEL. 
 
-You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults are generally applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the main page for multipath.conf.
+You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults are generally applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the manual page for multipath.conf.
 
 ```config
 defaults {
@@ -72,8 +72,7 @@ You can use the following script to create your connections. To execute it, you 
 - g: Resource Group Name
 - e: Elastic SAN Name
 - v: Volume Group Name
-- n <vol1, vol2>: Names of volumes 1 and 2
-and other volume names that you may require
+- n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you may require, comma separated
 - s: Number of sessions to each volume (set to 32 by default)
 
 Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/connect_for_documentation.py) and save it as a .py file, for example, connect.py. Then execute it with the required parameters. Below is an example of how you would execute the command: 
@@ -85,7 +84,7 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 You can verify the number of sessions using `sudo multipath -ll`
 
 #### Number of sessions
-Our current recommendation is to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Please note that Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
+Our current recommendation is to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
 
 ## Next steps
 
