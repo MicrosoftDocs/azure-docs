@@ -400,6 +400,99 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models-1) starting in API versions `2023-06-01-preview` and later.|
 
+### Start an ingestion job 
+
+```console
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/JOB_NAME?api-version=2023-10-01-preview 
+api-key: YOUR_API_KEY 
+searchServiceEndpoint: https://YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT.search.windows.net 
+searchServiceAdminKey: YOUR_SEARCH_SERVICE_ADMIN_KEY
+storageConnectionString: YOUR_STORAGE_CONNECTION_STRING
+storageContainer: ingestion-test-data 
+Sample Request Body 
+{ 
+    "dataRefreshIntervalInMinutes": 10 
+} 
+```
+
+### Example response 
+
+```json
+{ 
+    "id": "test-1", 
+    "dataRefreshIntervalInMinutes": 10, 
+    "completionAction": "cleanUpAssets", 
+    "status": "notRunning", 
+    "warnings": [], 
+    "progress": { 
+        "stageProgress": [ 
+            { 
+                "name": "Preprocessing", 
+                "totalItems": 0, 
+                "processedItems": 0 
+            }, 
+            { 
+                "name": "Indexing", 
+                "totalItems": 0, 
+                "processedItems": 0 
+            } 
+        ] 
+    } 
+} 
+```
+|  Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `dataRefreshIntervalInMinutes` | string | Required | null | The data refresh interval in minutes. |
+
+### List ingestion jobs
+
+```console
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs?api-version=2023-10-01-preview 
+api-key: YOUR_API_KEY 
+{ 
+    "value": [ 
+        { 
+            "id": "test-1", 
+            "dataRefreshIntervalInMinutes": 10, 
+            "completionAction": "cleanUpAssets", 
+            "status": "succeeded", 
+            "warnings": [] 
+        }, 
+        { 
+            "id": "test-2", 
+            "dataRefreshIntervalInMinutes": 10, 
+            "completionAction": "cleanUpAssets", 
+            "status": "failed", 
+            "error": { 
+                "code": "BadRequest", 
+                "message": "Could not execute skill because the Web Api request failed." 
+            }, 
+            "warnings": [] 
+        } 
+    ] 
+} 
+```
+ 
+### Get the status of an ingestion job 
+
+```console
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/YOUR_JOB_NAME?api-version=2023-10-01-preview 
+api-key: YOUR_API_KEY  
+Retry-After: 5 
+```
+
+#### Example response body 
+
+```json
+{ 
+    "id": "test-1", 
+    "dataRefreshIntervalInMinutes": 10, 
+    "completionAction": "cleanUpAssets", 
+    "status": "succeeded", 
+    "warnings": [] 
+} 
+```
+
 ## Image generation
 
 ### Request a generated image

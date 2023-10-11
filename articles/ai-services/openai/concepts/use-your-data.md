@@ -35,11 +35,6 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 Azure OpenAI on your data uses an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.
 
-## Ingesting your data into Azure Cognitive Search
-
-For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395) to ingest the data into cognitive search. The script chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Document Intelligence](../../../ai-services/document-intelligence/overview.md).
-
-
 ## Data formats and file types
 
 Azure OpenAI on your data supports the following filetypes:
@@ -63,6 +58,68 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
     * Doesn't add unexpected noise to your data.  
 
     This will impact the quality of Azure Cognitive Search and the model response. 
+
+
+## Ingesting your data into Azure Cognitive Search
+
+> [!TIP]
+> For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
+
+There are three different sources of data that you can use with Azure OpenAI on your data. 
+* Blobs in an Azure storage container that you provide
+* Local files uploaded using the Azure OpenAI Studio 
+* URLs/web addresses. 
+
+Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
+
+**Ingestion from Azure storage container**
+
+1. Ingestion assets are created in Azure Cognitive Search resource and storage account. Currently these assets are: indexers, indexes, data sources and a [custom skill](/azure/search/cognitive-search-custom-skill-interface). A container (later referred to as a chunks container) is created in the Azure storage account. You can specify an Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
+
+2. Data is read from the raw input container, contents are opened and chunked into small chunks with a maximum of 1024 tokens each. If vector search is enabled, the service will calculate the vector representing the embeddings on each chunk. the embeddings vectors are calculated for these chunks. The output of this step is called the "preprocessed" or "chunked" data. 
+
+3. The preprocessed data is loaded and indexed in the Azure Cognitive Search index. 
+
+
+**Ingestion from local files**
+
+Using the Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
+
+**Ingestion from URL** 
+
+A crawling component first crawls the provided URL and stores its contents to an Azure Storage Container. The service then performs ingestion from the container. 
+
+### Troubleshooting failed ingestion jobs
+
+To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
+**Quota Limitations Issues** 
+
+*An index with the name X in service Y could not be created. Index quota has been exceeded for this service. You must either delete unused indexes first, add a delay between index creation requests, or upgrade the service for higher limits.*
+
+*Standard indexer quota of X has been exceeded for this service. You currently have X standard indexers. You must either delete unused indexers first, change the indexer 'executionMode', or upgrade the service for higher limits.* 
+
+Resolution: 
+
+Upgrade to a higher pricing tier or delete unused assets. 
+
+**Preprocessing Timeout Issues** 
+
+*Could not execute skill because the Web Api request failed*
+
+*Could not execute skill because Web Api skill response is invalid* 
+
+Resolution: 
+
+Break down the input documents into smaller documents and try again. 
+
+**Permissions Issues** 
+
+*This request is not authorized to perform this operation*
+
+Resolution: 
+
+This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
 
 ## Virtual network support & private endpoint support
 
@@ -118,6 +175,8 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
 |[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor)     | You plan to create a new Azure Cognitive Search index.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
+
+
 
 ## Document-level access control
 
