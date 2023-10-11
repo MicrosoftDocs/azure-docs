@@ -23,7 +23,7 @@ landingContent:
         links:
           - text: What are Azure Quotas?
             url: quotas-overview.md
-          - text: How to Monitor and get Alerts for Usages?
+          - text: How to Monitor and get Alerts for Usages
             url: monitoring-alerting.md
          
   # Card
