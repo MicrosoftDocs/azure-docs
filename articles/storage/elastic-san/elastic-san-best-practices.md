@@ -11,92 +11,125 @@ ms.custom: ignite-2022, devx-track-azurepowershell
 
 # Elastic SAN Preview best practices
 
- This article provides some general guidance and best practices for Azure Elastic SAN configurations and other Azure resources used with Elastic SAN.
+Azure Elastic SAN delivers a massively scalable, cost-effective, high-performance, and reliable block storage solution, which can connect to a variety of Azure compute services over iSCSI protocol, enabling customers to seamlessly transition their SAN storage estate to the cloud without having to refactor their application architectures. This solution can achieve massive scale, up to millions of IOPS, double-digit GB/s of throughput, and low single-digit millisecond latencies with built-in resiliency to minimize downtime. This makes it a great fit for customers looking to consolidate storage, customers working with multiple compute services, or those who have workloads that require the high throughput levels achieved by driving storage I/O over network bandwidth. 
 
-## Elastic SAN
+This article provides some general guidance on client and storage side configuration for best performance.
 
-Keeping your Azure virtual machine (VM) and Elastic SAN in the same zone and same region minimizes latency and helps ensure you get the best performance.
+## Client-side configuration (Virtual Machines):
 
-When deploying an elastic SAN, ensure you allocate enough base capacity so that all your applications and workloads can meet their performance needs. To best determine your needs, collect performance metrics of your current workloads that you'd like to migrate. Examine the combined maximum IOPS and throughput for all these workloads over a period of time. Add some buffer to these figures if the data have any on-premises bottlenecks and to account for higher performance needs during spikes. After you've determined your needs, create an elastic SAN with enough base capacity that provides you with the IOPS and throughput your workloads require. If you need more capacity but not more performance, use additional capacity, which costs less than base capacity. 
+### General Recommendations (Windows & Linux):
+1.	Ensure both VM and Elastic SAN are in the same zone within the same region for best performance.
+2.	VM storage I/O to Elastic SAN volumes uses VM network bandwidth, hence the traditional disk throughput limits on a VM do not apply to Elastic SAN. Choose a VM that can provide sufficient bandwidth for both production/VM-to-VM I/O and iSCSI I/O to attached Elastic SAN volume(s). Our recommendation is to use Gen 5 (D / E / M series) VMs for the best performance.
+3.	Enable “Accelerated Networking” on the VM, during VM creation. To do it via Azure PowerShell or Azure CLI or to enable accelerate networking on existing VMs, refer to [Use PowerShell to create a VM with Accelerated Networking | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json)
+:::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Enable Accelerated Networking during VM creation" lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png"::: 
+4.	Multi-session connectivity to an Elastic SAN volume: Our current recommendation is to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. You need to use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts provided in documentation ([Windows](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-connect-windows#connect-to-a-volume) / [Linux](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-connect-linux#connect-to-a-volume)) and in portal connect flow use 32 sessions by default. Please note that Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows VM, reduce # of sessions to each volume as needed. 
 
-For best performance with your volumes, use multi-session connections.  multi-session connectivity has been optimized (32 sessions) through scripts on portal and documentation for providing best performance. 
-
-> [!NOTE]
-> Windows software iSCSI initiator has a limit of maximum 256 sessions. Reduce # of sessions to each volume if you need to connect to more volumes from the client.
-
-Elastic SAN uses VM network bandwidth, disk throughput limits on a VM don't apply. Choose a VM that can provide sufficient bandwidth for both production/VM-to-VM traffic and iSCSI traffic to attached Elastic SAN volume(s). 
-
-iSCSI traffic isolation using a second vNIC - iSCSI traffic to Elastic SAN volumes can't be redirected to a different vNIC on the VM due to lack of SendTargets support. Redirect other production or VM to VM traffic to the secondary vNIC and use default (primary) vNIC for iSCSI throughput to attached Elastic SAN volumes. 
-
-Enable “Accelerated Networking”. 
-
-## Client configurations
 
 ### MPIO
 
-The following settings should provide optimal performance with MPIO on either Windows or Linux.
+#### Windows: 
+Change the below settings to recommended values 
 
-#### Linux
+```powershell
+# Enable multipath support for iSCSI devices
+Enable-MSDSMAutomaticClaim -BusType iSCSI
 
+# Set the default load balancing policy based on your requirements. In this example, we set it to round robin which should be optimal for most workloads.
+Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+# You can also use mpclaim.exe to set the policy to round robin
+mpclaim -L -M 2
 
-|Setting  |Description  |Recommended value  |
-|---------|---------|---------|
-|polling_interval     |         |         |
-|path_selector     |         |"round-robin 0"         |
-|path_grouping_policy     |         |multibus         |
-|path_checker     |         |tur         |
-|checker_timeout     |         |30 sec         |
-|failback     |         |immediate         |
-|no_path_retry     |Number of retries until disable queueing, or "fail" means immediate failure (no queueing), "queue" means never stop queueing.         |>0         |
-|user_friendly_names     |If set to "yes" create 'mpathn' names. Else use WWID as the alias.         |yes         |
+# Set disk time out to 30 seconds
+Set-MPIOSetting -NewDiskTimeout 30
+```
 
+For more information regarding MPIO cmdlets, refer to  https://learn.microsoft.com/en-us/powershell/module/mpio/?view=windowsserver2022-ps
 
+#### Linux: 
+Update /etc/multipath.conf file with below recommended values. 
 
-#### Windows
-
-|Setting  |Description  |Dependency  |Recommended value  |
-|---------|---------|---------|---------|
-|Automatically claim iSCSI devices for MPIO     |Enable multipath support for iSCSI devices         |N/A         |TRUE         |
-|Load balancing policy     |Load balancing policy         |N/A         |Round robin       |
-|Disk time out     |Length of time the server waits before marking the I/O request as timed out.         |N/A         |120 sec         |
+```config
+defaults {
+    user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
+    path_grouping_policy multibus	# To place all the paths in one priority group
+    path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
+    failback immediate			# For immediate failback to highest priority path group with active paths
+    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+}
+devices {
+  device {
+    vendor "MSFT"
+    product "Virtual HD"
+  }
+}
+```
 
 ### iSCSI
 
-If MPIO is enabled, set iSCSI timers to immediately defer commands to the multipathing layer. This ensures that I/O errors are retried and queued if all paths fail in the multipath layer.
+#### Windows: 
 
-#### Windows
+Update the below registry settings for iSCSI initiator on Windows.
 
-- Increase disk timeout value to prevent application from noticing I/O errors due to link loss. See MPIO Windows section for details.
-- srbTimeoutDelta has a default value of 15 seconds. With the Microsoft iSCSI initiator, srbTimeoutDelta is added to the disk class driver's timeoutvalue (default of 10 seconds) when SCSI requests are being built. So the default SCCSI timeout value will be 25 seconds.
-- DelaybetweenReconnect
-- MaxConnectionRetries
-- MaxRequestHoldTime
-- LinkDownTime
-- EnableNOPOut
+1.	To open Registry Editor:
+Click on Start, type regedit in the search box and press enter. This will open the Registry Editor.
+2.	Navigate to below location:
+[\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0004 (Microsoft iSCSI Initiator)\Parameters]
+3.	Update the settings below. To do this, right-click on each setting and click on Modify. Change Base to Decimal, update the value and click OK.
+a.	# Set maximum data the initiator will send in an iSCSI PDU to the target to 256KB
+MaxTransferLength=262144
+b.	# Set maximum SCSI payload that the initiator will negotiate with the target to 256KB
+MaxBurstLength=262144
+c.	# Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256KB
+FirstBurstLength=262144
+d.	# Set maximum data the initiator can receive in an iSCSI PDU from the target to 256KB
+MaxRecvDataSegmentLength=262144
+e.	# Disable R2T flow control
+InitialR2T=0
+f.	# Enable immediate data
+ImmediateData=1
+g.	# Set timeout value for WMI requests to 15 seconds
+WMIRequestTimeout = 15 seconds
 
-#### Linux
+In cluster configurations, ensure iSCSI initiator names are unique across all nodes that are sharing volumes. In Windows, you can update it via iSCSI Initiator app.
+a.	Click on Start, type iSCSI Initiator in the search box and press enter. This will open iSCSI Initiator app.
+b.	Click on Configuration tab to see current initiator name.
+:::image type="content" source="media/elastic-san-best-practices/iscsi-initiator-config-widnows.png" alt-text="iSCSI Initiator Configuration on Windows" lightbox="media/elastic-san-best-practices/iscsi-initiator-config-widnows.png"::: 
+c.	To modify it, click on Change, enter new initiator name and press OK.
+:::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-windows.png" alt-text="Update iSCSI Initiator Name on Windows" lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-windows.png"::: 
 
-- NOP-Out interval and timeout: To help monitor problems, iSCSI layer sends a NOP-Out request to each target. If a NOP-Out request times out, the iSCSI layer responds by failing any running commands and instructing the SCSI layer to requeue those commands when possible. When multipath is being used, the SCSI layer fails those running commands and defer them to the multipath layer. The multipath layer then retries those commands on another path. If multipath isn't being used, those commands are retried five times before failing altogether.
-- node.conn[0].timeo.noop_out_interval = 0 
 
-node.conn[0].timeo.noop_out_timeout = 0 
+#### Linux:
 
-> [!NOTE]
-> This will not work for iSCSI targets already logged in or discovered once. In this case run iscsiadm to update configuration values explicitly. 
->
-> iscsiadm -m node -T $target_name -p $target_ip:$port  -o update -n \ 
-> node.session.timeo.replacement_timeout -v $timeout_value 
->
-> If the SCSI Error Handler is running, running commands on a path will not be failed immediately when a NOP-Out request times out on that path. Instead, those commands will be failed after replacement_timeout seconds. To verify if the SCSI Error Handler is running, run: 
-> 
-> iscsiadm -m session -P 3 
+Update /etc/iscsi/iscsid.conf file with below recommended values:
 
-Replacement_timeout: controls how long the iSCSI layer should wait for a timed-out path/session to reestablish itself before failing any commands on it and propagate the errors to the application. The default replacement_timeout value is 120 seconds. By configuring a lower replacement_timeout (15-20 secs), I/O is quickly sent to a new path and executed (in the event of a NOP-Out timeout) while the iSCSI layer attempts to re-establish the failed path/session. If all paths time out, then the multipath and device mapper layer will internally queue I/O based on the settings in /etc/multipath.conf instead of /etc/iscsi/iscsid.conf. 
+a.	# Set maximum data the initiator will send in an iSCSI PDU to the target to 256KB
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 262144
+b.	# Set maximum SCSI payload that the initiator will negotiate with the target to 256KB
+node.session.iscsi.MaxBurstLength = 262144
+c.	# Set maximum unsolicited data the initiator can send in an iSCSI PDU to a target to 256KB
+node.session.iscsi.FirstBurstLength = 262144
+d.	# Set maximum data the initiator can receive in an iSCSI PDU from the target to 256KB
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+e.	# Disable R2T flow control
+node.session.iscsi.InitialR2T = No
+f.	# Enable immediate data
+node.session.iscsi.ImmediateData = Yes
+g.	# Set timeout value for WMI requests to 15 seconds
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.logout_timeout = 15
+h.	# Enable CRC digest checking for header and data
+node.conn[0].iscsi.HeaderDigest = CRC32C
+node.conn[0].iscsi.DataDigest = CRC32C
 
-node.session.timeo.replacement_timeout = [replacement_timeout] 
+In cluster configurations, ensure iSCSI initiator names are unique across all nodes that are sharing volumes. In Linux, you can modify /etc/iscsi/initiatorname.iscsi to update the initiator name.
+:::image type="content" source="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png" alt-text="Update iSCSI Initiator Name on Linux" lightbox="media/elastic-san-best-practices/update-iscsi-initiator-name-linux.png"::: 
 
-### TCP
 
-- Set No Delay (Nagle's Algorithm)
-- Set delayed ACK
-- Set window scaling
+## Storage-side configuration (Elastic SAN)
+
+Size an Elastic SAN appropriately so that all the applications/workloads using that SAN can achieve the necessary performance.
+1.	Collect the performance statistics of all the workloads at a minute (recommended, but can be higher) interval, that will share an Elastic SAN for a period (day/week/quarter) that makes sense for your applications.
+2.	Over that period, check the combined maximum IOPS and maximum throughput for all the workloads.
+3.	Add some buffer a) If the data was collected at a higher granularity than a minute or b) If any of these workloads have some bottlenecks on-premises and have the potential to do more IOPS and/or throughput after moving to Elastic SAN and c) to account for higher performance needs in near-future as appropriate based on your growth projections.
+4.	Create an Elastic SAN with appropriate base unit that gives you necessary IOPS and bandwidth identified in steps 2 and 3. 
+5.	Use capacity-only unit for rest of the capacity to save on costs.
