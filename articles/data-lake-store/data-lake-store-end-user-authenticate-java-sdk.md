@@ -72,7 +72,7 @@ In this article, you learn about how to use the Java SDK to do end-user authenti
     AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
     ```
 
-The Data Lake Storage Gen1 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen1 account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Microsoft Entra SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
+The Data Lake Storage Gen1 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen1 account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure AD SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
 
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Storage Gen1.
