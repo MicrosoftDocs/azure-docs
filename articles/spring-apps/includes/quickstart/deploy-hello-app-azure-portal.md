@@ -13,4 +13,4 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-The application deployment step has been integrated in the process of the `Deploy to Azure` button, which has been completed in the previous step.
+The application deployment step has been integrated with the **Deploy to Azure** button, which you completed in the previous step.

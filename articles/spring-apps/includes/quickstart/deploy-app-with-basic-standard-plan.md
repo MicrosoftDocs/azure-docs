@@ -28,7 +28,7 @@ This section isn't required to prepare the JAR package for deployment. The **Dep
 
 Use the following steps to initialize the application from the Azure Developer CLI templates.
 
-1. Open a terminal, create a new empty folder, and then change directory to it.
+1. Open a terminal, create an empty folder, and then change directory to it.
 
 1. Use the following command to initialize the project:
 
