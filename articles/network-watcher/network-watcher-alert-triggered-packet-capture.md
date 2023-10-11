@@ -106,7 +106,7 @@ To use the PowerShell cmdlets, you must configure authentication in the function
 
 #### Encrypted credentials
 
-The following PowerShell script creates a key file called **PassEncryptKey.key**. It also provides an encrypted version of the password that's supplied. This password is the same password that is defined for the Microsoft Entra application that's used for authentication.
+The following PowerShell script creates a key file called **PassEncryptKey.key**. It also provides an encrypted version of the password that's supplied. This password is the same password that is defined for the Azure Active Directory application that's used for authentication.
 
 ```powershell
 #Variables
@@ -137,7 +137,7 @@ If you already have an Application ID, use the AzureClientID, AzureTenant, and A
 
 #### AzureClientID
 
-The client ID is the Application ID of an application in the Microsoft Entra ID.
+The client ID is the Application ID of an application in the Azure Active Directory.
 
 1. If you don't already have an application to use, run the following cmdlet to create an application.
 
