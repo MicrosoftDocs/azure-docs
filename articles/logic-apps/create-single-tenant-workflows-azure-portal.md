@@ -402,21 +402,33 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
 
-To enable Application Insights on a deployed logic app or open the Application Insights dashboard if already enabled, follow these steps:
+### Enable Application Insights on a deployed logic app
 
 1. In the Azure portal, find your deployed logic app.
 
 1. On the logic app menu, under **Settings**, select **Application Insights**.
 
-1. If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply** > **Yes**.
+1. On the **Application Insights** pane, select **Turn on Application Insights**.
 
-   If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+1. After the pane updates, at the bottom, select **Apply** > **Yes**.
 
-   After Application Insights opens, you can review various metrics for your logic app. 
+1. On the **Application Insights** pane, select **View Application Insights data**.
 
-1. To enable enhanced telemetry and insights, see [Enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
+   After the Application Insights dashboard opens, you can review metrics or logs for your logic app workflow. For example, to chart or query for data, on the Application Insights resource menu, under **Monitoring**, select **Metrics** or **Logs**.
+
+<a name="open-application-insights"></a>
+
+### Open Application Insights
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. On the **Application Insights** pane, select **View Application Insights data**.
+
+   After the Application Insights dashboard opens, you can review metrics or logs for your logic app workflow. For example, to chart or query for data, on the Application Insights resource menu, under **Monitoring**, select **Metrics** or **Logs**.
 
 <a name="view-connections"></a>
 
