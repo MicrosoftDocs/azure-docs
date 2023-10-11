@@ -47,7 +47,7 @@ Requirement | Details
 To create a project and register the Azure Migrate appliance, you must have an Azure account that has these permissions:
 
 - Contributor or Owner permissions in the Azure subscription.
-- Permissions to register Azure Active Directory (Azure AD) apps.
+- Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permissions at subscription level to create an instance of Azure Key Vault, which is used during agentless server migration.
 
 If you created a free Azure account, by default, you're the owner of the Azure subscription. If you're not the subscription owner, work with the owner to assign permissions.
@@ -74,11 +74,11 @@ To set Contributor or Owner permissions in the Azure subscription:
 
     :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
-To give the account the required permissions to register Azure AD apps:
+To give the account the required permissions to register Microsoft Entra apps:
 
-1. In the portal, go to **Azure Active Directory** > **Users**.
+1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare VMware
 

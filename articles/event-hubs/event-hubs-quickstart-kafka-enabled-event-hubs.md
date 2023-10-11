@@ -35,11 +35,11 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 ## Send and receive messages with Kafka in Event Hubs
 
 ### [Passwordless (Recommended)](#tab/passwordless)
-1. Enable a system-assigned managed identity for the virtual machine. For more information about configuring managed identity on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+1. Enable a system-assigned managed identity for the virtual machine. For more information about configuring managed identity on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
     :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/enable-identity-vm.png" alt-text="Screenshot of the Identity tab of a virtual machine page in the Azure portal.":::
 1. Using the **Access control** page of the Event Hubs namespace you created, assign **Azure Event Hubs Data Owner** role to the VM's managed identity. 
-Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.    
+Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.    
     1. In the Azure portal, navigate to your Event Hubs namespace. Go to "Access Control (IAM)" in the left navigation.    
     2. Select + Add and select `Add role assignment`.    
     
