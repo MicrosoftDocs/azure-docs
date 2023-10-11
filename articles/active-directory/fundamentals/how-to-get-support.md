@@ -112,15 +112,11 @@ Support for Microsoft Entra ID in the [Microsoft 365 admin center](https://admin
 Things can change quickly. The following resources provide updates and information on the latest releases.
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
-
 - [What's new in Microsoft Entra ID](whats-new.md): Get to know what's new in Microsoft Entra ID including the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-
 - [Microsoft Entra identity blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Microsoft Entra ID.
 
 ##  Next steps
 
 * [Post a question to Microsoft Q&A](/answers/products/)
-
-* [Join the Microsoft Technical Community](https://techcommunity.microsoft.com/)]
-
+* [Join the Microsoft Technical Community](https://techcommunity.microsoft.com/)
 * [Learn about the diagnostic data Azure identity support can access](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)
