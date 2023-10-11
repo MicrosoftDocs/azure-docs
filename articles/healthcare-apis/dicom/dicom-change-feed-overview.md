@@ -9,7 +9,7 @@ ms.date: 10/9/2023
 ms.author: mmitrik
 ---
 
-# Change feed Overview
+# Change feed overview
 
 The change feed provides logs of all the changes that occur in the DICOM&reg; service. The change feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The change feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
 
