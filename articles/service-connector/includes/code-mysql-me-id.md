@@ -8,29 +8,29 @@ ms.author: xiaofanzhou
 
 
 ### [.NET](#tab/dotnet)
-
-For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. For example, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get an access token for the managed identity or service principal:
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. For example, you can use  **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
 ```csharp
 using Azure.Core;
 using Azure.Identity;
 using MySqlConnector;
 
-// user-assigned managed identity
-var credential = new DefaultAzureCredential(
-    new DefaultAzureCredentialOptions
-    {
-        ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTID");
-    });
+// Uncomment the following lines according to the authentication type.
+// For system-assigned managed identity.
+// var credential = new DefaultAzureCredential();
 
-// system-assigned managed identity
-//var credential = new DefaultAzureCredential();
+// For user-assigned managed identity.
+// var credential = new DefaultAzureCredential(
+//     new DefaultAzureCredentialOptions
+//     {
+//         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTID");
+//     });
 
-// service principal 
-//var tenantId = Environment.GetEnvironmentVariable("AZURE_MYSQL_TENANTID");
-//var clientId = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTID");
-//var clientSecret = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTSECRET");
-//var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+// For service principal.
+// var tenantId = Environment.GetEnvironmentVariable("AZURE_MYSQL_TENANTID");
+// var clientId = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTID");
+// var clientSecret = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTSECRET");
+// var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 var tokenRequestContext = new TokenRequestContext(
     new[] { "https://ossrdbms-aad.database.windows.net/.default" });
@@ -89,86 +89,92 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    # install Connector/Python https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
    pip install mysql-connector-python
    ```
-1. Authenticate with access token get via `azure-identity` library. Get connection information from the environment variable added by Service Connector.
-   ```python
-   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
-   import mysql.connector
-   import os
-   
-   # user assigned managed identity
-   managed_identity_client_id = os.getenv('AZURE_MYSQL_CLIENTID')
-   cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
-   
-   # system assigned managed identity
-   # cred = ManagedIdentityCredential()
-   
-   # service principal
-   # tenant_id = os.getenv('AZURE_MYSQL_TENANTID')
-   # client_id = os.getenv('AZURE_MYSQL_CLIENTID')
-   # client_secret = os.getenv('AZURE_MYSQL_CLIENTSECRET')
-   # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
-   
-   # acquire token
-   accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
-   
-   # open connect to Azure MySQL with the access token.
-   host = os.getenv('AZURE_MYSQL_HOST')
-   database = os.getenv('AZURE_MYSQL_NAME')
-   user = os.getenv('AZURE_MYSQL_USER')
-   password = accessToken.token
+1. Authenticate with access token get via `azure-identity` library. Get connection information from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+
+    ```python
+    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+    import mysql.connector
+    import os
+    
+    # Uncomment the following lines according to the authentication type.
+    # For system-assigned managed identity.
+    # cred = ManagedIdentityCredential()    
+
+    # For user-assigned managed identity.
+    # managed_identity_client_id = os.getenv('AZURE_MYSQL_CLIENTID')
+    # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
+
+    # For service principal
+    # tenant_id = os.getenv('AZURE_MYSQL_TENANTID')
+    # client_id = os.getenv('AZURE_MYSQL_CLIENTID')
+    # client_secret = os.getenv('AZURE_MYSQL_CLIENTSECRET')
+    # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+    
+    # acquire token
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
+    
+    # open connect to Azure MySQL with the access token.
+    host = os.getenv('AZURE_MYSQL_HOST')
+    database = os.getenv('AZURE_MYSQL_NAME')
+    user = os.getenv('AZURE_MYSQL_USER')
+    password = accessToken.token
       
-   cnx = mysql.connector.connect(user=user,
-                                 password=password,
-                                 host=host,
-                                 database=database)
-   cnx.close()
-   
-   ```
+    cnx = mysql.connector.connect(user=user,
+                                  password=password,
+                                  host=host,
+                                  database=database)
+    cnx.close()
+    
+    ```
 
 ### [Django](#tab/django)
 1. Install dependencies.
    ```bash
    pip install azure-identity
    ```
-1. Get access token via `azure-identity` library.
-   ```python
-   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
-   import os
-   
-   # user assigned managed identity
-   managed_identity_client_id = os.getenv('AZURE_MYSQL_CLIENTID')
-   cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
-   
-   # system assigned managed identity
-   # cred = ManagedIdentityCredential()
-   
-   # service principal
-   # tenant_id = os.getenv('AZURE_MYSQL_TENANTID')
-   # client_id = os.getenv('AZURE_MYSQL_CLIENTID')
-   # client_secret = os.getenv('AZURE_MYSQL_CLIENTSECRET')
-   # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
-   
-   # acquire token
-   accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
-   ```
+1. Get access token via `azure-identity` library with the environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+
+
+    ```python
+    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+    import os
+
+    # Uncomment the following lines according to the authentication type.
+    # system-assigned managed identity
+    # cred = ManagedIdentityCredential()
+    
+    # user-assigned managed identity
+    # managed_identity_client_id = os.getenv('AZURE_MYSQL_CLIENTID')
+    # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
+    
+    # service principal
+    # tenant_id = os.getenv('AZURE_MYSQL_TENANTID')
+    # client_id = os.getenv('AZURE_MYSQL_CLIENTID')
+    # client_secret = os.getenv('AZURE_MYSQL_CLIENTSECRET')
+    # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+    
+    # acquire token
+    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
+    ```
+
 1. In setting file, get Azure MySQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
-   ```python
-   # in your setting file, eg. settings.py
-   host = os.getenv('AZURE_MYSQL_HOST')
-   database = os.getenv('AZURE_MYSQL_NAME')
-   user = os.getenv('AZURE_MYSQL_USER')
-   password = accessToken.token # this is accessToken acquired from above step.
-   
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.mysql',
-           'NAME': database,
-           'USER': user,
-           'PASSWORD': password,
-           'HOST': host
-       }
-   }
-   ```
+    ```python
+    # in your setting file, eg. settings.py
+    host = os.getenv('AZURE_MYSQL_HOST')
+    database = os.getenv('AZURE_MYSQL_NAME')
+    user = os.getenv('AZURE_MYSQL_USER')
+    password = accessToken.token # this is accessToken acquired from above step.
+    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': database,
+            'USER': user,
+            'PASSWORD': password,
+            'HOST': host
+        }
+    }
+    ```
 
 ### [Go](#tab/go)
 
@@ -178,7 +184,9 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    ```
-2. In code, get access token via `azidentity`, then connect to Azure MySQL with the token.
+1. In code, get access token via `azidentity`, then connect to Azure MySQL with the token. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+
+
    ```go
    import (
      "context"
@@ -190,30 +198,25 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    
    func main() {
-     
+       
+     // Uncomment the following lines according to the authentication type.
      // for system-assigned managed identity
-     cred, err := azidentity.NewDefaultAzureCredential(nil)
+     // cred, err := azidentity.NewDefaultAzureCredential(nil)
+
+     // for user-assigned managed identity
+     // clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
+     // azidentity.ManagedIdentityCredentialOptions.ID := clientid
+     // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+     // cred, err := azidentity.NewManagedIdentityCredential(options)
+
+     // for service principal
+     // clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
+     // tenantid := os.Getenv("AZURE_MYSQL_TENANTID")
+     // clientsecret := os.Getenv("AZURE_MYSQL_CLIENTSECRET")
+     // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+    
      if err != nil {
-       // error handling
      }
-   
-     // for user-assigned managed identity, uncomment the following code
-     /* clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
-     azidentity.ManagedIdentityCredentialOptions.ID := clientid
-   
-     options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
-     cred, err := azidentity.NewManagedIdentityCredential(options)
-     if err != nil {
-     } */
-   	
-     // for service principal, uncomment the following code
-     /* clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
-     tenantid := os.Getenv("AZURE_MYSQL_TENANTID")
-     clientsecret := os.Getenv("AZURE_MYSQL_CLIENTSECRET")
-     
-     cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
-     if err != nil {
-     } */
    
      ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
      token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
@@ -225,32 +228,34 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    }
    ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install --save @azure/identity
    npm install --save mysql2
    ```
-2. Get Azure MySQL database information from environment variables added by Service Connector service.
+2. Get Azure MySQL database information from environment variables added by Service Connector service. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+
+
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
    
    const mysql = require('mysql2');
-   
-   // for system assigned managed identity
-   const credential = new DefaultAzureCredential();
-   
-   // for user assigned managed identity
+
+   //Uncomment the following lines according to the authentication type.
+   // for system-assigned managed identity
+   // const credential = new DefaultAzureCredential();
+
+   // for user-assigned managed identity
    // const clientId = process.env.AZURE_MYSQL_CLIENTID;
    // const credential = new DefaultAzureCredential({
    //    managedIdentityClientId: clientId
    // });
-   
+
    // for service principal
    // const tenantId = process.env.AZURE_MYSQL_TENANTID;
    // const clientId = process.env.AZURE_MYSQL_CLIENTID;
    // const clientSecret = process.env.AZURE_MYSQL_CLIENTSECRET;
-   
    // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
    
    // acquire token
@@ -273,8 +278,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
      console.log('Connected to MySQL database');
    });
    ```
-
-
 
 ### [PHP](#tab/php)
 For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).

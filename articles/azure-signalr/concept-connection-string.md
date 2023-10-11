@@ -55,7 +55,7 @@ The service uses the local authentication method when `AuthType` is set to `null
 
 ### Use Microsoft Entra ID
 
-The service uses the Microsoft Entra ID authentication method when `AuthType` is set to `azure`, `azure.app`, or `azure.msi`.
+The service uses the Microsoft Entra authentication method when `AuthType` is set to `azure`, `azure.app`, or `azure.msi`.
 
 | Key            | Description                                                                             | Required | Default value | Example value                              |
 | -------------- | --------------------------------------------------------------------------------------- | -------- | ------------- | ------------------------------------------ |

@@ -93,7 +93,7 @@ The token in the `Authorization` header is a [Microsoft identity platform access
 
 To validate access tokens, your app should also validate the audience and the signing tokens. These tokens need to be validated against the values in the OpenID discovery document. For an example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-The Microsoft Entra ID middleware has built-in capabilities for validating access tokens. You can browse through the [Microsoft identity platform code samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
+The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse through the [Microsoft identity platform code samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
 
 Libraries and code samples that show how to handle token validation are available. Several open-source partner libraries are also available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
@@ -106,7 +106,7 @@ You can easily set access validation for a function app without code changes by 
 1. Select **Add identity provider**.
 1. On the **Basics** tab, in the **Identity provider** dropdown list, select **Microsoft**.
 1. In **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
-1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra ID provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
+1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
    :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
 1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.

@@ -2,7 +2,7 @@
 title: Application Insights with containers
 description: This article shows you how to set-up Application Insights
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 10/10/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
