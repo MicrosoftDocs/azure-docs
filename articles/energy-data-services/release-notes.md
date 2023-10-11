@@ -28,6 +28,8 @@ This page is updated with the details about the upcoming release approximately a
 ### General Availability Fixed Pricing for Azure Data Manager for Energy
 Azure Data Manager for Energy is now available in Brazil South Region. Both developer tier and standard tier are available in Brazil South region. You can now select Brazil South as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy)".
 
+### Audit Logs for DDMS 
+You can now access Audit Logs for create, read, update and delete events for Petrel Data Services, Seismic DMS, and Wellbore DMS Public APIs. This allows you to trace user actions, compile relevant metadata, and use this to run internal audits. [Learn More](https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-manage-audit-logs)  
 
 ## August 2023
 
