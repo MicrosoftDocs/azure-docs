@@ -320,7 +320,7 @@ To show how this data gets into the Requests table, the following example Standa
 
 <a name="requests-table-view-retries"></a>
 
-##### Query trigger and action events for retry attempts
+#### Query trigger and action events for retry attempts
 
 You can create a query against the Requests table to view a subset of operation events with retry attempts.
 
@@ -350,7 +350,7 @@ You can create a query against the Requests table to view a subset of operation 
 
 <a name="requests-table-view-connector-usage"></a>
 
-### Query trigger and action events for connector usage
+#### Query trigger and action events for connector usage
 
 You can create a query against the Requests table to view a subset of operation events, based on specific connector usage.
 
@@ -385,6 +385,8 @@ You can create a query against the Requests table to view a subset of operation 
    ```
 
    ![Screenshot shows Application Insights, Results tab for Microsoft Office 365 Outlook action events with ApiConnection connection.](media/enable-enhanced-telemetry-standard-workflows/requests-table/apiconnection-connection.png)
+
+For both triggers and actions, Application Insights differentiates between the types of connections that exist. You might see different values in the **actionType** and **triggerType** fields based on whether the connection has **ApiConnection**, **ApiConnectionWebhook**, the built-in basic type such as **Request**, or the built-in service provider-based **ServiceProvider** type.
 
 ### Traces table
 
@@ -444,6 +446,7 @@ You can create a query against the Traces table to view all the start and end ev
 #### Query for batch send and batch receive events
 
 As part of the telemetry payload, we have a category property that includes a value of Workflow.Operations.Batch whenever there is a send or receive Batch event. We can subsequently write the following query that will retrieve these events for us.
+
 
 
 ### Exceptions table
