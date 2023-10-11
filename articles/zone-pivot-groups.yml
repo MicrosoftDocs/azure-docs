@@ -737,8 +737,6 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
-  - id: vision-studio
-    title: Vision Studio
 - id: programming-languages-content-safety
 # Owner: pafarley
   title: Programming languages

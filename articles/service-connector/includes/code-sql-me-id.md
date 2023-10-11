@@ -25,7 +25,7 @@ connection.Open();
 
 ### [Java](#tab/java)
 
-For managed identity authentication, see [Connect using Azure Active Directory authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
+For managed identity authentication, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
 
 ```java
 import java.sql.Connection;

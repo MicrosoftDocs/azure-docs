@@ -20,7 +20,7 @@ ms.custom: aaddev, has-adal-ref
 
 The Azure Active Directory Authentication Library ([ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc)) was created to work with  Microsoft Entra accounts via the v1.0 endpoint.
 
-The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Microsoft Entra accounts, personal Microsoft accounts, and Azure AD B2C accounts via the Microsoft identity platform (formally the Azure AD v2.0 endpoint).
+The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Microsoft Entra accounts, personal Microsoft accounts, and Azure AD B2C accounts via the Microsoft identity platform (formerly the Azure AD v2.0 endpoint).
 
 The Microsoft identity platform has a few key differences with Azure AD v1.0. This article highlights these differences and provides guidance to migrate an app from ADAL to MSAL.
 
