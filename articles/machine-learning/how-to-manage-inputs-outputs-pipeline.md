@@ -42,15 +42,16 @@ The following types are supported as **outputs** of a component or a pipeline.
      - `uri_folder`
      - `mltable`
  
-- Model types. Check [log mlflow models](./how-to-log-mlflow-models.md) to learn how to log your trained model as mlflow model. 
+- Model types. 
      - `mlflow_model`
      - `custom_model`
 
-Using data or model output essentially saves the output in a storage location. In subsequent steps, this location can be mounted, downloaded, or uploaded to the compute target filesystem, enabling the next step to access the file or folder during job execution. It's crucial to save the output in the correct type (either file or folder, as model types are essentially folder) in the component's source code. Following are a few examples showing how to save the output. 
+Using data or model output essentially serializing the outputs and save them as files in a storage location. In subsequent steps, this storage location can be mounted, downloaded, or uploaded to the compute target filesystem, enabling the next step to access the files during job execution. 
 
-- uri_file:  
-- uri_folder: In the nyc_taxi_data_regression example, the [prep component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/prep.yml) processes the data from input folder and write processed CSV files to the output folder. 
-- mlflow_model: In the nyc_taxi_data_regression example, the [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has an `mlflow_model` output, in the component source code it saves the trained model using `mlflow.sklearn.save_model`
+This process requires the component's source code serializing the desired output object - usually stored in memory - into files. For instance, you could serialize a pandas dataframe as a CSV file. Note, Azure Machine Learning doesn't define any standardized methods for object serialization. As a user, you have the flexibility to choose your preferred method to serialize objects into files. Following that, in the downstream component, you can independently deserialize and read these files. Here are a few examples for your reference:
+  
+- In the nyc_taxi_data_regression example, the [prep component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/prep.yml) has  `uri_folder` type output. In the component source code, it read the csv files from input folder, process the files and write processed CSV files to the output folder. 
+- In the nyc_taxi_data_regression example, the [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has an `mlflow_model` type output. In the component source code, it saves the trained model using `mlflow.sklearn.save_model` method. 
 
 
 In addition to above data or model types, **input** can also be following primitive types. 
