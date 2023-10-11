@@ -26,7 +26,7 @@ Your university might have one or more Azure subscriptions. You use subscription
 The relationship between a lab account and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab account.
-- You can grant users in the subscription's Azure Active Directory (Azure AD) tenant access to Azure Lab Services. You can add a user as a lab account Owner or Contributor, or as a Lab Creator or lab Owner.
+- You can grant users in the subscription's Microsoft Entra tenant access to Azure Lab Services. You can add a user as a lab account Owner or Contributor, or as a Lab Creator or lab Owner.
 
 Labs and their virtual machines (VMs) are managed and hosted for you within a subscription that's owned by Azure Lab Services.
 
