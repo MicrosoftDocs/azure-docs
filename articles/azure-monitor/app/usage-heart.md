@@ -41,9 +41,9 @@ These dimensions are measured independently, but they interact with each other.
   | customEvents                         | timestamp            | Datetime of event                          |
   | customEvents                         | operation_Id         | Correlate telemetry events                 |
   | customEvents                         | user_Id         	    | Unique user identifier                  	 |
-  | customEvents [^1]    | parentId             | Name of feature                            |
-  | customEvents [^1]    | pageName             | Name of page                               |
-  | customEvents [^1]    | actionType           | Category of Click Analytics record         |
+  | customEvents ¹    | parentId             | Name of feature                            |
+  | customEvents ¹    | pageName             | Name of page                               |
+  | customEvents ¹    | actionType           | Category of Click Analytics record         |
   | pageViews                            | user_AuthenticatedId | Unique authenticated user identifier       |
   | pageViews                            | session_Id           | Unique session identifier                  |
   | pageViews                            | appName              | Unique Application Insights app identifier |
@@ -59,7 +59,7 @@ These dimensions are measured independently, but they interact with each other.
 
 **Footnotes**
 
-[^1]: To emit these attributes, use the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) via npm.
+¹: To emit these attributes, use the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) via npm.
 
 >[!TIP]
 > To understand how to effectively use the Click Analytics plug-in, see [Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](javascript-feature-extensions.md#use-the-plug-in).
