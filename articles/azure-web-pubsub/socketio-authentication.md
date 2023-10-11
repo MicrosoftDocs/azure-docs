@@ -20,17 +20,18 @@ This level of authentication is NOT recommended in production environment. For i
 
 ## Authentication for Engine.IO connection
 This level of authentication is recommended for it protects the Engine.IO connection.
-However, Socket.IO library didn't provide a native and easy-to-use feature for it. Our server SDK provides a negotiation mechanism and APIs to realize it.
+For now, Socket.IO library doesn't provide such an authentication mechanism for Engine.IO connections. The [Azure SocketIO server SDK](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension) introduces in a negotiation mechanism and provides APIs to use.
 
 Client sends negotiation request containing authentication information to server before the Engine.IO connection is built. Here are the details how the mechanism works:
  
 1. Before connecting with the service endpoint, the client sends negotiation to the server, which carries information required by authentication. 
-2. The server receives the negotiation request, parse the authentication information and authenticate the client according to the parsed information. Then the server responds the request with an access token. 
-3. The client connects with the service endpoint with the access token given by server. The access token is put into the query string of Socket.IO request.
+2. The server receives the negotiation request, parse the authentication information and authenticate the client according to the parsed information. Then the server responds the request with an access token in [JWT token](https://jwt.io/) format.
+3. The client connects with the service endpoint with the access token given by server. The access token must be placed in query string named with `access_token` of the Socket.IO request.
+4. The service will validate the `access_token`. The connection will be rejected if `access_token` is not valid.
 
 The web application that handles negotiation request could be an independent one or a part of Socket.IO application.
 
-### Usage of simple negotiation
+### Basic Usage
 - Server-side
 
 1. Create a Socket.IO server supported by the service
@@ -45,33 +46,17 @@ const wpsOptions = { hub: "eio_hub", connectionString: process.env.WebPubSubConn
 azure.useAzureSocketIO(io, wpsOptions);
 ```
 
-2. Define a `ConfigureNegotiateOptions`, which parses authentication information from the negotiation request and executes the authentication. If the authentication is passed, the method returns required information to generate an access token.
 
+2. Use `negotiate` to convert the Socket.IO server and a `ConfigureNegotiateOptions` into a complete express handler:
 ```javascript
-const configureNegotiateOptions = (req) => {
-    const query = parse(req.url || "", true).query
-    const username = query["username"] ?? "annoyomous";
-    const expirationMinutes = Number.parseInt(query["expirationMinutes"]) ?? 600;
-    if (!authentiacte(username)) {
-        throw new Error(`Authentication Failed for username = ${username}`);
-    }
-    return {
-        userId: username,
-        expirationTimeInMinutes: expirationMinutes
-    };
-}
-```
-
-3. Use `negotiate` to convert the Socket.IO server and `ConfigureNegotiateOptions` into a complete express handler:
-```javascript
-app.get("/negotiate", azure.negotiate(io, configureNegotiateOptions))
+app.get("/negotiate", azure.negotiate(io, (req) => { userId: "user1" });)
 ```
 
 
 - Client-side
 1. Execute the negotiation request and parse the result
 ```javascript
-const negotiateResponse = await fetch(`/negotiate/?username=${username}&expirationMinutes=600`);
+const negotiateResponse = await fetch(`/negotiate/?username=${username}`);
 if (!negotiateResponse.ok) {
   console.log("Failed to negotiate, status code =", negotiateResponse.status);
   return ;
@@ -100,7 +85,7 @@ In Node.js ecosystem, the most dominant Web authentication workflow is [`express
 
 #### Usage
 
-We provide a method to create `ConfigureNegotiateOptions` that puts information related to passport into negotiation response. And an express middleware `restorePassport` is provided to restore passport object into request.
+We provide a built-in `ConfigureNegotiateOptions` via `userPassport` and a middleware via `restorePassport` to support integration with `passport`.
 
 Socket.IO provides a [example](https://github.com/socketio/socket.io/blob/4.6.2/examples/passport-example/index.js) showing how to use passport authentication with native Socket.IO library.
 
@@ -148,13 +133,15 @@ io.use((socket, next) => {
 });
 ```
 
-Session object isn't restored and it's inaccessible by Socket.IO middleware. `socket.request.session` doesn't work for it's always null.
+This workflow won't restore session object. Session is inaccessible by Socket.IO middleware. `socket.request.session` doesn't work for it's always null.
 ```javascript
+// This usage will NOT work
 io.use((socket, next) => {
   var session = socket.request.session; 
   // ... some code uses `session`
 });
 
+// This usage will NOT work
 io.on('connect', (socket) => {
   const session = socket.request.session;
   // ... some code uses `session`
