@@ -21,7 +21,7 @@ Some scenarios might require that you create a workflow that you can call throug
 
 This how-to guide shows how to create a callable endpoint for your workflow by using the Request trigger and call that endpoint from another workflow. All principles identically apply to the other request-based trigger types that can receive inbound requests.
 
-For information about security, authorization, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about security, authorization, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [OAuth with Microsoft Entra ID](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Prerequisites
 
