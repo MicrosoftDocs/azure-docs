@@ -474,6 +474,8 @@
         href: chronicx-tutorial.md
       - name: Chronus SAML
         href: chronus-saml-tutorial.md
+      - name: CIC - Controle Inteligente de Compensação
+        href: cic-intelligent-compensation-control-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
       - name: Circus Street
