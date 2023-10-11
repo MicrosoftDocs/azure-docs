@@ -21,7 +21,7 @@ Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob St
 Blob Storage offers hierarchy of three types of resources. These types include:
 * The [**storage account**](../../storage/blobs/storage-blobs-introduction.md#storage-accounts). The storage account is like an administrative container, and within that container, we can have several services like *blobs*, *files*, *queues*, *tables*,* disks*, etc. And when we create a storage account in Azure, we'll get the unique namespace for our storage resources. That unique namespace forms the part of the URL. The storage account name should be unique across all existing storage account name in Azure.
 * A [**container**](../../storage/blobs/storage-blobs-introduction.md#containers) inside storage account. The container is more like a folder where different blobs are stored. At the container level, we can define security policies and assign  policies to the container, which is cascaded to all the blobs under the same container.A storage account can contain an unlimited number of containers, and each container can contain an unlimited number of blobs up to the maximum limit of storage account size of 500 TB.
-To refer this blob, once it's placed into a container inside a storage account, we can use the URL, which looks like http://mystorageaccount.blob.core.windows.net/mycontainer/myblob.
+To refer this blob, once it's placed into a container inside a storage account, we can use the URL, which looks like *https://mystorageaccount.blob.core.windows.net/mycontainer/myblob*.
 * A [**blob**](../../storage/blobs/storage-blobs-introduction.md#blobs) in the container.
 The following diagram shows the relationship between these resources.
 

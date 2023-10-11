@@ -119,6 +119,8 @@
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
+    - name: Azure Data Extension -Preview
+      href: flexible-server/concepts-data-extension.md
     - name: Azure AD Authentication
       href: flexible-server/concepts-azure-ad-authentication.md
     - name: Major Version Upgrade 
