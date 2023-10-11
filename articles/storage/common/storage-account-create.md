@@ -31,6 +31,35 @@ None.
 
 To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
+# [Azure CLI](#tab/azure-cli)
+
+You can sign in to Azure and run Azure Developer CLI (`azd`) commands in one of two ways:
+
+- You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
+- You can install the CLI and run CLI commands locally.
+
+### Use Azure Cloud Shell
+
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+
+[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+
+[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+
+### Install the Azure CLI locally
+
+You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+# [Bicep](#tab/bicep)
+
+None.
+
+# [Template](#tab/template)
+
+None.
+
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
 You can sign in to Azure and run Azure Developer CLI (`azd`) commands in one of two ways:
@@ -48,41 +77,12 @@ The button launches an interactive shell that you can use to run the steps outli
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
-### Install the Azure Developer CLI locally
-
-You can also install and use `azd` locally. If you plan to use `azd` locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/overview).
-
-# [Bicep](#tab/bicep)
-
-None.
-
-# [Template](#tab/template)
-
-None.
-
-# [Azure CLI](#tab/azure-cli)
-
-You can sign in to Azure and run Azure CLI commands in one of two ways:
-
-- You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
-- You can install the CLI and run CLI commands locally.
-
-### Use Azure Cloud Shell
-
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
-
-[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
-
-The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
-
-[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
-
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
-
+You can also [install and use `azd`](/azure/developer/azure-developer-cli/overview) locally. If you plan to use `azd` locally, make sure you have installed or updated to the latest version of the Azure CLI.
 
 ---
+
 Next, sign in to Azure.
 
 # [Portal](#tab/azure-portal)
