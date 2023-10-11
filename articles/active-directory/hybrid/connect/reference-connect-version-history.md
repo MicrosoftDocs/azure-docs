@@ -72,6 +72,19 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about autoupgrade, see [Microsoft Entra Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.2.8.0
+
+### Release status
+10/11/2023: Released for download
+
+### Functional Changes
+ - The attribute onPremisesObjectIdentifier has been added to the default sync rules. This attribute is required by Microsoft Entra Cloud Sync's Group Provisioning to AD feature.
+ - The minimum .NET runtime requirement has been increased to 4.7.1.
+
+### Bug Fixes
+ - Improvements to upgrade and auto-upgrade components.
+ - Fixed an issue preventing deprovisioning of group when deletions of both the group and a member belonging to a different domain are processed in the same sync cycle.
+
 ## 2.2.1.0
 
 ### Release status
