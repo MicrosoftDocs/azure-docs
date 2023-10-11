@@ -1,5 +1,5 @@
 ---
-title: Configure Verified ID by IDEMIA as your Identity Verification Partner 
+title: Configure Verified ID by IDEMIA as your identity verification partner 
 description: This article shows you the steps you need to follow to configure IDEMIA as your identity verification partner
 services: active-directory
 author: barclayn
@@ -7,12 +7,12 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 10/11/2023
 ms.author: barclayn
 # Customer intent: As a developer, I'm looking for information about the open standards that are supported by Microsoft Entra Verified ID.
 ---
 
-# Configure Verified ID by IDEMIA as your Identity Verification Partner
+# Configure Verified ID by IDEMIA as your identity verification partner
 
 In this article, we cover the steps needed to integrate Microsoft Entra Verified ID (Verified ID) with [IDEMIA](https://www.idemia.com/).
 
@@ -39,9 +39,6 @@ The result is a trusted user identity that gives service providers the assurance
 
 After verification, users are issued a reusable identity credential, which expedites the onboarding process for employees, partners, and customers​.
 
-![Integrate LinkedIn account connections in the organization](./media/idemia/verified-id-deployment-diagram.jpg)
-    
-
 
 ## Configure IDEMIA as your identity verification proofing solution
 
@@ -50,9 +47,6 @@ To configure IDEMIA as your identity verification proofing solution, follow thes
 1. Go to Quickstart in the Azure portal and select **Verified ID**.
 2. Choose select issuer.
 3. Look for IDEMIA in the search/select issuers drop down.
-
-![Select issuers](./media/idemia/search-seclect-issuers.png)
-
 4. Select VerifiedCredentialExpert as the credential type.
 5. Select **Add** and then select review.
 6. Download the request body and cop/paste the POST API request URL
