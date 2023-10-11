@@ -2,7 +2,7 @@
 title: Migrating Azure Monitor Application Insights Python from OpenCensus to OpenTelemetry
 description: This article provides guidance on how to migrate from the Azure Monitor Application Insights Python SDK and OpenCensus exporter to OpenTelemetry.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/10/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc

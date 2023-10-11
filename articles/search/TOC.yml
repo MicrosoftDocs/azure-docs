@@ -422,8 +422,10 @@
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Query vector fields
+    - name: Create a vector query
       href: vector-search-how-to-query.md
+    - name: Create a hybrid query
+      href: hybrid-search-how-to-query.md
   - name: Queries
     items:
     - name: Create a basic query
