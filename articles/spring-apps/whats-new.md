@@ -44,7 +44,7 @@ The following updates are now available in the Enterprise plan:
 
 - **Support for the PHP Buildpack**: You can use the PHP buildpack with PHP runtimes. For more information, see the [Deploy PHP applications](how-to-enterprise-deploy-polyglot-apps.md#deploy-php-applications) section of [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
-- **New Relic APM support for .NET apps**: New Relic is a software analytics tool suite to measure and monitor performance bottlenecks, throughput, service health, and more. This update enables you bind your .NET application with New Relic Application Performance Monitoring (APM). For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+- **New Relic APM support for .NET apps**: New Relic is a software analytics tool suite to measure and monitor performance bottlenecks, throughput, service health, and more. This update enables you to bind your .NET application with New Relic Application Performance Monitoring (APM). For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 ## Q2 2023
 
