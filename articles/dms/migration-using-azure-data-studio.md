@@ -4,7 +4,7 @@ description: Learn how to use the Azure SQL Migration extension in Azure Data St
 author: croblesm
 ms.author: roblescarlos
 ms.reviewer: randolphwest
-ms.date: 09/28/2022
+ms.date: 10/10/2023
 ms.service: dms
 ms.topic: conceptual
 ms.custom:
@@ -41,7 +41,7 @@ For information about specific migration scenarios and Azure SQL targets, see th
 |---------|---------|
 SQL Server to Azure SQL Managed Instance| [Online](./tutorial-sql-server-managed-instance-online-ads.md) / [Offline](./tutorial-sql-server-managed-instance-offline-ads.md)
 SQL Server to SQL Server on an Azure virtual machine|[Online](./tutorial-sql-server-to-virtual-machine-online-ads.md) / [Offline](./tutorial-sql-server-to-virtual-machine-offline-ads.md)
-SQL Server to Azure SQL Database | [Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+SQL Server to Azure SQL Database | [Offline](./tutorial-sql-server-azure-sql-database-offline.md)
 
 > [!IMPORTANT]
 > If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
