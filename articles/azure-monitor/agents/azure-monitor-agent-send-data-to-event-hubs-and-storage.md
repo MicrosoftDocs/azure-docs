@@ -295,7 +295,6 @@ Azure Resource Manager template definition for setting up an Event Hubs namespac
     }
   ]
 }
-
 ```
 
 ---
@@ -500,7 +499,6 @@ Create a data collection rule for collecting events and sending to storage and e
         }
     ]
     }
-
     ```
 
     ### [Linux](#tab/linux)
@@ -882,7 +880,6 @@ Create a data collection rule for collecting events and sending to storage and e
     ] 
     
     }
-
     ```
 
     ---
@@ -1015,7 +1012,6 @@ Use custom template deployment to create the DCR association and AMA deployment.
         }
     ]
     }
-
     ```
 
 1. Select **Save**.
