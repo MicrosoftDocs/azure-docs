@@ -62,27 +62,16 @@ None.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. `azd` requires you to be signed-in to Azure to provision and deploy resources. You can sign-in to Azure using `azd` in one of two ways:
+[The Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. `azd` is available for several development [environments](/azure/developer/azure-developer-cli/supported-languages-environments#supported-development-environments), including the following:
 
-- Use Azure Cloud Shell from within the Azure portal.
-- Install `azd` locally.
+- Locally via CLI by [installing azd](/azure/developer/azure-developer-cli/overview).
+- [GitHub Codespaces](https://github.com/features/codespaces) environments.
+- The Azure portal using [Cloud Shell](azure/cloud-shell/overview):
 
+    :::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::
+    
 > [!NOTE]
 > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
-
-### Use Azure Cloud Shell
-
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. `azd` is pre-installed and configured to use with your account. 
-
-Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
-
-:::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to launch Azure CloudShell.":::
-
-The button launches an interactive shell that you can use to run the steps outlined in this how-to article
-
-### Install the CLI locally
-
-You can also [install and use `azd`](/azure/developer/azure-developer-cli/overview) locally. If you plan to use `azd` locally, make sure you have installed or updated to the latest version of the Azure CLI.
 
 ---
 
