@@ -472,19 +472,19 @@ Initialize and run the template for this quickstart using the following steps:
 
 1. Run the `azd init` command in a local terminal or CloudShell:
 
-```dotnetcli
-azd init --template https://github.com/alexwolfmsft/azd-storage-test
-```
+    ```dotnetcli
+    azd init --template https://github.com/alexwolfmsft/azd-storage-test
+    ```
 
 1. `azd` will prompt you for an environment name, which will determine the naming of provisioned resources in Azure.  Enter the name `azdstorage` and press enter.
 
-:::image type="content" source="media/storage-account-create/azd-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
+    :::image type="content" source="media/storage-account-create/azd-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
 
 1. Next, run the `azd up` command to begin the template provisioning and deployment process.
 
-```dotnetcli
-azd up
-```
+    ```dotnetcli
+    azd up
+    ```
 
 1. If you are not already authenticated to Azure, `azd` will launch a browser you can use to sign in.
 
@@ -494,11 +494,11 @@ azd up
 
 1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure  and status details until the command finishes.
 
-:::image type="content" source="media/storage-account-create/azd-up.png" alt-text="A screenshot showing the output of the azd up command.":::
+    :::image type="content" source="media/storage-account-create/azd-up.png" alt-text="A screenshot showing the output of the azd up command.":::
 
 1. When the command finishes, click the link to open the Azure portal to the provisioned resource group and storage account.
 
-:::image type="content" source="media/storage-account-create/azd-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
+    :::image type="content" source="media/storage-account-create/azd-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
 
 ---
 ## Delete a storage account
@@ -566,7 +566,7 @@ read storageAccountName &&
 az storage account delete --name storageAccountName --resource-group resourceGroupName
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure Developer CLI](#tab/azure-developer-cli)
 
 To delete the resource group and storage account created by `azd`, use the `azd down` command:
 
