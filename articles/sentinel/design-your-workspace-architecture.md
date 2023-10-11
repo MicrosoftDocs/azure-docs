@@ -181,7 +181,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
   - If you have multiple, custom data sources/tables, where each one needs separate permissions
 
-  In other cases, when you don't* need to control access at the row level, provide multiple, custom data sources/tables with separate permissions, use a single Microsoft Sentinel workspace, with table-level RBAC for data access control.
+  In other cases, when you *don't* need to control access at the row level, provide multiple, custom data sources/tables with separate permissions, use a single Microsoft Sentinel workspace, with table-level RBAC for data access control.
 
 #### Considerations for resource-context or table-level RBAC
 
