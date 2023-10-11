@@ -121,7 +121,7 @@ In *multiple revision* mode, you can control when revisions are activated or dea
 
 ## Work with multiple revisions
 
-While single revision mode is the default, sometimes you may want to have full control over how your revisions are managed.
+While single revision mode is the default, sometimes you might want to have full control over how your revisions are managed.
 
 Multiple revision mode gives you the flexibility to manage your revision manually. For instance, using multiple revision mode allows you to decide exactly how much traffic is allocated to each revision.
 
@@ -140,7 +140,7 @@ This scenario presumes the container app is in the following state:
 
 ### Direct revision access
 
-Rather than using a routing rule to divert traffic to a revision, you may want to make a revision available to requests for a specific URL. Multiple revision mode can allow you to send all requests coming in to your domain to the latest revision, while requests for an older revision are available via [labels](#labels) for direct access.
+Rather than using a routing rule to divert traffic to a revision, you might want to make a revision available to requests for a specific URL. Multiple revision mode can allow you to send all requests coming in to your domain to the latest revision, while requests for an older revision are available via [labels](#labels) for direct access.
 
 ### Activation state
 
