@@ -17,7 +17,7 @@ On a Microsoft Azure virtual machine (VM), including a Data Science Virtual Mach
 
 Active Directory is a popular identity provider and is supported on Azure both as a cloud service and as an on-premises directory. You can use Microsoft Entra ID or on-premises Active Directory to authenticate users on a standalone DSVM or a cluster of DSVMs in an Azure virtual machine scale set. You do this by joining the DSVM instances to an Active Directory domain.
 
-If you already have Active Directory, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) (Microsoft Entra Domain Services).
+If you already have Active Directory, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml).
 
 The documentation for [Microsoft Entra ID](../../active-directory/index.yml) provides detailed [management instructions](../../active-directory/hybrid/whatis-hybrid-identity.md), including guidance about connecting Microsoft Entra ID to your on-premises directory if you have one.
 
