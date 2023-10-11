@@ -57,7 +57,7 @@ The following list presents the set of features that are currently available in 
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️  | ✔️<sup>2</sup>  | ✔️<sup>2</sup>   | ✔️<sup>2</sup>               |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️<sup>2</sup>     | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   |        |               |                |
-|                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
+|                   | Share system audio during screen sharing                                                                            | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Roster            | List participants                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Remove a participant                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
