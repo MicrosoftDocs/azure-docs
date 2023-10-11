@@ -388,9 +388,9 @@ sections:
         answer: |
           Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
 
-      - question: If the Vault is configured with a CRR, a failover has occurred. Does the failback occur automatically without user intervention?
+      - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |
-          Yes, the failover is automatic and does not require any user intervention. Failback occurs automatically without user intervention. At that time, data in the secondary region will lose data as replication resumes from the primary region. Therefore, if you want to keep the backed-up data in the secondary region, you need to create a new Vault in the secondary region immediately after the failover.
+          Backup data acquired and transferred before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure.
 
 
 
