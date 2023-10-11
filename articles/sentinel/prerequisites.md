@@ -28,11 +28,11 @@ Before deploying Microsoft Sentinel, we recommend taking the following steps to 
 
 Before deploying Microsoft Sentinel, make sure that your Azure tenant has the following requirements:
 
-- An [Azure Active Directory license and tenant](../active-directory/develop/quickstart-create-new-tenant.md), or an [individual account with a valid payment method](https://azure.microsoft.com/free/), are required to access Azure and deploy resources.
+- An [Microsoft Entra ID license and tenant](../active-directory/develop/quickstart-create-new-tenant.md), or an [individual account with a valid payment method](https://azure.microsoft.com/free/), are required to access Azure and deploy resources.
 
 - After you have a tenant, you must have an [Azure subscription](../cost-management-billing/manage/create-subscription.md) to track resource creation and billing.
 
-- After you have a subscription, you'll need the [relevant permissions](../role-based-access-control/index.yml) to begin using your subscription. If you are using a new subscription, an admin or higher from the Azure AD tenant should be designated as the [owner/contributor](../role-based-access-control/rbac-and-directory-admin-roles.md) for the subscription.
+- After you have a subscription, you'll need the [relevant permissions](../role-based-access-control/index.yml) to begin using your subscription. If you are using a new subscription, an admin or higher from the Microsoft Entra tenant should be designated as the [owner/contributor](../role-based-access-control/rbac-and-directory-admin-roles.md) for the subscription.
 
   - To maintain the least privileged access available, assign roles at the level of the resource group.
   - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](../role-based-access-control/custom-roles.md).
