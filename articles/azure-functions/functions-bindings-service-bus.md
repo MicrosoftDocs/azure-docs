@@ -166,7 +166,7 @@ Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview. Current support does not yet include message settlement scenarios for triggers.
+The isolated worker process supports parameter types according to the tables below.
 
 **Service Bus trigger**
 
