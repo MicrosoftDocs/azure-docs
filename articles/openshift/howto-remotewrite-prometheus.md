@@ -12,8 +12,8 @@ Azure Red Hat OpenShift comes preinstalled with a default Prometheus server that
 ## Prerequisites
 - Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace) if you don't already have one.
 
-## Create Azure Active Directory application
-Follow the procedure at [Register an application with Azure AD and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to register an application for Prometheus remote-write and create a service principal.
+## Create Microsoft Entra ID application
+Follow the procedure at [Register an application with Microsoft Entra ID and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to register an application for Prometheus remote-write and create a service principal.
 
 Copy the tenant ID and client ID of the created service principal
 1. Browse to **Identity > Applications > App registrations**, then select your application.
@@ -22,7 +22,7 @@ Copy the tenant ID and client ID of the created service principal
 
 Create a new client secret as described in [Create new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret) and copy the value of the created secret.
 
-set the values of the collected tenant Id, client Id and client secret
+set the values of the collected tenant ID, client ID and client secret
 ```
 export TENANT_ID=<tenant-id>
 export CLIENT_ID=<client-id>
@@ -40,14 +40,14 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 
 4. Select **Monitoring Metrics Publisher** role and select **Next**.
 
-5. Select **User, group, or service principal** and then select **Select members**. Select the application that you created and click **Select**.
+5. Select **User, group, or service principal** and then select **Select members**. Select the application that you created and select **Select**.
 
 6. Select **Review + assign** to complete the role assignment.
 
 ## Create secret in the ARO cluster
 
 We're using the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack)
-To facilitate this approach, create a secret with the client Id and client secret
+To facilitate this approach, create a secret with the client ID and client secret
 
 ```
 cat << EOF | oc apply -f -
@@ -66,7 +66,7 @@ EOF
 
 To [configure](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#configuring_remote_write_storage_configuring-the-monitoring-stack) remote write for default platform monitoring, we need to update the cluster-monitoring-config config map in the openshift-monitoring namespace
 1. Replace the INGESTION-URL in the configuration with the **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace
-2. Replace the TENANT_ID in the configuration with the tenant Id of the service principal
+2. Replace the TENANT_ID in the configuration with the tenant ID of the service principal
 
 Edit the configmap
 
@@ -100,7 +100,7 @@ The captured metrics can be visualized using community Grafana dashboards or cre
 
 1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md)
 2. [Link](../azure-monitor/essentials/azure-monitor-workspace-manage.md?tabs=azure-portal#link-a-grafana-workspace) the created Grafana workspace to the Azure Monitor workspace
-3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashboard with id 3870 [OpenShift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
+3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashboard with ID 3870 [OpenShift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
 4. Specify the Azure Monitor Workspace as the datasource
 5. Save the dashboard
 6. Access the dashboard from **Home -> Dashboards**   
