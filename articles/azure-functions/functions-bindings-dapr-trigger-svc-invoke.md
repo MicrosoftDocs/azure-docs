@@ -2,7 +2,7 @@
 title: Dapr Service Invocation trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr service invocation data changes.
 ms.topic: reference
-ms.date: 10/05/2023
+ms.date: 10/11/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -295,7 +295,7 @@ To use a Dapr Service Invocation trigger, learn more about which components to u
 
 To use the `daprServiceInvocationTrigger` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](./create-first-function-cli-python.md#create-and-activate-a-virtual-environment). 
+1. [Create and activate a virtual environment](./create-first-function-cli-python.md). 
 
 1. In the terminal, install the Python library.
 

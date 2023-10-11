@@ -2,7 +2,7 @@
 title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 08/17/2023
+ms.date: 10/11/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
