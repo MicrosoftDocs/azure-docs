@@ -6,7 +6,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/09/2023
+ms.date: 10/11/2023
 ms.author: mmitrik
 ---
 
@@ -20,7 +20,7 @@ The version of the REST API must be explicitly specified in the request URL as i
 
 `<service_url>/v<version>/studies`
 
-Routes without a version are not supported.
+Routes without a version aren't supported.
 
 ## Supported versions
 
@@ -35,7 +35,7 @@ The OpenAPI Doc for the supported versions can be found at the following url:
 `<service_url>/v<version>/api.yaml`
 
 ## DICOM Conformance Statement
-All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but different versions might expose different APIs.  See the specific version of the conformance statement for details:
+All versions of the DICOM APIs conform to the DICOMweb™ Standard specifications, but different versions might expose different APIs.  See the specific version of the conformance statement for details:
 
 * [DICOM Conformance Statement v1](dicom-services-conformance-statement.md)
 * [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md)
@@ -49,16 +49,16 @@ An API version with the label "prerelease" indicates that the version isn't read
 
 We currently only increment the major version whenever there's a breaking change, which is considered to be not backwards compatible. 
 
-Below are some examples of breaking changes (Major version is incremented):
+Here are some examples of breaking changes (Major version is incremented):
 
 * Renaming or removing endpoints.
 * Removing parameters or adding mandatory parameters.
 * Changing status code.
-* Deleting a property in a response, or altering a response type at all, but it's okay to add properties to the response.
+* Deleting a property in a response, or altering a response type at all. It's okay to add properties to the response.
 * Changing the type of a property.
 * Behavior when an API changes such as changes in business logic used to do foo, but it now does bar.
 
-Non-breaking changes (Version isn't incremented):
+Nonbreaking changes (Version isn't incremented):
 
 * Addition of properties that are nullable or have a default value.
 * Addition of properties to a response model.
@@ -66,11 +66,11 @@ Non-breaking changes (Version isn't incremented):
 
 ## Header in response
 
-ReportApiVersions is turned on, which means we'll return the headers api-supported-versions and api-deprecated-versions when appropriate.
+ReportApiVersions is turned on, which means the system returns the headers api-supported-versions and api-deprecated-versions when appropriate.
 
-* api-supported-versions will list which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>")`.
+* api-supported-versions lists which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>")`.
 
-* api-deprecated-versions will list which versions have been deprecated for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>", Deprecated = true)`.
+* api-deprecated-versions lists which versions have been deprecated for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>", Deprecated = true)`.
 
 Example:
 
