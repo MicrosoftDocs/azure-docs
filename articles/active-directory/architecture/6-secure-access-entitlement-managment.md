@@ -1,6 +1,6 @@
 ---
-title: Manage external access with Azure Active Directory entitlement management 
-description: How to use Azure AD Entitlement Management as a part of your overall external access security plan.
+title: Manage external access with Microsoft Entra entitlement management 
+description: How to use Microsoft Entra Entitlement Management as a part of your overall external access security plan.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Manage external access with Azure Active Directory entitlement management 
+# Manage external access with Microsoft Entra entitlement management 
 
 Use the entitlement management feature to manage the identity and access lifecycle. You can automate access request workflows, access assignments, reviews, and expiration. Delegated non-admins use entitlement management to create access packages that external users, from other organizations, can request access to. One and multi-stage approval workflows are configurable to evaluate requests, and provision users for time-limited access with recurring reviews. Use entitlement management for policy-based provisioning and deprovisioning of external accounts.
 
@@ -58,7 +58,7 @@ The following diagram shows a typical governance lifecycle of an external user g
 
 ### Self-service external access
 
-You can make access packages available, through the Azure AD My Access portal, to enable external users to request access. Policies determine who can request an access package. See, [Request access to an access package in entitlement management](../governance/entitlement-management-request-access.md).
+You can make access packages available, through the Microsoft Entra My Access portal, to enable external users to request access. Policies determine who can request an access package. See, [Request access to an access package in entitlement management](../governance/entitlement-management-request-access.md).
 
 You specify who is allowed to request the access package:
 
@@ -102,9 +102,9 @@ Learn more: [Plan a Microsoft Entra access reviews deployment](../governance/dep
 
 ## Using entitlement management automation
 
-* [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-overview?view=graph-rest-1.0&preserve-view=true)
+* [Working with the Microsoft Entra entitlement management API](/graph/api/resources/entitlementmanagement-overview?view=graph-rest-1.0&preserve-view=true)
 * [accessPackage resource type](/graph/api/resources/accesspackage?view=graph-rest-1.0&preserve-view=true)
-* [Azure AD access reviews](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0&preserve-view=true)
+* [Microsoft Entra access reviews](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0&preserve-view=true)
 * [connectedOrganization resource type](/graph/api/resources/connectedorganization?view=graph-rest-1.0&preserve-view=true)
 * [entitlementManagementSettings resource type](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-1.0&preserve-view=true)
 
@@ -161,22 +161,22 @@ Learn more: [Govern access for external users in entitlement management](../gove
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) (You're here)
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md) (You're here)
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

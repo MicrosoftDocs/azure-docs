@@ -1,6 +1,6 @@
 ---
 title: Application Proxy cookie settings
-description:  Azure Active Directory (Azure AD) has access and session cookies for accessing on-premises applications through Application Proxy. In this article, you'll find out how to use and configure the cookie settings. 
+description:  Microsoft Entra ID has access and session cookies for accessing on-premises applications through Application Proxy. In this article, you'll find out how to use and configure the cookie settings. 
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Cookie settings for accessing on-premises applications in Azure Active Directory
+# Cookie settings for accessing on-premises applications in Microsoft Entra ID
 
-Azure Active Directory (Azure AD) has access and session cookies for accessing on-premises applications through Application Proxy. Find out how to use the Application Proxy cookie settings. 
+Microsoft Entra ID has access and session cookies for accessing on-premises applications through Application Proxy. Find out how to use the Application Proxy cookie settings. 
 
 ## What are the cookie settings?
 

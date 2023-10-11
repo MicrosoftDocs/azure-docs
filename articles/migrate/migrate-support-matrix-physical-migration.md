@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/11/2023
+ms.date: 10/11/2023
 ms.custom: engagement-fy24
 ---
 
@@ -63,7 +63,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 
 ## Replication appliance requirements
 
-If you set up the replication appliance manually, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2022, and complies with the support requirements. 
+If you set up the replication appliance manually, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016, and complies with the support requirements. 
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements).
 - Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).

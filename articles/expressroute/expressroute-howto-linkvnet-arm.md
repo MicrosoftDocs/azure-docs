@@ -233,7 +233,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 > 
 
 > [!NOTE]
-> FastPath and Private Link feature onboarding requires time to be enabled after request. You can expect about two weeks of delay until request is completed, so we encourage you to plan your deployment in advance with these timelines into consideration.
+> Enabling FastPath Private Link support for limited GA scenarios may take upwards of 2 weeks to complete. Please plan your deployment(s) in advance.
 > 
 
 ## Enroll in ExpressRoute FastPath features (preview)

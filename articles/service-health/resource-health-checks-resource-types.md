@@ -221,6 +221,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Is the VPN gateway reachable from the internet?<br> - Is the VPN Gateway in standby mode?<br> - Is the VPN service running on the gateway?|
 
+## Microsoft.network/vpnGateways (VPN Gateways in Virtual WAN)
+|Executed Checks|
+|---|
+| - Is the VPN gateway reachable from the internet?<br> - Is the VPN Gateway in standby mode?<br> - Is the VPN service running on the gateway?|
+
 ## Microsoft.NotificationHubs/namespace
 |Executed Checks|
 |---|

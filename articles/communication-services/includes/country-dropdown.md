@@ -24,6 +24,7 @@ ms.custom: references_regions
 > - [Israel](../concepts/numbers/phone-number-management-for-israel.md)
 > - [Italy](../concepts/numbers/phone-number-management-for-italy.md)
 > - [Japan](../concepts/numbers/phone-number-management-for-japan.md)
+> - [Japan](../concepts/numbers/phone-number-management-for-japan.md)
 > - [Latvia](../concepts/numbers/phone-number-management-for-latvia.md)
 > - [Lithuania](../concepts/numbers/phone-number-management-for-lithuania.md)
 > - [Luxembourg](../concepts/numbers/phone-number-management-for-luxembourg.md)

@@ -39,7 +39,7 @@ sections:
           For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
 
       - question: Why does it take 25 minutes or more to provision a dev box?
-        answer: The provisioning process for a dev box involves interacting with several services, including authenticating with Azure Active Directory (Azure AD). The new dev box must be created, initiate networking connectivity services, authenticate to and join the Azure AD, register with Intune, and check for any Azure AD security requirements. Depending on the complexity of the dev box definition, there may also be installation and configuration tasks on the dev box itself to provide you with the environment you need to start work. When your dev box is fully provisioned, it's running, ready for you to sign in.
+        answer: The provisioning process for a dev box involves interacting with several services, including authenticating with Azure Active Directory (Azure AD). The new dev box must be created, initiate networking connectivity services, authenticate to and join the Azure AD, register with Intune, and check for any Azure AD security requirements. Depending on the complexity of the dev box definition, there might also be installation and configuration tasks on the dev box itself to provide you with the environment you need to start work. When your dev box is fully provisioned, it's running, ready for you to sign in.
 
       - question: How can I check my Dev Box quota? # Question.
         answer: |
@@ -61,7 +61,14 @@ sections:
            - For Dev Box connectivity metrics, use the [Cloud PC connection quality report (preview)](/windows-365/enterprise/report-cloud-pc-connection-quality). Dev Box is built on top of Cloud PC. So, you can see the connectivity health of each dev box by using the Cloud PC dashboard in the Microsoft Intune admin center.  
     
       - question: Can I use a smart card, or other device that connects to my physical machine with Dev Box?
-        answer: Yes. Dev Box supports a broad range of devices that connect to the physical machine via remote desktop redirection. For more information, see [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
+        answer: Yes. Dev Box users can use smart card and other devices that are connected to the physical machine. Since Dev Box uses same RDP client as Azure Virtual Desktop, you can review following documentation to learn about all the different capabilities supported by RDP client. You can also review RDP client capabilities on different operating systems.
+                [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
+
+      - question: What if I use Linux as my development environment?
+        answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
+
+      - question: What to do when network connection health check fails?
+        answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/windows-365/enterprise/health-checks). Such health checks can make sure that Dev Box provisioning is successful and end-user experiences are optimal. If you see the failure of health check, please click “view details” to see what causes the failure and address the issue from there. Most of the time it can be your network policy that blocks the following service URLs and ports [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).           
 
   - name: Dev Box hibernation
     questions:
@@ -72,7 +79,7 @@ sections:
       - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
         answer: |
           - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
-          - The Windows + OS optimizations image contain optimized power settings, and they can't be used with hibernation.  
+          - The Windows + OS optimizations image contains optimized power settings, and they can't be used with hibernation.  
           - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
           - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
 

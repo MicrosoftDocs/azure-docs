@@ -1,21 +1,23 @@
 ---
-title: FAQs about FHIR service in Azure Health Data Services
+title: FAQ about FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ms.custom: references_regions
 ---
 
 # Frequently asked questions about FHIR service
 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
 This section covers some of the frequently asked questions about the Azure Health Data Services FHIR service (hereby called FHIR service).
 
-## FHIR service: The Basics
+## FHIR service: The basics
 
 ### What is FHIR?
 
@@ -25,7 +27,7 @@ The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an 
 
 Yes, the data is stored in managed databases in Azure. The FHIR service in Azure Health Data Services doesn't provide direct access to the underlying data store.
 
-## How can I get access to the underlying data?
+### How can I get access to the underlying data?
 
 In the managed service, you can't access the underlying data. This is to ensure that the FHIR service offers the privacy and compliance certifications needed for healthcare data. If you need access to the underlying data, you can use the [open-source FHIR server](https://github.com/microsoft/fhir-server).  
 
@@ -33,7 +35,7 @@ In the managed service, you can't access the underlying data. This is to ensure 
 
 We support Microsoft Azure Active Directory as the identity provider.
 
-## Can I use Azure AD B2C with the FHIR service?
+### Can I use Azure AD B2C with the FHIR service?
 
 No, we don't support B2C in the FHIR service. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
 
@@ -45,14 +47,12 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 ### What is the difference between Azure API for FHIR and the FHIR service in the Azure Health Data Services?
 
-FHIR service is our implementation of the FHIR specification that sits in the Azure Health Data Services, which allows you to have a FHIR service and a DICOM service within a single workspace. Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
+Azure API for FHIR was our initial generally available product and is being retired as of September 30, 2026. The Azure Health Data Services FHIR service supports additional capabilities such as: 
 
-* FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
-* FHIR service support additional capabilities as 
-** [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-** [Incremental Import](configure-import-data.md).
-** [Autoscaling](fhir-service-autoscale.md) is enabled by default.
-* Azure API for FHIR has more platform features (such as customer managed keys, and cross region DR) that aren't yet available in FHIR service in Azure Health Data Services.
+- [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
+- [Incremental Import](configure-import-data.md)
+- [Autoscaling](fhir-service-autoscale.md) enabled by default
+
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
@@ -140,8 +140,9 @@ There are two basic Delete types supported within the FHIR service. These are [D
 
 ### Can I perform health checks on FHIR service?
 
-To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is successful.
-In case of errors, you will receive error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see status of FHIR service. HTTP Status code response with 200 and OverallStatus as **Healthy** in response means your health check is successful.
+
+In case of errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
 
 ## Next steps
 

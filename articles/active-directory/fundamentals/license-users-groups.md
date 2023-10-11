@@ -1,6 +1,6 @@
 ---
 title: Assign or remove licenses
-description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
+description: Instructions about how to assign or remove Microsoft Entra ID licenses from your users or groups.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -16,19 +16,19 @@ ms.reviewer: jeffsta
 
 # Assign or remove licenses in the Azure portal
 
-Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
+Many Microsoft Entra services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Microsoft Entra services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
 
 ## Available license plans
 
-There are several Azure AD license plans:
+There are several Microsoft Entra ID license plans:
 
-- Azure AD Free
+- Microsoft Entra ID Free
 
-- Azure AD Premium P1
+- Microsoft Entra ID P1
 
-- Azure AD Premium P2
+- Microsoft Entra ID P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./get-started-premium.md).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Microsoft Entra ID P1 or P2 license plans see [here](./get-started-premium.md).
 
 Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in **Identity** > **Users** > **All users** > *select a user* > **Properties**. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the tenant.
 
@@ -59,7 +59,7 @@ You can view your available service plans, including the individual licenses, ch
 
 ## Assign licenses to users or groups
 
-Anyone who has a business need to use a licensed Azure AD service must have the required licenses. You can add licensing rights to users or to an entire group.
+Anyone who has a business need to use a licensed Microsoft Entra service must have the required licenses. You can add licensing rights to users or to an entire group.
 
 ### To assign a license to a user
 
@@ -88,7 +88,7 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
 
 1. Select **Assign**.
 
-    The user is added to the list of licensed users and has access to the included Azure AD services.
+    The user is added to the list of licensed users and has access to the included Microsoft Entra services.
     > [!NOTE]
     > Licenses can also be assigned directly to a user from the user's **Licenses** page. If a user has a license assigned through a group membership and you want to assign the same license to the user directly, it can be done only from the **Products** page mentioned in step 1 only.
 
@@ -118,11 +118,11 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
 
 1. Select **Assign**.
 
-    The group is added to the list of licensed groups and all of the members have access to the included Azure AD services.
+    The group is added to the list of licensed groups and all of the members have access to the included Microsoft Entra services.
 
 ## Remove a license
 
-You can remove a license from a user's Azure AD user page, from the group overview page for a group assignment, or starting from the Azure AD **Licenses** page to see the users and groups for a license.
+You can remove a license from a user's Microsoft Entra user page, from the group overview page for a group assignment, or starting from the Microsoft Entra ID **Licenses** page to see the users and groups for a license.
 
 ### To remove a license from a user
 
@@ -144,7 +144,7 @@ You can remove a license from a user's Azure AD user page, from the group overvi
     ![Licensed groups page with Remove license option highlighted 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
-    > When an on-premises user account synced to Azure AD falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Azure AD. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
+    > When an on-premises user account synced to Microsoft Entra falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Microsoft Entra ID. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
 
 ## Next steps
 
@@ -154,6 +154,6 @@ After you've assigned your licenses, you can perform the following processes:
 
 - [Add licensed users to a group for licensing](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Microsoft Entra ID](../enterprise-users/licensing-group-advanced.md)
 
 - [Add or change profile information](./how-to-manage-user-profile-info.md)

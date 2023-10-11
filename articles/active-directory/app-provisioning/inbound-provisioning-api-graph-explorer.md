@@ -2,14 +2,14 @@
 title: Quickstart API-driven inbound provisioning with Graph Explorer
 description: Learn how to get started quickly with API-driven inbound provisioning using Graph Explorer
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: jfields
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -22,7 +22,7 @@ This tutorial describes how you can quickly test [API-driven inbound provisionin
 * You have configured [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). 
 
 > [!NOTE]
-> This provisioning API is primarily meant for use within an application or service. Tenant admins can either configure a service principal or managed identity to grant permission to perform the upload. There is no separate user-assignable Azure AD built-in directory role for this API. Outside of applications that have acquired `SynchronizationData-User.Upload` permission with admin consent, only admin users with Global Administrator role can invoke the API. This tutorial shows how you can test the API with a global administrator role in your test setup. 
+> This provisioning API is primarily meant for use within an application or service. Tenant admins can either configure a service principal or managed identity to grant permission to perform the upload. There is no separate user-assignable Microsoft Entra built-in directory role for this API. Outside of applications that have acquired `SynchronizationData-User.Upload` permission with admin consent, only admin users with Global Administrator role can invoke the API. This tutorial shows how you can test the API with a global administrator role in your test setup. 
 
 ## Upload user data to the inbound provisioning API 
 
@@ -52,7 +52,7 @@ You can verify the processing either from the Microsoft Entra admin center or us
 
 ### Verify processing from Microsoft Entra admin center 
 1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) login credentials.
-1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
+1. Browse to **Microsoft Entra ID -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.
 1. Click on **View provisioning logs** to open the provisioning logs blade. Alternatively, you can click on the menu option **Monitor -> Provisioning logs**.

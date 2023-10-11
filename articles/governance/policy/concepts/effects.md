@@ -19,7 +19,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction (preview)](#denyaction-preview)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual](#manual)
@@ -207,7 +207,7 @@ definitions as `constraintTemplate` is deprecated.
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
 - **scope** (optional)
-  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched. 
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -284,11 +284,11 @@ related resources to match.
     However, an [audit](#audit) effect should be considered instead.
 
 > [!NOTE]
-> 
+>
 > **Type** and **Name** segments can be combined to generically retrieve nested resources.
-> 
-> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`. 
-> 
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
 > To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
 
 - **ResourceGroupName** (optional)
@@ -481,9 +481,9 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 }
 ```
 
-## DenyAction (preview)
+## DenyAction
 
-`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect helps prevent any accidental deletion of critical resources.
+`DenyAction` is used to block requests based on intended action to resources at scale. The only supported action today is `DELETE`. This effect and action name helps prevent any accidental deletion of critical resources.
 
 ### DenyAction evaluation
 
@@ -587,11 +587,11 @@ related resources to match and the template deployment to execute.
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
 
 > [!NOTE]
-> 
+>
 > **Type** and **Name** segments can be combined to generically retrieve nested resources.
-> 
-> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`. 
-> 
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
 > To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
 
 - **ResourceGroupName** (optional)
@@ -667,7 +667,7 @@ If not, then a deployment to enable is executed.
     "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
+    "effect": "deployIfNotExists",
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
@@ -721,7 +721,7 @@ of that policy's assignments.
 > Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
 
 An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
+When **enforcementMode** is **Disabled**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 

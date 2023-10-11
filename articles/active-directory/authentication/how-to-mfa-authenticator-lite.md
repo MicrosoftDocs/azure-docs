@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 # How to enable Microsoft Authenticator Lite for Outlook mobile
 
 
-Microsoft Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
+Microsoft Authenticator Lite is another surface for Microsoft Entra users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
 
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
@@ -76,7 +76,7 @@ To disable Authenticator Lite in the Microsoft Entra admin center, complete the 
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from Authenticator Lite, which can be a dynamic or nested group.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for Authenticator Lite, which can be a dynamic or nested group.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 Once you identify the single target group, use the following API endpoint to change the **CompanionAppsAllowedState** property under **featureSettings**. 
 
@@ -199,4 +199,4 @@ The Conditional Access policies are evaluated each time a user opens their Outlo
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+[Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)

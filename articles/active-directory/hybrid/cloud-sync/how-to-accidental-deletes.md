@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect cloud sync accidental deletes'
+title: 'Microsoft Entra Connect cloud sync accidental deletes'
 description: This topic describes how to use the accidental delete feature to prevent deletions.
 services: active-directory
 author: billmath
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Accidental delete prevention
 
-The following document describes the accidental deletion feature for Azure AD Connect cloud sync.  The accidental delete feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and groups.  This feature allows you to:
+The following document describes the accidental deletion feature for Microsoft Entra Connect cloud sync.  The accidental delete feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and groups.  This feature allows you to:
 
 - configure the ability to prevent accidental deletes automatically. 
 - Set the # of objects (threshold) beyond which the configuration takes effect 
@@ -84,7 +84,6 @@ If you don't want to allow the deletions, you need to do the following actions:
 
 ## Next steps 
 
-- [Azure AD Connect cloud sync troubleshooting?](how-to-troubleshoot.md)
-- [Azure AD Connect cloud sync error codes](reference-error-codes.md)
+- [Microsoft Entra Connect cloud sync troubleshooting?](how-to-troubleshoot.md)
+- [Microsoft Entra Connect cloud sync error codes](reference-error-codes.md)
  
-

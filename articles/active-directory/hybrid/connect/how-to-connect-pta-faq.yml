@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Azure AD Connect'
-  description: "Answers to frequently asked questions about Azure Active Directory Pass-through Authentication"
+  title: 'Microsoft Entra Connect'
+  description: "Answers to frequently asked questions about Microsoft Entra pass-through authentication"
   services: active-directory
   keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
   documentationcenter: ''
@@ -17,27 +17,27 @@ metadata:
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-title: "Azure Active Directory Pass-through Authentication: Frequently asked questions"
-summary: This article addresses frequently asked questions about Azure Active Directory (Azure AD) Pass-through Authentication. Keep checking back for updated content.
+title: "Microsoft Entra pass-through authentication: Frequently asked questions"
+summary: This article addresses frequently asked questions about Microsoft Entra pass-through authentication. Keep checking back for updated content.
 
 
 sections:
   - name: Ignored
     questions:
       - question: |
-          Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS) should I choose?
+          Which of the methods to sign in to Microsoft Entra ID, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS) should I choose?
         answer: |
-          Review [this guide](./choose-ad-authn.md) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
+          Review [this guide](./choose-ad-authn.md) for a comparison of the various Microsoft Entra sign-in methods and how to choose the right sign-in method for your organization.
           
       - question: |
           Is Pass-through Authentication a free feature?
         answer: |
-          Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
+          Pass-through Authentication is a free feature. You don't need any paid editions of Microsoft Entra ID to use it.
 
       - question: |
           Does Conditional Access work with Pass-through Authentication?
         answer: |
-          Yes. All [Conditional Access](../../conditional-access/overview.md) capabilities, including Azure AD Multi-Factor Authentication, work with Pass-through Authentication.
+          Yes. All [Conditional Access](../../conditional-access/overview.md) capabilities, including Microsoft Entra multifactor authentication, work with Pass-through Authentication.
 
       - question: |
           Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
@@ -52,17 +52,17 @@ sections:
       - question: |
           What happens when I switch from password hash synchronization to Pass-through Authentication?
         answer: |
-          When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. All users' password hashes that are previously synchronized by password hash synchronization remain stored on Azure AD.
+          When you use Microsoft Entra Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. All users' password hashes that are previously synchronized by password hash synchronization remain stored on Microsoft Entra ID.
 
       - question: |
-          Can I install an Azure AD Application Proxy connector on the same server as a Pass-through Authentication Agent?
+          Can I install a Microsoft Entra application proxy connector on the same server as a Pass-through Authentication Agent?
         answer: |
           Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.5.193.0 or later, support this configuration.
 
       - question: |
-          What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
+          What versions of Microsoft Entra Connect and Pass-through Authentication Agent do you need?
         answer: |
-          For this feature to work, you need version 1.1.750.0 or later for Azure AD Connect and 1.5.193.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
+          For this feature to work, you need version 1.1.750.0 or later for Microsoft Entra Connect and 1.5.193.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
        
       - question: |
           Why is my connector still using an older version and not auto-upgraded to latest version?
@@ -71,12 +71,12 @@ sections:
           The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AzureADConnect-Agent -> Updater -> Admin). 
          
          
-          Only major versions are released for auto-upgrade. We recommend updating your Agent manually only if it's necessary. For example, you can't wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Pass-through Authentication agent: Version release history](./reference-connect-pta-version-history.md).
+          Only major versions are released for auto-upgrade. We recommend updating your Agent manually only if it's necessary. For example, you can't wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Microsoft Entra pass-through authentication agent: Version release history](./reference-connect-pta-version-history.md).
 
           To manually upgrade a connector:
 
-          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the [Microsoft Entra admin center](https://entra.microsoft.com). You can also find the link at Azure AD Pass-through Authentication: Version release history.
-          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a server reboot is required if the installer can't replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
+          - Download the latest version of the Agent. (You find it under Microsoft Entra Connect Pass-through Authentication on the [Microsoft Entra admin center](https://entra.microsoft.com). You can also find the link at Microsoft Entra pass-through authentication: Version release history.
+          - The installer restarts the Microsoft Entra Connect Authentication Agent services. In some cases, a server reboot is required if the installer can't replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
           - Run the installer. The upgrade process is quick and doesn't require providing any credentials and the Agent won't be re-registered.
 
       - question: |
@@ -84,10 +84,10 @@ sections:
         answer: |
           If you have configured [password writeback](../../authentication/concept-sspr-writeback.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
           
-          If you haven't configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
+          If you haven't configured password writeback for a specific user or if the user doesn't have a valid Microsoft Entra ID license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
           
       - question: |
-          The user logs on to Azure AD with credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
+          The user logs on to Microsoft Entra ID with credentials (username, password). In the meantime the user’s password expires, but the user can still access Microsoft Entra resources. Why does this happen?
         answer: |
           The password expiry doesn't trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user is able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
@@ -108,14 +108,14 @@ sections:
           - The Authentication Agents make HTTP requests over port 80 to download the TLS/SSL certificate revocation lists (CRLs).
           
                >[!NOTE]
-               >Recent updates reduced the number of ports that the feature requires. If you have older versions of Azure AD Connect or the Authentication Agent, keep these ports open as well: 5671, 8080, 9090, 9091, 9350, 9352, and 10100-10120.
+               >Recent updates reduced the number of ports that the feature requires. If you have older versions of Microsoft Entra Connect or the Authentication Agent, keep these ports open as well: 5671, 8080, 9090, 9091, 9350, 9352, and 10100-10120.
           
       - question: |
           Can the Pass-through Authentication Agents communicate over an outbound web proxy server?
         answer: |
           Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environment, Authentication Agents automatically attempt to locate and use a web proxy server on the network.
           
-          If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
+          If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Microsoft Entra ID:
           - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This allows you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
           - On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
           - Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
@@ -140,17 +140,17 @@ sections:
       - question: |
           Do I have to manually renew certificates used by Pass-through Authentication Agents?
         answer: |
-          The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There's no need to manually renew these certificates. You can clean up older expired certificates as required.
+          The communication between each Pass-through Authentication Agent and Microsoft Entra ID is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Microsoft Entra ID](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There's no need to manually renew these certificates. You can clean up older expired certificates as required.
           
       - question: |
           How do I remove a Pass-through Authentication Agent?
         answer: |
-          As long as a Pass-through Authentication Agent is running, it remains active and continually handles user sign-in requests. If you want to uninstall an Authentication Agent, go to **Control Panel -> Programs -> Programs and Features** and uninstall both the **Microsoft Azure AD Connect Authentication Agent** and the **Microsoft Azure AD Connect Agent Updater** programs.
+          As long as a Pass-through Authentication Agent is running, it remains active and continually handles user sign-in requests. If you want to uninstall an Authentication Agent, go to **Control Panel -> Programs -> Programs and Features** and uninstall both the **Microsoft Entra Connect Authentication Agent** and the **Microsoft Entra Connect Agent Updater** programs.
           
-          If you check the Pass-through Authentication blade on the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator). after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after 10 days.
+          If you check the Pass-through Authentication blade on the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator). after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after 10 days.
           
       - question: |
-          I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
+          I already use AD FS to sign in to Microsoft Entra ID. How do I switch it to Pass-through Authentication?
         answer: |
           If you're migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our [quickstart guide](how-to-connect-pta-quick-start.md).
           
@@ -172,8 +172,8 @@ sections:
           Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300 to 400 authentications per second on a standard 4-core CPU, 16-GB RAM server.
           
           To estimate network traffic, use the following sizing guidance:
-          - Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; that is, data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
-          - Each response has a payload size of 1K bytes; that is, data from the Authentication Agent to Azure AD.
+          - Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; that is, data from Microsoft Entra ID to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
+          - Each response has a payload size of 1K bytes; that is, data from the Authentication Agent to Microsoft Entra ID.
           
           For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. However, in production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
           
@@ -188,7 +188,7 @@ sections:
       - question: |
           How can I disable Pass-through Authentication?
         answer: |
-          Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-through Authentication to another method. This change disables Pass-through Authentication on the tenant and uninstalls the Authentication Agent from the server. You must manually uninstall the Authentication Agents from the other servers.
+          Rerun the Microsoft Entra Connect wizard and change the user sign-in method from Pass-through Authentication to another method. This change disables Pass-through Authentication on the tenant and uninstalls the Authentication Agent from the server. You must manually uninstall the Authentication Agents from the other servers.
 
       - question: |
           What happens when I uninstall a Pass-through Authentication Agent?
@@ -196,12 +196,12 @@ sections:
           If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
 
       - question: |
-          I have an older tenant that was originally setup using AD FS. We recently migrated to PTA, but now are not seeing our UPN changes synchronizing to Azure AD. Why are our UPN changes not being synchronized?
+          I have an older tenant that was originally setup using AD FS. We recently migrated to PTA, but now are not seeing our UPN changes synchronizing to Microsoft Entra ID. Why are our UPN changes not being synchronized?
         answer: |
           Under the following circumstances your on-premises UPN changes might not synchronize if:
           
-          - Your Azure AD tenant was created prior to June 15, 2015.
-          - You initially were federated with your Azure AD tenant using AD FS for authentication.
+          - Your Microsoft Entra tenant was created prior to June 15, 2015.
+          - You initially were federated with your Microsoft Entra tenant using AD FS for authentication.
           - You switched to having managed users using PTA as authentication.
           
           This is because the default behavior of tenants created prior to June 15, 2015 was to block UPN changes. If you need to un-block UPN changes you need to run the following PowerShell cmdlet:  
@@ -211,7 +211,7 @@ sections:
           Tenants created after June 15, 2015 have the default behavior of synchronizing UPN changes.   
           
       - question: |
-          How do I capture the PTA Agent ID from Azure AD sign-in logs and the PTA server to validate which PTA server was used for a sign-in event?
+          How do I capture the PTA Agent ID from Microsoft Entra sign-in logs and the PTA server to validate which PTA server was used for a sign-in event?
         answer: |
           To validate which local server or authentication agent was used for a specific sign-in event:
 
@@ -222,19 +222,19 @@ sections:
               `Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Authentication Agent' | Select *Instance*`
           
               The GUID value that's returned is the Agent ID of the authentication agent that's installed on that specific server. If you have multiple agents in your environment, you can run this cmdlet on each agent server and capture the Agent ID details.
-          4. Correlate the Agent ID that you get from the local server and from the Azure AD sign-in logs to validate which agent or server acknowledged the sign-request.
+          4. Correlate the Agent ID that you get from the local server and from the Microsoft Entra sign-in logs to validate which agent or server acknowledged the sign-request.
             
 additionalContent: |
 
   ## Next steps
 
   - [Current limitations](how-to-connect-pta-current-limitations.md): Learn the scenarios that are supported and the ones that are not.
-  - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-  - [Migrate your apps to Azure AD](../../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
+  - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Microsoft Entra pass-through authentication.
+  - [Migrate your apps to Microsoft Entra ID](../../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Microsoft Entra ID.
   - [Smart Lockout](../../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
   - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
   - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
   - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
-  - [Hybrid Azure AD join](../../devices/how-to-hybrid-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.
-  - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
-  - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.
+  - [Microsoft Entra hybrid join](../../devices/how-to-hybrid-join.md): Configure Microsoft Entra hybrid join capability on your tenant for SSO across your cloud and on-premises resources.
+  - [Microsoft Entra seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
+  - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Microsoft Entra forum to file new feature requests.

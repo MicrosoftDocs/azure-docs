@@ -15,7 +15,7 @@ ms.custom: aaddev, 'scenarios:getting-started', 'languages:Java', devx-track-jav
 
 # Quickstart: Sign in users and call the Microsoft Graph API from a Java web app
 
-In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
+In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Microsoft Entra organization can sign in to the application.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -107,7 +107,7 @@ To run the project, take one of these steps:
 
 To run the web application from an IDE, select run, and then go to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 
-1. On the front page, select the **Login** button to redirect users to Azure Active Directory and prompt them for credentials.
+1. On the front page, select the **Login** button to redirect users to Microsoft Entra ID and prompt them for credentials.
 
 1. After users are authenticated, they're redirected to `https://localhost:8443/msal4jsample/secure/aad`. They're now signed in, and the page will show information about the user account. The sample UI has these buttons:
     - **Sign Out**: Signs the current user out of the application and redirects that user to the home page.
@@ -156,13 +156,13 @@ If you want to deploy the web sample to Tomcat, make a couple changes to the sou
                    clientAuth="false" sslProtocol="TLS"/>
           ```
 
-3. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
-    - This command will generate a *msal-web-sample-0.1.0.war* file in your */targets* directory.
-    - Rename this file to *msal4jsample.war*.
+3. Open a Command Prompt window. Go to the root folder of this sample (where the `pom.xml` file is located), and run `mvn package` to build the project.
+    - This command will generate a `msal-web-sample-0.1.0.war` file in your `/targets` directory.
+    - Rename this file to `msal4jsample.war`.
     - Deploy the WAR file by using Tomcat or any other J2EE container solution.
-        - To deploy the msal4jsample.war file, copy it to the */webapps/* directory in your Tomcat installation, and then start the Tomcat server.
+        - To deploy the `msal4jsample.war` file, copy it to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
 
-4. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
+4. After the file is deployed, go to `https://localhost:8443/msal4jsample` by using a browser.
 
 > [!IMPORTANT]
 > This quickstart application uses a client secret to identify itself as a confidential client. Because the client secret is added as plain text to your project files, for security reasons we recommend that you use a certificate instead of a client secret before using the application in a production environment. For more information on how to use a certificate, see [Certificate credentials for application authentication](./certificate-credentials.md).

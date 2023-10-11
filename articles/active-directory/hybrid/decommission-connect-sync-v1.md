@@ -14,8 +14,8 @@ ms.date: 05/31/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
+ms.custom: docutune-disable
 ---
-
 
 # Decommission Azure AD Connect V1
 

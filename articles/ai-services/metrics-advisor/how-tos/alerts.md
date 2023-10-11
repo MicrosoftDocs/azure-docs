@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to configure your Metrics Advisor alerts using hooks for email, web and Azure DevOps.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: how-to
 ms.date: 09/14/2020
@@ -13,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # How-to: Configure alerts and get notifications using a hook
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 After an anomaly is detected by Metrics Advisor, an alert notification will be triggered based on alert settings, using a hook. An alert setting can be used with multiple detection configurations, various parameters are available to customize your alert rule.
 

@@ -31,7 +31,7 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
+Microsoft Entra ID is the default identity provider for self-service sign-up. This means that users are able to sign up by default with a Microsoft Entra account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
@@ -40,7 +40,7 @@ Azure AD is the default identity provider for self-service sign-up. This means t
 
 ### Define custom attributes (optional)
 
-User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
+User attributes are values collected from the user during self-service sign-up. Microsoft Entra External ID comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
 
 ## Enable self-service sign-up for your tenant
 
@@ -69,7 +69,7 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
 1. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
 1. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
-1. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
+1. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Microsoft Entra ID Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
 1. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
    :::image type="content" source="media/self-service-sign-up-user-flow/create-user-flow.png" alt-text="Screenshot of the new user flow creation page. ":::

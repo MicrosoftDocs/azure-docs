@@ -27,6 +27,9 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 >[!IMPORTANT]
 > You should enable Continuous Availability for [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html), SQL Server, and [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md). Using SMB Continuous Availability shares for any other workload is not supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported.   
 > If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
+
+>[!IMPORTANT]
+> Change notifications are not supported with Continuously Available shares in Azure NetApp Files.
  
 ## Steps
        

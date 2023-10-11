@@ -1,7 +1,7 @@
 ---
 
 title: Bulk invite guest users for B2B collaboration tutorial
-description: In this tutorial, you learn how to send bulk invitations using a CSV file to external Azure AD B2B collaboration users. 
+description: In this tutorial, you learn how to send bulk invitations using a CSV file to external Microsoft Entra B2B collaboration users. 
 
 services: active-directory
 ms.service: active-directory
@@ -19,18 +19,18 @@ ms.collection: engagement-fy23, M365-identity-device-management
 ms.custom: engagement-fy23
 ---
 
-# Tutorial: Bulk invite Azure AD B2B collaboration users
+# Tutorial: Bulk invite Microsoft Entra B2B collaboration users
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Microsoft Entra admin center to send bulk invitations to external users. Specifically, you'll follow these steps:
+If you use Microsoft Entra B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Microsoft Entra admin center to send bulk invitations to external users. Specifically, you'll follow these steps:
 
 > [!div class="checklist"]
 >
 > * Use **Bulk invite users** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
-> * Upload the .csv file to Azure AD
+> * Upload the .csv file to Microsoft Entra ID
 > * Verify the users were added to the directory
 
 ## Prerequisites
-- If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don’t have Microsoft Entra ID, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
 
 ## Invite guest users in bulk
@@ -73,7 +73,7 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 
 ## Understand the CSV template
 
-Download and fill in the bulk upload CSV template to help you successfully invite Azure AD guest users in bulk. The CSV template you download might look like this example:
+Download and fill in the bulk upload CSV template to help you successfully invite Microsoft Entra guest users in bulk. The CSV template you download might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](media/tutorial-bulk-invite/understand-template.png)
 
@@ -105,7 +105,7 @@ Check to see that the guest users you added exist in the directory either in the
 
 ### View guest users with PowerShell
 
-To view guest users with PowerShell, you'll need the [Microsoft.Graph.Users PowerShell Module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true). Then sign in using the `Connect-MgGraph` command with an admin account to consent to the required scopes:
+To view guest users with PowerShell, you'll need the [`Microsoft.Graph.Users` PowerShell module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true). Then sign in using the `Connect-MgGraph` command with an admin account to consent to the required scopes:
 ```powershell
 Connect-MgGraph -Scopes "User.Read.All"
 ```
@@ -133,5 +133,5 @@ For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicroso
 ## Next steps
 
 - [Bulk invite guest users via PowerShell](bulk-invite-powershell.md)
-- [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
+- [Learn about the Microsoft Entra B2B collaboration invitation redemption process](redemption-experience.md)
 - [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)

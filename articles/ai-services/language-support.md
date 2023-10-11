@@ -5,7 +5,7 @@ description: Azure AI services enable you to build applications that see, hear, 
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

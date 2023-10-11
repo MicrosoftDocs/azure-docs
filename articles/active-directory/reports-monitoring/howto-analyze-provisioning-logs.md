@@ -1,6 +1,6 @@
 ---
-title: How to analyze the Azure Active Directory provisioning logs
-description: Learn how to download, view, and analyze the details in the provisioning logs from Azure Active Directory.
+title: How to analyze the Microsoft Entra provisioning logs
+description: Learn how to download, view, and analyze the details in the provisioning logs from Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,15 +13,15 @@ ms.author: sarahlipsey
 ms.reviewer: arvinh
 ---
 
-# How to download and analyze the Azure Active Directory provisioning logs
+# How to download and analyze the Microsoft Entra provisioning logs
 
-The Azure Active Directory (Azure AD) provisioning logs provide details about the provisioning events that occur in your tenant. You can use the information captured in the provisioning logs to help troubleshoot issues with a provisioned user.
+The Microsoft Entra provisioning logs provide details about the provisioning events that occur in your tenant. You can use the information captured in the provisioning logs to help troubleshoot issues with a provisioned user.
 
-This article describes the options for downloading the provisioning logs from the Azure AD portal as well as how to analyze the logs. Error codes and special considerations are also included.
+This article describes the options for downloading the provisioning logs from the Microsoft Entra admin center as well as how to analyze the logs. Error codes and special considerations are also included.
 
 ## Prerequisites
 
-To view the provisioning logs, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/get-started-premium.md).
+To view the provisioning logs, your tenant must have a Microsoft Entra ID P1 or P2 license associated with it. To upgrade your Microsoft Entra edition, see [Getting started with Microsoft Entra ID P1 or P2](../fundamentals/get-started-premium.md).
 
 Application owners can view logs for their own applications. The following roles are required to view provisioning logs:
 
@@ -122,17 +122,17 @@ Use the following table to better understand how to resolve errors that you find
 
 |Error code|Description|
 |---|---|
-|Conflict,<br>EntryConflict|Correct the conflicting attribute values in either Azure AD or the application. Or, review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the [documentation](../app-provisioning/customize-application-attributes.md) for more information on configuring matching attributes.|
+|Conflict,<br>EntryConflict|Correct the conflicting attribute values in either Microsoft Entra ID or the application. Or, review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the [documentation](../app-provisioning/customize-application-attributes.md) for more information on configuring matching attributes.|
 |TooManyRequests|The target app rejected this attempt to update the user because it's overloaded and receiving too many requests. There's nothing to do. This attempt is automatically retired. Microsoft has also been notified of this issue.|
 |InternalServerError |The target app returned an unexpected error. A service issue with the target application might be preventing it from working. This attempt is automatically retried in 40 minutes.|
-|InsufficientRights,<br>MethodNotAllowed,<br>NotPermitted,<br>Unauthorized| Azure AD authenticated with the target application but wasn't authorized to perform the update. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md).|
+|InsufficientRights,<br>MethodNotAllowed,<br>NotPermitted,<br>Unauthorized| Microsoft Entra authenticated with the target application but wasn't authorized to perform the update. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md).|
 |UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application might not be correct, or a service issue with the target application might be preventing it from working.|
 |WebExceptionProtocolError |An HTTP protocol error occurred in connecting to the target application. There's nothing to do. This attempt is automatically retried in 40 minutes.|
 |InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Ensure that the user exists. To force a new matching of all users, use the Microsoft Graph API to [restart the job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>Restarting provisioning triggers an initial cycle, which can take time to complete. Restarting provisioning also deletes the cache that the provisioning service uses to operate. That means all users and groups in the tenant must be evaluated again, and certain provisioning events might be dropped.|
 |NotImplemented | The target app returned an unexpected response. The configuration of the app might not be correct, or a service issue with the target app might be preventing it from working. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md). |
 |MandatoryFieldsMissing,<br>MissingValues |The user couldn't be created because required values are missing. Correct the missing attribute values in the source record, or review your matching attribute configuration to ensure that the required fields aren't omitted. [Learn more](../app-provisioning/customize-application-attributes.md) about configuring matching attributes.|
 |SchemaAttributeNotFound |The operation couldn't be performed because an attribute was specified that doesn't exist in the target application. See the [documentation](../app-provisioning/customize-application-attributes.md) on attribute customization and ensure that your configuration is correct.|
-|InternalError |An internal service error occurred within the Azure AD provisioning service. There's nothing to do. This attempt is automatically retired in 40 minutes.|
+|InternalError |An internal service error occurred within the Microsoft Entra provisioning service. There's nothing to do. This attempt is automatically retired in 40 minutes.|
 |InvalidDomain |The operation couldn't be performed because an attribute value contains an invalid domain name. Update the domain name on the user or add it to the permitted list in the target application. |
 |Timeout |The operation couldn't be completed because the target application took too long to respond. There's nothing to do. This attempt is automatically retried in 40 minutes.|
 |LicenseLimitExceeded|The user couldn't be created in the target application because there are no available licenses for this user. Procure more licenses for the target application. Or, review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
@@ -141,7 +141,7 @@ Use the following table to better understand how to resolve errors that you find
 |ImportSkipped | When each user is evaluated, the system tries to import the user from the source system. This error commonly occurs when the user who's being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, the system can't evaluate scoping, matching, or export changes. The presence of this error doesn't indicate that the user is in scope, because you haven't yet evaluated scoping for the user.|
 |EntrySynchronizationSkipped | The provisioning service has successfully queried the source system and identified the user. No further action was taken on the user and they were skipped. The user might have been out of scope, or the user might have already existed in the target system with no further changes required.|
 |SystemForCrossDomainIdentity<br>ManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. For example, if you do a [GET Group request](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group) to retrieve a group, provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, this error appears.|
-|SystemForCrossDomainIdentity<br>ManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
+|SystemForCrossDomainIdentity<br>ManagementServiceIncompatible|The Microsoft Entra provisioning service is unable to parse the response from the third party application. Work with the application developer to ensure that the SCIM server is compatible with the [Microsoft Entra SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
 |SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Ensure that you either map a single-valued attribute to the property that is throwing an error, update the value in the source to be single-valued, or remove the attribute from the mappings.|
 
 
@@ -151,16 +151,16 @@ Use the following table to better understand how to resolve errors that you find
 
 | Error code | Cause | Solution |
 | --- | --- | --- |
-| AzureActiveDirectory<br/>CannotUpdateObjectsOriginated<br/>InExternalService | The synchronization engine could not update one or more user properties in the target tenant.<br/><br/>The operation failed in Microsoft Graph API because of Source of Authority (SOA) enforcement. Currently, the following properties show up in the list:<br/>`Mail`<br/>`showInAddressList` | In some cases (for example when `showInAddressList` property is part of the user update), the synchronization engine might automatically retry the (user) update without the offending property. Otherwise, you will need to update the property directly in the target tenant. |
+| Microsoft Entra ID<br/>CannotUpdateObjectsOriginated<br/>InExternalService | The synchronization engine could not update one or more user properties in the target tenant.<br/><br/>The operation failed in Microsoft Graph API because of Source of Authority (SOA) enforcement. Currently, the following properties show up in the list:<br/>`Mail`<br/>`showInAddressList` | In some cases (for example when `showInAddressList` property is part of the user update), the synchronization engine might automatically retry the (user) update without the offending property. Otherwise, you will need to update the property directly in the target tenant. |
 | AzureDirectory<br/>B2BManagementPolicy<br/>CheckFailure | The cross-tenant synchronization policy allowing automatic redemption failed.<br/><br/>The synchronization engine checks to ensure that the administrator of the target tenant has created an inbound cross-tenant synchronization policy allowing automatic redemption. The synchronization engine also checks if the administrator of the source tenant has enabled an outbound policy for automatic redemption. | Ensure that the automatic redemption setting has been enabled for both the source and target tenants. For more information, see [Automatic redemption setting](../multi-tenant-organizations/cross-tenant-synchronization-overview.md#automatic-redemption-setting). |
-| AzureActiveDirectory<br/>QuotaLimitExceeded | The number of objects in the tenant exceeds the directory limit.<br/><br/>Azure AD has limits for the number of objects that can be created in a tenant. | Check whether the quota can be increased. For information about the directory limits and steps to increase the quota, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). |
-| InvitationCreationFailure | The Azure AD provisioning service attempted to invite the user in the target tenant. That invitation failed.| Further investigation likely requires contacting support.|
-| AzureActiveDirectory<br/>Forbidden | External collaboration settings have blocked invitations.|Navigate to user settings and ensure that [external collaboration settings](../external-identities/external-collaboration-settings-configure.md) are permitted.|
+| Microsoft Entra ID<br/>QuotaLimitExceeded | The number of objects in the tenant exceeds the directory limit.<br/><br/>Microsoft Entra ID has limits for the number of objects that can be created in a tenant. | Check whether the quota can be increased. For information about the directory limits and steps to increase the quota, see [Microsoft Entra service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). |
+| InvitationCreationFailure | The Microsoft Entra provisioning service attempted to invite the user in the target tenant. That invitation failed.| Further investigation likely requires contacting support.|
+| Microsoft Entra ID<br/>Forbidden | External collaboration settings have blocked invitations.|Navigate to user settings and ensure that [external collaboration settings](../external-identities/external-collaboration-settings-configure.md) are permitted.|
 | InvitationCreation<br/>FailureInvalidPropertyValue | Potential causes:<br/>* The Primary SMTP Address is an invalid value.<br/>* UserType is neither guest nor member<br/>* Group email Address is not supported | Potential solutions:<br/>* The Primary SMTP Address has an invalid value. Resolving this issue will likely require updating the mail property of the source user. For more information, see [Prepare for directory synchronization to Microsoft 365](https://aka.ms/DirectoryAttributeValidations)<br/>* Ensure that the userType property is provisioned as type guest or member. This can be fixed by checking your attribute mappings to understand how the userType attribute is mapped.<br/>* The email address address of the user matches with the email address of a group in the tenant. Update the email address for one of the two objects.|
 | InvitationCreation<br/>FailureAmbiguousUser| The invited user has a proxy address that matches an internal user in the target tenant. The proxy address must be unique. | To resolve this error, delete the existing internal user in the target tenant or remove this user from sync scope.|
-| AzureActiveDirectory<br/>CannotUpdateObjects<br/>MasteredOnPremises| If the user in the target tenant was originally synchronized from AD to Azure AD and converted to an external user, the source of authority is still on-premises and the user cannot be updated.| The user cannot be updated by cross-tenant synchronization|
+| Microsoft Entra ID<br/>CannotUpdateObjects<br/>MasteredOnPremises| If the user in the target tenant was originally synchronized from AD to Microsoft Entra ID and converted to an external user, the source of authority is still on-premises and the user cannot be updated.| The user cannot be updated by cross-tenant synchronization|
 ## Next steps
 
 * [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
-* [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
+* [Problem configuring user provisioning to a Microsoft Entra Gallery application](../app-provisioning/application-provisioning-config-problem.md)
 * [Graph API for provisioning logs](/graph/api/resources/provisioningobjectsummary)

@@ -1,6 +1,6 @@
 ---
-title: Manage the 'Stay signed in' prompt - Azure AD - Microsoft Entra
-description: Instructions about how to set up the 'Stay signed in' prompt for Azure AD users.
+title: Manage the 'Stay signed in' prompt in Microsoft Entra ID
+description: Instructions about how to set up the 'Stay signed in' prompt for Microsoft Entra users.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -34,8 +34,7 @@ Some features of SharePoint Online and Office 2010 depend on users being able to
 
 Configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
 
-- Azure AD Premium 1
-- Azure AD Premium 2
+- Microsoft Entra ID P1 or P2
 - Office 365 (for Office apps)
 - Microsoft 365
 
@@ -55,7 +54,7 @@ The KMSI setting is managed in **User settings**.
 
 ## Troubleshoot 'Stay signed in?' issues
 
-If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Azure AD **Sign-ins** page. The prompt the user sees is called an "interrupt."
+If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Microsoft Entra sign-in logs. The prompt the user sees is called an "interrupt."
 
 ![Sample 'Stay signed in?' prompt](media/how-to-manage-stay-signed-in-prompt/kmsi-stay-signed-in-prompt.png)
 
@@ -80,4 +79,4 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 ## Next steps
 
 - [Learn how to customize branding for sign-in experiences](how-to-customize-branding.md)
-- [Manage user settings in Azure AD](how-to-manage-user-profile-info.md)
+- [Manage user settings in Microsoft Entra ID](how-to-manage-user-profile-info.md)

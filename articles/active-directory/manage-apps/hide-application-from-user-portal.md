@@ -1,6 +1,6 @@
 ---
 title: Hide an Enterprise application
-description: How to hide an Enterprise application from user's experience in Azure Active Directory access portals or Microsoft 365 launchers.
+description: How to hide an Enterprise application from user's experience in Microsoft Entra ID access portals or Microsoft 365 launchers.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.custom: enterprise-apps, has-azure-ad-ps-ref
 
 # Hide an Enterprise application
 
-Learn how to hide enterprise applications in Azure Active Directory. When an application is hidden, users still have permissions to the application.
+Learn how to hide enterprise applications in Microsoft Entra ID. When an application is hidden, users still have permissions to the application.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Use the following steps to hide an application from My Apps portal and Microsoft
 :::zone pivot="aad-powershell"
 
 
-To hide an application from the My Apps portal, using Azure AD PowerShell, you need to connect to Azure AD PowerShell and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). You can manually add the **HideApp** tag to the service principal for the application. Run the following AzureAD PowerShell commands to set the application's **Visible to Users?** property to **No**.
+To hide an application from the My Apps portal, using Azure AD PowerShell, you need to connect to Azure AD PowerShell and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). You can manually add the **HideApp** tag to the service principal for the application. Run the following Azure AD PowerShell commands to set the application's **Visible to Users?** property to **No**.
 
 ```PowerShell
 Connect-AzureAD

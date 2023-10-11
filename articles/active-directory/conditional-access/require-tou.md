@@ -1,6 +1,6 @@
 ---
 title: Quickstart require Terms of Use at sign-in
-description: Quickstart require terms of use acceptance before access to selected cloud apps is granted with Azure Active Directory Conditional Access.
+description: Quickstart require terms of use acceptance before access to selected cloud apps is granted with Microsoft Entra Conditional Access.
 
 services: active-directory
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.collection: M365-identity-device-management
 ---
 # Quickstart: Require terms of use to be accepted before accessing cloud apps
 
-In this quickstart, you'll configure a Conditional Access policy in Azure Active Directory (Azure AD) to require users to accept terms of use. 
+In this quickstart, you'll configure a Conditional Access policy in Microsoft Entra ID to require users to accept terms of use. 
 
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure AD Premium P1 or P2 - Azure AD Conditional Access is an Azure AD Premium capability.
+- Microsoft Entra ID P1 or P2 - Microsoft Entra Conditional Access is a Microsoft Entra ID P1 or P2 capability.
 - A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Sign-in without terms of use
@@ -87,7 +87,7 @@ The scenario in this quickstart uses:
 
 In the previous section, you created a Conditional Access policy requiring terms of use be accepted. 
 
-To test your policy, try to sign in to the [Azure portal](https://portal.azure.com) using your test account. You should see a dialog that requires you to accept your terms of use.
+To test your policy, try to sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using your test account. You should see a dialog that requires you to accept your terms of use.
 
 :::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot of a dialog box titled Identity Security Protection terms of use, with Decline and Accept buttons and a button labeled My TOU." border="false":::
 
@@ -95,7 +95,7 @@ To test your policy, try to sign in to the [Azure portal](https://portal.azure.c
 
 When no longer needed, delete the test user and the Conditional Access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user).
+- If you don't know how to delete a Microsoft Entra user, see [Delete users from Microsoft Entra ID](../fundamentals/add-users.md#delete-a-user).
 - To delete your policy, select the ellipsis (`...`) next to your policies name, then select **Delete**.
 - To delete your terms of use, select it, and then select **Delete terms**.
 

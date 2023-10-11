@@ -2,7 +2,7 @@
 title: Deploy updates and track results in Azure Update Manager
 description: This article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 08/08/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -22,7 +22,7 @@ See the following sections for more information:
 
 ## Supported regions
 
-Update Manager is available in all [Azure public regions](support-matrix.md#supported-regions).
+Update Manager is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
 ## Configure reboot settings
 
@@ -95,10 +95,10 @@ To install one-time updates on a single VM:
 
 1. Select your virtual machine and the **virtual machines | Updates** page opens.
 1. Under **Operations**, select **Updates**.
-1. On the **Updates** pane, select **Go to Updates using Azure Update Manager**.
-1. On the **Updates (Preview)** pane, select **One-time update** to install the updates.
-1. On the **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next**, and follow the procedure from step 4 listed in **From Overview pane** of [Install updates on a single VM](#install-updates-on-a-single-vm).
-
+1. In **Updates**, select **Go to Updates using Azure Update Manager**.
+1. In **Updates**, select **One-time update** to install the updates.
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 4 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-a-single-vm).
+ 
 ---
 
 ## Install updates at scale
@@ -126,7 +126,7 @@ You can schedule updates.
 
 # [From Machines pane](#tab/install-scale-machines)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
 1. Go to **Machines**, select your subscription, and choose your machines. You can choose **Select all** to select all the machines.
 
@@ -152,7 +152,10 @@ After your scheduled deployment starts, you can see its status on the **History*
 
 **Windows update history** currently doesn't show the updates that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update Manager** > **Manage** > **History**.
 
-A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, which is represented as **Operation ID**. It's listed along with **Status**, **Updates Installed**, and **Time** details. You can filter the results listed in the grid.
+> [!NOTE]
+> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update manager** > **Manage** > **History**. 
+ 
+A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
 Select any one of the update deployments from the list to open the **Update deployment run** page. Here, you can see a detailed breakdown of the updates and the installation results for the Azure VM or Azure Arc-enabled server.
 

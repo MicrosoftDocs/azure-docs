@@ -2,7 +2,7 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 10/11/2023
 ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: cithomas
@@ -330,7 +330,7 @@ Insert a telemetry initializer by adding the onInit callback function in the [Ja
 ```html
 <script type="text/javascript">
 !function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {

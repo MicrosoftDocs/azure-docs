@@ -33,11 +33,11 @@ The Microsoft Entra admin center is a convenient way to configure provisioning f
 ### Sign in to Microsoft Graph Explorer (recommended), Postman, or any other API client you use
 
 1. Start [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. Select the "Sign-In with Microsoft" button and sign in using Azure AD global administrator or App Admin credentials.
+1. Select the "Sign-In with Microsoft" button and sign in using Microsoft Entra Global Administrator or App Admin credentials.
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
 ### Retrieve the gallery application template identifier
-Applications in the Azure AD application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management. Retrieve the identifier of the application template for **AWS Single-Account Access** and from the response, record the value of the **id** property to use later in this tutorial.
+Applications in the Microsoft Entra application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management. Retrieve the identifier of the application template for **AWS Single-Account Access** and from the response, record the value of the **id** property to use later in this tutorial.
 
 #### Request
 
@@ -237,7 +237,7 @@ HTTP/1.1 204 No Content
 
 ### Save your credentials
 
-Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The following example is for an application that requires a client secret and a secret token. Each application has its own requirements. Review the [API documentation](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta&preserve-view=true) to see the available options. 
+Configuring provisioning requires establishing a trust between Microsoft Entra ID and the application. Authorize access to the third-party application. The following example is for an application that requires a client secret and a secret token. Each application has its own requirements. Review the [API documentation](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta&preserve-view=true) to see the available options. 
 
 #### Request
 ```msgraph-interactive
@@ -375,4 +375,4 @@ Content-type: application/json
 ## See also
 
 - [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
-- [Integrating a custom SCIM app with Azure AD](./use-scim-to-provision-users-and-groups.md)
+- [Integrating a custom SCIM app with Microsoft Entra ID](./use-scim-to-provision-users-and-groups.md)

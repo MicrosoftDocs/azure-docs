@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Distributed training with Horovod and Pytorch'
+title: 'Tutorial: Distributed training with Horovod and PyTorch'
 description: Tutorial on how to run distributed training with the Horovod Estimator and PyTorch
 ms.service: synapse-analytics 
 ms.subservice: machine-learning

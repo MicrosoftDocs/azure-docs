@@ -27,7 +27,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP**.
 1. To search for more parameters, you can make a selection from the **User States**, **Permission Creep Index**, and **Task Usage** dropdowns.
 1. Select **Apply**.
-    Entra displays a list of groups, users, and service accounts that match your criteria.
+    Microsoft Entra ID displays a list of groups, users, and service accounts that match your criteria.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.

@@ -4,6 +4,7 @@ description: Learn how to deploy Microsoft Sentinel for SAP data connector envir
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 06/19/2023
 ---
 

@@ -91,8 +91,8 @@ You can customize emails that you send via lifecycle workflows to have your own 
 
 To enable these features, you need the following prerequisites:
 
-- A verified domain. To add a custom domain, see [Managing custom domain names in Azure Active Directory](../enterprise-users/domains-manage.md).
-- Custom branding set within Azure AD if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding](../fundamentals/how-to-customize-branding.md).
+- A verified domain. To add a custom domain, see [Managing custom domain names in Microsoft Entra ID](../enterprise-users/domains-manage.md).
+- Custom branding set within Microsoft Entra ID if you want to use your custom branding in emails. To set organizational branding within your Azure tenant, see [Configure your company branding](../fundamentals/how-to-customize-branding.md).
 
 > [!NOTE]
 > For compliance with the [RFC for sending and receiving email](https://www.ietf.org/rfc/rfc2142.txt), we recommend using a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX. [Learn more about Exchange Online email routing](/exchange/mail-flow-best-practices/mail-flow-best-practices).

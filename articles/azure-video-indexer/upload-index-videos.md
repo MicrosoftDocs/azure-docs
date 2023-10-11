@@ -9,6 +9,8 @@ ms.author: inhenkel
 
 # Upload media files using the Video Indexer website
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 You can upload media files from your file system or from a URL. You can also configure basic or advanced settings for indexing, such as privacy, streaming quality, language, presets, people and brands models, custom logos and metadata.
 
 This article shows how to upload and index media files (audio or video) using the [Azure AI Video Indexer website](https://aka.ms/vi-portal-link).

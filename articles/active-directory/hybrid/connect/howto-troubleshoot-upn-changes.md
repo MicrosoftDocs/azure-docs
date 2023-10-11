@@ -1,5 +1,5 @@
 ---
-title: Plan and troubleshoot User Principal Name changes in Azure Active Directory
+title: Plan and troubleshoot User Principal Name changes in Microsoft Entra ID
 description: Understand known issues and mitigations for User Principal Name (UPN) changes
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.reviewer: jsimmons, andresc
 ms.collection: M365-identity-device-management
 ---
 
-# Plan and troubleshoot User Principal Name changes in Azure Active Directory
+# Plan and troubleshoot User Principal Name changes in Microsoft Entra ID
 
 The User Principal Name (UPN) attribute is an internet communication standard for user accounts. A UPN consists of a prefix (user account name) and a suffix (DNS domain name). The prefix joins the suffix using the "\@" symbol. For example, someone@example.com. Ensure the UPN is unique among security principal objects in a directory forest. 
 
@@ -41,7 +41,7 @@ Change the prefix, suffix, or both.
   * Britta.Simon@contoso.com becomes Britta.Simon@contosolabs.com, or
   * Britta.Simon@corp.contoso.com becomes Britta.Simon@labs.contoso.com 
 
-We recommend you change user UPN when their primary email address changes. During initial synchronization from Active Directory to Azure AD, ensure user emails are identical to their UPNs.
+We recommend you change user UPN when their primary email address changes. During initial synchronization from Active Directory to Microsoft Entra ID, ensure user emails are identical to their UPNs.
 
 ### UPNs in Active Directory
 
@@ -50,31 +50,33 @@ In Active Directory, the default UPN suffix is the domain DNS name where you cre
 For example, if you add labs.contoso.com and change the user UPNs and email to reflect that, the result is: username@labs.contoso.com.
 
    >[!IMPORTANT]
-   > If you change the suffix in Active Directory, add and verify a matching custom domain name in Azure AD. 
-   > [Add your custom domain name using the Azure Active Directory portal](../../fundamentals/add-custom-domain.md)
+   > If you change the suffix in Active Directory, add and verify a matching custom domain name in Microsoft Entra ID. 
+   > [Add your custom domain name using the Microsoft Entra admin center](../../fundamentals/add-custom-domain.md)
 
    ![Screenshot of the Add customer domain option, under Custom domain names.](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
-### UPNs in Azure Active Directory
+<a name='upns-in-azure-active-directory'></a>
 
-Users sign in to Azure AD with their userPrincipalName attribute value. 
+### UPNs in Microsoft Entra ID
 
-When you use Azure AD with on-premises Active Directory, user accounts are synchronized by using the Azure AD Connect service. The Azure AD Connect wizard uses the userPrincipalName attribute from the on-premises Active Directory as the UPN in Azure AD. You can change it to a different attribute in a custom installation.
+Users sign in to Microsoft Entra ID with their userPrincipalName attribute value. 
+
+When you use Microsoft Entra ID with on-premises Active Directory, user accounts are synchronized by using the Microsoft Entra Connect service. The Microsoft Entra Connect wizard uses the userPrincipalName attribute from the on-premises Active Directory as the UPN in Microsoft Entra ID. You can change it to a different attribute in a custom installation.
 
    >[!NOTE]
    > Define a process for when you update a User Principal Name (UPN) of a user, or for your organization. 
 
-When you synchronize user accounts from Active Directory to Azure AD, ensure the UPNs in Active Directory map to verified domains in Azure AD.
+When you synchronize user accounts from Active Directory to Microsoft Entra ID, ensure the UPNs in Active Directory map to verified domains in Microsoft Entra ID.
 
    ![Screenshot of Active Director UPN suffixes and related domains.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
-If the userPrincipalName attribute value doesn't correspond to a verified domain in Azure AD, synchronization replaces the suffix with .onmicrosoft.com.
+If the userPrincipalName attribute value doesn't correspond to a verified domain in Microsoft Entra ID, synchronization replaces the suffix with .onmicrosoft.com.
 
 ### Bulk UPN change rollout
 
 Use our best practices to test bulk UPN changes. Have a tested roll-back plan for reverting UPNs if issues can't be resolved. After your pilot is running, target small user sets, with organizational roles, and sets of apps or devices. This process helps you understand the user experience. Include this information in your communications to stakeholders and users.
 
-Learn more: [Azure Active Directory deployment plans](../../architecture/deployment-plans.md)
+Learn more: [Microsoft Entra deployment plans](../../architecture/deployment-plans.md)
 
 Create a procedure to change UPNs for individual users. We recommend a procedure that includes documentation about known issues and workarounds.
 
@@ -87,52 +89,56 @@ Software as a service (SaaS) and line of business (LoB) applications often rely 
 Learn more:
 
 * [What is SaaS?](https://azure.microsoft.com/overview/what-is-saas/)
-* [What is app provisioning in Azure Active Directory?](../../app-provisioning/user-provisioning.md)
+* [What is app provisioning in Microsoft Entra ID?](../../app-provisioning/user-provisioning.md)
 
 ### Known issues
 
-Changing user UPN can break the relationship between the Azure AD user and the user profile on the application. If the application uses JIT provisioning, it might create a new user profile. Then, the application administrator makes manual changes to fix the relationship.
+Changing user UPN can break the relationship between the Microsoft Entra user and the user profile on the application. If the application uses JIT provisioning, it might create a new user profile. Then, the application administrator makes manual changes to fix the relationship.
 
 ### Workarounds
 
-Use automated app provisioning in Azure AD to create, maintain, and remove user identities in supported cloud applications. Configure automated user provisioning on your applications to update UPNs on the applications. Test the applications to validate they aren't affected by UPN changes. If you're a developer, consider adding SCIM support to your application to enable automatic user provisioning. 
+Use automated app provisioning in Microsoft Entra ID to create, maintain, and remove user identities in supported cloud applications. Configure automated user provisioning on your applications to update UPNs on the applications. Test the applications to validate they aren't affected by UPN changes. If you're a developer, consider adding SCIM support to your application to enable automatic user provisioning. 
 
 Learn more:
 
-* [What is app provisioning in Azure Active Directory?](../../app-provisioning/user-provisioning.md)
-* [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](../../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [What is app provisioning in Microsoft Entra ID?](../../app-provisioning/user-provisioning.md)
+* [Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID](../../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ## Managed devices known issues and workarounds
 
-If you bring your devices to Azure AD, you maximize user productivity with single sign-on (SSO) across cloud and on-premises resources. 
+If you bring your devices to Microsoft Entra ID, you maximize user productivity with single sign-on (SSO) across cloud and on-premises resources. 
 
 Learn more: [What is a device identity?](../../devices/overview.md)
 
-### Azure AD joined devices
+<a name='azure-ad-joined-devices'></a>
 
-Azure AD joined devices are joined to Azure AD. Users sign in to the device using their organization identity.
+### Microsoft Entra joined devices
 
-Learn more: [Azure AD joined devices](../../devices/concept-directory-join.md)
+Microsoft Entra joined devices are joined to Microsoft Entra ID. Users sign in to the device using their organization identity.
+
+Learn more: [Microsoft Entra joined devices](../../devices/concept-directory-join.md)
 
 ### Known issues and resolution
 
-Users might experience single sign-on issues with applications that depend on Azure AD for authentication. This issue was fixed in the Windows 10 May-2020 update (2004).
+Users might experience single sign-on issues with applications that depend on Microsoft Entra ID for authentication. This issue was fixed in the Windows 10 May-2020 update (2004).
 
 ### Workaround
 
-Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the [Microsoft Entra admin center](https://entra.microsoft.com), ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using Microsoft Graph PowerShell. See, [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
+Allow enough time for the UPN change to sync to Microsoft Entra ID. After you verify the new UPN appears in the [Microsoft Entra admin center](https://entra.microsoft.com), ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using Microsoft Graph PowerShell. See, [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
 
    ![Screenshot of User-1 and Other-user domains, on the sign-in screen.](./media/howto-troubleshoot-upn-changes/other-user.png)
 
-### Hybrid Azure AD joined devices
+<a name='hybrid-azure-ad-joined-devices'></a>
 
-Hybrid Azure AD joined devices are joined to Active Directory and Azure AD. You can implement Hybrid Azure AD join if your environment has an on-premises Active Directory footprint.
+### Microsoft Entra hybrid joined devices
+
+Microsoft Entra hybrid joined devices are joined to Active Directory and Microsoft Entra ID. You can implement Microsoft Entra hybrid join if your environment has an on-premises Active Directory footprint.
  
-Learn more: [Hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md)
+Learn more: [Microsoft Entra hybrid joined devices](../../devices/concept-hybrid-join.md)
 
 ### Known issues and resolution
 
-Windows 10 Hybrid Azure AD joined devices are likely to experience unexpected restarts and access issues. If users sign in to Windows before the new UPN synchronizes to Azure AD, or they continue using a Windows session, they might experience single sign-on (SSO) issues with apps that use Azure AD for authentication. This situation occurs if Conditional Access is configured to enforce the use of hybrid joined devices to access resources. 
+Windows 10 Microsoft Entra hybrid joined devices are likely to experience unexpected restarts and access issues. If users sign in to Windows before the new UPN synchronizes to Microsoft Entra ID, or they continue using a Windows session, they might experience single sign-on (SSO) issues with apps that use Microsoft Entra ID for authentication. This situation occurs if Conditional Access is configured to enforce the use of hybrid joined devices to access resources. 
 
 In addition, the following message can appear, which forces a restart after one minute:
 
@@ -142,11 +148,11 @@ This issue was fixed in the Windows 10 May-2020 update (2004).
 
 ### Workaround
 
-1. Unjoin the device from Azure AD and restart. 
-2. The device joins Azure AD.
+1. Unjoin the device from Microsoft Entra ID and restart. 
+2. The device joins Microsoft Entra ID.
 3. The user signs in by selecting the **Other user** tile. 
 
-To unjoin a device from Azure AD, run the following command at a command prompt: dsregcmd/leave
+To unjoin a device from Microsoft Entra ID, run the following command at a command prompt: dsregcmd/leave
 
 >[!NOTE]
 >The user re-enrolls for Windows Hello for Business, if it's in use. 
@@ -179,17 +185,19 @@ Learn more: [How to use the Microsoft Authenticator app](https://support.microso
 
 Microsoft Authenticator app has four main functions:
 
-* **Multi-factor authentication** with push notification or verification code
+* **Multifactor authentication** with push notification or verification code
 * **Authentication broker** on iOS and Android devices fir SSO for applications using brokered authentication
   * [Enable cross-app SSO on Android using MSAL](../../develop/msal-android-single-sign-on.md)
-* **Device registration** or workplace join, to Azure AD, which is a requirement for Intune App Protection and Device Enrolment/Management
+* **Device registration** or workplace join, to Microsoft Entra ID, which is a requirement for Intune App Protection and Device Enrolment/Management
 * **Phone sign in**, which requires MFA and device registration
 
-### Multi-factor authentication with Android devices
+<a name='multi-factor-authentication-with-android-devices'></a>
+
+### Multifactor authentication with Android devices
 
 Use the Microsoft Authenticator app for out-of-band verification. Instead of an automated phone call, or SMS, to the user during sign-in, MFA pushes a notification to the Microsoft Authenticator app on the user device. The user selects **Approve**, or the user enters a PIN or biometric and selects **Authenticate**.
 
-Learn more: [How it works: Azure AD Multi-Factor Authentication](../../authentication/concept-mfa-howitworks.md)
+Learn more: [How it works: Microsoft Entra multifactor authentication](../../authentication/concept-mfa-howitworks.md)
 
 **Known issues** 
 
@@ -211,7 +219,7 @@ On Android and iOS. brokers like Microsoft Authenticator enable:
 
 In addition, applications can participate in other features:
 
-* [Azure AD Conditional Access documentation](../../conditional-access/index.yml)
+* [Microsoft Entra Conditional Access documentation](../../conditional-access/index.yml)
 * [Use Microsoft Authenticator or Intune Company Portal on Xamarin applications](../../develop/msal-net-use-brokers-with-xamarin-apps.md).
 
 ### Known issues
@@ -224,7 +232,7 @@ The user manually removes the account from Microsoft Authenticator and starts a 
 
 ### Device registration
 
-The Microsoft Authenticator app registers the device in Azure AD, which allows the device to authenticate to Azure AD. This registration is a requirement for:
+The Microsoft Authenticator app registers the device in Microsoft Entra ID, which allows the device to authenticate to Microsoft Entra ID. This registration is a requirement for:
 
 * Intune app protection
 * Intune device enrollment
@@ -240,7 +248,7 @@ To remove references to the old UPN on the Microsoft Authenticator app, the user
 
 ### Phone sign-in
 
-User phone sign-in for users to sign in to Azure AD without a password. To enable this feature, the user registers for MFA using the Authenticator app and then enables phone sign-in on Authenticator. The device registers with Azure AD.
+User phone sign-in for users to sign in to Microsoft Entra ID without a password. To enable this feature, the user registers for MFA using the Authenticator app and then enables phone sign-in on Authenticator. The device registers with Microsoft Entra ID.
 
 ### Known issues
 
@@ -289,6 +297,6 @@ New meeting notes created after the UPN change aren't affected.
 
 ## Next steps
 
-* [Azure AD Connect: Design concepts](./plan-connect-design-concepts.md)
-* [Azure AD UserPrincipalName population](./plan-connect-userprincipalname.md)
+* [Microsoft Entra Connect: Design concepts](./plan-connect-design-concepts.md)
+* [Microsoft Entra UserPrincipalName population](./plan-connect-userprincipalname.md)
 * [Microsoft identity platform ID tokens](../../develop/id-tokens.md)

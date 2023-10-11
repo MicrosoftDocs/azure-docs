@@ -52,7 +52,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security overview
-            url: security.md            
+            url: security.md  
+          - text: Building resilient applications
+            url: resilient-applications.md                  
           - text: Frequently asked questions
             url: faq.md 
 

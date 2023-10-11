@@ -95,7 +95,7 @@ You can enable or disable the controller in Azure at the Subscription level of y
 
 1. Go to the Permissions Management home page, select **Settings** (the gear icon), then select the **Data Collectors** subtab.
 1. On the **Data Collectors** dashboard, select **GCP**, and then select **Create Configuration**.
-1. On the **Permissions Management Onboarding - Azure AD OIDC App Creation** page, select **Next**.
+1. On the **Permissions Management Onboarding - Microsoft Entra OIDC App Creation** page, select **Next**.
 1. On the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project Number** and **OIDC Project ID**, and then select **Next**.
 1. On the **Permissions Management Onboarding - GCP Project IDs** page, enter the **Project IDs**, then select **Next**.
 1. On the **Permissions Management Onboarding – Summary** page, review the information you've added, then select **Verify Now & Save**.

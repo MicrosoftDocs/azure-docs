@@ -1,6 +1,6 @@
 ---
-title: Configure a log analytics workspace in Azure AD
-description: Learn how to configure an Azure AD Log Analytics workspace and run Kusto queries on your identity data.
+title: Configure a log analytics workspace in Microsoft Entra ID
+description: Learn how to configure a log analytics workspace in Microsoft Entra ID and run Kusto queries on your identity data.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -29,9 +29,9 @@ In this tutorial, you learn how to:
 
 To analyze activity logs with Log Analytics, you need:
 
-- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A Microsoft Entra tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
 - A Log Analytics workspace *and* access to that workspace
-- The appropriate roles for Azure Monitor *and* Azure AD
+- The appropriate roles for Azure Monitor *and* Microsoft Entra ID
 
 
 Familiarize yourself with these articles:
@@ -40,7 +40,7 @@ Familiarize yourself with these articles:
 
 - [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Manage emergency access account in Azure AD](../roles/security-emergency-access.md)
+- [Manage emergency access account in Microsoft Entra ID](../roles/security-emergency-access.md)
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
@@ -63,7 +63,7 @@ To configure a Log Analytics workspace you need to **create the workspace** and 
 
 3. Select **Create**.
 
-    ![Screenshot shows the Add button in the log analytics workspaces page.](./media/tutorial-log-analytics-wizard/add.png)
+    ![Screenshot shows the Add button in the log analytics workspaces page.](./media/tutorial-configure-log-analytics-workspace/add.png)
 
 4.  On the **Create Log Analytics workspace** page, perform the following steps:
 
@@ -75,15 +75,15 @@ To configure a Log Analytics workspace you need to **create the workspace** and 
 
     4. Select your region.
 
-    ![Create log analytics workspace](./media/tutorial-log-analytics-wizard/create-log-analytics-workspace.png)
+    ![Create log analytics workspace](./media/tutorial-configure-log-analytics-workspace/create-log-analytics-workspace.png)
 
 5. Select **Review + Create**.
 
-    ![Review and create](./media/tutorial-log-analytics-wizard/review-create.png)
+    ![Review and create](./media/tutorial-configure-log-analytics-workspace/review-create.png)
 
 6. Select **Create** and wait for the deployment. You may need to refresh the page to see the new workspace.
 
-    ![Create](./media/tutorial-log-analytics-wizard/create-workspace.png)
+    ![Create](./media/tutorial-configure-log-analytics-workspace/create-workspace.png)
 
 ### Configure Diagnostic settings
 
@@ -93,11 +93,10 @@ To configure Diagnostic settings, you need switch to the Microsoft Entra admin c
 
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 
-1. Search for **Azure Active Directory**.
 
 1. Select **Add diagnostic setting**.
 
-    ![Add diagnostic setting](./media/tutorial-log-analytics-wizard/add-diagnostic-setting.png)
+    ![Add diagnostic setting](./media/tutorial-configure-log-analytics-workspace/add-diagnostic-setting.png)
 
 1. On the **Diagnostic setting** page, perform the following steps:
 
@@ -107,7 +106,7 @@ To configure Diagnostic settings, you need switch to the Microsoft Entra admin c
    
     3. Select **Save**. 
 
-    ![Select diagnostics settings](./media/tutorial-log-analytics-wizard/select-diagnostics-settings.png)
+    ![Select diagnostics settings](./media/tutorial-configure-log-analytics-workspace/select-diagnostics-settings.png)
 
 Your logs can now be queried using the Kusto Query Language (KQL) in Log Analytics. You may need to wait around 15 minutes for the logs to populate.
 
@@ -185,30 +184,30 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 1. In the **Quickstart** section, select **Empty**.
 
-    ![Quick start](./media/tutorial-log-analytics-wizard/quick-start.png)
+    ![Quick start](./media/tutorial-configure-log-analytics-workspace/quick-start.png)
 
 1. From the **Add** menu, select **Add text**.
 
-    ![Add text](./media/tutorial-log-analytics-wizard/add-text.png)
+    ![Add text](./media/tutorial-configure-log-analytics-workspace/add-text.png)
 
 1. In the textbox, enter `# Client apps used in the past week` and select **Done Editing**.
 
-    ![Screenshot shows the text and the Done Editing button.](./media/tutorial-log-analytics-wizard/workbook-text.png)
+    ![Screenshot shows the text and the Done Editing button.](./media/tutorial-configure-log-analytics-workspace/workbook-text.png)
 
 
 1. Below the text window, open the **Add** menu and select **Add query**.
 
-    ![Add query](./media/tutorial-log-analytics-wizard/add-query.png)
+    ![Add query](./media/tutorial-configure-log-analytics-workspace/add-query.png)
 
 1. In the query textbox, enter: `SigninLogs | where TimeGenerated > ago(7d) | project TimeGenerated, UserDisplayName, ClientAppUsed | summarize count() by ClientAppUsed`
 
 1. Select **Run Query**.
 
-    ![Screenshot shows the Run Query button.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![Screenshot shows the Run Query button.](./media/tutorial-configure-log-analytics-workspace/run-workbook-query.png)
 
 1. In the toolbar, from the **Visualization** menu select **Pie chart**.
 
-    ![Pie chart](./media/tutorial-log-analytics-wizard/pie-chart.png)
+    ![Pie chart](./media/tutorial-configure-log-analytics-workspace/pie-chart.png)
 
 1. Select **Done Editing** at the top of the page.
 
@@ -226,21 +225,21 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 1. In the **Conditional Access** section, select **Conditional Access Insights and Reporting**.
 
-    ![Screenshot shows the Conditional Access Insights and Reporting option.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![Screenshot shows the Conditional Access Insights and Reporting option.](./media/tutorial-configure-log-analytics-workspace/conditional-access-template.png)
 
 1. In the toolbar, select **Edit**.
 
-    ![Screenshot shows the Edit button.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![Screenshot shows the Edit button.](./media/tutorial-configure-log-analytics-workspace/edit-workbook-template.png)
 
 1. In the toolbar, select the three dots next to the Edit button, then **Add**, and then **Add query**.
 
-    ![Add workbook query](./media/tutorial-log-analytics-wizard/add-custom-workbook-query.png)
+    ![Add workbook query](./media/tutorial-configure-log-analytics-workspace/add-custom-workbook-query.png)
 
 1. In the query textbox, enter: `SigninLogs | where TimeGenerated > ago(20d) | where ConditionalAccessPolicies != "[]" | summarize dcount(UserDisplayName) by bin(TimeGenerated, 1d), ConditionalAccessStatus`
 
 1. Select **Run Query**.
 
-    ![Screenshot shows the Run Query button to run this query.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![Screenshot shows the Run Query button to run this query.](./media/tutorial-configure-log-analytics-workspace/run-workbook-insights-query.png)
 
 1. From the **Time Range** menu, select **Set in query**.
 
@@ -250,7 +249,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 1.  In the **Chart title** field, enter `Conditional Access status over the last 20 days`  and select **Done Editing**. 
 
-    ![Set chart title](./media/tutorial-log-analytics-wizard/set-chart-title.png)
+    ![Set chart title](./media/tutorial-configure-log-analytics-workspace/set-chart-title.png)
 
 Your Conditional Access success and failure chart displays a color-coded snapshot of your tenant.
 

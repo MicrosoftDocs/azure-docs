@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect cloud sync transformations
+title: Microsoft Entra Connect cloud sync transformations
 description: This article describes how to use transformations to alter the default attribute mappings.
 author: billmath
 ms.author: billmath
@@ -12,11 +12,11 @@ ms.technology: identity-adfs
 
 # Transformations
 
-With a transformation, you can change the default behavior of how an attribute is synchronized with Azure Active Directory (Azure AD) by using cloud sync.
+With a transformation, you can change the default behavior of how an attribute is synchronized with Microsoft Entra ID by using cloud sync.
 
 To do this task, you need to edit the schema and then resubmit it via a web request.
 
-For more information on cloud sync attributes, see [Understanding the Azure AD schema](concept-attributes.md).
+For more information on cloud sync attributes, see [Understanding the Microsoft Entra schema](concept-attributes.md).
 
 
 ## Retrieve the schema
@@ -103,10 +103,10 @@ For more advanced mapping, you can use functions that allow you to manipulate th
 
 To do this task, follow the previous steps and then edit the function that's used to construct the final value.
 
-For information on the syntax and examples of expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
+For information on the syntax and examples of expressions, see [Writing expressions for attribute mappings in Microsoft Entra ID](reference-expressions.md).
 
 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

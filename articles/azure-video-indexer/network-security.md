@@ -10,6 +10,8 @@ author: IngridAtMicrosoft
 
 # NSG service tags for Azure AI Video Indexer
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 Azure AI Video Indexer is a service hosted on Azure. In some cases the service needs to interact with other services in order to index video files (for example, a Storage account) or when you orchestrate indexing jobs against Azure AI Video Indexer API endpoint using your own service hosted on Azure (for example, AKS, Web Apps, Logic Apps, Functions).
 
 > [!NOTE]

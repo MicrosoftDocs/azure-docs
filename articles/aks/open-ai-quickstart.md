@@ -1,9 +1,9 @@
 ---
 title: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
-description: Learn how to deploy an application that uses OpenAI on Azure Kubernetes Service (AKS). #Required; article description that is displayed in search results. 
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 09/18/2023
-ms.custom: template-how-to, devx-track-azurecli #Required; leave this attribute/value as-is.
+description: Learn how to deploy an application that uses OpenAI on Azure Kubernetes Service (AKS).
+ms.topic: how-to
+ms.date: 10/02/2023
+ms.custom: template-how-to, devx-track-azurecli 
 ---
 
 # Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)
@@ -111,6 +111,9 @@ To manage a Kubernetes cluster, you use the Kubernetes command-line client, [kub
     aks-nodepool1-31469198-vmss000001   Ready    agent   3h29m   v1.25.6
     aks-nodepool1-31469198-vmss000002   Ready    agent   3h29m   v1.25.6
     ```
+
+> [!NOTE]
+> For private clusters, the nodes might be unreachable if you try to connect to them through the public IP address. In order to fix this, you need to create an endpoint within the same VNET as the cluster to connect from. Follow the instructions to [Create a private AKS cluster][create-private-cluster] and then connect to it.
 
 ## Deploy the application
 
@@ -297,7 +300,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
                 memory: 46Mi
               limits:
                 cpu: 30m
-                memory: 50Mi
+                memory: 65Mi
     ---
     apiVersion: v1
     kind: Service
@@ -423,3 +426,4 @@ To learn more about generative AI use cases, see the following resources:
 [key-vault]: csi-secrets-store-driver.md
 [aoai]: ../ai-services/openai/index.yml
 [learn-aoai]: /training/modules/explore-azure-openai
+[create-private-cluster]: private-clusters.md

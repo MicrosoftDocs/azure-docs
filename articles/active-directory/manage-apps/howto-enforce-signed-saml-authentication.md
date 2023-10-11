@@ -20,7 +20,7 @@ ms.custom: enterprise-apps
 
 SAML Request Signature Verification is a functionality that validates the signature of signed authentication requests. An App Admin now can enable and disable the enforcement of signed requests and upload the public keys that should be used to do the validation.  
 
-If enabled Azure Active Directory validates the requests against the public keys configured. There are some scenarios where the authentication requests can fail:  
+If enabled Microsoft Entra ID validates the requests against the public keys configured. There are some scenarios where the authentication requests can fail:  
 
 - Protocol not allowed for signed requests. Only SAML protocol is supported.  
 - Request not signed, but verification is enabled.  
@@ -32,9 +32,9 @@ If enabled Azure Active Directory validates the requests against the public keys
 - Signature algorithm not allowed. Only RSA-SHA256 is supported.
 
 > [!NOTE] 
-> A `Signature` element in `AuthnRequest` elements is optional. If `Require Verification certificates` is not checked, Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
+> A `Signature` element in `AuthnRequest` elements is optional. If `Require Verification certificates` is not checked, Microsoft Entra ID does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
->  If `Require Verification certificates` is checked, SAML Request Signature Verification will work for SP-initiated(service provider/relying party initiated) authentication requests only. Only the application configured by the service provider will have the access to to the private and public keys for signing the incoming SAML Authentication Requests from the application. The public key should be uploaded to allow the verification of the request, in which case AAD will have access to only the public key.
+>  If `Require Verification certificates` is checked, SAML Request Signature Verification will work for SP-initiated(service provider/relying party initiated) authentication requests only. Only the application configured by the service provider will have the access to to the private and public keys for signing the incoming SAML Authentication Requests from the application. The public key should be uploaded to allow the verification of the request, in which case Microsoft Entra ID will have access to only the public key.
 
 > Enabling `Require Verification certificates` will not allow IDP-initiated authentication requests (like SSO testing feature, MyApps or M365 app launcher) to be validated as the IDP would not possess the same private keys as the registered application.
 
@@ -42,7 +42,7 @@ If enabled Azure Active Directory validates the requests against the public keys
 
 To configure SAML request signature verification, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
@@ -77,5 +77,5 @@ To configure SAML request signature verification, you need:
 
 ## Next steps  
 
-- Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md) 
-- Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md)
+- Find out [How Microsoft Entra ID uses the SAML protocol](../develop/saml-protocol-reference.md) 
+- Learn the format, security characteristics, and contents of [SAML tokens in Microsoft Entra ID](../develop/reference-saml-tokens.md)

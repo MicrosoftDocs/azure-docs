@@ -4,6 +4,7 @@ description: Learn how to deploy a SAP HANA scale-out system with standby node o
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

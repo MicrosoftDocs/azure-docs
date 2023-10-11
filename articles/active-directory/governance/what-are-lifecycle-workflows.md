@@ -1,6 +1,6 @@
 ---
 title: What are lifecycle workflows?
-description: Get an overview of the lifecycle workflow feature of Azure AD.
+description: Get an overview of the lifecycle workflow feature of Microsoft Entra ID.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # What are lifecycle workflows?
 
-Lifecycle workflows are a new identity governance feature that enables organizations to manage Azure Active Directory (Azure AD) users by automating these three basic lifecycle processes:
+Lifecycle workflows are a new identity governance feature that enables organizations to manage Microsoft Entra users by automating these three basic lifecycle processes:
 
 - **Joiner**: When an individual enters the scope of needing access. An example is a new employee joining a company or organization.
 - **Mover**: When an individual moves between boundaries within an organization. This movement might require more access or authorization. An example is a user who was in marketing and is now a member of the sales organization.

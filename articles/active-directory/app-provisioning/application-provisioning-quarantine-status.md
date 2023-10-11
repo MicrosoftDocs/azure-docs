@@ -1,5 +1,5 @@
 ---
-title: Quarantine status in Azure Active Directory Application Provisioning
+title: Quarantine status in Microsoft Entra Application Provisioning
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
 author: kenwith
@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # Application provisioning in quarantine status
 
-The Azure AD provisioning service monitors the health of your configuration. It also places unhealthy apps in a "quarantine" state. If most, or all, of the calls made against the target system consistently fail then the provisioning job is marked as in quarantine. An example of a failure is an error received because of invalid admin credentials.
+The Microsoft Entra provisioning service monitors the health of your configuration. It also places unhealthy apps in a "quarantine" state. If most, or all, of the calls made against the target system consistently fail then the provisioning job is marked as in quarantine. An example of a failure is an error received because of invalid admin credentials.
 
 While in quarantine:
 - The frequency of incremental cycles is gradually reduced to once per day.
@@ -51,7 +51,7 @@ Below are the common reasons your application may go into quarantine
 
 |Description|Recommended Action|
 |---|---|
-|**SCIM Compliance issue:** An HTTP/404 Not Found response was returned rather than the expected HTTP/200 OK response. In this case, the Azure AD provisioning service has made a request to the target application and received an unexpected response.|Check the admin credentials section. See if the application requires specifying the tenant URL and that the URL is correct. If you don't see an issue, contact the application developer to ensure that their service is SCIM-compliant. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**SCIM Compliance issue:** An HTTP/404 Not Found response was returned rather than the expected HTTP/200 OK response. In this case, the Microsoft Entra provisioning service has made a request to the target application and received an unexpected response.|Check the admin credentials section. See if the application requires specifying the tenant URL and that the URL is correct. If you don't see an issue, contact the application developer to ensure that their service is SCIM-compliant. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Invalid credentials:** When attempting to authorize,  access to the target application, we received a response from the target application that indicates the credentials provided are invalid.|Navigate to the admin credentials section of the provisioning configuration UI and authorize access again with valid credentials. If the application is in the gallery, review the application configuration tutorial for anymore required steps.|
 |**Duplicate roles:** Roles imported from certain applications like Salesforce and Zendesk must be unique. |Navigate to the application [manifest](../develop/reference-app-manifest.md) in the Microsoft Entra admin center and remove the duplicate role.|
 
@@ -86,9 +86,9 @@ If any of the retries above gets a successful response, the job is automatically
 
 First, resolve the issue that caused the application to be placed in quarantine.
 
-- Check the application's provisioning settings to make sure you've [entered valid Admin Credentials](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD must establish a trust with the target application. Ensure that you have entered valid credentials and your account has the necessary permissions.
+- Check the application's provisioning settings to make sure you've [entered valid Admin Credentials](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Microsoft Entra ID must establish a trust with the target application. Ensure that you have entered valid credentials and your account has the necessary permissions.
 
-- Review the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to further investigate what errors are causing quarantine and address the error. Go to **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
+- Review the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to further investigate what errors are causing quarantine and address the error. Go to **Microsoft Entra ID** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
 
 After you've resolved the issue, restart the provisioning job. Certain changes to the application's provisioning settings, such as attribute mappings or scoping filters, will automatically restart provisioning for you. The progress bar on the application's **Provisioning** page indicates when provisioning last started. If you need to restart the provisioning job manually, use one of the following methods:  
 

@@ -145,7 +145,7 @@ The **Grant admin consent** button is *disabled* if you aren't an admin or if no
 
 ## Next steps
 
-Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure Active Directory (Azure AD) tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
+Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Microsoft Entra tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
 
 > [!div class="nextstepaction"]
 > [Modify the accounts supported by an application](./howto-modify-supported-accounts.md)

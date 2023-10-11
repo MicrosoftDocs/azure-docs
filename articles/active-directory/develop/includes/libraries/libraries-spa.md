@@ -2,7 +2,7 @@
 author: henrymbuguakiarie
 ms.service: active-directory
 ms.topic: include
-ms.date: 10/25/2022
+ms.date: 09/25/2023
 ms.author: henrymbugua
 ---
 
@@ -13,7 +13,7 @@ ms.author: henrymbugua
 | AngularJS            | [MSAL AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular)<sup>3</sup> | [msal-angularjs](https://www.npmjs.com/package/@azure/msal-angular) |                                          —                                           | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] |                        Public preview                        |
 | JavaScript           | [MSAL.js v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)<sup>2</sup>               | [msal-browser](https://www.npmjs.com/package/@azure/msal-browser)     | [Tutorial](../../tutorial-v2-javascript-auth-code.md) | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] |                              GA                              |
 | JavaScript           | [MSAL.js 1.0](/javascript/api/overview/msal-overview)<sup>3</sup>                 | [msal-core](https://www.npmjs.com/package/@azure/msal-core)           |                                          —                                           | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] |                              GA                              |
-| React                | [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)<sup>2</sup>                 | [msal-react](https://www.npmjs.com/package/@azure/msal-react)         |        [Tutorial](../../single-page-app-tutorial-01-register-app.md)         | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] |                              GA                              |
+| React                | [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)<sup>2</sup>                 | [msal-react](https://www.npmjs.com/package/@azure/msal-react)         |        [Tutorial](../../tutorial-single-page-app-react-register-app.md)         | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] |                              GA                              |
 
 <!--
 | Vue | [Vue MSAL](https://github.com/mvertopoulos/vue-msal) | [vue-msal](https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |

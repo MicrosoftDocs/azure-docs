@@ -110,6 +110,17 @@ You can configure private DNS zones using the following parameters:
   * If your AKS cluster is configured with an Active Directory service principal, AKS doesn't support using a system-assigned managed identity with custom private DNS zone.
   * If you are specifying a `<subzone>` there is a 32 character limit for the `<subzone>` name.
 
+>[!NOTE]
+>**CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID** can be configured using an ARM Template in addition to the Azure CLI. `privateDNSZone` accepts the private DNZ zone resourceID as shown in the following example:
+>
+>```json
+>properties.apiServerAccessProfile.privateDNSZone.
+>"apiServerAccessProfile": {
+>"enablePrivateCluster": true,
+>"privateDNSZone": "system|none|[resourceId(..., 'Microsoft.Network/privateDnsZones', 'privatelink.<region>.azmk8s.io']"
+>}
+>```
+
   > [!IMPORTANT]
   > The **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID** cannot be changed after the cluster has been created and it can't be deleted. Otherwise, the cluster will have issues performing upgrade operations.
 

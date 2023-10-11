@@ -165,7 +165,7 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
-    - name: Prepare AD LDS for provisioning from Azure AD
+    - name: Prepare AD LDS for provisioning from Microsoft Entra ID
       href: on-premises-ldap-connector-prepare-directory.md
     - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
       href: inbound-provisioning-api-faqs.md

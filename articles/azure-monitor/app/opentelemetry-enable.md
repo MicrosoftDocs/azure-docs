@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 10/10/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -16,19 +16,21 @@ This article describes how to enable and configure OpenTelemetry-based data coll
 
 OpenTelemetry offerings are available for .NET, Node.js, Python and Java applications.
 
-|Language |Release Status                          |
-|---------|----------------------------------------|
-|Java     | :white_check_mark: <sup>[1](#GA)</sup> |
-|.NET     | :warning: <sup>[2](#PREVIEW)</sup>     |
-|Node.js  | :warning: <sup>[2](#PREVIEW)</sup>     |
-|Python   | :warning: <sup>[2](#PREVIEW)</sup>     |
+|Language        |Release Status                          |
+|----------------|----------------------------------------|
+|.NET (Exporter) | :white_check_mark: ¹ |
+|Java            | :white_check_mark: ¹ |
+|Node.js         | :white_check_mark: ¹ |
+|Python          | :white_check_mark: ¹ |
+|ASP.NET Core    | :warning: ²     |
 
 **Footnotes**
-- <a name="GA"> :white_check_mark: 1</a>: OpenTelemetry is available to all customers with formal support.
-- <a name="PREVIEW"> :warning: 2</a>: OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+- ¹ :white_check_mark: : OpenTelemetry is available to all customers with formal support.
+- ² :warning: : OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-> [!NOTE] 
+> [!NOTE]
 > For a feature-by-feature release status, see the [FAQ](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-).
+> The ASP.NET Core Distro is undergoing additional stability testing prior to GA. You can use the .NET Exporter if you need a fully supported OpenTelemetry solution for your ASP.NET Core application.
 
 ## Get started
 
@@ -55,6 +57,9 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [Node.js](#tab/nodejs)
 
+> [!NOTE]
+> If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
+
 - Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
@@ -65,7 +70,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ---
 
-[!TIP] We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
+> [!TIP]
+>  We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
 
 ### Install the client library
 
@@ -82,7 +88,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.AspNetCore
 Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) NuGet package:
 
 ```dotnetcli
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
+dotnet add package Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
 #### [Java](#tab/java)

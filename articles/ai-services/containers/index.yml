@@ -8,7 +8,7 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  ms.service: cognitive-services
+  ms.service: azure-ai-services
   ms.topic: landing-page
   ms.date: 01/27/2023
   ms.author: aahi
@@ -60,6 +60,8 @@ landingContent:
           text: Custom Named Entity Recognition
         - url: ../Translator/containers/translator-how-to-install-container.md
           text: Translator container
+        - url: ../language-service/summarization/how-to/use-containers.md
+          text: Summarization
 - title: Speech containers
   linkLists:
       - linkListType: how-to-guide
