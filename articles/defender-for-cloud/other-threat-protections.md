@@ -65,7 +65,7 @@ If you have Azure DDoS Protection enabled, your DDoS alerts are streamed to Defe
 
 <a name='entra-permission-management-formerly-cloudknox'></a>
 
-## Microsoft Entra Permission Management (formerly Cloudknox)
+## Microsoft Entra Permissions Management (formerly Cloudknox)
 
 [Microsoft Entra Permissions Management](../active-directory/cloud-infrastructure-entitlement-management/index.yml) is a cloud infrastructure entitlement management (CIEM) solution. Microsoft Entra Permission Management provides comprehensive visibility and control over permissions for any identity and any resource in Azure, AWS, and GCP. 
  
