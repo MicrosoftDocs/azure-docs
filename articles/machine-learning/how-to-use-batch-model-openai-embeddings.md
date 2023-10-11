@@ -295,7 +295,17 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    ml_client.jobs.get(job.name)
    ```
 
-1. Create a data input for this model:
+1. Invoke the endpoint:
+
+   # [Azure CLI](#tab/cli)
+   
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/openai-embeddings/deploy-and-run.sh" ID="start_batch_scoring_job" :::
+   
+   # [Python](#tab/python)
+   
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=start_batch_scoring_job)]
+
+1. Track the progress:
 
    # [Azure CLI](#tab/cli)
    
@@ -303,9 +313,9 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    
    # [Python](#tab/python)
    
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=show_job_in_studio)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=get_job)]
 
-5. Once the deployment is finished, we can download the predictions:
+1. Once the deployment is finished, we can download the predictions:
 
    # [Azure CLI](#tab/cli)
 
@@ -317,7 +327,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=download_outputs)]
 
-6. The output predictions will look like the following. Notice that the predictions have been combined with the labels for the convenience of the reader. To know more about how to achieve this see the associated notebook.
+1. The output predictions will look like the following. Notice that the predictions have been combined with the labels for the convenience of the reader. To know more about how to achieve this see the associated notebook.
 
     ```python
     import pandas as pd 
