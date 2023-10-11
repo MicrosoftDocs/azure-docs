@@ -39,7 +39,7 @@ Binding a Service Bus namespace to a virtual network is a two-step process. You 
 The virtual network rule is an association of the Service Bus namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Service Bus namespace. Service Bus itself never establishes outbound connections, doesn't need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
 > [!NOTE]
-> Remember that a network service endpoint provides applications running in the virtual network the access to the Service Bus namespace. The virtual network controls the reachability of the endpoint, but not what operations can be done on Service Bus entities (queues, topics, or subscriptions). Use Azure Active Directory (Azure AD) to authorize operations that the applications can perform on the namespace and its entities. For more information, see [Authenticate and authorize an application with Azure AD to access Service Bus entities](authenticate-application.md).
+> Remember that a network service endpoint provides applications running in the virtual network the access to the Service Bus namespace. The virtual network controls the reachability of the endpoint, but not what operations can be done on Service Bus entities (queues, topics, or subscriptions). Use Microsoft Entra ID to authorize operations that the applications can perform on the namespace and its entities. For more information, see [Authenticate and authorize an application with Microsoft Entra ID to access Service Bus entities](authenticate-application.md).
 
 
 ## Use Azure portal
@@ -231,7 +231,7 @@ The API version **2021-06-01-preview onwards** also introduces a new property na
 For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
-> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+> None of the above settings bypass validation of claims via SAS or Microsoft Entra authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
 
 ### Azure portal
 
