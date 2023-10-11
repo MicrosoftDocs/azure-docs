@@ -184,7 +184,7 @@ Before deploying your ARM template, you can preview the changes the template wil
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameters file. The parameter file can be either a [Bicep parameter file](#bicep-parameter-files) or a [JSON parameter file](#json-parameters-files).
+To pass parameter values, you can use either inline parameters or a parameters file. The parameter file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files).
 
 ### Inline parameters
 

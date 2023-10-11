@@ -93,7 +93,7 @@ Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameters file. The parameter file can be either a [Bicep parameter file](#bicep-parameter-files) or a [JSON parameter file](#json-parameters-files).
+To pass parameter values, you can use either inline parameters or a parameters file. The parameter file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files).
 
 ### Inline parameters
 
@@ -174,7 +174,7 @@ However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShe
 
 The evaluation of parameters follows a sequential order, meaning that if a value is assigned multiple times, only the last assigned value is used. To ensure proper parameter assignment, it is advised to provide your parameters file initially and selectively override specific parameters using the _KEY=VALUE_ syntax. It's important to mention that if you are supplying a `bicepparam` parameters file, you can use this argument only once.
 
-### JSON parameters files
+### JSON parameter files
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
