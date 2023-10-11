@@ -22,9 +22,9 @@ zone_pivot_groups: passwordless-postgresql
 
 With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
 
-In this article, we include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The Passwordless tab shows the Azure AD authentication and the Password tab shows the PostgreSQL authentication.
+In this article, we include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the PostgreSQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials are stored in the user table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
 
