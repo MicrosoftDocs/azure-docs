@@ -28,7 +28,7 @@ Typically, a model's dependencies include:
 
 * Base image or environment in which your model gets executed.
 * List of Python packages and dependencies that the model depends on to function properly.
-* Extra assets that your model may need to generate inference. These assets can include label's maps and preprocessing parameters.
+* Extra assets that your model might need to generate inference. These assets can include label's maps and preprocessing parameters.
 * Software required for the inference server to serve requests; for example, flask server or TensorFlow Serving.
 * Inference routine (if required).
 
@@ -40,8 +40,8 @@ All these elements need to be collected to then be deployed in the serving infra
 Packaging models before deployment has the following advantages:
 
 * **Reproducibility:** All dependencies are collected at packaging time, rather than deployment time. Once dependencies are resolved, you can deploy the package as many times as needed while guaranteeing that dependencies have already been resolved.
-* **Faster conflict resolution:** Azure Machine Learning will detect any misconfigurations related with the dependencies, like a missing Python package, while packaging the model. You don't need to deploy the model to discover such issues.
-* **Easier integration with the inference server:** Because the inference server you're using may need specific software configurations (for instance, Torch Serve package), such software can generate conflicts with your model's dependencies. Model packages in Azure Machine Learning inject the dependencies required by the inference server to help you detect conflicts before deploying a model.
+* **Faster conflict resolution:** Azure Machine Learning detects any misconfigurations related with the dependencies, like a missing Python package, while packaging the model. You don't need to deploy the model to discover such issues.
+* **Easier integration with the inference server:** Because the inference server you're using might need specific software configurations (for instance, Torch Serve package), such software can generate conflicts with your model's dependencies. Model packages in Azure Machine Learning inject the dependencies required by the inference server to help you detect conflicts before deploying a model.
 * **Portability:** You can move Azure Machine Learning model packages from one workspace to another, using registries. You can also generate packages that can be deployed outside Azure Machine Learning.
 * **MLflow support with private networks**: For MLflow models, Azure Machine Learning requires an internet connection to be able to dynamically install necessary Python packages for the models to run. By packaging MLflow models, these Python packages get resolved during the model packaging operation, so that the MLflow model package wouldn't require an internet connection to be deployed.
 

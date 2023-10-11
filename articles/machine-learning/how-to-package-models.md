@@ -156,7 +156,7 @@ You can create model packages explicitly to allow you to control how the packagi
 > * You want to use model packages in an MLOps workflow.
 
 You can create model packages by specifying the:
-- __Model to package__. Each model package can contain only a single model. Azure Machine Learning does not support packaging of multiple models under the same model package.
+- __Model to package__. Each model package can contain only a single model. Azure Machine Learning doesn't support packaging of multiple models under the same model package.
 - __Serving technology__ that you want to use to run the model.
 - __Base image__ to use for packaging the model.
 
