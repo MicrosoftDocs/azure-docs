@@ -33,7 +33,7 @@ To create an Azure storage account with PowerShell, make sure you have installed
 
 # [Azure CLI](#tab/azure-cli)
 
-You can sign in to Azure and run Azure Developer CLI (`azd`) commands in one of two ways:
+You can sign in to Azure and run Azure CLI commands in one of two ways:
 
 - You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
 - You can install the CLI and run CLI commands locally.
