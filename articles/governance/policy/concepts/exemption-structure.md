@@ -72,7 +72,7 @@ its use with the specific resource. **displayName** has a maximum length of _128
 ## Metadata
 
 The **metadata** property allows creating any child property needed for storing relevant
-information. In the example above, properties **requestedBy**, **approvedBy**, **approvedOn**, and
+information. In the example, properties **requestedBy**, **approvedBy**, **approvedOn**, and
 **ticketRef** contains customer values to provide information on who requested the exemption, who
 approved it and when, and an internal tracking ticket for the request. These **metadata** properties
 are examples, but they aren't required and **metadata** isn't limited to these child properties.
@@ -112,7 +112,7 @@ format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 ## Resource selectors (preview)
 
-Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors-preview). Below is an example exemption JSON which leverages resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
+Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors-preview). Here is an example exemption JSON, which uses resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
 
 ```json
 {
@@ -141,7 +141,7 @@ Exemptions support an optional property `resourceSelectors`. This property works
 }
 ```
 
-Regions can be added or removed from the `resourceLocation` list in the example above. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
+Regions can be added or removed from the `resourceLocation` list in the example. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
 
 ## Assignment scope validation (preview)
 

@@ -46,13 +46,13 @@ Following are special cases to the previously described applicability logic:
 |When any conditions (including deployment parameters) include a `location` condition     |Won't be applicable to subscriptions |
 
 
-## Rsource provider modes
+## Resource provider modes
 
 ### Microsoft.Kubernetes.Data
 
 The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
 
-### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data,and  Microsoft.DataFactory.Data
+### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data, and Microsoft.DataFactory.Data
 
 Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type.
 
@@ -74,7 +74,7 @@ Policies with mode `Microsoft.Network.Data` are applicable if the `type` and `na
 
 ## Not Applicable Resources 
 
-There could be situations in which resources are applicable to an assignment based on the policy conditions or scope of the resource, but they should not be applicable due to business reasons. At that time, it would be best to leverage [exclusions](./assignment-structure.md#excluded-scopes) or [exemptions](./exemption-structure.md). To learn more on when to use either, review [scope comparison](./scope.md#scope-comparison)
+There could be situations in which resources are applicable to an assignment based on conditions or scope, but they shouldn't be applicable due to business reasons. At that time, it would be best to apply [exclusions](./assignment-structure.md#excluded-scopes) or [exemptions](./exemption-structure.md). To learn more on when to use either, review [scope comparison](./scope.md#scope-comparison)
 
 > [!NOTE]
 > By design, Azure Policy does not evaluate resources under the `Microsoft.Resources` resource provider (RP) from
