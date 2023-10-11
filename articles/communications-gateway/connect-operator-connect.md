@@ -108,7 +108,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
             Install-Module AzureAD
             ```
         1. Close your PowerShell admin window.
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Admin.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Administrator.
 1. Select **Microsoft Entra ID**.
 1. Select **Properties**.
 1. Scroll down to the Tenant ID field. Your tenant ID is in the box. Make a note of your tenant ID.
