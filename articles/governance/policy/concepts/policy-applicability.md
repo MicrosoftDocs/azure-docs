@@ -82,6 +82,7 @@ policy evaluation, except for subscriptions and resource groups.
 
 ## Next steps
 
+- Learn how to [mark resources as not applicable](./assignment-structure.md#excluded-scopes).
+- Lean more on [applicability limitations](https://github.com/azure/azure-policy#known-issues)
 - Learn how to [Get compliance data of Azure resources](../how-to/get-compliance-data.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review the [update in policy compliance for resource type policies](https://azure.microsoft.com/updates/general-availability-update-in-policy-compliance-for-resource-type-policies/).
