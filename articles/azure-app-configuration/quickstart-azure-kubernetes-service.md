@@ -67,7 +67,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     </div>
     ```
 
-1. Create a *config* directory in the root directory of your project, add a *demosettings.json* file to the *config* directory with the following content.
+1. Create a *config* directory in the root directory of your project, add a *demosettings.json* file in it with the following content.
 
     ```json
     {
@@ -203,7 +203,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ## Use App Configuration Kubernetes Provider
 
-Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file by being mounted as a data volume.
+Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a json file by being mounted as a data volume.
 
 ### Setup the Azure App Configuration store
 
@@ -261,7 +261,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume.
+2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
    
     ```yaml
     apiVersion: apps/v1
