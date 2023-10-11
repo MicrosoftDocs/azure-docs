@@ -47,7 +47,7 @@ The workflow is built in the [Azure SignalR SDK for app server](https://github.c
 
 ## Assign Azure roles for access rights
 
-Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control](../role-based-access-control/overview.md). Azure SignalR defines a set of Azure built-in roles that encompass common sets of permissions used to access SignalR resources. You can also define custom roles for access to SignalR resources.
+Microsoft Entra ID authorizes access rights to secured resources through [Azure role-based access control](../role-based-access-control/overview.md). Azure SignalR defines a set of Azure built-in roles that encompass common sets of permissions used to access SignalR resources. You can also define custom roles for access to SignalR resources.
 
 ### Resource scope
 
