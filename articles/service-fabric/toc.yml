@@ -466,6 +466,8 @@
       href: how-to-managed-cluster-nat-gateway.md
     - name: Use public IP prefix in a managed cluster
       href: how-to-managed-cluster-public-ip-prefix.md
+    - name: Use Azure DDoS Protection in a managed cluster
+      href: how-to-managed-cluster-ddos-protection.md
   - name: Set up your development environment
     items:
     - name: Windows
