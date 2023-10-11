@@ -127,7 +127,7 @@ A "receive" call at the API level translates into a *flow* performative being se
 
 The lock on a message is released when the transfer is settled into one of the terminal states *accepted*, *rejected*, or *released*. The message is removed from Service Bus when the terminal state is *accepted*. It remains in Service Bus and is delivered to the next receiver when the transfer reaches any of the other states. Service Bus automatically moves the message into the entity's deadletter queue when it reaches the maximum delivery count allowed for the entity due to repeated rejections or releases.
 
-Even though the Service Bus APIs don't directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) or [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) property settings. When they're non-zero, the AMQP client uses it as the link credit.
+Even though the Service Bus APIs don't directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) or [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) property settings. When they're non-zero, the AMQP client uses it as the link credit.
 
 In this context, it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity, not when the message is put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it's therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
 
@@ -207,27 +207,27 @@ Any property that application needs to define should be mapped to AMQP's `applic
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Time to live for this message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Time to live for this message |[TimeToLive](/dotnet/api/azure.messaging.servicebus.servicebusmessage) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) |
 
 #### properties
 
 | Field Name | Usage | API name |
 | --- | --- | --- |
-| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.messageid) |
 | user-id |Application-defined user identifier, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/azure.messaging.servicebus.servicebusmessage.to) |
+| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Subject](/dotnet/api/azure.messaging.servicebus.servicebusmessage.subject) |
+| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto) |
+| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.correlationid) |
+| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/azure.messaging.servicebus.servicebusmessage.contenttype) |
 | content-encoding |Application-defined content-encoding indicator for the body, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| absolute-expiry-time |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| absolute-expiry-time |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |Not accessible through the Service Bus API. |
 | creation-time |Declares at which time the message was created. Not used by Service Bus |Not accessible through the Service Bus API. |
-| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.sessionid) |
 | group-sequence |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replytosessionid) |
 
 #### Message annotations
 
@@ -235,14 +235,14 @@ There are few other service bus message properties, which aren't part of AMQP me
 
 | Annotation Map Key | Usage | API name |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Declares at which time the message should appear on the entity |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
-| x-opt-partition-key | Application-defined key that dictates which partition the message should land in. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
-| x-opt-via-partition-key | Application-defined partition-key value when a transaction is to be used to send messages via a transfer queue. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
-| x-opt-enqueued-time | Service-defined UTC time representing the actual time of enqueuing the message. Ignored on input. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
-| x-opt-sequence-number | Service-defined unique number assigned to a message. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
-| x-opt-offset | Service-defined enqueued sequence number of the message. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
-| x-opt-locked-until | Service-defined. The date and time until which the message will be locked in the queue/subscription. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
-| x-opt-deadletter-source | Service-Defined. If the message is received from dead letter queue, it represents the source of the original message. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
+| x-opt-scheduled-enqueue-time | Declares at which time the message should appear on the entity |[ScheduledEnqueueTime](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.scheduledenqueuetime) |
+| x-opt-partition-key | Application-defined key that dictates which partition the message should land in. | [PartitionKey](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.partitionkey) |
+| x-opt-via-partition-key | Application-defined partition-key value when a transaction is to be used to send messages via a transfer queue. | [TransactionPartitionKey](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.transactionpartitionkey) |
+| x-opt-enqueued-time | Service-defined UTC time representing the actual time of enqueuing the message. Ignored on input. | [EnqueuedTimeUtc](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | Service-defined unique number assigned to a message. | [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) |
+| x-opt-offset | Service-defined enqueued sequence number of the message. | [EnqueuedSequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | Service-defined. The date and time until which the message will be locked in the queue/subscription. | [LockedUntil](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.lockeduntil) |
+| x-opt-deadletter-source | Service-Defined. If the message is received from dead letter queue, it represents the source of the original message. | [DeadLetterSource](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.deadlettersource) |
 
 ### Transaction capability
 

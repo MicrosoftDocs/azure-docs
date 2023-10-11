@@ -99,8 +99,7 @@ If your application is a console application, you must register a native applica
 ## Assign Azure roles using the Azure portal  
 Assign one of the [Service Bus roles](#azure-built-in-roles-for-azure-service-bus) to the application's service principal at the desired scope (Service Bus namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-Once you define the role and its scope, you can test this behavior with the [sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). This sample uses the old Microsoft.Azure.ServiceBus package. For information about migrating this sample to use the newer Azure.Messaging.ServiceBus package, see the [Guide for migrating to Azure.Messaging.ServiceBus from Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
-
+Once you define the role and its scope, you can test this behavior with the [sample on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample00_AuthenticateClient.md#authenticate-with-azureidentity).
 
 ### Authenticating the Service Bus client
 Once you've registered your application and granted it permissions to send/receive data in Azure Service Bus, you can authenticate your client with the client secret credential, which will enable you to make requests against Azure Service Bus.
@@ -126,7 +125,7 @@ If you're using the older .NET packages, see the RoleBasedAccessControl samples 
 
 To learn more about Service Bus messaging, see the following topics.
 
-- [Service Bus Azure RBAC samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+- [Service Bus Azure RBAC samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample00_AuthenticateClient.md)
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 - [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

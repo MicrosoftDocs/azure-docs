@@ -22,3 +22,4 @@ The AMQP-over-WebSockets protocol option runs over port TCP 443 just like the HT
 | JavaScript  | When creating Service Bus client objects, use the `webSocketOptions` property in [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions). |
 | Python | When creating Service Bus clients, set [ServiceBusClient.transport_type](/python/api/azure-servicebus/azure.servicebus.servicebusclient) to [TransportType.AmqpOverWebSocket](/python/api/azure-servicebus/azure.servicebus.transporttype) |
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
