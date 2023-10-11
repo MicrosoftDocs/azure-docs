@@ -87,7 +87,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Create a new container within the storage account and set the **Public access level** to **Private (no anonymous access)**.
 
-1. Set the authentication type to **Microsoft Entra user Account**.
+1. Set the authentication type to **Azure AD User Account**.
 
 1. Upload text files to the container and set the following blob index tags.
 
@@ -181,7 +181,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Open the storage account and container you created.
 
-1. Ensure that the authentication method is set to **Microsoft Entra user Account** and not **Access key**.
+1. Ensure that the authentication method is set to **Azure AD User Account** and not **Access key**.
 
     ![Screenshot of storage container with test files.](./media/conditions-custom-security-attributes/test-storage-container.png)
 
