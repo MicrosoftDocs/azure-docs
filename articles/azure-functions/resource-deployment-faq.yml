@@ -4,7 +4,7 @@ metadata:
   description: See the frequently asked questions when deploying your Azure Functions resources by using Azure Resources Manager and Bicep templates.
   ms.service: azure-functions
   ms.topic: faq 
-  ms.date: 02/07/2023
+  ms.date: 10/07/2023
 title: Azure Resource Manager deployment FAQ for Azure Functions
 summary: |
   This article provides answers to frequently asked questions about using Bicep files and Azure Resource Manager templates to deploy the resources required by a function app. For an introduction, see [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md). 

@@ -1,9 +1,9 @@
 ---
 title: Automate function app resource deployment to Azure
-description: Learn how to build a Bicep file or an Azure Resource Manager template that deploys your function app.
+description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 10/10/2023
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -12,12 +12,7 @@ zone_pivot_groups: functions-hosting-plan
 
 You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-For sample Bicep files and ARM templates, see:
-
-- [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates)
-- [Function app on Consumption plan]
-- [Function app on Elastic Premium plan](#premium)
-- [Function app on Azure App Service plan]
+For a broad set of example Bicep files and ARM templates, see the [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates) repository.
 
 >[!IMPORTANT]
 >Deployment code depends on how your function app is hosted and whether you are deploying code or a containerized function app. This article supports the three Functions hosting plans (Consumption, Elastic Premium, and Dedicated), as well as deployments to both Azure Container Apps and Azure Arc. 
@@ -28,33 +23,33 @@ An Azure Functions deployment typically consists of these resources:
 :::zone pivot="premium-plan,dedicated-plan"  
 | Resource  | Requirement | Syntax and properties reference |
 |------|-------|----|
-| A [storage account](#storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| An [Application Insights](#application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
-| A [hosting plan](#hosting-plan)| Required<sup>2</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms) |
-| A [function app](#function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
+| A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| An [Application Insights](#create-application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
+| A [hosting plan](#create-the-hosting-plan)| Required<sup>2</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms) |
+| A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 :::zone-end  
 :::zone pivot="consumption-plan"  
 | Resource  | Requirement | Syntax and properties reference |
 |------|-------|----|
-| A [storage account](#storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| An [Application Insights](#application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
-| A [function app](#function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
+| A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| An [Application Insights](#create-application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
+| A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 :::zone-end  
 :::zone pivot="container-apps"  
 | Resource  | Requirement | Syntax and properties reference |
 |------|-------|----|
-| A [storage account](#storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| An [Application Insights](#application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
-| A [managed environment](#managed-environment) | Required | [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/managedenvironments) |
-| A [function app](#function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
+| A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| An [Application Insights](#create-application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
+| A [managed environment](./functions-container-apps-hosting.md#) | Required | [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/managedenvironments) |
+| A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 :::zone-end  
 :::zone pivot="azure-arc"  
 | Resource  | Requirement | Syntax and properties reference |
 |------|-------|----|
-| A [storage account](#storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| An [Application Insights](#application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
-| An [App Service Kubernetes environment](#kubernetes-environment) | Required | [Microsoft.ExtendedLocation/customLocations](/azure/templates/microsoft.extendedlocation/customlocations)<br/> |
-| A [function app](#function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
+| A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| An [Application Insights](#create-application-insights) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)|  
+| An [App Service Kubernetes environment](../app-service/overview-arc-integration.md#kub) | Required | [Microsoft.ExtendedLocation/customLocations](/azure/templates/microsoft.extendedlocation/customlocations) |
+| A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 :::zone-end 
 
 <sup>1</sup>While not required, you should configure Application Insights for your app.  
@@ -502,7 +497,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ::: zone-end
 :::zone pivot="azure-arc" 
 ## Kubernetes environment
-Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md). This process largely follows [deploying to an App Service plan](#deploy-on-app-service-plan), with a few differences to note.
+Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md). 
 
 To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you're deploying to. For most Bicep files/ARM templates, you can supply these values as parameters.
 
@@ -615,7 +610,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ::: zone-end
 
-## Function app
+## Create the function app
 
 The function app resource is defined by a resource of type `Microsoft.Web/sites` and `kind` that includes `functionapp`.
 
@@ -625,7 +620,7 @@ The way that you define a function app resource depends on whether you're hostin
 
 When running on Linux, you must set `"kind": "functionapp,linux"` and `"reserved": true` for the function app. Linux apps must also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of `<runtime>|<runtimeVersion>`. For more information, see the [linuxFxVersion site setting](functions-app-settings.md#linuxfxversion) reference.
  
-For a list of application settings required when running on Linux in a Consumption plan,  see [Application configuration](#applicaton-configuration).
+For a list of application settings required when running on Linux in a Consumption plan,  see [Application configuration](#application-configuration).
 :::zone pivot="consumption-plan"
 For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 ::: zone-end
@@ -638,7 +633,7 @@ For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux
 
 ### [Windows](#tab/windows)
 
-For a list of application settings required when running on Windows, see [Application configuration](#applicaton-configuration).
+For a list of application settings required when running on Windows, see [Application configuration](#application-configuration).
 :::zone pivot="consumption-plan"
 For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
 :::zone-end  
@@ -1635,7 +1630,7 @@ When deploying functions to Azure Arc, the value you set for the `kind` field of
 | Code-only deployment | `functionapp,linux,kubernetes` |
 | Container deployment | `functionapp,linux,kubernetes,container` |  
 
-You must also set the `customLocationId` as you did for the [hosting plan resource](#hosting-plan).
+You must also set the `customLocationId` as you did for the [hosting plan resource](#create-the-hosting-plan).
 
 The definition of a containerized function app, using a .NET 6 quickstart image, might look like this example:
 
@@ -1732,7 +1727,7 @@ Functions provides the following options for configuring your function app in Az
 | Site settings | `siteConfig` |
 | Application settings | `siteConfig.appSettings` collection |
 
-The following site settings might be required on the `siteConfig` property:
+The following site settings are required on the `siteConfig` property:
 
 ### [Linux](#tab/linux)
 
@@ -1816,7 +1811,7 @@ For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../a
 ---
 
 >[!IMPORTANT]  
->When adding or updating application settings using Bicep or ARM templates, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. You can instead use the Azure CLI, Azure PowerShell, or the Azure portal to more easily modify application settings. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#work-with-application-settings). 
+>When adding or updating application settings using Bicep or ARM templates, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. You can instead use the Azure CLI, Azure PowerShell, or the Azure portal to more easily modify application settings. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 ## Validate your template
 
@@ -1830,7 +1825,7 @@ The following methods can be used to validate your template before deployment:
 
 ### [Azure Pipelines](#tab/devops)
 
-The following [Azure resource group deployment v2 task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops) with `deploymentMode: 'Validation'` instructs Azure Pipelines to validate the template. 
+The following [Azure resource group deployment v2 task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops&preserve-view=true) with `deploymentMode: 'Validation'` instructs Azure Pipelines to validate the template. 
 
 ```yml
 - task: AzureResourceManagerTemplateDeployment@3

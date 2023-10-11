@@ -2,7 +2,7 @@
 title: Best practices for Azure Functions deployments 
 description: Learn best practices for deploying required resources for Azure Functions by using Azure Resources Manager templates.
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 10/03/2023
 # Customer intent: As a developer, I want to understand how to successfully deploy my function app resources by using Aure Resource Manager templates and related technologies so I can produce stable and repeatable deployments.
 ---
 

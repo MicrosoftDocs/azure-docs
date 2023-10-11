@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Functions deployments
 description: Learn how to troubleshoot deployment of your function app and related resources to Azure.
 ms.topic: article
-ms.date: 02/07/2023
+ms.date: 10/07/2023
 ---
 
 # Troubleshoot Azure Functions deployments
