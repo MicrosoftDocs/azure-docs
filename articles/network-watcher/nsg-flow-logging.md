@@ -77,7 +77,7 @@ Create a flow log for your network security group. This NSG flow log is saved in
     :::image type="content" source="./media/nsg-flow-logging/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
 
     > [!NOTE]
-    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
 1. Select **Review + create**.
 
@@ -111,7 +111,7 @@ Create a flow log for your network security group and enable traffic analytics. 
     :::image type="content" source="./media/nsg-flow-logging/create-nsg-flow-log-basics.png" alt-text="Screenshot of the Basics tab of Create a flow log in the Azure portal.":::
 
     > [!NOTE]
-    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
 1. Select **Next: Analytics** button, or select **Analytics** tab. Then enter or select the following values:
 
