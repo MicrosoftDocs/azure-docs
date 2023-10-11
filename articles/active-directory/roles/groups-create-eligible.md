@@ -81,7 +81,7 @@ This example shows how to create a Microsoft 365 role-assignable group.
 
 ```powershell
 Connect-MgGraph -Scopes "Group.ReadWrite.All"
-$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators_PSv2" -Description "Helpdesk Administrator role assigned to group" -MailEnabled:$true -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true -GroupTypes "Unified"
+$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "Helpdesk Administrator role assigned to group" -MailEnabled:$true -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true -GroupTypes "Unified"
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
