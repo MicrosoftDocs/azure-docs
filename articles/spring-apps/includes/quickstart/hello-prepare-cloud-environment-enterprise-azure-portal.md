@@ -7,9 +7,9 @@ ms.date: 08/11/2023
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (standard plan) using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (enterprise plan) using Azure Portal.
 
-[!INCLUDE [hello-prepare-cloud-environment-standard-on-azure-portal](../../includes/quickstart/hello-prepare-cloud-env-standard-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-standard-on-azure-portal](../../includes/quickstart/hello-prepare-cloud-env-enterprise-azure-portal.md)]
 
 -->
 
@@ -25,7 +25,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 1. Select the following **Deploy to Azure** button:
 
-   [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fspring-guides%2Fgs-spring-boot-for-azure%2Fmain%2Finfra%2Fazuredeploy-asa-standard.json)
+   :::image type="content" source="../media/quickstart/deploy-to-azure.png" alt-text="Button to deploy the ARM template to Azure." lightbox="../media/quickstart/deploy-to-azure.png":::
 
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form.
 
