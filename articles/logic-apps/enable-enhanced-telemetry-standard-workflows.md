@@ -111,7 +111,9 @@ The Requests table contains fields that track the following information generate
 
 #### Trigger and action events
 
-To show how data gets into these tracked fields, the following example Standard workflow uses a **Request** trigger. The trigger settings has a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
+To show how data gets into these tracked fields, suppose you have the following example Standard workflow that starts with a **Request** trigger and follows with the **Compose** action and the **Response** action. 
+
+The trigger settings has a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
 
 ![Screenshot shows Azure portal, Standard workflow, Request trigger selected, Settings tab, and custom tracking Id.](media/enable-enhanced-telemetry-standard-workflows/requests-table/request-trigger-custom-tracking-id.png)
 
@@ -119,13 +121,22 @@ Next, the workflow's **Compose** action settings has an added tracked property n
 
 ![Screenshot shows Azure portal, Standard workflow, Compose action selected, Settings tab, and tracked property.](media/enable-enhanced-telemetry-standard-workflows/requests-table/compose-action-tracked-property.png)
 
-To view all trigger and action events in the Requests table, see [Query for all trigger and action events](#requests-table-view-all-trigger-action-events). To view only trigger events or action events, see [Query for only trigger or action events](#requests-table-view-trigger-or-action-events).
+ The **Compose** action is followed by a **Response** action that returns a response to the caller.
+
+The following list has example queries that you can create and run against the Requests table:
+
+| Task | Steps |
+|------|-------|
+| View all trigger and action events | [Query for all trigger and action events](#requests-table-view-all-trigger-action-events) |
+| View only trigger events or action events | [Query for only trigger or action events](#requests-table-view-trigger-or-action-events) |
+| View trigger or action events with a specific operation type | [Query trigger or action events by operation type](#requests-table-view-trigger-action-events-type) |
+| View trigger and action events with connector usage | [Query for trigger and action events for connector usage](#requests-table-view-connector-usage) |
 
 <a name="requests-table-view-all-trigger-action-events"></a>
 
 #### Query for all trigger and action events
 
-After the workflow runs and a few minutes pass, you can create and run a query against the Results table in Application Insights.
+After the workflow runs and a few minutes pass, you can create a query against the Requests table to view all the operation events.
 
 1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
 
@@ -186,7 +197,7 @@ After the workflow runs and a few minutes pass, you can create and run a query a
 
 ##### Query for only trigger or action events
 
-You can create a query to view a subset of operation events, based on operation category and the workflow name.
+You can create a query against the Requests table to view a subset of operation events, based on operation category and the workflow name.
 
 1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
 
@@ -208,11 +219,54 @@ You can create a query to view a subset of operation events, based on operation 
 
    ![Screenshot shows Requests table query for actions only.](media/enable-enhanced-telemetry-standard-workflows/requests-table/actions-only.png)
 
+<a name="requests-table-view-trigger-action-events-type"></a>
+
+##### Query trigger or action events by operation type
+
+You can create a query against the Requests table to view events for a specific trigger or action type.
+
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. To view all operation events with a specific trigger type, create and run a query with the **customDimensions.triggerType** value set to the trigger type you want, for example:
+
+   ```kusto
+   requests
+   | where customDimensions.triggerType == "Request"
+   ```
+
+1. To view all operation events with a specific action type, create and run a query with the **customDimensions.actionType** value set to the corresponding trigger or action type, for example:
+
+   ![Screenshot shows Requests table query for Request trigger type.](media/enable-enhanced-telemetry-standard-workflows/requests-table/trigger-type.png)
+
+   ```kusto
+   requests
+   | where customDimensions.actionType == "Compose"
+   ```
+
+
+
+<a name="requests-table-view-trigger-action-events-workflow-id"></a>
+
+##### Query trigger and action events by workflow run ID
+
+You can create a query against the Requests table to view a subset of operation events, based on the workflow run ID. This workflow run ID is the same ID that you can find in the workflow's run history.
+
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. To view all operation events with a specific workflow run ID, create and run a query with the **operation_Id** value set to the value you want, for example:
+
+   ```kusto
+   requests
+   | where operation_Id == "08585287554177334956853859655CU00"
+   ```
+
+   ![Screenshot shows Requests table query based on workflow run ID.](media/enable-enhanced-telemetry-standard-workflows/requests-table/workflow-run-id.png)
+
 <a name="requests-table-view-events-client-tracking-id"></a>
 
-##### Query trigger and action events using the client tracking ID
+##### Query trigger and action events by client tracking ID
 
-You can create a query to view a subset of operation events, based on the workflow name and client tracking ID.
+You can create a query against the Requests table to view a subset of operation events, based on the workflow name and client tracking ID.
 
 1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
 
@@ -229,9 +283,9 @@ You can create a query to view a subset of operation events, based on the workfl
 
 <a name="requests-table-view-events-solution-name"></a>
 
-##### Query trigger and action events using the solution name
+##### Query trigger and action events by solution name
 
-You can create a query to view a subset of operation events, based on the workflow name and solution name.
+You can create a query against the Requests table to view a subset of operation events, based on the workflow name and solution name.
 
 1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
 
@@ -246,19 +300,23 @@ You can create a query to view a subset of operation events, based on the workfl
 
    ![Screenshot shows query results using operation name and solution name.](media/enable-enhanced-telemetry-standard-workflows/requests-table/query-operation-name-solution-name.png)
 
-##### Retry attempts
+#### Retry attempts
 
 To show how this data gets into the Requests table, the following example Standard workflow uses an **HTTP** action that calls a URL, which doesn't resolve. The workflow also has a retry policy that is set to a fixed interval that retries three times, once every 60 seconds.
 
 ![Screenshot shows Azure portal, Standard workflow, HTTP action selected, Settings tab, and retry policy.](media/enable-enhanced-telemetry-standard-workflows/requests-table/http-action-retry-policy.png)
 
-To view the retry attempts in the Requests table, see [Query the Results table to view retries](#requests-table-view-retries).
+To view the retry attempts in the Requests table, see [Query trigger and action events for retry attempts](#requests-table-view-retries).
 
 <a name="requests-table-view-retries"></a>
 
-### Query the Requests table to view retries
+##### Query trigger and action events for retry attempts
 
-1. After the workflow runs and a few minutes pass, run the following query in Application Insights to view the operation events log:
+You can create a query against the Requests table to view a subset of operation events with retry attempts.
+
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. Create and run the following query in Application Insights to view the operation events log:
 
    ```kusto
    requests
@@ -280,10 +338,27 @@ To view the retry attempts in the Requests table, see [Query the Results table t
    | **code** | Error type for a specific retry attempt |
    | **error** | Details about the specific error that happened |
 
-##### Connector usage
+<a name="requests-table-view-connector-usage"></a>
 
-The Requests table contains connection usage in a Standard workflow. To show how these retries get into 
+### Query trigger and action events for connector usage
 
+You can create a query against the Requests table to view a subset of operation events, based on specific connector usage.
+
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. To view all trigger events with specific connector usage, create and run a query with the **customDimensions.Category** value set to **Workflow.Operations.Triggers**, the **customDimensions.triggerType** value set to the operation type, and the **customDimensions.apiName** set to the connector's JSON name, for example:
+
+   ```kusto
+   requests
+   | where customDimensions.Category == "Workflow.Operations.Triggers" and customDimensions.triggerType =="ApiConnectionWebhook" and customDimensions.apiName =="commondataservice"
+   ```
+
+1. To view all action events with specific connector usage, create and run a query with the **customDimensions.Category** value set to **Workflow.Operations.Actions**, the **customDimensions.triggerType** value set to the operation type, and the **customDimensions.apiName** set to the connector's JSON name, for example:
+
+   ```kusto
+   requests
+   | where customDimensions.actionType == "ApiConnection" and customDimensions.apiName == "office365"
+   ```
 
 ### Dependencies table
 
