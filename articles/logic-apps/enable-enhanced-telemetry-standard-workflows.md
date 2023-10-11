@@ -14,7 +14,9 @@ ms.date: 10/16/2023
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
+This how-to guide shows how to turn on enhanced telemetry collection in Application Insights for your Standard logic app resource and then view the collected data after your workflow finishes a run.
 
+For information about the improvements to the telemetry tables in Application Insights for Standard logic app workflows, see [Application Insights Enhancements for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/application-insights-enhancements-for-azure-logic-apps-standard/ba-p/3758909).
 
 ## Prerequisites
 
@@ -28,7 +30,7 @@ ms.date: 10/16/2023
 
   - Your logic app must [have enabled Application Insights](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights) for diagnostics logging and tracing. You can do so either when you create your logic app or after deployment.
 
-## Enable enhanced telemetry
+## Enable enhanced telemetry in Application Insights
 
 ### [Portal](#tab/portal)
 
@@ -90,28 +92,28 @@ ms.date: 10/16/2023
 
 ## Open Application Insights
 
+After your workflow finishes a run and a few minutes pass, open your Application Insights resource.
+
 1. In the [Azure portal](https://portal.azure.com), on your logic app menu, under **Settings**, select **Application Insights**.
 
 1. On the Application Insights resource menu, under **Monitoring**, select **Logs**.
 
 ## View enhanced telemetry in Application Insights
 
-The following sections describe the tables in Application Insights where you can find and view the enhanced telemetry emitted from your workflow run.
+The following sections describe the tables in Application Insights where you can find and view the enhanced telemetry generated from your workflow run.
 
 | Table name | Description |
 |------------|-------------|
-| [Requests](#requests-table) | Details about trigger and action events, retry attempts, and connector usage |
-| [Traces](#traces-table) | Details about |
-| [Exceptions](#exceptions-table) | Details about operation exceptions |
-| [Dependencies](#dependencies-table) | Details about dependency events |
+| [Requests](#requests-table) | Details about trigger and action events, retry attempts, and connector usage in a workflow run |
+| [Traces](#traces-table) | Details about the start and end events in a workflow run |
+| [Exceptions](#exceptions-table) | Details about exception events in a workflow run |
+| [Dependencies](#dependencies-table) | Details about dependency events in a workflow run |
 
 ### Requests table
 
-The Requests table contains fields that track the following information generated from a Standard workflow: trigger and action events, retry attempts, and connector usage.
+The Requests table contains fields that track the following information generated from a Standard workflow: trigger and action events, retry attempts, and connector usage. To show how data gets into these fields, suppose you have the following example Standard workflow that starts with a **Request** trigger and follows with the **Compose** action and the **Response** action.
 
-#### Trigger and action events
-
-To show how data gets into these tracked fields, suppose you have the following example Standard workflow that starts with a **Request** trigger and follows with the **Compose** action and the **Response** action. 
+![Screenshot shows Azure portal, Standard workflow, with trigger and actions.](media/enable-enhanced-telemetry-standard-workflows/workflow-overview.png)
 
 The trigger settings has a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
 
@@ -130,6 +132,7 @@ The following list has example queries that you can create and run against the R
 | View all trigger and action events | [Query for all trigger and action events](#requests-table-view-all-trigger-action-events) |
 | View only trigger events or action events | [Query for only trigger or action events](#requests-table-view-trigger-or-action-events) |
 | View trigger or action events with a specific operation type | [Query trigger or action events by operation type](#requests-table-view-trigger-action-events-type) |
+| View triggers and action events with a specific workflow run ID | [Query trigger and action events by workflow run ID](#requests-table-view-trigger-action-events-workflow-id) |
 | View trigger and action events with connector usage | [Query for trigger and action events for connector usage](#requests-table-view-connector-usage) |
 
 <a name="requests-table-view-all-trigger-action-events"></a>
@@ -243,7 +246,7 @@ You can create a query against the Requests table to view events for a specific 
    | where customDimensions.actionType == "Compose"
    ```
 
-
+   ![Screenshot shows Requests table query for Compose action type.](media/enable-enhanced-telemetry-standard-workflows/requests-table/action-type.png)
 
 <a name="requests-table-view-trigger-action-events-workflow-id"></a>
 
@@ -359,6 +362,10 @@ You can create a query against the Requests table to view a subset of operation 
    requests
    | where customDimensions.actionType == "ApiConnection" and customDimensions.apiName == "office365"
    ```
+
+### Traces table
+
+### Exceptions table
 
 ### Dependencies table
 
