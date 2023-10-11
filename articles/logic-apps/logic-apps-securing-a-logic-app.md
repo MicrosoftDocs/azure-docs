@@ -1433,7 +1433,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 > [!IMPORTANT]
 > If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
 > and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
-> or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the `Certificate` 
+> or OAuth with Microsoft Entra ID with the `Certificate` 
 > credential type, make sure to complete the extra setup steps for this authentication type. 
 > Otherwise, the call fails. For more information, review 
 > [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
