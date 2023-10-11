@@ -8,10 +8,11 @@ ms.date: 10/11/2023
 
 # Using statement
 
-The `using` statement in [Bicep parameter files](./parameter-files.md) ties the Bicep parameters file to a Bicep file, an ARM JSON template, or a Bicep module, or a template spec. A `using` declaration must be present in any Bicep parameters file.
+The `using` statement in [Bicep parameter files](./parameter-files.md) ties the [Bicep parameters file](./parameter-files.md) to a [Bicep file](./file.md), an [ARM JSON template](../templates/syntax.md), or a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in any Bicep parameters file.
 
 > [!NOTE]
 > The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or later.
+>
 > To use the statement with ARM json templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.53.0 or later.
 
 The syntax:

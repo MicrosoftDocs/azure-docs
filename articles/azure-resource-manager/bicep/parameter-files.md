@@ -358,7 +358,7 @@ az deployment group create \
 
 ---
 
-For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or later.
+For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). 
 
 From Azure PowerShell, pass a local parameters file using the `TemplateParameterFile` parameter.
 
