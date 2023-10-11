@@ -29,9 +29,11 @@ The main scenarios to consider about using Data-out replication are:
 
 ## Limitations and considerations
 
-### Azure AD isn't supported
+<a name='azure-ad-isnt-supported'></a>
 
-Data-out replication isn't supported on Azure Database for MySQL - Flexible Server, which has Azure authentication configured. Any Azure AD transaction (Azure AD user create/update) on the source server will break data-out replication.
+### Microsoft Entra ID isn't supported
+
+Data-out replication isn't supported on Azure Database for MySQL - Flexible Server, which has Azure authentication configured. Any Microsoft Entra transaction (Microsoft Entra user create/update) on the source server will break data-out replication.
 
 > [!TIP]  
 > Use guidance published here - MySQL :: MySQL Replication :: 2.7.3 Skipping Transactions to skip past an event or events by issuing a CHANGE MASTER TO statement to move the source's binary log position forward. Restart replication posts the action.
