@@ -35,7 +35,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 ::: zone pivot="sc-enterprise"
 
 - The Azure portal is the easiest and fastest way to create resources and deploy applications with a single click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- The Azure CLI is a powerful command line tool to manage Azure resources. It is suitable for Spring developers who are familiar with Azure cloud services.
+- The Azure CLI is a powerful command line tool to manage Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
