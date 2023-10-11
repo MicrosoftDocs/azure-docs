@@ -1984,6 +1984,8 @@
     items:
     - name: Overview
       href: virtual-machines-create-restore-points.md
+    - name: VMSnapshot Extension
+      href: virtual-machines-restore-points-VMSnapshot-extension.md
     - name: Quickstarts
       items:
       - name: Create VM restore points
