@@ -1393,7 +1393,7 @@ For more information about securing services by using client certificate authent
 
 <a name='azure-active-directory-open-authentication'></a>
 
-#### Microsoft Entra ID Open Authentication
+#### Microsoft identity platform
 
 On Request triggers, you can use [Microsoft identity platform](../active-directory/develop/index.yml), for authenticating incoming calls after you [set up Microsoft Entra authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
 
