@@ -37,7 +37,7 @@ The APIs contain Swagger technical documentation.
 
 ## Authentication
 
-FarmBeats uses Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Microsoft Entra ID). Azure App Service provides built-in authentication and authorization support. 
+FarmBeats uses [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md). Azure App Service provides built-in authentication and authorization support. 
 
 For more information about Microsoft Entra ID, see [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).   
 
