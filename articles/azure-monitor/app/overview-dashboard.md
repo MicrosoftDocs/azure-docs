@@ -2,7 +2,7 @@
 title: Application Insights Overview dashboard | Microsoft Docs
 description: Monitor applications with Application Insights and Overview dashboard functionality.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 10/11/2023
 ---
 
 # Application Insights Overview dashboard
