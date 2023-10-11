@@ -813,7 +813,7 @@ The Microsoft Authentication Library (MSAL) libraries provide PoP tokens for you
 
 * [SignedHttpRequest aka PoP (Proof of Possession)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/SignedHttpRequest-aka-PoP-(Proof-of-Possession))
 
-To use the PoP token with your Consumption logic app, follow the next section to [set up Microsoft Entra ID OAuth](#enable-azure-ad-inbound).
+To use the PoP token with your Consumption logic app, follow the next section to [set up OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
 <a name="enable-azure-ad-inbound"></a>
 
