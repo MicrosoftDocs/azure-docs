@@ -60,7 +60,7 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
 - Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers which are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
 
-    **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100 GB bills you for the committed 100 GB data volume, plus any extra GB/day at the discounted rate for that tier.
+    **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100-GB bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted rate for that tier.
 
     Increase your commitment tier anytime to optimize costs as your data volume increases. Lowering the commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
@@ -176,7 +176,7 @@ Learn how to [view and download your Azure bill](../cost-management-billing/unde
 
 ## Costs and pricing for other services
 
-Microsoft Sentinel integrates with many other Azure services, including Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have extra charges. Some of Microsoft Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
+Microsoft Sentinel integrates with many other Azure services, including Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services might have extra charges. Some of Microsoft Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
 
 Learn about pricing for these services:
 
@@ -192,7 +192,7 @@ Any other services you use could have associated costs.
 After you enable Microsoft Sentinel on a Log Analytics workspace consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
-- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level. 
+- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
 - Enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. Learn how to [configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). Archived logs are in public preview.
 
 The 90 day retention doesn't apply to basic logs. If you want to extend data retention for basic logs beyond eight days, store that data in archived logs for up to seven years.
@@ -246,7 +246,7 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 
 - [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
 - [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
