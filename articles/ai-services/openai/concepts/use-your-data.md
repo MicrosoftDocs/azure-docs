@@ -123,18 +123,18 @@ This means the storage account is not accessible with the given credentials. In 
 
 ## Virtual network support & private endpoint support
 
-See the following table for a summary of virtual network and private endpoint support. The Azure OpenAI Studio and Azure OpenAI on your data API access can vary based on how your resources are configured.   
+See the following table for scenarios supported by virtual networks and private endpoints when you bring your own Azure Cognitive Search index. 
 
-| Azure OpenAI resource                                                                  | Search resource                              | Embedding model                                | Azure OpenAI studio support | API support |
+| Azure OpenAI resource                                                                  | Azure Cognitive search resource                              | Vector search enabled                                | Azure OpenAI studio | Chat with the model using the API |
 |----------------------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------|-----------------------------|-------------|
-| The resource allows access from all networks.                                           | The resource allows access from all networks. | Regardless of the availability of an embedding model.                                            | Supported.                   | Supported.   |
-| The resource allows access from selected networks or only private endpoint connections. | The resource allows access from all networks. | An embedding model is available to enable vector search. | Not supported.                |Supported. |
-| The resource allows access from selected networks or only private endpoint connections.  | The resource allows access from all networks.  | An embedding model is not available. |   Supported. |  Supported. |
-| Regardless of resource access allowances.                                 | The resource allows access from selected networks or only private endpoint connections.   |     Regardless of the availability of an embedding model.                                     |   Not supported.    | Supported.  |
+| The resource allows access from all networks.                                           | The resource allows access from all networks. | Regardless of vector search enablement.                                            | Supported.                   | Supported.   |
+| The resource allows access from selected networks or only private endpoint connections. | The resource allows access from all networks. | Vector search is enabled. | Not supported.                |Supported. |
+| The resource allows access from selected networks or only private endpoint connections.  | The resource allows access from all networks.  | Vector search is not enabled. |   Supported. |  Supported. |
+| Regardless of resource access allowances.                                 | The resource allows access from selected networks or only private endpoint connections.   |     Regardless of vector search enablement.                                     |   Not supported.    | Supported.  |
 
-Additionally, the ingestion API has the following configuration requirements:
+Additionally, data ingestion has the following configuration requirements:
 
-| Azure OpenAI resource                                                                  | Search resource                              | Azure OpenAI studio support | API support |
+| Azure OpenAI resource                                                                  | Azure Cognitive search resource                              | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
 |----------------------------------------------------------------------------------------|----------------------------------------------|-----------------------------|-------------|
 | The resource allows access from all networks.                                           | The resource allows access from all networks. | Supported.                   | Supported.   |
 | The resource allows access from selected networks or only private endpoint connections. | Regardless of resource access allowances. |  Not supported.                |Not supported. |
