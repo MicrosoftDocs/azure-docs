@@ -6,7 +6,7 @@ ms.author: ssen
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 7/1/2023
+ms.date: 9/1/2023
 ---
 # Monitor Performance with Query Store
 
@@ -110,7 +110,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |user_id	|oid	|pg_authid.oid	|OID of user who executed the statement|
 |db_id	|oid	|pg_database.oid	|OID of database in which the statement was executed|
 |query_id	|bigint	 ||	Internal hash code, computed from the statement's parse tree|
-|query_sql_text	|Varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster.|
+|query_sql_text	|varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. The default query text length is 6000 and can be modified using query store parameter `pg_qs.max_query_text_length`.|
 |plan_id	|bigint	|	|ID of the plan corresponding to this query|
 |start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default. This is the start time corresponding to the time bucket for this entry.|
 |end_time	|timestamp	||	End time corresponding to the time bucket for this entry.|

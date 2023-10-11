@@ -3,12 +3,12 @@
 ## FRONT MATTER START
 title: Microsoft Entra External ID documentation # < 60 chars
 summary: >
-  With Microsoft Entra External ID, also known as Azure Active Directory (Azure AD) External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
+  With Microsoft Entra External ID, formerly known as Azure Active Directory (Azure AD) External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
 brand: azure
 
 metadata:
   title: Microsoft Entra External ID documentation
-  description: Learn how to use Microsoft Entra External ID, also known as Azure Active Directory (Azure AD) External Identities for customers and partners to customize and control how they sign up, sign in when using your applications.
+  description: Learn how to use Microsoft Entra External ID for customers to manage how partners and customers sign in to your applications.
   services: active-directory
   ms.service: active-directory
   ms.subservice: ciam
@@ -58,7 +58,7 @@ additionalContent:
           url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
           # Card
         - title: Code samples for customer tenants
-          summary: Learn about our code samples for customer identity and access management (CIAM) in Azure Active Directory.
+          summary: Learn about our code samples for customer identity and access management (CIAM) in Microsoft Entra External ID.
           url: /azure/active-directory/external-identities/customers/samples-ciam-all
           # Card
         - title: Authentication methods and identity providers
@@ -75,16 +75,16 @@ additionalContent:
           summary: Learn basic B2B concepts and processes.
           url: /azure/active-directory/external-identities/external-identities-overview
         # Card
-        - title: What is Azure AD B2B collaboration?
-          summary: Learn about the Azure AD B2B collaboration feature.
+        - title: What is Microsoft Entra B2B collaboration?
+          summary: Learn about the Microsoft Entra B2B collaboration feature.
           url: /azure/active-directory/external-identities/what-is-b2b      
         # Card
-        - title: What is Azure AD B2B direct connect?
-          summary: Learn about the Azure AD B2B direct connect feature.
+        - title: What is Microsoft Entra B2B direct connect?
+          summary: Learn about the Microsoft Entra B2B direct connect feature.
           url: /azure/active-directory/external-identities/b2b-direct-connect-overview   
         # Card
-        - title: External user properties in Azure AD
-          summary: Learn about the properties of an Azure Active Directory B2B collaboration user.
+        - title: External user properties in Microsoft Entra External ID
+          summary: Learn about the properties of a Microsoft Entra B2B collaboration user.
           url: /azure/active-directory/external-identities/user-properties 
         # Card
         - title: Cross-tenant access

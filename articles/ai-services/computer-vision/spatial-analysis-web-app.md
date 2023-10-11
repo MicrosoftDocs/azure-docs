@@ -5,8 +5,7 @@ description: Learn how to use Spatial Analysis in a web application.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: pafarley

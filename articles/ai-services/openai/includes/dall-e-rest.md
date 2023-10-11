@@ -4,17 +4,13 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using the REST APIs and the endpoint and access keys for your Azure OpenAI resource.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/08/2023
 keywords: 
 ---
 
 Use this guide to get started calling the Azure OpenAI Service image generation REST APIs by using Python.
-
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It doesn't edit existing images or create variations.
 
 ## Prerequisites
 

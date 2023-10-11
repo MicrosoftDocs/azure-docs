@@ -5,17 +5,16 @@ description: Learn how to use Azure RBAC for managing individual access to Azure
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 08/30/2022
 ms.author: mbullwin
 recommendations: false
 ---
 
 # Role-based access control for Azure OpenAI Service
 
-Azure OpenAI Service supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions based on their needs for a given project. For more information, see the [Azure RBAC documentation](../../../role-based-access-control/index.yml) for more information.
+Azure OpenAI Service supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions based on their needs for a given project. For more information, see the [Azure RBAC documentation](../../../role-based-access-control/index.yml).
 
 ## Add role assignment to an Azure OpenAI resource
 
@@ -94,10 +93,11 @@ This role is typically granted access at the resource group level for a user in 
 ✅ Use the Chat, Completions, and DALL-E (preview) playground experiences to generate text and images with any models that have already been deployed to this Azure OpenAI resource <br>
 ✅ Create customized content filters <br>
 ✅ Add a data source for the use your data feature <br>
+✅ Create new model deployments or edit existing model deployments (via API) <br>
 
 A user with only this role assigned would be unable to:
 
-❌ Create new model deployments or edit existing model deployments <br>
+❌ Create new model deployments or edit existing model deployments (via Azure OpenAI Studio) <br>
 ❌ Access quota <br>
 ❌ Create custom fine-tuned models <br>
 ❌ Upload datasets for fine-tuning
@@ -129,7 +129,7 @@ All the capabilities of Cognitive Services OpenAI Contributor plus the ability t
 All the capabilities of Cognitive Services Contributor plus the ability to:
 
 ✅ View & edit quota allocations in Azure OpenAI Studio <br>
-✅ Create new model deployments or edit existing model deployments <br>
+✅ Create new model deployments or edit existing model deployments (via Azure OpenAI Studio) <br>
 
 ## Common Issues
 
@@ -143,7 +143,7 @@ When selecting an existing Cognitive Search resource the search indices don't lo
 
 To make a generic API call for listing Azure Cognitive Search services, the following call is made:
 
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-Preview
+``` https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-Preview ```
   
 Replace {subscriptionId} with your actual subscription ID.
 
@@ -163,7 +163,7 @@ For this API call, you need a **subscription-level scope** role. You can use the
 
 **Root cause:**
 
-Insufficient subscription-level access for the user attempting to access the blob storage in Azure OpenAI Studio. The user may **not** have the necessary permissions to call the Azure Management API endpoint: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listAccountSas?api-version=2022-09-01
+Insufficient subscription-level access for the user attempting to access the blob storage in Azure OpenAI Studio. The user may **not** have the necessary permissions to call the Azure Management API endpoint: ```https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listAccountSas?api-version=2022-09-01```
 
 Public access to the blob storage is disabled by the owner of the Azure subscription for security reasons.
 

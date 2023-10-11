@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 07/26/2023
+ms.date: 08/28/2023
 ms.author: cwatson
 ---
 
@@ -108,7 +108,7 @@ Data connectors are available as part of the following offerings:
 
 ## Box
 
-- [Box (using Azure Function)](data-connectors/box-using-azure-function.md)
+- [Box (using Azure Functions)](data-connectors/box-using-azure-functions.md)
 
 ## Broadcom
 
@@ -132,6 +132,7 @@ Data connectors are available as part of the following offerings:
 ## Cisco Systems, Inc.
 
 - [Cisco Firepower eStreamer](data-connectors/cisco-firepower-estreamer.md)
+- [Cisco Software Defined WAN](data-connectors/cisco-software-defined-wan.md)
 
 ## Citrix
 
@@ -196,6 +197,10 @@ Data connectors are available as part of the following offerings:
 
 - [AI Analyst Darktrace](data-connectors/ai-analyst-darktrace.md)
 - [Darktrace Connector for Microsoft Sentinel REST API](data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md)
+
+## Defend Limited
+
+- [Cortex XDR - Incidents](data-connectors/cortex-xdr-incidents.md)
 
 ## Delinea Inc.
 
@@ -372,6 +377,7 @@ Data connectors are available as part of the following offerings:
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
 - [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
+- [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
 - [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
@@ -386,7 +392,6 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Purview (Preview)](data-connectors/microsoft-purview.md)
 - [Microsoft Purview Information Protection](data-connectors/microsoft-purview-information-protection.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)
-- [Office 365](data-connectors/office-365.md)
 - [Security Events via Legacy Agent](data-connectors/security-events-via-legacy-agent.md)
 - [Syslog](data-connectors/syslog.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
@@ -414,6 +419,7 @@ Data connectors are available as part of the following offerings:
 - [Forcepoint CSG](data-connectors/forcepoint-csg.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [Forcepoint NGFW](data-connectors/forcepoint-ngfw.md)
+- [MISP2Sentinel](data-connectors/misp2sentinel.md)
 
 ## MongoDB
 
@@ -426,6 +432,10 @@ Data connectors are available as part of the following offerings:
 ## MuleSoft
 
 - [MuleSoft Cloudhub (using Azure Functions)](data-connectors/mulesoft-cloudhub-using-azure-functions.md)
+
+## Nasuni Corporation
+
+- [Nasuni Edge Appliance](data-connectors/nasuni-edge-appliance.md)
 
 ## NetClean Technologies AB
 
@@ -488,7 +498,7 @@ Data connectors are available as part of the following offerings:
 
 - [Palo Alto Networks (Firewall)](data-connectors/palo-alto-networks-firewall.md)
 - [Palo Alto Networks Cortex Data Lake (CDL)](data-connectors/palo-alto-networks-cortex-data-lake-cdl.md)
-- [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md)
+- [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm-using-azure-functions.md)
 
 ## Perimeter 81
 
@@ -505,7 +515,7 @@ Data connectors are available as part of the following offerings:
 ## Proofpoint
 
 - [Proofpoint On Demand Email Security (using Azure Functions)](data-connectors/proofpoint-on-demand-email-security-using-azure-functions.md)
-- [Proofpoint TAP (using Azure Functions)](data-connectors/proofpoint-tap-using-azure-function.md)
+- [Proofpoint TAP (using Azure Functions)](data-connectors/proofpoint-tap-using-azure-functions.md)
 
 ## Pulse Secure
 
@@ -526,7 +536,7 @@ Data connectors are available as part of the following offerings:
 
 ## Rubrik, Inc.
 
-- [Rubrik Security Cloud data connector (using Azure Functions)](data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md)
+- [Rubrik Security Cloud data connector (using Azure Functions)](data-connectors/rubrik-security-cloud-data-connector-using-azure-functions.md)
 
 ## SailPoint
 
@@ -571,7 +581,7 @@ Data connectors are available as part of the following offerings:
 ## Sophos
 
 - [Sophos Cloud Optix](data-connectors/sophos-cloud-optix.md)
-- [Sophos Endpoint Protection (using Azure Functions)](data-connectors/sophos-endpoint-protection-using-azure-function.md)
+- [Sophos Endpoint Protection (using Azure Functions)](data-connectors/sophos-endpoint-protection-using-azure-functions.md)
 - [Sophos XG Firewall](data-connectors/sophos-xg-firewall.md)
 
 ## Squid
@@ -627,6 +637,7 @@ Data connectors are available as part of the following offerings:
 
 - [AI Vectra Stream](data-connectors/ai-vectra-stream.md)
 - [Vectra AI Detect](data-connectors/vectra-ai-detect.md)
+- [Vectra XDR (using Azure Functions)](data-connectors/vectra-xdr-using-azure-functions.md)
 
 ## VMware
 
@@ -645,6 +656,10 @@ Data connectors are available as part of the following offerings:
 ## WithSecure
 
 - [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
+
+## Wiz, Inc.
+
+- [Wiz](data-connectors/wiz.md)
 
 ## ZERO NETWORKS LTD
 

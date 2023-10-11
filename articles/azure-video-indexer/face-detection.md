@@ -1,16 +1,16 @@
 ---
 title: Face detection overview
-titleSuffix: Azure AI Video Indexer 
 description: Get an overview of face detection in Azure AI Video Indexer.
-author: juliako
-ms.author: juliako
-manager: femila
 ms.service: azure-video-indexer
 ms.date: 04/17/2023
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Face detection  
+# Face detection
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Face detection, a feature of Azure AI Video Indexer, automatically detects faces in a media file, and then aggregates instances of similar faces into groups. The celebrities recognition model then runs to recognize celebrities.
 

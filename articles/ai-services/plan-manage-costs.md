@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure AI services by usi
 author: PatrickFarley
 ms.author: pafarley
 ms.custom: subject-cost-optimization
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 11/03/2021
 ---

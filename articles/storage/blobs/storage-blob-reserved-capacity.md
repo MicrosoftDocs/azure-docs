@@ -5,7 +5,7 @@ description: Learn about purchasing Azure Storage reserved capacity to save cost
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: akashdubey
@@ -39,7 +39,7 @@ An Azure Storage reservation covers only the amount of data that is stored in a 
 
 Azure Storage reserved capacity is available for resources in standard storage accounts, including general-purpose v2 (GPv2) and Blob storage accounts.
 
-All access tiers (hot, cool, and archive) are supported for reservations. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Hot, cool, and archive tier are supported for reservations. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 All types of redundancy are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md).
 

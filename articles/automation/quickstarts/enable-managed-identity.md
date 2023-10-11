@@ -2,7 +2,7 @@
 title: Quickstart - Enable managed identities for your Automation account using the Azure portal
 description: This quickstart helps you enable managed identities for your Automation account using the Azure portal
 services: automation
-ms.date: 09/07/2021
+ms.date: 09/30/2023
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mode-ui

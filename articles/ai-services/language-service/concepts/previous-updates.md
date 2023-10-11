@@ -5,8 +5,7 @@ description: An archive of previous Azure AI Language updates.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 06/23/2022
 ms.author: aahi

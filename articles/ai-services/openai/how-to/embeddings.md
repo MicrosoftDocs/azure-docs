@@ -4,10 +4,9 @@ titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 5/9/2023
+ms.date: 9/12/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -16,7 +15,8 @@ keywords:
 ---
 # Learn how to generate embeddings with Azure OpenAI
 
-An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar.
+An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar. Embeddings power vector similarity search in Azure Databases such as [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md). 
+
 
 ## How to get embeddings
 
@@ -93,3 +93,10 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 
 * Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
 * Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+* Store your embeddings and perform vector (similarity) search using your choice of Azure service:
+  * [Azure Cognitive Search](../../../search/vector-search-overview.md)
+  * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
+  * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
+  * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
+  * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)
+

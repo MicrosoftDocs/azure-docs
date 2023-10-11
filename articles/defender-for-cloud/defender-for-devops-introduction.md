@@ -74,9 +74,6 @@ On this part of the screen you see:
 
 - **OSS vulnerabilities** – Shows the number of open source dependency vulnerabilities identified in the repositories. 
 
-    > [!NOTE]
-    > Currently, this information is available only for GitHub repositories.
-
 - **IaC scanning findings** – Shows the number of infrastructure as code misconfigurations identified in the repositories.
 
 - **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.

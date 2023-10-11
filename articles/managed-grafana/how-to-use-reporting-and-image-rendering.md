@@ -3,8 +3,8 @@ title: How to use reporting and image rendering in Azure Managed Grafana
 description: Learn how to create reports in Azure Managed Grafana and understand performance and limitations of image rendering
 ms.service: managed-grafana
 ms.topic: how-to
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 5/6/2023
 --- 
 

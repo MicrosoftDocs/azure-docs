@@ -5,11 +5,11 @@ description: Learn how to set up an Azure AD tenant for P2S Azure AD authenticat
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 09/07/2023
 ms.author: cherylmc
 
 ---
-# Configure an Azure AD tenant and P2S configuration for VPN Gateway P2S connections
+# Configure an Azure AD tenant and P2S settings for VPN Gateway connections
 
 This article helps you configure your AD tenant and P2S settings for Azure AD authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using the Azure AD authentication type, you must include the OpenVPN tunnel type in your point-to-site configuration.
 

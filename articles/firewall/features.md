@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 08/30/2023
 ms.author: victorh
 ---
 
@@ -62,11 +62,15 @@ For more information about Availability Zones, see [Regions and Availability Zon
 
 ## Unrestricted cloud scalability
 
-Azure Firewall can scale out as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+Azure Firewall can scale out as much as you need to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
 
 ## Application FQDN filtering rules
 
 You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require TLS termination.
+
+The following video shows how to create an application rule: <br><br>
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d8dbf4b9-4f75-4c88-b717-c3664b667e8b]
 
 ## Network traffic filtering rules
 
@@ -148,19 +152,19 @@ You can configure Azure Firewall to route all Internet-bound traffic to a design
 
 ## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
+Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
-- Firewall Standard – only the FQDN part will be examined, so `www.google.com` will be categorized as *Search Engine*. 
+- Firewall Standard – only the FQDN part is examined, so `www.google.com` is categorized as *Search Engine*. 
 
-- Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
+- Firewall Premium – the complete URL is examined, so `www.google.com/news` is categorized as *News*.
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
 
 ### Category exceptions
 
-You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
+You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the predefined **Social networking** web category.
 
 
 

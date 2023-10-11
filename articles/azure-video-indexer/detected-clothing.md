@@ -3,10 +3,13 @@ title: Enable detected clothing feature
 description: Azure AI Video Indexer detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
 ms.topic: how-to
 ms.date: 08/07/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Enable detected clothing feature (preview)
+# Enable detected clothing feature
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level. The clothing types that are detected are long pants, short pants, long sleeves, short sleeves, and skirt or dress.
  

@@ -5,8 +5,7 @@ description: In this quickstart, you recognize intents from audio data with the 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 02/22/2023
 ms.author: eur

@@ -2,15 +2,17 @@
 title: Azure AI Video Indexer optical character recognition (OCR) overview 
 titleSuffix: Azure AI Video Indexer 
 description: An introduction to Azure AI Video Indexer optical character recognition (OCR) component responsibly.
-author: Juliako
-ms.author: juliako
 manager: femila
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Optical character recognition (OCR)  
+# Optical character recognition (OCR)
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Optical character recognition (OCR) is an Azure AI Video Indexer AI feature that extracts text from images like pictures, street signs and products in media files to create insights.  
 

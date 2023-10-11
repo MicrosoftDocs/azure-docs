@@ -3,7 +3,7 @@ title: Use an Azure AD workload identity on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
-ms.date: 08/24/2023
+ms.date: 09/13/2023
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
@@ -25,7 +25,7 @@ This article helps you understand this new authentication feature, and reviews t
 
 In the Azure Identity client libraries, choose one of the following approaches:
 
-- Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`. &dagger;
+- Use `DefaultAzureCredential`, which attempts to use the `WorkloadIdentityCredential`.
 - Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`.
 - Use `WorkloadIdentityCredential` directly.
 
@@ -34,15 +34,13 @@ The following table provides the **minimum** package version required for each l
 | Ecosystem | Library                                                                                                          | Minimum version |
 |-----------|------------------------------------------------------------------------------------------------------------------|-----------------|
 | .NET      | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           |
-| C++       | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.1    |
+| C++       | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.2    |
 | Go        | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)                                | 1.3.0           |
 | Java      | [azure-identity](/java/api/overview/azure/identity-readme)                                                       | 1.9.0           |
 | Node.js   | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           |
 | Python    | [azure-identity](/python/api/overview/azure/identity-readme)                                                     | 1.13.0          |
 
-&dagger; In the C++ library, `WorkloadIdentityCredential` isn't part of the `DefaultAzureCredential` authentication flow.
-
-In the following code samples, the credential type will use the environment variables injected by the Azure Workload Identity mutating webhook to authenticate with Azure Key Vault.
+In the following code samples, `DefaultAzureCredential` is used. This credential type uses the environment variables injected by the Azure Workload Identity mutating webhook to authenticate with Azure Key Vault.
 
 ## [.NET](#tab/dotnet)
 
@@ -70,18 +68,11 @@ KeyVaultSecret secret = await client.GetSecretAsync(secretName);
 using namespace Azure::Identity;
 using namespace Azure::Security::KeyVault::Secrets;
 
-// * AZURE_TENANT_ID: Tenant ID for the Azure account.
-// * AZURE_CLIENT_ID: The client ID to authenticate the request.
-std::string GetTenantId() { return std::getenv("AZURE_TENANT_ID"); }
-std::string GetClientId() { return std::getenv("AZURE_CLIENT_ID"); }
-std::string GetTokenFilePath() { return std::getenv("AZURE_FEDERATED_TOKEN_FILE"); }
-
 int main()
 {
   const char* keyVaultUrl = std::getenv("KEYVAULT_URL");
   const char* secretName = std::getenv("SECRET_NAME");
-  auto credential = std::make_shared<WorkloadIdentityCredential>(
-    GetTenantId(), GetClientId(), GetTokenFilePath());
+  auto credential = std::make_shared<DefaultAzureCredential>();
 
   SecretClient client(keyVaultUrl, credential);
   Secret secret = client.GetSecret(secretName).Value;
@@ -209,9 +200,10 @@ The following client libraries are the **minimum** version required.
 
 ## Limitations
 
-- You can only have 20 federated identity credentials per managed identity.
+- You can only have [20 federated identity credentials][general-federated-identity-credential-considerations] per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
 - [Virtual nodes][aks-virtual-nodes] add on, based on the open source project [Virtual Kubelet][virtual-kubelet], isn't supported.
+- Creation of federated identity credentials is not supported on user-assigned managed identities in these [regions.][unsupported-regions-user-assigned-managed-identities]
 
 ## How it works
 
@@ -232,7 +224,7 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ### Webhook Certificate Auto Rotation
 
-Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation][auto-rotation] operation.
+Similar to other webhook addons, the certificate is rotated by cluster certificate [auto rotation][auto-rotation] operation.
 
 ## Service account labels and annotations
 
@@ -260,11 +252,11 @@ All annotations are optional. If the annotation isn't specified, the default val
 ### Pod labels
 
 > [!NOTE]
-> For applications using Workload Identity it is now required to add the label 'azure.workload.identity/use: "true"' pod label in order for AKS to move Workload Identity to a "Fail Close" scenario before GA to provide a consistent and reliable behavior for pods that need to use workload identity. 
+> For applications using workload identity, it's required to add the label `azure.workload.identity/use: "true"` to the pod spec for AKS to move workload identity to a *Fail Close* scenario to provide a consistent and reliable behavior for pods that need to use workload identity. Otherwise the pods fail after their restarted.
 
 |Label |Description |Recommended value |Required |
 |------|------------|------------------|---------|
-|`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
+|`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label are mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
 
@@ -319,3 +311,5 @@ The following table summarizes our migration or deployment recommendations for w
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [auto-rotation]: certificate-rotation.md#certificate-auto-rotation
 [aks-virtual-nodes]: virtual-nodes.md
+[unsupported-regions-user-assigned-managed-identities]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#unsupported-regions-user-assigned-managed-identities
+[general-federated-identity-credential-considerations]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#general-federated-identity-credential-considerations

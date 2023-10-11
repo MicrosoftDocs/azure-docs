@@ -36,7 +36,7 @@ This article defines authentication and authorization. It also briefly covers Mu
 
 Creating apps that each maintain their own username and password information incurs a high administrative burden when adding or removing users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
 
-Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as:
+Microsoft Entra ID is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as:
 
 - Conditional Access policies that require a user to be in a specific location.
 - Multi-Factor Authentication which requires a user to have a specific device.
@@ -52,7 +52,7 @@ Here's a comparison of the protocols that the Microsoft identity platform uses:
 
 * **OAuth versus OpenID Connect**: The platform uses OAuth for authorization and OpenID Connect (OIDC) for authentication. OpenID Connect is built on top of OAuth 2.0, so the terminology and flow are similar between the two. You can even both authenticate a user (through OpenID Connect) and get authorization to access a protected resource that the user owns (through OAuth 2.0) in one request. For more information, see [OAuth 2.0 and OpenID Connect protocols](./v2-protocols.md) and [OpenID Connect protocol](v2-protocols-oidc.md).
 * **OAuth versus SAML**: The platform uses OAuth 2.0 for authorization and SAML for authentication. For more information on how to use these protocols together to both authenticate a user and get authorization to access a protected resource, see [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](./scenario-token-exchange-saml-oauth.md).
-* **OpenID Connect versus SAML**: The platform uses both OpenID Connect and SAML to authenticate a user and enable single sign-on. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (AD FS) federated to Azure AD, so it's often used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, websites, and web APIs.
+* **OpenID Connect versus SAML**: The platform uses both OpenID Connect and SAML to authenticate a user and enable single sign-on. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (AD FS) federated to Microsoft Entra ID, so it's often used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, websites, and web APIs.
 
 ## Next steps
 

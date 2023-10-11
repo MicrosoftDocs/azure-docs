@@ -4,10 +4,13 @@ description: Learn how to create an Azure AI Video Indexer account by using an A
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ms.date: 05/23/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Tutorial: Deploy Azure AI Video Indexer by using an ARM template
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 

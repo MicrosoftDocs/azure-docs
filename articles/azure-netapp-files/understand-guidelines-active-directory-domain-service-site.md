@@ -25,6 +25,16 @@ This article provides recommendations to help you develop an AD DS deployment st
 
 Before you deploy Azure NetApp Files volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. _Incorrect or incomplete AD DS integration with Azure NetApp Files might cause client access interruptions or outages for SMB, dual-protocol, or Kerberos NFSv4.1 volumes_.  
 
+### Supported authentication scenarios
+
+Azure NetApp Files supports identity-based authentication over SMB through the following methods.   
+
+* **AD DS authentication**:  AD DS-joined Windows machines can access Azure NetApp Files shares with Active Directory credentials over SMB. Your client must have line of sight to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD DS, you should use AD DS for Azure NetApp Files file share authentication.
+* **Azure AD DS authentication**: Cloud-based, Azure AD DS-joined Windows VMs can access Azure NetApp Files file shares with Azure AD DS credentials. In this solution, Azure AD DS runs a traditional Windows Server AD domain on behalf of the customer.
+* **Azure AD Kerberos for hybrid identities**: Using Azure AD for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Azure AD users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
+* **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
+
+
 ### <a name="network-requirements"></a>Network requirements 
 
 Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable and low-latency network connectivity (less than 10 ms RTT) to AD DS domain controllers. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.
@@ -70,6 +80,9 @@ Ensure that you meet the following requirements about the DNS configurations:
     * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
 * Ensure that the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers.
+* Azure NetApp Files doesn’t automatically delete pointer records (PTR) associated with DNS entries when a volume is deleted. PTR records are used for reverse DNS lookups, which map IP addresses to hostnames. They are typically managed by the DNS server's administrator.
+When you create a volume in Azure NetApp Files, you can associate it with a DNS name. However, the management of DNS records, including PTR records, is outside the scope of Azure NetApp Files. Azure NetApp Files provides the option to associate a volume with a DNS name for easier access, but it doesn't manage the DNS records associated with that name. 
+If you delete a volume in Azure NetApp Files, the associated DNS records (such as the A records for forwarding DNS lookups) need to be managed and deleted from the DNS server or the DNS service you are using.
 * Azure NetApp Files supports standard and secure dynamic DNS updates. If you require secure dynamic DNS updates, ensure that secure updates are configured on the DNS servers.
 * If dynamic DNS updates are not used, you need to manually create an A record and a PTR record for the AD DS computer account(s) created in the AD DS **Organizational Unit** (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
 * For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization may be required to support LDAP enabled NFS volumes](#ad-ds-ldap-discover).  
@@ -227,3 +240,4 @@ Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cros
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Errors for SMB and dual-protocol volumes](troubleshoot-volumes.md#errors-for-smb-and-dual-protocol-volumes)
+* [Access SMB volumes from Azure AD joined Windows virtual machines](access-smb-volume-from-windows-client.md)

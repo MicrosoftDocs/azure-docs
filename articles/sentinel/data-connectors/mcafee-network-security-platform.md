@@ -23,46 +23,37 @@ The [McAfee® Network Security Platform](https://www.mcafee.com/enterprise/en-us
 ## Query samples
 
 **Top 10 Sources**
+
    ```kusto
-McAfeeNSPEvent
- 
+   McAfeeNSPEvent
    | summarize count() by tostring(DvcHostname)
- 
    | top 10 by count_
    ```
-
-
-
 ## Vendor installation instructions
 
-
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**McAfeeNSPEvent**](https://aka.ms/sentinel-mcafeensp-parser) which is deployed with the Microsoft Sentinel Solution.
+>  This data connector depends on a parser based on a Kusto Function to work as expected [**McAfeeNSPEvent**](https://aka.ms/sentinel-mcafeensp-parser) which is deployed with the Microsoft Sentinel Solution. This data connector has been developed using McAfee® Network Security Platform version: 10.1.x
 
+1. Install and onboard the agent for Linux or Windows.
 
-> [!NOTE]
-   >  This data connector has been developed using McAfee® Network Security Platform version: 10.1.x
+   Install the agent on the Server where the McAfee® Network Security Platform logs are forwarded.
 
-1. Install and onboard the agent for Linux or Windows
+   Logs from McAfee® Network Security Platform Server deployed on Linux or Windows servers are collected by **Linux** or **Windows** agents.
 
-Install the agent on the Server where the McAfee® Network Security Platform logs are forwarded.
+2. Configure McAfee® Network Security Platform event forwarding.
 
-> Logs from McAfee® Network Security Platform Server deployed on Linux or Windows servers are collected by **Linux** or **Windows** agents.
+   Follow the configuration steps below to get McAfee® Network Security Platform logs into Microsoft Sentinel.
+   
+   1. [Follow these instructions](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-E4A687B0-FAFB-4170-AC94-1D968A10380F.html) to forward alerts from the Manager to a syslog server.
 
-
-
-
-2. Configure McAfee® Network Security Platform event forwarding
-
-Follow the configuration steps below to get McAfee® Network Security Platform logs into Microsoft Sentinel.
-1. [Follow these instructions](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-E4A687B0-FAFB-4170-AC94-1D968A10380F.html) to forward alerts from the Manager to a syslog server.
-2. Add a syslog notification profile, [more details here](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-5BADD5D7-21AE-4E3B-AEE2-A079F3FD6A38.html). This is mandatory. While creating profile, to make sure that events are formatted correctly, enter the following text in the Message text box:
-		<SyslogAlertForwarderNSP>:|SENSOR_ALERT_UUID|ALERT_TYPE|ATTACK_TIME|ATTACK_NAME|ATTACK_ID
-		|ATTACK_SEVERITY|ATTACK_SIGNATURE|ATTACK_CONFIDENCE|ADMIN_DOMAIN|SENSOR_NAME|INTERFACE
-		|SOURCE_IP|SOURCE_PORT|DESTINATION_IP|DESTINATION_PORT|CATEGORY|SUB_CATEGORY
-		|DIRECTION|RESULT_STATUS|DETECTION_MECHANISM|APPLICATION_PROTOCOL|NETWORK_PROTOCOL|
-
-
+   2. Add a syslog notification profile, [more details here](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-5BADD5D7-21AE-4E3B-AEE2-A079F3FD6A38.html). This is mandatory. While creating a profile, to make sure that events are formatted correctly, enter the following text in the Message text box:
+   
+      ```text
+      <SyslogAlertForwarderNSP>:|SENSOR_ALERT_UUID|ALERT_TYPE|ATTACK_TIME|ATTACK_NAME|ATTACK_ID
+      |ATTACK_SEVERITY|ATTACK_SIGNATURE|ATTACK_CONFIDENCE|ADMIN_DOMAIN|SENSOR_NAME|INTERFACE
+      |SOURCE_IP|SOURCE_PORT|DESTINATION_IP|DESTINATION_PORT|CATEGORY|SUB_CATEGORY
+      |DIRECTION|RESULT_STATUS|DETECTION_MECHANISM|APPLICATION_PROTOCOL|NETWORK_PROTOCOL|
+      ```
 
 ## Next steps
 

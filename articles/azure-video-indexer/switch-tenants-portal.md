@@ -3,9 +3,13 @@ title: Switch between tenants on the Azure AI Video Indexer website
 description: This article shows how to switch between tenants in the Azure AI Video Indexer website. 
 ms.topic: how-to
 ms.date: 01/24/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Switch between multiple tenants
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 When working with multiple tenants/directories in the Azure environment user might need to switch between the different directories. 
 

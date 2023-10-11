@@ -17,7 +17,7 @@ ms.date: 07/05/2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Learn how to create a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
+Learn how to create a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
 
 Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
@@ -28,13 +28,13 @@ You can also [use a setup script](how-to-customize-compute-instance.md) to creat
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
 > [!NOTE]
-> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true).
+> This article uses CLI v2 in some examples. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true).
 
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). In the storage account, the "Allow storage account key access" option must be enabled for compute instance creation to be successful.
 
-Choose the tab for the environment you are using for additional prerequisites.
+Choose the tab for the environment you're using for other prerequisites.
 
 # [Python SDK](#tab/python)
 
@@ -48,7 +48,7 @@ Choose the tab for the environment you are using for additional prerequisites.
 
 # [Studio](#tab/azure-studio)
 
-* No additional prerequisites.  
+* No extra prerequisites.
 
 # [Studio (preview)](#tab/azure-studio-preview)
 
@@ -62,11 +62,11 @@ Choose the tab for the environment you are using for additional prerequisites.
 
 **Time estimate**: Approximately 5 minutes.
 
-Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. 
+Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
 
-The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
+The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you are able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
-The fastest way to create a compute instance is to follow the [Create resources you need to get started](quickstart-create-resources.md). 
+The fastest way to create a compute instance is to follow the [Create resources you need to get started](quickstart-create-resources.md).
 
 Or use the following examples to create a compute instance with more options:
 
@@ -100,7 +100,7 @@ Where the file *create-instance.yml* is:
 1. Under __Manage__, select __Compute__.
 1. Select **Compute instance** at the top.
 1. If you have no compute instances, select  **Create** in the middle of the page.
-  
+
     :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
 
 1. If you see a list of compute resources, select **+New** above the list.
@@ -113,7 +113,7 @@ Where the file *create-instance.yml* is:
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     |  - Name is required and must be between 3 to 24 characters long.<br/> - Valid characters are upper and lower case letters, digits, and the  **-** character.<br/> - Name must start with a letter<br/> - Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique<br/> - If **-**  character is used, then it needs to be followed by at least one letter later in the name     |
+    |Compute name     |  - Name is required and must be between 3 to 24 characters long.<br/> - Valid characters are upper and lower case letters, digits, and the  **-** character.<br/> - Name must start with a letter<br/> - Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique<br/> - If **-**  character is used, then it needs to be followed by at least one letter later in the name     |
     |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
@@ -121,19 +121,24 @@ Where the file *create-instance.yml* is:
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
     * Enable idle shutdown. Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#configure-idle-shutdown).
-    * Add schedule. Schedule times for the compute instance to automatically start and/or shut down. See [schedule details](#schedule-automatic-start-and-stop) below.
-    * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
-    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
+    * Add schedule. Schedule times for the compute instance to automatically start and/or shut down. For more information, see [schedule details](#schedule-automatic-start-and-stop).
+    * Enable SSH access.  Follow the information in the [detailed SSH access instructions](#enable-ssh-access) section.
+    * Enable virtual network:
+
+        * If you're using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network. You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
+
+        * If you're using an Azure Machine Learning __managed virtual network__, the compute instance is created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md).
+
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of).
     * Provision with a setup script - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
-  
+
 # [Studio (preview)](#tab/azure-studio-preview)
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 1. Under __Manage__, select __Compute__.
 1. Select **Compute instance** at the top.
 1. If you have no compute instances, select  **Create** in the middle of the page.
-  
+
     :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Screenshot shows create in the middle of the page.":::
 
 1. If you see a list of compute resources, select **+New** above the list.
@@ -146,18 +151,22 @@ Where the file *create-instance.yml* is:
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     |  - Name is required and must be between 3 to 24 characters long.<br/> - Valid characters are upper and lower case letters, digits, and the  **-** character.<br/> - Name must start with a letter<br/> - Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique<br/> - If **-**  character is used, then it needs to be followed by at least one letter later in the name     |
+    |Compute name     |  - Name is required and must be between 3 to 24 characters long.<br/> - Valid characters are upper and lower case letters, digits, and the  **-** character.<br/> - Name must start with a letter<br/> - Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique<br/> - If **-**  character is used, then it needs to be followed by at least one letter later in the name     |
     |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
 1. Select **Review + Create** unless you want to configure advanced settings for the compute instance.
-1. Select **Next** to go to **Scheduling** if you want to to schedule the compute to start or stop on a recurring basis. See [enable idle shutdown](#configure-idle-shutdown) & [add schedule](#schedule-automatic-start-and-stop) below.
+1. Select **Next** to go to **Scheduling** if you want to schedule the compute to start or stop on a recurring basis. See [enable idle shutdown](#configure-idle-shutdown) & [add schedule](#schedule-automatic-start-and-stop) sections.
 1. <a name="security-settings"></a>Select **Security** if you want to configure security settings such as SSH, virtual network, root access, and managed identity for your compute instance. Use this section to:
 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of)
     * Assign a managed identity.  See [Assign managed identity](#assign-managed-identity).
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access).
-    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
+    * Enable virtual network:
+
+        * If you're using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network. You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
+
+        * If you're using an Azure Machine Learning __managed virtual network__, the compute instance is created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md).
     * Allow root access. (preview)
 
 1. Select **Applications** if you want to add custom applications to use on your compute instance, such as RStudio or Posit Workbench.  See [Add custom applications such as RStudio or Posit Workbench](#add-custom-applications-such-as-rstudio-or-posit-workbench).
@@ -178,12 +187,12 @@ A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter terminal sessions
 * No active Azure Machine Learning runs or experiments
 * No SSH connections
-* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+* No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are autoterminated if VS Code detects no activity for 3 hours.
 * No custom applications are running on the compute
 
-A compute instance will not be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
+A compute instance won't be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days.
 
-Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock will be reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock will be reset to 0.
+Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock is reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock is reset to 0.
 
 The setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
 
@@ -198,7 +207,7 @@ When creating a new compute instance, add the `idle_time_before_shutdown_minutes
 ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
 ```
 
-You cannot change the idle time of an existing compute instance with the Python SDK.
+You can't change the idle time of an existing compute instance with the Python SDK.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -212,18 +221,18 @@ When creating a new compute instance, add `idle_time_before_shutdown_minutes` to
 idle_time_before_shutdown_minutes: 30
 ```
 
-You cannot change the idle time of an existing compute instance with the CLI.
+You can't change the idle time of an existing compute instance with the CLI.
 
 # [Studio](#tab/azure-studio)
 
 * When creating a new compute instance:
 
-    1. Select **Advanced** after completing required settings.  
+    1. Select **Advanced** after completing required settings.
     1.  Select **Enable idle shutdown** to enable or disable.
 
         :::image type="content" source="media/how-to-create-compute-instance/enable-idle-shutdown.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown.png":::
- 
-    1. Specify the shutdown period when enabled.   
+
+    1. Specify the shutdown period when enabled.
 
 * For an existing compute instance:
 
@@ -237,7 +246,7 @@ You cannot change the idle time of an existing compute instance with the CLI.
 
 * When creating a new compute instance:
 
-    1. Select **Next** to advance to **Scheduling** after completing required settings.  
+    1. Select **Next** to advance to **Scheduling** after completing required settings.
     1. Select **Enable idle shutdown** to enable or disable.
 
         :::image type="content" source="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown-preview.png":::
@@ -282,11 +291,11 @@ You can also change the idle time using:
 
 ## Schedule automatic start and stop
 
-Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
+Define multiple schedules for autoshutdown and autostart. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
 Schedules can also be defined for [create on behalf of](#create-on-behalf-of) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are useful when you create a compute instance on behalf of another user.
 
-Prior to a scheduled shutdown, users will see a notification alerting them that the Compute Instance is about to shut down. At that point, the user can choose to dismiss the upcoming shutdown event, if for example they are in the middle of using their Compute Instance.
+Prior to a scheduled shutdown, users see a notification alerting them that the Compute Instance is about to shut down. At that point, the user can choose to dismiss the upcoming shutdown event. For example, if they are in the middle of using their Compute Instance.
 
 ## Create a schedule
 
@@ -360,7 +369,7 @@ Once the compute instance is created, you can view, edit, or add new schedules f
 # [Studio (preview)](#tab/azure-studio-preview)
 
 1. [Fill out the form](?tabs=azure-studio-preview#create).
-1. Select **Next** to advance to **Scheduling** after completing required settings.  
+1. Select **Next** to advance to **Scheduling** after completing required settings.
 1. Select **Add schedule** to add a new schedule.
 
     :::image type="content" source="media/how-to-create-compute-instance/add-schedule-preview.png" alt-text="Screenshot: Add schedule in advanced settings.":::
@@ -393,51 +402,51 @@ In the Resource Manager template, add:
 ```
 
 Then use either cron or LogicApps expressions to define the schedule that starts or stops the instance in your parameter file:
- 
+
 ```json
-        "schedules": {
-        "value": {
-        "computeStartStop": [
-          {
-            "triggerType": "Cron",
-            "cron": {              
-              "timeZone": "UTC",
-              "expression": "0 18 * * *"
-            },
-            "action": "Stop",
-            "status": "Enabled"
+  "schedules": {
+    "value": {
+      "computeStartStop": [
+        {
+          "triggerType": "Cron",
+          "cron": {
+            "timeZone": "UTC",
+            "expression": "0 18 * * *"
           },
-          {
-            "triggerType": "Cron",
-            "cron": {              
-              "timeZone": "UTC",
-              "expression": "0 8 * * *"
-            },
-            "action": "Start",
-            "status": "Enabled"
+          "action": "Stop",
+          "status": "Enabled"
+        },
+        {
+          "triggerType": "Cron",
+          "cron": {
+            "timeZone": "UTC",
+            "expression": "0 8 * * *"
           },
-          { 
-            "triggerType": "Recurrence", 
-            "recurrence": { 
-              "frequency": "Day", 
-              "interval": 1, 
-              "timeZone": "UTC", 
-              "schedule": { 
-                "hours": [17], 
-                "minutes": [0]
-              } 
-            }, 
-            "action": "Stop", 
-            "status": "Enabled" 
-          } 
-        ]
-      }
+          "action": "Start",
+          "status": "Enabled"
+        },
+        {
+          "triggerType": "Recurrence",
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "UTC",
+            "schedule": {
+              "hours": [17],
+              "minutes": [0]
+            }
+          },
+          "action": "Stop",
+          "status": "Enabled"
+        }
+      ]
     }
+  }
 ```
 
-* Action can have value of "Start" or "Stop".
+* Action can have value of `Start` or `Stop`.
 * For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
-* For trigger type of `cron`, use standard cron syntax:  
+* For trigger type of `cron`, use standard cron syntax:
 
     ```cron
     // Crontab expression format: 
@@ -501,7 +510,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
       ]
      }
     }
-}    
+}
 ```
 
 ## Create on behalf of
@@ -514,7 +523,7 @@ As an administrator, you can create a compute instance on behalf of a data scien
 
 ## Assign managed identity
 
-You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
+You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account.
 
 # [Python SDK](#tab/python)
 
@@ -561,13 +570,13 @@ name: myinstance
 type: computeinstance
 identity:
   type: user_assigned
-  user_assigned_identities: 
+  user_assigned_identities:
     - resource_id: identity_resource_id
 ```
 
 # [Studio](#tab/azure-studio)
 
-You can create compute instance with managed identity from Azure Machine Learning Studio:
+You can create compute instance with managed identity from Azure Machine Learning studio:
 
 1. Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1. Select **Next: Advanced Settings**.
@@ -577,7 +586,7 @@ You can create compute instance with managed identity from Azure Machine Learnin
 
 # [Studio (preview)](#tab/azure-studio-preview)
 
-You can create compute instance with managed identity from Azure Machine Learning Studio:
+You can create compute instance with managed identity from Azure Machine Learning studio:
 
 1. Fill out the form to [create a new compute instance](?tabs=azure-studio-preview#create).
 1. Select **Security**.
@@ -590,7 +599,7 @@ You can create compute instance with managed identity from Azure Machine Learnin
 Once the managed identity is created, grant the managed identity at least Storage Blob Data Reader role on the storage account of the datastore, see [Accessing storage services](how-to-identity-based-service-authentication.md?tabs=cli#accessing-storage-services). Then, when you work on the compute instance, the managed identity is used automatically to authenticate against datastores.
 
 > [!NOTE]
-> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Azure Active Directory. 
+> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Azure Active Directory.
 
 You can also use the managed identity manually to authenticate against other Azure resources. The following example shows how to use it to get an Azure Resource Manager access token:
 
@@ -606,7 +615,7 @@ def get_access_token_msi(resource):
 arm_access_token = get_access_token_msi("https://management.azure.com")
 ```
 
-To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: 
+To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in:
 
 ```azurecli
 az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
@@ -617,15 +626,15 @@ az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
 
 ## Enable SSH access
 
-SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).
 
 [!INCLUDE [amlinclude-info](includes/machine-learning-enable-ssh.md)]
 
 ### Set up an SSH key later
 
-Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance. This allows you to set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance and click to edit your SSH keys. From there, you will be able to add your SSH key.
+Although SSH can't be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance. This allows you to set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance and select to edit your SSH keys. From there, you are able to add your SSH key.
 
-An example of a common use case for this is when creating a compute instance on behalf of another user (see [Create on behalf of](#create-on-behalf-of)) When provisioning a compute instance on behalf of another user, you can enable SSH for the new compute instance owner by selecting "Set up an SSH key later". This allows for the new owner of the compute instance to set up their SSH key for their newly owned compute instance once it has been created and assigned to them following the steps above.
+An example of a common use case for this is when creating a compute instance on behalf of another user (see [Create on behalf of](#create-on-behalf-of)) When provisioning a compute instance on behalf of another user, you can enable SSH for the new compute instance owner by selecting __Set up an SSH key later__. This allows for the new owner of the compute instance to set up their SSH key for their newly owned compute instance once it has been created and assigned to them following the previous steps.
 
 ### Connect with SSH
 
@@ -658,7 +667,7 @@ Use either Studio or Studio (preview) to see how to set up applications.
 
 # [Azure CLI](#tab/azure-cli)
 
-USe either Studio or Studio (preview) to see how to set up applications.
+Use either Studio or Studio (preview) to see how to set up applications.
 
 # [Studio](#tab/azure-studio)
 
@@ -672,7 +681,7 @@ USe either Studio or Studio (preview) to see how to set up applications.
 
   1. Fill out the form to [create a new compute instance](?tabs=azure-studio-preview#create)
   1. Select **Applications**
-  1. Select **Add application** 
+  1. Select **Add application**
 
   :::image type="content" source="media/how-to-create-compute-instance/custom-service-setup-preview.png" alt-text="Screenshot showing Custom Service Setup.":::
 
@@ -683,9 +692,9 @@ USe either Studio or Studio (preview) to see how to set up applications.
 RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench, which provides access to RStudio along with other development tools, to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers
 
 1. Follow the steps listed above to **Add application** when creating your compute instance.
-1. Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
+1. Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co).
 1. Select **Create** to add Posit Workbench application to your compute instance.
- 
+
 :::image type="content" source="media/how-to-create-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows Posit Workbench settings." lightbox="media/how-to-create-compute-instance/rstudio-workbench.png":::
 
 [!INCLUDE [private link ports](includes/machine-learning-private-link-ports.md)]
@@ -693,38 +702,38 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
 > [!NOTE]
 > * Support for accessing your workspace file store from Posit Workbench is not yet available.
 > * When accessing multiple instances of Posit Workbench, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
- 
+
 
 ### Setup RStudio (open source)
 
 To use RStudio, set up a custom application as follows:
 
-1.    Follow the steps listed above to **Add application** when creating your compute instance.
-1.    Select **Custom Application** on the **Application** dropdown 
+1.    Follow the previous steps to **Add application** when creating your compute instance.
+1.    Select **Custom Application** in the **Application** dropdown list.
 1.    Configure the **Application name** you would like to use.
-1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
+1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port.
 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
-1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
+1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`.
 
 1. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-compute-instance/rstudio-open-source.png":::
 
 [!INCLUDE [private link ports](includes/machine-learning-private-link-ports.md)]
- 
+
 ### Setup other custom applications
 
 Set up other custom applications on your compute instance by providing the application on a Docker image.
 
-1. Follow the steps listed above to **Add application** when creating your compute instance.
-1. Select **Custom Application** on the **Application** dropdown. 
+1. Follow the previous steps to **Add application** when creating your compute instance.
+1. Select **Custom Application** on the **Application** dropdown.
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
 1. Optionally, add **Environment variables**  you wish to use for your application.
-1. Use **Bind mounts** to add access to the files in your default storage account: 
-   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
+1. Use **Bind mounts** to add access to the files in your default storage account:
+   * Specify **/home/azureuser/cloudfiles** for **Host path**.
    * Specify **/home/azureuser/cloudfiles** for the **Container path**.
-   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them are available in other compute instances and applications.
 1. Select **Create** to set up the custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-compute-instance/custom-service.png" alt-text="Screenshot show custom application settings." lightbox="media/how-to-create-compute-instance/custom-service.png":::
@@ -740,7 +749,7 @@ Access the custom applications that you set up in studio:
 
 :::image type="content" source="media/how-to-create-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
 > [!NOTE]
-> It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
+> It might take a few minutes after setting up a custom application until you can access it via the links. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
 ## Next steps
 

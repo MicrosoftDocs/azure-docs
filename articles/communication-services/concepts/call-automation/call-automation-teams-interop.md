@@ -43,39 +43,45 @@ The dataflow diagram depicts a canonical scenario where a Teams user is added to
 
 The following list presents the set of features that are currently available in the Azure Communication Services Call Automation SDKs for calls with Microsoft Teams users.
 
-| Feature Area          | Capability                                        | .NET   | Java  |
-| ----------------------| -----------------------------------------------   | ------ | ----- |
-| Pre-call scenarios    | Place new outbound call to a Microsoft Teams user  | ✔️    | ✔️    |
-|                       | Redirect (forward) a call to a Microsoft Teams user | ✔️    | ✔️    |
-|                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | Only on Microsoft Teams desktop client    | Only on Microsoft Teams desktop client    |
-| Mid-call scenarios    | Add one or more endpoints to an existing call with a Microsoft Teams user     | ✔️    | ✔️    |
-|                       | Play Audio from an audio file                     | ✔️    | ✔️    |
-|                       | Recognize user input through DTMF                 | ✔️    | ✔️    |
-|                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |
-|                       | Blind Transfer a 1:1 call to another endpoint     | ✔️    | ✔️    |
-|                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
-|                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |
-| Query scenarios       | Get the call state                                | ✔️    | ✔️    |
-|                       | Get a participant in a call                       | ✔️    | ✔️    |
-|                       | List all participants in a call                   | ✔️    | ✔️    |
-| Call Recording*        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |
+| Feature Area          | Capability                                        | .NET   | Java  | Python | JavaScript |
+| ----------------------| -----------------------------------------------   | ------ | ----- |  ------ | ----- |
+| Pre-call scenarios    | Place new outbound call to a Microsoft Teams user  | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Redirect (forward) a call to a Microsoft Teams user | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | Only on Microsoft Teams desktop and web client    | Only on Microsoft Teams desktop 
+ and web client    |
+| Mid-call scenarios    | Add one or more endpoints to an existing call with a Microsoft Teams user     | ✔️    | ✔️    |  ✔️    | ✔️    |
+|                       | Play Audio from an audio file                     | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Recognize user input through DTMF                 | ❌    | ❌   | ❌    | ❌  |
+|                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Blind Transfer a 1:1 call to another endpoint     | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  | ✔️    | ✔️    |
+| Query scenarios       | Get the call state                                | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | Get a participant in a call                       | ✔️    | ✔️    | ✔️    | ✔️    |
+|                       | List all participants in a call                   | ✔️    | ✔️    | ✔️    | ✔️    |
+| Call Recording*        | Start/pause/resume/stop recording (call recording notifications in Teams clients are supported for Teams desktop, web, iOS and Android)  | ✔️    | ✔️    | ✔️    | ✔️    |
 
 > [!IMPORTANT]
-> Azure Communication Services call recording notifications in Teams clients are not supported. You must obtain consent from and notify the parties of recorded communications in a manner that complies with the laws applicable to each participant. i.e., using the Play API available in Call Automation.
+> During Public preview, you won't be able to stop the call recording if it started after adding the Teams participant.
 
 ## Supported clients
+> [!IMPORTANT]
+> Teams phone license is a must to use this feature.
+
 | Clients          | Support     |
 | -----------------| ----------- |
 | Microsoft Teams Desktop | ✔️ |
-| Microsoft Teams Web | ❌ |
-| Microsoft Teams iOS | ❌ |
-| Microsoft Teams Android | ❌ |
+| Microsoft Teams Web | ✔️ |
+| Microsoft Teams iOS | ✔️ |
+| Microsoft Teams Android | ✔️ |
 | Azure Communications Services signed in with Microsoft 365 Identity | ❌ |
 
-## Roadmap
+> [!NOTE]
+> While in preview, the support for Microsoft Teams mobile apps is available with limited functionality and some features might not work properly.   
 
-1. Support for Microsoft Teams Web coming soon.
+## Roadmap
 1. Support for Azure Communications Services signed in with Microsoft 365 Identity coming soon.
+
 
 ## Next steps
 

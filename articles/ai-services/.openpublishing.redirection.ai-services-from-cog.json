@@ -107,7 +107,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/manage-resources.md",
-      "redirect_url": "/azure/ai-services/manage-resources",
+      "redirect_url": "/azure/ai-services/recover-purge-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/manage-resources.md",
+      "redirect_url": "/azure/ai-services/recover-purge-resources",
       "redirect_document_id": true
     },
     {
@@ -2879,6 +2884,11 @@
       "source_path_from_root": "/articles/cognitive-services/language-service/entity-linking/overview.md",
       "redirect_url": "/azure/ai-services/language-service/entity-linking/overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/entitylinking.md",
+      "redirect_url": "/azure/ai-services/language-service/entity-linking/overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/entity-linking/quickstart.md",

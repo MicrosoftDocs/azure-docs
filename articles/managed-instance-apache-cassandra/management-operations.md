@@ -70,17 +70,33 @@ Our support benefits include:
 >
 > In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), we will still provide recommendations and guidance on remediation, or mitigation (when possible), before closing the case. 
 > 
-> We recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above.
+> We recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above.
 
 >[!WARNING]
 > Azure Managed Instance for Apache Cassandra also let's you run `nodetool` and `sstable` commands for routine DBA administration - see article [here](dba-commands.md). Some of these commands can destabilize the cassandra cluster and should only be run carefully and after being tested in non-production environments. Where possible, a `--dry-run` option should be deployed first. Microsoft cannot offer any SLA or support on issues with running commands which alter the default database configuration and/or tables.
 
 ## Backup and restore
 
-Snapshot backups are enabled by default and taken every 24 hours. Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for the initial 2 backups. Additional backups will be charged, see [pricing](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/). To change the backup interval or retention period, or to restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Snapshot backups are enabled by default and taken every 24 hours. Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for the initial 2 backups. Additional backups are charged, see [pricing](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/). To change the backup interval or retention period, you can edit the policy in the portal:
+
+:::image type="content" source="./media/resilient-applications/backup.png" alt-text="Screenshot of backup schedule configuration page." lightbox="./media/resilient-applications/backup.png" border="true":::
+
+To restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. When filing the support case, you need to:
+
+1. Provide the backup id from portal for the backup you want to restore. This can be found in the portal:
+
+    :::image type="content" source="./media/management-operations/backup.png" alt-text="Screenshot of backup schedule configuration page highlighting backup id." lightbox="./media/management-operations/backup.png" border="true":::
+    
+1. If restore of the whole cluster is not required, provide the keyspace and table (if applicable) that needs to be restored.
+1. Advise whether you want the backup to be restored in the existing cluster, or in a new cluster.
+1. If you want to restore to a new cluster, you need to create the new cluster first. Ensure that the target cluster matches the source cluster in terms of the number of data centers, and that corresponding data center has the same number of nodes. You can also decide whether to keep the credentials (username/password) in the new target cluster, or allow restore to override username/password with what was originally created.
+1. You can also decide whether to keep `system_auth` keyspace in the new target cluster or allow the restore to overwrite it with data from the backup. The `system_auth` keyspace in Cassandra contains authorization and internal authentication data, including roles, role permissions, and passwords. Note that our default restore process will overwrite the `system_auth` keyspace.
+
+> [!NOTE]
+> The time it takes to respond to a request to restore from backup will depend both on the severity of support case you raise, and the amount of data to be restored. For example, if you raise a Sev-A support case, the SLA for response to the ticket is 15 minutes. However, we do not provide an SLA for time to complete the restore, as this is very dependent on the volume of data being restored.
 
 > [!WARNING]
-> Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).
+> Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).
 
 ## Security
 
@@ -97,7 +113,7 @@ For more information on security features, see our article [here](security.md).
 
 ## Hybrid support
 
-When a [hybrid](configure-hybrid-cluster.md) cluster is configured, automated reaper operations running in the service will benefit the whole cluster. This includes data centers that aren't provisioned by the service. Outside this, it is your responsibility to maintain your on-premises or externally hosted data center.
+When a [hybrid](configure-hybrid-cluster.md) cluster is configured, automated reaper operations running in the service benefits the whole cluster. This includes data centers that aren't provisioned by the service. Outside this, it is your responsibility to maintain your on-premises or externally hosted data center.
 
 ## Next steps
 

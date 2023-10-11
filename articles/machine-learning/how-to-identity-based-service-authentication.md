@@ -48,6 +48,7 @@ The following [Azure RBAC role assignments](../role-based-access-control/role-as
 
 |Resource|Permission|
 |---|---|
+|Azure Machine Learning workspace|Contributor|
 |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
 |Azure Key Vault (when using [RBAC permission model](../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
 |Azure Key Vault (when using [access policies permission model](../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|

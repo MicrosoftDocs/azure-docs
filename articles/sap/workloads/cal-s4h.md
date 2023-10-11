@@ -54,6 +54,10 @@ The following links highlight the Product stacks that you can quickly deploy on 
 
 | All products | Link |
 | -------------- | :--------- |
+| **SAP S/4HANA 2022 FPS02 for Productive Deployments** | [Deploy System](https://cal.sap.com/registration?sguid=c86d7a56-4130-4459-8060-ffad1a1118ce&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |
+|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/c86d7a56-4130-4459-8060-ffad1a1118ce) |
+| **SAP S/4HANA 2022 FPS01 for Productive Deployments** | [Deploy System](https://cal.sap.com/registration?sguid=1294f31c-2697-443c-bacc-117d5924fcb2&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |
+This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/1294f31c-2697-443c-bacc-117d5924fcb2) |
 | **SAP S/4HANA 2022 FPS00 for Productive Deployments**   | [Deploy System](https://cal.sap.com/registration?sguid=3b1dc287-c865-4f79-b9ed-d5ec2dc755e9&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=pd) |
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/3b1dc287-c865-4f79-b9ed-d5ec2dc755e9) |
 | **SAP S/4HANA 2021 FPS04 for Productive Deployments** | [Deploy System](https://cal.sap.com/registration?sguid=29403c63-6504-4919-b5dd-319d7a99804e&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |
@@ -66,6 +70,9 @@ The following links highlight the Product stacks that you can quickly deploy on 
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. | [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/1c796928-0617-490b-a87d-478568a49628)|
 | **SAP S/4HANA 2021 FPS00 for Productive Deployments**   | [Deploy System](https://cal.sap.com/registration?sguid=108febf9-5e7b-4e47-a64d-231b6c4c821d&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=pd) |
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. | [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/108febf9-5e7b-4e47-a64d-231b6c4c821d) |
+| **SAP S/4HANA 2020 FPS04 for Productive Deployments**| [Deploy System](https://cal.sap.com/registration?sguid=615c5c18-5226-4dcb-b0ab-19d0141baf9b&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |
+|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/615c5c18-5226-4dcb-b0ab-19d0141baf9b) |
+
 
  
 ---

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: FHIR service documentation
-summary: FHIR service documentation for Azure Health Data Services. FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+summary: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
 
 metadata:
   title: Azure Health Data Services FHIR service
@@ -13,13 +13,13 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 06/16/2023
+  ms.date: 09/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: Start with FHIR service
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
@@ -31,7 +31,7 @@ landingContent:
             url: fhir-portal-quickstart.md
           - text: Deploy FHIR service using ARM template
             url: fhir-service-resource-manager-template.md
-  - title: Accessing FHIR service
+  - title: Access the FHIR service
     linkLists:
       - linkListType: concept
         links:
@@ -39,11 +39,11 @@ landingContent:
             url: azure-active-directory-identity-configuration.md
           - text: Access token validation
             url: fhir-service-access-token-validation.md
-      - linkListType: learn
+      - linkListType: tutorial
         links:
           - text: Access using Postman
             url: ./../fhir/use-postman.md
-  - title: FHIR Search Capabilities
+  - title: FHIR search capabilities
     linkLists:
       - linkListType: overview
         links:
@@ -57,12 +57,14 @@ landingContent:
             url: how-to-run-a-reindex.md
           - text: Search examples
             url: search-samples.md
-  - title: Interoperability and Patient Access
+  - title: Interoperability and patient access
     linkLists:
+      - linkListType: overview
+        links:
+          - text: CMS interoperability and patient access rule
+            url: centers-for-medicare-tutorial-introduction.md
       - linkListType: how-to-guide
         links:
-          - text: CMS Interoperability and Patient Access rule introduction
-            url: centers-for-medicare-tutorial-introduction.md
           - text: CARIN Implementation Guide for Blue Button
             url: carin-implementation-guide-blue-button-tutorial.md
           - text: Da Vinci Drug Formulary

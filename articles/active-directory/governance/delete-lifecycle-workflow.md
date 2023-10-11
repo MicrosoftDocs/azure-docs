@@ -25,7 +25,7 @@ When a workflow is deleted, it enters a soft-delete state. During this period, y
 [!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 
-## Delete a workflow by using the Azure portal
+## Delete a workflow by using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -41,7 +41,7 @@ When a workflow is deleted, it enters a soft-delete state. During this period, y
 
     :::image type="content" source="media/delete-lifecycle-workflow/delete-workflow.png" alt-text="Screenshot of confirming the deletion of a workflow.":::
 
-## View deleted workflows in the Azure portal
+## View deleted workflows in the Microsoft Entra admin center
 
 After you delete workflows, you can view them on the **Deleted workflows** page.
 

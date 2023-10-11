@@ -96,6 +96,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Power BI - Available via an Azure Regional Community, see [here](/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
+* [Microsoft PSTN services](./using-expressroute-for-microsoft-pstn.md)
 * Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc.)  
 * Most of the other Azure services are also supported. Check directly with the service that you want to use to verify support.
 
@@ -488,11 +489,15 @@ ExpressRoute Traffic Collector uses a sampling rate of 1:4096, which means 1 out
 
 ### How many flows can ExpressRoute Traffic Collector handle?
 
-ExpressRoute Traffic Collector can handle up to 30,000 flows a minute. In the event this limit is reached, excess flows are dropped. For more information, see [count of flows metric](expressroute-monitoring-metrics-alerts.md#count-of-flow-records-processed---split-by-instances-or-expressroute-circuit) on a circuit.
+ExpressRoute Traffic Collector can handle up to 300,000 flows a minute. In the event this limit is reached, excess flows are dropped. For more information, see [count of flows metric](expressroute-monitoring-metrics-alerts.md#count-of-flow-records-processed---split-by-instances-or-expressroute-circuit) on a circuit.
 
 ### Does ExpressRoute Traffic Collector support Virtual WAN?
 
 Yes, you can use Express Traffic Collector with ExpressRoute Direct circuits used in a Virtual WAN deployment. However, deploying ExpressRoute Traffic Collector within a Virtual WAN hub isn’t supported. You can deploy ExpressRoute Traffic collector in a spoke virtual network and ingest flow logs to a Log Analytics workspace.
+
+### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
+
+For supported ExpressRoute provider ports contact ErTCasks@microsoft.com.
 
 ### What is the effect of maintenance on flow logging?
 
@@ -505,7 +510,7 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?
 
-You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan. 
+You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
 
 ## Privacy
 

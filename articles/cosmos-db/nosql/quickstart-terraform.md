@@ -2,7 +2,7 @@
 title: Quickstart - Create an Azure Cosmos DB database and container using Terraform
 description: Quickstart showing how to an Azure Cosmos DB database and a container using Terraform
 author: ginsiucheng
-ms.author: gicheng
+ms.author: mjbrown
 tags: azure-resource-manager, terraform
 ms.custom: ignite-2022, devx-track-terraform
 ms.service: cosmos-db

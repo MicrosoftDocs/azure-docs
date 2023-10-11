@@ -9,6 +9,8 @@ ms.date: 08/01/2020
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
+author: cephalin
+ms.author: cephalin
 ---
 
 # Quickstart: Create a Java app on Azure App Service

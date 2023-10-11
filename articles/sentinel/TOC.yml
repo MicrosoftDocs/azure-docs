@@ -301,7 +301,7 @@
         href: data-connectors/alicloud-using-azure-functions.md
       - name: Amazon Web Services
         href: data-connectors/amazon-web-services.md
-      - name: Amazon Web Services S3
+      - name: Amazon Web Services S3 (preview)
         href: data-connectors/amazon-web-services-s3.md
       - name: Apache HTTP Server
         href: data-connectors/apache-http-server.md
@@ -339,7 +339,7 @@
         href: data-connectors/azure-data-lake-storage-gen1.md
       - name: Azure DDoS Protection
         href: data-connectors/azure-ddos-protection.md
-      - name: Azure Event Hubs
+      - name: Azure Event Hub
         href: data-connectors/azure-event-hub.md
       - name: Azure Firewall
         href: data-connectors/azure-firewall.md
@@ -364,7 +364,7 @@
       - name: Blackberry CylancePROTECT
         href: data-connectors/blackberry-cylanceprotect.md
       - name: Box (using Azure Functions)
-        href: data-connectors/box-using-azure-function.md
+        href: data-connectors/box-using-azure-functions.md
       - name: Broadcom Symantec DLP
         href: data-connectors/braodcom-symantec-dlp.md
       - name: Cisco Application Centric Infrastructure
@@ -375,7 +375,7 @@
         href: data-connectors/cisco-asa-ftd-via-ama.md
       - name: Cisco Duo Security (using Azure Functions)
         href: data-connectors/cisco-duo-security-using-azure-functions.md
-      - name: Cisco Firepower eStreamer
+      - name: Cisco Firepower eStreamer (preview)
         href: data-connectors/cisco-firepower-estreamer.md
       - name: Cisco Identity Services Engine
         href: data-connectors/cisco-identity-services-engine.md
@@ -385,11 +385,13 @@
         href: data-connectors/cisco-secure-email-gateway.md
       - name: Cisco Secure Endpoint (AMP) (using Azure Functions)
         href: data-connectors/cisco-secure-endpoint-amp-using-azure-functions.md
+      - name: Cisco Software Defined WAN
+        href: data-connectors/cisco-software-defined-wan.md
       - name: Cisco Stealthwatch
         href: data-connectors/cisco-stealthwatch.md
       - name: Cisco UCS
         href: data-connectors/cisco-ucs.md
-      - name: Cisco Umbrella (using Azure Functions)
+      - name: Cisco Umbrella (using Azure Function)
         href: data-connectors/cisco-umbrella-using-azure-function.md
       - name: Cisco Web Security Appliance
         href: data-connectors/cisco-web-security-appliance.md
@@ -415,6 +417,8 @@
         href: data-connectors/contrast-protect.md
       - name: Corelight
         href: data-connectors/corelight.md
+      - name: Cortex XDR - Incidents
+        href: data-connectors/cortex-xdr-incidents.md
       - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
         href: data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md
       - name: CrowdStrike Falcon Endpoint Protection
@@ -549,6 +553,8 @@
         href: data-connectors/mcafee-epolicy-orchestrator-epo.md
       - name: McAfee Network Security Platform
         href: data-connectors/mcafee-network-security-platform.md
+      - name: Microsoft 365
+        href: data-connectors/microsoft-365.md
       - name: Microsoft 365 Defender
         href: data-connectors/microsoft-365-defender.md
       - name: Microsoft 365 Insider Risk Management
@@ -563,13 +569,13 @@
         href: data-connectors/microsoft-defender-for-identity.md
       - name: Microsoft Defender for IoT
         href: data-connectors/microsoft-defender-for-iot.md
-      - name: Microsoft Defender for Office 365
+      - name: Microsoft Defender for Office 365 (preview)
         href: data-connectors/microsoft-defender-for-office-365.md
       - name: Microsoft Defender Threat Intelligence
         href: data-connectors/microsoft-defender-threat-intelligence.md
-      - name: Microsoft Power BI
+      - name: Microsoft Power BI (preview)
         href: data-connectors/microsoft-powerbi.md
-      - name: Microsoft Project
+      - name: Microsoft Project (preview)
         href: data-connectors/microsoft-project.md
       - name: Microsoft Purview (Preview)
         href: data-connectors/microsoft-purview.md
@@ -577,12 +583,16 @@
         href: data-connectors/microsoft-purview-information-protection.md
       - name: Microsoft Sysmon For Linux
         href: data-connectors/microsoft-sysmon-for-linux.md
+      - name: MISP2Sentinel
+        href: data-connectors/misp2sentinel.md
       - name: MongoDB Audit
         href: data-connectors/mongodb-audit.md
       - name: Morphisec UTPP
         href: data-connectors/morphisec-utpp.md
       - name: MuleSoft Cloudhub (using Azure Functions)
         href: data-connectors/mulesoft-cloudhub-using-azure-functions.md
+      - name: Nasuni Edge Appliance
+        href: data-connectors/nasuni-edge-appliance.md
       - name: NC Protect
         href: data-connectors/nc-protect.md
       - name: Netclean ProActive Incidents
@@ -607,8 +617,6 @@
         href: data-connectors/nxlog-dns-logs.md
       - name: NXLog LinuxAudit
         href: data-connectors/nxlog-linuxaudit.md
-      - name: Office 365
-        href: data-connectors/office-365.md
       - name: Okta Single Sign-On (using Azure Functions)
         href: data-connectors/okta-single-sign-on-using-azure-function.md
       - name: OneLogin IAM Platform (using Azure Functions)
@@ -630,7 +638,7 @@
       - name: Palo Alto Networks Cortex Data Lake (CDL)
         href: data-connectors/palo-alto-networks-cortex-data-lake-cdl.md
       - name: Palo Alto Prisma Cloud CSPM (using Azure Functions)
-        href: data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md
+        href: data-connectors/palo-alto-prisma-cloud-cspm-using-azure-functions.md
       - name: Perimeter 81 Activity Logs
         href: data-connectors/perimeter-81-activity-logs.md
       - name: PingFederate
@@ -640,7 +648,7 @@
       - name: Proofpoint On Demand Email Security (using Azure Functions)
         href: data-connectors/proofpoint-on-demand-email-security-using-azure-functions.md
       - name: Proofpoint TAP (using Azure Functions)
-        href: data-connectors/proofpoint-tap-using-azure-function.md
+        href: data-connectors/proofpoint-tap-using-azure-functions.md
       - name: Pulse Connect Secure
         href: data-connectors/pulse-connect-secure.md
       - name: Qualys VM KnowledgeBase (using Azure Functions)
@@ -652,7 +660,7 @@
       - name: RSA® SecurID (Authentication Manager)
         href: data-connectors/rsa-securid-authentication-manager.md
       - name: Rubrik Security Cloud data connector (using Azure Functions)
-        href: data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md
+        href: data-connectors/rubrik-security-cloud-data-connector-using-azure-functions.md
       - name: SailPoint IdentityNow (using Azure Functions)
         href: data-connectors/sailpoint-identitynow-using-azure-function.md
       - name: Salesforce Service Cloud (using Azure Functions)
@@ -676,7 +684,7 @@
       - name: Sophos Cloud Optix
         href: data-connectors/sophos-cloud-optix.md
       - name: Sophos Endpoint Protection (using Azure Functions)
-        href: data-connectors/sophos-endpoint-protection-using-azure-function.md
+        href: data-connectors/sophos-endpoint-protection-using-azure-functions.md
       - name: Sophos XG Firewall
         href: data-connectors/sophos-xg-firewall.md
       - name: Squid Proxy
@@ -719,6 +727,8 @@
         href: data-connectors/varmour-application-controller.md
       - name: Vectra AI Detect
         href: data-connectors/vectra-ai-detect.md
+      - name: Vectra XDR (using Azure Functions)
+        href: data-connectors/vectra-xdr-using-azure-functions.md
       - name: VMware Carbon Black Cloud (using Azure Functions)
         href: data-connectors/vmware-carbon-black-cloud-using-azure-functions.md
       - name: VMware ESXi
@@ -739,6 +749,8 @@
         href: data-connectors/wirex-network-forensics-platform.md
       - name: WithSecure Elements via Connector
         href: data-connectors/withsecure-elements-via-connector.md
+      - name: Wiz
+        href: data-connectors/wiz.md
       - name: Workplace from Facebook (using Azure Functions)
         href: data-connectors/workplace-from-facebook-using-azure-function.md
       - name: Zero Networks Segment Audit
@@ -1075,7 +1087,9 @@
     - name: Monitored SAP security parameters
       href: sap/sap-suspicious-configuration-security-parameters.md
     - name: SAP audit log workbook
-      href: sap/sap-audit-log-workbook.md    
+      href: sap/sap-audit-log-workbook.md
+    - name: SAP audit controls workbook
+      href: sap/sap-audit-controls-workbook.md
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference 

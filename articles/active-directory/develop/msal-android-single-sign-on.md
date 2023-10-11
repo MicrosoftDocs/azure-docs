@@ -27,7 +27,7 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 This how-to assumes you know how to:
 
-- Provision your app using the Azure portal. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
+- Provision your app. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## Methods for SSO
@@ -98,7 +98,7 @@ You must register a redirect URI that is compatible with the broker. The redirec
 
 The format of the redirect URI is: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
-You can use [keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) to generate a Base64-encoded signature hash using your app's signing keys, and then use the Azure portal to generate your redirect URI using that hash.
+You can use [keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) to generate a Base64-encoded signature hash using your app's signing keys, and then generate your redirect URI using that hash.
 
 Linux and macOS:
 
@@ -114,16 +114,14 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with _keytool_, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you registered your application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations**.
-1. Under **Manage**, select **App registrations**, then select your application.
-1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select your application, and then select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.
 
-The Azure portal generates the redirect URI for you and displays it in the **Android configuration** pane's **Redirect URI** field.
+The redirect URI is generated for you and is displayed in the **Android configuration** pane's **Redirect URI** field.
 
 For more information about signing your app, see [Sign your app](https://developer.android.com/studio/publish/app-signing) in the Android Studio User Guide.
 
@@ -220,17 +218,15 @@ The following browsers have been tested to see if they correctly redirect to the
 | ------------------- | :--------------: | -------------------------: | -------------: | -------------: | -------------: | -------------: |
 | Nexus 4 (API 17)    |       pass       |                       pass | not applicable | not applicable | not applicable | not applicable |
 | Samsung S7 (API 25) | pass<sup>1</sup> |                       pass |           pass |           pass |           fail |           pass |
-| Huawei (API 26)     | pass<sup>2</sup> |                       pass |           fail |           pass |           pass |           pass |
 | Vivo (API 26)       |       pass       |                       pass |           pass |           pass |           pass |           fail |
 | Pixel 2 (API 26)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
-| Oppo                |       pass       | not applicable<sup>3</sup> | not applicable | not applicable | not applicable | not applicable |
+| Oppo                |       pass       | not applicable<sup>2</sup> | not applicable | not applicable | not applicable | not applicable |
 | OnePlus (API 25)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
 | Nexus (API 28)      |       pass       |                       pass |           pass |           pass |           fail |           pass |
 | MI                  |       pass       |                       pass |           pass |           pass |           fail |           pass |
 
 <sup>1</sup>Samsung's built-in browser is Samsung Internet.<br/>
-<sup>2</sup>Huawei's built-in browser is Huawei Browser.<br/>
-<sup>3</sup>The default browser can't be changed inside the Oppo device setting.
+<sup>2</sup>The default browser can't be changed inside the Oppo device setting.
 
 ## Next steps
 
