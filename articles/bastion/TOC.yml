@@ -47,6 +47,8 @@
       href: bastion-create-host-powershell.md
     - name: Azure CLI
       href: create-host-cli.md
+  - name: Deploy Bastion - Developer SKU
+    href: deploy-host-developer-sku.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
