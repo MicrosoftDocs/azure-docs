@@ -40,7 +40,7 @@ Business units and development groups that are associated with the same developm
 
 You may also need to consider geographic boundaries. For example, developers in the north east United States (US) may use a lab provisioned in East US2. And, developers in Dallas, Texas, and Denver, Colorado may be directed to use a resource in US South Central. If there's a collaborative effort with an external third party, they could be assigned to a lab that isn't used by internal developers. 
 
-You may also use a lab for a specific project within Azure DevOps Projects. Then, you apply security through a specified Azure Active Directory group, which allows access to both set of resources. The virtual network assigned to the lab can be another boundary to consolidate users.
+You may also use a lab for a specific project within Azure DevOps Projects. Then, you apply security through a specified Microsoft Entra group, which allows access to both set of resources. The virtual network assigned to the lab can be another boundary to consolidate users.
 
 ### Preventing the deletion of resources
 
@@ -92,9 +92,9 @@ The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/
 
 As part of your organization's overall governance and configuration management strategy, we recommend that you use a centralized repository. When you use multiple repositories, they may become silos of unmanaged software over the time. With a central repository, multiple teams can consume artifacts from this repository for their projects. It enforces standardization, security, ease of management, and eliminates the duplication of efforts. As part of the centralization, the following actions are recommended practices for long-term management and sustainability:
 
-- Associate the Azure Repos with the same Azure Active Directory tenant that the Azure subscription is using for authentication and authorization.
-- Create a group named **All DevTest Labs Developers** in Azure Active Directory that is centrally managed. Any developer who contributes to artifact development should be placed in this group.
-- The same Azure Active Directory group can be used to provide access to the Azure Repos repository and to the lab.
+- Associate the Azure Repos with the same Microsoft Entra tenant that the Azure subscription is using for authentication and authorization.
+- Create a group named **All DevTest Labs Developers** in Microsoft Entra ID that is centrally managed. Any developer who contributes to artifact development should be placed in this group.
+- The same Microsoft Entra group can be used to provide access to the Azure Repos repository and to the lab.
 - In Azure Repos, branching or forking should be used to a separate an in-development repository from the primary production repository. Content is only added to the main branch with a pull request after a proper code review. Once the code reviewer approves the change, a lead developer, who is responsible for maintenance of the main branch, merges the updated code. 
 
 ### Corporate security policies

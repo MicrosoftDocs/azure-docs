@@ -35,6 +35,7 @@ Here is an overview of all configuration options:
 | config.service.auth.azureAd.authority | Authority URL of Azure AD. | No | `https://login.microsoftonline.com` | v2.3+ |
 | config.service.auth.tokenAudience | Audience of token used for Azure AD authentication | No | `https://azure-api.net/configuration` | v2.3+ |
 | config.service.endpoint.disableCertificateValidation | Defines if the self-hosted gateway should validate the server-side certificate of the Configuration API. It is recommended to use certificate validation, only disable for testing purposes and with caution as it can introduce security risk. | No | `false` |  v2.0+ |
+| config.service.integration.timeout | Defines the timeout for interacting with the Configuration API. | No | `00:01:40` |  v2.3.5+ |
 
 The self-hosted gateway provides support for a few authentication options to integrate with the Configuration API which can be defined by using `config.service.auth`.
 
