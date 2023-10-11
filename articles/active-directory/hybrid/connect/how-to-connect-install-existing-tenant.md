@@ -65,7 +65,9 @@ $params = @{
 Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $onPremisesDirectorySynchronizationId -BodyParameter $params
 ```
 
-***Note***: blockSoftMatchEnabled - Use to block soft match for all objects if enabled for the tenant. Customers are encouraged to enable this feature and keep it enabled until soft matching is required again for their tenancy. This flag should be enabled again after any soft matching has been completed and is no longer needed.
+> [!NOTE]
+> 
+> blockSoftMatchEnabled - Use to block soft match for all objects if enabled for the tenant. Customers are encouraged to enable this feature and keep it enabled until soft matching is required again for their tenancy. This flag should be enabled again after any soft matching has been completed and is no longer needed.
 
 ### Other objects than users
 For mail-enabled groups and contacts, you can soft-match based on proxyAddresses. Hard-match is not applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there is currently no support for soft-match or hard-match.
