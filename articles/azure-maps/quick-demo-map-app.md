@@ -58,14 +58,14 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 :::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
 
 >[!NOTE]
-> This quickstart uses the [Shared Key] authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory] authentication.
+> This quickstart uses the [Shared Key] authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Microsoft Entra ID] authentication.
 
 ## Download and update the Azure Maps demo
 
 1. Copy the contents of the file: [Interactive Search Quickstart.html].
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Add the **Primary Key** value you got in the preceding section
-    1. Comment out all of the code in the `authOptions` function, this code is used for Azure Active Directory authentication.
+    1. Comment out all of the code in the `authOptions` function, this code is used for Microsoft Entra authentication.
     1. Uncomment the last two lines in the `authOptions` function, this code is used for Shared Key authentication, the approach being used in this quickstart.
     1. Replace `<Your Azure Maps Key>` with the subscription key value from the preceding section.
 
