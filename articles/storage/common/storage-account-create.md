@@ -62,23 +62,23 @@ None.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-You can sign in to Azure and run Azure Developer CLI (`azd`) commands in one of two ways:
+The Azure Developer CLI (`azd`) requires you to be signed-in to Azure to provision and deploy resources. You can sign-in to Azure using `azd` in one of two ways:
 
-- You can run azd commands from within the Azure portal, in Azure Cloud Shell.
-- You can install azd and run commands locally.
+- Use Azure Cloud Shell from within the Azure portal.
+- Install `azd` locally.
 
 > [!NOTE]
 > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
 
 ### Use Azure Cloud Shell
 
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. `azd` is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. `azd` is pre-installed and configured to use with your account. 
 
-[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
 
-The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+:::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to launch Azure CloudShell.":::
 
-[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article
 
 ### Install the CLI locally
 
