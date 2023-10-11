@@ -22,7 +22,7 @@ You will need to pass parameters for generating the access token, which you'll n
 #### Find `tenant-id`
 Navigate to the Microsoft Entra account for your organization. One way to do so is by searching for "Microsoft Entra ID" in the Azure portal's search bar. Once there, locate `tenant-id` under the basic information section in the *Overview* tab. Copy the `tenant-id` and paste in an editor to be used later.  
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra I D.":::
 
 :::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
