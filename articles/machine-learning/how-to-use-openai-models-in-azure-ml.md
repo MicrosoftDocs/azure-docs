@@ -91,7 +91,7 @@ For models with a chat task type, each row in the dataset should be a list of JS
 
 :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/finetune-training-data-chat.png" alt-text="Screenshot showing the training data after the data is uploaded into Azure.":::
 
-* Validation data: Pass in the data you would like to use to validate your model. Selecting **Automatic split** reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
+* Validation data: Pass in the data you would like to use to validate your model. 
 
 1. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then deploy this finetuned model to an endpoint for inferencing.
 
@@ -115,6 +115,8 @@ To enable users to quickly get started with code based finetuning, we have publi
 
 ### Troubleshooting
 Here are some steps to help you resolve any of the following issues with your Azure OpenAI in Azure Machine Learning experience.
+
+Currently, only a maximum of 10 workspaces can be designated for a particular subscription. If you are unable to create a workspace, ensure you are not reaching the maximum you can create.
 
 You might receive any of the following errors when you try to deploy an Azure OpenAI model.
 
