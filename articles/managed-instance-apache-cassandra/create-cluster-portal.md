@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
    > - Azure Monitoring
-   > - Azure Active Directory
+   > - Microsoft Entra ID
    > - Azure Security
 
 1. Next select the **Data center** tab.

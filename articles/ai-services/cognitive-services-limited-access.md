@@ -5,7 +5,7 @@ description: Azure AI services that are available with Limited Access are descri
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: pafarley

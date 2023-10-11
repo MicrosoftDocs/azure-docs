@@ -61,7 +61,7 @@ After you create the Facebook application, in this step you set the Facebook cli
 1. Browse to **Identity** > **External Identities** > **All identity providers**.
 2. Select **+ Facebook**.
 
-   <!-- ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/sign-in-with-facebook/configure-facebook-idp.png)-->
+   <!-- ![Screenshot that shows how to add Facebook identity provider in Microsoft Entra ID.](./media/sign-in-with-facebook/configure-facebook-idp.png)-->
 
 1. Enter a **Name**. For example, *Facebook*.
 1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
