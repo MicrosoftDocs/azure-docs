@@ -83,10 +83,10 @@ Metrics
 * JMX Metrics
 
 Logs
-* Logback (including MDC properties) [1](#FOOTNOTEONE)</sup> ^3
-* Log4j (including MDC/Thread Context properties) [1](#FOOTNOTEONE)</sup> ^3
-* JBoss Logging (including MDC properties) [1](#FOOTNOTEONE)</sup> ^3
-* java.util.logging [1](#FOOTNOTEONE)</sup> ^3
+* Logback (including MDC properties) ^1 ^3
+* Log4j (including MDC/Thread Context properties) ^1 ^3
+* JBoss Logging (including MDC properties) ^1 ^3
+* java.util.logging ^1 ^3
 
 Telemetry emitted by these Azure SDKs is automatically collected by default:
 
