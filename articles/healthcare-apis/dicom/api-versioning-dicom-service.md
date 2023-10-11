@@ -35,7 +35,7 @@ The OpenAPI Doc for the supported versions can be found at the following url:
 `<service_url>/v<version>/api.yaml`
 
 ## DICOM Conformance Statement
-All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but different versions may expose different APIs.  See the specific version of the conformance statement for details:
+All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but different versions might expose different APIs.  See the specific version of the conformance statement for details:
 
 * [DICOM Conformance Statement v1](dicom-services-conformance-statement.md)
 * [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md)
@@ -43,7 +43,7 @@ All versions of the DICOM APIs will always conform to the DICOMweb™ Standard s
 
 ## Prerelease versions
 
-An API version with the label "prerelease" indicates that the version isn't ready for production, and it should only be used in testing environments. These endpoints may experience breaking changes without notice.
+An API version with the label "prerelease" indicates that the version isn't ready for production, and it should only be used in testing environments. These endpoints might experience breaking changes without notice.
 
 ## How versions are incremented
 
