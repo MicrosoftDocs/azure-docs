@@ -103,9 +103,14 @@ Azure regions where such an active/active deployment could be possible without s
 - East US (two of the three zones)
 - East US2 (all three zones)
 - Germany West Central (all three zones)
+- Israel Central (all three zones)
+- Italy North (two of the three zones)
 - Korea Central (all three zones)
+- Poland Central (all three zones)
 - Qatar Central (all three zones)
 - North Europe (all three zones)
+- Norway East (two of the three zones)
+- South Africa North (two of the three)
 - South Central US (all three zones)
 - Southeast Asia (all three zones)
 - Sweden Central (all three zones)
@@ -123,8 +128,6 @@ Azure regions where the active/active SAP deployment architecture across zones m
 - Canada Central
 - France Central
 - Japan East
-- Norway East
-- South Africa North
 
 Though for your individual workload, it might work. Therefore, you should test before you decide for an architecture. Azure is constantly working to improve quality and latency of its networks. Measurements conducted years back might not reflect current conditions anymore.
 
