@@ -2,8 +2,8 @@
 title: 'Tutorial: Configure Zenya for automatic user provisioning with Microsoft Entra ID'
 description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Zenya.
 services: active-directory
-author: gspanjers
-writer: gspanjers
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
