@@ -265,7 +265,7 @@ If the user received a message with a More details link, they can collect most o
 
 Once you've collected the information, See the following resources:
 
-* [Sign-in problems with Conditional Access](troubleshoot-conditional-access.md) – Understand unexpected sign-in outcomes related to Conditional Access using error messages and Microsoft Entra sign-ins log.
+* [Sign-in problems with Conditional Access](troubleshoot-conditional-access.md) – Understand unexpected sign-in outcomes related to Conditional Access using error messages and Microsoft Entra sign-in log.
 * [Using the What-If tool](troubleshoot-conditional-access-what-if.md) - Understand why a policy was or wasn't applied to a user in a specific circumstance or if a policy would apply in a known state.
 
 ## Next Steps

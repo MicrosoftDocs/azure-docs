@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 If your organization has federated your on-premises Active Directory with Microsoft Entra ID using AD FS, there are two options for using Microsoft Entra multifactor authentication.
 
 * Secure cloud resources using Microsoft Entra multifactor authentication or Active Directory Federation Services
-* Secure cloud and on-premises resources using Azure multifactor authentication Server
+* Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server
 
 The following table summarizes the verification experience between securing resources with Microsoft Entra multifactor authentication and AD FS
 
@@ -40,8 +40,8 @@ Caveats with app passwords for federated users:
 * You lose on-premises authentication-logging capability for app passwords.
 * Account disable/deletion may take up to three hours for directory sync, delaying disable/deletion of app passwords in the cloud identity.
 
-For information on setting up either Microsoft Entra multifactor authentication or the Azure multifactor authentication Server with AD FS, see the following articles:
+For information on setting up either Microsoft Entra multifactor authentication or the Azure Multi-Factor Authentication Server with AD FS, see the following articles:
 
 * [Secure cloud resources using Microsoft Entra multifactor authentication and AD FS](howto-mfa-adfs.md)
-* [Secure cloud and on-premises resources using Azure multifactor authentication Server with Windows Server](howto-mfaserver-adfs-windows-server.md)
-* [Secure cloud and on-premises resources using Azure multifactor authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md)
+* [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server](howto-mfaserver-adfs-windows-server.md)
+* [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md)

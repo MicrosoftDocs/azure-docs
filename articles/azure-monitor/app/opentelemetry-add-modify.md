@@ -2,7 +2,7 @@
 title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/10/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc

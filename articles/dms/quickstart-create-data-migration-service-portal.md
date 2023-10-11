@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.custom:
   - seo-lt-2019
   - mode-ui
+  - sql-migration-content
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal

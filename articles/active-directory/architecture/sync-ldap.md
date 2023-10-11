@@ -30,7 +30,7 @@ Use LDAP synchronization when you need to synchronize identity data between your
 
 ## System components
 
-* **Microsoft Entra ID**: Azure AD synchronizes identity information (users, groups) from organization's on-premises LDAP directories via Microsoft Entra Connect.
+* **Microsoft Entra ID**: Microsoft Entra ID synchronizes identity information (users, groups) from organization's on-premises LDAP directories via Microsoft Entra Connect.
 * **Microsoft Entra Connect**: is a tool for connecting on premises identity infrastructures to Microsoft Entra ID. The wizard and guided experiences help to deploy and configure prerequisites and components required for the connection.
 * **Custom Connector**: A Generic LDAP Connector enables you to integrate the Microsoft Entra Connect synchronization service with an LDAP v3 server. It sits on Microsoft Entra Connect.
 * **Active Directory**: Active Directory is a directory service included in most Windows Server operating systems. Servers that run Active Directory Services, referred to as domain controllers, authenticate and authorize all users and computers in a Windows domain.

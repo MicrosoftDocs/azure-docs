@@ -96,7 +96,7 @@ You can find the cluster console URL by running the following command, which wil
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-Navigate to **Administration**, click on **Cluster Settings**, then select the **Global Configuration** tab. Scroll to select **OAuth**.
+Navigate to **Administration**, click on **Cluster Settings**, then select the **Configuration** tab. Scroll to select **OAuth**.
 
 Scroll down to select **Add** under **Identity Providers** and select **OpenID Connect**.
 ![Select OpenID Connect from the Identity Providers dropdown](media/aro4-oauth-idpdrop.png)
