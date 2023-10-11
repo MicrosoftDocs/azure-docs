@@ -204,7 +204,7 @@ To uninstall Azure FarmBeats Data hub or Accelerator, complete the following ste
 
 1. Log in to the Azure portal and **delete the resource groups** in which these components are installed.
 
-2. Go to Microsoft Entra ID & **delete the Microsoft Entra application** linked to the Azure FarmBeats installation.
+2. Go to Microsoft Entra ID and **delete the Microsoft Entra application** linked to the Azure FarmBeats installation.
 
 ## Next steps
 
