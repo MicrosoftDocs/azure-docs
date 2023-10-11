@@ -44,7 +44,7 @@ The "daemon" component in this sample is an API controller, `SyncController.cs`.
 
 Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a Global Administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](./permissions-consent-overview.md#using-the-admin-consent-endpoint) endpoint.
 
-![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Microsoft Entra I D, AccountController getting admin consent to connect to Microsoft Entra I D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Microsoft Entra ID, AccountController getting admin consent to connect to Microsoft Entra ID, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform](v2-oauth2-client-creds-grant-flow.md).
 

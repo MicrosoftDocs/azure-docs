@@ -159,7 +159,7 @@ Virtual appliance UDR / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-le
 
 ## Pricing and SLA
 
-For Azure NAT Gateway pricing, see [NAT gateway pricing](https://azure.microsoft.com/pricing/details/virtual-network/#pricing).
+For Azure NAT Gateway pricing, see [NAT gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
 
 For information on the SLA, see [SLA for Azure NAT Gateway](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
 
