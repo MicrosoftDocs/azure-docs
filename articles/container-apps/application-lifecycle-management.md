@@ -33,7 +33,7 @@ As a container app is updated with a [revision scope-change](revisions.md#revisi
 
 :::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-update.png" alt-text="Azure Container Apps: Update phase":::
 
-When in single revision mode, Container Apps handles the automatic switch between revisions to support [zero downtime deployement](revisions.md#zero-downtime-deployment).
+When in single revision mode, Container Apps handles the automatic switch between revisions to support [zero downtime deployment](revisions.md#zero-downtime-deployment).
 
 ## Deactivate
 
