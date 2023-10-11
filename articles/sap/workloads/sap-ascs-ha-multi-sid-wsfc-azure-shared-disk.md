@@ -351,7 +351,7 @@ To add a probe port, run this PowerShell module on one of the cluster VMs:
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID PR2 -ProbePort 62002
    ```
 
-- If you're using ERS2 with instance number 12, there's no need to configure a probe port for ERS1. ERS2 with instance number 12 is clustered, whereas ERS1 isn't clustered.  
+- If you're using ERS2 with instance number 12, configure a probe port. There's no need to configure a probe port for ERS1. ERS2 with instance number 12 is clustered, whereas ERS1 isn't clustered.  
 
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID PR2 -ProbePort 62012 -IsSAPERSClusteredInstance $True
