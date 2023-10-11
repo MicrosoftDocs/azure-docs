@@ -168,6 +168,8 @@ To make sure all elements are deleted, follow these recommendations while using 
 * If you recently imported a large number of entities to your graph, wait for some time and verify that all elements are synchronized in your graph before beginning the delete job.
 * Stop all operations on the instance, especially upload operations, until the delete job is complete.
 
+A delete job can take anywhere from a few minutes to a few hours, depending on the size of the graph being deleted. For an Azure Digital Twins graph of 1M entities, an estimated run time for the delete job is 30-60 minutes.
+
 The default timeout period for a delete job is 12 hours, which can be adjusted to any value between 15 minutes and 24 hours by using a query parameter on the API. This is the amount of time that the delete job will run before it times out, at which point the service will attempt to stop the job if it hasn't completed yet.
 
 ## Monitor API metrics
