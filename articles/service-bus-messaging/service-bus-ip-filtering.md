@@ -3,7 +3,7 @@ title: Configure IP firewall rules for Azure Service Bus
 description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/16/2023
+ms.date: 10/10/2023
 ---
 
 # Allow access to Azure Service Bus namespace from specific IP addresses or ranges
@@ -46,7 +46,11 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
-    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
+    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md).
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled-page.png" alt-text="Screenshot that shows the Networking page of a namespace with public access disabled."::: 
+
+        Choose whether you want to allow trusted Microsoft services to bypass the firewall. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section.
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -55,7 +59,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 1. To allow access from only specified IP address, select the **Selected networks** option if it isn't already selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
+    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section. 
 
         >[!WARNING]
         > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).    
