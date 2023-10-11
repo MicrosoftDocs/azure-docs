@@ -13,7 +13,7 @@ The `using` statement in [Bicep parameter files](./parameter-files.md) ties the 
 > [!NOTE]
 > The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or later.
 >
-> To use the statement with ARM json templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.53.0 or later.
+> To use the statement with ARM JSON templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.53.0 or later.
 
 The syntax:
 
@@ -72,6 +72,8 @@ The syntax:
   ```bicep
   using 'ts:<subscription-id>/<resource-group-name>/<template-spec-name>:<tag>
   ```
+
+  For example:
 
   ```bicep
   using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
