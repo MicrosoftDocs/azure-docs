@@ -148,7 +148,7 @@ After you deploy the VMs for your SAP system, create a load balancer. Use VMs cr
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this (A)SCS server.
 
-### Prepare for SAP NetWeaver installation
+### Prepare for the SAP NetWeaver installation
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 

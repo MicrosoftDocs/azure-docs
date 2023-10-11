@@ -204,7 +204,7 @@ This article assumes that:
 
    Update file `/etc/fstab` with the file systems for the other SAP systems that you're deploying to the cluster.  
 
-   * If using Azure NetApp Files, follow the instructions in [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation).
+   * If using Azure NetApp Files, follow the instructions in [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-the-sap-netweaver-installation).
    * If using GlusterFS cluster, follow the instructions in [Azure VMs high availability for SAP NW on RHEL](./high-availability-guide-rhel.md#prepare-for-the-sap-netweaver-installation).
 
 ### Install ASCS / ERS
