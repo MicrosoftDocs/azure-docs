@@ -1,7 +1,7 @@
 ---
 title: Configure routing preference - Azure portal
 titleSuffix: Azure Route Server
-description: Learn how to configure routing preference (preview) in Azure Route Server using the Azure Portal to influence its route selection.
+description: Learn how to configure routing preference (preview) in Azure Route Server using the Azure portal to influence its route selection.
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
