@@ -442,7 +442,7 @@ To enable application name or geographic location in the Microsoft Entra admin c
   - Authenticator version 6.2309.6329 or earlier on Android
   - Authenticator version 6.7.16 or earlier on iOS
   
-  To find which users run older versions of Authenticator, use [Microsft Graph APIs](graph/api/resources/microsoftauthenticatorauthenticationmethod#properties). 
+  To find which users run older versions of Authenticator, use [Microsft Graph APIs](/graph/api/resources/microsoftauthenticatorauthenticationmethod#properties). 
 
 ## Next steps
 
