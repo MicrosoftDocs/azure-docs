@@ -46,7 +46,8 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
     * .NET: 8.0.0 
     * Go: 1.0.0 
     * Python: 3.0.0 
-    * JavaScript: 8.0.1 
+    * JavaScript: 8.0.1
+    * Java: 1.0.0-beta3 
 
 ## More information
 
