@@ -404,9 +404,9 @@ The following list has example queries that you can create and run against the T
 
 | Task | Steps |
 |------|-------|
-|||
-|||
-|||
+| View start and end events in all workflow runs | [Query for start and end events in all workflow runs](#traces-table-view-all-start-end-events) |
+| View start and end events in a specific workflow run | [Query for start and end events in a workflow run](#traces-table-view-start-end-events-specific-run) |
+| View batch send and receive events in all workflow runs | [Query for batch send and batch receive events in all workflow runs](#traces-table-view-all-batch-send-receive-events) |
 
 <a name="traces-table-view-all-start-end-events"></a>
 
@@ -427,9 +427,9 @@ You can create a query against the Traces table to view all the start and end ev
 
 <a name="traces-table-view-start-end-events-specific-run"></a>
 
-#### Query for start and end events in a workflow run
+#### Query for start and end events in a specific workflow run
 
-You can create a query against the Traces table to view all the start and end events for a specific workflow run.
+You can create a query against the Traces table to view the start and end events for a specific workflow run.
 
 1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
 
@@ -441,13 +441,24 @@ You can create a query against the Traces table to view all the start and end ev
    | and operation_Id == "08585287571846573488078100997CU00"
    ```
 
-<a name="traces-table-view-batch-send-receive-events"></a>
+   ![Screenshot shows Application Insights, Results tab for start and events for a specific run.](media/enable-enhanced-telemetry-standard-workflows/traces-table/start-end-events-specific-run.png)
 
-#### Query for batch send and batch receive events
+<a name="traces-table-view-all-batch-send-receive-events"></a>
 
-As part of the telemetry payload, we have a category property that includes a value of Workflow.Operations.Batch whenever there is a send or receive Batch event. We can subsequently write the following query that will retrieve these events for us.
+#### Query for batch send and batch receive events in all workflow runs
 
+You can create a query against the Traces table to view the batch send and batch receive events in all workflow runs.
 
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. Create and run a query with the **customDimensions.Category** value set to **Workflow.Operations.Runs** and the **operation_Id** value set to the workflow run ID, for example:
+
+   ```kusto
+   traces
+   | where customDimensions.Category == "Workflow.Operations.Batch"
+   ```
+
+   ![Screenshot shows Application Insights, Results tab for batch send and batch receive events in all workflow runs.](media/enable-enhanced-telemetry-standard-workflows/traces-table/batch-events-all-runs.png)
 
 ### Exceptions table
 
