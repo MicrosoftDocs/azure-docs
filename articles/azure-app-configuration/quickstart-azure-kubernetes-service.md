@@ -67,30 +67,23 @@ In this section, you will create a simple ASP.NET Core web application running i
     </div>
     ```
 
-1. Open *appsettings.json* file at the root of your project directory, and update the content with the following code.
+1. Create a *config* directory in the root directory of your project, add a *demosettings.json* file to the *config* directory with the following content.
 
     ```json
     {
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft.AspNetCore": "Warning"
-        }
-      },
       "Settings:FontColor": "Black",
       "Settings:Message": "Message from the local configuration",
-      "AllowedHosts": "*"
     }
     ```
 
-1. Open *program.cs*, and add a JSON configuration source by calling `AddJsonFile`. The specified file will be generated in next section [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). Currently, the application will  read configuration from *appsettings.json* file at the root of your project directory.
+1. Open *program.cs* and add the newly created configuration file by calling `AddJsonFile` method. 
 
     ```csharp   
     // Existing code in Program.cs
     // ... ...
 
     // Add a JSON configuration source 
-    builder.Configuration.AddJsonFile("config/appsettings.json", reloadOnChange:true, optional:true); 
+    builder.Configuration.AddJsonFile("config/demosettings.json"); 
 
     var app = builder.Build();
 
@@ -210,7 +203,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ## Use App Configuration Kubernetes Provider
 
-Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file by populating a volume with its data.
+Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file by being mounted as a data volume.
 
 ### Setup the Azure App Configuration store
 
@@ -221,7 +214,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     |Settings:FontColor|*Green*|
     |Settings:Message|*Hello from Azure App Configuration*|
 
-1. Grant read access to your App Configuration store by [use workload identity](./reference-kubernetes-provider.md#use-workload-identity).
+1. Follow the steps in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to get prepared for allowing the App Configuration Kubernetes Provider to use the user assigned managed identity to connect to your App Configuration store.
 
 ### Install App Configuration Kubernetes Provider to AKS cluster
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
@@ -242,7 +235,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store, and set the `spec.auth.workloadIdentity.managedIdentityClientId` property to the client ID of the user-assigned managed identity you created in previous step [use workload identity](./reference-kubernetes-provider.md#use-workload-identity).
+    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store, and the value of the `spec.auth.workloadIdentity.managedIdentityClientId` field with the client ID of the user-assigned managed identity you created in previous step [use workload identity](./reference-kubernetes-provider.md#use-workload-identity).
    
     ```yaml
     apiVersion: azconfig.io/v1beta1
@@ -255,7 +248,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
           type: json
-          key: appsettings.json
+          key: demosettings.json
       auth:
         workloadIdentity:
           managedIdentityClientId: <your-managed-identity-client-id>
@@ -268,7 +261,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory and populate a volume with data stored in the ConfigMap `configmap-created-by-appconfig-provider`. Defining a volume and mounting it inside the `aspnetapp` container as `/app/config` creates the JSON file `/app/config/appsettings.json`.
+2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume.
    
     ```yaml
     apiVersion: apps/v1
@@ -299,8 +292,8 @@ Now that you have an application running in AKS, you'll deploy the App Configura
           - name: config-volume 
             configMap: configmap-created-by-appconfig-provider 
             items:
-            - key: appsettings.json
-              path: appsettings.json
+            - key: demosettings.json
+              path: demosettings.json
     ```
 
 3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
