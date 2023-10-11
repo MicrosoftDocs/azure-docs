@@ -52,7 +52,7 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 
 1. Once the system assigned managed identity has been created and registered with Microsoft Entra ID, you can use the **Object (principal) ID** to grant Azure Front Door access to your Azure Key Vault.
 
-    :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra ID.":::
+    :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra I D.":::
 
 # [User assigned](#tab/user-assigned)
 
