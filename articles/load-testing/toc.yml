@@ -10,7 +10,7 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Create & run a load test
+    - name: Create a URL-based load test
       href: quickstart-create-and-run-load-test.md
     - name: Automate load tests with CI/CD
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing

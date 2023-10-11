@@ -32,8 +32,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & run a load test'
+          - text: 'Create a URL-based load test'
             url: quickstart-create-and-run-load-test.md
+          - text: Create a load test with a JMeter script
+            url: how-to-create-and-run-load-test-with-JMeter-script.md
           - text: 'Automate load tests with CI/CD'
             url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
