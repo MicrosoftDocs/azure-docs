@@ -317,18 +317,18 @@ To use the Dapr output binding, start by setting up a Dapr output binding compon
 
 To use the `daprBinding` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](./create-first-function-cli-python.md). 
-
-1. In the terminal, install the Python library.
-
-   ```bash
-   pip install -r .\requirements.txt
-   ```
+1. [Create and activate a virtual environment](https://learn.microsoft.com/azure/azure-functions/create-first-function-cli-python?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
 
 1. In your `requirements.text` file, add the following line:
 
    ```txt
    azure-functions==1.18.0b3
+   ```
+
+1. In the terminal, install the Python library.
+
+   ```bash
+   pip install -r .\requirements.txt
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:
