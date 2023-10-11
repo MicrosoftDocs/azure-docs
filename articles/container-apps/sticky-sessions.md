@@ -14,7 +14,7 @@ zone_pivot_groups: arm-portal
 
 Session affinity, also known as sticky sessions, is a feature that allows you to route all requests from a client to the same replica. This feature is useful for stateful applications that require a consistent connection to the same replica.
 
-Session stickiness is enforced using HTTP cookies. This feature is available in single revision mode when HTTP ingress is enabled. A client may be routed to a new replica if the previous replica is no longer available.
+Session stickiness is enforced using HTTP cookies. This feature is available in single revision mode when HTTP ingress is enabled. A client might be routed to a new replica if the previous replica is no longer available.
 
 If your app doesn't require session affinity, we recommend that you don't enable it. With session affinity disabled, ingress distributes requests more evenly across replicas improving the performance of your app.
 
