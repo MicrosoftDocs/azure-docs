@@ -32,7 +32,7 @@ After you test and verify the new revision, you can then point production traffi
 
 | Actions | Description |
 |---|---|
-| Testing and verification | The *green* revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing may involve various tasks, including functional tests, performance tests, and compatibility checks. |
+| Testing and verification | The *green* revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing might involve various tasks, including functional tests, performance tests, and compatibility checks. |
 | Traffic switch | Once the *green* revision passes all the necessary tests, a traffic switch is performed so that the *green* revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition. |
 | Rollback | If problems occur in the *green* revision, you can revert the traffic switch, routing traffic back to the stable *blue* revision. This rollback ensures minimal impact on users if there are issues in the new version. The *green* revision is still available for the next deployment. |
 | Role change | The roles of the blue and green revisions change after a successful deployment to the *green* revision. During the next release cycle, the *green* revision represents the stable production environment while the new version of the application code is deployed and tested in the *blue* revision.
