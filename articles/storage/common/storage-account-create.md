@@ -66,12 +66,10 @@ None.
 
 - Locally via CLI by [installing azd](/azure/developer/azure-developer-cli/overview).
 - [GitHub Codespaces](https://github.com/features/codespaces) environments.
-- The Azure portal using [Cloud Shell](azure/cloud-shell/overview):
-
-    :::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::
+- The Azure portal using [Cloud Shell](azure/cloud-shell/overview)
     
-> [!NOTE]
-> The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
+    > [!NOTE]
+    > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
 
 ---
 
@@ -110,13 +108,20 @@ N/A
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
+If you plan to use `azd` via Cloud Shell:
 
-To log into your local installation of `azd`, run the [azd auth login](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
+    * Sign-in to the [Azure portal](https://portal.azure.com) 
+    * Launch Cloud Shell by clicking on the corresponding icon. `azd` is automatically available in Cloud Shell and will authenticate via the account you used to sign-in to the Azure portal.
+    
+    :::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::
+    
+To sign-in to a local installation of `azd` or Codespaces environment, run the [azd auth login](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
 
 ```azurecli-interactive
 azd auth login
 ```
+
+`azd` will launch a browser window that you can use to sign-in to Azure.
 
 ---
 ## Create a storage account
