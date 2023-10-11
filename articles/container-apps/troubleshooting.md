@@ -14,7 +14,7 @@ zone_pivot_groups: azure-portal-console
 
 # Troubleshoot a container app
 
-TODO1 Intro here.
+TODO1 JW Intro here.
 
 This topic describes how to troubleshoot a container app.
 
@@ -30,7 +30,7 @@ This topic describes how to troubleshoot a container app.
 
 ## Setup
 
-TODO1 Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
+TODO1 JW Copied this section from ./tutorial-scaling.md, which in turn copied it from elsewhere. It should be moved to a central topic to which we can link, or at least put in an include file.
 
 Run the following command and follow the prompts to sign in to Azure from the CLI and complete the authentication process.
 
@@ -315,19 +315,27 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 
 ## Verify Container Apps can pull container image
 
-TODO1
-- Verify you can pull your container image publicly. Give example, like pulling Docker image from command line?
-- Verify your container environment firewall is not blocking access to the container registry. How? Does firewall only apply to user-defined routes?
-	See: https://learn.microsoft.com/en-us/azure/container-apps/user-defined-routes
-- Verify DNS lookup of the container registry does not fail. Publicly, then from container environment? Link to how to get debug console inside environment. Why would this happen? Container environment firewall blocking port 53? Do container environments have their own DNS caching servers, such as dnsmasq?
-	See: https://learn.microsoft.com/en-us/azure/container-apps/networking#dns
-- What if your container image is stale? How do you force the container app to re-pull the image?
-- ACI says they sometimes cache container images. Do we? That could lead to using an outdated image.
-https://learn.microsoft.com/en-us/azure/container-instances/container-instances-troubleshooting#cached-images
+- Verify you can pull your container image publicly. For example, for a Docker container that can run as a console application, run:
+	```
+	docker run --rm <YOUR_CONTAINER_IMAGE>
+	```
+- Verify your container environment firewall is not blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
+- Verify your NAT gateway is forwarding packets correctly?
+- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry does not fail. For more information, see [DNS](./networking.md#dns).
+
+For more information, see [Networking in Azure Container Apps environment] (./networking.md).
+
+TODO1 questions for PMs:
+- What if your app is deployed but your container image is stale? How do you force the container app to re-pull the image? Does deploying a new revision do it, or do you need to re-create the app?
+- ACI says they sometimes cache container images. Do we? That could lead to using an outdated image. See: ../container-instances/container-instances-troubleshooting#cached-images
+- ./user-defined-routes#verify-your-firewall-is-blocking-outbound-traffic explains how to use console to check the firewall. But that only works if your container app has deployed and has at least one instance. It wouldn't work if we can't pull your container image. Is there a way to get a console in the environment instead?
+- The firewall could also block outbound requests on port 53 which would prevent DNS lookup of container registry?
+- If using dnsmasq or other DNS caching server, and it listens on localhost, user should make sure firewall allows requests for that also?
 
 ## Review Ingress Configuration
 
-TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
+TODO1 Sources: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-revisions-Copy/, Incorrect Ingress.
+https://azureossd.github.io/2023/03/22/Troubleshooting-ingress-issues-on-Azure-Container-Apps/
 
 ::: zone pivot="portal"
 
@@ -340,30 +348,26 @@ TODO1 Source: https://azureossd.github.io/2022/08/01/Container-Apps-and-failed-r
 - If you want to allow external ingress, verify that:
 	- **Ingress Traffic** is set to **Accepting traffic from anywhere**.
 	- Your Container Apps environment has *internalOnly* set to *false*. TODO1 Where is that?
-
-TODO1 These next four items might not be useful. Check with PMs before we replicate them to console.
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) your client uses to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
-- If your client uses HTTP/1, verify **Transport** is set to **Auto** or **HTTP/1**. If your client uses HTTP/2, verify **Transport** is set to **Auto** or **HTTP/2**.
-- If your client cannot use a secure connection, verify **Insecure connections** > **Allowed** is enabled.
-
-TODO1 These items should be useful.
+- If your client uses HTTP/1, verify **Transport** is set to **HTTP/1**. If your client uses HTTP/2, verify **Transport** is set to **HTTP/2**.
+- If your client cannot use a secure connection, verify **Insecure connections** > **Allowed** is enabled. TODO1 Question for PMs: Not sure this is a recommendation we want to make. Depends on how common it is for users to have a client that can't use a secure connection.
 - Verify **Target port** is set to the same port your container app is listening on, or the same port exposed by your container app's Dockerfile.
 - If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
 
-TODO1
-- x Where is environment configuration in Portal? You have to know your environment name and search for it.
-- x Console does not show setting for HTTP/TCP. Okay, it's --transport.
-- / How to find what env your app belongs to in console? containerapp show > managedEnvironmentId. Can we then query on that ID?
-
+TODO1 Questions for JW to work on:
 - How to set env internalOnly to true/false on env in Portal?
 - Portal ingress traffic setting is confusing. It sounds like env internalOnly setting partially overrides this.
 - env show in console does not show internalOnly.
-- What about CORS?
-
+- What about CORS? Can that cause ingress issues?
 - Things to note:
 	- Port mismatch. For HTTP ingress your port is always 443. However that is the exposed port, not the target port.
 	- TCP ingress is only available with custom vnet.
+
+TODO1 JW Answered questions:
+- x Where is environment configuration in Portal? You have to know your environment name and search for it.
+- x Console does not show setting for HTTP/TCP. Okay, it's --transport.
+- / How to find what env your app belongs to in console? containerapp show > managedEnvironmentId. Can we then query on that ID?
 
 ::: zone-end
 
@@ -378,7 +382,7 @@ Verify ingress is enabled with the [`az containerapp ingress show`](/cli/azure/c
 ```azurecli
 az containerapp ingress show \
   --name <YOUR_CONTAINER_APP_NAME> \
-  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -386,16 +390,18 @@ az containerapp ingress show \
 ```powershell
 az containerapp ingress show `
   --name <YOUR_CONTAINER_APP_NAME> `
-  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME>
 ```
 
 ---
 
 You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command. You need to specify internal or external ingress, and the target port.
 
-TODO1
-- Repeat this in Configure health probes section?
-- Disable ingress, or just set it to internal?
+TODO1 Question for Craig:
+- Repeat this note in Configure health probes section?
+
+TODO1 Question for PMs:
+- See note below. If container app doesn't listen for HTTP traffic,  should we disable ingress, or just set it to internal?
 
 > [!NOTE]
 > If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy. If your container app doesn't listen for HTTP traffic, you should disable ingress.
@@ -407,7 +413,7 @@ az containerapp ingress enable \
   --type <internal|external> \
   --target-port <YOUR_TARGET_PORT> \
   --name <YOUR_CONTAINER_APP_NAME> \
-  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -417,14 +423,14 @@ az containerapp ingress enable `
   --type <internal|external> `
   --target-port <YOUR_TARGET_PORT> `  
   --name <YOUR_CONTAINER_APP_NAME> `
-  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME>
 ```
 
 ---
 
 ### Verify external ingress is allowed
 
-If you want to allow external ingress, verify your app is configured accordingly. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+If you want to allow external ingress, verify `external` is set to `true`. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
 
 ```json
 {
@@ -448,10 +454,32 @@ If you want to allow external ingress, verify your app is configured accordingly
 }
 ```
 
-Verify `external` is `true`. If not, run the [`az containerapp ingress enable`](/cli/azure/containerapp/ingress#az-containerapp-ingress-enable(containerapp)) command, as described previously, with `--type external`. You can expect output like the following example:
+If `external` is `false`, run the [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update(containerapp)) command with `--type external`. 
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp ingress update \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> \
+  --type external
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+az containerapp ingress update `
+  --name <YOUR_CONTAINER_APP_NAME> `
+  --resource-group <YOUR_RESOURCE_GROUP_NAME> `
+  --type external
+```
+
+---
+
+You can expect output like the following example:
   
 ```json
-Ingress enabled. Access your app at <YOUR_CONTAINER_APP_ENDPOINT>
+Ingress Updated. Access your app at <YOUR_CONTAINER_APP_ENDPOINT>
 
 {
   ...
@@ -459,6 +487,54 @@ Ingress enabled. Access your app at <YOUR_CONTAINER_APP_ENDPOINT>
   ...
 }
 ```
+
+### Verify client certificate mode
+
+TODO1 JW Tried setting client certificate mode to require in Portal, and it failed. Can't figure out how to set it in command line.
+
+Verify `clientCertificateMode` is set to `require` only if your client supports mTLS. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+
+```json
+{
+  ...
+  "clientCertificateMode": null,
+  ...
+}
+```
+
+If the client certificate mode isn't correct, TODO1 JW update won't let you set this.
+
+For more information, see [Environment level network encryption](./networking.md#mtls)
+
+### Verify transport
+
+Verify `transport` is set to the same protocol (`auto`, `http`, `http2`, or `tcp`) your client uses to access your container app. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command as described previously. You can expect output like the following example:
+
+```json
+{
+  ...
+  "transport": "Auto"
+}
+```
+
+If the transport isn't correct, run the [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update(containerapp)) command as described previously, with
+`--transport <auto|http|http2|tcp>`.
+
+### Verify secure connection
+
+TODO1 Question for PMs: Not sure this is a recommendation we want to make. Depends on how common it is for users to have a client that can't use a secure connection.
+
+If your client cannot use a secure connection, verify `allowInsecure` is set to `true`. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+
+```json
+{
+  "allowInsecure": false,
+  ...
+}
+```
+
+If `allowInsecure` is `false`, run the [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update(containerapp)) command as described previously, with
+`--allow-insecure true`.
 
 ### Verify target port
 
@@ -471,6 +547,9 @@ Verify your target port is set to the same port your container app is listening 
   ...
 }
 ```
+
+If the target port is incorrect, run the [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update(containerapp)) command as described previously, with
+`--target-port <YOUR_TARGET_PORT>`.
 
 ### Verify IP access allowed
 
@@ -502,9 +581,10 @@ For more information, see [Ingress in Azure Container Apps](./ingress-overview.m
 
 ## Verify networking configuration is correct
 
-TODO1
 - If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function correctly.
-- Anything else we want to call out?
+
+TODO1 Questions for PMs:
+- Anything other general networking issues we want to call out?
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
@@ -539,7 +619,8 @@ If your health probes are not configured correctly:
 
 ::: zone pivot="console"
 
-TODO1 Can we configure health probes from command line? We can view them. containerapp show > template > containers > probes. ./health-probes.md only shows how to do it in ARM template.
+TODO1 Questions for PMs:
+- Can we configure health probes from command line? We can view them. containerapp show > template > containers > probes. ./health-probes.md only shows how to do it in ARM template.
 
 ::: zone-end
 
@@ -629,7 +710,7 @@ For more information about configuring traffic splitting, see [Traffic splitting
 
 ## Next steps
 
-TODO1 Figure out next step. Maybe Ingress/networking if we split that into separate topic.
+TODO1 JW Figure out next step. Maybe Ingress/networking if we split that into separate topic.
 
 > [!div class="nextstepaction"]
 > [Set scaling rules in Azure Container Apps](scale-app.md)
