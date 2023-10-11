@@ -31,25 +31,27 @@ Native resolution is set to off by default. To turn on native resolution:
 
 1. Set **Enable native display resolution** to **On**.
 
-### New user interface
+### Preview user interface (preview)
 
-A new user interface is available by default. It is recommended to use the new client, as the original version will be deprecated soon.  
+A new user interface is available in preview for you to try. To enable the new user interface:
 
-To revert to the original user interface, toggle the new client to **Off** on the top navigation bar.
+1. Sign in to the Remote Desktop Web client.
 
-### Grid view and list view 
+1. Toggle **Try the new client (Preview)** to **On**. To revert to the original user interface, toggle this to **Off**.
+
+### Grid view and list view (preview)
 
 You can change the view of remote resources assigned to you between grid view (default) and list view. To change between grid view and list view:
 
-1. Sign in to the Remote Desktop Web client and make sure the new client toggle is set to **On**. Then, select **Settings** on the taskbar. 
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**.
 
-1. In the top-right hand corner, select the **Grid View** icon or the **List View** icon. The change will take effect immediately.
+1. In the top-right hand corner, select **Grid View** icon or the **List View** icon. The change will take effect immediately.
 
-### Light mode and dark mode
+### Light mode and dark mode (preview)
 
 You can change between light mode (default) and dark mode. To change between light mode and dark mode:
 
-1. Sign in to the Remote Desktop Web client and make sure the new client toggle is set to **On**. Then, select **Settings** on the taskbar. 
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
 
 1. Toggle **Dark Mode** to **On** to use dark mode, or **Off** to use light mode. The change will take effect immediately.
 
