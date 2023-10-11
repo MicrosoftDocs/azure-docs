@@ -211,7 +211,7 @@ The following template moves 20% of traffic over to the updated revision:
 
 ### Staging microservices
 
-When building microservices, you may want to maintain production and staging endpoints for the same app. Use labels to ensure that traffic doesn't switch between different revisions.
+When building microservices, you might want to maintain production and staging endpoints for the same app. Use labels to ensure that traffic doesn't switch between different revisions.
 
 The following example template applies labels to different revisions.
 
