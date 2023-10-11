@@ -414,10 +414,9 @@ To enable Application Insights on a deployed logic app or open the Application I
 
    If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
 
-After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+   After Application Insights opens, you can review various metrics for your logic app. 
 
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
+1. To enable enhanced telemetry and insights, see [Enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
 
 <a name="view-connections"></a>
 
