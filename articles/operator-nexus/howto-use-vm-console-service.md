@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: VM Console Service"
 description: Learn how to use the VM Console service.
-author: eak13
-ms.author: ekarandjeff
+author: sshiba
+ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 10/11/2023
