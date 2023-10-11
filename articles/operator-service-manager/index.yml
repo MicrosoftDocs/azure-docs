@@ -56,10 +56,8 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Best Practices for Designer
-            url: designer-best-practices.md
-          - text: Best Practices for Publisher
-            url: publisher-best-practices.md
+          - text: Best Practices onboard and deploy
+            url: best-practices-onboard-deploy.md
       - linkListType: reference
         links:
           - text: Glossary

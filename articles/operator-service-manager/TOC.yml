@@ -11,10 +11,8 @@
   - name: Best Practices
     expanded: false
     items:
-      - name: Publisher
-        href: publisher-best-practices.md
-      - name: Designer
-        href: designer-best-practices.md
+      - name: Onboard and deploy a Network Function
+        href: best-practices-onboard-deploy.md
   - name: Roles and Interfaces
     href: roles-interfaces.md
   - name: Helm Package Requirements
