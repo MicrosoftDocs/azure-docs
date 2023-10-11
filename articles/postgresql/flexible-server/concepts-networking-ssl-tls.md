@@ -18,7 +18,7 @@ Azure Database for PostgreSQL - Flexible Server enforces connecting your client 
 TLS made from Netscape Communications Corp's. Secure Sockets Layer show and has regularly supplanted it, however the terms SSL or SSL/TLS are still sometimes used interchangeably.TLS is made out of two layers: the **TLS record show** and the **TLS handshake show**. The record show gives association security, while the handshake show empowers the server and customer to affirm one another and to coordinate encryption assessments and cryptographic keys before any information is traded.
 
 
-:::image type="content" source="./media/concepts-networking/tls-1.2.png" alt-text="Diagram that shows typical TLS 1.2 handshake sequence.":::
+:::image type="content" source="./media/concepts-networking/tls-1-2.png" alt-text="Diagram that shows typical TLS 1.2 handshake sequence.":::
 
 Diagram above shows typical TLS 1.2 handshake sequence, consisting of following:
 - The client starts by sending a message called the *ClientHello*, that essentially expresses willingness to communicate via TLS 1.2 with a set of cipher suites client supports
@@ -41,7 +41,7 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 
 > [!NOTE]
 > SSL and TLS certificates certify that your connection is secured with state-of-the-art encryption protocols. By encrypting your  connection on the wire, you prevent unauthorized access to your data while in transit. This is why we strongly recommend using latest versions of TLS to encrypt your connections to Azure Database for PostgreSQL - Flexible Server. 
-> Although its not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the **require_secure_transport** server parameter to OFF. You can also set TLS version by setting **ssl_min_protocol_version** and **ssl_max_protocol_version** server parameters.
+> Although it's not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the **require_secure_transport** server parameter to OFF. You can also set TLS version by setting **ssl_min_protocol_version** and **ssl_max_protocol_version** server parameters.
 
 [Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
 **Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
