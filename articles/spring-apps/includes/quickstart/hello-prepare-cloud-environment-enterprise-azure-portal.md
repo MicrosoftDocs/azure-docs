@@ -25,7 +25,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 1. Select the following **Deploy to Azure** button:
 
-   :::image type="content" source="../media/quickstart/deploy-to-azure.png" alt-text="Button to deploy the ARM template to Azure." lightbox="../media/quickstart/deploy-to-azure.png":::
+   :::image type="content" source="../../media/quickstart/deploy-to-azure.png" alt-text="Button to deploy the ARM template to Azure." lightbox="../media/quickstart/deploy-to-azure.png":::
 
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form.
 
