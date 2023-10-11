@@ -14,7 +14,7 @@ In this article, you'll learn how to use [Azure role-based access control (Azure
 
 ## Assign roles
 
-To grant users, service principals, or groups access to the DICOM data plane, select the **Access control (IAM)** blade. Select the**Role assignments** tab, and select **+ Add**.
+To grant users, service principals, or groups access to the DICOM data plane, select the **Access control (IAM)** blade. Select the **Role assignments** tab, and select **+ Add**.
 
 [ ![Screenshot of DICOM access control.](media/dicom-access-control.png) ](media/dicom-access-control.png#lightbox)
 
