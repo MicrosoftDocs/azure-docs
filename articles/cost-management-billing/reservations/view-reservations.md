@@ -24,8 +24,8 @@ By default, the following users can view and manage reservations:
 - The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
 - Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 - Users with elevated access to manage all Azure subscriptions and management groups
-- A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory)
-- A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory)
+- A Reservation administrator for reservations in their Microsoft Entra tenant (directory)
+- A Reservation reader has read-only access to reservations in their Microsoft Entra tenant (directory)
 
 The reservation lifecycle is independent of an Azure subscription, so the reservation isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
 
@@ -38,7 +38,7 @@ If you're a billing administrator, use following steps to view and manage all re
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Reservations**.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears. For a Microsoft Customer Agreement, user should be in the same Azure Active Directory (Azure AD) tenant (directory) as the reservation.
+1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears. For a Microsoft Customer Agreement, user should be in the same Microsoft Entra tenant (directory) as the reservation.
 
 ### Add billing administrators
 
@@ -90,7 +90,7 @@ Access granted using PowerShell isn't shown in the Azure portal. Instead, you us
 
 ## Assign the owner role for all reservations
 
-Use the following Azure PowerShell script to give a user Azure RBAC access to all reservations orders in their Azure AD tenant (directory).
+Use the following Azure PowerShell script to give a user Azure RBAC access to all reservations orders in their Microsoft Entra tenant (directory).
 
 ```azurepowershell
 
@@ -117,7 +117,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 
 ### Parameters
 
-**-ObjectId**  Azure AD ObjectId of the user, group, or service principal.
+**-ObjectId**  Microsoft Entra ObjectId of the user, group, or service principal.
 - Type: String
 - Aliases: Id, PrincipalId
 - Position:	Named
@@ -158,7 +158,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 
 #### Parameters
 
-**-ObjectId** Azure AD ObjectId of the user, group, or service principal.
+**-ObjectId** Microsoft Entra ObjectId of the user, group, or service principal.
 - Type:	String
 - Aliases: Id, PrincipalId
 - Position:	Named
@@ -189,7 +189,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 
 #### Parameters
 
-**-ObjectId** Azure AD ObjectId of the user, group, or service principal.
+**-ObjectId** Microsoft Entra ObjectId of the user, group, or service principal.
 - Type:	String
 - Aliases: Id, PrincipalId
 - Position:	Named

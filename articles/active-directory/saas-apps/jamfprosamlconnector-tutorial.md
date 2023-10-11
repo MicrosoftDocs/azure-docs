@@ -98,7 +98,8 @@ In this section, you enable Microsoft Entra SSO.
 
 In this section, you create a test user called B.Simon.
 
-1. In the left pane in the Azure portal, select **Microsoft Entra ID**, select **Users**, and then select **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.

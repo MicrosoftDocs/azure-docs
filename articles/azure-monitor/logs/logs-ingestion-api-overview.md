@@ -52,7 +52,7 @@ Authentication for the Logs Ingestion API is performed at the DCE, which uses st
 
 ### Token audience
 
-When developing a custom client to obtain an access token from Azure AD for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
+When developing a custom client to obtain an access token from Microsoft Entra ID for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
 
 | Azure cloud version | Token audience value |
 | --- | --- |
