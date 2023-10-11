@@ -133,6 +133,9 @@ The legacy MFA policy has separate controls for **SMS** and **Phone calls**. But
 
 The Authentication methods policy has controls for **SMS** and **Voice calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Voice calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Voice calls** in the Authentication methods policy, and ensure that the **Office phone** option is enabled. 
 
+> [!NOTE] 
+> The **Use for sign-in** option is default enabled on **SMS** settings. This option enables SMS sign-in. If SMS sign-in is enabled for users, they will be skipped from cross-tenant synchronization. If you are using cross-tenant synchronization, disable SMS Sign-in for target users.
+
 ### OATH tokens
 
 The OATH token controls in the legacy MFA and SSPR policies were single controls that enabled the use of three different types of OATH tokens: the Microsoft Authenticator app, third-party software OATH TOTP code generator apps, and hardware OATH tokens.
