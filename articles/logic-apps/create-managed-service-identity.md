@@ -49,7 +49,7 @@ For more information about managed identity limits in Azure Logic Apps, review [
 
 ## Where you can use a managed identity
 
-Only specific built-in and managed connector operations that support Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) can use a managed identity for authentication. The following table provides only a *sample selection*. For a more complete list, review [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [Azure services that support Microsoft Entra authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Only specific built-in and managed connector operations that support OAuth with Microsoft Entra ID can use a managed identity for authentication. The following table provides only a *sample selection*. For a more complete list, review [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [Azure services that support Microsoft Entra authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### [Consumption](#tab/consumption)
 
