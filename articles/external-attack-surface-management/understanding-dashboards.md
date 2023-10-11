@@ -16,7 +16,7 @@ Defender EASM provides five dashboards:
 
 - **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface. 
 - **Attack surface summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface. This context includes insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
-- **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+- **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
 
@@ -29,7 +29,7 @@ To access your Defender EASM dashboards, first navigate to your Defender EASM in
 
 ## Downloading chart data 
 
-The data underlying any dashboard chart can be exported to a CSV file.  This export is useful for those who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Chart exports currently support individual chart segments; to download multiple segments from the same chart, you need to export each individual segment. 
+The data underlying any dashboard chart can be exported to a CSV file.  This export is useful for users who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Chart exports currently support individual chart segments; to download multiple segments from the same chart, you need to export each individual segment. 
 
 Selecting an individual chart segment opens a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action directly downloads the CSV file to your machine. If you are exporting a large number of assets, this action creates a task manager notification where you can track the status of your export. 
 
@@ -119,7 +119,7 @@ The Security Posture dashboard helps organizations measure the maturity of their
 
 ### CVE exposure
 
-The first chart in the Security Posture dashboard relates to the management of an organization’s website portfolio. Microsoft analyzes website components such as frameworks, server software, and 3rd party plugins and then matches them to a current list of Common Vulnerability Exposures (CVEs) to identify vulnerability risks to your organization. The web components that comprise each website are inspected daily to ensure recency and accuracy.
+The first chart in the Security Posture dashboard relates to the management of an organization’s website portfolio. Microsoft analyzes website components such as frameworks, server software, and third party plugins and then matches them to a current list of Common Vulnerability Exposures (CVEs) to identify vulnerability risks to your organization. The web components that comprise each website are inspected daily to ensure recency and accuracy.
 
 ![Screenshot of CVE exposure chart.](media/Dashboards-11.png)
 
@@ -189,7 +189,7 @@ This chart organizes your websites by status code. Options include Active, Inact
 
 ### Live sites with cert issues
 
-This chart displays pages that are actively serving content and present users with a warning that the site is insecure. The user must manually accept the warning to view the content on these pages. This can occur for a variety of reasons; this chart organizes results by the specific reason for easy mitigation. Options include broken certificates, active certificate issues, requires authorization and browser certificate errors.
+This chart displays pages that are actively serving content and present users with a warning that the site is insecure. The user must manually accept the warning to view the content on these pages. This can occur for various reasons; this chart organizes results by the specific reason for easy mitigation. Options include broken certificates, active certificate issues, requires authorization and browser certificate errors.
 
 ![Screenshot of SSL certificate posture chart.](media/Dashboards-20.png)
 
@@ -207,7 +207,7 @@ This chart is organized by the detected expiry window, ranging from already expi
 
 ### Sites by certificate posture
 
-This section analysis the signature algorithms that power an SSL certificate. SSL certificates can be secured with a variety of cryptographic algorithms; certain newer algorithms are considered more reputable and secure than older algorithms, so companies are advised to retire older algorithms like SHA-1.
+This section analysis the signature algorithms that power an SSL certificate. SSL certificates can be secured with various cryptographic algorithms; certain newer algorithms are considered more reputable and secure than older algorithms, so companies are advised to retire older algorithms like SHA-1.
 
 Users can click any segment of the pie chart to view a list of assets that comprise the selected value. SHA256 is considered secure, whereas organizations should update any certificates using the SHA1 algorithm.
 
@@ -229,7 +229,7 @@ This chart displays live PII sites by their usage of SSL certificates. By refere
 ![Screenshot of Live PII sites by certificate posture chart.](media/Dashboards-24.png)
 
 
-### Login websites by protcol 
+### Login websites by protocol 
 
 A login page is a page on a website where a user has the option to enter a username and password to gain access to services hosted on that site. Login pages have specific requirements under GDPR, so Defender EASM references the DOM of all scanned pages to search for code that correlates to a login. For instance, login pages must be secure to be compliant. This first chart displays Login websites by protocol (HTTP or HTTPS) and the second by certificate posture. 
 
@@ -241,7 +241,7 @@ A login page is a page on a website where a user has the option to enter a usern
 
 ### Cookie posture
 
-A cookie is information in the form of a very small text file that is placed on the hard drive of the computer running a web browser when browsing a site. Each time a website is visited, the browser sends the cookie back to the server to notify the website of your previous activity. GDPR has specific requirements for obtaining consent to issue a cookie, and different storage regulations for first- versus third-party cookies.
+A cookie is information in the form of a small text file that is placed on the hard drive of the computer running a web browser when browsing a site. Each time a website is visited, the browser sends the cookie back to the server to notify the website of your previous activity. GDPR has specific requirements for obtaining consent to issue a cookie, and different storage regulations for first- versus third-party cookies.
 
 ![Screenshot of Cookie posture chart.](media/Dashboards-27.png)
 
