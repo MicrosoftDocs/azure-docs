@@ -157,13 +157,13 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
-1. Select the **Change** link and enter the Azure AD application Object Id (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
+1. Select the **Change** link and enter the Microsoft Entra application Object Id (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
 
    :::image type="content" source="media/commission-cluster/commission-cluster-configure-kubernetes.png" alt-text="Screenshot of Configure Arc enabled Kubernetes pane, showing where to enter the custom location OID.":::
 
 1. The Arc enabled Kubernetes service is automatically created in the same resource group as your **Azure Stack Edge** resource. If your Azure Stack Edge resource group is not in a region that supports Azure Private 5G Core, you must change the region.
 1. Click **Configure** to apply the configuration.
-1. Check the **Region** and **Azure AD application Object Id (OID)** fields show the appropriate values, and then click **Create**.
+1. Check the **Region** and **Microsoft Entra application Object Id (OID)** fields show the appropriate values, and then click **Create**.
 1. Work through the prompts to set up the service.
 
 The creation of the Kubernetes cluster takes about 20 minutes. During creation, there may be a critical alarm displayed on the **Azure Stack Edge** resource. This alarm is expected and should disappear after a few minutes.
