@@ -26,8 +26,8 @@ The default sign-in experience is the global look and feel that applies across a
 
 Adding custom branding requires one of the following licenses:
 
-- Microsoft Entra ID P1 or P2 1
-- Microsoft Entra ID P1 or P2 2
+- Microsoft Entra ID P1 or P2
+- Microsoft Entra ID P1 or P2
 - Office 365 (for Office apps)
 
 For more information about licensing and editions, see the [Sign up for Microsoft Entra ID P1 or P2](./get-started-premium.md) article.

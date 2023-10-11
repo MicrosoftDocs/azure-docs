@@ -41,11 +41,9 @@ sections:
         answer: |
           Microsoft Entra ID provides you with common identity and access capabilities to all web services. Whether you are using Microsoft 365, Microsoft Azure, Intune, or others, you're already using Microsoft Entra ID to help turn on sign-on and access management for all these services.
           
-          All users who are set up to use web services are defined as user accounts in one or more Microsoft Entra ID instances. You can set up these accounts for free Microsoft Entra capabilities like cloud application access.
+          All users who are set up to use web services are defined as user accounts in one or more Microsoft Entra instances. You can set up these accounts for free Microsoft Entra capabilities like cloud application access.
           
-          Microsoft Entra ID paid services like Enterprise Mobility + Security complement other web services like Microsoft 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
-          
-          
+          Microsoft Entra paid services like Enterprise Mobility + Security complement other web services like Microsoft 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
           
       - question: |
           What are the differences between Owner and Global Administrator?
@@ -56,9 +54,7 @@ sections:
           
           By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Microsoft Entra directory features. Microsoft Entra ID has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Microsoft Entra directory admins and their roles, see [Assign a user to administrator roles in Microsoft Entra ID](./how-subscriptions-associated-directory.md) and [Assigning administrator roles in Microsoft Entra ID](../roles/permissions-reference.md).
           
-          Additionally, Microsoft Entra ID paid services like Enterprise Mobility + Security complement other web services, such as Microsoft 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
-          
-          
+          Additionally, Microsoft Entra paid services like Enterprise Mobility + Security complement other web services, such as Microsoft 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
           
       - question: |
           Is there a report that shows when my Microsoft Entra user licenses will expire?
@@ -129,7 +125,7 @@ sections:
   - name: Password management
     questions:
       - question: |
-          Can I use Microsoft Entra password write-back without password sync? (In this scenario, is it possible to use Microsoft Entra ID self-service password reset (SSPR) with password write-back and not store passwords in the cloud?)
+          Can I use Microsoft Entra password write-back without password sync? (In this scenario, is it possible to use Microsoft Entra self-service password reset (SSPR) with password write-back and not store passwords in the cloud?)
         answer: |
           You do not need to synchronize your Active Directory passwords to Microsoft Entra ID to enable write-back. In a federated environment, Microsoft Entra single sign-on (SSO) relies on the on-premises directory to authenticate the user. This scenario does not require the on-premises password to be tracked in Microsoft Entra ID.
           
@@ -154,14 +150,13 @@ sections:
           
           
       - question: |
-          What can I do if I can't remember my existing Microsoft 365/Microsoft Entra ID password while trying to change my password?
+          What can I do if I can't remember my existing Microsoft 365 / Microsoft Entra password while trying to change my password?
         answer: |
           For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](../authentication/howto-sspr-deployment.md).
           
           For Microsoft 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
           
-          For Microsoft Entra ID accounts, admins can reset passwords by using one of the following:
-          
+          For Microsoft Entra accounts, admins can reset passwords by using one of the following
           - [Reset accounts in the Azure portal](./users-reset-password-azure-portal.md)
           - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
           
@@ -202,7 +197,7 @@ sections:
           
           For more information, see:
           
-          * [Configuring single sign-on to applications that are not in the Microsoft Entra ID application gallery](../develop/single-sign-on-saml-protocol.md)
+          * [Configuring single sign-on to applications that are not in the Microsoft Entra application gallery](../develop/single-sign-on-saml-protocol.md)
           * [Using SCIM to enable automatic provisioning of users and groups from Microsoft Entra ID to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
           
           
@@ -212,7 +207,7 @@ sections:
         answer: |
           Microsoft Entra ID provides several ways for users to view and access their applications, such as:
           
-          * The Microsoft Entra ID access panel
+          * The Microsoft Entra access panel
           * The Microsoft 365 application launcher
           * Direct sign-in to federated apps
           * Deep links to federated, password-based, or existing apps

@@ -31,7 +31,7 @@ These basic controls include:
 ## Who's it for?
 
 - Organizations who want to increase their security posture, but don't know how or where to start.
-- Organizations using the free tier of Microsoft Entra licensing.
+- Organizations using the free tier of Microsoft Entra ID licensing.
 
 ### Who should use Conditional Access?
 
