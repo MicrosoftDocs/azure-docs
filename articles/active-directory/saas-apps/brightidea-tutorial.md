@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     ![Screenshot shows the Brightidea Identity Provider Setting where you enter information.](./media/brightidea-tutorial/metadata.png)
 
-   * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
+   * Enter the **SAML Profile Name**, such as `Microsoft Entra SSO`.
 
    * For **Upload Metadata**, click choose file and upload the downloaded metadata file.
 

@@ -16,7 +16,7 @@ ms.author: jasteppe
 > [!NOTE] 
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR resources are persisted into a FHIR service, which is also included in the template.
+The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR resources are persisted in the FHIR service, which is also included in the template.
 
 :::image type="content" source="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png":::
 
@@ -239,7 +239,7 @@ For your MedTech service metrics, you can see that your MedTech service complete
 
 ## View test data in the FHIR service
 
-If you provided your own Azure AD user object ID as the optional value for **Fhir Contributor Principal ID** in the deployment template, you can query FHIR resources in your FHIR service.
+If you provided your own Azure AD user object ID as the optional value for the **Fhir Contributor Principal ID** option in the deployment template, you can query FHIR resources in your FHIR service.
 
 To learn how to get an Azure AD access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md).
 

@@ -8,7 +8,9 @@ ms.reviewer: randolphwest
 ms.date: 04/27/2022
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sql-migration-content
 ---
 
 # Azure Database Migration Service supported scenarios

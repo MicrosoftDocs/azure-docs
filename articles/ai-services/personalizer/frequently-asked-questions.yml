@@ -11,10 +11,14 @@ metadata:
 title: Personalizer frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Personalizer service.
 
-
 sections:
   - name: Single region data residency
     questions: 
+      - question: |
+          When will Personalizer be deprecated?
+        answer:  |
+          Starting on the 20th of September, 2023 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.
+
       - question: |
           How is my data replicated in a region with single region data residency? 
         answer:  |
