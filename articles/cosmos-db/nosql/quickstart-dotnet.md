@@ -99,6 +99,10 @@ TODO
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="query_items":::
 
+TODO
+
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="parse_results":::
+
 ## Clean up resources
 
 When you no longer need the sample application or resources, remove the corresponding deployment.
