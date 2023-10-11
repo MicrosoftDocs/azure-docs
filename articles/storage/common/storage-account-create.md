@@ -62,7 +62,7 @@ None.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-The Azure Developer CLI (`azd`) requires you to be signed-in to Azure to provision and deploy resources. You can sign-in to Azure using `azd` in one of two ways:
+The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. `azd` requires you to be signed-in to Azure to provision and deploy resources. You can sign-in to Azure using `azd` in one of two ways:
 
 - Use Azure Cloud Shell from within the Azure portal.
 - Install `azd` locally.
