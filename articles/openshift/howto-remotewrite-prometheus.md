@@ -100,7 +100,7 @@ The captured metrics can be visualized using community Grafana dashboards or cre
 
 1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md)
 2. [Link](../azure-monitor/essentials/azure-monitor-workspace-manage.md?tabs=azure-portal#link-a-grafana-workspace) the created Grafana workspace to the Azure Monitor workspace
-3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashboard with id 3870 [Opensshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
+3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashboard with id 3870 [OpenShift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
 4. Specify the Azure Monitor Workspace as the datasource
 5. Save the dashboard
 6. Access the dashboard from **Home -> Dashboards**   
