@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 10/11/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -434,7 +434,15 @@ To enable application name or geographic location in the Microsoft Entra admin c
 
 ## Known issues
 
-Additional context isn't supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
+- Additional context isn't supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
+- Users can modify the location reported by iOS and Android devices. As a result, Microsoft Authenticator is updating its security baseline for Location Based Access Control (LBAC) Conditional Access policies. Authenticator will deny authentications where the user may be using a different location than the actual GPS location of the mobile device where Authenticator installed.  
+
+  In the November 2023 release of Authenticator, users who modify the location of their device will see a denial message in Authenticator when doing an LBAC authentication. Beginning January 2024, any users that run older Authenticator versions will be blocked from LBAC authentication with a modified location:
+  
+  - Authenticator version 6.2309.6329 or earlier on Android
+  - Authenticator version 6.7.16 or earlier on iOS
+  
+  To find which users run older versions of Authenticator, use [Microsft Graph APIs](graph/api/resources/microsoftauthenticatorauthenticationmethod#properties). 
 
 ## Next steps
 
