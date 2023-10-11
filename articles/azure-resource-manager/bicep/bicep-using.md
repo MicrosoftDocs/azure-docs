@@ -3,12 +3,16 @@ title: Using statement
 description: Describes how to use the using statement in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/21/2023
+ms.date: 10/11/2023
 ---
 
 # Using statement
 
 The `using` statement in [Bicep parameter files](./parameter-files.md) ties the Bicep parameters file to a Bicep file, an ARM JSON template, or a Bicep module, or a template spec. A `using` declaration must be present in any Bicep parameters file.
+
+> [!NOTE]
+> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or later.
+> To use the statement with ARM json templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.53.0 or later.
 
 The syntax:
 
@@ -50,7 +54,7 @@ The syntax:
   using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
   ```
 
-  To use aliases defined in [bicepconfig.json](./bicep-config.md):
+  To use a private module with an alias defined in [bicepconfig.json](./bicep-config.md):
 
   ```bicep
   using 'br/<alias>:<file>:<tag>'
@@ -72,7 +76,7 @@ The syntax:
   using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
   ```
 
-  To use aliases defined in [bicepconfig.json](./bicep-config.md):
+  To use a template spce with an alias defined in [bicepconfig.json](./bicep-config.md):
 
   ```bicep
   using 'ts/<alias>:<template-spec-name>:<tag>'
@@ -86,7 +90,5 @@ The syntax:
 
 ## Next steps
 
-- To learn about the Bicep data types, see [Data types](./data-types.md).
-- To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
-- To learn about how to use the Kubernetes provider, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- To go through a Kubernetes provider tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md).
+- To learn about the Bicep parameters files, see [Parameters file](./parameter-files.md).
+- To learn about configuring aliases in bicepconfig.json, see [Bicep config file](./bicep-config.md).

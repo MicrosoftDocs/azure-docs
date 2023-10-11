@@ -13,7 +13,7 @@ Rather than passing parameters as inline values in your script, you can use a Bi
 > [!NOTE]
 > The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or newer.
 
-A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the []`using` statement](./bicep-using.md) within the Bicep parameters file.
+A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the [`using` statement](./bicep-using.md) within the Bicep parameters file.
 
 You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file.  See [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params).
 
@@ -332,25 +332,58 @@ From Bicep CLI, you can build a Bicep parameters file into a JSON parameters fil
 
 ## Deploy Bicep file with parameters file
 
-From Azure CLI, you can pass both a json based local parameters file using `@` and the parameters file name and a .bicepparam based local parameters file just using the file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
+From Azure CLI, you can pass a parameter file with your Bicep file deployment.
+
+# [Bicep parameters file](#tab/Bicep)
+
+With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
+
+
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --parameters storage.bicepparam
+```
+
+# [JSON parameters file](#tab/JSON)
 
 ```azurecli
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
-  --parameters storage.bicepparam
+  --parameters storage.parameters.json
 ```
+
+---
 
 For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or later.
 
 From Azure PowerShell, pass a local parameters file using the `TemplateParameterFile` parameter.
 
+# [Bicep parameters file](#tab/Bicep)
+
 ```azurepowershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
   -TemplateFile C:\MyTemplates\storage.bicep `
   -TemplateParameterFile C:\MyTemplates\storage.bicepparam
 ```
+
+# [JSON parameters file](#tab/JSON)
+
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile C:\MyTemplates\storage.bicep `
+  -TemplateParameterFile C:\MyTemplates\storage.parameters.json
+```
+
+---
 
 For more information, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md#parameters). To deploy _.bicep_ files you need Azure PowerShell version 5.6.0 or later.
 

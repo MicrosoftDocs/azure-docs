@@ -271,7 +271,7 @@ az deployment group create \
 ```
 ### Bicep parameter files
 
-Using Azure CLI version 2.53.0 or later and Bicep CLI version 0.22.6 or later, it is possible to deploy an ARM JSON template using a [Bicep parameter file](../bicep/parameter-files.md). Because of the `using statement` in Bicep parameter file, you don't need to provide the `--template-file` switch if specify a Bicep parameter file for the `--parameters` switch. You get the "Only a .bicep template is allowed with a .bicepparam file" error if the `--template-file` switch is also included.
+With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
 
 ```azurecli-interactive
 az deployment group create \
