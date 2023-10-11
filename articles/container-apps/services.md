@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 10/11/2023
 ms.author: cshoe
 ---
 
@@ -26,11 +26,11 @@ Once you're ready for your app to use a production level service, you can connec
 
 Add-ons come with the following features:
 
-- **Scope**: The service runs in the same environment as the connected container app.
-- **Scaling**: The service can scale in to zero when there's no demand for the service.
-- **Pricing**: Service billing falls under consumption-based pricing. Billing only happens when instances of the service are running.
-- **Storage**: The service uses persistent storage to ensure there's no data loss as a service scales in to zero.
-- **Revisions**: Anytime you change a dev service, a new revision of your container app is created.
+- **Scope**: The add-on runs in the same environment as the connected container app.
+- **Scaling**: The add-on can scale in to zero when there's no demand for the service.
+- **Pricing**: Add-on billing falls under consumption-based pricing. Billing only happens when instances of the add-on are running.
+- **Storage**: The add-on uses persistent storage to ensure there's no data loss as the add-on scales in to zero.
+- **Revisions**: Anytime you change an add-on, a new revision of your container app is created.
 
 See the service-specific features for managed services.
 
@@ -48,7 +48,7 @@ Once a binding is established, the container app can read these configuration an
 
 ## Development vs production
 
-As you move from development to production, you can move from a dev service to a managed service.
+As you move from development to production, you can move from an add-on to a managed service.
 
 The following table shows you which service to use in development, and which service to use in production.
 
