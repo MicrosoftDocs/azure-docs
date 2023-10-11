@@ -24,7 +24,7 @@ To update a container app, use the `az containerapp update` command.   With this
 
 # [Bash](#tab/bash)
 
-You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).  
+You can also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).  
 
 This example updates the container image. Replace the \<PLACEHOLDERS\> with your values.
 
@@ -122,9 +122,9 @@ echo $RevisionObject
 
 ## Revision copy
 
-To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps uses the configuration of the existing revision, which you may then modify.  
+To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps uses the configuration of the existing revision, which you can then modify.  
 
-With this command, you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
+With this command, you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You can also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
 
 This example copies the latest revision and sets the compute resource parameters.  (Replace the \<PLACEHOLDERS\> with your values.)
 
