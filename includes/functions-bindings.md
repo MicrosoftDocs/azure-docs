@@ -16,7 +16,6 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Azure Data Explorer](../articles/azure-functions/functions-bindings-azure-data-explorer.md)               | |✔| |✔|✔|
 | [Azure SQL](../articles/azure-functions/functions-bindings-azure-sql.md)               | |✔|✔|✔|✔|
 | [Dapr](../articles/azure-functions/functions-bindings-dapr.md)<sup>4</sup>             | |✔|✔|✔|✔|
-| [Dapr](https://github.com/dapr/azure-functions-extension)<sup>4</sup>             | |✔|✔|✔|✔|
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP & webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
