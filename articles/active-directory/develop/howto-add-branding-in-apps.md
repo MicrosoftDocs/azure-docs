@@ -60,7 +60,7 @@ Your app may present separate paths for sign-up and sign-in and the following se
 
 ## Visual guidance for app acquisition
 
-Your “get the app” link must redirect the user to the Microsoft Entra grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data, which is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Microsoft Entra ID](./quickstart-register-app.md) article.
+Your “get the app” link must redirect the user to the Microsoft Entra ID grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data, which is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Microsoft Entra ID](./quickstart-register-app.md) article.
 
 After admins consent to your app, they can choose to add it to their users’ Microsoft 365 app launcher experience (accessible from the waffle and from [https://www.office.com/](https://www.office.com/)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like the following example:
 
