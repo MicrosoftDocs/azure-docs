@@ -40,7 +40,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-env-enterprise-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 

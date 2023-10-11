@@ -62,7 +62,7 @@ The main resource you need to run this sample is an Azure Spring Apps instance. 
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-env-consumption-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-consumption-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
