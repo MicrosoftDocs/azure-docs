@@ -646,7 +646,7 @@ For inbound calls, use the following cipher suites:
 The following list includes more ways that you can limit access to triggers that receive inbound calls to your logic app so that only authorized clients can call your logic app:
 
 * [Generate shared access signatures (SAS)](#sas)
-* [Enable Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](#enable-oauth)
+* [Enable OAuth with Microsoft Entra ID](#enable-oauth)
 * [Expose your logic app with Azure API Management](#azure-api-management)
 * [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
 
