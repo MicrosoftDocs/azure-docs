@@ -224,7 +224,7 @@
         href: search-security-api-keys.md
       - name: Connect using Azure roles
         href: search-security-rbac.md
-      - name: Configure apps for Azure AD
+      - name: Configure apps for Microsoft Entra ID
         href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
@@ -254,7 +254,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Azure AD
+      - name: Security filters with Microsoft Entra ID
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
