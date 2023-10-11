@@ -77,9 +77,10 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 > The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create storage accounts and manage account configuration. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Set the storage account's AllowBlobPublicAccess property
+++ ### Set the storage account's AllowBlobAnonymousAccess property
 
 To allow or disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
-
+++To allow or disallow anonymous access for a storage account, set the account's **AllowBlobAnonymousAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 # [Azure portal](#tab/portal)
 
 To allow or disallow anonymous access for a storage account in the Azure portal, follow these steps:
@@ -93,8 +94,10 @@ To allow or disallow anonymous access for a storage account in the Azure portal,
 # [PowerShell](#tab/powershell)
 
 To allow or disallow anonymous access for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **AllowBlobPublicAccess** property for a new or existing storage account.
+++To allow or disallow anonymous access for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **AllowBlobAnonymousAccess** property for a new or existing storage account.
 
 The following example creates a storage account and explicitly sets the **AllowBlobPublicAccess** property to **false**. Remember to replace the placeholder values in brackets with your own values:
+++The following example creates a storage account and explicitly sets the **AllowBlobAnonymousAccess** property to **false**. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 $rgName = "<resource-group>"
@@ -102,21 +105,36 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with AllowBlobPublicAccess explicitly set to false.
+++# Create a storage account with AllowBlobAnonymousAccess explicitly set to false.
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
     -AllowBlobPublicAccess $false
 
+++New-AzStorageAccount -ResourceGroupName $rgName `
+    -Name $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
+    -AllowBlobAnonymousAccess $false
+
 # Read the AllowBlobPublicAccess property for the newly created storage account.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
 ```
+++# Read the AllowBlobAnonymousAccess property for the newly created storage account.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobAnonymousAccess
+
+
 
 # [Azure CLI](#tab/azure-cli)
 
 To allow or disallow anonymous access for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowBlobPublicAccess** property for a new or existing storage account.
 
+To allow or disallow anonymous access for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **AllowBlobAnonymousAccess** property for a new or existing storage account.
+
 The following example creates a storage account and explicitly sets the **allowBlobPublicAccess** property to **false**. Remember to replace the placeholder values in brackets with your own values:
+
+++The following example creates a storage account and explicitly sets the **AllowBlobAnonymousAccess** property to **false**. Remember to replace the placeholder values in brackets with your own values:AllowBlobAnonymousAccess
 
 ```azurecli-interactive
 az storage account create \
@@ -132,15 +150,25 @@ az storage account show \
     --query allowBlobPublicAccess \
     --output tsv
 ```
+++az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query AllowBlobAnonymousAccess \
+    --output tsv
+
 
 # [Template](#tab/template)
 
 To allow or disallow anonymous access for a storage account with a template, create a template with the **AllowBlobPublicAccess** property set to **true** or **false**. The following steps describe how to create a template in the Azure portal.
+++To allow or disallow anonymous access for a storage account with a template, create a template with the **AllowBlobAnonymousAccess** property set to **true** or **false**. The following steps describe how to create a template in the Azure portal.
+
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search services and marketplace**, type **template deployment**, and then press **ENTER**.
 1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
 1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **true** or **false**. Remember to replace the placeholders in angle brackets with your own values.
+++1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobAnonymousAccess** property to **true** or **false**. Remember to replace the placeholders in angle brackets with your own values.
+
 
     ```json
     {
@@ -169,10 +197,39 @@ To allow or disallow anonymous access for a storage account with a template, cre
         ]
     }
     ```
+++
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'template')]"
+        },
+        "resources": [
+            {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "<location>",
+            "properties": {
+                "AllowBlobAnonymousAccess": false
+            },
+            "dependsOn": [],
+            "sku": {
+              "name": "Standard_GRS"
+            },
+            "kind": "StorageV2",
+            "tags": {}
+            }
+        ]
+    }
+    ```
+
 
 1. Save the template.
 1. Specify resource group parameter, then choose the **Review + create** button to deploy the template and create a storage account with the **allowBlobPublicAccess** property configured.
-
+++1. Specify resource group parameter, then choose the **Review + create** button to deploy the template and create a storage account with the **allowBlobAnonymousAccess** property configured.
 ---
 
 > [!NOTE]
@@ -185,6 +242,9 @@ When a container is configured for anonymous access, requests to read blobs in t
 Allowing or disallowing anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 The examples in this section showed how to read the **AllowBlobPublicAccess** property for the storage account to determine whether anonymous access is currently allowed or disallowed. To learn how to verify that an account's anonymous access setting is configured to prevent anonymous access, see [Remediate anonymous access for the storage account](anonymous-read-access-prevent.md#remediate-anonymous-access-for-the-storage-account).
+++The examples in this section showed how to read the **AllowBlobAnonymoysAccess** property for the storage account to determine whether anonymous access is currently allowed or disallowed. To learn how to verify that an account's anonymous access setting is configured to prevent anonymous access, see [Remediate anonymous access for the storage account](anonymous-read-access-prevent.md#remediate-anonymous-access-for-the-storage-account).
+
+
 
 ## Set the anonymous access level for a container
 
