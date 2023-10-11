@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure AI Metrics Advisor documentation
-summary: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
+summary: Starting on the 20th of September, 2023 you won’t be able to create new Metrics Advisor resources. The Metrics Advisor service is being retired on the 1st of October, 2026.
 
 metadata:
   title: Azure AI Metrics Advisor documentation - Tutorials, API reference - Azure AI services  | Microsoft Docs

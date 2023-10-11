@@ -442,6 +442,9 @@
       - name: Max variables
         displayName: linter
         href: linter-rule-max-variables.md
+      - name: No conflicting metadata
+        displayName: linter
+        href: linter-rule-no-conflicting-metadata.md
       - name: No hardcoded environment URLs
         displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md

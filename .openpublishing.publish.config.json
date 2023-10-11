@@ -1207,6 +1207,7 @@
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/hdinsight-aks/.openpublishing.redirection.hdinsight-aks.json",
   "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
   "articles/internet-peering/.openpublishing.redirection.internet-peering.json",
   "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",

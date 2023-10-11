@@ -357,7 +357,7 @@ Microsoft Entra ID can't find the user account in the tenant.
 
 ##### Solution
 
-To acquire a fresh PRT that has the new credentials, wait for the Azure AD synchronization to finish.
+To acquire a fresh PRT that has the new credentials, wait for the Microsoft Entra synchronization to finish.
 </details>
 
 #### Common network error codes ("ERROR_WINHTTP_" prefix)
