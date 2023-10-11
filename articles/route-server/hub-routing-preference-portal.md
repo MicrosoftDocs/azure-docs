@@ -43,6 +43,6 @@ Learn how to use routing preference setting in Azure Route Server to influence i
 
 ## Related content
 
-- [Create and configure Route Server using Azure PowerShell](quickstart-configure-route-server-powershell.md).
-- [Monitor Azure Route Server](monitor-route-server.md).
-- [Azure Route Server FAQ](route-server-faq.md).
+- [Create and configure Route Server](quickstart-configure-route-server-portal.md)
+- [Monitor Azure Route Server](monitor-route-server.md)
+- [Azure Route Server FAQ](route-server-faq.md)
