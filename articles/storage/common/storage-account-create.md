@@ -110,15 +110,15 @@ N/A
 
 If you plan to use `azd` via Cloud Shell:
 
-    * Sign-in to the [Azure portal](https://portal.azure.com) 
-    * Launch Cloud Shell by clicking on the corresponding icon. `azd` is automatically available in Cloud Shell and will authenticate via the account you used to sign-in to the Azure portal.
-    
-    :::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::
+  * Sign-in to the [Azure portal](https://portal.azure.com) 
+  * Launch Cloud Shell by clicking on the corresponding icon. `azd` is automatically available in Cloud Shell and will authenticate via the account you used to sign-in to the Azure portal.
+  
+    :::image type="content" source="media/storage-account-create/azd-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::    
     
 To sign-in to a local installation of `azd` or Codespaces environment, run the [azd auth login](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
 
 ```azurecli-interactive
-azd auth login
+    azd auth login
 ```
 
 `azd` will launch a browser window that you can use to sign-in to Azure.
