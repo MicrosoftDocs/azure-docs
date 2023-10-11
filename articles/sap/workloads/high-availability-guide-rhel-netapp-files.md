@@ -1,6 +1,6 @@
 ---
-title: Azure VMs HA for SAP NetWeaver on RHEL with Azure NetApp Files| Microsoft Docs
-description: Establish high availability (HA) for SAP NetWeaver on Azure virtual machines (VMs) Red Hat Enterprise Linux (RHEL) with Azure NetApp Files.
+title: Azure Virtual Machines HA for SAP NW on RHEL with Azure NetApp Files| Microsoft Docs
+description: Establish high availability (HA) for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with Azure NetApp Files.
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
@@ -12,7 +12,7 @@ ms.date: 08/23/2023
 ms.author: radeltch
 ---
 
-# Azure VMs HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications
+# Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications
 
 [dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
@@ -34,13 +34,15 @@ ms.author: radeltch
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
-This article describes how to deploy the virtual machines (VMs), configure the VMs, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system by using [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md). In the example configurations and installation commands, the ASCS instance is number 00, the ERS instance is number 01, the Primary Application instance (PAS) is 02, and the Application instance (AAS) is 03. The SAP System ID QAS is used.
+This article describes how to deploy virtual machines (VMs), configure the VMs, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system by using [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md). In the example configurations and installation commands, the ASCS instance is number 00, the ERS instance is number 01, the Primary Application instance (PAS) is 02, and the Application instance (AAS) is 03. The SAP System ID QAS is used.
 
 The database layer isn't covered in detail in this article.
 
+## Prerequisites
+
 Read the following SAP Notes and papers first:
 
-* [Azure NetApp Files documentation][anf-azure-doc].
+* [Azure NetApp Files documentation][anf-azure-doc]
 * SAP Note [1928533], which has:
   * A list of Azure VM sizes that are supported for the deployment of SAP software.
   * Important capacity information for Azure VM sizes.
@@ -55,27 +57,27 @@ Read the following SAP Notes and papers first:
 * SAP Note [2243692] has information about SAP licensing on Linux in Azure.
 * SAP Note [1999351] has more troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
-* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
-* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
-* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
-* [SAP NetWeaver in Pacemaker cluster](https://access.redhat.com/articles/3150081).
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
+* [SAP NetWeaver in Pacemaker cluster](https://access.redhat.com/articles/3150081)
 * General Red Hat Enterprise Linux (RHEL) documentation:
-  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
-  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
-  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
-  * [Configuring ASCS/ERS for SAP NetWeaver with standalone resources in RHEL 7.5](https://access.redhat.com/articles/3569681).
-  * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL](https://access.redhat.com/articles/3974941).
+  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Configuring ASCS/ERS for SAP NetWeaver with standalone resources in RHEL 7.5](https://access.redhat.com/articles/3569681)
+  * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL](https://access.redhat.com/articles/3974941)
 * Azure-specific RHEL documentation:
-  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
-  * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491).
-* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
-* [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf).
+  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
+  * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
+* [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf)
 
 ## Overview
 
-High availability (HA) for SAP NetWeaver central services requires shared storage. To achieve HA on Red Hat Linux up to this point, it was necessary to build a separate highly available GlusterFS cluster.
+High availability (HA) for SAP NetWeaver central services requires shared storage. Until now to achieve HA on Red Hat Linux, it was necessary to build a separate highly available GlusterFS cluster.
 
-Now it's possible to achieve SAP NetWeaver HA by using shared storage deployed on Azure NetApp Files. Using Azure NetApp Files for shared storage eliminates the need for more [GlusterFS cluster](./high-availability-guide-rhel-glusterfs.md). Pacemaker is still needed for HA of the SAP NetWeaver central services (ASCS/SCS).
+Now it's possible to achieve SAP NetWeaver HA by using shared storage deployed on Azure NetApp Files. Using Azure NetApp Files for shared storage eliminates the need for more [GlusterFS clusters](./high-availability-guide-rhel-glusterfs.md). Pacemaker is still needed for HA of the SAP NetWeaver central services (ASCS/SCS).
 
 ![Diagram that shows SAP NetWeaver high-availability overview.](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
@@ -88,7 +90,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 
 ## Set up the Azure NetApp Files infrastructure
 
-SAP NetWeaver requires shared storage for the transport and profile directory. Before you proceed with the setup for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. Check if your selected Azure region offers Azure NetApp Files. For the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files availability by Azure region][anf-avail-matrix].
+SAP NetWeaver requires shared storage for the transport and profile directory. Before you proceed with the setup for Azure NetApp Files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. Check if your selected Azure region offers Azure NetApp Files. For the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files availability by Azure region][anf-avail-matrix].
 
 Azure NetApp Files are available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp).
 
@@ -122,7 +124,7 @@ When you consider Azure NetApp Files for the SAP NetWeaver on RHEL HA architectu
 * Azure NetApp Files and all VMs, where Azure NetApp Files volumes will be mounted, must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported now. Azure NetApp Files access over global peering isn't supported yet.
 * The selected virtual network must have a subnet delegated to Azure NetApp Files.
 * The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level. For more information, see [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). When you size the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.
-* Azure NetApp Files offers [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md). You can control the allowed clients and the access type (like Read&Write and Read Only).
+* Azure NetApp Files offers [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md). You can control the allowed clients and the access type (like Read/Write and Read Only).
 * The Azure NetApp Files feature isn't zone aware yet. Currently, the Azure NetApp Files feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 * You can deploy Azure NetApp Files volumes as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers).
 
@@ -130,7 +132,7 @@ When you consider Azure NetApp Files for the SAP NetWeaver on RHEL HA architectu
 
 In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home).
 
-### Deploy Azure Load Balancer via Azure portal
+### Deploy Azure Load Balancer via the Azure portal
 
 After you deploy the VMs for your SAP system, create a load balancer. Use VMs created for SAP ASCS/ERS instances in the back-end pool.
 
@@ -173,12 +175,12 @@ After you deploy the VMs for your SAP system, create a load balancer. Use VMs cr
 > [!IMPORTANT]
 > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need more IP addresses for the VM, deploy a second NIC.
 
-When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard load balancer, there's' no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard load balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
 > Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
-## Disable ID mapping (If you use NFSv4.1)
+## Disable ID mapping (if you use NFSv4.1)
 
 The instructions in this section are only applicable if you're using Azure NetApp Files volumes with the NFSv4.1 protocol. Perform the configuration on all VMs where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
@@ -200,7 +202,7 @@ The instructions in this section are only applicable if you're using Azure NetAp
 
 The following **[A]** prefix applies to both PAS and AAS.
 
-1. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under `/sys/modules` because access is reserved for the kernel / drivers.
+1. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under `/sys/modules` because access is reserved for the kernel and drivers.
 
     ```bash
     # Check nfs4_disable_idmapping 
@@ -228,15 +230,15 @@ The following items are prefixed with either:
 - **[1]**: Only applicable to node 1
 - **[2]**: Only applicable to node 2
 
-1. **[A]** Set up host name resolution.
+1. **[A]** Set up hostname resolution.
 
-   You can either use a DNS server or modify the `/etc/hosts` file on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the host name in the following commands:
+   You can either use a DNS server or modify the `/etc/hosts` file on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the hostname in the following commands:
 
     ```bash
     sudo vi /etc/hosts
     ```
 
-   Insert the following lines to `/etc/hosts`. Change the IP address and host name to match your environment.
+   Insert the following lines to `/etc/hosts`. Change the IP address and hostname to match your environment.
 
     ```bash
     # IP address of cluster node 1
@@ -372,7 +374,7 @@ The following items are prefixed with either:
    ResourceDisk.SwapSizeMB=2000
    ```
 
-   Restart the Agent to activate the change
+   Restart the agent to activate the change.
 
    ```bash
    sudo service waagent restart
@@ -416,7 +418,7 @@ The following items are prefixed with either:
      --group g-QAS_ASCS
    ```
 
-   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
+   Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
    ```bash
    sudo pcs status
@@ -435,9 +437,9 @@ The following items are prefixed with either:
 
 1. **[1]** Install SAP NetWeaver ASCS.
 
-   Install SAP NetWeaver ASCS as the root on the first node by using a virtual host-name that maps to the IP address of the load balancer front-end configuration for the ASCS, for example, **anftstsapvh**, **192.168.14.9**, and the instance number that you used for the probe of the load balancer, for example, **00**.
+   Install SAP NetWeaver ASCS as the root on the first node by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the ASCS, for example, **anftstsapvh**, **192.168.14.9**, and the instance number that you used for the probe of the load balancer, for example, **00**.
 
-   You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to `sapinst`.
+   You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to `sapinst`.
 
    ```bash
    # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
@@ -479,7 +481,7 @@ The following items are prefixed with either:
     --group g-QAS_AERS
    ```
 
-   Make sure that the cluster status is okay and that all resources are started. The node the resources are running on isn't important.
+   Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
    ```bash
    sudo pcs status
@@ -502,7 +504,7 @@ The following items are prefixed with either:
 
 1. **[2]** Install SAP NetWeaver ERS.
 
-   Install SAP NetWeaver ERS as the root on the second node by using a virtual host-name that maps to the IP address of the load balancer front-end configuration for the ERS, for example, **anftstsapers**, **192.168.14.10**, and the instance number that you used for the probe of the load balancer, for example, **01**.
+   Install SAP NetWeaver ERS as the root on the second node by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the ERS, for example, **anftstsapers**, **192.168.14.10**, and the instance number that you used for the probe of the load balancer, for example, **01**.
 
    You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to `sapinst`.
 
@@ -552,7 +554,7 @@ The following items are prefixed with either:
 
 1. **[A]** Configure Keep Alive.
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this action, set a parameter in the SAP NetWeaver ASCS/SCS profile, if you use ENSA1 and change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. For more information, see [SAP Note 1410736][1410736].
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this action, set a parameter in the SAP NetWeaver ASCS/SCS profile, if you use ENSA1, and change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. For more information, see [SAP Note 1410736][1410736].
 
    ```bash
    # Change the Linux system configuration
@@ -702,7 +704,7 @@ The following items are prefixed with either:
     #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
     ```
 
-1. **[1]** Run the following step to configure priority-fencing-delay (applicable only as of pacemaker-2.0.4-6.el8 or higher).
+1. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
 
     > [!NOTE]
     > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces more delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
@@ -756,7 +758,7 @@ The following items are prefixed with either:
 
 Some databases require that the database instance installation runs on an application server. Prepare the application server VMs to be able to use them in these cases.
 
-The following steps assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise, some of the steps (like configuring host-name resolution) aren't needed.
+The following steps assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise, some of the steps (like configuring hostname resolution) aren't needed.
 
 The following items are prefixed with either:
 
@@ -764,14 +766,14 @@ The following items are prefixed with either:
 - **[P]**: Only applicable to PAS
 - **[S]**: Only applicable to AAS
 
-1. **[A]** Set up host-name resolution.
-   You can either use a DNS server or modify the `/etc/hosts` file on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the host name in the following commands:
+1. **[A]** Set up hostname resolution.
+   You can either use a DNS server or modify the `/etc/hosts` file on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the hostname in the following commands:
 
    ```bash
    sudo vi /etc/hosts
    ```
 
-   Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment.
+   Insert the following lines to `/etc/hosts`. Change the IP address and hostname to match your environment.
 
    ```text
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
@@ -913,9 +915,9 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 
 1. Run the SAP database instance installation.
 
-   Install the SAP NetWeaver database instance as the root by using a virtual host name that maps to the IP address of the load balancer front-end configuration for the database.
+   Install the SAP NetWeaver database instance as the root by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the database.
 
-   You can use the `sapinst parameter` `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to `sapinst`.
+   You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to `sapinst`.
 
    ```bash
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
@@ -949,7 +951,7 @@ Follow these steps to install an SAP application server.
    hdbuserstore List
    ```
 
-   This should list all entries and should look similar to
+   All entries should be listed and look similar to:
 
    ```bash
    DATA FILE       : /home/qasadm/.hdb/anftstsapa01/SSFS_HDB.DAT
@@ -961,7 +963,7 @@ Follow these steps to install an SAP application server.
      DATABASE: QAS
    ```
 
-   The output shows that the IP address of the default entry is pointing to the VM and not to the load balancer's IP address. You need to change this entry to point to the virtual host name of the load balancer. Make sure to use the same port (**30313** in the preceding output) and database name (**QAS** in the preceding output).
+   The output shows that the IP address of the default entry is pointing to the VM and not to the load balancer's IP address. You need to change this entry to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the preceding output) and database name (**QAS** in the preceding output).
 
    ```bash
    su - qasadm
@@ -980,4 +982,4 @@ Thoroughly test your Pacemaker cluster. For more information, see [Execute the t
 * See [Azure Virtual Machines deployment for SAP][deployment-guide].
 * See [Azure Virtual Machines DBMS deployment for SAP][dbms-guide].
 * To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
-* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure VMs, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].
+* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure Virtual Machines, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].
