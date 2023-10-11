@@ -117,7 +117,7 @@ The Requests table contains fields that track data about the following events in
 - Retry attempts
 - Connector usage
 
-To show how data gets into these fields, suppose you have the following example Standard workflow that starts with a **Request** trigger and follows with the **Compose** action and the **Response** action.
+To show how data gets into these fields, suppose you have the following example Standard workflow that starts with the **Request** trigger followed by the **Compose** action and the **Response** action.
 
 ![Screenshot shows Azure portal, Standard workflow, with trigger and actions.](media/enable-enhanced-telemetry-standard-workflows/workflow-overview.png)
 
@@ -179,13 +179,13 @@ After the workflow runs and a few minutes pass, you can create a query against t
 
    | Property | Description | Example |
    |----------|-------------|---------|
-   | **Category** | The operation category, which is always either **Workflow.Operations.Triggers** or **Workflow.Operations.Actions**, based on the operation | **Workflow.Operations.Triggers**. |
+   | **Category** | Operation category, which is always either **Workflow.Operations.Triggers** or **Workflow.Operations.Actions**, based on the operation | **Workflow.Operations.Triggers**. |
    | **clientTrackingId** | Custom tracking ID, if specified | **123456** |
    | **triggerName** | Trigger name | **manual** |
    | **workflowId** | ID for the workflow that ran the trigger | **c7711d107e6647179c2e15fe2c2720ce** |
    | **workflowName** | Name for the workflow that ran the trigger | **Request-Response-Workflow** |
    | **operation_Name** | Name for the operation that ran the trigger. In this case, this name is the same as the workflow name. | **Request-Response-Workflow** |
-   | **operation_Id** | ID for the component or workflow that just ran. If an exceptions or dependencies exist, this value transcends the tables so you can link to these executions. | **08585355657974196224452383060CU00** |
+   | **operation_Id** | ID for the component or workflow that just ran. If exceptions or dependencies exist, this value transcends the tables so you can link to these executions. | **08585355657974196224452383060CU00** |
    | **operation_ParentId** | Linkable ID for the workflow that called the trigger | **f95138daff8ab129** |
 
    The following example shows the expanded details for the **Compose** action:
@@ -194,7 +194,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
 
    | Property | Description | Example |
    |----------|-------------|---------|
-   | **Category** | The operation category, which is always either **Workflow.Operations.Triggers** or **Workflow.Operations.Actions**, based on the operation | **Workflow.Operations.Actions** |
+   | **Category** | Operation category, which is always either **Workflow.Operations.Triggers** or **Workflow.Operations.Actions**, based on the operation | **Workflow.Operations.Actions** |
    | **clientTrackingId** | Custom tracking ID, if specified | **123456** |
    | **actionName** | Action name | **Compose** |
    | **runId** | ID for the workflow run instance | **08585358375819913417237801890CU00** |
@@ -202,7 +202,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
    | **workflowName** | Name for the workflow that ran the action | **Request-Response-Workflow** |
    | **solutionName** | Tracked property name, if specified | **LA-AppInsights** |
    | **operation_Name** | Name for the operation that ran the action. In this case, this name is the same as the workflow name. | **Request-Response-Workflow** |
-   | **operation_Id** | ID for the component or workflow that just ran. If an exceptions or dependencies exist, this value transcends the tables so you can link to these executions. | **08585355657974196224452383060CU00** |
+   | **operation_Id** | ID for the component or workflow that just ran. If exceptions or dependencies exist, this value transcends the tables so you can link to these executions. | **08585355657974196224452383060CU00** |
    | **operation_ParentId** | Linkable ID for the workflow that called the action | **f95138daff8ab129** |
 
 <a name="requests-table-view-trigger-or-action-events"></a>
@@ -326,15 +326,15 @@ You can create a query against the Requests table to view a subset of operation 
 
 1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
 
-1. To view all the trigger and action events, create and run the following query in Application Insights:
+1. To view only trigger and action events with retry history, create and run the following query in Application Insights:
 
    ```kusto
    requests
-   | sort by timestamp desc
-   | take 10
+   | extend retryHistory = tostring(tostring(customDimensions.retryHistory))
+   | where isnotempty(retryHistory)
    ```
 
-1. To view the retry attempts for an operation with a retry policy, expand the row for that operation.
+1. To view the retry attempts for a specific operation with a retry policy, expand the row for that operation.
 
    The following example shows the expanded details for the **HTTP** action:
 
@@ -461,6 +461,52 @@ You can create a query against the Traces table to view the batch send and batch
    ![Screenshot shows Application Insights, Results tab for batch send and batch receive events in all workflow runs.](media/enable-enhanced-telemetry-standard-workflows/traces-table/batch-events-all-runs.png)
 
 ### Exceptions table
+
+The Exceptions table contains fields that track data about exception events in Standard workflow runs. To show how data gets into these fields, suppose you have the following example Standard workflow that starts with the **Request** trigger followed by the **Compose** action and the **Response** action. The **Compose** action uses an expression that divides a value by zero, which generates an exception:
+
+![Screenshot shows Azure portal, Standard workflow designer, Request trigger, Compose action with an exception-generating expression, and Response action.](media/enable-enhanced-telemetry-standard-workflows/exceptions-table/compose-action-exception-expression.png)
+
+<a name="exceptions-table-view-exception-events"></a>
+
+#### Query for exception events in all workflow runs
+
+You can create a query against the Exceptions table to view the exception events in all workflow runs.
+
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. To view all exception events, create and run the following query in Application Insights:
+
+   ```kusto
+   exceptions
+   | sort by timestamp desc
+   ```
+
+1. To view the details for a specific exception, expand the row for that exception:
+
+   The following example shows the expanded exception for the **Compose** action and details about the exception:
+
+   ![Screenshot shows Application Insights, Results tab for exception events with the exception event for the Compose action expanded, and exception details.](media/enable-enhanced-telemetry-standard-workflows/exceptions-table/exception-details.png)
+
+   | Property | Description |
+   |----------|-------------|
+   | **problemId** | Exception type, or a short description about the exception that happened |
+   | **outerMessage** | More detailed description about the exception |
+   | **details** | Verbose and most complete information about the exception |
+   | **clientTrackingId** | Client tracking ID, if specified |
+   | **workflowId** | ID for the workflow that experienced the exception |
+   | **workflowName** | Name for the workflow that experienced the exception |
+   | **runId** | ID for the workflow run instance |
+   | **actionName** | Name for the action that failed with the exception |
+   | **operation_Name** | Name for the workflow that experienced the exception |
+   | **operation_Id** | ID for the component or workflow that just ran. This ID is the same as the **runId** value for the workflow run instance. This value transcends tables so you can link this exception record with the workflow run instance. |
+   | **operation_ParentId** | ID for the workflow that called the action, which you can link to the action event in the Requests table |
+
+1. To view the exceptions for a specific workflow, create and run the following query:
+
+   ```kusto
+   exceptions
+   | where operation_Name contains "Request-Response-Workflow-Exception"
+   ```
 
 ### Dependencies table
 
