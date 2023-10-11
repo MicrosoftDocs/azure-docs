@@ -22,6 +22,8 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 TBD The Vision SDK supports face recognition and liveness detection which is available in Kotlin, Java, Swift and Obj-C for Android and iOS.
 
+TBD mention we have iBeta certification
+
 ## September 2023
 
 ### Deprecation of outdated Computer Vision API versions
