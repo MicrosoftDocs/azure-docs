@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 10/12/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, has-azure-ad-ps-ref
@@ -70,9 +70,18 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a role-assignable group.
 
+This example shows how to create a Security role-assignable group.
+
 ```powershell
 Connect-MgGraph -Scopes "Group.ReadWrite.All"
-$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group has Helpdesk Administrator built-in role assigned to it in Azure AD." -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
+$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "Helpdesk Administrator role assigned to group" -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
+```
+
+This example shows how to create a Microsoft 365 role-assignable group.
+
+```powershell
+Connect-MgGraph -Scopes "Group.ReadWrite.All"
+$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators_PSv2" -Description "Helpdesk Administrator role assigned to group" -MailEnabled:$true -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true -GroupTypes "Unified"
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -80,7 +89,7 @@ $group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description
 Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a role-assignable group.
 
 ```powershell
-$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
+$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "Helpdesk Administrator role assigned to group" -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
 ```
 
 For this type of group, `isPublic` will always be false and `isSecurityEnabled` will always be true.
@@ -125,18 +134,34 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 
 Use the [Create group](/graph/api/group-post-groups?branch=main) API to create a role-assignable group.
 
+This example shows how to create a Security role-assignable group.
+
 ```http
 POST https://graph.microsoft.com/v1.0/groups
 {
-  "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+    "description": "Helpdesk Administrator role assigned to group",
+    "displayName": "Contoso_Helpdesk_Administrators",
+    "isAssignableToRole": true,
+    "mailEnabled": false,
+    "mailNickname": "contosohelpdeskadministrators",
+    "securityEnabled": true
+}
+```
+
+This example shows how to create a Microsoft 365 role-assignable group.
+
+```http
+POST https://graph.microsoft.com/v1.0/groups
+{
+  "description": "Helpdesk Administrator role assigned to group",
   "displayName": "Contoso_Helpdesk_Administrators",
   "groupTypes": [
     "Unified"
   ],
   "isAssignableToRole": true,
   "mailEnabled": true,
-  "securityEnabled": true,
   "mailNickname": "contosohelpdeskadministrators",
+  "securityEnabled": true,
   "visibility" : "Private"
 }
 ```
