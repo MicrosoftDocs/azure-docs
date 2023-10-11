@@ -13,7 +13,7 @@ ms.author: banders
 
 # Create an Enterprise Agreement subscription
 
-This article helps you create an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant. You may want another subscription to avoid hitting subscription quota limits, to create separate environments for security, or to isolate data for compliance reasons.
+This article helps you create an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscription for yourself or for someone else in your current Microsoft Entra directory/tenant. You may want another subscription to avoid hitting subscription quota limits, to create separate environments for security, or to isolate data for compliance reasons.
 
 If you want to create subscriptions for Microsoft Customer Agreements, see [Create a Microsoft Customer Agreement subscription](create-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
 
@@ -43,8 +43,8 @@ An account owner uses the following information to create an EA subscription.
 1. Select an **Offer type**, select **Enterprise Dev/Test** if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Enterprise**.  
     :::image type="content" source="./media/create-enterprise-subscription/create-subscription-basics-tab-enterprise-agreement.png" alt-text="Screenshot showing the Basics tab where you enter basic information about the enterprise subscription." lightbox="./media/create-enterprise-subscription/create-subscription-basics-tab-enterprise-agreement.png" :::
 1. Select the **Advanced** tab.
-1. Select your **Subscription directory**. It's the Azure Active Directory (Azure AD) where the new subscription will get created.
-1. Select a **Management group**. It's the Azure AD management group that the new subscription is associated with. You can only select management groups in the current directory.
+1. Select your **Subscription directory**. It's the Microsoft Entra ID where the new subscription will get created.
+1. Select a **Management group**. It's the Microsoft Entra management group that the new subscription is associated with. You can only select management groups in the current directory.
 1. Select more or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
     :::image type="content" source="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you specify the directory, management group, and owner for the EA subscription. " lightbox="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" :::
 1. Select the **Tags** tab.

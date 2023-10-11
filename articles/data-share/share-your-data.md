@@ -40,7 +40,7 @@ Below is the list of prerequisites for sharing data from SQL source.
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
-* **Azure Active Directory Admin** of the SQL server
+* **Microsoft Entra Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
@@ -52,7 +52,7 @@ Below is the list of prerequisites for sharing data from SQL source.
 * * An Azure Synapse Analytics (workspace) dedicated SQL pool with tables that you want to share. Sharing of view isn't currently supported. Sharing from serverless SQL pool isn't currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a db_datareader. 
     
@@ -209,7 +209,7 @@ Use these commands to create the resource:
 
    :::image type="content" source="./media/datasets.png" alt-text="Screenshot of the datasets page in share creation, the add datasets button is highlighted.":::
 
-1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Azure Active Directory authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
+1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Microsoft Entra authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    :::image type="content" source="./media/add-datasets.png" alt-text="Screenshot showing the available dataset types.":::
 
