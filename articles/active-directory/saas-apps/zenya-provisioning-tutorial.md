@@ -2,8 +2,8 @@
 title: 'Tutorial: Configure Zenya for automatic user provisioning with Microsoft Entra ID'
 description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Zenya.
 services: active-directory
-author: twimmers
-writer: twimmers
+author: gspanjers
+writer: gspanjers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -124,7 +124,9 @@ For more information (in dutch) also read: [`Implementatie SCIM koppeling`](http
    |userName|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
-
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |title|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
 
 
 1. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Zenya**.
