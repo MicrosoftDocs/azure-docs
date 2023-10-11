@@ -50,7 +50,7 @@ Azure File Sync requires the IP address ranges for the following services, as id
 | Azure File Sync | The Azure File Sync service, as represented by the Storage Sync Service object, is responsible for the core activity of syncing data between an Azure file share and a Windows file server. | `StorageSyncService` |
 | Azure Files | All data synchronized via Azure File Sync is stored in Azure file share. Files changed on your Windows file servers are replicated to your Azure file share, and files tiered on your on-premises file server are seamlessly downloaded when a user requests them. | `Storage` |
 | Azure Resource Manager | The Azure Resource Manager is the management interface for Azure. All management calls, including Azure File Sync server registration and ongoing sync server tasks, are made through the Azure Resource Manager. | `AzureResourceManager` |
-| Azure Active Directory | Azure Active Directory, or Azure AD, contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
+| Microsoft Entra ID | Microsoft Entra ID, or Microsoft Entra ID, contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
 
 If you're using Azure File Sync within Azure, even if it's in a different region, you can use the name of the service tag directly in your network security group to allow traffic to that service. To learn more, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
 
