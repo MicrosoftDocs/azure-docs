@@ -130,7 +130,7 @@ Use a new resource group for each cluster so that you can distinguish between cl
 
 ## Microsoft Entra Domain Services
 
-[Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md) (Microsoft Entra Domain Services) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
+[Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
 
 Microsoft Entra Domain Services is required for secure clusters to join a domain.
 HDInsight can't depend on on-premises domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Microsoft Entra Domain Services FAQs](../../active-directory-domain-services/faqs.yml).
