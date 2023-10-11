@@ -37,10 +37,10 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azure/).
 * **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/downloads). The SDK is used to create a security certificate.
-* **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
+* **Microsoft Entra service principal**: This tutorial describes how to create a service principal in Microsoft Entra ID. However, to create a service principal, you must be a Microsoft Entra administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]
-	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
+	>You can create a service principal only if you are a Microsoft Entra administrator. Your Microsoft Entra administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
 ## Create an Azure Data Lake Storage Gen1 account
@@ -118,7 +118,7 @@ To create a Data Lake Storage Gen1 account, do the following:
     ````
 
 ## Set up authentication for role-based access to Data Lake Storage Gen1
-Every Azure subscription is associated with an Azure AD entity. Users and services that access subscription resources by using the Azure portal or the Azure Resource Manager API must first authenticate with Azure AD. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource. For services, a service principal identifies the service in Azure AD.
+Every Azure subscription is associated with a Microsoft Entra entity. Users and services that access subscription resources by using the Azure portal or the Azure Resource Manager API must first authenticate with Microsoft Entra ID. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource. For services, a service principal identifies the service in Microsoft Entra ID.
 
 This section illustrates how to grant an application service, such as HDInsight, access to an Azure resource (the Data Lake Storage Gen1 account that you created earlier). You do so by creating a service principal for the application and assigning roles to it via PowerShell.
 
@@ -145,8 +145,10 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
     When you are prompted, enter the private key password that you specified earlier. The value you specify for the **-po** parameter is the password that's associated with the .pfx file. After the command has been completed successfully, you should also see a **CertFile.pfx** in the certificate directory that you specified.
 
-### Create an Azure AD and a service principal
-In this section, you create a service principal for an Azure AD application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. To create an application in Azure AD, run the following commands:
+<a name='create-an-azure-ad-and-a-service-principal'></a>
+
+### Create a Microsoft Entra ID and a service principal
+In this section, you create a service principal for a Microsoft Entra application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. To create an application in Microsoft Entra ID, run the following commands:
 
 1. Paste the following cmdlets in the PowerShell console window. Make sure that the value you specify for the **-DisplayName** property is unique. The values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
 

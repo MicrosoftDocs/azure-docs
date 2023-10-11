@@ -380,6 +380,8 @@
         href: britive-tutorial.md
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
+      - name: Brocade SANnav Management Portal
+        href: brocade-sannav-management-portal-tutorial.md
       - name: Broker groupe Achat Solutions
         href: broker-groupe-tutorial.md
       - name: BrowserStack Single Sign-on
@@ -1433,6 +1435,8 @@
         href: juriblox-tutorial.md  
       - name: JustLogin
         href: justlogin-tutorial.md
+      - name: Kairos Business
+        href: kairos-business-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: KanbanBOX
@@ -2309,6 +2313,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: Senomix Timesheets
+        href: senomix-timesheets-tutorial.md
       - name: SendPro Enterprise
         href: sendpro-enterprise-tutorial.md
       - name: SendSafely
@@ -2465,6 +2471,8 @@
         href: speexx-tutorial.md  
       - name: Splashtop
         href: splashtop-tutorial.md
+      - name: Splashtop Secure Workspace
+        href: splashtop-secure-workspace-tutorial.md
       - name: SPS|Production Manager
         href: sps-production-manager-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
@@ -2681,6 +2689,8 @@
         href: tranxfer-tutorial.md
       - name: TravelPerk
         href: travelperk-tutorial.md  
+      - name: Treasury Intelligence Solutions (TIS)
+        href: treasury-intelligence-solutions-tis-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trend Micro Web Security(TMWS)
@@ -3180,6 +3190,8 @@
         href: dialpad-provisioning-tutorial.md
       - name: directprint.io
         href: directprint-io-provisioning-tutorial.md
+      - name: Diffchecker
+        href: diffchecker-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
       - name: embed signage
@@ -3540,6 +3552,8 @@
         href: taskize-connect-provisioning-tutorial.md
       - name: Teamgo
         href: teamgo-provisioning-tutorial.md
+      - name: Team Today
+        href: team-today-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: TerraTrue

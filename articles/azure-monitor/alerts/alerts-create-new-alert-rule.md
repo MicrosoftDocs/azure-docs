@@ -492,7 +492,7 @@ ARM templates for activity log alerts contain additional properties for the cond
 |---------|---------|
 |resourceId|The resource ID of the affected resource in the activity log event on which the alert is generated.|
 |category|The category of the activity log event. Possible values are `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.        |
-|caller|The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.        |
+|caller|The email address or Microsoft Entra identifier of the user who performed the operation of the activity log event.        |
 |level     |Level of the activity in the activity log event for the alert. Possible values are `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.|
 |operationName     |The name of the operation in the activity log event. Possible values are `Microsoft.Resources/deployments/write`.        |
 |resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |

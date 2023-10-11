@@ -18,18 +18,6 @@ This article outlines some of the frequently asked questions and OS concepts for
 
 AKS uses Windows Server 2019 and Windows Server 2022 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat]. For Kubernetes version 1.25 and higher, Windows Server 2022 is the default operating system. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
-## Is Kubernetes different on Windows and Linux?
-
-Windows Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on the upstream support from the Kubernetes project, see the [Supported functionality and limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document.
-
-Historically, Kubernetes is Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS level apply:
-
-- **Identity**: Linux identifies a user by an integer user identifier (UID). A user also has an alphanumeric user name for logging on, which Linux translates to the user's UID. Similarly, Linux identifies a user group by an integer group identifier (GID) and translates a group name to its corresponding GID.
-    Windows Server uses a larger binary security identifier (SID) that's stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
-- **File permissions**: Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID.
-- **File paths**: The convention on Windows Server is to use \ instead of /. 
-    In pod specs that mount volumes, specify the path correctly for Windows Server containers. For example, rather than a mount point of */mnt/volume* in a Linux container, specify a drive letter and location such as */K/Volume* to mount as the *K:* drive.
-
 ## What kind of disks are supported for Windows?
 
 Azure Disks and Azure Files are the supported volume types, and are accessed as NTFS volumes in the Windows Server container.

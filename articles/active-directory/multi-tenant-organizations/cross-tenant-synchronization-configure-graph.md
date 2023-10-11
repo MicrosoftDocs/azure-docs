@@ -1532,5 +1532,5 @@ You are likely trying to update an object that doesn't exist using `PATCH`.
 
 ## Next steps
 
-- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
+- [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
 - [Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID](../app-provisioning/use-scim-to-provision-users-and-groups.md)

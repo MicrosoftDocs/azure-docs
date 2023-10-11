@@ -78,7 +78,7 @@ The session configuration changes persist and become available to another notebo
 
 > [!TIP]
 >
-> If you use session-level Conda packages, you can [improve](./how-to-submit-spark-jobs.md#improving-serverless-spark-session-start-up-time-while-using-session-level-conda-packages) the Spark session *cold start* time if you set the configuration variable `spark.hadoop.aml.enable_cache` to true.
+> If you use session-level Conda packages, you can [improve](./how-to-submit-spark-jobs.md#improving-serverless-spark-session-start-up-time-while-using-session-level-conda-packages) the Spark session *cold start* time if you set the configuration variable `spark.hadoop.aml.enable_cache` to true. A session cold start with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session cold starts with the configuration variable set to true typically take three to five minutes.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
@@ -276,11 +276,11 @@ or provide credential-less data access. Depending on the datastore type and the 
 |Storage account type|Credential-less data access|Data access mechanism|Role assignments|
 | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
 |Azure Blob|No|Access key or SAS token|No role assignments needed|
-|Azure Blob|Yes|User identity passthrough<sup><b>*</b></sup>|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Blob storage account|
+|Azure Blob|Yes|User identity passthrough<sup>__*__</sup>|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Blob storage account|
 |Azure Data Lake Storage (ADLS) Gen 2|No|Service principal|Service principal should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account|
 |Azure Data Lake Storage (ADLS) Gen 2|Yes|User identity passthrough|User identity should have [appropriate role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account|
 
-<sup><b>*</b></sup> User identity passthrough works for credential-less datastores that point to Azure Blob storage accounts, only if [soft delete](../storage/blobs/soft-delete-blob-overview.md) is not enabled.
+<sub>__*__</sub> User identity passthrough works for credential-less datastores that point to Azure Blob storage accounts, only if [soft delete](../storage/blobs/soft-delete-blob-overview.md) is not enabled.
 
 ## Accessing data on the default file share
 

@@ -55,7 +55,7 @@ The local auth method is used when `AuthType` is set to null.
 
 ### Use Microsoft Entra ID
 
-The Microsoft Entra ID auth method is used when `AuthType` is set to `azure`, `azure.app` or `azure.msi`.
+The Microsoft Entra auth method is used when `AuthType` is set to `azure`, `azure.app` or `azure.msi`.
 
 | Key            | Description                                                                             | Required | Default value | Example value                              |
 | -------------- | --------------------------------------------------------------------------------------- | -------- | ------------- | ------------------------------------------ |

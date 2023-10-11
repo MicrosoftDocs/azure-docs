@@ -71,7 +71,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md)
 
-From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra ID logs with other tools, which allow more automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools, which allow more automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level with security information and event management (SIEM) capabilities.
 
@@ -79,7 +79,7 @@ From the Azure portal, you can view the Microsoft Entra audit logs and download 
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** – automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Microsoft Entra ID logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
@@ -180,8 +180,8 @@ Monitor application authentication using the following formation:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Applications that are using the ROPC authentication flow|Medium | Microsoft Entra Sign-ins log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow. This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
-|Applications using the Device code flow |Low to medium|Microsoft Entra Sign-ins log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices, which may not be in all environments. If successful device code flows appear, without a need for them, investigate for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+| Applications that are using the ROPC authentication flow|Medium | Microsoft Entra sign-in log|Status=Success<br><br>Authentication Protocol-ROPC| High level of trust is being placed in this application as the credentials can be cached or stored. Move if possible to a more secure authentication flow. This should only be used in automated testing of applications, if at all. For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+|Applications using the Device code flow |Low to medium|Microsoft Entra sign-in log|Status=Success<br><br>Authentication Protocol-Device Code|Device code flows are used for input constrained devices, which may not be in all environments. If successful device code flows appear, without a need for them, investigate for validity. For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](../develop/v2-oauth2-device-code.md)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Application configuration changes
 
@@ -191,8 +191,8 @@ Monitor changes to application configuration. Specifically, configuration change
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Dangling URI| High| Microsoft Entra ID Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Redirect URI configuration changes| High| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Dangling URI| High| Microsoft Entra logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Redirect URI configuration changes| High| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 Alert when these changes are detected.
 
@@ -200,7 +200,7 @@ Alert when these changes are detected.
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to AppID URI| High| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update<br>Application<br>Activity: Update Service principal| Look for any AppID URI modifications, such as adding, modifying, or removing the URI.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationIDURIChanged.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Changes to AppID URI| High| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update<br>Application<br>Activity: Update Service principal| Look for any AppID URI modifications, such as adding, modifying, or removing the URI.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationIDURIChanged.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 Alert when these changes are detected outside approved change management procedures.
 
@@ -208,13 +208,13 @@ Alert when these changes are detected outside approved change management procedu
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to application ownership| Medium| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Add owner to application| Look for any instance of a user being added as an application owner outside of normal change management activities.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationOwnership.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Changes to application ownership| Medium| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Add owner to application| Look for any instance of a user being added as an application owner outside of normal change management activities.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationOwnership.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 ### Log-out URL modified or removed
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to log-out URL| Low| Microsoft Entra ID logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) <br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
+| Changes to log-out URL| Low| Microsoft Entra logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) <br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Resources
 
@@ -226,7 +226,7 @@ Alert when these changes are detected outside approved change management procedu
 
 * OAuth attack detection guidance - [Unusual addition of credentials to an OAuth app](/cloud-app-security/investigate-anomaly-alerts)
 
-* Microsoft Entra ID monitoring configuration information for SIEMs - [Partner tools with Azure Monitor integration](../..//azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
+* Microsoft Entra monitoring configuration information for SIEMs - [Partner tools with Azure Monitor integration](../..//azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 
 ## Next steps
 
