@@ -51,10 +51,6 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
 
 1. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
 
-> [!NOTE]
-> When you access the report for the first time, the insights in this report may not be available immediately and may take some time to generate. If you are getting an error, please follow the instructions ensuring you have Microsoft Entra ID Governance license or wait for some time to see the report generated.  
-> The inactive days calculation is based on the 2 parameters (last sign in date and creation date). If both of the dates are not available in the system, then we consider User state change date i.e. the date when the user state was last changed. This will give us the closest accurate inactivity duration for those special situations.
-
 
 ## Create a multi-stage review for guests to self-attest continued access
 
