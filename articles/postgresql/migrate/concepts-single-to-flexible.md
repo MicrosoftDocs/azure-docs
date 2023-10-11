@@ -125,13 +125,13 @@ The result of the Validate option can be
 
 * **Migrate** - Use this option to kickstart the migration without going through validation process. It's recommended to perform validation before triggering a migration to increase the chances for a successful migration. Once validation is done, you can use this option to start the migration process. 
 
-* **Validate And Migrate** - In this option, validations are performed and then migration gets triggered if all checks are in **succeeded** or **warning** state. Validation failures don't start the migration between source and target servers.
+* **Validate and Migrate** - In this option, validations are performed and then migration gets triggered if all checks are in **succeeded** or **warning** state. Validation failures don't start the migration between source and target servers.
 
 We recommend customers to use pre-migration validations in the following way:
 1) Choose **Validate** option and run pre-migration validation on an advanced date of your planned migration.
 2) Analyze the output and take any remedial actions of any errors.
 3) Run Step 1 again till the validation is successful
-4) Start the migration using the **Validate And Migrate** option on the planned date and time.
+4) Start the migration using the **Validate and Migrate** option on the planned date and time.
 
 > [!NOTE]  
 > Pre-migration validations is currently available only in Azure portal. Support for CLI will be introduced at a later point in time.
