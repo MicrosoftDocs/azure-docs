@@ -114,7 +114,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </head>
 
     <body onload="GetMap()">
-        <div id="myMap"></div>
+        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
     </body>
 
     </html>
@@ -150,7 +150,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     > This example uses [Route66Attractions.xml].
 
     ```html
-    ﻿<!DOCTYPE html>
+    <!DOCTYPE html>
     <html>
     <head>
         <title>Spatial IO Module Example</title>
