@@ -3,6 +3,7 @@
 - name: Get started
   items:
       - name: Overview
+        expanded: true
         items:
         - name: About API Management
           displayName: Overview
@@ -17,7 +18,7 @@
           href: api-management-terminology.md  
         - name: Service limits
           href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
-      - name: Quickstarts
+      - name: Create an instance
         items:
           - name: Create an instance - CLI
             href: get-started-create-service-instance-cli.md
@@ -35,35 +36,142 @@
             href: quickstart-arm-template.md
           - name: Create an instance - Terraform
             href: quickstart-terraform.md
-- name: Tutorials
+      - name: Tutorials
+        items:
+            - name: 1 - Import your first API
+              href: import-and-publish.md
+            - name: 2 - Create and publish a product
+              displayName: Azure CLI, az apim product
+              href: api-management-howto-add-products.md
+            - name: 3 - Mock API responses
+              displayName: Azure CLI, az apim api operation
+              href: mock-api-responses.md
+            - name: 4 - Protect your API
+              href: transform-api.md
+            - name: 5 - Monitor published APIs
+              href: api-management-howto-use-azure-monitor.md
+            - name: 6 - Debug your APIs
+              href: api-management-howto-api-inspector.md
+            - name: 7 - Add revisions
+              displayName: Azure CLI, az apim api release
+              href: api-management-get-started-revise-api.md
+            - name: 8 - Add multiple versions
+              displayName: Azure CLI, az apim api versionset
+              href: api-management-get-started-publish-versions.md
+            - name: 9 - Customize developer portal
+              href: api-management-howto-developer-portal-customize.md
+            - name: 10 - Manage APIs in Visual Studio Code
+              href: visual-studio-code-tutorial.md      
+- name: Deployment and operations
   items:
-      - name: 1 - Import your first API
-        href: import-and-publish.md
-      - name: 2 - Create and publish a product
-        displayName: Azure CLI, az apim product
-        href: api-management-howto-add-products.md
-      - name: 3 - Mock API responses
-        displayName: Azure CLI, az apim api operation
-        href: mock-api-responses.md
-      - name: 4 - Protect your API
-        href: transform-api.md
-      - name: 5 - Monitor published APIs
-        href: api-management-howto-use-azure-monitor.md
-      - name: 6 - Debug your APIs
-        href: api-management-howto-api-inspector.md
-      - name: 7 - Add revisions
-        displayName: Azure CLI, az apim api release
-        href: api-management-get-started-revise-api.md
-      - name: 8 - Add multiple versions
-        displayName: Azure CLI, az apim api versionset
-        href: api-management-get-started-publish-versions.md
-      - name: 9 - Customize developer portal
-        href: api-management-howto-developer-portal-customize.md
-      - name: 10 - Manage APIs in Visual Studio Code
-        href: visual-studio-code-tutorial.md      
-- name: Define and manage APIs
+  - name: Provision and scale
+    items:
+      - name: Use capacity for scaling decisions
+        href: api-management-capacity.md
+      - name: Upgrade and scale
+        href: upgrade-and-scale.md
+      - name: Configure autoscale
+        href: api-management-howto-autoscale.md  
+      - name: Plan and manage costs
+        href: plan-manage-costs.md
+      - name: Configure a custom domain
+        href: configure-custom-domain.md
+      - name: Use an external cache
+        href: api-management-howto-cache-external.md
+      - name: Compute platform
+        href: compute-infrastructure.md
+        displayName: stv1, stv2
+      - name: Migrate to stv2 platform
+        href: migrate-stv1-to-stv2.md
+      - name: Validate service updates
+        href: validate-service-updates.md
+      - name: Move instances between regions
+        href: api-management-howto-migrate.md
+      - name: Recover a deleted instance
+        displayName: soft delete
+        href: soft-delete.md
+      - name: Use role-based access control
+        href: api-management-role-based-access-control.md
+      - name: Use managed identities for Azure resources
+        href: api-management-howto-use-managed-service-identity.md
+      - name: Send events to Event Grid
+        href: how-to-event-grid.md
+  - name: Network isolation
+    items:
+    - name: Networking options
+      href: virtual-network-concepts.md
+    - name: Deploy to a VNet - external
+      href: api-management-using-with-vnet.md
+    - name: Deploy to a VNet - internal
+      href: api-management-using-with-internal-vnet.md
+    - name: Integrate Application Gateway in an internal virtual network
+      href: api-management-howto-integrate-internal-vnet-appgateway.md
+    - name: Connect privately using private endpoint
+      href: private-endpoint.md
+    - name: Integrate with VNet for outbound requests
+      href: integrate-vnet-outbound.md
+    - name: Retrieve IP addresses
+      href: api-management-howto-ip-addresses.md
+    - name: Defend against DDoS attacks
+      href: protect-with-ddos-protection.md
+    - name: Configure Front Door
+      href: front-door-api-management.md
+  - name: Workspaces
+    items:
+      - name: Workspaces overview
+        href: workspaces-overview.md
+      - name: Create a workspace
+        href: how-to-create-workspace.md
+      - name: Use a workspace
+        href: api-management-in-workspace.md  
+  - name: Configuration management
+    items:
+      - name: Landing zone accelerator
+        href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+      - name: Manage using automation
+        href: automation-manage-api-management.md
+      - name: Configure using Git
+        href: api-management-configuration-repository-git.md
+      - name: DevOps and CI/CD
+        href: devops-api-development-templates.md 
+  - name: Resiliency
+    items: 
+    - name: High availability features
+      href: high-availability.md
+      displayName: reliability, resilience, resiliency  
+    - name: Deploy to multiple Azure regions
+      href: api-management-howto-deploy-multi-region.md
+    - name: Enable zone redundancy
+      displayName: Availability zones
+      href: ../reliability/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Set up DR using backup/restore
+      displayName: disaster, recovery
+      href: api-management-howto-disaster-recovery-backup-restore.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+- name: Logs and monitoring
   items:
-    - name: Create APIs
+  - name: Observability
+    href: observability.md
+    displayName: monitoring
+  - name: Get API analytics
+    href: howto-use-analytics.md
+  - name: Log events to Azure Event Hubs
+    href: api-management-howto-log-event-hubs.md
+  - name: Log requests with Azure Application Insights
+    href: api-management-howto-app-insights.md
+  - name: Visualize data using Managed Grafana
+    href: visualize-using-managed-grafana-dashboard.md
+  - name: Test and monitor APIs in Postman
+    href: export-api-postman.md
+    displayName: collection
+- name: Define APIs
+  items:
+    - name: Add and import APIs
       items:
           - name: Add an API manually
             href: add-api-manually.md
@@ -114,7 +222,7 @@
               href: api-management-kubernetes.md
             - name: Integrate with Service Fabric
               href: ../service-fabric/service-fabric-api-management-overview.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-    - name: Define APIs
+    - name: Modify APIs
       items:
           - name: Edit an API
             href: edit-api.md
@@ -130,11 +238,9 @@
       items:
           - name: Add caching to improve performance
             href: api-management-howto-cache.md
-          - name: Use an external cache
-            href: api-management-howto-cache-external.md
           - name: Custom caching
             href: api-management-sample-cache-by-key.md
-- name: Define API policies
+- name: Manage APIs with policies
   items:
       - name: API Management policies overview
         href: api-management-howto-policies.md
@@ -160,7 +266,7 @@
         href: api-management-howto-properties.md
       - name: Configure a GraphQL resolver
         href: configure-graphql-resolver.md
-- name: Self-host the gateway
+- name: Manage APIs on-premises and in other clouds
   items:
     - name: Self-hosted gateway overview
       href: self-hosted-gateway-overview.md
@@ -196,42 +302,42 @@
       href: self-hosted-gateway-support-policies.md
 - name: Secure your APIs
   items:
-    - name: Secure API access
-      items:
-      - name: API authentication and authorization options
-        href: authentication-authorization-overview.md
-      - name: Protect your API with Azure AD
-        href: api-management-howto-protect-backend-with-aad.md
-      - name: Protect your API with Azure AD B2C
-        href: howto-protect-backend-frontend-azure-ad-b2c.md
-      - name: Secure APIs using client certificate authentication
-        href: api-management-howto-mutual-certificates-for-clients.md
-      - name: Manage CA certificates
-        href: api-management-howto-ca-certificates.md
-      - name: Manage protocols and ciphers
-        href: api-management-howto-manage-protocols-ciphers.md
-      - name: Protect with Defender for APIs (preview)
-        href: protect-with-defender-for-apis.md              
-      - name: Mitigate OWASP API threats
-        href: mitigate-owasp-api-threats.md
-        displayName: OWASP top 10, vulnerability, vulnerabilities
-    - name: Manage API authorizations
-      items:
-      - name: API authorizations
-        href: authorizations-overview.md
-        displayName: OAuth
-      - name: Configure common authorization providers
-        href: authorizations-configure-common-providers.md
-      - name: Configure and use authorization - Azure AD
-        href: authorizations-how-to-azure-ad.md
-      - name: Configure and use authorization - GitHub
-        href: authorizations-how-to-github.md
-      - name: Configure multiple authorization connections
-        href: configure-authorization-connection.md
-    - name: Set up backend authentication
-      items:
-      - name: Mutual certificate authentication
-        href: api-management-howto-mutual-certificates.md
+  - name: Secure API access
+    items:
+    - name: API authentication and authorization options
+      href: authentication-authorization-overview.md
+    - name: Protect your API with Azure AD
+      href: api-management-howto-protect-backend-with-aad.md
+    - name: Protect your API with Azure AD B2C
+      href: howto-protect-backend-frontend-azure-ad-b2c.md
+    - name: Secure APIs using client certificate authentication
+      href: api-management-howto-mutual-certificates-for-clients.md
+    - name: Manage CA certificates
+      href: api-management-howto-ca-certificates.md
+    - name: Manage protocols and ciphers
+      href: api-management-howto-manage-protocols-ciphers.md
+    - name: Protect with Defender for APIs (preview)
+      href: protect-with-defender-for-apis.md              
+    - name: Mitigate OWASP API threats
+      href: mitigate-owasp-api-threats.md
+      displayName: OWASP top 10, vulnerability, vulnerabilities
+  - name: Manage API authorizations
+    items:
+    - name: API authorizations
+      href: authorizations-overview.md
+      displayName: OAuth
+    - name: Configure common authorization providers
+      href: authorizations-configure-common-providers.md
+    - name: Configure and use authorization - Azure AD
+      href: authorizations-how-to-azure-ad.md
+    - name: Configure and use authorization - GitHub
+      href: authorizations-how-to-github.md
+    - name: Configure multiple authorization connections
+      href: configure-authorization-connection.md
+  - name: Set up backend authentication
+    items:
+    - name: Mutual certificate authentication
+      href: api-management-howto-mutual-certificates.md
 - name: Publish APIs to developers
   items:
       - name: Use subscriptions
@@ -300,113 +406,6 @@
             href: monetization-overview.md
           - name: How API Management supports monetization
             href: monetization-support.md
-- name: Monitor APIs
-  items:
-  - name: Observability
-    href: observability.md
-    displayName: monitoring
-  - name: Get API analytics
-    href: howto-use-analytics.md
-  - name: Log events to Azure Event Hubs
-    href: api-management-howto-log-event-hubs.md
-  - name: Log requests with Azure Application Insights
-    href: api-management-howto-app-insights.md
-  - name: Visualize data using Managed Grafana
-    href: visualize-using-managed-grafana-dashboard.md
-  - name: Test and monitor APIs in Postman
-    href: export-api-postman.md
-    displayName: collection
-- name: Deploy and configure your instance
-  items:
-  - name: Provision and scale
-    items:
-      - name: Use capacity for scaling decisions
-        href: api-management-capacity.md
-      - name: Upgrade and scale
-        href: upgrade-and-scale.md
-      - name: Configure autoscale
-        href: api-management-howto-autoscale.md  
-      - name: Plan and manage costs
-        href: plan-manage-costs.md
-      - name: Configure a custom domain
-        href: configure-custom-domain.md
-      - name: Compute platform
-        href: compute-infrastructure.md
-        displayName: stv1, stv2
-      - name: Migrate to stv2 platform
-        href: migrate-stv1-to-stv2.md
-      - name: Validate service updates
-        href: validate-service-updates.md
-      - name: Move instances between regions
-        href: api-management-howto-migrate.md
-      - name: Recover a deleted instance
-        displayName: soft delete
-        href: soft-delete.md
-      - name: Use role-based access control
-        href: api-management-role-based-access-control.md
-      - name: Use managed identities for Azure resources
-        href: api-management-howto-use-managed-service-identity.md
-      - name: Send events to Event Grid
-        href: how-to-event-grid.md
-  - name: Workspaces
-    items:
-      - name: Workspaces overview
-        href: workspaces-overview.md
-      - name: Create a workspace
-        href: how-to-create-workspace.md
-      - name: Use a workspace
-        href: api-management-in-workspace.md  
-  - name: Configuration management
-    items:
-      - name: Landing zone accelerator
-        href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-      - name: Manage using automation
-        href: automation-manage-api-management.md
-      - name: Configure using Git
-        href: api-management-configuration-repository-git.md
-      - name: DevOps and CI/CD
-        href: devops-api-development-templates.md 
-  - name: Resiliency
-    items: 
-    - name: High availability features
-      href: high-availability.md
-      displayName: reliability, resilience, resiliency  
-    - name: Deploy to multiple Azure regions
-      href: api-management-howto-deploy-multi-region.md
-    - name: Enable zone redundancy
-      displayName: Availability zones
-      href: ../reliability/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-    - name: Set up DR using backup/restore
-      displayName: disaster, recovery
-      href: api-management-howto-disaster-recovery-backup-restore.md
-  - name: Networking and security
-    items:
-    - name: Network isolation
-      items:
-        - name: Networking options
-          href: virtual-network-concepts.md
-        - name: Deploy to a VNet - external
-          href: api-management-using-with-vnet.md
-        - name: Deploy to a VNet - internal
-          href: api-management-using-with-internal-vnet.md
-        - name: Integrate Application Gateway in an internal virtual network
-          href: api-management-howto-integrate-internal-vnet-appgateway.md
-        - name: Connect privately using private endpoint
-          href: private-endpoint.md
-        - name: Integrate with VNet for outbound requests
-          href: integrate-vnet-outbound.md
-        - name: Retrieve IP addresses
-          href: api-management-howto-ip-addresses.md
-        - name: Defend against DDoS attacks
-          href: protect-with-ddos-protection.md
-        - name: Configure Front Door
-          href: front-door-api-management.md
-    - name: Security
-      items:
-      - name: Security controls by Azure Policy
-        href: ./security-controls-policy.md
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
 - name: Troubleshoot
   items:
     - name: Diagnose issues in production
