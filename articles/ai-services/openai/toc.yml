@@ -78,7 +78,11 @@ items:
         href: ./how-to/prepare-dataset.md
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
-  - name: Networking & security
+  - name: Models
+    items:
+      - name: Manage models
+        href: ./how-to/working-with-models.md
+  - name: Networking and security
     items:
       - name: Use virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context

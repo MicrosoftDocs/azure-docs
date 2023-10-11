@@ -31,7 +31,7 @@ PIM enables you to allow a specific set of actions at a particular scope. Key fe
 
 * Require **approval** to activate privileged roles
 
-* Enforce **multifactor authentication** to activate any role
+* Enforce **Multifactor authentication** to activate any role
 
 * Use **justification** to understand why users activate
 

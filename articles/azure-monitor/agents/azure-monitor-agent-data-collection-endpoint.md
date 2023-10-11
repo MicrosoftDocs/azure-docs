@@ -44,7 +44,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 
 1. Use this flowchart to determine the values of the `Settings` and `ProtectedSettings` parameters first.
 
-    ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
+    :::image type="content" source="media/azure-monitor-agent-overview/proxy-flowchart.png" lightbox="media/azure-monitor-agent-overview/proxy-flowchart.png" alt-text="Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.":::
 
     > [!NOTE]
     > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above. For the ARM template, if you have proxy configuration please follow the ARM template example below declaring the proxy setting inside the ARM template. Additionally, a user can set "global" environment variables that get picked up by all systemd services [via the DefaultEnvironment variable in /etc/systemd/system.conf](https://www.man7.org/linux/man-pages/man5/systemd-system.conf.5.html).

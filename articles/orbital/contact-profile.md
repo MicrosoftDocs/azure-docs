@@ -35,7 +35,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | --- | --- |
    | Subscription | Select a subscription |
    | Resource group | Select a resource group |
-   | Name | Enter the contact profile name. Specify the antenna provider and mission information here. Like *Microsoft_Aqua_Uplink+Downlink_1* |
+   | Name | Enter the contact profile name. Specify the antenna provider and mission information here. Like *Microsoft_Aqua_Uplink_Downlink_1* |
    | Region | Select a region |
    | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. Like *PT1M* |
    | Minimum elevation | Define minimum elevation of the contact, after acquisition of signal (AOS), as a prerequisite to show you available time slots to communicate with your spacecraft. Using higher value can reduce the duration of the contact. Provide minimum viable elevation in decimal degrees. |

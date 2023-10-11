@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/02/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: egreenberg14
 ---
 # What are Microsoft Entra sign-in logs?
 
-Microsoft Entra ID logs all sign-ins into an Azure tenant, which includes your internal apps and resources. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+Microsoft Entra logs all sign-ins into an Azure tenant, which includes your internal apps and resources. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Microsoft Entra ID are a powerful type of [activity log](overview-reports.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
 
@@ -50,11 +50,14 @@ There are four types of logs in the sign-in logs preview:
 
 The classic sign-in logs only include interactive user sign-ins. 
 
+> [!NOTE]
+> Entries in the sign-in logs are system generated and can't be changed or deleted.
+
 ### Interactive user sign-ins
 
 Interactive sign-ins are performed *by* a user. They provide an authentication factor to Microsoft Entra ID. That authentication factor could also interact with a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Microsoft Entra ID or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Microsoft Entra ID.  
 
-:::image type="content" source="media/concept-sign-ins/sign-in-logs-user-interactive.png" alt-text="Screenshot of the interactive user sign-ins log." lightbox="media/concept-sign-ins/sign-in-logs-user-interactive-expanded.png":::
+:::image type="content" source="media/concept-sign-ins/sign-in-logs-user-interactive.png" alt-text="Screenshot of the interactive user sign-in log." lightbox="media/concept-sign-ins/sign-in-logs-user-interactive-expanded.png":::
 
 **Report size:** small </br>
 **Examples:**
@@ -91,7 +94,7 @@ You may identify Microsoft Graph events that don't correlate to a service princi
 
 Non-interactive sign-ins are done *on behalf of a* user. These delegated sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Microsoft Entra ID recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
 
-![Screenshot of the non-interactive user sign-ins log.](media/concept-sign-ins/sign-in-logs-user-noninteractive.png)
+![Screenshot of the non-interactive user sign-in log.](media/concept-sign-ins/sign-in-logs-user-noninteractive.png)
 
 **Report size:** Large </br>
 **Examples:** 
@@ -112,7 +115,7 @@ To make it easier to digest the data, non-interactive sign-in events are grouped
 
 :::image type="content" source="media/concept-sign-ins/aggregate-sign-in.png" alt-text="Screenshot of an aggregate sign-in expanded to show all rows." lightbox="media/concept-sign-ins/aggregate-sign-in-expanded.png":::
 
-When Microsoft Entra ID logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than one in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
+When Microsoft Entra logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than one in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
 
 Sign-ins are aggregated in the non-interactive users when the following data matches:
 
@@ -129,7 +132,7 @@ Sign-ins are aggregated in the non-interactive users when the following data mat
 
 Unlike interactive and non-interactive user sign-ins, service principal sign-ins don't involve a user. Instead, they're sign-ins by any nonuser account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-in log). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
 
-![Screenshot of the service principal sign-ins log.](media/concept-sign-ins/sign-in-logs-service-principal.png)
+![Screenshot of the service principal sign-in log.](media/concept-sign-ins/sign-in-logs-service-principal.png)
 
 **Report size:** Large </br>
 **Examples:**
@@ -150,7 +153,7 @@ To make it easier to digest the data in the service principal sign-in logs, serv
 
 Managed identities for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management. A VM with managed credentials uses Microsoft Entra ID to get an Access Token.
 
-![Screenshot of the managed identity sign-ins log.](media/concept-sign-ins/sign-in-logs-managed-identity.png)
+![Screenshot of the managed identity sign-in log.](media/concept-sign-ins/sign-in-logs-managed-identity.png)
 
 **Report size:** Small </br>
 **Examples:**

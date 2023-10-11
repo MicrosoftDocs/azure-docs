@@ -4,7 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: cognitive-services
 author: erindormier
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: egeaney
