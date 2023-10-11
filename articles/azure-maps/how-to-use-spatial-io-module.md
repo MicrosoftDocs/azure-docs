@@ -223,7 +223,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
 1. Remember to replace `<Your Azure Maps Key>` with your subscription key. You should see results similar to the following image in your HTML file:
 
-    :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot that demonstrates the Spatial Data sample.":::
+    :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" lightbox="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot showing the Spatial Data sample in a map.":::
 
 ## Next steps
 
