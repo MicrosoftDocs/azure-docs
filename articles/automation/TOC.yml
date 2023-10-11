@@ -103,12 +103,8 @@
           items:
             - name: Delete Run As account
               href: delete-run-as-account.md
-            - name: Manage Run As account
-              href: manage-runas-account.md
             - name: Migrate Run As account to managed identity
-              href: migrate-run-as-accounts-managed-identity.md
-            - name: FAQ on Migration to managed identity
-              href: automation-managed-identity-faq.md
+              href: migrate-run-as-accounts-managed-identity.md    
         - name: Use Automation extension for Visual Studio Code
           href: how-to/runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services

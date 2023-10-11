@@ -5,7 +5,7 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-ms.author: kalyaninamuduri
+ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
 ---

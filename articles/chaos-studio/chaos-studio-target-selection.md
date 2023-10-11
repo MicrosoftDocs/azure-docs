@@ -6,7 +6,7 @@ ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 09/25/2023
-ms.custom: template-concept, ignite-fall-2021, devx-track-arm-template
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Target selection in Azure Chaos Studio Preview

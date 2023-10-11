@@ -21,7 +21,7 @@ Azure Data Manager for Energy conforms to the following principles:
 
 Azure Data Manager for Energy is a first-party PaaS (Platform as a Service) offering where Microsoft manages the deployment, monitoring, management, scale, security, updates, and upgrades of the service so that the customers can focus on the value from the platform. Microsoft offers seamless upgrades to the latest OSDU&trade; milestone versions after testing and validation.
 
-Furthermore, Azure Data Manager for Energy provides security capabilities like encryption for data-in-transit and data-at-rest. The authentication and authorization are provided by Azure Active Directory. Microsoft also assumes the responsibility of providing regular security patches and updates.
+Furthermore, Azure Data Manager for Energy provides security capabilities like encryption for data-in-transit and data-at-rest. The authentication and authorization are provided by Microsoft Entra ID. Microsoft also assumes the responsibility of providing regular security patches and updates.
 
 Azure Data Manager for Energy also supports multiple data partitions for every platform instance. More data partitions can also be created after creating an instance, as needed.
 

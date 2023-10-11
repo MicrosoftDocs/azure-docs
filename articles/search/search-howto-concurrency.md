@@ -215,4 +215,3 @@ Try modifying other samples to exercise ETags or AccessCondition objects.
 
 + [Common HTTP request and response headers](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 + [HTTP status codes](/rest/api/searchservice/http-status-codes)
-+ [Index operations (REST API)](/rest/api/searchservice/index-operations)

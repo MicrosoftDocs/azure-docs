@@ -151,7 +151,7 @@ The build version number is generated only by the Microsoft Build Engine, not by
 
 ### Release annotations
 
-If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version.
+If you use Azure DevOps, you can [get an annotation marker](./release-and-work-item-insights.md?tabs=release-annotations) added to your charts whenever you release a new version.
 
 ## Frequently asked questions
 
@@ -174,7 +174,7 @@ Unique customizations that commonly need to be manually re-created or updated fo
 - Re-create availability alerts.
 - Re-create any custom Azure role-based access control settings that are required for your users to access the new resource.
 - Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
-- Any integration that relies on API keys, such as [release annotations](./annotations.md) and [live metrics secure control channel](./live-stream.md#secure-the-control-channel). You need to generate new API keys and update the associated integration.
+- Any integration that relies on API keys, such as [release annotations](./release-and-work-item-insights.md?tabs=release-annotations) and [live metrics secure control channel](./live-stream.md#secure-the-control-channel). You need to generate new API keys and update the associated integration.
 - Continuous export in classic resources must be configured again.
 - Diagnostic settings in workspace-based resources must be configured again.
           

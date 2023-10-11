@@ -224,7 +224,7 @@
         href: search-security-api-keys.md
       - name: Connect using Azure roles
         href: search-security-rbac.md
-      - name: Configure apps for Azure AD
+      - name: Configure apps for Microsoft Entra ID
         href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
@@ -254,7 +254,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Azure AD
+      - name: Security filters with Microsoft Entra ID
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
@@ -422,8 +422,10 @@
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Query vector fields
+    - name: Create a vector query
       href: vector-search-how-to-query.md
+    - name: Create a hybrid query
+      href: hybrid-search-how-to-query.md
   - name: Queries
     items:
     - name: Create a basic query
@@ -537,6 +539,10 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Data type reference
+    href: /rest/api/searchservice/supported-data-types
+  - name: Data types for indexer data sources
+    href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
   - name: Stopwords reference
     href: reference-stopwords.md
   - name: OData language reference

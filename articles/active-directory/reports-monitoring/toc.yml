@@ -92,14 +92,14 @@ items:
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
-    - name: Sign-ins using legacy authentication  
-      href: workbook-legacy authentication.md
+    - name: Multifactor authentication gaps 
+      href: workbook-mfa-gaps.md 
     - name: Risk analysis
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
-    - name: Multifactor authentication gaps 
-      href: workbook-mfa-gaps.md   
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
 
 - name: Identity monitoring
   expanded: true

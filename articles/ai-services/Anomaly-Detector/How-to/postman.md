@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # How to run Multivariate Anomaly Detector API in Postman?
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 This article will walk you through the process of using Postman to access the Multivariate Anomaly Detection REST API.
 
 ## Getting started

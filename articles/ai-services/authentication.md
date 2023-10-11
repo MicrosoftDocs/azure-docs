@@ -5,7 +5,7 @@ description: "There are three ways to authenticate a request to an Azure AI serv
 services: cognitive-services
 author: mgreenegit
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/30/2023

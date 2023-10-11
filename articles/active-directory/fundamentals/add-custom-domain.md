@@ -96,8 +96,6 @@ If you can't verify a custom domain name, try the following suggestions:
 
 - **Wait at least an hour and try again.** DNS records must propagate before you can verify the domain. This process can take an hour or more.
  
-- **If you are trying to verify a child domain, verify the parent domain first.** Make sure the parent domain is created and verified first before you try to verify a child domain.
-
 - **Make sure the DNS record is correct.** Go back to the domain name registrar site. Make sure the entry is there, and that it matches the DNS entry information provided in the Microsoft Entra admin center.
 
    - If you can't update the record on the registrar site, share the entry with someone who has permissions to add the entry and verify it's correct.

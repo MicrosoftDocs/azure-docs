@@ -384,11 +384,11 @@ $blob.BlobClient.CreateSnapshot()
 
 ## Set blob tier
 
-When you change a blob's tier, you move the blob and all of its data to the target tier. To make the change, retrieve a blob with the `Get-AzStorageBlob` cmdlet, and call the `BlobClient.SetAccessTier` method. This approach can be used to change the tier between **Hot**, **Cool**, and **Archive**.  
+When you change a blob's tier, you move the blob and all of its data to the target tier. To make the change, retrieve a blob with the `Get-AzStorageBlob` cmdlet, and call the `BlobClient.SetAccessTier` method. This approach can be used to change the tier between **hot**, **cool**, and **archive**.  
 
-Changing tiers from **Cool** or **Hot** to **Archive** take place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline, and can't be read or modified. Before you can read or modify an archived blob's data, you need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Changing tiers from **cool** or **hot** to **archive** take place almost immediately. After a blob is moved to the **archive** tier, it's considered to be offline, and can't be read or modified. Before you can read or modify an archived blob's data, you need to rehydrate it to an online tier. Read more about [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-The following sample code sets the tier to **Hot** for all blobs within the `archive` container.
+The following sample code sets the tier to **hot** for all blobs within the `archive` container.
 
 ```azurepowershell
 $blobs = Get-AzStorageBlob -Container archive -Context $ctx

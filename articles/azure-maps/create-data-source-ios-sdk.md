@@ -1,8 +1,8 @@
 ---
 title: Create a data source for iOS maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps iOS SDK uses: GeoJSON sources and vector tiles."
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 10/22/2021
 ms.topic: how-to
 ms.service: azure-maps

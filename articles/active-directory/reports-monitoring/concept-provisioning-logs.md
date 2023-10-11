@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/08/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ---
@@ -33,6 +33,9 @@ You can use the provisioning logs to find answers to questions like:
 -  What users were successfully removed from Adobe?
 
 -  What users from Workday were successfully created in Active Directory? 
+
+> [!NOTE]
+> Entries in the provisioning logs are system generated and can't be changed or deleted.
 
 ## What do the logs show?
 

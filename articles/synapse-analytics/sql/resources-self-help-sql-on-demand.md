@@ -576,7 +576,7 @@ There are reasons why this error code can happen:
 
 #### [0x80070005](#tab/x80070005)
 
-This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires.
+This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour. 
 
 The error message might also resemble: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
@@ -639,7 +639,7 @@ To read or download a blob in the Archive tier, rehydrate it to an online tier. 
 
 #### [0x80070057](#tab/x80070057)
 
-This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires.
+This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour.
 
 The error message might also resemble the following pattern: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
