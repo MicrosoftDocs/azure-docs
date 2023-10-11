@@ -20,7 +20,7 @@ This article assumes familiarity with the [two basic approaches for importing da
 This article complements [Tips for better performance](search-performance-tips.md), which offers best practices on index and query design. A well-designed index that includes only the fields and attributes you need is an important prerequisite for large-scale indexing.
 
 > [!NOTE]
-> The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure Cognitive Search](/samples/azure-samples/azure-search-dotnet-samples/multiple-data-sources/) for a recommended approach.
+> The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure Cognitive Search](/samples/azure-samples/azure-search-dotnet-scale/multiple-data-sources/) for a recommended approach.
 
 ## Index large data using the push APIs
 
@@ -107,7 +107,7 @@ The number of indexing jobs that can run simultaneously varies for text-based an
 
 If your data source is an [Azure Blob Storage container](../storage/blobs/storage-blobs-introduction.md#containers) or [Azure Data Lake Storage Gen 2](../storage/blobs/storage-blobs-introduction.md#about-azure-data-lake-storage-gen2), enumerating a large number of blobs can take a long time (even hours) until this operation is completed. This will cause that your indexer's documents succeeded count isn't increased during that time and it may seem it's not making any progress, when it is. If you would like document processing to go faster for a large number of blobs, consider partitioning your data into multiple containers and create parallel indexers pointing to a single index.
 
-1. [Sign in to Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
 
 1. Partition source data among multiple containers or multiple virtual folders inside the same container.
 
@@ -127,7 +127,7 @@ Although multiple indexer-data-source sets can target the same index, be careful
 
 ## Index big data on Spark
 
-If you have a big data architecture and your data is on a Spark cluster, we recommend [SynapseML for loading and indexing data](search-synapseml-cognitive-services.md). The tutorial includes steps for calling Cognitive Services for AI enrichment, but you can also use the AzureSearchWriter API for text indexing.
+If you have a big data architecture and your data is on a Spark cluster, we recommend [SynapseML for loading and indexing data](search-synapseml-cognitive-services.md). The tutorial includes steps for calling Azure AI services for AI enrichment, but you can also use the AzureSearchWriter API for text indexing.
 
 ## See also
 

@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 ---
 
 # Create an application gateway with TLS termination using the Azure CLI
@@ -125,7 +125,7 @@ In this example, you create a Virtual Machine Scale Set that provides servers fo
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

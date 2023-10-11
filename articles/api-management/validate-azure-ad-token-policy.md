@@ -66,10 +66,6 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 | failed-validation-error-message | Error message to return in the HTTP response body if the JWT doesn't pass validation. This message must have any special characters properly escaped. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation. Policy expressions aren't allowed.                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
 
-
-
-
-
 ## Elements
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
@@ -96,6 +92,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 ### Usage notes
 
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-azure-ad-token` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+* When using a custom header (`header-name`), the header value cannot be prefixed with `Bearer ` and should be removed.
 
 ## Examples
 

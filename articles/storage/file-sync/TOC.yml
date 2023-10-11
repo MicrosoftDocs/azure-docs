@@ -167,6 +167,8 @@
         href: ../files/storage-files-migration-storsimple-8000.md?toc=/azure/storage/file-sync/toc.json
       - name: StorSimple 1200 migration guide
         href: ../files/storage-files-migration-storsimple-1200.md?toc=/azure/storage/file-sync/toc.json
+    - name: Migrate from one Azure file share to another
+      href: file-sync-share-to-share-migration.md
   - name: Enable large file shares
     href: ../files/storage-how-to-create-file-share.md?toc=/azure/storage/file-sync/toc.json
   - name: Secure

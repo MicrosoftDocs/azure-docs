@@ -1,8 +1,8 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
 description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -124,7 +124,7 @@ The [Accessible popups] example loads points of interests on the map using a sym
 
 <!---------------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Make an accessible application' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Make an accessible application</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 <br/>
 --------------------------------------------------------------->
 

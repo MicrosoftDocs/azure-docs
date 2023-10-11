@@ -201,12 +201,14 @@ items:
           href: immutable-time-based-retention-policy-overview.md
         - name: Legal holds
           href: immutable-legal-hold-overview.md
-    - name: Redundancy and disaster recovery
+    - name: Disaster recovery
       items:
+      - name: Disaster recovery planning and failover
+        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Customer-managed failover for disaster recovery
-        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: How customer-managed failover works
+        href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Access tiers and lifecycle management
       items:
       - name: Access tiers overview
@@ -241,6 +243,8 @@ items:
       items:
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Map each REST operation to a price 
+        href: map-rest-apis-transaction-categories.md
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
       - name: Estimate the cost to archive data
@@ -667,7 +671,7 @@ items:
             href: storage-blobs-tune-upload-download.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
-          - name: Logging
+          - name: Configure logging
             href: /dotnet/azure/sdk/logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Manage concurrency
             href: concurrency-manage.md
@@ -745,6 +749,12 @@ items:
               href: sas-service-create-java.md
             - name: Create an account SAS
               href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Client library configuration options
+          items:
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download-java.md
+          - name: Configure logging
+            href: /azure/developer/java/sdk/logging-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: JavaScript
         items:
         - name: Get started
@@ -957,6 +967,8 @@ items:
           items:
           - name: Performance tuning for uploads and downloads
             href: storage-blobs-tune-upload-download-python.md
+          - name: Configure logging
+            href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
@@ -1127,6 +1139,8 @@ items:
       href: ../common/policy-reference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Resources
     items:
+    - name: FAQ
+      href: storage-blob-faq.yml
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=storage
     - name: Azure Storage Explorer

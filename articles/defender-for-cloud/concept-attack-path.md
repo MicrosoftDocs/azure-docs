@@ -1,7 +1,7 @@
 ---
 title: Identify and analyze risks across your environment
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
-titleSuffix: Defender for Cloud attack path.
+ attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 05/07/2023
@@ -9,7 +9,7 @@ ms.date: 05/07/2023
 
 # Identify and analyze risks across your environment
 
-<iframe src="https://aka.ms/docs/player?id=36a5c440-00e6-4bd8-be1f-a27fbd007119" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=36a5c440-00e6-4bd8-be1f-a27fbd007119]
 
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all. 
 

@@ -111,7 +111,7 @@ When you create an Automation account, Azure generates two 512-bit automation ac
 ### View Automation account keys
 
 To view and copy your Automation account access keys, follow these steps:
-1. In the [Azure portal](https://portal.azure.com/), go to your Automation account.
+1. In the [Azure portal](https://portal.azure.com), go to your Automation account.
 1. Under **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
 You can use any of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
 
@@ -126,7 +126,7 @@ Choose a client
 # [Azure portal](#tab/azureportal)
 
 Follow these steps:
-1. Go to your Automation account in [Azure portal](https://portal.azure.com/).
+1. Go to your Automation account in the [Azure portal](https://portal.azure.com).
 1. Under **Account Settings**, select **Keys**.
 1. Select **Regenerate primary** to regenerate the primary access key for your Automation account.
 1. Select the **Regenerate secondary** to regenerate the secondary access key.

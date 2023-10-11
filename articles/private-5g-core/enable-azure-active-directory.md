@@ -1,7 +1,7 @@
 ---
-title: Enable Azure Active Directory (Azure AD) for local monitoring tools
+title: Enable Microsoft Entra ID for local monitoring tools
 titleSuffix: Azure Private 5G Core
-description: Complete the prerequisite tasks for enabling Azure Active Directory to access Azure Private 5G Core's local monitoring tools.
+description: Complete the prerequisite tasks for enabling Microsoft Entra ID to access Azure Private 5G Core's local monitoring tools.
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
@@ -10,22 +10,22 @@ ms.date: 12/29/2022
 ms.custom: template-how-to
 ---
 
-# Enable Azure Active Directory (Azure AD) for local monitoring tools
+# Enable Microsoft Entra ID for local monitoring tools
 
-Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Microsoft Entra authentication to improve security in your deployment.
 
-In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Azure AD to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
+In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Microsoft Entra ID to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
 
 > [!CAUTION]
-> Azure AD for local monitoring tools is not supported when a web proxy is enabled on the Azure Stack Edge device on which Azure Private 5G Core is running. If you have configured a firewall that blocks traffic not transmitted via the web proxy, then enabling Azure AD will cause the Azure Private 5G Core installation to fail.
+> Microsoft Entra ID for local monitoring tools is not supported when a web proxy is enabled on the Azure Stack Edge device on which Azure Private 5G Core is running. If you have configured a firewall that blocks traffic not transmitted via the web proxy, then enabling Microsoft Entra ID will cause the Azure Private 5G Core installation to fail.
 
 ## Prerequisites
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Collect the required information for a site](collect-required-information-for-a-site.md).
-- You must have deployed a site with Azure Active Directory set as the authentication type.
+- You must have deployed a site with Microsoft Entra ID set as the authentication type.
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](../active-directory/roles/permissions-reference.md) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator. If you do not have this access, contact your tenant Azure AD administrator so they can confirm your user has been assigned the correct role by following [Assign user roles with Azure Active Directory](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
-- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Microsoft Entra ID. [Microsoft Entra built-in roles](../active-directory/roles/permissions-reference.md) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator. If you do not have this access, contact your tenant Microsoft Entra administrator so they can confirm your user has been assigned the correct role by following [Assign user roles with Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## Configure domain system name (DNS) for local monitoring IP
 
@@ -35,7 +35,7 @@ In the authoritative DNS server for the DNS zone you want to create the DNS reco
 
 ## Register application
 
-You'll now register a new local monitoring application with Azure AD to establish a trust relationship with the Microsoft identity platform.
+You'll now register a new local monitoring application with Microsoft Entra ID to establish a trust relationship with the Microsoft identity platform.
 
 If your deployment contains multiple sites, you can use the same two redirect URIs for all sites, or create different URI pairs for each site. You can configure a maximum of two redirect URIs per site. If you've already registered an application for your deployment and you want to use the same URIs across your sites, you can skip this step.
 
@@ -63,17 +63,17 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     |Value  | How to collect  |  Kubernetes secret parameter name
     |---------|---------|---------|
-    | **Tenant ID** | In the Azure portal, search for Azure Active Directory. You can find the **Tenant ID** field in the Overview page. | `tenant_id` |
+    | **Tenant ID** | In the Azure portal, search for Microsoft Entra ID. You can find the **Tenant ID** field in the Overview page. | `tenant_id` |
     | **Application (client) ID** | Navigate to the new local monitoring app registration you just created. You can find the **Application (client) ID** field in the Overview page, under the **Essentials** heading. | `client_id` |
-    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. | `auth_url` |
-    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field. | `token_url` |
+    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize`<br /> becomes <br />`https://login.microsoftonline.com/72f998bf-86f1-31af-91ab-2d7cd001db56/oauth2/v2.0/authorize`. | `auth_url` |
+    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field.  <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/token`<br /> becomes <br />`https://login.microsoftonline.com/72f998bf-86f1-31af-91ab-2d7cd001db56/oauth2/v2.0/token`. | `token_url` |
     | **Client secret** | You collected this when creating the client secret in the previous step. | `client_secret` |
     | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>***. | `redirect_uri_root` |
     | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
 
 ## Create Kubernetes Secret Objects
 
-To support Azure AD on Azure Private 5G Core applications, you'll need a YAML file containing Kubernetes secrets.
+To support Microsoft Entra ID on Azure Private 5G Core applications, you'll need a YAML file containing Kubernetes secrets.
 
 1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in an Azure Cloud Shell **Bash** window:
 
@@ -114,7 +114,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need a YAML fi
 
 ## Apply Kubernetes Secret Objects
 
-You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
+You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft Entra ID for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
 
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
@@ -139,7 +139,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD 
 
 ## Verify access
 
-Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using Azure AD.
+Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using Microsoft Entra ID.
 
 ## Update Kubernetes Secret Objects
 

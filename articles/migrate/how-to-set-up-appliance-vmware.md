@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 01/31/2023
-ms.custom: engagement-fy23
+ms.date: 10/11/2023
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Set up an appliance for servers in a VMware environment
@@ -66,8 +66,20 @@ Before you deploy the OVA file, verify that the file is secure:
     ```
     C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256
     ```
+    
+1. Verify the latest appliance versions and hash values:
 
-1. Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-vmware.md#verify-security).
+    - For the Azure public cloud:
+    
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 06256F9C6FB3F011152D861DA43FFA1C5C8FF966931D5CE00F1F252D3A2F4723
+
+    - For Azure Government:
+    
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141
 
 #### Create the appliance server
 

@@ -2,10 +2,10 @@
 title: Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities 
 description: Shows you how to use Resource Manager templates to upgrade from Azure Blob Storage to Data Lake Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 07/20/2023
 ms.author: normesta
 ---
 
@@ -25,6 +25,7 @@ To prepare to upgrade your storage account to Data Lake Storage Gen2:
 > [!div class="checklist"]
 > - [Review feature support](#review-feature-support)
 > - [Ensure the segments of each blob path are named](#ensure-the-segments-of-each-blob-path-are-named)
+> - [Prevent write activity to the storage account](#prevent-write-activity-to-the-storage-account)
 
 ### Review feature support
 
@@ -35,6 +36,7 @@ The following features are supported for Data Lake Storage Gen2 accounts, but ar
 - Blob snapshots
 - Encryption scopes
 - Immutable storage
+- Last access time tracking for lifecycle management
 - Soft delete for blobs
 - Soft delete for containers
 
@@ -49,6 +51,19 @@ In some cases, you will have to allow time for clean-up operations after a featu
 ### Ensure the segments of each blob path are named
 
 The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
+
+### Prevent write activity to the storage account
+
+The upgrade might fail if an application writes to the storage account during the upgrade. To prevent such write activity:
+
+1. Quiesce any applications or services that might perform write operations.
+1. Release or break existing leases on containers and blobs in the storage account.
+1. Acquire new leases on all containers and blobs in the account. The new leases should be infinite or long enough to prevent write access for the duration of the upgrade.
+
+After the upgrade has completed, break the leases you created to resume allowing write access to the containers and blobs.
+
+> [!WARNING]
+> Breaking an active lease without gracefully disabling applications or virtual machines that are currently accessing those resources could have unexpected results. Be sure to quiesce any current write activities before breaking any current leases.
 
 ## Perform the upgrade
 

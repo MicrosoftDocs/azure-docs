@@ -75,7 +75,7 @@ The following table lists the different tools available for performing the migra
 The next section of the document gives an overview of the Single to Flex Migration tool, its implementation, limitations, and the experience that makes it the recommended tool to perform migrations from single to flexible server.
 
 > [!NOTE]  
-> The Single to Flex Migration tool currently supports only **Offline** migrations. Support for online migrations will be introduced later in the tool.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports only **Offline** migrations. Support for online migrations will be introduced later in the tool.
 
 ## Single to Flexible Migration tool - Overview
 
@@ -101,15 +101,34 @@ The following table shows the time for performing offline migrations for databas
 > [!IMPORTANT]  
 > In order to perform faster migrations, pick a higher SKU for your flexible server. You can always change the SKU to match the application needs post migration.
 
+## Migration of users/roles, ownerships and privileges
+Along with data migration, the tool automatically provides the following built-in capabilities:
+- Migration of users/roles present on your source server to the target server.
+- Migration of ownership of all the database objects on your source server to the target server.
+- Migration of permissions of database objects on your source server such as GRANTS/REVOKES to the target server.
+
+> [!NOTE]  
+> This functionality is enabled only for flexible servers in **Central US**, **Canada Central**, **France Central**, **Japan East** and **Australia East** regions. It will be enabled for flexible servers in other Azure regions soon. In the meantime, you can follow the steps mentioned in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md#migrate-the-roles) to perform user/roles migration
+
 ## Limitations
 
 - You can have only one active migration to your flexible server.
-- You can select a max of eight databases in one migration attempt. If you've more than eight databases, you must wait for the first migration to be complete before initiating another migration for the rest of the databases. Support for migration of more than eight databases in a single migration will be introduced later.
-- The source and target server must be in the same Azure region. Cross region migrations are not supported.
-- The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details, firewall rules, users, roles and permissions. In the later part of the document, we point you to docs that can help you perform the migration of users, roles and firewall rules from single server to flexible server.
-- The migration tool shows the number of tables copied from source to target server. You need to validate the data in target server post migration.
+- The source and target server must be in the same Azure region. Cross region migrations is enabled only for servers in China regions.
+- The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details and firewall rules.
+- The migration tool shows the number of tables copied from source to target server. You need to manually validate the data in target server post migration.
 - The tool only migrates user databases and not system databases like template_0, template_1, azure_sys and azure_maintenance.
 
+> [!NOTE]  
+> The following limitations are applicable only for flexible servers on which the migration of users/roles functionality is enabled.
+
+- AAD users present on your source server will not be migrated to target server. To mitigate this limitation, manually create all AAD users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If AAD users are not created on target server, migration will fail with appropriate error message.
+- If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server will fail since the passwords are encrypted using md5 algorithm. To mitigate this limitation, please choose the option **MD5** for **password_encryption** server parameter on your flexible server.
+- Though the ownership of database objects such as tables, views, sequences, etc. are copied to the target server, the owner of the database in your target server will be the migration user of your target server. The limitation can be mitigated by executing the following command 
+
+```sql
+    ALTER DATABASE <dbname> OWNER TO <user>;
+```
+ Make sure the user executing the above command is a member of the user to which ownership is being assigned to. This limitation will be fixed in the upcoming releases of the migration tool to match the database owners on your source server.
 ## Experience
 
 Get started with the Single to Flex migration tool by using any of the following methods:
@@ -151,7 +170,7 @@ For calculating the total downtime to perform offline migration of production se
 > [!NOTE]  
 > The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It is completely normal to have size differences between source and target servers. If there is an issue in the first three steps of validation, it indicates a problem with the migration.
 
-- **Migration of server settings** - The users, roles/privileges, server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server. Users and roles are migrated from Single to Flexible server by following the steps listed in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md).
+- **Migration of server settings** - The server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server.
 
 - **Changing connection strings** - Post successful validation, application should change their connection strings to point to flexible server. This activity is coordinated with the application team to make changes to all the references of connection strings pointing to single server. Note that in the flexible server the user parameter in the connection string no longer needs to be in the **username@servername** format. You should just use the **user=username** format for this parameter in the connection string
 For example
@@ -194,21 +213,16 @@ The following table summarizes the list of networking scenarios supported by the
 
 ##### Allow list required extensions
 
-Use the following select command in the Single Server databases to list all the extensions that are being used.
+The migration tool automatically allow lists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
+
+Use the following select command to list all the extensions used on your Single server databases.
 
 ```sql
     select * from pg_extension;
 ```
 
-Search for the **azure.extensions** parameter on the Server Parameters blade on your Flexible server. Select the list of extensions obtained by running the above query on your Single server database to this server parameter and select Save. You should wait for the deployment to complete before proceeding further.
-
-:::image type="content" source="./media/concepts-single-to-flexible/allowlist-extensions.png" alt-text="Diagram that shows allow listing of extensions on Flexible Server." lightbox="./media/concepts-single-to-flexible/allowlist-extensions.png":::
-
-> [!NOTE]  
-> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
-
 Check if the list contains any of the following extensions:
-- PG_CRON65
+- PG_CRON
 - PG_HINT_PLAN
 - PG_PARTMAN_BGW
 - PG_PREWARM
@@ -219,15 +233,38 @@ Check if the list contains any of the following extensions:
 
 If yes, then follow the below steps.
 
-Go to the server parameters blade and search for **shared_preload_libraries** parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart. Pg_cron and pg_stat_statements extensions are selected by default. Select the list of above extensions used by the single server database to this parameter and select on Save.
+Go to the server parameters blade and search for **shared_preload_libraries** parameter. PG_CRON and PG_STAT_STATEMENTS extensions are selected by default. Select the list of above extensions used by your single server databases to this parameter and select Save.
 
 :::image type="content" source="./media/concepts-single-to-flexible/shared-preload-libraries.png" alt-text="Diagram that shows allow listing of shared preload libraries on Flexible Server." lightbox="./media/concepts-single-to-flexible/shared-preload-libraries.png":::
 
-The changes to this server parameter would require a server restart to come into effect.
+For the changes to take effect, server restart would be required.
 
 :::image type="content" source="./media/concepts-single-to-flexible/save-and-restart.png" alt-text="Diagram that shows save and restart option on Flexible Server." lightbox="./media/concepts-single-to-flexible/save-and-restart.png":::
 
-Use the **Save and Restart** option and wait for the postgresql server to restart.
+Use the **Save and Restart** option and wait for the flexible server to restart.
+
+> [!NOTE]  
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
+
+##### Create AAD users on target server
+> [!NOTE]  
+> This pre-requisite is applicable only for flexible servers on which the migration of users/roles functionality is enabled.
+
+Execute the following query on your source server to get the list of AAD users.
+```sql
+SELECT r.rolname
+	FROM
+	  pg_roles r
+	  JOIN pg_auth_members am ON r.oid = am.member
+	  JOIN pg_roles m ON am.roleid = m.oid
+	WHERE
+	  m.rolname IN (
+		'azure_ad_admin',
+		'azure_ad_user',
+		'azure_ad_mfa'
+	  );
+``` 
+Create the AAD users on your target flexible server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before creating a migration.
 
 ### Migration
 
@@ -243,28 +280,45 @@ Trigger the migration of your production databases using the single to flex migr
 
 #### Improve migration speed - Parallel migration of tables
 
-As stated above, a powerful SKU is recommended for both the source and target servers. A higher SKU enables a greater number of tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to troubleshoot migrations that are not fast enough because the data distribution among the tables is skewed.
+In general, a powerful SKU is recommended for the target as the migration tool runs out of a container on the Flexible server. A powerful SKU enables a greater number of tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to improve the migration speed in case the data distribution among the tables is skewed and/or a more powerful SKU does not have a significant impact on the migration speed.
 
-If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration is not fully utilized and it creates a bottleneck. In this case, the following steps can help improve the migration speed.
+If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration is not fully utilized and it creates a bottleneck. So, we will split large tables into smaller chunks which are then migrated in parallel. This is applicable to tables that have more than 10000000 (10m) tuples. Splitting the table into smaller chunks is possible is possible if one of the following conditions are satisfied.  
 
-1. The table must have a column with a primary key or unique index of type int or big int.
+1. The table must have a column with a simple (not composite) primary key or unique index of type int or big int.
 
-2. If the table doesn't have such a primary key or unique index, you can create one using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html)  and drop it post-migration. Note that running the `ALTER` command requires a lock on the table.
+> [!NOTE]  
+> In case of approaches #2 or #3 below, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
+
+2. If the table does not have a simple primary key or unique index of type int or big int, but has a column that meets the data type criteria, the column can be converted into a unique index using the below command. Note that this command does not require a lock on the table.
+
+```sql
+    create unique index concurrently partkey_idx on <table name> (column name);
+```
+
+3. If the table has neither a simple int/big int primary key or unique index nor any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Note that running the ALTER command requires a lock on the table.
 
 ```sql
     alter table <table name> add column <column name> bigserial unique;
 ```
 
-3. Please run the [ANALYZE](https://www.postgresql.org/docs/current/sql-analyze.html) command for each database and wait for it to finish before performing the migration.
+If any of the above conditions are satisfied, the table will be migrated in multiple partitions in parallel, which should provide a marked increase in the migration speed.
 
-If the above conditions are met, the table will be migrated in multiple partitions in parallel, which should provide marked increase in migration speed.
+##### How it works
+
+- The migration tool looks up the maximum and minimum integer value of the Primary key/Unique index of that table that must be split up and migrated in parallel.
+- If the difference between the minimum and maximum value is more than 10000000 (10m), then the table is split into multiple parts and each part is migrated separately, in parallel.
+
+In summary, the Single to Flexible migration tool will migrate a table in parallel threads and reduce the migration time if:
+
+1. The table has a column with a simple primary key or unique index of type int or big int.
+2. The table has at least 10000000 (10m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10m).
+3. The SKU used has idle cores which can be leveraged for migrating the table in parallel.
 
 ### Post migration
 
 - Once the migration is complete, verify the data on your flexible server and make sure it's an exact copy of the single server.
 - Post verification, enable HA option as needed on your flexible server.
 - Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
-- Migrate users and roles from single to flexible servers. This step can be done by creating users on flexible servers and providing them with suitable privileges or by using the steps that are listed in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md).
 - If you've changed any server parameters from their default values in single server, copy those server parameter values in flexible server.
 - Copy other server settings like tags, alerts, firewall rules (if applicable) from single server to flexible server.
 - Make changes to your application to point the connection strings to flexible server.

@@ -103,7 +103,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Content caching and disconnected device support, including those devices that are in nested configurations, through built-in Microsoft Connected Cache and integration with Azure IoT Edge
-* Subscription and role-based access controls available through the Azure.com portal
+* Subscription and role-based access controls available via the [Azure portal](https://portal.azure.com)
 * Comprehensive cloud-to-edge security features and privacy controls
 
 For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.yml).

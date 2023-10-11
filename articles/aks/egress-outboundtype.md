@@ -3,10 +3,10 @@ title: Customize cluster egress with outbound types in Azure Kubernetes Service 
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 author: asudbring
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: how-to
 ms.date: 06/06/2023
-
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
@@ -72,23 +72,27 @@ The following tables show the supported migration paths between outbound types f
 
 ### Supported Migration Paths for Managed VNet
 
-|                        | loadBalancer | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
-|------------------------|--------------|-------------------|------------------------|--------------------|
-| loadBalancer           | N/A          | Supported         | Not Supported          | Not Supported      |
-| managedNATGateway      | Supported    | N/A               | Not Supported          | Supported          |
-| userAssignedNATGateway | Supported    | Not Supported     | N/A                    | Not Supported      |
-| userDefinedRouting     | Supported    | Supported         | Supported              | N/A                |
+| Managed VNet           |loadBalancer   | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+|------------------------|---------------|-------------------|------------------------|--------------------|
+| loadBalancer           | N/A           | Supported         | Not Supported          | Supported          |
+| managedNATGateway      | Supported     | N/A               | Not Supported          | Supported          |
+| userAssignedNATGateway | Not Supported | Not Supported     | N/A                    | Not Supported      |
+| userDefinedRouting     | Supported     | Supported         | Not Supported          | N/A                |
 
 ### Supported Migration Paths for BYO VNet
 
-|                        | loadBalancer  | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+| BYO VNet               | loadBalancer  | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
 |------------------------|---------------|-------------------|------------------------|--------------------|
-| loadBalancer           | N/A           | Supported         | Supported              | Supported          |
-| managedNATGateway      | Supported     | N/A               | Not Supported          | Not Supported      |
+| loadBalancer           | N/A           | Not Supported     | Supported              | Supported          |
+| managedNATGateway      | Not Supported | N/A               | Not Supported          | Not Supported      |
 | userAssignedNATGateway | Supported     | Not Supported     | N/A                    | Supported          |
-| userDefinedRouting     | Not Supported | Not Supported     | Not Supported          | N/A                |
+| userDefinedRouting     | Supported     | Not Supported     | Supported              | N/A                |
 
-Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), and `userDefinedNATGateway` (if using a custom virtual network).
+Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), `userAssignedNATGateway` and `userDefinedRouting` (if using a custom virtual network).
+
+> [!WARNING] 
+> Migrating the outbound type to user managed types (`userAssignedNATGateway` and `userDefinedRouting`) will change the outbound public IP addresses of the cluster. 
+> if [Authorized IP ranges](./api-server-authorized-ip-ranges.md) is enabled, please make sure new outbound ip range is appended to authorized ip range.
 
 > [!WARNING]
 > Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, you need to update them to match the new egress IP address.

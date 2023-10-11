@@ -23,6 +23,12 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand dual-protocol security style and permission behaviors
+        href: dual-protocol-permission-behaviors.md
+      - name: Understand the use of LDAP
+        href: lightweight-directory-access-protocol.md
+      - name: Understand NFS group memberships and supplemental groups
+        href: network-file-system-group-memberships.md
       - name: Understand file locking
         href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
@@ -101,6 +107,8 @@
           href: application-volume-group-considerations.md
   - name: Data protection and resiliency
     items:
+    - name: Understand data protection and disaster recovery options
+      href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
     - name: Azure NetApp Files backup
@@ -221,7 +229,7 @@
       items:
       - name: Create an NFS volume
         href: azure-netapp-files-create-volumes.md
-      - name: Configure NFSv4.1 domain
+      - name: Configure NFSv4.1 ID domain
         href: azure-netapp-files-configure-nfsv41-domain.md
       - name: Configure NFSv4.1 Kerberos encryption
         href: configure-kerberos-encryption.md
@@ -265,6 +273,8 @@
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
+      - name: Access SMB volume from Azure Active Directory joined Windows VM
+        href: access-smb-volume-from-windows-client.md
     - name: Manage volume capacity and performance 
       items:
       - name: Monitor the capacity of a volume
@@ -275,8 +285,6 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-    - name: Delete a volume
-      href: volume-delete.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -293,7 +301,7 @@
           href: application-volume-group-manage-volumes.md
         - name: Delete an application volume group
           href: application-volume-group-delete.md
-        - name: Configure application volume groups for REST API
+        - name: Configure application volume groups using REST API
           href: configure-application-volume-group-sap-hana-api.md
   - name: Manage data protection  
     items:
@@ -323,6 +331,8 @@
           href: backup-configure-policy-based.md
         - name: Configure manual backups 
           href: backup-configure-manual.md
+      - name: Manage a backup vault
+        href: backup-vault-manage.md
       - name: Manage backup policies
         href: backup-manage-policies.md 
       - name: Search backups
@@ -343,7 +353,9 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
-      - name: Test disaster recovery
+      - name: Re-establish volume replication relationships
+        href: reestablish-deleted-volume-relationships.md
+      - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
     - name: Manage availability zones and cross-zone replication
       items: 
@@ -373,6 +385,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot user access on LDAP volumes
+      href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
 - name: Reference

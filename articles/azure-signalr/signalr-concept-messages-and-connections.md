@@ -74,7 +74,7 @@ The service and the application server keep syncing connection status and making
 
 ## Related resources
 
-* [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr )
+* [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr)
 * [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration)
 * [JSON](https://www.json.org/)
 * [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

@@ -30,13 +30,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 If you've developed apps against Azure Active Directory (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly, the new library (MSAL) was entirely built for the new endpoint.
 
-The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
-
-![Diagram that shows the v1.0 versus the v2.0 architecture.](../azuread-dev/media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
-
-MSAL leverages all the [benefits of Microsoft identity platform (v2.0) endpoint](../azuread-dev/azure-ad-endpoint-comparison.md).
-
-MSAL is designed to enable a secure solution without developers having to worry about the implementation details. It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. We recommend you use MSAL to [increase the resilience of authentication and authorization in client applications that you develop](../fundamentals/resilience-client-app.md?tabs=csharp#use-the-microsoft-authentication-library-msal).
+MSAL is designed to enable a secure solution without developers having to worry about the implementation details. It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. We recommend you use MSAL to [increase the resilience of authentication and authorization in client applications that you develop](../architecture/resilience-client-app.md?tabs=csharp#use-the-microsoft-authentication-library-msal).
 
 MSAL provides multiple benefits over ADAL, including the following features: 
 
@@ -47,21 +41,21 @@ MSAL provides multiple benefits over ADAL, including the following features:
 | Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - MSAL provides the feature][y]|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - ADAL doesn't provide the feature][n]|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - MSAL provides the feature][y]|![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - ADAL doesn't provide the feature][n]|
 |**User accounts and experiences**|||
-|Azure Active Directory (Azure AD) accounts|![Azure Active Directory (Azure AD) accounts - MSAL provides the feature][y]|![Azure Active Directory (Azure AD) accounts - ADAL provides the feature][y]|
+|Microsoft Entra accounts|![Microsoft Entra accounts - MSAL provides the feature][y]|![Microsoft Entra accounts - ADAL provides the feature][y]|
 | Microsoft account (MSA) |![Microsoft account (MSA) - MSAL provides the feature][y]|![Microsoft account (MSA) - ADAL doesn't provide the feature][n]|
 | Azure AD B2C accounts |![Azure AD B2C accounts - MSAL provides the feature][y]|![Azure AD B2C accounts - ADAL doesn't provide the feature][n]|
 | Best single sign-on experience |![Best single sign-on experience - MSAL provides the feature][y]|![Best single sign-on experience - ADAL doesn't provide the feature][n]|
 |**Authentication experiences**|||
 | Continuous access evaluation through proactive token refresh |![Proactive token renewal - MSAL provides the feature][y]|![Proactive token renewal - ADAL doesn't provide the feature][n]|
 | Throttling |![Throttling - MSAL provides the feature][y]|![Throttling - ADAL doesn't provide the feature][n]|
-|Auth broker support |![Device-based conditional access policy - MSAL has the feature built-in][y]|![Device-based conditional access policy - ADAL doesn't provide the feature][n]|
+|Auth broker support |![Device-based Conditional Access policy - MSAL has the feature built-in][y]|![Device-based Conditional Access policy - ADAL doesn't provide the feature][n]|
 | Token protection|![Token protection - MSAL provides the feature][y]|![Token protection - ADAL doesn't provide the feature][n]|
 
 
 ## Additional capabilities of MSAL over ADAL
 
 - Proof of possession tokens
-- Azure AD certificate-based authentication (CBA) on mobile
+- Microsoft Entra certificate-based authentication (CBA) on mobile
 - System browsers on mobile devices
 - Where ADAL had only authentication context class, MSAL exposes the notion of a collection of client apps (public client and confidential client).
 
@@ -74,7 +68,7 @@ If you need to continue using AD FS, you should upgrade to AD FS 2019 or later b
 ## How to migrate to MSAL
 
 Before you start the migration, you need to identify which of your apps are using ADAL for authentication. Follow the steps in this article to get a list by using the Azure portal:
-- [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [How to: Get a complete list of apps using ADAL in your tenant](./howto-get-list-of-all-auth-library-apps.md)
 
 After identifying applications that use ADAL, migrate them to MSAL depending on your app type:
 
@@ -85,11 +79,11 @@ MSAL Supports a wide range of application types and scenarios. Refer to [Microso
 ADAL to MSAL migration guide for different platforms are available in the following links:
 
 - [Migrate to MSAL iOS and macOS](migrate-objc-adal-msal.md)
-- [Migrate to MSAL Java](migrate-adal-msal-java.md)
+- [Migrate to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
 - [Migrate to MSAL .NET](msal-net-migration.md)
 - [Migrate to MSAL Node](msal-node-migration.md)
-- [Migrate to MSAL Python](migrate-python-adal-msal.md)   
+- [Migrate to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)   
 
 ## Migration help
 

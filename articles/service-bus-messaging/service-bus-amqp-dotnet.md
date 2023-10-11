@@ -25,7 +25,7 @@ For example,
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Where `namespace` and `SAS key` are obtained from the [Azure portal][Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
+Where `namespace` and `SAS key` are obtained from the [Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
 
 ### AMQP over WebSockets
 To use AMQP over WebSockets, set `TransportType` in the connection string to `AmqpWebSockets`. For example: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 

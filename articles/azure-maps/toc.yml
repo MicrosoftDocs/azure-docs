@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
+  - name: What is Azure Maps Creator?
+    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -177,6 +179,8 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
+    - name: Web SDK v1 migration guide
+      href: web-sdk-migration-guide.md
     - name: Map control
       items:
       - name: Use the Azure Maps map control
@@ -239,10 +243,10 @@ items:
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
         href: drawing-tools-interactions-keyboard-shortcuts.md
-    - name: Services module
+    - name: REST SDK integration
       items:
-      - name: Use the services module
-        href: how-to-use-services-module.md
+      - name: Use the REST SDK
+        href: how-to-use-ts-rest-sdk.md
       - name: Show search results
         href: map-search-location.md
       - name: Get information from a coordinate

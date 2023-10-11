@@ -24,7 +24,7 @@ To provide a better authoring experience, Azure Data Factory allows you to confi
 You can also reference [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md) to learn more about the larger CI/CD pattern, of which source control is a critical aspect.
 
 > [!NOTE]
-> We have added GitHub public support on Azure Gov, Azure China. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
+> We have added GitHub public support on Azure Gov and Microsoft Azure operated by 21Vianet. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 

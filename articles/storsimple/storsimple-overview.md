@@ -11,7 +11,7 @@ ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.workload: TBD
 ms.date: 07/10/2023
 ms.author: alkohli
@@ -35,12 +35,12 @@ The following resources are available to help you migrate backup files or to cop
 
 Use the following steps to copy data to your environment and then decommission your StorSimple 8000 appliance. If your data has already been migrated to your own environment, you can proceed with decommissioning your appliance.
 
-**Step 1. Copy backup files or live data to your own environment.**
+**Step 1: Copy backup files or live data to your own environment.**
 
 - **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment. For more information, see [Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs).
 - **Live data.** If you have live data to copy, you can access and copy live data to your environment via iSCSI.
 
-**Step 2. Decommission your device.**
+**Step 2: Decommission your device.**
 
 After you complete your data migration, use the following steps to decommission the device. Before you decommission your device, make sure to copy all data from your appliance, using either local host copy operations or using the Utility.
 
@@ -60,15 +60,15 @@ Decommission operations can't be undone. We recommend that you complete your dat
     ```azurepowershell
     Reset-HcsFactoryDefault
     ```
-    To instead reset a single controller, use the [Reset-HcsFactoryDefault](https://learn.microsoft.com/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
+    To instead reset a single controller, use the [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
 
     The system reboots multiple times. You're notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
-**Step 3. Shut down the device.**
+**Step 3: Shut down the device.**
 
 This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after both the device controllers are shut down. A device shutdown is complete when the device is physically moved or is taken out of service.
 
-**Step 3.1** - Use the following steps to identify and shut down the passive controller on your device. Perform this operation in Windows PowerShell for StorSimple.
+**Step 3a:** Use the following steps to identify and shut down the passive controller on your device. Perform this operation in Windows PowerShell for StorSimple.
 
 1. Access the device via the serial console or a telnet session from a remote computer. To connect to Controller 0 or Controller 1, follow these steps to use PuTTY to connect to the device serial console.
 
@@ -115,9 +115,9 @@ This section explains how to shut down a running or a failed StorSimple device f
 
    This restarts the controller you're connected to. When you restart the active controller, it fails over to the passive controller before the restart.
 
-**Step 3.2** - Repeat the previous step to shut down the active controller.
+**Step 3b:** Repeat the previous step to shut down the active controller.
 
-**Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
+**Step 3c:** You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
 
 ## Create a support request
 

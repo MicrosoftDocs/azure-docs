@@ -48,6 +48,9 @@ az account set --subscription <your subscription ID>
 
 You can enable ExpressRoute Global Reach between any two ExpressRoute circuits. The circuits are required to be in supported countries/regions and were created at different peering locations. If your subscription owns both circuits, you may select either circuit to run the configuration. However, if the two circuits are in different Azure subscriptions you must create an authorization key from one of the circuits. Using the authorization key generated from the first circuit you can enable Global Reach on the second circuit.
 
+> [!NOTE]
+> ExpressRoute Global Reach configurations can only be seen from the configured circuit.
+
 ## Enable connectivity between your on-premises networks
 
 When running the command to enable connectivity, note the following requirements for parameter values:

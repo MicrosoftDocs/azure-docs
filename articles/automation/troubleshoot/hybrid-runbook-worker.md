@@ -2,20 +2,46 @@
 title: Troubleshoot agent-based Hybrid Runbook Worker issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation agent-based Hybrid Runbook Workers.
 services: automation
-ms.date: 04/26/2023
+ms.date: 09/17/2023
 ms.topic: troubleshooting 
+ms.custom: devx-track-linux, has-azure-ad-ps-ref
 ---
 
 # Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
 
 > [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](../migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](../migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
 
 This article provides information on troubleshooting and resolving issues with Azure Automation agent-based Hybrid Runbook Workers. For troubleshooting extension-based workers, see [Troubleshoot extension-based Hybrid Runbook Worker issues in Automation](./extension-based-hybrid-runbook-worker.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
 ## General
 
 The Hybrid Runbook Worker depends on an agent to communicate with your Azure Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Log Analytics agent for Windows. For Linux, it's the Log Analytics agent for Linux.
+
+
+### Unable to update Az modules while using the Hybrid Worker
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
+
+#### Resolution
+
+As a workaround, you can follow these steps:
+
+1. Go to the folder : C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
+1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
+1. Add the following lines inside the `<assemblyBinding>` tags:
+```xml
+<dependentAssembly>
+  <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+  <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+</dependentAssembly>
+```
+
+> [!NOTE]
+> The workaround replaces the file with the original if you restart MMA/server either by enabling solution or patching. For both these scenarios, we recommend that you replace the contents.
+
 
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
@@ -150,7 +176,7 @@ A runbook running on a Hybrid Runbook Worker fails with the following error mess
 
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a Run As account in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 

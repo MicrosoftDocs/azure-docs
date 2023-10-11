@@ -24,7 +24,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | ANY: 443 | `BatchNodeManagement.region` | Communication with Azure Batch back-end for Azure Machine Learning compute instances/clusters. |
 | Outbound | TCP: 443 | `AzureResourceManager` | Creation of Azure resources with Azure Machine Learning, Azure CLI, and Azure Machine Learning SDK. |
 | Outbound | TCP: 443 | `Storage.region` | Access data stored in the Azure Storage Account for compute cluster and compute instance. For information on preventing data exfiltration over this outbound, see [Data exfiltration protection](../how-to-prevent-data-loss-exfiltration.md). |
-| Outbound | TCP: 443 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. For information on preventing data exfiltration over this outbound, see [Data exfiltration protection](../how-to-prevent-data-loss-exfiltration.md). |
+| Outbound | TCP: 443 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Microsoft Azure operated by 21Vianet. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. For information on preventing data exfiltration over this outbound, see [Data exfiltration protection](../how-to-prevent-data-loss-exfiltration.md). |
 | Outbound | TCP: 443 | `MicrosoftContainerRegistry.region`</br>**Note** that this  tag has a dependency on the `AzureFrontDoor.FirstParty` tag | Access docker images provided by Microsoft. Setup of the Azure Machine Learning router for Azure Kubernetes Service. |
 
 # [Situational](#tab/situational)

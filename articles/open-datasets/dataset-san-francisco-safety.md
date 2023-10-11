@@ -32,10 +32,6 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 - [Fire Department Calls](https://data.sfgov.org/Public-Safety/Fire-Department-Calls-for-Service/nuek-vuh3)
 - [311 Cases](https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6)
 
-## Additional information
-
-This dataset is sourced from city of San Francisco government. See the [terms of using this dataset](https://datasf.org/opendata/terms-of-use/).
-
 ## Columns
 
 | Name | Data type | Unique | Values (sample) | Description |

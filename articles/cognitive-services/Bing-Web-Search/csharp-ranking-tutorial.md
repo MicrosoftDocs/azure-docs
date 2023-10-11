@@ -1,6 +1,6 @@
 ---
 title: Using rank to display search results
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Shows how to use the Bing RankingResponse answer to display search results in rank order.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # Build a console app search client in C#
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This tutorial shows how to build a simple .NET Core console app that allows users to query the Bing Web Search API and display ranked results.
 

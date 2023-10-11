@@ -1,6 +1,8 @@
 items: 
 - name: Data Factory Documentation
   href: index.yml
+- name: Switch to Data Factory in Microsoft Fabric documentation
+  href: /fabric/data-factory
 - name: Switch to version 1 documentation
   href: v1/data-factory-introduction.md
 - name: Overview
@@ -338,6 +340,8 @@ items:
       href: source-control.md
     - name: Author a change data capture resource
       href: how-to-change-data-capture-resource.md
+    - name: Author a change data capture resource with schema evolution
+      href: how-to-change-data-capture-resource-with-schema-evolution.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
     - name: Manage your environment with DataOps
@@ -348,6 +352,8 @@ items:
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Automate with GitHub Actions
+        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
@@ -908,6 +914,8 @@ items:
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
+    - name: Monitor managed virtual network integration runtime
+      href: monitor-managed-virtual-network-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Run Data Pipelines with Service Level Agreements
@@ -1299,6 +1307,8 @@ items:
       href: sap-change-data-capture-debug-shir-logs.md
     - name: Manage the SAP CDC process
       href: sap-change-data-capture-management.md
+    - name: Advanced topics
+      href: sap-change-data-capture-advanced-topics.md    
       displayName: SAP, change data capture, CDC
 - name: Managed Airflow
   items:
@@ -1314,6 +1324,20 @@ items:
       href: how-does-managed-airflow-work.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
+    - name: Create a private requirement Package
+      href: airflow-create-private-requirement-package.md
+    - name: Enable Azure Key Vault for Airflow
+      href: enable-azure-key-vault-for-managed-airflow.md
+    - name: Kubernetes secret to access private container registry
+      href: kubernetes-secret-pull-image-from-private-container-registry.md
+    - name: Rest APIs for the Airflow integrated runtime
+      href: rest-apis-for-airflow-integrated-runtime.md
+    - name: Retrieve the IP address of an Airflow cluster
+      href: airflow-get-ip-airflow-cluster.md
+    - name: Sync a GitHub repository with Airflow
+      href: airflow-sync-github-repository.md
+    - name: Diagnostic logs and metrics
+      href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference

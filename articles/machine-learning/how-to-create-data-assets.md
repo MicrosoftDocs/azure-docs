@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, ignite-2022
+ms.custom: data4ml, ignite-2022, devx-track-azurecli
 ms.author: xunwan
 author: SturgeonMi
 ms.reviewer: franksolomon

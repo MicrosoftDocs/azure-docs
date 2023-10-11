@@ -2,7 +2,6 @@
 title: 'C# tutorial optimize indexing with the push API'
 titleSuffix: Azure Cognitive Search
 description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
-
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
@@ -15,7 +14,7 @@ ms.custom: devx-track-csharp
 
 Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
-This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
+This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
 
 This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
 
@@ -40,7 +39,7 @@ The following services and tools are required for this tutorial.
 
 ## Download files
 
-Source code for this tutorial is in the [optimzize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing/v11) folder in the [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository.
+Source code for this tutorial is in the [optimize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing/v11) folder in the [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository.
 
 ## Key considerations
 
@@ -64,7 +63,7 @@ To complete this tutorial, you'll need an Azure Cognitive Search service, which 
 
 API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -340,7 +339,7 @@ do
 
 From here, we wrap the exponential backoff code into a function so it can be easily called.
 
-Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
+Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in **ExponentialBackoff.cs**. The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
 
 ```csharp
 await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);

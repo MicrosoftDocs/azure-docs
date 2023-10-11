@@ -38,6 +38,9 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure Cloud](#tab/azure-cloud)
 
+> [!NOTE]
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+> 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
@@ -55,6 +58,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.waconazure.com`|For Windows Admin Center connectivity|If using Windows Admin Center|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
+| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service | For Azure Arc-enabled SQL Server. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public |
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<region>`. Within this command, the region must be specified for the `<region>` placeholder.
@@ -63,6 +67,9 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure Government](#tab/azure-government)
 
+> [!NOTE]
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+> 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
@@ -76,7 +83,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
 
-#### [Azure China](#tab/azure-china)
+#### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 
 | Agent resource | Description | When required|
 |---------|---------|--------|

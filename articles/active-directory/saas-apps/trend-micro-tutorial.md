@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Trend Micro Web Security (TMWS)'
-description: Learn how to configure single sign-on between Azure Active Directory and Trend Micro Web Security (TMWS).
+title: 'Tutorial: Microsoft Entra SSO integration with Trend Micro Web Security (TMWS)'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Trend Micro Web Security (TMWS).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,58 +13,61 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Trend Micro Web Security (TMWS)
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Trend Micro Web Security (TMWS)
 
-In this tutorial, you'll learn how to integrate Trend Micro Web Security (TMWS) with Azure Active Directory (Azure AD). When you integrate TMWS with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Trend Micro Web Security (TMWS) with Microsoft Entra ID. When you integrate TMWS with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to TMWS.
-* Enable your users to be automatically signed in to TMWS with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to TMWS.
+* Enable your users to be automatically signed in to TMWS with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
 To get started, you need:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A TMWS subscription that's enabled for SSO.
 
 ## Scenario description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra SSO in a test environment.
 
 * TMWS supports **SP** initiated SSO.
 
 ## Add TMWS from the gallery
 
-To configure the integration of TMWS into Azure AD, you need to add TMWS from the gallery to your list of managed SaaS apps.
+To configure the integration of TMWS into Microsoft Entra ID, you need to add TMWS from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal with either a work or school account or a personal Microsoft account.
-1. In the left pane, select the **Azure Active Directory** service.
-1. Select **Enterprise applications** and then select **All applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **Trend Micro Web Security (TMWS)** in the search box.
 1. Select **Trend Micro Web Security (TMWS)** in the search results and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for TMWS
+<a name='configure-and-test-azure-ad-sso-for-tmws'></a>
 
-You'll configure and test Azure AD SSO with TMWS by using a test user called B.Simon. For SSO to work, you need to establish a link between an Azure AD user and the related user in TMWS.
+## Configure and test Microsoft Entra SSO for TMWS
 
-You'll complete these basic steps to configure and test Azure AD SSO with TMWS:
+You'll configure and test Microsoft Entra SSO with TMWS by using a test user called B.Simon. For SSO to work, you need to establish a link between a Microsoft Entra user and the related user in TMWS.
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable the feature for your users.
-    1. [Create an Azure AD user](#create-an-azure-ad-test-user) to test Azure AD single sign-on.
-    1. [Grant the Azure AD test user](#grant-the-azure-ad-test-user-access-to-tmws) access to TMWS.
-    1. [Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad).
+You'll complete these basic steps to configure and test Microsoft Entra SSO with TMWS:
+
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) to enable the feature for your users.
+    1. [Create a Microsoft Entra user](#create-an-azure-ad-test-user) to test Microsoft Entra single sign-on.
+    1. [Grant the Microsoft Entra test user](#grant-the-azure-ad-test-user-access-to-tmws) access to TMWS.
+    1. [Configure user and group synchronization settings in Microsoft Entra ID](#configure-user-and-group-synchronization-settings-in-azure-ad).
 1. [Configure TMWS SSO](#configure-tmws-sso) on the application side.
 1. [Test SSO](#test-sso) to verify the configuration.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Complete these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
+Complete these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pen button for **Basic SAML Configuration** to edit the settings:
 
@@ -81,7 +84,7 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
     > [!NOTE]
-    > The identifier value in the previous step isn't the value that you should enter. You need to use the actual identifier. You can get this value in the **Service Provider Settings for the Azure Admin Portal** section on the **Authentication Method** page for Azure AD from **Administration > Directory Services**.
+    > The identifier value in the previous step isn't the value that you should enter. You need to use the actual identifier. You can get this value in the **Service Provider Settings for the Azure Admin Portal** section on the **Authentication Method** page for Microsoft Entra ID from **Administration > Directory Services**.
 
 1. TMWS expects the SAML assertions in a specific format, so you need to add custom attribute mappings to your SAML token attributes configuration. This screenshot shows the default attributes:
 
@@ -102,23 +105,29 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
 
     ![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user called B.Simon in the Azure portal.
+### Create a Microsoft Entra test user
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** box, enter `B.Simon`.  
-   1. In the **User name** box, enter ***username*@*companydomain*.*extension***. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Grant the Azure AD test user access to TMWS
+<a name='grant-the-azure-ad-test-user-access-to-tmws'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to TMWS.
+### Grant the Microsoft Entra test user access to TMWS
 
-1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to TMWS.
+
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **Trend Micro Web Security (TMWS)**.
 1. In the app's overview page, in the **Manage** section, select **Users and groups**:
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
@@ -126,9 +135,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
-### Configure user and group synchronization settings in Azure AD
+<a name='configure-user-and-group-synchronization-settings-in-azure-ad'></a>
 
-1. In the left pane, select **Azure Active Directory**.
+### Configure user and group synchronization settings in Microsoft Entra ID
+
+1. In the left pane, select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations**, and then select your new enterprise application under **All applications**.
 
@@ -157,7 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Overview**. 
 
-1. Record the **Application (client) ID** and **Directory (tenant) ID** that you see in the right pane. Later, you'll enter that information into TMWS. You can also select **Custom domain names** under **Azure Active Directory > Manage** and record the domain name that you see in the right pane.
+1. Record the **Application (client) ID** and **Directory (tenant) ID** that you see in the right pane. Later, you'll enter that information into TMWS.
 
 ## Configure TMWS SSO
 
@@ -167,45 +178,44 @@ Complete these steps to configure TMWS SSO on the application side.
 
 1. Select **here** on the upper area of the screen.
 
-1. On the **Authentication Method** page, select **Azure AD**.
+1. On the **Authentication Method** page, select **Microsoft Entra ID**.
 
-1. Select **On** or **Off** to configure whether to allow Azure AD users in your organization to visit websites through TMWS if their data isn't synchronized to TMWS.
+1. Select **On** or **Off** to configure whether to allow Microsoft Entra users in your organization to visit websites through TMWS if their data isn't synchronized to TMWS.
 
     > [!NOTE]
-    > Users who aren't synchronized from Azure AD can be authenticated only through known TMWS gateways or the dedicated port for your organization.
+    > Users who aren't synchronized from Microsoft Entra ID can be authenticated only through known TMWS gateways or the dedicated port for your organization.
 
 1. In the **Identity Provider Settings** section, complete these steps:
 
-    a. In the **Service URL** box, enter the **Login URL** value that you copied from the Azure portal.
+    a. In the **Service URL** box, enter the **Login URL** value that you copied.
 
-    b. In the **Logon name attribute** box, enter the **User claim name** with the **user.onpremisessamaccountname** source attribute from the Azure portal.
+    b. In the **Logon name attribute** box, enter the **User claim name** with the **user.onpremisessamaccountname** source attribute.
 
-    c. In the **Public SSL certificate** box, use the downloaded **Certificate (Base64)** from the Azure portal.
+    c. In the **Public SSL certificate** box, use the downloaded **Certificate (Base64)**.
 
 1. In the **Synchronization Settings** section, complete these steps:
 
-    a. In the **Tenant** box, enter the **Directory (tenant) ID** or **Custom domain name** value from the Azure portal.
+    a. In the **Tenant** box, enter the **Directory (tenant) ID** or **Custom domain name** value.
 
-    b. In the **Application ID** box, enter the **Application (client) ID** value from the Azure portal.
+    b. In the **Application ID** box, enter the **Application (client) ID** value.
 
-    c. In the **Client secret** box, enter the **Client secret** from the Azure portal.
+    c. In the **Client secret** box, enter the **Client secret**.
 
-    d. Select **Synchronization schedule** to synchronize with Azure AD manually or according to a schedule. If you select **Manually**, whenever there are changes to Active Directory user information, remember to go back to the **Directory Services** page and perform manual synchronization so that information in TMWS remains current.
+    d. Select **Synchronization schedule** to synchronize with Microsoft Entra ID manually or according to a schedule. If you select **Manually**, whenever there are changes to Active Directory user information, remember to go back to the **Directory Services** page and perform manual synchronization so that information in TMWS remains current.
 
-    e. Select **Test Connection** to check whether the Azure AD service can be successfully connected.
+    e. Select **Test Connection** to check whether the Microsoft Entra service can be successfully connected.
     
     f. Select **Save**.
  
- > [!NOTE]
- > For more information on how to configure TMWS with Azure AD, see [Configuring Azure AD Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration/directory-services/azure-active-directo/configuring-azure-ad.aspx
-).
+> [!NOTE]
+> For more information on how to configure TMWS with Microsoft Entra ID, see [Configuring Microsoft Entra Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration/directory-services/azure-active-directo/configuring-azure-ad.aspx).
 
 ## Test SSO 
 
-After you configure the Azure AD service and specify Azure AD as the user authentication method, you can sign in to the TMWS proxy server to verify your setup. After the Azure AD sign-in verifies your account, you can visit the internet.
+After you configure the Microsoft Entra service and specify Microsoft Entra ID as the user authentication method, you can sign in to the TMWS proxy server to verify your setup. After the Microsoft Entra sign-in verifies your account, you can visit the internet.
 
 > [!NOTE]
-> TMWS doesn't support testing single sign-on from the Azure portal, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
+> TMWS doesn't support testing single sign-on, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
 
 1. Clear the browser of all cookies and then restart the browser. 
 
@@ -214,10 +224,10 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 1. Visit any internet website. TMWS will direct you to the TMWS captive portal.
 
-1. Specify an Active Directory account (format: *domain*\\*sAMAccountName* or *sAMAccountName*@*domain*), email address, or UPN, and then select **Log On**. TMWS sends you to the Azure AD sign-in window.
+1. Specify an Active Directory account (format: *domain*\\*sAMAccountName* or *sAMAccountName*@*domain*), email address, or UPN, and then select **Log On**. TMWS sends you to the Microsoft Entra sign-in window.
 
-1. In the Azure AD sign-in window, enter your Azure AD account credentials. You should now be signed in to TMWS.
+1. In the Microsoft Entra sign-in window, enter your Microsoft Entra account credentials. You should now be signed in to TMWS.
 
 ## Next steps
 
-Once you configure TMWS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure TMWS you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -4,8 +4,8 @@ description: Learn about Azure Blobs backup.
 ms.topic: conceptual
 ms.date: 03/10/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview of Azure Blob backup

@@ -62,6 +62,10 @@ This section shows you how to use Azure portal to add a virtual network service 
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
     - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled-page.png" alt-text="Screenshot that shows the Networking page of a namespace with public access disabled."::: 
+
+        Choose whether you want to allow trusted Microsoft services to bypass the firewall. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section.
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -228,7 +232,7 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
 > None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.

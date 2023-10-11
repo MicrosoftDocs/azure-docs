@@ -125,7 +125,7 @@ Microsoft focuses heavily on both security of our cloud and providing you the se
 We look forward to partnering with you in addressing ransomware protection, detection, and prevention in a holistic manner.
 
 Connect with us:
-- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity&#64;microsoft.com) 
+- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity@microsoft.com)
 - [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).

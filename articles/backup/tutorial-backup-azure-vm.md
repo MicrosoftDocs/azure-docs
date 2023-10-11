@@ -4,9 +4,10 @@ description: This tutorial details backing up multiple Azure VMs to a Recovery S
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Back up Azure VMs with PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

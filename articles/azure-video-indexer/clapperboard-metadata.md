@@ -1,20 +1,19 @@
 ---
-title: Enable and view a clapperboard with extracted metadata
-description: Learn about how to enable and view a clapperboard with extracted metadata.
-author: Juliako
-manager: femila
+title: Enable and view a clapper board with extracted metadata
+description: Learn about how to enable and view a clapper board with extracted metadata.
 ms.topic: article
 ms.date: 09/20/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Enable and view a clapperboard with extracted metadata (preview)
+# Enable and view a clapper board with extracted metadata (preview)
 
-A clapperboard insight is used to detect clapperboard instances and information written on each. For example, *head* or *tail* (the board is upside-down), *production*, *roll*, *scene*, *take*, *date*, etc. The [clapperboard](https://en.wikipedia.org/wiki/Clapperboard)'s extracted metadata is most useful to customers involved in the movie post-production process. 
+A clapper board insight is used to detect clapper board instances and information written on each. For example, *head* or *tail* (the board is upside-down), *production*, *roll*, *scene*, *take*, *date*, etc. The [clapper board](https://en.wikipedia.org/wiki/Clapperboard)'s extracted metadata is most useful to customers involved in the movie post-production process. 
 
-When the movie is being edited, a clapperboard is removed from the scene; however, the information that was written on the clapperboard is important. Azure Video Indexer extracts the data from clapperboards, preserves, and presents the metadata. 
+When the movie is being edited, a clapper board is removed from the scene; however, the information that was written on the clapper board is important. Azure AI Video Indexer extracts the data from clapper boards, preserves, and presents the metadata. 
 
-This article shows how to enable the post-production insight and view clapperboard instances with extracted metadata.
+This article shows how to enable the post-production insight and view clapper board instances with extracted metadata.
 
 ## View the insight
 
@@ -30,16 +29,16 @@ After the file has been uploaded and indexed, if you want to view the timeline o
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
 
-### Clapperboards
+### Clapper boards
 
-Clapperboards contain fields with titles (for example, *production*, *roll*, *scene*, *take*) and values (content) associated with each title. 
+Clapper boards contain fields with titles (for example, *production*, *roll*, *scene*, *take*) and values (content) associated with each title. 
 
-For example, take this clapperboard:
+For example, take this clapper board:
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/clapperboard.png" alt-text="This image shows a clapperboard.":::
 
-In the following example the board contains the following fields:
+In the following example, the board contains the following fields:
 
 |title|content|
 |---|---|
@@ -52,14 +51,16 @@ In the following example the board contains the following fields:
 
 #### View the insight
 
-To see the instances on the website, select **Insights** and scroll to **Clapperboards**. You can hover over each clapperboard, or unfold **Show/Hide clapperboard info** and see the metadata:
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
+To see the instances on the website, select **Insights** and scroll to **Clapper boards**. You can hover over each clapper board, or unfold **Show/Hide clapper board info** and see the metadata:
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/clapperboard-metadata.png" alt-text="This image shows the clapperboard metadata.":::
 
 #### View the timeline
 
-If you checked the **Post-production** insight, You can also find the clapperboard instance and its timeline (includes time, fields' values) on the **Timeline** tab.
+If you checked the **Post-production** insight, You can also find the clapper board instance and its timeline (includes time, fields' values) on the **Timeline** tab.
 
 #### View JSON
 
@@ -75,21 +76,21 @@ The following table describes fields found in json:
 
 |Name|Description|
 |---|---|
-|`id`|The clapperboard ID.|
+|`id`|The clapper board ID.|
 |`thumbnailId`|The ID of the thumbnail.|
 |`isHeadSlate`|The value stands for head or tail (the board is upside-down) of the clapper board: `true` or `false`.|
 |`fields`|The fields found in the clapper board; also each field's name and value.|
 |`instances`|A list of time ranges where this element appeared.|
 
-## Clapperboard limitations
+## Clapper board limitations
 
 The values may not always be correctly identified by the detection algorithm. Here are some limitations:
 
 - The titles of the fields appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
 - Handwritten text or digital digits may not be correctly identified by the fields detection algorithm.
 - The algorithm is optimized to identify fields' categories that appear horizontally.  
-- The clapperboard may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
-- Empty fields’ values may lead to to wrong fields categories.  
+- The clapper board may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
+- Empty fields’ values may lead to wrong fields categories.  
 <!-- If a part of a clapper board is hidden a value with the highest confidence is shown.  -->
 
 ## Next steps

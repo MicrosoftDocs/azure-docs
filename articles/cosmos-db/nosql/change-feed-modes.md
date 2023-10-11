@@ -7,13 +7,13 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 08/14/2023
 ---
 # Change feed modes in Azure Cosmos DB
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB offers two change feed modes. Each mode offers the same core functionality. Differences include the operations that are captured in the feed, the metadata that's available for each change, and the retention period of changes. You can consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container to fit the requirements of each workload.
+Azure Cosmos DB offers two change feed modes. Each mode offers the same core functionality. Differences include the operations that are captured in the feed, the metadata that's available for each change, and the retention period of changes. You can consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container to fit the requirements of each workload. Each individual change feed application can only be configured to read change feed in one mode. Consuming the change feed in one mode doesn't prohibit you from consuming the change feed in another mode in a different application.
 
 > [!NOTE]
 > Do you have any feedback about change feed modes? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team: [cosmoschangefeed@microsoft.com](mailto:cosmoschangefeed@microsoft.com).
@@ -172,8 +172,6 @@ The response object is an array of items that represent each change. The array l
 * The ability to start reading the change feed from the beginning or to select a start time based on a past time stamp isn't currently supported. You can either start from "now" or from a previous [lease](change-feed-processor.md#components-of-the-change-feed-processor) or [continuation token](change-feed-pull-model.md#save-continuation-tokens).
 
 * Receiving the previous version of items that have been updated isn't currently available.
-
-* Accounts that use [private endpoints](../how-to-configure-private-endpoints.md) aren't supported.
 
 * Accounts that have enabled [merging partitions](../merge.md) aren't supported.
 

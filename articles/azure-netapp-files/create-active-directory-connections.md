@@ -8,7 +8,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 09/07/2023
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -42,11 +42,11 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * Enterprise Admins 
     * Administrators 
     * Account Operators 
-    * Azure AD DC Administrators _(Azure AD DS Only)_
+    * Azure AD DS Administrators _(Azure AD DS Only)_
     * Alternatively, an AD domain user account with `msDS-SupportedEncryptionTypes` write permission on the AD connection admin account can also be used to set the Kerberos encryption type property on the AD connection admin account. 
 
     >[!NOTE]
-    >It's _not_ recommended nor required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the Azure NetApp Files AD admin account.  
+    >When you modify the setting to enable AES on the AD connection admin account, it is a best practice to use a user account that has write permission to the AD object that is not the Azure NetApp Files AD admin. You can do so with another domain admin account or by delegating control to an account. For more information, see [Delegating Administration by Using OU Objects](/windows-server/identity/ad-ds/plan/delegating-administration-by-using-ou-objects). 
 
     If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used.
 
@@ -71,6 +71,12 @@ Several features of Azure NetApp Files require that you have an Active Directory
     For more information, refer to [Network security: Configure encryption types allowed for Kerberos](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) or [Windows Configurations for Kerberos Supported Encryption Types](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type)
 
 * LDAP queries take effect only in the domain specified in the Active Directory connections (the **AD DNS Domain Name** field). This behavior applies to NFS, SMB, and dual-protocol volumes.
+
+* <a name="ldap-query-timeouts"></a> LDAP query timeouts 
+
+    By default, LDAP queries time out if they cannot be completed in a timely fashion. If an LDAP query fails due to a timeout, the user and/or group lookup will fail and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume.
+    
+    Query timeouts can occur in large LDAP environments with many user and group objects, over slow WAN connections, and if an LDAP server is over-utilized with requests. Azure NetApp Files timeout setting for LDAP queries is set to 10 seconds. Consider leveraging the user and group DN features on the Active Directory Connection for the LDAP server to filter searches if you are experiencing LDAP query timeout issues.
 
 ## Create an Active Directory connection
 
@@ -221,7 +227,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         This feature is used for installing SQL Server in certain scenarios where a non-administrator AD DS domain account must temporarily be granted elevated security privilege.
 
         >[!NOTE]
-        > Using the Security privilege users feature requires that you submit a waitlist request through the Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page. Wait for an official confirmation email from the Azure NetApp Files team before using this feature. SMB Continuous Availability is **not** supported on custom applications. It is is only supported for workloads using Citrix App Laying, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and Microsoft SQL Server (not Linux SQL Server).
+        > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It is is only supported for workloads using Citrix App Laying, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and Microsoft SQL Server (not Linux SQL Server).
 
         > [!IMPORTANT]
         > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.  
@@ -318,3 +324,5 @@ Alternately, navigate to the **Volumes** menu. Identify the volume for which you
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
 * [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
 * [AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Access SMB volumes from Azure AD joined Windows virtual machines](access-smb-volume-from-windows-client.md)
+

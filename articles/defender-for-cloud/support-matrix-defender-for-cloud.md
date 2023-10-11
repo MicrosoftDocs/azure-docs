@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud interoperability with Azure services, Azure clouds, and client operating systems
+title: Interoperability with Azure services, Azure clouds, and client operating systems
 description: Learn about the Azure cloud environments where Defender for Cloud can be used, the Azure services that Defender for Cloud protects, and the client operating systems that Defender for Cloud supports.
 ms.topic: limits-and-quotas
 author: dcurwin
@@ -47,7 +47,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 
 \* These features are currently supported in preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
+\*\* Microsoft Entra recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
 
 
 
@@ -74,7 +74,7 @@ To learn more about the specific Defender for Cloud features available on Window
 
 ## Next steps
 
-This article explained how Microsoft Defender for Cloud is supported in the Azure, Azure Government, and Azure China 21Vianet clouds. Now that you're familiar with the Defender for Cloud capabilities supported in your cloud, learn how to:
+This article explained how Microsoft Defender for Cloud is supported in the Azure, Azure Government, and Microsoft Azure operated by 21Vianet clouds. Now that you're familiar with the Defender for Cloud capabilities supported in your cloud, learn how to:
 
 - [Manage security recommendations in Defender for Cloud](review-security-recommendations.md)
 - [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)

@@ -12,7 +12,7 @@ ms.date: 11/10/2022
 
 # SMART on FHIR
 
-Substitutable Medical Applications and Reusable Technologies([SMART on FHIR](https://docs.smarthealthit.org/)) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
+Substitutable Medical Applications and Reusable Technologies ([SMART on FHIR](https://docs.smarthealthit.org/)) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
 - Applications have a known method for obtaining authentication/authorization to a FHIR repository.
 - Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository.
 - Users have the ability to grant applications access to a limited set of their data by using SMART clinical scopes.
@@ -24,28 +24,30 @@ Below tutorials provide steps to enable SMART on FHIR applications with FHIR Ser
 - An instance of the FHIR Service
 - .NET SDK 6.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
-- [Register public client application in Azure AD](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
+- [Register public client application in Azure AD](/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the applicationId for client application.
 - Ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
      
-## SMART on FHIR using AHDS Samples OSS
+## SMART on FHIR using Azure Health Data Services Samples (SMART on FHIR (Enhanced))
 
-### Step 1 : Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+### Step 1: Set up FHIR SMART user role 
+Follow the steps listed under section [Manage Users: Assign Users to Role](../../role-based-access-control/role-assignments-portal.md). Any user added to this role would be able to access the FHIR Service, provided their requests comply with the SMART on FHIR implementation Guide.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
-### Step 2 : FHIR server integration with samples
-[Follow the steps](https://aka.ms/azure-health-data-services-smart-on-fhir-sample) under Azure Health Data Service Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+### Step 2: FHIR server integration with samples
+**[Click on the link](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)** to navigate to Azure Health Data and AI Samples Open source solution. This step listed in the document enables integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
-> Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate ONC (g)(10) compliance, using Azure Active Directory as the identity provider workflow.  
+> Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Azure Active Directory as the identity provider workflow.  
 
 ## SMART on FHIR Proxy
 <details>
                 <summary> Click to expand! </summary>
 
 > [!NOTE]
-> This is another option to using "SMART on FHIR using AHDS Samples OSS" mentioned above. SMART on FHIR Proxy option only enables EHR launch sequence.
-### Step 1 : Set admin consent for your client application
+> This is another option to SMART on FHIR(Enhanced) using AHDS Samples mentioned above. We suggest you to adopt SMART on FHIR(Enhanced). SMART on FHIR Proxy option is legacy option.
+> SMART on FHIR(Enhanced) provides added capabilities than SMART on FHIR proxy. SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg).
+
+### Step 1: Set admin consent for your client application
 
 To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
 
@@ -98,11 +100,11 @@ Add the reply URL to the public client application that you created earlier for 
 <!---![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)--->
 
 
-### Step 3 :  Get a test patient
+### Step 3:  Get a test patient
 
-To test the FHIR service and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
+To test the FHIR service and the SMART on FHIR proxy, you need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
-### Step 4 :  Download the SMART on FHIR app launcher
+### Step 4:  Download the SMART on FHIR app launcher
 
 The open-source [FHIR Server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
 
@@ -136,13 +138,13 @@ Use this command to run the application:
 dotnet run
 ```
 
-### Step 5 : Test the SMART on FHIR proxy
+### Step 5: Test the SMART on FHIR proxy
 
 After you start the SMART on FHIR app launcher, you can point your browser to `https://localhost:5001`, where you should see the following screen:
 
 ![Screenshot showing SMART on FHIR app launcher.](media/smart-on-fhir/smart-on-fhir-app-launcher.png)
 
-When you enter **Patient**, **Encounter**, or **Practitioner** information, you'll notice that the **Launch context** is updated. When you're using the FHIR service, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
+When you enter **Patient**, **Encounter**, or **Practitioner** information, you notice that the **Launch context** is updated. When you're using the FHIR service, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
 
 The SMART on FHIR proxy uses this information to populate fields in the token response. The SMART on FHIR app *can* use these fields to control which patient it requests data for and how it renders the application on the screen. The SMART on FHIR proxy supports the following fields:
 
@@ -161,6 +163,9 @@ Notice that the SMART on FHIR app launcher updates the **Launch URL** informatio
 Inspect the token response to see how the launch context fields are passed on to the app.
      </details>
      
+## Migrate from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
+[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
+
 ## Next steps
 
 Now that you've learned about enabling SMART on FHIR functionality, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.

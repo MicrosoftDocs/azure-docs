@@ -2,7 +2,7 @@
 title: Migrate from Application Insights instrumentation keys to connection strings
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings.
 ms.topic: conceptual
-ms.date: 05/06/2023
+ms.date: 09/12/2023
 ms.reviewer: cogoodson
 ---
 
@@ -28,7 +28,7 @@ This article walks you through migrating from [instrumentation keys](separate-re
 1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
 
 > [!IMPORTANT]
-> Using both a connection string and instrumentation key isn't recommended. Whichever was set last takes precedence. Also, using both could lead to [missing data](#missing-data).
+> Don't use both a connection string and an instrumentation key. The latter one set supersedes the other, and could result in telemetry not appearing on the portal. [missing data](#missing-data).
 
 ## Migration at scale
 
@@ -91,7 +91,7 @@ Connection strings provide a single configuration setting and eliminate the need
 
 - **Reliability**: Connection strings make telemetry ingestion more reliable by removing dependencies on global ingestion endpoints.
 - **Security**: Connection strings allow authenticated telemetry ingestion by using [Azure Active Directory (Azure AD) authentication for Application Insights](azure-ad-authentication.md).
-- **Customized endpoints (sovereign or hybrid cloud environments)**: Endpoint settings allow sending data to a specific [Azure Government region](create-new-resource.md#regions-that-require-endpoint-modification). ([See examples](sdk-connection-string.md#set-a-connection-string).)
+- **Customized endpoints (sovereign or hybrid cloud environments)**: Endpoint settings allow sending data to a specific Azure Government region. ([See examples](sdk-connection-string.md#set-a-connection-string).)
 - **Privacy (regional endpoints)**: Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
 ## Supported SDK versions

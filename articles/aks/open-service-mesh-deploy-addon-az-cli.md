@@ -12,11 +12,15 @@ ms.author: pgibson
 This article shows you how to install the Open Service Mesh (OSM) add-on on an Azure Kubernetes Service (AKS) cluster. The OSM add-on installs the OSM mesh on your cluster. The OSM mesh is a service mesh that provides traffic management, policy enforcement, and telemetry collection for your applications. For more information about the OSM mesh, see [Open Service Mesh](https://openservicemesh.io/).
 
 > [!IMPORTANT]
-> Based on the version of Kubernetes your cluster runs, the OSM add-on installs a different version of OSM:
+> Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM.
 >
-> - If your cluster runs a Kubernetes version *1.24.0 or greater*, the OSM add-on installs OSM version *1.2.5*.
-> - If your cluster runs a Kubernetes version *between 1.23.5 and 1.24.0*, the OSM add-on installs OSM version *1.1.3*.
-> - If your cluster runs a Kubernetes version *below 1.23.5*, the OSM add-on installs OSM version *1.0.0*.
+> |Kubernetes version         | OSM version installed |
+> |---------------------------|-----------------------|
+> | 1.24.0 or greater         | 1.2.5                 |
+> | Between 1.23.5 and 1.24.0 | 1.1.3                 |
+> | Below 1.23.5              | 1.0.0                 |
+>
+> Older versions of OSM may not be available for install or be actively supported if the corresponding AKS version has reached end of life. You can check the [AKS Kubernetes release calendar](./supported-kubernetes-versions.md#aks-kubernetes-release-calendar) for information on AKS version support windows.
 
 ## Prerequisites
 

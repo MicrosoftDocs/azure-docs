@@ -1,8 +1,8 @@
-- name: vCore-based MongoDB documentation
+- name: MongoDB vCore documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is vCore-based Azure Cosmos DB for MongoDB?
+    - name: What is Azure Cosmos DB for MongoDB vCore?
       href: introduction.md
 - name: Quickstarts
   items:
@@ -19,24 +19,36 @@
 - name: Concepts
   items:
     - name: Vector search
-      href: vector-search.md
+      items:
+        - name: Vector search overview
+          href: vector-search.md
+        - name: Build AI Apps with vector search
+          href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability
       href: high-availability.md
     - name: Migration options
-      href: migration-options.md
+      href: migration-options.md 
     - name: Security
       href: security.md
 - name: How to
   items:
-    - name: Use developer tools
+    - name: Use community tools
       items:
-        - name: Community tools
-          items:
-            - name: Connect using Studio 3T
-              href: connect-using-robomongo.md
+        - name: Connect using Studio 3T
+          href: how-to-connect-studio-3t.md
+    - name: Migrate using native tools
+      href: how-to-migrate-native-tools.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
+    - name: Search and query text
+      href: how-to-create-text-index.md
+    - name: Transactions
+      href: how-to-transactions.md
+- name: Reference
+  items:
+    - name: Troubleshoot common issues
+      href: troubleshoot-common-issues.md

@@ -4,9 +4,8 @@ description: Use transformations in a data collection rule in Azure Monitor to f
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/29/2022
+ms.date: 07/17/2023
 ms.reviwer: nikeist
-
 ---
 
 # Data collection transformations in Azure Monitor
@@ -32,7 +31,7 @@ Transformations are performed in Azure Monitor in the [data ingestion pipeline](
 
 Transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a [Kusto Query Language (KQL) statement](data-collection-transformations-structure.md) that's applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure expected by the destination.
 
-For example, a DCR that collects data from a virtual machine by using Azure Monitor Agent would specify particular data to collect from the client operating system. It could also include a transformation that would get applied to that data after it's sent to the data ingestion pipeline that further filters the data or adds a calculated column. The following diagram shows this workflow.
+For example, a DCR that collects data from a virtual machine by using Azure Monitor Agent would specify particular data to collect from the client operating system. It could also include a transformation that would get applied to that data after it's sent to the data ingestion pipeline that further filters the data or adds a calculated column. See [Creating Agent Transforms](../agents/azure-monitor-agent-transformation.md). The following diagram shows this workflow.
 
 :::image type="content" source="media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram that shows ingestion-time transformation for Azure Monitor Agent." border="false":::
 
@@ -69,6 +68,7 @@ There are multiple methods to create transformations depending on the data colle
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs by using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs by using REST API (Azure Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
 | Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
+| Agent Transformations in a DCR | [Add transformation to Azure Monitor Log](../agents/azure-monitor-agent-transformation.md)
 
 ## Cost for transformations
 While transformations themselves don't incur direct costs, the following scenarios can result in additional charges:
@@ -235,7 +235,7 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 
 ### Combination of Azure and custom tables
 
-The following example is a DCR for data from the Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This DCR requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each.
+The following example is a DCR for data from the Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This DCR requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. When using custom tables, it is important to ensure that the schema of the destination (your custom table) contains the custom columns ([how-to add or delete custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column)) that match the schema of the records you are sending. For instance, if your record has a field called SyslogMessage, but the destination custom table only has TimeGenerated and RawData, you’ll receive an event in the custom table with only the TimeGenerated field populated and the RawData field will be empty. The SyslogMessage field will be dropped because the schema of the destination table doesn’t contain a string field called SyslogMessage.
 
 ```json
 { 
@@ -306,3 +306,4 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 ## Next steps
 
 [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine by using Azure Monitor Agent.
+

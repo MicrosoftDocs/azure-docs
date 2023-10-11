@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 08/30/2023
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -45,7 +45,7 @@ To set file and directory level permissions, see any of the following articles:
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> If the security principal is a *service* principal, it's important to use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. make sure to replace the `<Your App ID>` placeholder with the App ID of your app registration.
+> If the security principal is a *service* principal, it's important to use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. Make sure to replace the `<Your App ID>` placeholder with the App ID of your app registration. The service principal is treated as a named user. You'll add this ID to the ACL as you would any named user. Named users are described later in this article.
 
 ## Types of ACLs
 
@@ -123,6 +123,18 @@ Every file and directory has distinct permissions for these identities:
 - All other users
 
 The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a *user*, in the context of Data Lake Storage Gen2, can refer to an Azure AD user, service principal, managed identity, or security group.
+
+### The super-user
+
+A super-user has the most rights of all the users. A super-user:
+
+- Has RWX Permissions to **all** files and folders.
+
+- Can change the permissions on any file or folder.
+
+- Can change the owning user or owning group of any file or folder.
+
+If a container, file, or directory is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to `$superuser`.
 
 ### The owning user
 
@@ -328,7 +340,7 @@ When you have the correct OID for the service principal, go to the Storage Explo
 
 No. A container does not have an ACL. However, you can set the ACL of the container's root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory is named `my-container/`.
 
-The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container may be accessed with an anonymous request. We recommend requiring authorization for all requests to blob data. For more information, see [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md).
+The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container may be accessed with an anonymous request. We recommend requiring authorization for all requests to blob data. For more information, see [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md).
 
 ### Where can I learn more about POSIX access control model?
 

@@ -1,11 +1,11 @@
 ---
 title: Migrate App Configuration to a region with availability zone support
 description: Learn how to migrate Azure App Configuration to availability zone support.
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 09/10/2022
-ms.author: mcleans
+ms.author: malev
 ms.custom: references_regions, subject-reliability
 ---
 

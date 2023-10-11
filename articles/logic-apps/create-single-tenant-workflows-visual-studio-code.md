@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 10/10/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -198,9 +198,9 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In Visual Studio Code, close all open folders.
 
-1. In the Azure window, on the **Workspace** section toolbar, select **Create New Project** (folder icon).
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create New Project**.
 
-   ![Screenshot shows Azure window and Workspace toolbar with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
+   ![Screenshot shows Azure window, Workspace toolbar, and Azure Logic Apps menu with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
 1. If Windows Defender Firewall prompts you to grant network access for `Code.exe`, which is Visual Studio Code, and for `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
@@ -233,15 +233,14 @@ Before you can create your logic app, create a local project so that you can man
 
    [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
-<a name="enable-built-in-connector-authoring"></a>
+<a name="convert-project-nuget"></a>
 
-## Enable built-in connector authoring
+## Convert your project to NuGet package-based (.NET)
 
-You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
-
-The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+By default, Visual Studio Code creates a logic app project that is extension bundle-based (Node.js), not NuGet package-based (.NET). If you require a logic app project that is NuGet package-based (.NET), for example, to enable built-in connector authoring, you must convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
 
 > [!IMPORTANT]
+>
 > This action is a one-way operation that you can't undo.
 
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to NuGet-based Logic App project**.
@@ -250,7 +249,17 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. When the prompt appears, confirm the project conversion.
 
-1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+<a name="enable-built-in-connector-authoring"></a>
+
+## Enable built-in connector authoring
+
+You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
+
+The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, follow these steps:
+
+1. If you haven't already, [convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](#convert-project-nuget).
+
+1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="add-custom-artifacts"></a>
 
@@ -272,35 +281,23 @@ To add schemas to your project, in your project hierarchy, expand **Artifacts** 
 
 :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Schemas folders expanded." lightbox="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png":::
 
+<a name="add-assembly"></a>
+
 ### Add assemblies to your project
 
-A Standard logic app can currently use or reference the following assembly types:
+A Standard logic app can use or reference specific kinds of assemblies, which you can upload to your project in Visual Studio Code. However, you must add them to specific folders in your project. The following table provides more information about each assembly type and where exactly to put them in your project.
 
-- Client/SDK assembly (.NET Framework)
-- Client/SDK assembly (Java)
-- Custom assembly (.NET Framework) 
-
-You can upload these assemblies to your project in Visual Studio Code, similar how you upload them in the Azure portal through your logic app resource menu under **Artifacts** > **Assemblies**.
-
-:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-portal.png" alt-text="Screenshot shows Azure portal, logic app resource menu, under Artifacts, with Assemblies selected." lightbox="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-portal.png":::
-
-The following section provides more information about each assembly type and where exactly to put them in your project.
-
-- Client/SDK assembly (.NET Framework):
-
-  This assembly section provides storage and deployment of client and custom SDK for .NET Framework. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses this assembly section to load the SAP NCo non-redistributable DLL files. You can add these assemblies in the following folder: **\lib\builtinOperationSdks\net472**
- 
-- Client/SDK assembly (Java)
-
-  This assembly section provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). You can add these assemblies in the following folder: **\lib\builtinOperationSdks\JAR**
-  
-- Custom assembly (.NET Framework)
-  
-  This assembly section provides storage and deployment of custom DLLs. For example, the **Transform XML** operation uses these assemblies for the custom transformation functions that are required during XML transformation. You can add these assemblies in the following folder: **\lib\custom\net472**
+| Assembly type | Description |
+|---------------|-------------|
+| **Client/SDK Assembly (.NET Framework)** | This assembly type provides storage and deployment of client and custom SDK for the .NET Framework. For example, the SAP built-in connector uses these assemblies to load the SAP NCo non-redistributable DLL files. <br><br>Make sure that you add these assemblies to the following folder: **\lib\builtinOperationSdks\net472** |
+| **Client/SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). <br><br>Make sure to add these assemblies to the following folder: **\lib\builtinOperationSdks\JAR** |
+| **Custom Assembly (.NET Framework)** | This assembly type provides storage and deployment of custom DLLs. For example, the [**Transform XML** operation](logic-apps-enterprise-integration-transform.md) uses these assemblies for the custom transformation functions that are required during XML transformation. <br><br>Make sure to add these assemblies to the following folder: **\lib\custom\net472** |
 
 The following image shows where to put each assembly type in your project:
 
 :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies." lightbox="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png":::
+
+For more information about uploading assemblies to your logic app resource in the Azure portal, see [Add referenced assemblies](logic-apps-enterprise-integration-maps.md?tabs=standard#add-assembly).
 
 ### Migrate NuGet-based projects to use "lib\\*" assemblies
 
@@ -540,12 +537,6 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
       }
    }
    ```
-
-   > [!NOTE]
-   >
-   > If your project is NuGet package-based (.NET), not extension bundle-based (Node.js), 
-   > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. However, to use **Inline Code Operations**, 
-   > you must have `"FUNCTIONS_WORKER_RUNTIME"` set to `"node"`
 
 The first time when you start a local debugging session or run the workflow without debugging, the Azure Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
@@ -831,9 +822,9 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure window.
 
-1. In the **Workspace** section, on the toolbar, select **Deploy** > **Deploy to Logic App**.
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Deploy to Logic App**.
 
-   ![Screenshot shows Azure window with Workspace toolbar and Deploy shortcut menu with Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot shows Azure window with Workspace toolbar and Azure Logic Apps shortcut menu with Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
@@ -864,6 +855,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
    1. For optimal performance, select the same resource group as your project for the deployment.
 
       > [!NOTE]
+      >
       > Although you can create or use a different resource group, doing so might affect performance. 
       > If you create or choose a different resource group, but cancel after the confirmation prompt appears, 
       > your deployment is also canceled.
@@ -898,6 +890,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
          ```
 
          > [!TIP]
+         >
          > You can check whether the trigger and action names correctly appear in your Application Insights instance.
          >
          > 1. In the Azure portal, go to your Application Insights resource.
@@ -997,7 +990,7 @@ You can have multiple workflows in your logic app project. To add a blank workfl
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. In the Azure window, in the **Workspace** section, on the toolbar, select **Create Workflow** (Azure Logic Apps icon).
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create workflow**.
 
 1. Select the workflow type that you want to add: **Stateful** or **Stateless**
 

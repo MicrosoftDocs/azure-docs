@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a web search with Go - Bing Web Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Go, and receive a JSON response
 services: cognitive-services
 author: aahill
@@ -18,7 +18,7 @@ ms.custom: seodec2018, mode-api
 
 # Quickstart: Search the web using the Bing Web Search REST API and Go
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Web Search API. This Go application sends a search request to the API, and shows the JSON response. Although this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
 
@@ -112,7 +112,7 @@ type BingAnswer struct {
 
 This code declares the main function and sets the required variables: 
 
-1. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+1. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
 2. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. 
  
@@ -317,7 +317,7 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
-What is Microsoft Cognitive Services? | Microsoft Docs || https://learn.microsoft.com/azure/cognitive-services/Welcome
+What is Microsoft Cognitive Services? | Microsoft Docs || https://learn.microsoft.com/azure/ai-services/Welcome
 Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
 Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/

@@ -349,13 +349,27 @@ Assign a role to an identity:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
+readOnlyRoleDefinitionId='<roleDefinitionId>' # as fetched above
 # For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
-principalId = '<aadPrincipalId>'
+principalId='<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
-### Using Azure Resource Manager templates
+### Using Bicep/Azure Resource Manager templates
+
+For a built-in assignment using a Bicep template:
+
+```
+resource sqlRoleAssignment 'Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments@2023-04-15' = {
+  name: guid(<roleDefinitionId>, <aadPrincipalId>, <databaseAccountResourceId>)
+  parent: databaseAccount
+  properties:{
+    principalId: <aadPrincipalId>
+    roleDefinitionId: '/${subscription().id}/resourceGroups/<databaseAccountResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>'
+    scope: <databaseAccountResourceId>
+  }
+}
+```
 
 For a reference and examples of using Azure Resource Manager templates to create role assignments, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleAssignments``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments).
 

@@ -7,11 +7,11 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 08/08/2023
 ms.author: ryanwi
-ms.reviewer: udayh, ilanas, naha
+ms.reviewer: arluca, ilanas, naha
 ms.custom: aaddev 
-#Customer intent: As a developer, I want workload identities so I can authenticate with Azure AD and access Azure AD protected resources.
+#Customer intent: As a developer, I want workload identities so I can authenticate with Microsoft Entra ID and access Microsoft Entra protected resources.
 ---
 
 # What are workload identities?
@@ -26,7 +26,7 @@ A [service principal](../develop/app-objects-and-service-principals.md?toc=/azur
 
 A [managed identity](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json) is a special type of service principal that eliminates the need for developers to manage credentials.
 
-Here are some ways that workload identities in Microsoft Entra are used:
+Here are some ways that workload identities in Microsoft Entra ID are used:
 
 - An app that enables a web app to access Microsoft Graph based on admin or user consent. This access could be either on behalf of the user or on behalf of the application.
 - A managed identity used by a developer to provision their service with access to an Azure resource such as Azure Key Vault or Azure Storage.
@@ -47,7 +47,7 @@ securely. It’s also hard to track when a workload identity is created or when 
 
 :::image type="content" source="media/workload-identities-overview/pain-points.png" alt-text="Diagram that shows pain points in securing workload identities." border="false":::
 
-Most identity and access management solutions on the market today are focused only on securing human identities and not workload identities. Microsoft Entra Workload Identities helps resolve these issues when securing workload identities.
+Most identity and access management solutions on the market today are focused only on securing human identities and not workload identities. Microsoft Entra Workload ID helps resolve these issues when securing workload identities.
 
 ## Key scenarios
 
@@ -65,9 +65,9 @@ Intelligently detect compromised identities:
 
 Simplify lifecycle management:
 
-- Access Azure AD protected resources without needing to manage secrets for workloads that run on Azure using [managed identities](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
-- Access Azure AD protected resources without needing to manage secrets using [workload identity federation](workload-identity-federation.md) for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
-- Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+- Access Microsoft Entra protected resources without needing to manage secrets for workloads that run on Azure using [managed identities](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+- Access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](workload-identity-federation.md) for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
+- Review service principals and applications that are assigned to privileged directory roles in Microsoft Entra ID using [access reviews for service principals](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
 
 ## Next steps
 

@@ -30,7 +30,7 @@ If the custom resource provider needs permissions to the scope of the policy to 
 ### Policy assignment
 To use the built-in policy, create a policy assignment and assign the Deploy associations for a custom resource provider policy. The policy will then identify non-compliant resources and deploy association for those resources.
 
-![Assign built-in policy](media/concepts-built-in-policy/assign-builtin-policy-customprovider.png)
+:::image type="content" source="media/concepts-built-in-policy/assign-builtin-policy-customprovider.png" alt-text="Screenshot of the Assign built-in policy for custom resource provider in Azure portal.":::
 
 ## Getting help
 

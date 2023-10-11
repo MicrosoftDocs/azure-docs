@@ -5,11 +5,11 @@ description: Learn how to set up an Azure AD tenant for P2S Azure AD authenticat
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 09/07/2023
 ms.author: cherylmc
 
 ---
-# Configure an Azure AD tenant and P2S configuration for VPN Gateway P2S connections
+# Configure an Azure AD tenant and P2S settings for VPN Gateway connections
 
 This article helps you configure your AD tenant and P2S settings for Azure AD authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using the Azure AD authentication type, you must include the OpenVPN tunnel type in your point-to-site configuration.
 
@@ -30,7 +30,7 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
    * User account
 
    The global administrator account will be used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
-1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Azure Active Directory](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## Authorize the Azure VPN application
 
@@ -71,7 +71,7 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
      * Azure Public: `41b23e61-6c1e-4545-b367-cd054e0ed4b4`
      * Azure Government: `51bb15d4-3a4f-4ebf-9dca-40096fe32426`
      * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
-     * Azure China 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
+     * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 
    * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection may fail.
 

@@ -2,12 +2,12 @@
 title: Manage a public IP address with a NAT gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Virtual Network NAT gateway and how to change the configuration.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/15/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 ## Create NAT gateway using existing public IP
 
-In this section, you'll create a NAT gateway resource. You'll select the IP address you created in the prerequisites as the public IP for the NAT gateway.
+In this section, you create a NAT gateway resource. You select the IP address you created in the prerequisites as the public IP for the NAT gateway.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -72,9 +72,9 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 
 ## Change or remove public IP address
 
-In this section, you'll change the IP address of the NAT gateway. 
+In this section, you change the IP address of the NAT gateway. 
 
-To change the IP, you'll associate a new public IP address created previously with the NAT gateway. A NAT gateway must have at least one IP address assigned.
+To change the IP, you associate a new public IP address created previously with the NAT gateway. A NAT gateway must have at least one IP address assigned.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -105,7 +105,7 @@ Public IP prefixes extend the extensibility of SNAT for outbound connections fro
 > [!NOTE] 
 > When assigning a public IP prefix to a NAT gateway, the entire range will be used. 
 
-In this section, you'll change the outbound IP configuration to use a public IP prefix you created previously.
+In this section, you change the outbound IP configuration to use a public IP prefix you created previously.
 
 > [!NOTE]
 > You can choose to remove the single IP address associated with the NAT gateway and reuse, or leave it associated to the NAT gateway to increase the outbound SNAT ports. NAT gateway supports a combination of public IPs and prefixes in the outbound IP configuration. If you created a public IP prefix with 16 addresses, remove the single public IP. The number of allocated IPs can't exceed 16.

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud's workload protection dashboard and its features
+title: Workload protection dashboard and its features
 description: Learn about the features of Microsoft Defender for Cloud's workload protection dashboard
 ms.topic: how-to
 ms.date: 01/09/2023

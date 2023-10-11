@@ -974,7 +974,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 #### [Azure CLI](#tab/cli)
 
-You can use Azure CLI to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension. Learn more about [Azure CLI](https://learn.microsoft.com/cli/azure/what-is-azure-cli).
+You can use Azure CLI to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension. Learn more about [Azure CLI](/cli/azure/what-is-azure-cli).
 
 Follow the steps mentioned below as an example:
 

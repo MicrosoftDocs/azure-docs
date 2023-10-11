@@ -11,6 +11,8 @@ ms.author: veyaddan
 # Terminology
 Key terms relevant for Event Grid namespace and MQTT resources are explained.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Namespace
 
 An Event Grid namespace is a declarative space that provides a scope to all the nested resources or subresources such as topics, certificates, clients, client groups, topic spaces, permission bindings.  
@@ -55,7 +57,7 @@ Client group is a collection of clients.  Clients can be grouped together using 
 
 ## Topic space
 
-Topic space is a set of topic templates. It's used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of individual topics.  For more information about topic spaces configuration, see [MQTT topic spaces](mqtt-topic-spaces.md).
+Topic space is a set of topic templates. It's used to simplify access control management by enabling you to scope publish or subscribe access for a client group, to a group of topics at once instead of individual topics.  For more information about topic spaces configuration, see [MQTT topic spaces](mqtt-topic-spaces.md).
 
 ## Topic filter
 

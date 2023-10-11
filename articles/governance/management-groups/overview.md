@@ -13,14 +13,10 @@ policies, and compliance for those subscriptions. _Management groups_ provide a 
 above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
 cascade by inheritance to all associated subscriptions.
 
-Management groups give you
-enterprise-grade management at scale no matter what type of subscriptions you might have.
-However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD)
-tenant.
+Management groups give you enterprise-grade management at scale, no matter what type of subscriptions you might have.
+However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD) tenant.
 
-For example, you can apply policies to a management group that limits the regions available for
-virtual machine (VM) creation. This policy would be applied to all nested management groups,
-subscriptions, and resources, and allow VM creation only in authorized regions.
+For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all nested management groups, subscriptions, and resources and allow VM creation only in authorized regions.
 
 ## Hierarchy of management groups and subscriptions
 
@@ -29,14 +25,11 @@ into a hierarchy for unified policy and access management. The following diagram
 creating a hierarchy for governance using management groups.
 
 :::image type="complex" source="../media/mg-org.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
-   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.
+   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups, with the child level being all subscriptions.
 :::image-end:::
 
-You can create a hierarchy that applies a policy, for example, which limits VM locations to the
-West US region in the management group called "Corp". This policy will inherit onto all the Enterprise
-Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs
-under those subscriptions. This security policy cannot be altered by the resource or subscription
-owner allowing for improved governance.
+You can create a hierarchy that applies a policy, for example, which limits VM locations to the West US region in the management group called "Corp". This policy will inherit all the Enterprise Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or subscription
+owner, allowing for improved governance.
 
 > [!NOTE]
 > Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement (MCA) subscriptions.
@@ -66,8 +59,8 @@ fold up to it. This root management group allows for global policies and Azure r
 be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
-assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,
-you can assign your own account as owner of the root management group.
+assign any Azure role to other directory users or groups to manage the hierarchy. As an administrator,
+you can assign your account as the owner of the root management group.
 
 ### Important facts about the root management group
 
@@ -77,7 +70,7 @@ you can assign your own account as owner of the root management group.
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
   the name of a management group.
 - The root management group can't be moved or deleted, unlike other management groups.
-- All subscriptions and management groups fold up to the one root management group within the
+- All subscriptions and management groups fold up into one root management group within the
   directory.
   - All resources in the directory fold up to the root management group for global management.
   - New subscriptions are automatically defaulted to the root management group when created.
@@ -114,7 +107,7 @@ Azure management groups support
 resource accesses and role definitions. These permissions are inherited to child resources that
 exist in the hierarchy. Any Azure role can be assigned to a management group that will inherit down
 the hierarchy to the resources. For example, the Azure role VM contributor can be assigned to a
-management group. This role has no action on the management group, but will inherit to all VMs under
+management group. This role has no action on the management group but will inherit to all VMs under
 that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.

@@ -8,7 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
 ms.topic: how-to
-#Customer intent: As a dev infrastructure manager, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
+#Customer intent: As a platform engineer, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
 ---
 
 # Manage a dev box definition

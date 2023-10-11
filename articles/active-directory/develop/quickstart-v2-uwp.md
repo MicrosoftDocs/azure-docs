@@ -22,7 +22,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Universal Windows Platform (UWP) desktop app with user sign-in](desktop-app-quickstart.md?pivots=devlang-uwp)
+> > [Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app](quickstart-desktop-app-uwp-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

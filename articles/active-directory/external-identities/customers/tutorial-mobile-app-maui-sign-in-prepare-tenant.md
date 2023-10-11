@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Register and configure .NET MAUI mobile app in a customer tenant"
-description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI app with Azure AD for the customer's tenant.
+description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI app with Microsoft Entra External ID for the customer's tenant.
 author: henrymbuguakiarie
 manager: mwongerapk
 
@@ -8,12 +8,13 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.date: 06/05/2023
 ---
 
 # Tutorial: Register and configure .NET MAUI mobile app in a customer tenant
 
-This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) mobile app that authenticates using Azure Active Directory (Azure AD) for customers tenant.
+This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) mobile app that authenticates using Microsoft Entra ID for customers tenant.
 
 The tutorial aims to demonstrate how to create a .NET MAUI app that uses cross-platform code while enhancing the default application class with Android platform-specific code.
 
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register .NET MAUI mobile app
 

@@ -59,7 +59,7 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 
 If you run into issues, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#unable-to-mount-azure-file-shares-with-ad-credentials).
 
-## Mount the file share from a non-domain-joined VM
+## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
 Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have line-of-sight to the domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
 

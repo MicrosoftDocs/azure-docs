@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript feature extensions (Click A
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 09/12/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -16,8 +16,9 @@ Application Insights JavaScript SDK feature extensions are extra features that c
 
 In this article, we cover the Click Analytics plug-in, which automatically tracks click events on webpages and uses `data-*` attributes or customized tags on HTML elements to populate event telemetry.
 
-> [!IMPORTANT]
-> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable the Click Analytics plug-in.
+## Prerequisites
+
+[Install the JavaScript SDK](./javascript-sdk.md) before you enable the Click Analytics plug-in.
 
 ## What data does the plug-in collect?
 
@@ -55,47 +56,46 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### 1. Add the code
+### Add the code
 
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-Ignore this setup if you use the npm setup.
+1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
 
-```html
-<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
-<script type="text/javascript">
-  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
-  // Click Analytics configuration
-  var clickPluginConfig = {
-    autoCapture : true,
-    dataTags: {
-      useDefaultContentNameOrId: true
-    }
-  }
-  // Application Insights configuration
-  var configObj = {
-    connectionString: "YOUR_CONNECTION_STRING",
-    // Alternatively, you can pass in the instrumentation key,
-    // but support for instrumentation key ingestion will end on March 31, 2025.
-    // instrumentationKey: "YOUR INSTRUMENTATION KEY",
-    extensions: [
-      clickPluginInstance
-    ],
-    extensionConfig: {
-      [clickPluginInstance.identifier] : clickPluginConfig
-    },
-  };
-  // Application Insights JavaScript (Web) SDK Loader Script code
-  !function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
-    crossOrigin: "anonymous",
-    cfg: configObj // configObj is defined above.
-  });
-</script>
-```
+	```html
+	<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
+	<script type="text/javascript">
+			var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+			// Click Analytics configuration
+			var clickPluginConfig = {
+					autoCapture : true,
+					dataTags: {
+							useDefaultContentNameOrId: true
+					}
+			}
+			// Application Insights configuration
+			var configObj = {
+					connectionString: "YOUR_CONNECTION_STRING",
+					// Alternatively, you can pass in the instrumentation key,
+					// but support for instrumentation key ingestion will end on March 31, 2025.
+					// instrumentationKey: "YOUR INSTRUMENTATION KEY",
+					extensions: [
+							clickPluginInstance
+					],
+					extensionConfig: {
+							[clickPluginInstance.identifier] : clickPluginConfig
+					},
+			};
+			// Application Insights JavaScript (Web) SDK Loader Script code
+			!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
+					src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
+					crossOrigin: "anonymous",
+					cfg: configObj // configObj is defined above.
+			});
+	</script>
+	```
 
-> [!NOTE]
-> To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
+1. To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
 
 #### [npm package](#tab/npmpackage)
 
@@ -134,14 +134,13 @@ appInsights.loadAppInsights();
 ---
 
 > [!TIP]
-> If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for how to add the Click Analytics plug-in](./javascript-framework-extensions.md#2-add-the-extension-to-your-code).
+> If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for how to add the Click Analytics plug-in](./javascript-framework-extensions.md#add-the-extension-to-your-code).
 
-### 2. (Optional) Set the authenticated user context
+### (Optional) Set the authenticated user context
 
 If you want to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). 
 
-> [!NOTE]
-> If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage-heart.md#confirm-that-data-is-flowing).
+If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage-heart.md#confirm-that-data-is-flowing).
 
 ## Use the plug-in
 
@@ -156,10 +155,7 @@ Telemetry data generated from the click events are stored as `customEvents` in t
 The `name` column of the `customEvent` is populated based on the following rules:
   1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
   1. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
-  1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`.
-
-  > [!TIP]
-  > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
+  1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`. We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 
 ### `parentId` key
 
@@ -171,22 +167,19 @@ The value for `parentId` is fetched based on the following rules:
 - If both `data-*-id` and `id` are defined, precedence is given to `data-*-id`. 
 - If `parentDataTag` is defined but the plug-in can't find this tag under the DOM tree, the plug-in uses the `id` or `data-*-id` defined within the element that is closest to the clicked element as `parentId`. However, we recommend defining the `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute to reduce the number of loops needed to find `parentId`. Declaring `parentDataTag` is useful when you need to use the plug-in with customized options.
 - If no `parentDataTag` is defined and no `parentId` information is included in current element, no `parentId` value is collected. 
-
-> [!NOTE]
-> If `parentDataTag` is defined, `useDefaultContentNameOrId` is set to `false`, and only an `id` attribute is defined within the element closest to the clicked element, the `parentId` populates as `"not_specified"`. To fetch the value of `id`, set `useDefaultContentNameOrId` to `true`.
+- If `parentDataTag` is defined, `useDefaultContentNameOrId` is set to `false`, and only an `id` attribute is defined within the element closest to the clicked element, the `parentId` populates as `"not_specified"`. To fetch the value of `id`, set `useDefaultContentNameOrId` to `true`.
 
 When you define the `data-parentid` or `data-*-parentid` attribute, the plug-in fetches the instance of this attribute that is closest to the clicked element, including within the clicked element if applicable. 
 
 If you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, precedence is given to `data-parentid` or `data-*-parentid`.
 
-> [!NOTE]
-> For examples showing which value is fetched as the `parentId` for different configurations, see [Examples of `parentid` key](#examples-of-parentid-key).
+If the "Click Event rows with no parentId value" telemetry warning appears, see [Fix the "Click Event rows with no parentId value" warning](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#fix-the-click-event-rows-with-no-parentid-value-warning).
+
+For examples showing which value is fetched as the `parentId` for different configurations, see [Examples of `parentid` key](#examples-of-parentid-key).
 
 > [!CAUTION]
-> Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
-
-> [!CAUTION]
-> If you're using the HEART workbook with the Click Analytics plug-in, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
+> - Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
+> - If you're using the HEART workbook with the Click Analytics plug-in, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
 ### `customDataPrefix`
 
@@ -258,6 +251,8 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (e.g. NAVIGATIONBACK).
 
 #### Sample usage with behaviorValidator
+
+Here's a sample of what a behavior map validator might look like. Yours could look different, depending on your organization's taxonomy and the events you collect.
 
 ```js
 var clickPlugin = Microsoft.ApplicationInsights.ClickAnalyticsPlugin;
@@ -453,7 +448,11 @@ See a [simple web app with the Click Analytics Autocollection Plug-in enabled](h
 
 The following examples show which value is fetched as the `parentId` for different configurations.
 
+The examples show how if `parentDataTag` is defined but the plug-in can't find this tag under the DOM tree, the plug-in uses the `id` of its closest parent element.
+
 ### Example 1
+
+In example 1, the `parentDataTag` isn't declared and `data-parentid` or `data-*-parentid` isn't defined in any element. This example shows a configuration where a value for `parentId` isn't collected.
 
 ```javascript
 export const clickPluginConfigWithUseDefaultContentNameOrId = {
@@ -468,15 +467,17 @@ export const clickPluginConfigWithUseDefaultContentNameOrId = {
 }; 
 
 <div className="test1" data-id="test1parent">
-     <div>Test1</div>
+      <div>Test1</div>
       <div><small>with id, data-id, parent data-id defined</small></div>
       <Button id="id1" data-id="test1id" variant="info" onClick={trackEvent}>Test1</Button>
-     </div>
+</div>
 ```
 
-For example 1, for clicked element `<Button>`, the value of `parentId` is `“not_specified”`, because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
+For clicked element `<Button>` the value of `parentId` is `“not_specified”`, because no `parentDataTag` details are defined and no parent element id is provided within the current element.
 
 ### Example 2
+
+In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how parent id details are collected.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -497,11 +498,11 @@ export const clickPluginConfigWithParentDataTag = {
    </div>
 ```
 
-For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
-> [!NOTE] 
-> If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
+For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` is directly defined within the element. Therefore, this value takes precedence over all other parent ids or id details defined in its parent elements.
        
-### Example 3 
+### Example 3
+
+In example 3, `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined. This example shows how declaring `parentDataTag` can be helpful to collect a value for `parentId` for cases when dynamic elements don't have an `id` or `data-*-id`.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -523,9 +524,9 @@ export const clickPluginConfigWithParentDataTag = {
   </div>
 </div>
 ```
-For example 3, for clicked element `<Button>`, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` is `test6parent`. It's `test6parent` because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
-> [!NOTE]
-> If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
+For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the id of its closest parent will be used when parent id details are not directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
+
+If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 
 ## Troubleshooting
 
@@ -533,7 +534,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 ## Next steps
 
-- [Confirm data is flowing](./javascript-sdk.md#5-confirm-data-is-flowing).
+- [Confirm data is flowing](./javascript-sdk.md#confirm-data-is-flowing).
 - See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
 - See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.

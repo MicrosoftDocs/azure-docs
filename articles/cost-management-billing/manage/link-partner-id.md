@@ -1,10 +1,10 @@
 ---
 title: Link a partner ID to your account that’s used to manage customers
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
-author: dhirajgandhi
-ms.reviewer: dhgandhi
+author: bandersmsft
+ms.reviewer: presharm
 ms.author: banders
-ms.date: 07/06/2023
+ms.date: 07/27/2023
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
@@ -122,14 +122,14 @@ In other words, PAL association can happen for all RBAC roles. The roles determi
 
 For example, if you're partner, your customer might hire you to do a project. Your customer can give you an administrative account to deploy, configure, and support an application. Your customer can scope your access to a resource group. If you use PAL and associate your MPN ID with the administrative account, Microsoft measures the consumed revenue from the services within the resource group.
 
-If the Azure AD identity that was used for PAL is deleted or disabled, the ACR attribution stops for the partner on the associated resources.
+If the Microsoft Entra identity that was used for PAL is deleted or disabled, the ACR attribution stops for the partner on the associated resources.
 
 Various partner programs have differing rules for the RBAC roles. Contact your Partner Development Manager for rules about the specific Azure RBAC roles that are needed at the time of PAL in order for ACR attribution to be realized.
 
 For more information, see: 
 
 - [Azure Partner Admin Link](https://www.microsoftpartnercommunity.com/atvwr79957/attachments/atvwr79957/Webinars/53/1/Azure%20Partner%20Admin%20Link%20FAQ.pdf)
-- [Get recognized with Partner Admin Link](https://www.microsoftpartnercommunity.com/t5/Microsoft-Partner-Network/Get-recognized-with-Partner-Admin-Link/td-p/8389/page/2)
+- [Get recognized with Partner Admin Link](https://techcommunity.microsoft.com/t5/microsoft-partner-community/ct-p/PartnerCommunity)
 
 **Who can link the partner ID?**
 

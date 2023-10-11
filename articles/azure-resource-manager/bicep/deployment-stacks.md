@@ -2,7 +2,8 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
+ms.date: 09/06/2023
 ---
 
 # Deployment stacks (Preview)
@@ -35,10 +36,8 @@ Deployment stacks provide the following benefits:
 - [What-if](./deploy-what-if.md) isn't available in the preview.
 - Management group scoped deployment stacks can only deploy the template to subscription.
 - When using the Azure CLI create command to modify an existing stack, the deployment process continues regardless of whether you choose _n_ for a prompt. To halt the procedure, use _[CTRL] + C_.
-- There is an issue with the Azure CLI create command when the value `none` is passed to the `deny-settings-mode` parameter. Before the issue is fixed, use the `denyDelete` instead of `none`.
 - If you create or modify a deployment stack in the Azure portal, deny settings will be overwritten (support for deny settings in the Azure portal is currently in progress).
 - Management group deployment stacks are not yet available in the Azure portal.
-
 
 ## Create deployment stacks
 
@@ -58,20 +57,20 @@ To create a deployment stack at the resource group scope:
 
 ```azurepowershell
 New-AzResourceGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -ResourceGroupName '<resource-group-name>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode none
+  -Name "<deployment-stack-name>" `
+  -ResourceGroupName "<resource-group-name>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DenySettingsMode "none"
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack group create \
-  --name <deployment-stack-name> \
-  --resource-group <resource-group-name> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode none
+  --name '<deployment-stack-name>' \
+  --resource-group '<resource-group-name>' \
+  --template-file '<bicep-file-name>' \
+  --deny-settings-mode 'none'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -86,11 +85,11 @@ To create a deployment stack at the subscription scope:
 
 ```azurepowershell
 New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DeploymentResourceGroupName '<resource-group-name>' `
-  -DenySettingsMode none
+  -Name "<deployment-stack-name>" `
+  -Location "<location>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DeploymentResourceGroupName "<resource-group-name>" `
+  -DenySettingsMode "none"
 ```
 
 The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
@@ -99,11 +98,11 @@ The `DeploymentResourceGroupName` parameter specifies the resource group used to
 
 ```azurecli
 az stack sub create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deployment-resource-group-name <resource-group-name> \
-  --deny-settings-mode none
+  --name '<deployment-stack-name>' \
+  --location '<location>' \
+  --template-file '<bicep-file-name>' \
+  --deployment-resource-group-name' <resource-group-name>' \
+  --deny-settings-mode 'none'
 ```
 
 The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
@@ -120,11 +119,11 @@ To create a deployment stack at the management group scope:
 
 ```azurepowershell
 New-AzManagmentGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DeploymentSubscriptionId '<subscription-id>' `
-  -DenySettingsMode none
+  -Name "<deployment-stack-name>" `
+  -Location "<location>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DeploymentSubscriptionId "<subscription-id>" `
+  -DenySettingsMode "none"
 ```
 
 The `deploymentSubscriptionId` parameter specifies the subscription used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the management group scope.
@@ -133,11 +132,11 @@ The `deploymentSubscriptionId` parameter specifies the subscription used to stor
 
 ```azurecli
 az stack mg create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deployment-subscription-id <subscription-id> \
-  --deny-settings-mode none
+  --name '<deployment-stack-name>' \
+  --location '<location>' \
+  --template-file '<bicep-file-name>' \
+  --deployment-subscription '<subscription-id>' \
+  --deny-settings-mode 'none'
 ```
 
 The `deployment-subscription` parameter specifies the subscription used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the management group scope.
@@ -156,14 +155,14 @@ To list deployment stack resources at the resource group scope:
 
 ```azurepowershell
 Get-AzResourceGroupDeploymentStack `
-  -ResourceGroupName '<resource-group-name>'
+  -ResourceGroupName "<resource-group-name>"
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack group list \
-  --resource-group <resource-group-name>
+  --resource-group '<resource-group-name>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -204,14 +203,14 @@ To list deployment stack resources at the management group scope:
 
 ```azurepowershell
 Get-AzManagementGroupDeploymentStack `
-  -ManagementGroupId '<management-group-id>'
+  -ManagementGroupId "<management-group-id>"
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack mg list \
-  --management-group-id <management-group-id>
+  --management-group-id '<management-group-id>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -234,24 +233,24 @@ To update a deployment stack at the resource group scope:
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -ResourceGroupName '<resource-group-name>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode none
+  -Name "<deployment-stack-name>" `
+  -ResourceGroupName "<resource-group-name>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DenySettingsMode "none"
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack group create \
-  --name <deployment-stack-name> \
-  --resource-group <resource-group-name> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode none
+  --name '<deployment-stack-name>' \
+  --resource-group '<resource-group-name>' \
+  --template-file '<bicep-file-name>' \
+  --deny-settings-mode 'none'
 ```
 
 > [!NOTE]
-> Azure CLI doesn't have a deployment stack set command.  Use the new command instead.
+> Azure CLI doesn't have a deployment stack set command.  Use the New command instead.
 
 # [Portal](#tab/azure-portal)
 
@@ -265,11 +264,11 @@ To update a deployment stack at the subscription scope:
 
 ```azurepowershell
 Set-AzSubscriptionDeploymentStack `
-   -Name '<deployment-stack-name>' `
-   -Location '<location>' `
-   -TemplateFile '<bicep-file-name>' `
-   -DeploymentResourceGroupName '<resource-group-name>' `
-  -DenySettingsMode none
+   -Name "<deployment-stack-name>" `
+   -Location "<location>" `
+   -TemplateFile "<bicep-file-name>" `
+   -DeploymentResourceGroupName "<resource-group-name>" `
+  -DenySettingsMode "none"
 ```
 
 The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
@@ -278,11 +277,11 @@ The `DeploymentResourceGroupName` parameter specifies the resource group used to
 
 ```azurecli
 az stack sub create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deployment-resource-group-name <resource-group-name> \
-  --deny-settings-mode none
+  --name '<deployment-stack-name>' \
+  --location '<location>' \
+  --template-file '<bicep-file-name>' \
+  --deployment-resource-group-name '<resource-group-name>' \
+  --deny-settings-mode 'none'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -297,22 +296,22 @@ To update a deployment stack at the management group scope:
 
 ```azurepowershell
 Set-AzManagmentGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DeploymentSubscriptionId '<subscription-id>' `
-  -DenySettingsMode none
+  -Name "<deployment-stack-name>" `
+  -Location "<location>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DeploymentSubscriptionId "<subscription-id>" `
+  -DenySettingsMode "none"
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack mg create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deployment-subscription-id <subscription-id> \
-  --deny-settings-mode none
+  --name '<deployment-stack-name>' \
+  --location '<location>' \
+  --template-file '<bicep-file-name>' \
+  --deployment-subscription '<subscription-id>' \
+  --deny-settings-mode 'none'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -321,7 +320,7 @@ Currently not implemented.
 
 ---
 
-### Use the new command
+### Use the New command
 
 You get a warning similar to the following:
 
@@ -347,9 +346,9 @@ For example:
 
 ```azurepowershell
 New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode none`
+  -Name "<deployment-stack-name" `
+  -TemplateFile "<bicep-file-name>" `
+  -DenySettingsMode "none" `
   -DeleteResourceGroups `
   -DeleteResources
 ```
@@ -358,16 +357,16 @@ New-AzSubscriptionDeploymentStack `
 
 - `delete-all`: use delete rather than detach for managed resources and resource groups.
 - `delete-resources`: use delete rather than detach for managed resources only.
-- `delete-resource-groups`: use delete rather than detach for managed resource groups only. It's invalid to use `delete-resource-groups` by itself. `delete-resource-groups` must be used together with `delete-resources`.
+- `delete-resource-groups`: use delete rather than detach for managed resource groups only. It"s invalid to use `delete-resource-groups` by itself. `delete-resource-groups` must be used together with `delete-resources`.
 
 For example:
 
 ```azurecli
 az stack sub create `
-  --name <deployment-stack-name> `
-  --location <location> `
-  --template-file <bicep-file-name> `
-  --deny-settings-mode none `
+  --name '<deployment-stack-name>' `
+  --location '<location>' `
+  --template-file '<bicep-file-name>' `
+  --deny-settings-mode 'none' `
   --delete-resource-groups `
   --delete-resources
 ```
@@ -415,8 +414,8 @@ To delete deployment stack resources at the resource group scope:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -name '<deployment-stack-name>' `
-  -ResourceGroupName '<resource-group-name>' `
+  -name "<deployment-stack-name>" `
+  -ResourceGroupName "<resource-group-name>" `
   [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
 ```
 
@@ -424,8 +423,8 @@ Remove-AzResourceGroupDeploymentStack `
 
 ```azurecli
 az stack group delete \
-  --name <deployment-stack-name> \
-  --resource-group <resource-group-name> \
+  --name '<deployment-stack-name>' \
+  --resource-group '<resource-group-name>' \
   [--delete-all/--delete-resource-groups/--delete-resources]
 ```
 
@@ -448,7 +447,7 @@ To delete deployment stack resources at the subscription scope:
 
 ```azurepowershell
 Remove-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
+  -Name "<deployment-stack-name>" `
   [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
 ```
 
@@ -456,7 +455,7 @@ Remove-AzSubscriptionDeploymentStack `
 
 ```azurecli
 az stack sub delete \
-  --name <deployment-stack-name> \
+  --name '<deployment-stack-name>' \
   [--delete-all/--delete-resource-groups/--delete-resources]
 ```
 
@@ -478,8 +477,8 @@ To delete deployment stack resources at the management group scope:
 
 ```azurepowershell
 Remove-AzManagementGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -ManagementGroupId '<management-group-id>' `
+  -Name "<deployment-stack-name>" `
+  -ManagementGroupId "<management-group-id>" `
   [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
 ```
 
@@ -487,8 +486,8 @@ Remove-AzManagementGroupDeploymentStack `
 
 ```azurecli
 az stack mg delete \
-  --name <deployment-stack-name> \
-  --management-group-id <management-group-id> \
+  --name '<deployment-stack-name>' \
+  --management-group-id '<management-group-id>' \
   [--delete-all/--delete-resource-groups/--delete-resources]
 ```
 
@@ -507,16 +506,16 @@ To view managed resources at the resource group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name '<deployment-stack-name>' -ResourceGroupName '<resource-group-name>').Resources
+(Get-AzResourceGroupDeploymentStack -Name "<deployment-stack-name>" -ResourceGroupName "<resource-group-name>").Resources
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack group list \
-  --name <deployment-stack-name> \
-  --resource-group <resource-group-name> \
-  --output json
+  --name '<deployment-stack-name>' \
+  --resource-group '<resource-group-name>' \
+  --output 'json'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -535,15 +534,15 @@ To view managed resources at the subscription scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzSubscriptionDeploymentStack -Name '<deployment-stack-name>').Resources
+(Get-AzSubscriptionDeploymentStack -Name "<deployment-stack-name>").Resources
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack sub show \
-  --name <deployment-stack-name> \
-  --output json
+  --name '<deployment-stack-name>' \
+  --output 'json'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -562,16 +561,16 @@ To view managed resources at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzManagementGroupDeploymentStack -Name '<deployment-stack-name>' -ManagementGroupId '<management-group-id>').Resources
+(Get-AzManagementGroupDeploymentStack -Name "<deployment-stack-name>" -ManagementGroupId "<management-group-id>").Resources
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack mg show \
-  --name <deployment-stack-name> \
-  --management-group-id <management-group-id> \
-  --output json
+  --name '<deployment-stack-name>' \
+  --management-group-id '<management-group-id>' \
+  --output 'json'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -590,7 +589,7 @@ To delete a managed resource, remove the resource definition from the underlying
 
 ## Protect managed resources against deletion
 
-When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope.
+When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -598,8 +597,8 @@ The Azure PowerShell includes these parameters to customize the deny assignment:
 
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
 - `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
-- `DenySettingsExcludedActions`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
-- `DenySettingsExcludedPrincipals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
+- `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
+- `DenySettingsExcludedPrincipal`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
 
 # [CLI](#tab/azure-cli)
 
@@ -622,24 +621,24 @@ To apply deny settings at the resource group scope:
 
 ```azurepowershell
 New-AzResourceGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -ResourceGroupName '<resource-group-name>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode DenyDelete `
-  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
-  -DenySettingsExcludedPrincipals <object-id> <object-id>
+  -Name "<deployment-stack-name>" `
+  -ResourceGroupName "<resource-group-name>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DenySettingsMode "DenyDelete" `
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack group create \
-  --name <deployment-stack-name> \
-  --resource-group <resource-group-name> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode denyDelete \
-  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
-  --deny-settings-excluded-principals <object-id> <object-id>
+  --name '<deployment-stack-name>' \
+  --resource-group '<resource-group-name>' \
+  --template-file '<bicep-file-name>' \
+  --deny-settings-mode 'denyDelete' \
+  --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
+  --deny-settings-excluded-principals '<object-id>' '<object-id>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -654,12 +653,12 @@ To apply deny settings at the subscription scope:
 
 ```azurepowershell
 New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode DenyDelete `
-  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
-  -DenySettingsExcludedPrincipals <object-id> <object-id>
+  -Name "<deployment-stack-name>" `
+  -Location "<location>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DenySettingsMode "DenyDelete" `
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -668,12 +667,12 @@ Use the `DeploymentResourceGroupName` parameter to specify the resource group na
 
 ```azurecli
 az stack sub create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode denyDelete \
-  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
-  --deny-settings-excluded-principals <object-id> <object-id>
+  --name '<deployment-stack-name>' \
+  --location '<location>' \
+  --template-file '<bicep-file-name>' \
+  --deny-settings-mode 'denyDelete' \
+  --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
+  --deny-settings-excluded-principals '<object-id>' '<object-id>'
 ```
 
 Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -690,12 +689,12 @@ To apply deny settings at the management group scope:
 
 ```azurepowershell
 New-AzManagmentGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode DenyDelete `
-  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
-  -DenySettingsExcludedPrincipals <object-id> <object-id>
+  -Name "<deployment-stack-name>" `
+  -Location "<location>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DenySettingsMode "DenyDelete" `
+  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -704,12 +703,12 @@ Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at 
 
 ```azurecli
 az stack mg create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode denyDelete \
-  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
-  --deny-settings-excluded-principals <object-id> <object-id>
+  --name '<deployment-stack-name>' \
+  --location '<location>' \
+  --template-file '<bicep-file-name>' \
+  --deny-settings-mode 'denyDelete' \
+  --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
+  --deny-settings-excluded-principals '<object-id>' '<object-id>'
 ```
 
 Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -742,8 +741,8 @@ Save-AzResourceGroupDeploymentStack `
 
 ```azurecli
 az stack group export \
-  --name <deployment-stack-name> \
-  --resource-group <resource-group-name>
+  --name '<deployment-stack-name>' \
+  --resource-group '<resource-group-name>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -765,7 +764,7 @@ Save-AzSubscriptionDeploymentStack `
 
 ```azurecli
 az stack sub export \
-  --name <deployment-stack-name>
+  --name '<deployment-stack-name>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -788,8 +787,8 @@ Save-AzManagmentGroupDeploymentStack `
 
 ```azurecli
 az stack mg export \
-  --name <deployment-stack-name> \
-  --management-group-id <management-group-id>
+  --name '<deployment-stack-name>' \
+  --management-group-id '<management-group-id>'
 ```
 
 # [Portal](#tab/azure-portal)

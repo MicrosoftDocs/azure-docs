@@ -6,7 +6,7 @@ ms.author: howieasmerom
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 10/04/2023
 ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
@@ -18,7 +18,8 @@ ms.custom: template-concept; references_regions
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
-> Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
+> - You can now enable Trusted Launch on existing [Azure Generation 2 VM](generation-2.md). For more information, see **[Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md)**
+> - Trusted launch requires the creation of new virtual machine scale set (VMSS). You cannot enable trusted launch on existing VMSS that were initially created without it.
 
 ## Benefits
 
@@ -27,31 +28,33 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Gain insights and confidence of the entire boot chain's integrity.
 - Ensure workloads are trusted and verifiable.
 
-## Virtual machines sizes
+## Virtual Machines sizes
 
-| Type | Virtual machines sizes supported | Sizes not supported yet.
-|:--- |:--- |:--- |
-| [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series, Dlsv5-series, Dldsv5-series | Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series
-| [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
-| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series, Easv5-series, Eadsv5-series, Ebsv5-series, Edv5-series, Edsv5-series, Ebdsv5-series | Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
-| [Storage optimized](sizes-storage.md) |Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
-| [GPU](sizes-gpu.md) |NCv2-series, NCv3-series, NCasT4_v3-series, NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCadsA10 v4-series, NVadsA10 v5-series | NDasrA100_v4-series, NDm_A100_v4-series, ND-series
-| [High Performance Compute](sizes-hpc.md) |HB-series, HBv2-series, HBv3-series, HC-series, HBv4-series, HX-series | All sizes supported.
+| Type | Supported size families | Currently not supported size families | Not supported size families
+|:--- |:--- |:--- |:--- |
+| [General Purpose](sizes-general.md) |[B-series](sizes-b-series-burstable.md), [DCsv2-series](dcv2-series.md), [DCsv3-series](dcv3-series.md#dcsv3-series), [DCdsv3-series](dcv3-series.md#dcdsv3-series), [Dv4-series](dv4-dsv4-series.md#dv4-series), [Dsv4-series](dv4-dsv4-series.md#dsv4-series), [Dsv3-series](dv3-dsv3-series.md#dsv3-series), [Dsv2-series](dv2-dsv2-series.md#dsv2-series), [Dav4-series](dav4-dasv4-series.md#dav4-series), [Dasv4-series](dav4-dasv4-series.md#dasv4-series), [Ddv4-series](ddv4-ddsv4-series.md#ddv4-series), [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series), [Dv5-series](dv5-dsv5-series.md#dv5-series), [Dsv5-series](dv5-dsv5-series.md#dsv5-series), [Ddv5-series](ddv5-ddsv5-series.md#ddv5-series), [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series), [Dasv5-series](dasv5-dadsv5-series.md#dasv5-series), [Dadsv5-series](dasv5-dadsv5-series.md#dadsv5-series), [Dlsv5-series](dlsv5-dldsv5-series.md#dlsv5-series), [Dldsv5-series](dlsv5-dldsv5-series.md#dldsv5-series) | [Dpsv5-series](dpsv5-dpdsv5-series.md#dpsv5-series), [Dpdsv5-series](dpsv5-dpdsv5-series.md#dpdsv5-series), [Dplsv5-series](dplsv5-dpldsv5-series.md#dplsv5-series), [Dpldsv5-series](dplsv5-dpldsv5-series.md#dpldsv5-series) | [Av2-series](av2-series.md), [Dv2-series](dv2-dsv2-series.md#dv2-series), [Dv3-series](dv3-dsv3-series.md#dv3-series)
+| [Compute optimized](sizes-compute.md) |[FX-series](fx-series.md), [Fsv2-series](fsv2-series.md) | All sizes supported. | No Gen1-Only Size Family.
+| [Memory optimized](sizes-memory.md) |[Dsv2-series](dv2-dsv2-series.md#dsv2-series), [Esv3-series](ev3-esv3-series.md#esv3-series), [Ev4-series](ev4-esv4-series.md#ev4-series), [Esv4-series](ev4-esv4-series.md#esv4-series), [Edv4-series](edv4-edsv4-series.md#edv4-series), [Edsv4-series](edv4-edsv4-series.md#edsv4-series), [Eav4-series](eav4-easv4-series.md#eav4-series), [Easv4-series](eav4-easv4-series.md#easv4-series), [Easv5-series](easv5-eadsv5-series.md#easv5-series), [Eadsv5-series](easv5-eadsv5-series.md#eadsv5-series), [Ebsv5-series](ebdsv5-ebsv5-series.md#ebsv5-series),[Ebdsv5-series](ebdsv5-ebsv5-series.md#ebdsv5-series) ,[Edv5-series](edv5-edsv5-series.md#edv5-series), [Edsv5-series](edv5-edsv5-series.md#edsv5-series)  | [Epsv5-series](epsv5-epdsv5-series.md#epsv5-series), [Epdsv5-series](epsv5-epdsv5-series.md#epdsv5-series), [M-series](m-series.md), [Msv2-series](msv2-mdsv2-series.md#msv2-medium-memory-diskless), [Mdsv2 Medium Memory series](msv2-mdsv2-series.md#mdsv2-medium-memory-with-disk), [Mv2-series](mv2-series.md) |[Ev3-series](ev3-esv3-series.md#ev3-series)
+| [Storage optimized](sizes-storage.md) | [Lsv2-series](lsv2-series.md), [Lsv3-series](lsv3-series.md), [Lasv3-series](lasv3-series.md) | All sizes supported. | No Gen1-Only Size Family.
+| [GPU](sizes-gpu.md) |[NCv2-series](ncv2-series.md), [NCv3-series](ncv3-series.md), [NCasT4_v3-series](nct4-v3-series.md#ncast4_v3-series), [NVv3-series](nvv3-series.md), [NVv4-series](nvv4-series.md), [NDv2-series](ndv2-series.md), [NC_A100_v4-series](nc-a100-v4-series.md#nc-a100-v4-series), [NVadsA10 v5-series](nva10v5-series.md#nvadsa10-v5-series) | [NDasrA100_v4-series](nda100-v4-series.md), [NDm_A100_v4-series](ndm-a100-v4-series.md), [ND-series](nd-series.md) | [NC-series](nc-series.md), [NV-series](nv-series.md), [NP-series](np-series.md)
+| [High Performance Compute](sizes-hpc.md) |[HB-series](hb-series.md), [HBv2-series](hbv2-series.md), [HBv3-series](hbv3-series.md), [HBv4-series](hbv4-series.md), [HC-series](hc-series.md), [HX-series](hx-series.md) | All sizes supported. | No Gen1-Only Size Family.
 
 > [!NOTE]
 > - Installation of the **CUDA & GRID drivers on Secure Boot enabled Windows VMs** does not require any additional steps.
 > - Installation of the **CUDA driver on Secure Boot enabled Ubuntu VMs** requires additional steps documented at [Install NVIDIA GPU drivers on N-series VMs running Linux](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled). Secure Boot should be disabled for installing CUDA Drivers on other Linux VMs.
 > - Installation of the  **GRID driver** requires secure boot to be disabled for Linux VMs.
+> - **Not Supported** size families do not support [generation 2](generation-2.md) VMs. Change VM Size to equivalent **Supported size families** for enabling Trusted Launch.
 
 ## Operating systems supported
 
 | OS | Version |
 |:--- |:--- |
+| Alma Linux | 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1, 9.2 |
 | Azure Linux | 1.0, 2.0 |
 | CentOS | 8.3, 8.4 |
 | Debian |11 |
 | Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0 LVM |
-| RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM |
+| RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1 LVM |
 | SUSE Enterprise Linux |15SP3, 15SP4 |
 | Ubuntu Server |18.04 LTS, 20.04 LTS, 22.04 LTS |
 | Windows 10 |Pro, Enterprise, Enterprise Multi-Session &#42; |
@@ -64,6 +67,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 ## Additional information
 
 **Regions**:
+
 - All public regions
 - All Azure Government regions
 
@@ -71,11 +75,15 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 No additional cost to existing VM pricing.
 
 ## Unsupported features
-- Azure Site Recovery
-- Azure Automanage
-- Ultra disk, Premium SSD v2
-- Managed Image
-- Nested Virtualization (most v5 VM sizes supported)
+
+> [!NOTE]
+> The following Virtual Machine features are currently not  supported with Trusted Launch.
+
+- [Azure Site Recovery](../site-recovery/site-recovery-overview.md)
+- [Azure Automanage](../automanage/overview-about.md)
+- [Ultra disk](disks-enable-ultra-ssd.md)
+- [Managed Image](capture-image-resource.md) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
+- Nested Virtualization (most v5 VM size families supported)
 
 ## Secure boot
 
@@ -117,113 +125,6 @@ If your VMs are properly set up with trusted launch, Microsoft Defender for Clou
 - **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it's possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
     - Which kernel driver failed? Am I familiar with this driver and expect it to be loaded?
     - Is this the exact version of the driver I am expecting? Are the driver binaries intact? If this is a 3rd party driver, did the vendor pass the OS compliance tests to get it signed?
-
-## FAQ
-
-Frequently asked questions about trusted launch.
-
-### Why should I use trusted launch? What does trusted launch guard against?
-
-Trusted launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
-- Firmware rootkits: these kits overwrite the firmware of the virtual machine's BIOS, so the rootkit can start before the OS.
-- Boot kits: these kits replace the OS's bootloader so that the virtual machine loads the boot kit before the OS.
-- Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
-- Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine's components.
-
-### What are the differences between secure boot and measured boot?
-
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won't match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
-
-### What happens when an integrity fault is detected?
-
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
-
-Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
-
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Microsoft Defender for Cloud.
-Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
-- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and the OS may be compromised.
-- The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the TPM.
-- The attestation extension on the VM is not responding. This can indicate a denial-of-service attack by malware, or an OS admin.
-
-### How does trusted launch compare to Hyper-V Shielded VM?
-
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
-
-### Does trusted launch support Azure Compute Gallery?
-
-Trusted launch now allows images to be created and shared through the Azure Compute Gallery (formerly Shared Image Gallery). The image source can be an existing Azure VM which is either generalized or specialized, an existing managed disk or a snapshot, a VHD or an image version from another gallery. To deploy a Trusted Launch VM from an Azure Compute Gallery image version see [trusted launch VM](https://aka.ms/trusted-launch-azurecomputegallery).
-
-### Does trusted launch support Azure Backup?
-
-Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
-
-### Does trusted launch support ephemeral OS disks?
-
-Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
-
-### How can I find VM sizes that support Trusted launch?
-
-See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes).
-
-The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
-
-#### CLI
-
-```azurecli
-subscription="<yourSubID>"
-region="westus"
-vmSize="Standard_NC12s_v3"
-
-az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
-```
-
-#### PowerShell
-
-```azurepowershell
-$region = "southeastasia"
-$vmSize = "Standard_M64"
-(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
-```
-
-The response is similar to the following form. `TrustedLaunchDisabled True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
-
-```
-Name                                         Value
-----                                         -----
-MaxResourceVolumeMB                          8192000
-OSVhdSizeMB                                  1047552
-vCPUs                                        64
-MemoryPreservingMaintenanceSupported         False
-HyperVGenerations                            V1,V2
-MemoryGB                                     1000
-MaxDataDiskCount                             64
-CpuArchitectureType                          x64
-MaxWriteAcceleratorDisksAllowed              8
-LowPriorityCapable                           True
-PremiumIO                                    True
-VMDeploymentTypes                            IaaS
-vCPUsAvailable                               64
-ACUs                                         160
-vCPUsPerCore                                 2
-CombinedTempDiskAndCachedIOPS                80000
-CombinedTempDiskAndCachedReadBytesPerSecond  838860800
-CombinedTempDiskAndCachedWriteBytesPerSecond 838860800
-CachedDiskBytes                              1318554959872
-UncachedDiskIOPS                             40000
-UncachedDiskBytesPerSecond                   1048576000
-EphemeralOSDiskSupported                     True
-EncryptionAtHostSupported                    True
-CapacityReservationSupported                 False
-TrustedLaunchDisabled                        True
-AcceleratedNetworkingEnabled                 True
-RdmaEnabled                                  False
-MaxNetworkInterfaces                         8
-```
-
-### What is VM Guest State (VMGS)?  
-
-VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 ## Next steps
 

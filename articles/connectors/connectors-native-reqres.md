@@ -1,19 +1,19 @@
 ---
-title: Receive inbound or incoming HTTPS calls
-description: Receive and respond to HTTPS requests sent to workflows in Azure Logic Apps.
+title: Receive and respond to inbound HTTPS calls
+description: Receive and respond to inbound HTTPS requests received by workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/31/2023
 tags: connectors
 ---
 
-# Receive incoming or inbound HTTPS calls or requests to workflows in Azure Logic Apps
+# Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This how-to guide shows how to run your logic app workflow after receiving an HTTPS call or request from another service by using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
+This how-to guide shows create a logic app workflow that can receive and handle an inbound HTTPS request or call from another service using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
 
 > [!NOTE]
 >
@@ -350,6 +350,11 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    >
    > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
+   >
+   > The URL for the Request trigger is associated with your workflow's storage account. This URL 
+   > changes if the storage account changes. For example, with Standard logic apps, if you manually 
+   > change your storage account and copy your workflow to the new storage account, the URL for 
+   > the Request trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
 ---
 

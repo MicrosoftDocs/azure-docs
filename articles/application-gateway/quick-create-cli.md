@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 06/07/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.custom: mvc, devx-track-azurecli, mode-api, devx-track-linux
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -130,7 +130,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --name myVM$i \
     --nics myNic$i \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt

@@ -51,7 +51,7 @@ To create the content repository you'll use to add languages and features to you
      > If you're working with limited storage, you can use the mounted "Languages and Optional Features" ISO as a repository. To learn how to create a repository, see [Build a custom FOD and language pack repository](/windows-hardware/manufacture/desktop/languages-overview#build-a-custom-fod-and-language-pack-repository).
 
      >[!IMPORTANT]
-     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
+     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include "Jpan."
      >
      > [!div class="mx-imgBorder"]
      > ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
@@ -116,33 +116,33 @@ You can create a custom image by following these steps:
     "Language.TextToSpeech~~~$sourceLanguage~0.0.1.0"
     )
 
-	##Install all FODs or fonts from the CSV file###
+    ##Install all FODs or fonts from the CSV file###
     Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Client-Language-Pack_x64_$sourceLanguage.cab
     Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Lip-Language-Pack_x64_$sourceLanguage.cab
     foreach($capability in $additionalCapabilityList){
        Dism /Online /Add-Capability /CapabilityName:$capability /Source:$LIPContent
-	}
+    }
 
-	foreach($feature in $additionalFODList){
+    foreach($feature in $additionalFODList){
     Dism /Online /Add-Package /PackagePath:$feature
     }
 
-	if($langGroup){
+    if($langGroup){
     Dism /Online /Add-Capability /CapabilityName:Language.Fonts.$langGroup~~~und-$langGroup~0.0.1.0 
     }
 
-	##Add installed language to language list##
-	$LanguageList = Get-WinUserLanguageList
-	$LanguageList.Add("$targetlanguage")
-	Set-WinUserLanguageList $LanguageList -force
-	```
+    ##Add installed language to language list##
+    $LanguageList = Get-WinUserLanguageList
+    $LanguageList.Add("$targetlanguage")
+    Set-WinUserLanguageList $LanguageList -force
+    ```
 
     >[!NOTE]
-	>This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+    >This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
     The script might take a while to finish depending on the number of languages you need to install. You can also install additional languages after initial setup by running the script again with a different *$targetLanguage* parameter.
 
-5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx ) as a CSV file, then save it in the same folder as your PowerShell script.
+5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx) as a CSV file, then save it in the same folder as your PowerShell script.
 
 6. Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 

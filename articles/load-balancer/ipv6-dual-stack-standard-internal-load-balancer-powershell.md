@@ -63,7 +63,7 @@ $RdpPublicIP_2 = New-AzPublicIpAddress `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -AllocationMethod Static `
-  -IpAddressVersion IPv4  `
+  -IpAddressVersion IPv6  `
   -sku Standard
 ```
 ## Create the virtual network and the subnet

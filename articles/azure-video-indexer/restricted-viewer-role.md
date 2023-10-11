@@ -1,30 +1,34 @@
 ---
-title: Manage access to an Azure Video Indexer account
+title: Manage access to an Azure AI Video Indexer account
 description: This article talks about Video Indexer restricted viewer built-in role. This role is an account level permission, which allows users to grant restricted access to a specific user or security group. 
 ms.topic: how-to
 ms.date: 12/14/2022
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Manage access to an Azure Video Indexer account  
+# Manage access to an Azure AI Video Indexer account
 
-In this article, you'll learn how to manage access (authorization) to an Azure Video Indexer account. As Azure Video Indexer’s role management differs depending on the Video Indexer Account type, this document will first cover access management of regular accounts (ARM-based) and then of Classic and Trial accounts.   
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
-To see your accounts, select **User Accounts** at the top-right of the [Azure Video Indexer website](https://videoindexer.ai/). Classic and Trial accounts will have a label with the account type to the right of the account name.
+In this article, you'll learn how to manage access (authorization) to an Azure AI Video Indexer account. As Azure AI Video Indexer’s role management differs depending on the Video Indexer Account type, this document will first cover access management of regular accounts (ARM-based) and then of Classic and Trial accounts.   
+
+To see your accounts, select **User Accounts** at the top-right of the [Azure AI Video Indexer website](https://videoindexer.ai/). Classic and Trial accounts will have a label with the account type to the right of the account name.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/restricted-viewer-role/accounts.png" alt-text="Image of accounts.":::
 
 ## User management of ARM accounts
 
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Using Azure RBAC, you can segregate duties within your team and users by granting only the amount of access that is appropriate. Users in your Azure Active Directory (Azure AD) are assigned specific roles, which grant access to resources. 
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Using Azure RBAC, you can segregate duties within your team and users by granting only the amount of access that is appropriate. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. 
 
-Users with owner or administrator Azure Active Directory (Azure AD) permissions can assign roles to Azure AD users or security groups for an account. For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+Users with owner or administrator Microsoft Entra permissions can assign roles to Microsoft Entra users or security groups for an account. For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
-Azure Video Indexer provides three built-in roles. You can learn more about [Azure built-in roles](../role-based-access-control/built-in-roles.md). Azure Video Indexer doesn't support the creation of custom roles. 
+Azure AI Video Indexer provides three built-in roles. You can learn more about [Azure built-in roles](../role-based-access-control/built-in-roles.md). Azure AI Video Indexer doesn't support the creation of custom roles. 
 
 **Owner** - This role grants full access to manage all resources, including the ability to assign roles to determine who has access to resources.  
 **Contributor** - This role has permissions to everything an owner does except it can't control who has access to resources.  
-**Video Indexer Restricted Viewer** - This role is unique to Azure Video Indexer and has permissions to view videos and their insights but can't perform edits or changes or user management operations. This role enables collaboration and user access to insights through the Video Indexer website while limiting their ability to make changes to the environment.  
+**Video Indexer Restricted Viewer** - This role is unique to Azure AI Video Indexer and has permissions to view videos and their insights but can't perform edits or changes or user management operations. This role enables collaboration and user access to insights through the Video Indexer website while limiting their ability to make changes to the environment.  
 
 Users with this role can perform the following tasks: 
 
@@ -44,7 +48,7 @@ Users with this role are unable to perform the following tasks:
 Disabled features will appear to users with the **Restricted Viewer** access as greyed out. When a user navigates to an unauthorized page, they receive a pop-up message that they don't have access. 
 
 > [!Important]
-> The Restricted Viewer role is only available in Azure Video Indexer ARM accounts. 
+> The Restricted Viewer role is only available in Azure AI Video Indexer ARM accounts. 
 >
 
 ### Manage account access (for account owners)

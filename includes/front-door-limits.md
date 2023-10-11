@@ -17,7 +17,8 @@
 | Azure Front Door resources per subscription | 100 |
 | Front-end hosts, which include custom domains per resource | 500 |
 | Routing rules per resource | 500 |
-| Back-end pools per resource | 50 |
+| Rules per Rule set | 25 |
+| Back-end pools per resource | 50<sup>1</sup> |
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |
 | URLs in a single cache purge call | 100 |
@@ -34,6 +35,12 @@
 | Web application firewall HTTP request body size inspected | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
+
+<sup>1</sup>To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
+
+<!-- LINKS - External -->
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+
 ### Azure Front Door Standard and Premium service limits
 
 * Maximum of **500** total Standard and Premium profiles per subscription.
@@ -49,6 +56,7 @@
 | Maximum custom domain per profile	| 100 | 500 |
 | Maximum origin groups per profile | 100 | 200 |
 | Maximum origins per origin group* | 50 | 50 |
+| Maximum origins per profile | 100 | 200 |
 | Maximum origin timeout | 16 - 240 secs | 16 - 240 secs |
 | Maximum routes per profile | 100 | 200 | 
 | Maximum rule set per profile | 100 | 200 |

@@ -10,7 +10,7 @@ ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
 ms.date: 06/19/2023
-ms.custom: data4ml
+ms.custom: data4ml, devx-track-azurecli
 ---
 
 # Schedule data import jobs (preview)

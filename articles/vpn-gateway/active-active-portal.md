@@ -115,4 +115,4 @@ Use the following steps to convert active-active mode gateway to active-standby 
 To configure connections, see the following articles:
 
 * [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
-* [VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md#configure-the-vnet1-gateway-connection)
+* [VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

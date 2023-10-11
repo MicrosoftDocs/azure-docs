@@ -65,7 +65,7 @@ sections:
       - question: |
           Where do I find Resource Health?
         answer: |
-          After you log in to the Azure portal, there are multiple ways you can access Resource Health:
+          After you sign in to the Azure portal, there are multiple ways you can access Resource Health:
           - Navigate to your resource. In the left-hand navigation, select **Resource health**
           - Go to the Azure Service Health blade.  In the left-hand navigation, select **Resource health**.
           

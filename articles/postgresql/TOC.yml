@@ -132,14 +132,14 @@
       href: flexible-server/concepts-server-parameters.md
     - name: Troubleshooting guides
       href: flexible-server/concepts-troubleshooting-guides.md
-    - name: Business continuity
+    - name: Reliability
       items:
+      - name: High Availability (Reliability)
+        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
-      - name: High availability
-        href: flexible-server/concepts-high-availability.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune overview
@@ -180,18 +180,27 @@
           href: flexible-server/concepts-connection-libraries.md
         - name: Connection resilience
           href: flexible-server/concepts-connectivity.md
+        - name: Connection Pooling Best Practices
+          href: flexible-server/concepts-connection-pooling-best-practices.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
     items:
+    - name: Manage Azure resources with automation tasks
+      href: ./flexible-server/create-automation-tasks.md
+      displayName: Automation
     - name: Power BI
       href: flexible-server/connect-with-power-bi-desktop.md
   - name: Troubleshooting
     items:  
+    - name: Troubleshooting guides
+      href: flexible-server/how-to-troubleshooting-guides.md
     - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md 
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+      - name: Canceling statement due to conflict with recovery
+        href: flexible-server/troubleshoot-canceling-statement-due-to-conflict-with-recovery.md
     - name: Performance troubleshooting
       items:
       - name: Troubleshoot high CPU utilization
@@ -250,6 +259,12 @@
         items:
         - name: Restore a dropped server
           href: flexible-server/how-to-restore-dropped-server.md
+      - name: Cross subscription and cross resource group restore
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
+        - name: Azure REST API
+          href: flexible-server/howto-restore-different-subscription-resource-group-api.md 
       - name: Restart a server
         items:
         - name: Azure portal
@@ -313,16 +328,6 @@
         href: flexible-server/how-to-manage-azure-ad-users.md
       - name: Connect with SCRAM authentication
         href: flexible-server/how-to-connect-scram.md
-    - name: Scale a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-scale-compute-storage-portal.md
-    - name: Restart a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-restart-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-restart-server-cli.md
     - name: Major Version Upgrade
       items:
       - name: Azure portal
@@ -357,12 +362,6 @@
       - name: Azure REST API
         href: flexible-server/how-to-read-replicas-rest-api.md
         displayName: replica rest api
-    - name: Cost optimization
-      items:
-      - name: How to optimize costs
-        href: flexible-server/how-to-cost-optimization.md
-    - name: Troubleshooting guides
-      href: flexible-server/how-to-troubleshooting-guides.md
     - name: Use vectors and embeddings
       items:
         - name: Basics of pgvector
@@ -455,6 +454,8 @@
       displayName: monitor, alerts, configure
   - name: Concepts
     items:
+    - name: Cost optimization
+      href: flexible-server/how-to-cost-optimization.md
     - name: Servers
       href: single-server/concepts-servers.md
     - name: Supported versions
@@ -479,7 +480,7 @@
         href: single-server/concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: single-server/concepts-azure-ad-authentication.md
@@ -798,7 +799,7 @@
         href: https://aka.ms/postg-intro-vid
       - name: Migrate your PostgreSQL app to Azure
         href: https://aka.ms/postg-migrate-vid
-      - name: Build intelligent apps with Cognitive Services
+      - name: Build intelligent apps with Azure AI services
         href: https://aka.ms/postg-cogsvs-vid
       - name: Connect containers using OSBA
         href: https://aka.ms/postg-osba-vid

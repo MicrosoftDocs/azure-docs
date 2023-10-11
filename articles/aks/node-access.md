@@ -2,10 +2,9 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 04/26/2023
+ms.date: 09/06/2023
 ms.reviewer: mattmcinnes
-ms.custom: contperf-fy21q4
-
+ms.custom: contperf-fy21q4, devx-track-linux, devx-track-azurecli
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -34,8 +33,7 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     The following example resembles output from the command:
     
     ```output
-    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE
-               KERNEL-VERSION      CONTAINER-RUNTIME
+    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
     aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
     aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
     aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
@@ -243,7 +241,7 @@ The following examples demonstrate possible usage of this command:
     ```
 
 > [!IMPORTANT]
-> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH public key.
+> After you update SSH key, AKS doesn't automatically reimage your node pool, you can choose anytime to perform [the reimage operation][node-image-upgrade]. Only after reimage is complete, does the update SSH key operation take effect.
 
 
 ## Next steps
@@ -260,5 +258,4 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [how-to-install-azure-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
-
-
+[node-image-upgrade]:node-image-upgrade.md

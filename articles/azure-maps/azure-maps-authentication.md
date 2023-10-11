@@ -174,7 +174,7 @@ Shared access signature (SAS) tokens are authentication tokens created using the
 
 Functional key differences of SAS token from Azure AD Access tokens:
 
-- Lifetime of a token for a max expiration of one year (365 days).
+- Lifetime of a token for a max expiration of one day (24 hours).
 - Azure location and geography access control per token.
 - Rate limits per token for an approximate of 1 to 500 requests per second.
 - Private keys of the token are the primary and secondary keys of an Azure Maps account resource.
@@ -232,8 +232,8 @@ If you want to assign temporary access and remove access for before the SAS toke
 
 there are two options to revoke access for SAS token(s):
 
-1. Regenerate the key that was used by the SAS token, the primaryKey or secondaryKey of the map account.
-1. Remove the role assignment for the Managed Identity on the associated map account.
+1. Regenerate the key that was used by the SAS token or secondaryKey of the map account.
+1. Remove the role assignment for the managed identity on the associated map account.
 
 > [!WARNING]
 > Deleting a managed identity used by a SAS token or revoking access control of the managed identity will cause instances of your application using the SAS token and managed identity to intentionally return `401 Unauthorized` or `403 Forbidden` from Azure Maps REST APIs which will create application disruption.
@@ -241,7 +241,7 @@ there are two options to revoke access for SAS token(s):
 > To avoid disruption:
 >
 > 1. Add a second managed identity to the Map Account and grant the new managed identity the correct role assignment.
-> 1. Create a SAS token using `secondaryKey` as the `signingKey` and distribute the new SAS token to the application.
+> 1. Create a SAS token using `secondaryKey`, or a different managed identity than the previous one, as the `signingKey` and distribute the new SAS token to the application.
 > 1. Regenerate the primary key, remove the managed identity from the account, and remove the role assignment for the managed identity.
 
 ### Create SAS tokens
@@ -266,12 +266,12 @@ SAS token parameters:
 
 | Parameter Name   | Example Value                              | Description                                           |
 | :--------------- | :----------------------------------------- | :---------------------------------------------------- |
-| signingKey       | `primaryKey`                               | Required, the string enum value for the signingKey either `primaryKey` or `secondaryKey` is used to create the signature of the SAS. |
+| signingKey       | `primaryKey`                               | Required, the string enum value for the signingKey either `primaryKey`, `secondaryKey` or managed identity is used to create the signature of the SAS. |
 | principalId      | `<GUID>`                                   | Required, the principalId is the Object (principal) ID of the user-assigned managed identity attached to the map account. |
 | regions          | `[ "eastus", "westus2", "westcentralus" ]` | Optional, the default value is `null`. The regions control which regions the SAS token can be used in the Azure Maps REST [data-plane] API. Omitting regions parameter allows the SAS token to be used without any constraints. When used in combination with an Azure Maps data-plane geographic endpoint like `us.atlas.microsoft.com` and `eu.atlas.microsoft.com` allows the application to control usage with-in the specified geography. This allows prevention of usage in other geographies. |
 | maxRatePerSecond | 500                                        | Required, the specified approximate maximum request per second which the SAS token is granted. Once the limit is reached, more throughput is rate limited with HTTP status code `429 (TooManyRequests)`. |
 | start            | `2021-05-24T10:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token becomes active. |
-| expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry can't be more than 365 days. |
+| expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry can't be more than 24 hours. |
 
 ### Configuring application with SAS token
 
@@ -286,24 +286,18 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 
 ## Cross origin resource sharing (CORS)
 
-[!INCLUDE [preview features callout](./includes/preview-callout.md)]
-
-Cross Origin Resource Sharing (CORS) is in preview.
-
-### Prerequisites
-
-To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain.
-
-- If you're unfamiliar with CORS, see [Cross-origin resource sharing (CORS)], it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol isn't specific to Azure Maps.
-
-### Account CORS
-
 [CORS] is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy] that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Using the Azure Maps account resource, you can configure which origins are allowed to access the Azure Maps REST API from your applications.
 
 > [!IMPORTANT]
 > CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Azure AD, or SAS token.
 >
 > CORS is supported for all map account pricing tiers, data-plane endpoints, and locations.
+
+### Prerequisites
+
+To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain.
+
+- If you're unfamiliar with CORS, see [Cross-origin resource sharing (CORS)], it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol isn't specific to Azure Maps.
 
 ### CORS requests
 

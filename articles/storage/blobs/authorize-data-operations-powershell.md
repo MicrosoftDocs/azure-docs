@@ -2,12 +2,12 @@
 title: Run PowerShell commands with Azure AD credentials to access blob data
 titleSuffix: Azure Storage
 description: PowerShell supports signing in with Azure AD credentials to run commands on blob data in Azure Storage. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/12/2022
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
@@ -57,6 +57,7 @@ The following example shows how to create a container in a new storage account f
       -Name "<storage-account>" `
       -SkuName Standard_LRS `
       -Location $location `
+      -AllowBlobPublicAccess $false
     ```
 
 1. Get the storage account context that specifies the new storage account by calling [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). When acting on a storage account, you can reference the context instead of repeatedly passing in the credentials. Include the `-UseConnectedAccount` parameter to call any subsequent data operations using your Azure AD credentials:

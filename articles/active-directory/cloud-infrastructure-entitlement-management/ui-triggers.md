@@ -1,6 +1,6 @@
 ---
-title: View information about activity triggers in Permissions Management
-description: How to view information about activity triggers in the Activity triggers dashboard in Permissions Management.
+title: View information about alerts and alert triggers in Permissions Management
+description: How to view information about alerts and alert triggers in the Alerts dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 07/25/2023
 ms.author: jfields
 ---
 
-# View information about activity triggers
+# View information about alerts and alert triggers
 
-This article describes how to use the **Activity triggers** dashboard in Permissions Management to view information about activity alerts and triggers.
+This article describes how to use the **Alerts** dashboard in Permissions Management to view information about alerts and alert triggers.
 
-## Display the Activity triggers dashboard
+## Display the Alerts dashboard
 
-- In the Permissions Management home page, select **Activity triggers** (the bell icon).
+- In the Permissions Management home page, select **Alerts** (the bell icon).
 
-    The **Activity triggers** dashboard has four tabs:
+    The **Alerts** dashboard has four tabs:
 
     - **Activity**
     - **Rule-Based Anomaly**
@@ -31,6 +31,9 @@ This article describes how to use the **Activity triggers** dashboard in Permiss
 
     - **Alerts**
     - **Alert Triggers**
+      
+- Select the **Authorization system**(s) and/or **folder**(s) to display alerts and alert triggers in scope of the selected view. 
+- Alert triggers are based on data collected. All alerts, if triggered, are shown every hour under the Alerts subtab.
 
 ## View information about alerts
 
@@ -55,6 +58,8 @@ The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one
 - **Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
 
+
+
 ## View information about alert triggers
 
 The **Alert Triggers** subtab in the **Activity**, **Rule-Based Anomaly**, **Statistical Anomaly**, and **Permission Analytics** tab displays the following information:
@@ -71,13 +76,8 @@ The **Alert Triggers** subtab in the **Activity**, **Rule-Based Anomaly**, **Sta
     - **Modified By**: The name of the user who modified the alert.
 
 
-
-
-
-
 ## Next steps
 
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](how-to-create-alert-trigger.md).
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](product-rule-based-anomalies.md).
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](product-statistical-anomalies.md).
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](product-permission-analytics.md).

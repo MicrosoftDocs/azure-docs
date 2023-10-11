@@ -5,8 +5,8 @@ description: Learn how to copy a blob with asynchronous scheduling in Azure Stor
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/28/2023
-ms.service: storage
+ms.date: 08/02/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -14,19 +14,18 @@ ms.custom: devx-track-python, devguide-python
 
 # Copy a blob with asynchronous scheduling using Python
 
+[!INCLUDE [storage-dev-guide-selector-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy-async.md)]
+
 This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
 The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Python](storage-blob-copy-url-python.md).
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operation:
     - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
-- Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Python](storage-blob-python-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
 ## About copying blobs with asynchronous scheduling
 

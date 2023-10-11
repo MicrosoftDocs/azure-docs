@@ -5,6 +5,7 @@ ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 11/15/2021
+ms.custom: UpdateFrequency2
 ---
 
 # Compare Azure DevTest Labs and Azure Lab Services

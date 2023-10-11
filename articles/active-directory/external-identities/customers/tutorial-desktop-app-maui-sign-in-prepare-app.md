@@ -8,6 +8,7 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.date: 06/05/2023
 ---
 
@@ -42,11 +43,11 @@ Wait for the project to be created and its dependencies to be restored.
 
 ## Add MSAL SDK support using MSAL helper classes
 
-MSAL client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
+MSAL client enables developers to acquire security tokens from Microsoft Entra ID for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
 Download the following files into a folder in your computer:
 
-- [AzureAdConfig.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/AzureAdConfig.cs) - This file gets and sets the Azure AD app unique identifiers from your app configuration file.
+- [AzureAdConfig.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/AzureAdConfig.cs) - This file gets and sets the Microsoft Entra app unique identifiers from your app configuration file.
 - [DownStreamApiConfig.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/DownStreamApiConfig.cs) - This file gets and sets the scopes for Microsoft Graph call.
 - [DownstreamApiHelper.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/DownstreamApiHelper.cs) - This file handles the exceptions that occur when calling the downstream API.
 - [Exception.cs](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/MSALClient/Exception.cs) - This file offers a few extension method related to exception throwing and handling.
@@ -70,11 +71,11 @@ Download the following files into a folder in your computer:
 
 You need to install the following packages:
 
-- _Microsoft.Identity.Client_ - This package contains the binaries of the Microsoft Authentication Library for .NET (MSAL.NET).
-- _Microsoft.Extensions.Configuration.Json_ - This package contains JSON configuration provider implementation for Microsoft.Extensions.Configuration.
-- _Microsoft.Extensions.Configuration.Binder_ - This package contains functionality to bind an object to data in configuration providers for Microsoft.Extensions.Configuration.
-- _Microsoft.Extensions.Configuration.Abstractions_ - This package contains abstractions of key-value pair based configuration.
-- _Microsoft.Identity.Client.Extensions.Msal_ - This package contains extensions to Microsoft Authentication Library for .NET (MSAL.NET).
+- `Microsoft.Identity.Client` - This package contains the binaries of the Microsoft Authentication Library for .NET (MSAL.NET).
+- `Microsoft.Extensions.Configuration.Json` - This package contains JSON configuration provider implementation for Microsoft.Extensions.Configuration.
+- `Microsoft.Extensions.Configuration.Binder` - This package contains functionality to bind an object to data in configuration providers for Microsoft.Extensions.Configuration.
+- `Microsoft.Extensions.Configuration.Abstractions` - This package contains abstractions of key-value pair based configuration.
+- `Microsoft.Identity.Client.Extensions.Msal` - This package contains extensions to Microsoft Authentication Library for .NET (MSAL.NET).
 
 ### NuGet Package Manager
 
@@ -95,7 +96,7 @@ In this section, you download an image that you use in your app to enhance how u
 
 Download the following image:
 
-- [Icon: Azure AD](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/Resources/Images/azure_active_directory.png) - This image is used as icon in the main page.
+- [Icon: Microsoft Entra ID](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/1-Authentication/2-sign-in-maui/Resources/Images/azure_active_directory.png) - This image is used as icon in the main page.
 
 ### Move the image with Visual Studio
 

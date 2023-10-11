@@ -5,14 +5,14 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 services: container-instances
 ms.date: 06/17/2022
 ---
 
 # How to use managed identities with Azure Container Instances
 
-Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services - without maintaining any secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Azure Active Directory.
+Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services - without maintaining any secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Microsoft Entra ID.
 
 In this article, you learn more about managed identities in Azure Container Instances and:
 
@@ -25,7 +25,7 @@ Adapt the examples to enable and use identities in Azure Container Instances to 
 
 ## Why use a managed identity?
 
-Use a managed identity in a running container to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in an Azure key vault and use the managed identity to access the key vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+Use a managed identity in a running container to authenticate to any [service that supports Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in an Azure key vault and use the managed identity to access the key vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 ### Enable a managed identity
 
@@ -134,7 +134,7 @@ az container show \
   --name mycontainer
 ```
 
-The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Azure Active Directory:
+The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Microsoft Entra ID:
 
 ```output
 [...]
@@ -163,7 +163,7 @@ az container exec \
   --exec-command "/bin/bash"
 ```
 
-Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to key vault, run the following command:
+Run the following commands in the bash shell in the container. To get an access token to use Microsoft Entra ID to authenticate to key vault, run the following command:
 
 ```bash
 client_id="xxxxxxxx-5523-45fc-9f49-xxxxxxxxxxxx"
@@ -224,7 +224,7 @@ az container show \
   --name mycontainer
 ```
 
-The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Azure Active Directory:
+The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Microsoft Entra ID:
 
 ```output
 [...]
@@ -269,7 +269,7 @@ az container exec \
   --exec-command "/bin/bash"
 ```
 
-Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
+Run the following commands in the bash shell in the container. First, sign in to the Azure CLI using the managed identity:
 
 ```azurecli-interactive
 az login --identity

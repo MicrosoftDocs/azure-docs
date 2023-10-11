@@ -6,6 +6,8 @@
     href: overview-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: What's new for Service Fabric?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -44,7 +46,7 @@
     - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
     - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
+      href: how-to-managed-cluster-app-deployment-template.md
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
@@ -411,7 +413,10 @@
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
-
+  - name: Managed cluster deny assignment policy
+    href: managed-cluster-deny-assignment.md
+  - name: Service Fabric Explorer blocking operations for managed clusters
+    href: managed-cluster-service-fabric-explorer-blocking-operation.md
 - name: How-to guides
   items:
   - name: Use Service Fabric managed clusters
@@ -462,6 +467,12 @@
       href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
     - name: Deploy custom image
       href: how-to-deploy-custom-image.md
+    - name: Use NAT gateways
+      href: how-to-managed-cluster-nat-gateway.md
+    - name: Use public IP prefix in a managed cluster
+      href: how-to-managed-cluster-public-ip-prefix.md
+    - name: Use multiple network interface cards
+      href: how-to-managed-cluster-use-multiple-network-interface-cards.md
   - name: Set up your development environment
     items:
     - name: Windows

@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 08/10/2022
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Soft delete for virtual machines
 

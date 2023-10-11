@@ -1,21 +1,23 @@
 ---
-title: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup (Preview)
+title: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup
 description: Learn how to use the Azure Database for MySQL Data Migration - MySQL Consistent Backup for transaction consistency even without making the Source server read-only
 author: karlaescobar
 ms.author: karlaescobar
 ms.date: 04/19/2022
 ms.service: dms
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sql-migration-content
 ---
 
-# MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup (Preview)
+# MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup
 
 MySQL Consistent Backup is a new feature that allows users to take a Consistent Backup of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature.
 
 ## Current implementation
 
-In the current implementation, users can enable the **Make Source Server Read Only** option during offline migration. This maintains the data integrity of the target database as the source is migrated by preventing Write/Delete operations on the source server during migration. When you make the source server read only as part of the migration process, the selection applies to all the source server’s databases, regardless of whether they are selected for migration.
+In the current implementation, users can enable the **Make Source Server Read Only** option during offline migration. Selecting this option maintains the data integrity of the target database as the source is migrated by preventing Write/Delete operations on the source server during migration. When you make the source server read only as part of the migration process, the selection applies to all the source server’s databases, regardless of whether they are selected for migration.
 
 :::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-mysql-make-source-read-only.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Read Only" lightbox="media/migrate-azure-mysql-consistent-backup/dms-mysql-make-source-read-only.png":::
 
@@ -37,15 +39,15 @@ The undo log makes repeatable reads possible and helps generate the snapshot tha
 
 ### How Consistent Backup works
 
-When you initiate a migration, the service flushes all tables on the source server with a **read** lock to obtain the point-in-time snapshot. This is done because a global lock is more reliable than attempting to lock individual databases or tables. As a result, even if you are not migrating all databases in a server, they are locked as part of setting up the migration process. The migration service initiates a repeatable read and combines the current table state with contents of the undo log for the snapshot. The **snapshot** is generated after obtaining the server wide lock and spawning several connections for the migration. After the creation of all connections that will be used for the migration, the locks on the table are released.
+When you initiate a migration, the service flushes all tables on the source server with a **read** lock to obtain the point-in-time snapshot. This flushing is done because a global lock is more reliable than attempting to lock individual databases or tables. As a result, even if you are not migrating all databases in a server, they are locked as part of setting up the migration process. The migration service initiates a repeatable read and combines the current table state with contents of the undo log for the snapshot. The **snapshot** is generated after obtaining the server wide lock and spawning several connections for the migration. After the creation of all connections used for the migration, the locks on the table are released.
 
-The migration threads are used to perform the migration with repeatable read enabled for all transactions and the source server hides all new changes from the offline migration. Clicking on the specific database in the Azure Database Migration Service (DMS) Portal UI during the migration displays the migration status of all the tables - completed or in progress - in the migration. In case of connection issues, the status of the database changes to **Retrying** and the error information is displayed if the migration fails.
+The migration threads are used to perform the migration with repeatable read enabled for all transactions and the source server hides all new changes from the offline migration. Clicking on the specific database in the Azure Database Migration Service (DMS) Portal UI during the migration displays the migration status of all the tables - completed or in progress - in the migration. If there are connection issues, the status of the database changes to **Retrying** and the error information is displayed if the migration fails.
 
-Repeatable reads are enabled to keep the undo logs accessible during the migration, which will increase the storage required on the source because of long running connections. It is important to note that the longer a migration runs the more table changes that occur, the undo log's history of changes will be more extensive. The longer a migration, the more slowly it runs as the undo logs to retrieve the unmodified data from will be longer. This could also increase the compute requirements and load on the source server.
+Repeatable reads are enabled to keep the undo logs accessible during the migration, which increase the storage required on the source because of long running connections. It is important to note that the longer a migration runs the more table changes that occur, the undo log's history of changes become more extensive. The longer a migration, the more slowly it runs as the undo logs to retrieve the unmodified data becomes longer. This could also increase the compute requirements and load on the source server.
 
 ### The binary log
 
-The [binary log (or binlog)](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) is an artifact that is reported to the user after the offline migration is complete. As the service spawns threads for migration during read lock, the migration service records the initial binlog position because the binlog position could change after the server is unlocked. While the migration service attempts to obtain the locks and set up the migration, the bin log position will display the status **Waiting for data movement to start...**.
+The [binary log (or binlog)](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) is an artifact that is reported to the user after the offline migration is complete. As the service spawns threads for migration during read lock, the migration service records the initial binlog position because the binlog position could change after the server is unlocked. While the migration service attempts to obtain the locks and set up the migration, the bin log position displays the status **Waiting for data movement to start...**.
 
 :::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-wait-for-binlog-status.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Waiting for data movement to start" lightbox="media/migrate-azure-mysql-consistent-backup/dms-wait-for-binlog-status.png":::
 
@@ -55,7 +57,7 @@ The binlog keeps a record of all the CRUD operations in the source server. The D
 
 This binlog position can be used in conjunction with [Data-in replication](../mysql/concepts-data-in-replication.md) or third-party tools (such as Striim or Attunity) that provide for replaying binlog changes to a different server, if required.
 
-The binary log is deleted periodically, so the user must take necessary precautions if Change Data Capture (CDC) is used later to migrate the post-migration updates at the source. Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlogs are not purged before the replica commits the changes. If non-zero, binary logs will be purged after **binlog_expire_logs_seconds** seconds. Post successful cut-over, you can reset the value. Users will need to leverage the changes in the binlog to carry out the online migration. Users can take advantage of DMS to provide the initial seeding of the data and then stitch that together with the CDC solution of their choice to implement a minimal downtime migration.
+The binary log is deleted periodically, so the user must take necessary precautions if Change Data Capture (CDC) is used later to migrate the post-migration updates at the source. Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlogs are not purged before the replica commits the changes. If non-zero, binary logs are purged after **binlog_expire_logs_seconds** seconds. Post successful cut-over, you can reset the value. Users need to leverage the changes in the binlog to carry out the online migration. Users can take advantage of DMS to provide the initial seeding of the data and then stitch that together with the CDC solution of their choice to implement a minimal downtime migration.
 
 ## Prerequisites
 
@@ -66,7 +68,7 @@ To complete the migration successfully with Consistent Backup enabled to:
 - Use the mysql client tool to determine whether log_bin is enabled on the source server. The Bin log is not always turned on by default and should be checked to see if it is enabled before starting the migration. The mysql client tool is used to determine whether **log_bin** is enabled on the source by running the command: **SHOW VARIABLES LIKE 'log_bin';**
 
 > [!NOTE]
-> With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a read replica for the source server and then delete read replica, the parameter will be set to ON.
+> With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a read replica for the source server and then delete read replica, the parameter is set to ON.
 
 - Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files are not purged before the replica commits the changes. Post successful cutover, the value can be reset.
 

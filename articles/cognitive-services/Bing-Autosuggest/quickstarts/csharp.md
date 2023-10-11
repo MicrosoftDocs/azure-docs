@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: "Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and C#."
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple C# application sends a partial search query to the API, and returns suggestions for searches. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
@@ -38,7 +38,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     using System.Text;
     ```
 
-2. In a new class, create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. In a new class, create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";

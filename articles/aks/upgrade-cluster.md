@@ -3,7 +3,8 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 05/22/2023
+ms.date: 09/14/2023
+
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
@@ -222,9 +223,7 @@ default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surg
 ...
 ```
 
-## Stop cluster upgrades automatically on API breaking changes (Preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Stop cluster upgrades automatically on API breaking changes
 
 To stay within a supported Kubernetes version, you usually have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and CSI. It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
 
@@ -234,8 +233,6 @@ All of the following criteria must be met in order for the stop to occur:
 
 * The upgrade operation is a Kubernetes minor version change for the cluster control plane.
 * The Kubernetes version you're upgrading to is 1.26 or later
-* If performed via REST, the upgrade operation uses a preview API version of `2023-01-02-preview` or later.
-* If performed via Azure CLI, the `aks-preview` CLI extension 0.5.134 or later must be installed.
 * The last seen usage of deprecated APIs for the targeted version you're upgrading to must occur within 12 hours before the upgrade operation. AKS records usage hourly, so any usage of deprecated APIs within one hour isn't guaranteed to appear in the detection.
 * Even API usage that is actually watching for deprecated resources is covered here. Look at the [Verb][k8s-api] for the distinction.
 
@@ -246,7 +243,7 @@ If you attempt an upgrade and all of the previous criteria are met, you receive 
 ```output
 Bad Request({
   "code": "ValidationError",
-  "message": "Control Plane upgrade is blocked due to recent usage of a Kubernetes API deprecated in the specified version. Please refer to https://kubernetes.io/docs/reference/using-api/deprecation-guide to migrate the usage. To bypass this error, set IgnoreKubernetesDeprecations in upgradeSettings.overrideSettings. Bypassing this error without migrating usage will result in the deprecated Kubernetes API calls failing. Usage details: 1 error occurred:\n\t* usage has been detected on API flowcontrol.apiserver.k8s.io.prioritylevelconfigurations.v1beta1, and was recently seen at: 2023-03-23 20:57:18 +0000 UTC, which will be removed in 1.26\n\n",
+  "message": "Control Plane upgrade is blocked due to recent usage of a Kubernetes API deprecated in the specified version. Please refer to https://kubernetes.io/docs/reference/using-api/deprecation-guide to migrate the usage. To bypass this error, set enable-force-upgrade in upgradeSettings.overrideSettings. Bypassing this error without migrating usage will result in the deprecated Kubernetes API calls failing. Usage details: 1 error occurred:\n\t* usage has been detected on API flowcontrol.apiserver.k8s.io.prioritylevelconfigurations.v1beta1, and was recently seen at: 2023-03-23 20:57:18 +0000 UTC, which will be removed in 1.26\n\n",
   "subcode": "UpgradeBlockedOnDeprecatedAPIUsage"
 })
 ```
@@ -257,9 +254,9 @@ After receiving the error message, you have two options to mitigate the issue. Y
 
 1. In the Azure portal, navigate to your cluster's overview page, and select **Diagnose and solve problems**.
 
-2. Navigate to the **Known Issues, Availability and Performance** category, and select **Selected Kubernetes API deprecations**.
+2. Navigate to the **Create, Upgrade, Delete and Scale** category, and select **Kubernetes API deprecations**.
 
-    :::image type="content" source="./media/upgrade-cluster/applens-api-detection-inline.png" lightbox="./media/upgrade-cluster/applens-api-detection-full.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
+    :::image type="content" source="./media/upgrade-cluster/applens-api-detection-full-v2.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
 3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated api usage to know if it is a [watch][k8s-api].
 
@@ -270,12 +267,12 @@ You can also check past API usage by enabling [Container Insights][container-ins
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
+> This method requires you to use the Azure CLI version 2.53 or `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
 
-Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command and setting the `upgrade-settings` property to `IgnoreKubernetesDeprecations` and setting the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
+Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command, specifying `enable-force-upgrade`, and setting the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group myResourceGroup --upgrade-settings IgnoreKubernetesDeprecations --upgrade-override-until 2023-04-01T13:00:00Z
+az aks update --name myAKSCluster --resource-group myResourceGroup --enable-force-upgrade --upgrade-override-until 2023-10-01T13:00:00Z
 ```
 
 > [!NOTE]
@@ -321,6 +318,14 @@ AKS uses best-effort zone balancing in node groups. During an upgrade surge, the
 
 If you have PVCs backed by Azure LRS Disks, they'll be bound to a particular zone. They may fail to recover immediately if the surge node doesn't match the zone of the PVC. This could cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to allow Kubernetes to respect your availability requirements during the drain operation.
 
+## Optimize upgrades to improve performance and minimize disruptions
+
+The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge](#customize-node-surge-upgrade), and [Pod Disruption Budget][pdb-spec] can significantly increase the likelihood of node upgrades completing successfully by the end of the maintenance window while also minimizing disruptions.
+
+* [Planned Maintenance Window][planned-maintenance] enables service teams to schedule auto-upgrade during a pre-defined window, typically a low-traffic period, to minimize workload impact. A window duration of at least 4 hours is recommended.
+* Max Surge on the node pool allows requesting additional quota during the upgrade process and limits the number of nodes selected for upgrade simultaneously. A higher max surge results in a faster upgrade process. However, setting it at 100% is not recommended as it would upgrade all nodes simultaneously, potentially causing disruptions to running applications. A max surge quota of 33% for production node pools is recommended.
+*  [Pod Disruption Budget][pdb-spec] is set for service applications and limits the number of pods that can be down during voluntary disruptions, such as AKS-controlled node upgrades. It can be configured as `minAvailable` replicas, indicating the minimum number of application pods that need to be active, or `maxUnavailable` replicas, indicating the maximum number of application pods that can be terminated, ensuring high availability for the application. Refer to the guidance provided for configuring [Pod Disruption Budgets (PDBs)][pdb-concepts]. PDB values should be validated to determine the settings that work best for your specific service.
+
 ## Next steps
 
 This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the following tutorials:
@@ -330,6 +335,8 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+[pdb-spec]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+[pdb-concepts]:https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
@@ -347,7 +354,7 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md

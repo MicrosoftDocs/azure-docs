@@ -22,13 +22,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: .NET Core
-            url: console-app-quickstart.md?pivots=devlang-dotnet-core
+            url: quickstart-console-app-netcore-acquire-token.md
           - text: Java
-            url: console-app-quickstart.md?pivots=devlang-java
+            url: quickstart-daemon-app-java-acquire-token.md
           - text: Node.js
-            url: console-app-quickstart.md?pivots=devlang-nodejs
+            url: quickstart-console-app-nodejs-acquire-token.md
           - text: Python
-            url: console-app-quickstart.md?pivots=devlang-python
+            url: quickstart-daemon-app-python-acquire-token.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial

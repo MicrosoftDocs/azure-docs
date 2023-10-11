@@ -2,7 +2,7 @@
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 03/28/2023
 ---
 
@@ -14,6 +14,8 @@ This article shows you how to upgrade AKS cluster node images and how to update 
 
 > [!NOTE]
 > The AKS cluster must use virtual machine scale sets for the nodes.
+> 
+> It's not possible to downgrade a node image version (for example *AKSUbuntu-2204 to AKSUbuntu-1804*, or *AKSUbuntu-2204-202308.01.0 to AKSUbuntu-2204-202307.27.0*).
 
 ## Check for available node image upgrades
 
@@ -154,7 +156,7 @@ az aks nodepool show \
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule].
-- Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+- Learn more about multiple node pools with [Create multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - external -->
 [kubernetes-json-path]: https://kubernetes.io/docs/reference/kubectl/jsonpath/
@@ -162,7 +164,7 @@ az aks nodepool show \
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
 [github-schedule]: node-upgrade-github-actions.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [auto-upgrade-node-image]: auto-upgrade-node-image.md
 [az-aks-nodepool-get-upgrades]: /cli/azure/aks/nodepool#az_aks_nodepool_get_upgrades

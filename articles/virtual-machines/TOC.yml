@@ -15,8 +15,11 @@
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./linux/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./linux/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./linux/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./linux/quick-create-bicep.md
@@ -32,8 +35,11 @@
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./windows/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./windows/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./windows/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
@@ -129,6 +135,8 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
+  - name: Ubuntu
+    href: ./workloads/canonical/ubuntu-pro-in-place-upgrade.md
   - name: OpenShift
     items:
     - name: OpenShift Container Platform 4.x
@@ -185,6 +193,8 @@
         href: av2-series.md
       - name: B-series burstable
         items:
+        - name: B-series CPU Credit Model
+          href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: B-series V1
           href: sizes-b-series-burstable.md
         - name: Bsv2-series 
@@ -272,6 +282,8 @@
         href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
+      - name: Msv3 and Mdsv3 Medium Memory Series
+        href: msv3-mdsv3-medium-series.md
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
@@ -316,6 +328,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NDm-H100-v5-series
+        href: nd-h100-v5-series.md
       - name: NGads V620-series (preview)
         href: ngads-v-620-series.md
       - name: NV-series
@@ -701,10 +715,10 @@
         href: ./linux/image-builder-troubleshoot.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
-        href: image-builder-reliability.md
+        href: ../reliability/reliability-image-builder.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
-        href: image-builder-prefetch.md
+        href: vm-boot-optimization.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -1046,6 +1060,8 @@
         href: ./extensions/chef.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
+      - name: Tenable
+        href: ./extensions/tenable.md
     - name: Restrict extension installation
       items:
       - name: Linux
@@ -1064,7 +1080,7 @@
     href: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
-    - name: Retirement starting September 1, 2023
+    - name: Retirement starting September 6, 2023
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: classic-vm-deprecation.md
     - name: Migration Overview
@@ -1112,7 +1128,18 @@
       href: ./create-portal-availability-zone.md
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ../availability-zones/migrate-vm.md
+      href: ../availability-zones/migrate-vm.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
+    - name: Regional to zonal move guides
+      items:
+      - name: Portal
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-portal.md
+      - name: PowerShell and CLI
+        displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-powershell.md
+      - name: FAQ
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview
@@ -1369,6 +1396,8 @@
       href: ephemeral-os-disks-faq.md
   - name: Securely import/export a disk
     items:
+    - name: Options for restricting access
+      href: disks-restrict-import-export-overview.md
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal
@@ -1645,8 +1674,12 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring overview
+    - name: Enable Trusted Launch on existing VM
+      href: trusted-launch-existing-vm.md
+    - name: Boot integrity monitoring
       href: boot-integrity-monitoring-overview.md
+    - name: Trusted Launch FAQs
+      href: trusted-launch-faq.md
  
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
@@ -1804,7 +1837,7 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?toc=/azure/virtual-machines/toc.json
-  - name: Update management center (preview)
+  - name: Update Manager
     href: ../update-center/index.yml
   - name: Maintenance
     items:
@@ -1916,7 +1949,7 @@
   items:
   - name: Reliability in Virtual Machines
     displayName: Reliability in Virtual Machines
-    href: virtual-machines-reliability.md
+    href: ../reliability/reliability-virtual-machines.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
   - name: Service disruptions
     href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs

@@ -4,6 +4,7 @@ description: Learn how to enable user-assigned managed identities on Batch pools
 ms.topic: conceptual
 ms.date: 04/03/2023
 ms.devlang: csharp
+ms.custom: devx-track-linux
 ---
 # Configure managed identities in Batch pools
 
@@ -39,7 +40,7 @@ After you've created one or more user-assigned managed identities, you can creat
 
 To create a Batch pool with a user-assigned managed identity through the Azure portal:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter and select **Batch accounts**.
 1. On the **Batch accounts** page, select the Batch account where you want to create a Batch pool.
 1. In the menu for the Batch account, under **Features**, select **Pools**.
@@ -99,6 +100,10 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     parameters: poolParameters,
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);
 ```
+
+> [!IMPORTANT]
+> Managed identities are not updated on existing VMs once a pool has been started. It is recommended to scale the pool down to zero before modifying the identity collection to ensure all VMs
+> have the same set of identities assigned.
 
 ## Use user-assigned managed identities in Batch nodes
 

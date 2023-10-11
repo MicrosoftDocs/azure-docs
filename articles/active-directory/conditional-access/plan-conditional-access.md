@@ -1,5 +1,5 @@
 ---
-title: Plan an Azure Active Directory Conditional Access deployment
+title: Plan a Microsoft Entra Conditional Access deployment
 description: Learn how to design Conditional Access policies and effectively deploy in your organization.
 
 services: active-directory
@@ -19,18 +19,18 @@ ms.collection: M365-identity-device-management
 
 Planning your Conditional Access deployment is critical to achieving your organization's access strategy for apps and resources. Conditional Access policies provide great configuration flexibility. However, this flexibility also means you should plan carefully to avoid undesirable results.
 
-[Azure Active Directory (Azure AD) Conditional Access](overview.md) analyses signals such as user, device, and location to automate decisions and enforce organizational access policies for resources. Conditional Access policies allow you to build conditions that manage security controls that can block access, require multifactor authentication, or restrict the user’s session when needed and stay out of the user’s way when not.
+[Microsoft Entra Conditional Access](overview.md) analyses signals such as user, device, and location to automate decisions and enforce organizational access policies for resources. Conditional Access policies allow you to build conditions that manage security controls that can block access, require multifactor authentication, or restrict the user’s session when needed and stay out of the user’s way when not.
 
 With this evaluation and enforcement, Conditional Access defines the basis of [Microsoft’s Zero Trust security posture management](https://www.microsoft.com/security/business/zero-trust).
 
 ![Diagram showing a high level Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Microsoft provides [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
+Microsoft provides [security defaults](../fundamentals/security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Microsoft Entra ID P1 or P2. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
 
 ## Prerequisites
 
-* A working Azure AD tenant with Azure AD Premium P1, P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-   * Azure AD Premium P2 is required to include Identity Protection risk in Conditional Access policies.
+* A working Microsoft Entra tenant with Microsoft Entra ID P1, P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+   * Microsoft Entra ID P2 is required to include Identity Protection risk in Conditional Access policies.
 * Administrators who interact with Conditional Access must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to just-in-time activate privileged role assignments.
    * Read Conditional Access policies and configurations 
       * [Security Reader](../roles/permissions-reference.md#security-reader)
@@ -38,8 +38,8 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
    * Create or modify Conditional Access policies 
       * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
       * [Security Administrator](../roles/permissions-reference.md#security-administrator)
-* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
-* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Microsoft Entra ID](../fundamentals/add-users.md).
+* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Microsoft Entra ID](../fundamentals/how-to-manage-groups.md).
 
 ### Communicating change
 
@@ -87,7 +87,7 @@ Will this policy apply to any application, user action, or authentication contex
 
 ##### User and sign-in risk
 
-For organizations with Azure AD Premium P2 licenses, they can include user and sign-in risk in their Conditional Access policies. These additions can help reduce the friction of security measures by requiring multifactor authentication or secure password change only when a user or sign-in is considered risky.
+For organizations with Microsoft Entra ID P2 licenses, they can include user and sign-in risk in their Conditional Access policies. These additions can help reduce the friction of security measures by requiring multifactor authentication or secure password change only when a user or sign-in is considered risky.
 
 For more information about risk and its use in policy, see the article [What is risk](../identity-protection/concept-identity-protection-risks.md).
 
@@ -97,7 +97,7 @@ Do you want to grant access to resources by requiring one or more of the followi
 
 * Multifactor authentication
 * Device marked as compliant
-* Using a hybrid Azure AD joined device
+* Using a Microsoft Entra hybrid joined device
 * Using an approved client app
 * App protection policy applied
 * Password change
@@ -140,8 +140,6 @@ Access control: Block access <br>
 
 Now when User B attempts to access the **PAYROLL APP** they're blocked.
 
-![Diagram showing access token issuance](media/plan-conditional-access/CA-policy-token-issuance.png)
-
 ## Recommendations
 
 Taking into account our learnings in the use of Conditional Access and supporting other customers, here are a few recommendations based on our learnings.
@@ -151,7 +149,7 @@ Taking into account our learnings in the use of Conditional Access and supportin
 **Ensure that every app has at least one Conditional Access policy applied**. From a security perspective it's better to create a policy that encompasses **All cloud apps**, and then exclude applications that you don't want the policy to apply to. This practice ensures you don't need to update Conditional Access policies every time you onboard a new application.
 
 > [!TIP]
-> Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure portal, and exclusions cannot be configured for important endpoints such as Microsoft Graph.
+> Be very careful in using block and all apps in a single policy. This could lock admins out, and exclusions cannot be configured for important endpoints such as Microsoft Graph.
 
 ### Minimize the number of Conditional Access policies
 
@@ -199,11 +197,11 @@ In addition to your active policies, implement disabled policies that act as sec
 
 **Example**: The following name indicates that this policy is the first of four policies to enable if there's an MFA disruption:
 
-* EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
+* EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require Microsoft Entra hybrid join For VIP users.
 
 ### Block countries/regions from which you never expect a sign-in.
 
-Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries/regions that are allowed, and then create a network block policy with these "allowed countries/regions" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
+Microsoft Entra ID allows you to create [named locations](location-condition.md). Create the list of countries/regions that are allowed, and then create a network block policy with these "allowed countries/regions" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
 
 ## Deploy Conditional Access policies
 
@@ -229,8 +227,8 @@ Perform each test in your test plan with test users. The test plan is important 
 | Policy | Scenario | Expected Result |
 |---|---|---|
 | [Risky sign-ins](../identity-protection/howto-identity-protection-configure-risk-policies.md) | User signs into App using an unapproved browser | Calculates a risk score based on the probability that the sign-in wasn't performed by the user. Requires user to self-remediate using MFA |
-| [Device management](require-managed-devices.md) | Authorized user attempts to sign in from an authorized device | Access granted |
-| [Device management](require-managed-devices.md) | Authorized user attempts to sign in from an unauthorized device | Access blocked |
+| [Device management](./concept-conditional-access-grant.md) | Authorized user attempts to sign in from an authorized device | Access granted |
+| [Device management](./concept-conditional-access-grant.md) | Authorized user attempts to sign in from an unauthorized device | Access blocked |
 | [Password change for risky users](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Authorized user attempts to sign in with compromised credentials (high risk sign-in) | User is prompted to change password or access is blocked based on your policy |
 
 ### Deploy in production
@@ -267,7 +265,7 @@ If the user received a message with a More details link, they can collect most o
 
 Once you've collected the information, See the following resources:
 
-* [Sign-in problems with Conditional Access](troubleshoot-conditional-access.md) – Understand unexpected sign-in outcomes related to Conditional Access using error messages and Azure AD sign-ins log.
+* [Sign-in problems with Conditional Access](troubleshoot-conditional-access.md) – Understand unexpected sign-in outcomes related to Conditional Access using error messages and Microsoft Entra sign-in log.
 * [Using the What-If tool](troubleshoot-conditional-access-what-if.md) - Understand why a policy was or wasn't applied to a user in a specific circumstance or if a policy would apply in a known state.
 
 ## Next Steps

@@ -2,28 +2,25 @@
 title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 05/01/2023
-ms.reviewer: jogrima
+ms.date: 09/21/2023
+ms.reviewer: ryankahng
 ---
 
 # Enable Profiler for Azure App Service apps
 
-Application Insights Profiler is preinstalled as part of the Azure App Service runtime. You can run Profiler on ASP.NET and ASP.NET Core apps running on App Service by using the Basic service tier or higher. Follow these steps even if you've included the Application Insights SDK in your application at build time.
+Application Insights Profiler is preinstalled as part of the Azure App Service runtime. You can run Profiler on ASP.NET and ASP.NET Core apps running on App Service by using the Basic service tier or higher. Follow these steps, even if you included the Application Insights SDK in your application at build time.
 
 To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps instructions](profiler-aspnetcore-linux.md).
 
 > [!NOTE]
-> Codeless installation of Application Insights Profiler follows the .NET Core support policy.
-> For more information about supported runtime, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+> Codeless installation of Application Insights Profiler follows the .NET Core support policy. For more information about supported runtime, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ## Prerequisites
-
-You need:
 
 - An [Azure App Service ASP.NET/ASP.NET Core app](../../app-service/quickstart-dotnetcore.md).
 - An [Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) connected to your App Service app.
 
-## Verify the Always on setting is enabled
+## Verify the "Always on" setting is enabled
 
 1. In the Azure portal, go to your App Service instance.
 1. Under **Settings** on the left pane, select **Configuration**.
@@ -80,7 +77,7 @@ Set these values by using:
 
 ## Enable Profiler for regional clouds
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 |App setting    | US Government Cloud | China Cloud |   
 |---------------|---------------------|-------------|

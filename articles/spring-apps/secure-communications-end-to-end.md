@@ -7,7 +7,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 08/15/2022
 ms.author: asirveda
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Secure communications end-to-end for Spring Boot apps in a Zero Trust environment
@@ -118,5 +118,5 @@ Azure Spring Apps is jointly built, operated, and supported by Microsoft and VMw
 
 - [Deploy Spring microservices to Azure](/training/modules/azure-spring-cloud-workshop/)
 - [Azure Key Vault Certificates Spring Cloud Azure Starter (GitHub.com)](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates/pom.xml)
-- [Azure Spring Apps reference architecture](reference-architecture.md)
+- [Azure Spring Apps architecture design](/azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json)
 - Migrate your [Spring Boot](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps), [Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps), and [Tomcat](/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps) applications to Azure Spring Apps

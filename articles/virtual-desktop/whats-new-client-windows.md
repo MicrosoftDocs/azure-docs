@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 07/11/2023
+ms.date: 10/06/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -13,51 +13,97 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 ## Supported client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows.md#enable-insider-releases).
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4419       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4485       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4583        | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4677       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.4485 (Insider)
+## Updates for version 1.2.4677 (Insider)
 
-*Date published: July 11, 2023*
+*Date published: October 3, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
-In this release, we've made the following changes: 
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
+- Fixed a bug that caused a crash when using Teams Media Optimization. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-- Narrator now describes the toggle button in the display settings side panel as "toggle button" instead of "button."
-- Control types for text now correctly reflect that they're "text" and not "custom." 
-- Updated File and URI Launch Dialog Error Handling to be more specific and user-friendly. 
-- Fixed an issue where Narrator didn't read the error message that appears after the user selects **Detect**.
-- The client now displays an error message after unsuccessfully checking for updates instead of incorrectly displaying a message that says the client is up to date.
-- Added a new RDP file property called "allowed security protocols." This property restricts the list of security protocols the client can negotiate.
-- Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verification. 
-- Added heading-level description to subscribe with URL.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+>[!NOTE]
+>This Insiders release was originally version 1.2.4675, but we've replaced it with version 1.2.4677, which fixes the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability. 
+
+## Updates for version 1.2.4583
+
+*Date published: October 6, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+- Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
+
+## Updates for version 1.2.4582
+
+*Date published: September 19, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1byOF), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1bwjL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1byOV)
+
+In this release, we've made the following changes:
+
+- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Accessibility improvements:
+   - Narrator now announces the view mode selector as "*View combo box*", instead of "*Tile view combo box*" or "*List view combo box*".
+   - Narrator now focuses on and announces **Learn more** hyperlinks.
+   - Keyboard focus is now set correctly when a warning dialog loads.
+   - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
+   - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
+
+> [!NOTE]
+> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, has replaced version 1.2.4577.
+
+## Updates for version 1.2.4487
+
+*Date published: July 21, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue where the client doesn't auto-reconnect when the gateway WebSocket connection shuts down normally.
+
+## Updates for version 1.2.4485
+
+*Date published: July 11, 2023*
+
+In this release, we've made the following changes:
+
+- Added a new RDP file property called *allowed security protocols*. This property restricts the list of security protocols the client can negotiate.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Accessibility improvements:
+  - Narrator now describes the toggle button in the display settings side panel as *toggle button* instead of *button*.
+  - Control types for text now correctly say that they're *text* and not *custom*.
+  - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Delete**.
+  - Added heading-level description to **Subscribe with URL**.
+- Dialog improvements:
+  - Updated **file** and **URI launch** dialog error handling messages to be more specific and user-friendly.
+  - The client now displays an error message after unsuccessfully checking for updates instead of incorrectly notifying the user that the client is up to date.
+  - Fixed an issue where, after having been automatically reconnected to the remote session, the **connection information** dialog gave inconsistent information about identity verification.
 
 ## Updates for version 1.2.4419
 
 *Date published: July 6, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
-
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - General improvements to Narrator experience.
 - Fixed an issue that caused the text in the message for subscribing to workspaces to be cut off when the user increases the text size.
 - Fixed an issue that caused the client to sometimes stop responding when attempting to start new connections.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4337 
+## Updates for version 1.2.4337
 
 *Date published: June 13, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1697H), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15Tzb), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15W7E) 
-
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2023-29362](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29362).
 - Fixed the vulnerability known as [CVE-2023-29352](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29352).
@@ -72,19 +118,19 @@ In this release, we've made the following changes:
 - Fixed an application compatibility issue that affected preview versions of Windows.
 - Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
 - Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
-- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked. 
+- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4240 
+## Updates for version 1.2.4240
 
 *Date published: May 16, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
-- Made minor changes to connection bar UI, including improved button sizing. 
-- Fixed an issue where the client stopped responding if closed from the system tray. 
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Made minor changes to connection bar UI, including improved button sizing.
+- Fixed an issue where the client stopped responding if closed from the system tray.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.4159
 
@@ -98,7 +144,7 @@ In this release, we've made the following changes:
 - Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
 - Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
 - Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
-- Fixed an issue that generated duplicate Activity IDs for unique connections. 
+- Fixed an issue that generated duplicate Activity IDs for unique connections.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Fixed an application compatibility issue for preview versions of Windows.
 
@@ -130,12 +176,12 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - Fixed a bug where refreshes increased memory usage.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Bug fix for Background Effects persistence between Teams sessions.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Various bug fixes for multimedia redirection (MMR) video playback redirection.
-   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available. 
+   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
 >This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
@@ -198,7 +244,7 @@ In this release, we've made the following changes:
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
+   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
    - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
@@ -229,7 +275,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following changes:
 
-- Fixed an issue where the narrator was announcing the Tenant Expander button as "on" or "off" instead of "expanded" or “collapsed."
+- Fixed an issue where the narrator was announcing the **tenant expander** button as **on** or **off** instead of **expanded** or **collapsed**.
 - Fixed an issue where the text size didn't change when the user adjusted the text size system setting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
@@ -265,7 +311,7 @@ In this release, we've made the following changes:
 - The client now shows an error message when the user tries to open a connection from the UI, but the connection doesn't launch.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
-  - The new hardware encoding feature increases the video quality (resolution and framerate) of the outgoing camera during Teams calls. Because this feature uses the underlying hardware on the PC and not just software, we're being extra careful to ensure broad compatibility before turning the feature on by default for all users. Therefore, this feature is currently off by default. To get an early preview of the feature, you can enable it on your local machine by creating a registry key at **Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector\\(DWORD)UseHardwareEncoding** and setting it to **1**. To disable the feature, set the key to **0**.
+  - The new hardware encoding feature increases the video quality (resolution and framerate) of the outgoing camera during Teams calls. Because this feature uses the underlying hardware on the PC and not just software, we're being extra careful to ensure broad compatibility before turning the feature on by default for all users. Therefore, this feature is currently off by default. To get an early preview of the feature, you can enable it on your local machine by creating a registry key at **Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector\UseHardwareEncoding** as a **DWORD** value and setting it to **1**. To disable the feature, set the key to **0**.
 
 ## Updates for version 1.2.3130
 
@@ -286,7 +332,7 @@ In this release, we've made the following changes:
 
 - Improved Narrator application experience.
 - Accessibility improvements.
-- Fixed a regression that prevented subsequent connections after reconnecting to an existing session with the group policy object (GPO) "User Configuration\Administrative Templates\System\Ctrl+Alt+Del Options\Remove Lock Computer" enabled.
+- Fixed a regression that prevented subsequent connections after reconnecting to an existing session with the group policy object (GPO) **User Configuration\Administrative Templates\System\Ctrl+Alt+Del Options\Remove Lock Computer** enabled.
 - Added an error message for when a user selects a credential type for smart card or Windows Hello for Business but the required smart card redirection is disabled in the RDP file.
 - Improved diagnostic for User Data Protocol (UDP)-based Remote Desktop Protocol (RDP) transport protocols.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -299,7 +345,7 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - Fixed an issue where Narrator didn't announce grid or list views correctly.
-- Fixed an issue where the msrdc.exe process might take a long time to exit after closing the last Azure Virtual Desktop connection if customers have set a very short token expiration policy.
+- Fixed an issue where the `msrdc.exe` process might take a long time to exit after closing the last Azure Virtual Desktop connection if customers have set a very short token expiration policy.
 - Updated the error message that appears when users are unable to subscribe to their feed.
 - Updated the disconnect dialog boxes that appear when the user locks their remote session or puts their local computer in sleep mode to be only informational.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -460,7 +506,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following changes:
 
-- The client also updates in the background when the auto-update feature is enabled, no remote connection is active, and MSRDCW.exe isn't running.
+- The client also updates in the background when the auto-update feature is enabled, no remote connection is active, and `msrdcw.exe` isn't running.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Fixed an ICE inversion parameter issue that prevented some Teams calls from connecting.
 
@@ -500,7 +546,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following changes:
 
-- Fixed an issue that caused the client to crash when users selected "Disconnect all sessions" in the system tray.
+- Fixed an issue that caused the client to crash when users selected **Disconnect all sessions** in the system tray.
 - Fixed an issue where the client wouldn't switch to full screen on a single monitor with a docking station.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams on Azure Virtual Desktop, including the following:
@@ -533,7 +579,7 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - Added the Experience Monitor access point to the system tray icon.
-- Fixed an issue where entering an email address into the "Subscribe to a Workplace" tab caused the application to stop responding.
+- Fixed an issue where entering an email address into the **Subscribe to a Workplace** tab caused the application to stop responding.
 - Fixed an issue where the client sometimes didn't send Event Hubs and Diagnostics events.
 - Updates to Teams on Azure Virtual Desktop, including:
   - Improved audio and video sync performance and added hardware accelerated decode that decreases CPU utilization on the client.
@@ -570,7 +616,7 @@ In this release, we've made the following changes:
 - Added the auto-update feature, which allows the client to install the latest updates automatically.
 - The client now distinguishes between different feeds in the Connection Center.
 - Fixed an issue where the subscription account doesn't match the account the user signed in with.
-- Fixed an issue where some users couldn't access remote apps through a downloaded file.
+- Fixed an issue where some users couldn't access a RemoteApp through a downloaded file.
 - Fixed an issue with Smartcard redirection.
 
 ## Updates for version 1.2.1364
@@ -582,8 +628,8 @@ In this release, we've made the following changes:
 - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
 - Fixed the connection failure that happened when calling or joining a Teams call while another app has an audio stream opened in exclusive mode and when media optimization for Teams is enabled.
 - Fixed a failure to enumerate audio or video devices in Teams when media optimization for Teams is enabled.
-- Added a "Need help with settings?" link to the desktop settings page.
-- Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
+- Added a **Need help with settings?** link to the desktop settings page.
+- Fixed an issue with the **Subscribe** button that happened when using high-contrast dark themes.
 
 ## Updates for version 1.2.1275
 
@@ -595,7 +641,7 @@ In this release, we've made the following changes:
 - Added functionality to enable custom URL subscriptions for all users.
 - Fixed an issue with app pinning on the feed taskbar.
 - Fixed a crash when subscribing with URL.
-- Improved experience when dragging remote app windows with touch or pen.
+- Improved experience when dragging a RemoteApp window with touch or pen.
 - Fixed an issue with localization.
 
 ## Updates for version 1.2.1186
@@ -672,11 +718,11 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Renamed the "Update" action for Workspaces to "Refresh" for consistency with other Remote Desktop clients.
+- Renamed the **Update** action for Workspaces to **Refresh** for consistency with other Remote Desktop clients.
 - You can now refresh a Workspace directly from its context menu.
 - Manually refreshing a Workspace now ensures all local content is updated.
 - You can now reset the client's user data from the About page without needing to uninstall the app.
-- You can also reset the client's user data using msrdcw.exe /reset with an optional /f parameter to skip the prompt.
+- You can also reset the client's user data using `msrdcw.exe /reset` with an optional `/f` parameter to skip the prompt.
 - We now automatically look for a client update when navigating to the About page.
 - Updated the color of the buttons for consistency.
 

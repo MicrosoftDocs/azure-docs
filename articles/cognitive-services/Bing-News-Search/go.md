@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get news using Bing News Search REST API and Go"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Get news results using the Bing News Search REST API and Go
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
@@ -85,7 +85,7 @@ type NewsAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns the required variables. Confirm that the endpoint is correct, and then replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+The following code declares the main function and assigns the required variables. Confirm that the endpoint is correct, and then replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```go
 func main() {

@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to access the Azure Resource Manager API using a Windows virtual machine with system-assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to access the Azure Resource Manager API using a Windows virtual machine with system-assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"] 
 > * Grant your VM access to a Resource Group in Azure Resource Manager 
@@ -41,7 +41,9 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 
 ## Grant your VM access to a resource group in Resource Manager
 
-Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Microsoft Entra authentication. The Azure Resource Manager API supports Microsoft Entra authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. Navigate to the tab for **Resource Groups**.
@@ -58,17 +60,17 @@ Using managed identities for Azure resources, your application can get access to
 
 You'll need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](/powershell/azure/). 
 
-1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, select **Connect**. 
-2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3.	Now that you've created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
+1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, select **Connect**. 
+2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
+3. Now that you've created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
+4. Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > The value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     
     Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     

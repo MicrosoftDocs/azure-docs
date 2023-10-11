@@ -1,6 +1,5 @@
 {
     "redirections": [
-  
       {
           "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-db.md",
           "redirect_url": "/azure/healthcare-apis/configure-database",
@@ -51,7 +50,6 @@
           "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
           "redirect_document_id": false
       },
-  
       {
           "source_path_from_root": "/articles/healthcare-apis/access-fhir-postman-tutorial.md",
           "redirect_url": "/azure/healthcare-apis/fhir/access-fhir-postman-tutorial",
@@ -79,7 +77,7 @@
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/configure-database.md",
-          "redirect_url": "/azure/healthcare-apis/fhir/configure-database.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/configure-database",
           "redirect_document_id": false
       },
       {
@@ -474,7 +472,12 @@
       },
       {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
-        "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
+        "redirect_url": "/azure/healthcare-apis/dicom/dicom-services-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-overview.md",
+        "redirect_url": "/azure/healthcare-apis/dicom/dicom-services-overview",
         "redirect_document_id": false
       },
       {
@@ -491,11 +494,16 @@
           "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data.md",
           "redirect_url": "/azure/healthcare-apis/fhir/overview-of-convert-data",
           "redirect_document_id": true
-      },    
+      },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/bulk-importing-fhir-data.md",
           "redirect_url": "/azure/healthcare-apis/fhir/configure-import-data",
           "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/device-data-through-iot-hub.md",
+        "redirect_url": "/azure/healthcare-apis/iot/overview",
+        "redirect_document_id": false
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart.md",
@@ -554,7 +562,7 @@
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-jsonpath-content-mappings.md",
           "redirect_url": "/azure/healthcare-apis/iot/how-to-use-device-mappings",
           "redirect_document_id": false
-      }, 
+      },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-iot-central-json-content-mappings.md",
           "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iot-jsonpath-content-mappings",
           "redirect_document_id": false
@@ -751,10 +759,17 @@
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
           "redirect_document_id": false
       },
-      {    "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
+      {   "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-enable-diagnostic-settings",
           "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli-old.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/get-access-token",
+          "redirect_document_id": true
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-services-overview.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/overview",
+          "redirect_document_id": true       
       }
     ]
-  }
-  
+}

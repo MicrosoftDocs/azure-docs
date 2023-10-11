@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Set body
 
-Use the `set-body` policy to set the message body for incoming and outgoing requests. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
+Use the `set-body` policy to set the message body for a request or response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
 > [!IMPORTANT]
 >  By default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
@@ -74,6 +74,7 @@ OriginalUrl.
 </pre>
 
 
+
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
@@ -110,6 +111,7 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 > [!NOTE]
 > The policy requires Pascal casing for Liquid filter names (for example, "AtLeast" instead of "at_least").
 > 
+
 * Abs
 * Append
 * AtLeast
@@ -153,7 +155,6 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 * Upcase
 * UrlDecode
 * UrlEncode
-
 
 ## Examples
 
@@ -272,3 +273,4 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 * [API Management transformation policies](api-management-transformation-policies.md)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
+
