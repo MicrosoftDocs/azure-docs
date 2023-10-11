@@ -58,8 +58,8 @@ The Azure Arc Setup wizard is launched from a system tray icon at the bottom of 
 You can select the **Enabled/Disabled** link in the **Azure Arc Management** field of the Server Manager to launch different functions based on the status of the machine:
 
 - If Azure Arc Setup isn't installed, selecting **Enabled/Disabled** launches the **Add Roles and Features Wizard**.
-- If Azure Arc Setup is installed and the Azure Connected Machine agent hasn't been installed, selecting **Disabled** launches `AzureArcSetup.exe`.
-- If Azure Arc Setup is installed and the Azure Connected Machine agent is already installed, selecting **Enabled/Disabled** launches `AzureArcConfiguration.exe`.
+- If Azure Arc Setup is installed and the Azure Connected Machine agent hasn't been installed, selecting **Disabled** launches `AzureArcSetup.exe`, the executable file for the Azure Arc Setup wizard.
+- If Azure Arc Setup is installed and the Azure Connected Machine agent is already installed, selecting **Enabled/Disabled** launches `AzureArcConfiguration.exe`, the executable file for configuring the Azure Connected Machine agent to work with your machine.
     
 ## Viewing the connected machine
 
