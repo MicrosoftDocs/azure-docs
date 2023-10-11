@@ -273,13 +273,13 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 - Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
 - Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherits the read action from another role that's assigned to this resource or to the subscription or resource group, they could read all log types. This scenario is also true if they inherit `*/read` that exists, for example, with the Reader or Contributor role.
 
-**Example 5: Grant a user permission to read log data from their resources and all Azure AD sign-in and read Update Management solution log data in the Log Analytics workspace.**
+**Example 5: Grant a user permission to read log data from their resources and all Microsoft Entra sign-in and read Update Management solution log data in the Log Analytics workspace.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Grant users the following permissions on the workspace:
   - `Microsoft.OperationalInsights/workspaces/read`: Required so the user can enumerate the workspace and open the workspace pane in the Azure portal
   - `Microsoft.OperationalInsights/workspaces/query/read`: Required for every user that can execute queries
-  - `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`: To be able to read Azure AD sign-in logs
+  - `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`: To be able to read Microsoft Entra sign-in logs
   - `Microsoft.OperationalInsights/workspaces/query/Update/read`: To be able to read Update Management solution logs
   - `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`: To be able to read Update Management solution logs
   - `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`: To be able to read Update Management logs
