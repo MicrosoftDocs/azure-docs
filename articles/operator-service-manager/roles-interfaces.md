@@ -18,7 +18,7 @@ Azure Operator Service Manager (AOSM) provides three distinct interfaces caterin
 
 In practice, multiple of these roles could be performed by the same person if necessary.
 
-:::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram showing three interfaces catering to three roles: Publisher, Designer and Operator.":::
+:::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram showing three interfaces catering to three roles: Publisher, Designer and Operator." lightbox="media/roles-interfaces-diagram.png":::
 
 ## Network Function (NF) Publisher - Role 1
 
