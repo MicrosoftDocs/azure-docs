@@ -21,7 +21,7 @@ This article describes how to set up Azure Communications Gateway for Operator C
 
 You must have carried out all the steps in [Deploy Azure Communications Gateway](deploy.md).
 
-You must have access to a user account with the Microsoft Entra Global Admin role.
+You must have access to a user account with the Microsoft Entra Global Administrator role.
 
 ## Add the Project Synergy application to your Azure tenancy
 
