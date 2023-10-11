@@ -7,24 +7,18 @@ ms.service: load-testing
 ms.author: nicktrog
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 02/15/2022
+ms.date: 10/11/2023
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
-1. Select the menu button in the upper-left corner of the portal, and then select **+ Create a resource**.
+1. From the Azure portal menu or the **Home page**, select **Create a resource**.
 
-    :::image type="content" source="../../media/azure-load-testing-create-in-portal/create-resource.png" alt-text="Screenshot that shows the button for creating a resource.":::
-
-1. Use the search bar to find **Azure Load Testing**.
-
-1. Select **Azure Load Testing**.
+1. On the **Marketplace** page, search for and select **Azure Load Testing**.
 
 1. On the **Azure Load Testing** pane, select **Create**.
 
-    :::image type="content" source="../../media/azure-load-testing-create-in-portal/create-azure-load-testing.png" alt-text="Screenshot that shows the Azure Load Testing pane.":::
-
-1. Provide the following information to configure your new Azure Load Testing resource:
+1. On the **Create a load testing resource** page, enter the following information:
 
     |Field  |Description  |
     |---------|---------|
@@ -38,9 +32,7 @@ ms.date: 02/15/2022
 
 1. After you're finished configuring the resource, select **Review + Create**.
 
-1. Review all the configuration settings and select **Create** to start the deployment of the Azure Load Testing resource. 
-    
-    When the process has finished, a deployment success message appears.
+1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete** before moving on.
 
 1. To view the new resource, select **Go to resource**.
     
