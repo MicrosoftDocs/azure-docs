@@ -38,7 +38,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Force password reset](force-password-reset.md) | GA | NA | |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
 | [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
-| [Smart lockout](https://learn.microsoft.com/en-us/azure/active-directory-b2c/threat-management) | GA | GA | |
+| [Smart lockout](threat-management.md) | GA | GA | |
 
 ## OAuth 2.0 application authorization flows
 
