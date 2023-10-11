@@ -93,7 +93,7 @@ To restore from an existing backup, file a [support request](https://portal.azur
 1. You can also decide whether to keep `system_auth` keyspace in the new target cluster or allow the restore to overwrite it with data from the backup. The `system_auth` keyspace in Cassandra contains authorization and internal authentication data, including roles, role permissions, and passwords. Note that our default restore process will overwrite the `system_auth` keyspace.
 
 > [!NOTE]
-> The time it takes to respond to a request to restore from backup will depend both on the severity of support case you raise, and the amount of data to be restored. For example, if you raise a Sev-A support case, the SLA for response to the ticket is 15 minutes. However, we do not provide an SLA for time to complete the restore, as this is very dependent on the volume of data being restored.
+> The time it takes to respond to a request to restore from backup will depend both on the severity of support case you raise (and it's corresponding SLA for response time), and the amount of data to be restored. However, we do not provide an SLA for time to complete the restore, as this is very dependent on the volume of data being restored.
 
 > [!WARNING]
 > Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).
