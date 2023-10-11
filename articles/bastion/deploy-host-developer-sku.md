@@ -79,7 +79,7 @@ When you create Azure Bastion using default settings, the settings are configure
 1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**. You can also get to this page via your **Virtual Network/Bastion** in the portal.
 1. On the **Bastion** page, select **Deploy Bastion Developer**.
 
-   :::image type="content" source="./media/deploy-host-developer-sku/deploy-bastion-developer.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/deploy-host-developer-sku/deploy-bastion-developer.png":::
+   :::image type="content" source="./media/deploy-host-developer-sku/deploy-bastion-developer.png" alt-text="Screenshot of the Bastion page showing Deploy Bastion." lightbox="./media/deploy-host-developer-sku/deploy-bastion-developer.png":::
 
 1. Bastion begins deploying. This can take around 10 minutes to complete.
 
@@ -96,7 +96,7 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
    * When you connect, the desktop of the VM might look different than the example screenshot.
    * Using keyboard shortcut keys while connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
-     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot of RDP connection." lightbox="./media/quickstart-host-portal/connected.png":::
+     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot showing a Bastion RDP connection selected." lightbox="./media/quickstart-host-portal/connected.png":::
 
 ### <a name="audio"></a>To enable audio output
 
