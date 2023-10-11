@@ -34,7 +34,7 @@ Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
 
 - Session hosts in the host pool that:
 
-   - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Get started with the Windows Insider Program](/windows-insider/get-started).
+   - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Get started with the Windows Insider Program](/windows-insider/get-started) and [Manage Insider Preview builds across your organization](/windows-insider/business/manage-builds). Intune [doesn't support update rings with multi-session](/mem/intune/fundamentals/azure-virtual-desktop-multi-session#additional-configurations-that-arent-supported-on-windows-10-or-windows-11-enterprise-multi-session-vms). 
    
    - Have the latest version of FSLogix installed. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 
