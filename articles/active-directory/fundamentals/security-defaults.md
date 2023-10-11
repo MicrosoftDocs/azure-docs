@@ -200,10 +200,10 @@ While security defaults are a good baseline to start your security posture from,
 
 || Security defaults | Conditional Access |
 | --- | --- | --- |
-| Required licenses | None | At least Microsoft Entra ID P1 |
-| Customization | No customization (on or off) | Fully customizable |
-| Enabled by | Microsoft or administrator | Administrator |
-| Complexity | Simple to use | Fully customizable based on your requirements |
+| **Required licenses**| None | At least Microsoft Entra ID P1 |
+| **Customization**| No customization (on or off) | Fully customizable |
+| **Enabled by**| Microsoft or administrator | Administrator |
+| **Complexity**| Simple to use | Fully customizable based on your requirements |
 
 Recommended steps when moving from security defaults 
 
