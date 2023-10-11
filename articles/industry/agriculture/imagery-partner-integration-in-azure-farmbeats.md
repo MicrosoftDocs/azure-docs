@@ -39,7 +39,7 @@ The APIs contain Swagger technical documentation.
 
 FarmBeats uses [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md). Azure App Service provides built-in authentication and authorization support. 
 
-For more information about Microsoft Entra ID, see [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).   
+For more information, see [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
 
