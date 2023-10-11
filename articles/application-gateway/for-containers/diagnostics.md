@@ -131,4 +131,4 @@ Here an example of the access log emitted in JSON format to a storage account.
 ```
 
 ### Limitations
-- Although possible to configure logging to log analytics, logs will not be emitted to a log analytics workspace or event hub at this time. Both log analytics and event hub streaming will be supported in a future update.
+- Although it's possible to configure logging to log analytics, logs are currently not emitted to a log analytics workspace or event hub. Log analytics and event hub streaming will be supported in a future update.
