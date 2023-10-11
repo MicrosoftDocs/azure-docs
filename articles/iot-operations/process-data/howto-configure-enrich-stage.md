@@ -56,7 +56,7 @@ Notes:
 - If a `keyMatch` ID-based join is combined with `pastNearest` or `futureNearest` timestamp-based join conditions, then the `keyMatch` is applied first to filter the returned entries before `pastNearest` or `futureNearest` is applied.
 - You can apply multiple `keyMatch` conditions to the returned entries. A logical `AND` operation is performed between multiple `keyMatch` conditions.
 
-If the pod for the pipeline unexpectedly goes down, there's a possibility that the backlogged event data pipeline may be joined with invalid or future values from the reference data store dataset. This situation can lead to undesired data enrichment. To address this issue and filter out such data, use the `pastNearest` condition.
+If the pod for the pipeline unexpectedly goes down, there's a possibility that the join with the backlogged event data pipeline is using invalid or future values from the reference data store dataset. This situation can lead to undesired data enrichment. To address this issue and filter out such data, use the `pastNearest` condition.
 
 By using the `pastNearest` condition in the enrich stage, only past values from the reference data are considered for enrichment. This approach ensures that the data being joined doesn't include any future values from the reference data store data set. The `pastNearest` condition filters out future values, enabling more accurate and reliable data enrichment.
 

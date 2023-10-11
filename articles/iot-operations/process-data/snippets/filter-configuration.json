@@ -1,5 +1,0 @@
-{ 
-    "displayName": "Filter name", 
-    "description": "Filter description", 
-    "query": "(.properties.responseTopic | contains(\"bar\")) or (.properties.responseTopic | contains(\"baz\")) and (.payload | has(\"temperature\")) and (.payload.temperature > 0)"
-} 

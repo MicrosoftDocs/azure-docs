@@ -50,7 +50,7 @@ The various intermediate stages represent the different data processing capabili
 
 - You can add as many intermediate stages as you need to a pipeline.
 - You can order the intermediate stages of a pipeline as you need. You can reorder stages after they're set.
-- Each stages adheres to a defined implementation interface and input/output schema contract​.
+- Each stage adheres to a defined implementation interface and input/output schema contract​.
 - Each stage is completely independent of the other stages in the pipeline.
 - All stages operate within the scope of a [partition](concept-partitioning.md), data isn't shared between different partitions.
 - Data flows from one stage to the next only.

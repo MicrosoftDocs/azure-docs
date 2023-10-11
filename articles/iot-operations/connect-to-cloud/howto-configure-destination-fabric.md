@@ -34,7 +34,7 @@ To add the service principal to your Microsoft Fabric workspace:
 
 1. Make a note of your workspace ID and lakehouse ID. You can find these values in the URL that you use to access your lakehouse:
 
-    :::image type="content" source="media/fabric-workspace-id.png" alt-text="Screenshot that shows the workspace and lakehouse IDs in the URL.":::
+    `https://msit.powerbi.com/groups/<your workspace ID>/lakehouses/<your lakehouse ID>?experience=data-engineering`
 
 1. In your workspace, select **Manage access**:
 

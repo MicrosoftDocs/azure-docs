@@ -48,11 +48,52 @@ The transform stage JSON configuration defines the details of the stage. To auth
 
 The following transformation example converts the array of tags in the input message into an object that contains all the tags and their values:
 
-:::code language="json" source="snippets/transform-configuration.json":::
+```json
+{
+    "displayName": "TransformInput", 
+    "description": "Make array of tags into one object", 
+    "query": ".payload.values |= (map({(.tag): (.numVal // .boolVal)}) | add)"
+}
+```
 
 The output from the transform stage looks like the following example
 
-:::code language="json" source="snippets/transform-output.json":::
+```json
+{
+  "systemProperties": {
+    "partitionKey": "foo",
+    "partitionId": 5,
+    "timestamp": "2023-01-11T10:02:07Z"
+  },
+  "qos": 1,
+  "topic": "/assets/foo/tags/bar",
+  "properties": {
+    "responseTopic": "outputs/foo/tags/bar",
+    "contentType": "application/json",
+    "payloadFormat": 1,
+    "correlationData": "base64::Zm9v",
+    "messageExpiry": 412
+  },
+  "userProperties": [
+    {
+      "key": "prop1",
+      "value": "value1"
+    },
+    {
+      "key": "prop2",
+      "value": "value2"
+    }
+  ],
+  "payload": {
+    "values": {
+      "temperature": 250,
+      "pressure": 30,
+      "humidity": 10,
+      "runningStatus": true
+    }
+  }
+}
+```
 
 ## Related content
 

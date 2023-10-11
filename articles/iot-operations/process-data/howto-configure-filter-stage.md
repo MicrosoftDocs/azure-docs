@@ -53,7 +53,13 @@ When you create a filter query to use in the filter stage:
 
 The following JSON example shows a complete filter stage configuration:
 
-:::code language="json" source="snippets/filter-configuration.json":::
+```json
+{ 
+    "displayName": "Filter name", 
+    "description": "Filter description", 
+    "query": "(.properties.responseTopic | contains(\"bar\")) or (.properties.responseTopic | contains(\"baz\")) and (.payload | has(\"temperature\")) and (.payload.temperature > 0)"
+}
+```
 
 This filter checks for messages where `.properties.responseTopic` contains `bar` or `baz` and the message payload has a property called `temperature` with a value greater than `0`.
 

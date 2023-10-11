@@ -96,7 +96,40 @@ The following table lists the [message data types](concept-message-structure.md#
 
 The following JSON example shows a complete aggregate stage configuration:
 
-:::code language="json" source="snippets/aggregate-configuration.json":::
+```json
+{ 
+    "displayName":"downSample", 
+    "description":"Calculate average for production tags", 
+    "window": 
+    { 
+        "type":"tumbling", 
+        "size":"10s" 
+    }, 
+    "properties": 
+    [ 
+        { 
+            "function":"average", 
+            "inputPath": ".payload.temperature", 
+            "outputPath":".payload.temperature_avg" 
+        }, 
+        {  
+            "function":"collect",  
+            "inputPath": ".payload.temperature", 
+            "outputPath":".payload.temperature_all"  
+        },  
+        {  
+            "function":"average",  
+            "inputPath":".payload.pressure", 
+            "outputPath":".payload.pressure"                  
+        },  
+        {  
+            "function":"last",  
+            "inputPath":".systemProperties", 
+            "outputPath": ".systemProperties" 
+        } 
+    ] 
+}
+```
 
 The configuration defines an aggregate stage that calculates, over a ten-second window:
 
@@ -110,15 +143,68 @@ This example includes two sample input messages and a sample output message gene
 
 Input message 1:
 
-:::code language="json" source="snippets/aggregate-input-message-1.json":::
+```json
+{ 
+    "systemProperties":{ 
+        "partitionKey":"foo", 
+        "partitionId":5, 
+        "timestamp":"2023-01-11T10:02:07Z" 
+    }, 
+    "qos":1, 
+    "topic":"/assets/foo/tags/bar", 
+    "properties":{ 
+        "responseTopic":"outputs/foo/tags/bar", 
+        "contentType": "application/json" 
+    }, 
+    "payload":{ 
+        "humidity": 10, 
+        "temperature":250, 
+        "pressure":30, 
+        "runningState": true 
+    } 
+} 
+```
 
 Input message 2:
 
-:::code language="json" source="snippets/aggregate-input-message-2.json":::
+```json
+{ 
+    "systemProperties":{ 
+        "partitionKey":"foo", 
+        "partitionId":5, 
+        "timestamp":"2023-01-11T10:02:07Z" 
+    }, 
+    "qos":1, 
+    "topic":"/assets/foo/tags/bar", 
+    "properties":{ 
+        "responseTopic":"outputs/foo/tags/bar", 
+        "contentType": "application/json" 
+    }, 
+    "payload":{ 
+        "humidity": 11, 
+        "temperature":235, 
+        "pressure":25, 
+        "runningState": true 
+    } 
+} 
+```
 
 Output message:
 
-:::code language="json" source="snippets/aggregate-output-message.json":::
+```json
+{ 
+    "systemProperties":{  
+        "partitionKey":"foo",  
+        "partitionId":5,  
+        "timestamp":"2023-01-11T10:02:07Z"  
+    }, 
+    "payload":{ 
+        "temperature_avg":242.5, 
+        "temperature_all":[250,235], 
+        "pressure":27.5 
+    } 
+}
+```
 
 ## Related content
 
