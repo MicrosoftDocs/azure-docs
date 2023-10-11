@@ -70,7 +70,7 @@ Once authentication has been successfully configured, you need to grant Network 
 2. Navigate to Access Control (IAM)
 3. Add Role Assignment
 4. Select the Network Contributor Role
-5. Assign Access to Microsoft Entra user, Group, or Service Principal
+5. Assign Access to Microsoft Entra user, group, or service principal
 6. Select your client application
 7. Save changes
 
