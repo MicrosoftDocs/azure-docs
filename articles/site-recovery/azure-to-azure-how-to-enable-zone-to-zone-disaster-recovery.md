@@ -77,8 +77,8 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it's important to 
 |---------|---------|
 |Classic VMs   |     Not supported    |
 |ARM VMs    |    Supported    |
-|Azure Disk Encryption v1 (dual pass, with Azure Active Directory (Azure AD))     |     Supported	|
-|Azure Disk Encryption v2 (single pass, without Azure AD)    |    Supported    |
+|Azure Disk Encryption v1 (dual pass, with Microsoft Entra ID)     |     Supported	|
+|Azure Disk Encryption v2 (single pass, without Microsoft Entra ID)    |    Supported    |
 |Unmanaged disks    |    Not supported    |
 |Managed disks    |    Supported    |
 |Customer-managed keys    |    Supported    |
