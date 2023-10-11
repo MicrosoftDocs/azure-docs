@@ -18,15 +18,15 @@ OpenTelemetry offerings are available for .NET, Node.js, Python and Java applica
 
 |Language        |Release Status                          |
 |----------------|----------------------------------------|
-|.NET (Exporter) | :white_check_mark: <sup>[1](#GA)</sup> |
-|Java            | :white_check_mark: <sup>[1](#GA)</sup> |
-|Node.js         | :white_check_mark: <sup>[1](#GA)</sup> |
-|Python          | :white_check_mark: <sup>[1](#GA)</sup> |
-|ASP.NET Core    | :warning: <sup>[2](#PREVIEW)</sup>     |
+|.NET (Exporter) | :white_check_mark: ^1 |
+|Java            | :white_check_mark: ^1 |
+|Node.js         | :white_check_mark: ^1 |
+|Python          | :white_check_mark: ^1 |
+|ASP.NET Core    | :warning: ^2     |
 
 **Footnotes**
-- <a name="GA"> :white_check_mark: 1</a>: OpenTelemetry is available to all customers with formal support.
-- <a name="PREVIEW"> :warning: 2</a>: OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+- ^1 :white_check_mark: : OpenTelemetry is available to all customers with formal support.
+- ^2 :warning: : OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!NOTE]
 > For a feature-by-feature release status, see the [FAQ](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-).
