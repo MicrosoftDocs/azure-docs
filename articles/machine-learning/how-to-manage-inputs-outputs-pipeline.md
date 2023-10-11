@@ -48,19 +48,19 @@ The following types are supported as **outputs** of a component or a pipeline.
 
 Using data or model output essentially serializing the outputs and save them as files in a storage location. In subsequent steps, this storage location can be mounted, downloaded, or uploaded to the compute target filesystem, enabling the next step to access the files during job execution. 
 
-This process requires the component's source code serializing the desired output object - usually stored in memory - into files. For instance, you could serialize a pandas dataframe as a CSV file. Note, Azure Machine Learning doesn't define any standardized methods for object serialization. As a user, you have the flexibility to choose your preferred method to serialize objects into files. Following that, in the downstream component, you can independently deserialize and read these files. Here are a few examples for your reference:
+This process requires the component's source code serializing the desired output object - usually stored in memory - into files. For instance, you could serialize a pandas dataframe as a CSV file. Note that Azure Machine Learning doesn't define any standardized methods for object serialization. As a user, you have the flexibility to choose your preferred method to serialize objects into files. Following that, in the downstream component, you can independently deserialize and read these files. Here are a few examples for your reference:
   
-- In the nyc_taxi_data_regression example, the [prep component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/prep.yml) has  `uri_folder` type output. In the component source code, it read the csv files from input folder, process the files and write processed CSV files to the output folder. 
-- In the nyc_taxi_data_regression example, the [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has an `mlflow_model` type output. In the component source code, it saves the trained model using `mlflow.sklearn.save_model` method. 
+- In the *nyc_taxi_data_regression* example, the [prep component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/prep.yml) has  an`uri_folder` type output. In the component source code, it reads the csv files from input folder, processes the files and writes processed CSV files to the output folder. 
+- In the *nyc_taxi_data_regression* example, the [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has a `mlflow_model` type output. In the component source code, it saves the trained model using `mlflow.sklearn.save_model` method. 
 
 
-In addition to above data or model types, **input** can also be following primitive types. 
+In addition to above data or model types, pipeline or component **inputs** can also be following primitive types. 
  - `string`
  - `number`
  - `integer`
  - `boolean`
 
-In the nyc_taxi_data_regression example, [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has a `number` input named `test_split_ratio`. 
+In the *nyc_taxi_data_regression* example, [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has a `number` input named `test_split_ratio`. 
 
 > [!NOTE]
 >Primitive types output is not supported. 
