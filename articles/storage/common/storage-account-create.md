@@ -67,6 +67,9 @@ You can sign in to Azure and run Azure Developer CLI (`azd`) commands in one of 
 - You can run azd commands from within the Azure portal, in Azure Cloud Shell.
 - You can install azd and run commands locally.
 
+> [!NOTE]
+> The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
+
 ### Use Azure Cloud Shell
 
 Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. `azd` is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
@@ -135,7 +138,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 ### Storage account type parameters
 
-When you create a storage account using PowerShell, the Azure CLI, Bicep, or Azure Templates, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
+When you create a storage account using PowerShell, the Azure CLI, Bicep, Azure Templates, or the Azure Developer CLI, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
 
 | Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku or SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
@@ -461,7 +464,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri "h
 To learn how to modify this template or create new ones, see:
 
 - [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
-- [Storage account template reference](/azure/templates/microsoft.storage/allversions).
+- [Storage account template reference](/azure/templates/microsoft.storage/allversions).g
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
@@ -486,7 +489,11 @@ Initialize and run the template for this quickstart using the following steps:
     azd up
     ```
 
-1. If you are not already authenticated to Azure, `azd` will launch a browser you can use to sign in.
+1. If you are not already authenticated to Azure, `azd` will output a message instructing you to sign-in to Azure using the `azd auth login` command.
+
+    ```dotnetcli
+    azd auth login
+    ```
 
 1. Once you are authenticated, `azd` will prompt you for the Azure location to provision the storage account to from a list of regions. Select your desired location from the list and press enter.
 
