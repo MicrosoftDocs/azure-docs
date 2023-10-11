@@ -31,6 +31,35 @@ None.
 
 To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+You can sign in to Azure and run Azure Developer CLI (`azd`) commands in one of two ways:
+
+- You can run azd commands from within the Azure portal, in Azure Cloud Shell.
+- You can install azd and run commands locally.
+
+### Use Azure Cloud Shell
+
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. `azd` is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+
+[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+
+[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+
+### Install the Azure Developer CLI locally
+
+You can also install and use `azd` locally. If you plan to use `azd` locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/overview).
+
+# [Bicep](#tab/bicep)
+
+None.
+
+# [Template](#tab/template)
+
+None.
+
 # [Azure CLI](#tab/azure-cli)
 
 You can sign in to Azure and run Azure CLI commands in one of two ways:
@@ -52,13 +81,6 @@ The button launches an interactive shell that you can use to run the steps outli
 
 You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-# [Bicep](#tab/bicep)
-
-None.
-
-# [Template](#tab/template)
-
-None.
 
 ---
 Next, sign in to Azure.
@@ -92,6 +114,17 @@ N/A
 # [Template](#tab/template)
 
 N/A
+
+
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
+
+To log into your local installation of `azd`, run the [azd auth login](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
+
+```azurecli-interactive
+azd auth login
+```
 
 ---
 ## Create a storage account
@@ -431,6 +464,42 @@ To learn how to modify this template or create new ones, see:
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+The Azure Developer CLI (`azd`) is designed around `azd` templates. These templates leverage Bicep files, some basic configurations and automation tasks to provision and deploy resources to Azure. See [Make your project `azd` compatible](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert) to learn more about `azd` templates. You can also view the source code for the template in the [create a storage account quickstart]() repository.
+
+Initialize and run the template for this quickstart using the following steps:
+
+1. Run the `azd init` command in a local terminal or CloudShell:
+
+```dotnetcli
+azd init --template https://github.com/alexwolfmsft/azd-storage-test
+```
+
+1. `azd` will prompt you for an environment name, which will determine the naming of provisioned resources in Azure.  Enter the name `azdstorage` and press enter.
+
+:::image type="content" source="media/storage-account-create/azd-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
+
+1. Next, run the `azd up` command to begin the template provisioning and deployment process.
+
+```dotnetcli
+azd up
+```
+
+1. If you are not already authenticated to Azure, `azd` will launch a browser you can use to sign in.
+
+1. Once you are authenticated, `azd` will prompt you for the Azure location to provision the storage account to from a list of regions. Select your desired location from the list and press enter.
+
+1. `azd` will also prompt you for a storage account sku. The sku is a custom parameter that was added to the azd template to add flexibility to the storage account provisioning. Choose `Standard_LRS` or whatever sku you would like, and then press enter.
+
+1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure  and status details until the command finishes.
+
+:::image type="content" source="media/storage-account-create/azd-up.png" alt-text="A screenshot showing the output of the azd up command.":::
+
+1. When the command finishes, click the link to open the Azure portal to the provisioned resource group and storage account.
+
+:::image type="content" source="media/storage-account-create/azd-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
+
 ---
 ## Delete a storage account
 
@@ -495,6 +564,14 @@ read resourceGroupName &&
 echo "Enter the storage account name:" &&
 read storageAccountName &&
 az storage account delete --name storageAccountName --resource-group resourceGroupName
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To delete the resource group and storage account created by `azd`, use the `azd down` command:
+
+```azurecli-interactive
+azd down
 ```
 
 ---
