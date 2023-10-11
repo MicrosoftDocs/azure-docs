@@ -181,12 +181,17 @@ requiring the `Microsoft.Authorization/policyExemptions/write` operation on the 
 or individual resource, the creator of an exemption must have the `exempt/Action` verb on the target
 assignment.
 
+## Exemption creation and management
+
+Exemptions are recommended for time-bound or specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there's a specific reason it shouldn't be assessed for compliance. For example, if an environment has the built-in definition `Storage accounts should disable public network access` (ID: `b2982f36-99f2-4db5-8eff-283140c09693`) assigned with _effect_ set to _audit_. Upon compliance assessment, resource "StorageAcc1" is non-compliant, but StorageAcc1 must have public network access enable for business purposes. At that time, a request should be submitted to create an exemption resource that targets StorageAcc1. Once the exemption is created, StorageAcc1 will be shown as _exempt_ in compliance review. 
+
+Regularly revisit your exemptions to ensure that all eligible items are appropriately exempted and promptly remove any no longer qualifying for exemption. At that time, exemption resources that have expired could be deleted as well. 
+
+
 ## Next steps
 
+- Leverage [Azure Resource Graph queries on exemptions](../samples/resource-graph-samples.md#azure-policy-exemptions).
+- Learn about [the difference between exclusions and exemptions](./scope.md#scope-comparison).
 - Study the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
-- Learn about the [policy definition structure](./definition-structure.md).
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with
-  [Organize your resources with Azure management groups](../../management-groups/overview.md).
