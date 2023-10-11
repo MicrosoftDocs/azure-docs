@@ -56,27 +56,28 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 1. Add the following dependencies in your *pom.xml* file:
 
-```xml
-<dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>42.3.6</version>
-</dependency>
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity-extensions</artifactId>
-    <version>1.1.5</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.3.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity-extensions</artifactId>
+        <version>1.1.5</version>
+    </dependency>
+    ```
+
 1. Get the connection string from environment variables and add the plugin name to connect to the database:
 
-```java
-import java.sql.*;
-
-String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
-String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
-Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
-```
+    ```java
+    import java.sql.*;
+    
+    String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
+    String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
+    Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
+    ```
 
 For more information, see the following resources:
 

@@ -1,3 +1,11 @@
+---
+author: wchigit
+ms.service: service-connector
+ms.topic: include
+ms.date: 10/11/2023
+ms.author: wchi
+---
+
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies. Follow the guidance to [install Npgsql](https://www.npgsql.org/doc/installation.html)
