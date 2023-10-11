@@ -11,13 +11,9 @@ author: davidsmatlak
 The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an
 individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
-see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
-[Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
+see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions  work with
+[Resource Manager modes](./definition-structure.md#resource-manager-modes), Microsoft.Kubneretes.Data, Microsoft.KeyVault.Data and Microsoft.Network.Data and don't work with the other 
 [Resource Provider modes](./definition-structure.md#resource-provider-modes).
-
-> [!NOTE]
-> By design, Azure Policy exempts all resources under the `Microsoft.Resources` resource provider (RP) from
-policy evaluation with the exception of subscriptions and resource groups, which can be evaluated.
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
@@ -31,17 +27,14 @@ You use JavaScript Object Notation (JSON) to create a policy exemption. The poli
 - [resource selectors](#resource-selectors-preview)
 - [assignment scope validation](#assignment-scope-validation-preview)
 
-> [!NOTE]
-> A policy exemption is created as a child object on the resource hierarchy or the individual
-> resource granted the exemption, so the target isn't included in the exemption definition.
-> If the parent resource to which the exemption applies is removed, then the exemption
-> is removed as well.
+
+A policy exemption is created as a child object on the resource hierarchy or the individual resource granted the exemption. Exemptions cannot be created at the Resource Provider mode component level. 
+If the parent resource to which the exemption applies is removed, then the exemption is removed as well.
 
 For example, the following JSON shows a policy exemption in the **waiver** category of a resource to
 an initiative assignment named `resourceShouldBeCompliantInit`. The resource is _exempt_ from only
 two of the policy definitions in the initiative, the `customOrgPolicy` custom policy definition
-(reference `requiredTags`) and the **Allowed locations** built-in policy definition (ID:
-`e56962a6-4747-49cd-b67b-bf8b01975c4c`, reference `allowedLocations`):
+( `policyDefinitionReferenceId`: `requiredTags`) and the **Allowed locations** built-in policy definition ( `policyDefinitionReferenceId` : `allowedLocations`):
 
 ```json
 {
@@ -68,32 +61,6 @@ two of the policy definitions in the initiative, the `customOrgPolicy` custom po
         "assignmentScopeValidation": "Default"
     }
 }
-```
-
-Snippet of the related initiative with the matching `policyDefinitionReferenceIds` used by the
-policy exemption:
-
-```json
-"policyDefinitions": [
-    {
-        "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/customOrgPolicy",
-        "policyDefinitionReferenceId": "requiredTags",
-        "parameters": {
-            "reqTags": {
-                "value": "[parameters('init_reqTags')]"
-            }
-        }
-    },
-    {
-        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
-        "policyDefinitionReferenceId": "allowedLocations",
-        "parameters": {
-            "listOfAllowedLocations": {
-                "value": "[parameters('init_listOfAllowedLocations')]"
-            }
-        }
-    }
-]
 ```
 
 ## Display name and description

@@ -41,6 +41,11 @@ Following are special cases to the previously described applicability logic:
 |When the `if` conditions consist of `type`, `name`, and other conditions |Both `type` and `name` conditions are considered when deciding applicability |
 |When any conditions (including deployment parameters) include a `location` condition     |Won't be applicable to subscriptions |
 
+> [!NOTE]
+> By design, Azure Policy does not evaluate all resources under the `Microsoft.Resources` resource provider (RP) from
+policy evaluation except subscriptions and resource groups. 
+
+
 ### AuditIfNotExists and DeployIfNotExists policy effects
 
 The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
