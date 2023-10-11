@@ -519,7 +519,7 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
-  - id: devlang-nodejs-msal
+  - id: devlang-nodejs-MSAL
     title: Node.js - MSAL
   - id: devlang-java
     title: Java
@@ -2346,7 +2346,7 @@ groups:
   pivots:
   - id: portal
     title: Azure portal
-  - id: aad-powershell
+  - id: Microsoft Entra ID-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
@@ -2357,7 +2357,7 @@ groups:
   title: Manage Enterprise apps
   prompt: Choose an option
   pivots:
-  - id: aad-powershell
+  - id: Microsoft Entra ID-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
@@ -2379,7 +2379,7 @@ groups:
   pivots:
   - id: portal
     title: Azure portal
-  - id: aad-powershell
+  - id: Microsoft Entra ID-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
@@ -2587,7 +2587,7 @@ groups:
   pivots:
   - id: portal
     title: Azure portal
-  - id: aad-powershell
+  - id: Microsoft Entra ID-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
