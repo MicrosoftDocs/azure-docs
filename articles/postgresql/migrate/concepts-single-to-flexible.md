@@ -181,42 +181,6 @@ Here, we go through the phases of an overall database migration journey, with gu
 
 Single server supports PG version 9.6,10 and 11 while Flexible server supports PG version 11, 12, 13 and 14. Given the differences in supported versions, you might be moving across versions while migrating from single to flexible server. If that is the case, make sure your application works well with the version of flexible server you're trying to migrate to. If there are breaking changes, make sure to fix them on your application before migrating to flexible server. Use this [link](https://www.postgresql.org/docs/14/appendix-obsolete.html) to check for any breaking changes while migrating to the target version.
 
-#### Database migration planning
-
-The most important thing to consider for performing offline migration using the single to flex migration tool is the downtime incurred by the application.
-
-##### How to calculate the downtime?
-
-In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
-
-The time taken for an offline migration to complete is dependent on several factors that includes the number of databases, size of databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server, and the IOPS available on the source and target server. Given the many factors that can affect the migration time, it's hard to estimate the total time for the offline migration to complete. The best approach would be to try it on a server restored from the primary server.
-
-For calculating the total downtime to perform offline migration of production server, the following phases are considered.
-
-- **Migration of PITR** - The best way to get a good estimate on the time taken to migrate your production database server would be to take a point-in time restore of your production server and run the offline migration on this newly restored server.
-
-- **Migration of Buffer** - After completing the above step, you can plan for actual production migration during a time period when the application traffic is low. This migration can be planned on the same day or probably a week away. By this time, the size of the source server might have increased. Update your estimated migration time for your production server based on the amount of this increase. If the increase is significant, you can consider doing another test using the PITR server. But for most servers the size increase shouldn't be significant enough.
-
-- **Validation** - Once the offline migration completes for the production server, you need to verify if the data in flexible server is an exact copy of the single server. Customers can use opensource/thirdparty tools or can do the validation manually. Prepare the validation steps that you would like to do in advance of the actual migration. Validation can include:
-    * Row count match for all the tables involved in the migration.
-    * Matching counts for all the database object (tables, sequences, extensions, procedures, indexes)
-    * Comparing max or min IDs of key application related columns
-
-> [!NOTE]  
-> The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It is completely normal to have size differences between source and target servers. If there is an issue in the first three steps of validation, it indicates a problem with the migration.
-
-- **Migration of server settings** - The server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server.
-
-- **Changing connection strings** - Post successful validation, application should change their connection strings to point to flexible server. This activity is coordinated with the application team to make changes to all the references of connection strings pointing to single server. Note that in the flexible server the user parameter in the connection string no longer needs to be in the **username@servername** format. You should just use the **user=username** format for this parameter in the connection string
-For example
-Psql -h **mysingleserver**.postgres.database.azure.com -u **user1@mysingleserver** -d db1
-should now be of the format
-Psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
-
-**Total planned downtime** = **Time to migrate PITR** + **time to migrate Buffer** + **time for Validation** + **time to migrate server settings** + **time to switch connection strings to the flexible server.**
-
-While most frequently a migration runs without a hitch, it's good practice to plan for contingencies if there is additional time required for debugging or if a migration may need to be restarted.
-
 #### Migration prerequisites
 
 The following pre-requisites need to be taken care of before using the Single to Flex Migration tool for migration
@@ -301,6 +265,44 @@ SELECT r.rolname
 ``` 
 Create the AAD users on your target flexible server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before creating a migration.
 
+#### Database migration planning
+
+The first step in the database migration planning is to run pre-migration validation on your source and target server to check for any errors in the migration setup. Analyze the validation report and take any remedial actions if needed. Keep running pre migration validation until it results in **Succeeded** state. Now with the migration setup ready, you can move on to the next phase of planning.
+
+The next phase of planning involves downtime incurred by applications for performing offline migration using the single to flex migration tool.
+
+##### How to calculate the downtime?
+
+In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
+
+The time taken for an offline migration to complete is dependent on several factors that includes the number of databases, size of databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server, and the IOPS available on the source and target server. Given the many factors that can affect the migration time, it's hard to estimate the total time for the offline migration to complete. The best approach would be to try it on a server restored from the primary server.
+
+For calculating the total downtime to perform offline migration of production server, the following phases are considered.
+
+- **Migration of PITR** - The best way to get a good estimate on the time taken to migrate your production database server would be to take a point-in time restore of your production server and run the offline migration on this newly restored server.
+
+- **Migration of Buffer** - After completing the above step, you can plan for actual production migration during a time period when the application traffic is low. This migration can be planned on the same day or probably a week away. By this time, the size of the source server might have increased. Update your estimated migration time for your production server based on the amount of this increase. If the increase is significant, you can consider doing another test using the PITR server. But for most servers the size increase shouldn't be significant enough.
+
+- **Data Validation** - Once the offline migration completes for the production server, you need to verify if the data in flexible server is an exact copy of the single server. Customers can use opensource/thirdparty tools or can do the validation manually. Prepare the validation steps that you would like to do in advance of the actual migration. Validation can include:
+    * Row count match for all the tables involved in the migration.
+    * Matching counts for all the database object (tables, sequences, extensions, procedures, indexes)
+    * Comparing max or min IDs of key application related columns
+
+> [!NOTE]  
+> The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It is completely normal to have size differences between source and target servers. If there is an issue in the first three steps of validation, it indicates a problem with the migration.
+
+- **Migration of server settings** - The server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server.
+
+- **Changing connection strings** - Post successful validation, application should change their connection strings to point to flexible server. This activity is coordinated with the application team to make changes to all the references of connection strings pointing to single server. Note that in the flexible server the user parameter in the connection string no longer needs to be in the **username@servername** format. You should just use the **user=username** format for this parameter in the connection string
+For example
+Psql -h **mysingleserver**.postgres.database.azure.com -u **user1@mysingleserver** -d db1
+should now be of the format
+Psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
+
+**Total planned downtime** = **Time to migrate PITR** + **time to migrate Buffer** + **time for Validation** + **time to migrate server settings** + **time to switch connection strings to the flexible server.**
+
+While most frequently a migration runs without a hitch, it's good practice to plan for contingencies if there is additional time required for debugging or if a migration may need to be restarted.
+
 ### Migration
 
 Once the pre-migration steps are complete, you're ready to carry out the migration of the production databases of your single server. At this point, you've finalized the day and time of production migration along with a planned downtime for your applications.
@@ -311,7 +313,7 @@ Once the pre-migration steps are complete, you're ready to carry out the migrati
 - Checkpoint the source server by running **checkpoint** command and restart the source server.
 This command ensures any remaining applications or connections are disconnected. Additionally, you can run **select * from pg_stat_activity;** after the restart to ensure no applications is connected to the source server.
 
-Trigger the migration of your production databases using the single to flex migration tool. The migration requires close monitoring, and the monitoring user interface of the migration tool comes in handy. Check the migration status over the period of time to ensure there is progress and wait for the migration to complete.
+Trigger the migration of your production databases using the **Migrate** or **Validate and Migrate** option in the migration tool. The migration requires close monitoring, and the monitoring user interface of the migration tool comes in handy. Check the migration status over the period of time to ensure there is progress and wait for the migration to complete.
 
 #### Improve migration speed - Parallel migration of tables
 
