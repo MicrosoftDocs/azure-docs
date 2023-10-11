@@ -136,7 +136,7 @@
         href: flexible-server/concepts-backup-restore.md
     - name: Security
       items:
-      - name: Azure AD Authentication
+      - name: Microsoft Entra authentication
         href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
@@ -292,7 +292,7 @@
         href: flexible-server/how-to-troubleshoot-cli-errors.md
     - name: Security
       items:
-      - name: Configure Azure AD Authentication
+      - name: Configure Microsoft Entra authentication
         href: flexible-server/how-to-azure-ad.md
       - name: Data encryption with Azure portal
         href: flexible-server/how-to-data-encryption-portal.md
@@ -450,7 +450,7 @@
         href: single-server/concepts-security.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
       - name: Network Security (Encryption in motion)
         items:
@@ -570,7 +570,7 @@
         displayName: private link, private endpoint
     - name: Security
       items:
-      - name: Configure Azure AD integration
+      - name: Configure Microsoft Entra integration
         href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName:  active directory
       - name: Connect with Managed identity

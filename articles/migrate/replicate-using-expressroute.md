@@ -185,7 +185,7 @@ Even with replication data going over the Microsoft peered circuit, you still ne
 
 - Regional BGP community for the source Azure region (Azure Migrate Project region)
 - Regional BGP community for the target Azure region (region for migration)
-- BGP community for Azure Active Directory (12076:5060)
+- BGP community for Microsoft Entra ID (12076:5060)
 
 Learn more about [route filters](../expressroute/how-to-routefilter-portal.md) and the list of [BGP communities for ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 
