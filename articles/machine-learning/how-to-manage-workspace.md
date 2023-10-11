@@ -36,7 +36,7 @@ As your needs change or requirements for automation increase you can also manage
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ml_client)]
       
-        * (Optional) If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use into the `DefaultAzureCredential`. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+        * (Optional) If you have multiple accounts, add the tenant ID of the Microsoft Entra ID you wish to use into the `DefaultAzureCredential`. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Microsoft Entra ID, External Identities**.
                 
             ```python
             DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
