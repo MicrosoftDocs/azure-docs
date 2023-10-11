@@ -101,6 +101,41 @@ The following table shows the time for performing offline migrations for databas
 > [!IMPORTANT]  
 > In order to perform faster migrations, pick a higher SKU for your flexible server. You can always change the SKU to match the application needs post migration.
 
+## Pre-migration validations
+We have noticed many migrations fail due to setup issues on source and target server. Most of the issues can be categorized into the following buckets: 
+* Issues related to authentication/permissions for the migration user on source and target server.  
+* [Prerequisites](#migration-prerequisites) not being taken care of, before running the migration.
+* Unsupported features/configurations between the source and target. 
+
+Pre-migration validation helps you verify if the migration setup is intact to perform a successful migration. Checks are done against a rule set and any potential problems along with the remedial actions are shown to take corrective measures.
+
+### How to use pre-migration validation?
+A new parameter called **Migration option** is introduced while creating a migration.
+
+:::image type="content" source="./media/concepts-single-to-flexible/pre-migration-validations.png" alt-text="Diagram that shows the migration option in the tool." lightbox="./media/concepts-single-to-flexible/pre-migration-validations.png":::
+
+You can pick any of the following options
+* **Validate** - Use this option to check your server and database readiness for migration to the target. **This option will not start data migration and will not require any downtime to your servers.**
+The result of the Validate option can be 
+	- **Succeeded** - No issues were found and you can plan for the migration
+	- **Failed** - There were errors found during validation, which can fail the migration. Go through the list of errors along with their suggested workarounds and take corrective measures before planning the migration.
+	- **Warning** - Warnings are informative messages that you need to keep in mind while planning the migration.
+
+	Plan your migrations better by performing pre-migration validations in advance to know the potential issues you might encounter while performing migrations. 
+
+* **Migrate** - Use this option to kickstart the migration without going through validation process. It's recommended to perform validation before triggering a migration to increase the chances for a successful migration. Once validation is done, you can use this option to start the migration process. 
+
+* **Validate And Migrate** - In this option, validations will be performed and then migration gets triggered if all checks are in **succeeded** or **warning** state. Validation failures doesn't start the migration between source and target servers.
+
+We recommend customers to use pre-migration validations in the following way:
+1) Choose **Validate** option and run pre-migration validation on an advanced date of your planned migration.
+2) Analyze the output and take any remedial actions of any errors.
+3) Run Step 1 again till the validation is successful
+4) Start the migration using the **Validate And Migrate** option on the planned date and time.
+
+> [!NOTE]  
+> Pre-migration validations is currently available only in Azure portal. Support for CLI will be introduced at a later point in time.
+
 ## Migration of users/roles, ownerships and privileges
 Along with data migration, the tool automatically provides the following built-in capabilities:
 - Migration of users/roles present on your source server to the target server.
@@ -112,7 +147,7 @@ Along with data migration, the tool automatically provides the following built-i
 
 ## Limitations
 
-- You can have only one active migration to your flexible server.
+- You can have only one active migration or validation to your flexible server.
 - The source and target server must be in the same Azure region. Cross region migrations is enabled only for servers in China regions.
 - The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details and firewall rules.
 - The migration tool shows the number of tables copied from source to target server. You need to manually validate the data in target server post migration.
