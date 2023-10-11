@@ -67,31 +67,37 @@ TODO
 
 TODO
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Program.cs" range="8-11":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Program.cs" id="create-client":::
 
 ### Get a database
 
 TODO
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" range="5-7":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="get-database":::
 
 ### Get a container
 
 TODO
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" range="5-7":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="get-database":::
 
 ### Create an item
 
 TODO
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" range="5-7":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="create-item":::
+
+### Read an item
+
+TODO
+
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="read-item":::
 
 ### Execute a query
 
 TODO
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" range="5-7":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="query-items":::
 
 ## Clean up resources
 
