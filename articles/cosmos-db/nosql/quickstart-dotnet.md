@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 10/10/2023
+ms.date: 10/11/2023
 ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey, passwordless-dotnet, devx-track-azurecli, devx-track-dotnet
 # CustomerIntent: As a developer, I want to learn the basics of the .NET client library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
@@ -46,7 +46,7 @@ TODO
 1. TODO
 
     ```azurecli-interactive
-    azd init --template cosmos-db-nosql-dotnet-quickstart
+    azd init --template cosmos-db-nosql-dotnet-quickstart --branch fast-deploy
     ```
 
 1. TODO
