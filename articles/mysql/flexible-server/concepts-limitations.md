@@ -34,6 +34,7 @@ For more details on GIPK and its use cases with [Data-in-Replication](./concepts
 - You can update the value of server parameter [sql_generate_invisible_primary_key](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_generate_invisible_primary_key) to 'OFF' by following steps mentioned on how to update any server parameter from [Azure portal](./how-to-configure-server-parameters-portal.md#configure-server-parameters) or by using [Azure CLI](./how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value). 
 
 - Or you can connect to your Azure Database for MySQL Flexible Servers and run the below command.
+
 ```sql
 mysql> SET sql_generate_invisible_primary_key=OFF;
 ```
@@ -71,10 +72,9 @@ The following are unsupported:
     - [CREATE TABLESPACE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-tablespace)
     - [SHUTDOWN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_shutdown)
 - [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin) privilege: Granting BACKUP_ADMIN privilege isn't supported for taking backups using any [utility tools](../migrate/how-to-decide-on-right-migration-tools.md). Refer [Supported](././concepts-limitations.md#supported-1) section for list of supported [dynamic privileges](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#privileges-provided-dynamic).
-- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, manually remove the `CREATE DEFINER` commands or use the `--skip-definer` command when performing a mysqldump.
+- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, manually remove the `CREATE DEFINER` commands or use the `--skip-definer` command when performing a [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html).
 - System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionalities. You can't make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
-
 
 ### Supported
 
@@ -125,3 +125,5 @@ For the complete list of feature comparisons between a single server and a flexi
 - Understand [what's available for compute and storage options in flexible server](concepts-service-tiers-storage.md)
 - Learn about [Supported MySQL Versions](concepts-supported-versions.md)
 - Quickstart: [Use the Azure portal to create an Azure Database for MySQL - Flexible Server](quickstart-create-server-portal.md)
+
+

@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/28/2023
 
 ms.author: justinha
 author: Gargi-Sinha
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate from MFA Server to Microsoft Entra multifactor authentication
 
-Multifactor authentication is important to securing your infrastructure and assets from bad actors. Microsoft Entra multifactor authentication Server (MFA Server) isn't available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Microsoft Entra multifactor authentication.
+Multifactor authentication is important to securing your infrastructure and assets from bad actors. Azure Multi-Factor Authentication Server (MFA Server) isn't available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Microsoft Entra multifactor authentication.
 
 In this article, we assume that you have a hybrid environment where:
 
@@ -46,7 +46,7 @@ If you can't move your user authentication, see the step-by-step guidance for [M
   - Upgrade to AD FS for Windows Server 2019, Farm behavior level (FBL) 4. This upgrade enables you to select authentication provider based on group membership for a more seamless user transition. While it's possible to migrate while on AD FS for Windows Server 2016 FBL 3, it isn't as seamless for users. During the migration, users are prompted to select an authentication provider (MFA Server or Microsoft Entra multifactor authentication) until the migration is complete. 
 - Permissions
   - Enterprise administrator role in Active Directory to configure AD FS farm for Microsoft Entra multifactor authentication
-  - Global administrator role in Microsoft Entra ID to perform configuration of Microsoft Entra ID using Azure AD PowerShell
+  - Global administrator role in Microsoft Entra ID to configure Microsoft Entra ID by using PowerShell
 
 
 ## Considerations for all migration paths
@@ -80,7 +80,7 @@ If you no longer have access to the secret keys, contact your hardware vendor fo
 The MFA Server Web Service SDK can be used to export the serial number for any OATH tokens assigned to a given user. 
 You can use this information along with the seed file to import the tokens into Microsoft Entra ID and assign the OATH token to the specified user based on the serial number. 
 The user will also need to be contacted at the time of import to supply OTP information from the device to complete the registration. 
-Refer to the help file topic **GetUserInfo** > **userSettings** > **OathTokenSerialNumber** in multifactor authentication Server on your MFA Server. 
+Refer to the help file topic **GetUserInfo** > **userSettings** > **OathTokenSerialNumber** in Multi-Factor Authentication Server on your MFA Server. 
 
 ### More migrations
 

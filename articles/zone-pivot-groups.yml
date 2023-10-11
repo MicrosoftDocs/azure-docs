@@ -100,6 +100,15 @@ groups:
     title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
+- id: programming-languages-document-sdk
+  # Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: cloud-location
   # Owner: lajanuar
   title: Workflow
@@ -728,8 +737,6 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
-  - id: vision-studio
-    title: Vision Studio
 - id: programming-languages-content-safety
 # Owner: pafarley
   title: Programming languages
@@ -1625,6 +1632,14 @@ groups:
     title: Android
   - id: programming-language-rest
     title: REST
+- id: acs-dev-environment-vs-vscode
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines

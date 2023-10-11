@@ -18,6 +18,8 @@
     href: application-gateway-for-containers-components.md
   - name: Custom health probe
     href: custom-health-probe.md
+  - name: Session Affinity
+    href: session-affinity.md
   - name: TLS policy
     href: tls-policy.md
   - name: Frequently Asked Questions (FAQ)

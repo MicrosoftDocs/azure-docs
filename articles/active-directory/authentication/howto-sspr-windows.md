@@ -193,6 +193,7 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 - To enable verbose logging, create a `REG_DWORD: "EnableLogging"`, and set it to 1.
 - To disable verbose logging, change the `REG_DWORD: "EnableLogging"` to 0.
+- Review the debug logging in the Application event log under source AADPasswordResetCredentialProvider.
 
 ## What do users see
 

@@ -1,6 +1,5 @@
 ---
-
-title: Logs available for streaming to endpoints from Microsoft Entra ID
+title: Logs available for streaming from Microsoft Entra ID
 description: Learn about the Microsoft Entra logs available for streaming to an endpoint for storage, analysis, or monitoring.
 services: active-directory
 author: shlipsey3
@@ -9,23 +8,24 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/09/2023
+ms.date: 10/02/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
+ms.reviewer: egreenberg14
 
+# Customer Intent: As an IT admin, I want to know what logs are available for streaming to an endpoint from Microsoft Entra ID so that I can choose the best option for my organization.
 ---
 
-# Learn about the identity logs you can stream to an endpoint
+# What are the identity logs you can stream to an endpoint?
 
-Using Diagnostic settings in Microsoft Entra ID, you can route activity logs to several endpoints for long term retention and data insights. You select the logs you want to route, then select the endpoint.
+Using Microsoft Entra diagnostic settings, you can route activity logs to several endpoints for long term retention and data insights. You select the logs you want to route, then select the endpoint.
 
-This article describes the logs that you can route to an endpoint from Microsoft Entra Diagnostic settings.
+This article describes the logs that you can route to an endpoint with Microsoft Entra diagnostic settings.
 
-## Prerequisites
+## Log streaming requirements and options
 
-Setting up an endpoint, such as an event hub or storage account, may require different roles and licenses. To create or edit a new Diagnostic setting, you need a user who's a **Security Administrator** or **Global Administrator** for the Microsoft Entra tenant.
+Setting up an endpoint, such as an event hub or storage account, may require different roles and licenses. To create or edit a new diagnostic setting, you need a user who's a **Security Administrator** or **Global Administrator** for the Microsoft Entra tenant.
 
-To help decide which log routing option is best for you, see [How to access activity logs](howto-access-activity-logs.md). The overall process and requirements for each endpoint type are covered in the following articles. 
+To help decide which log routing option is best for you, see [How to access activity logs](howto-access-activity-logs.md). The overall process and requirements for each endpoint type are covered in the following articles: 
 
 - [Send logs to a Log Analytics workspace to integrate with Azure Monitor logs](howto-integrate-activity-logs-with-azure-monitor-logs.md)
 - [Archive logs to a storage account](howto-archive-logs-to-storage-account.md)
@@ -34,7 +34,7 @@ To help decide which log routing option is best for you, see [How to access acti
 
 ## Activity log options
 
-The following logs can be sent to an endpoint. Some logs may be in public preview but still visible in the portal.
+The following logs can be routed to an endpoint for storage, analysis, or monitoring.
 
 ### Audit logs
 
@@ -86,7 +86,9 @@ The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you 
 
 ### Microsoft Graph activity logs
 
-The `MicrosoftGraphActivityLogs` logs are associated with a feature that is still in private preview. The logs are visible in Microsoft Entra ID, but selecting these options won't add new logs to your workspace unless your organization was included in the private preview.
+The `MicrosoftGraphActivityLogs` is associated with a feature that's still in preview, but may be visible in the Microsoft Entra admin center. These logs provide administrators full visibility into all HTTP requests accessing your tenant's resources through the Microsoft Graph API. You can use these logs to identify activities that a compromised user account conducted in your tenant or to investigate problematic or unexpected behaviors for client applications, such as extreme call volumes. Route these logs to the same Log Analytics workspace with `SignInLogs` to cross-reference details of token requests for sign-in logs.
+
+The feature is currently in private preview. For more information, see [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview).
 
 ### Network access traffic logs
 
@@ -94,5 +96,5 @@ The `NetworkAccessTrafficLogs` logs are associated with Microsoft Entra Internet
 
 ## Next steps
 
-- [Learn about the sign-ins logs](concept-all-sign-ins.md)
+- [Learn about the sign-in logs](concept-all-sign-ins.md)
 - [Explore how to access the activity logs](howto-access-activity-logs.md)

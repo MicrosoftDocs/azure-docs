@@ -2,6 +2,7 @@
 title: Update Java versions in Azure Functions
 description: Learn how to update an existing function app in Azure Functions to run on a new version of Java.
 ms.topic: how-to
+ms.custom: devx-track-extended-java
 ms.date: 09/14/2023
 zone_pivot_groups: app-service-platform-windows-linux
 ---

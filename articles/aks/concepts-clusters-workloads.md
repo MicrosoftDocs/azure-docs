@@ -200,7 +200,7 @@ Modifying any **Azure-created tags** on resources under the node resource group 
 To reduce the chance of changes in the node resource group affecting your clusters, you can enable node resource group lockdown to apply a deny assignment to your AKS resources. More information can be found in [Cluster configuration in AKS][configure-nrg].
 
 > [!WARNING]
-> If you have don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
+> If you don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
 
 ## Pods
 

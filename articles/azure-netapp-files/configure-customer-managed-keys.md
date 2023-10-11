@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/03/2023
+ms.date: 10/02/2023
 ms.author: anfdocs
 ---
 
@@ -72,7 +72,10 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * Australia East
 * Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
+* Canada East
+* Central India
 * Central US
 * East Asia
 * East US
@@ -94,10 +97,13 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * Southeast Asia
 * Sweden Central
 * Switzerland North
+* Switzerland West 
 * UAE Central
 * UAE North
 * UK South
-* US Gov Virginia (public preview)
+* UK West
+* US Gov Texas
+* US Gov Virginia 
 * West Europe
 * West US
 * West US 2

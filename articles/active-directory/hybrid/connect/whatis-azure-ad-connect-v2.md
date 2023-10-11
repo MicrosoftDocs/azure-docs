@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
 ---
 
-# Introduction to Microsoft Entra Connect V2.0 
+# Introduction to Microsoft Entra Connect V2.0
 
 Microsoft Entra Connect was released several years ago.  Since this time, several of the components that Microsoft Entra Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
 

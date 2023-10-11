@@ -161,17 +161,17 @@
       - name: High availability and disaster recovery
         displayName: HA, DR, availability zone, failover, failback
         href: iot-hub-ha-dr.md
-    - name: Control access to IoT Hub
+    - name: Authentication and authorization
       items:
-        - name: Overview
-          displayName: access control, permissions, Azure Active Directory, Azure AD, identity registry
-          href: iot-hub-devguide-security.md
-        - name: Control access with Azure AD
-          displayName: Active Directory, permissions, security principal, RBAC
-          href: iot-hub-dev-guide-azure-ad-rbac.md
-        - name: Control access with SAS
-          displayName: Shared Access Signatures, permissions, MQTT, AMQP, HTTPS, SASL PLAIN
-          href: iot-hub-dev-guide-sas.md
+      - name: Azure Active Directory
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-azure-ad.md
+      - name: Shared access signatures
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-sas.md
+      - name: X.509 certificates
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-x509.md
     - name: IoT Hub SDKs
       items:
         - name: SDK overview
@@ -194,16 +194,6 @@
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
-        - name: Secure using X.509 CA certificates
-          items:
-            - name: X.509 certificate concepts
-              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
-              href: iot-hub-x509-certificate-concepts.md
-            - name: X.509 CA certificate security concepts
-              displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
-              href: iot-hub-x509ca-concept.md
-            - name: X.509 CA certificates for IoT Hub
-              href: iot-hub-x509ca-overview.md
         - name: Virtual networks support
           displayName: Security, Private Link, network isolation, private endpoint
           href: virtual-network-support.md

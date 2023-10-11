@@ -40,7 +40,7 @@ Here's how to assign a role to the Azure Virtual Desktop service principal using
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the search box, enter *Azure Active Directory* and select the matching service entry.
+1. In the search box, enter *Microsoft Entra ID* and select the matching service entry.
 
 1. On the Overview page, in the search box for **Search your tenant**, enter the application ID **9cdead84-a844-4324-93f2-b2e6bb768d07**.
 

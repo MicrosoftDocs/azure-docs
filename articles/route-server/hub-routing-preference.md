@@ -26,7 +26,7 @@ When Route Server has multiple routes to an on-premises destination prefix, Rout
 1. Prefer routes with the longest prefix match (LPM)
 1. Prefer routes based on routing preference configuration:
     - **ExpressRoute**: (default setting): Prefer routes learned through ExpressRoute over routes learned through VPN/SD-WAN connections
-    - **VPN/NVA**: Prefer routes learned through VPN/NVAconnections over routes learned through ExpressRoute.
+    - **VPN/NVA**: Prefer routes learned through VPN/NVA connections over routes learned through ExpressRoute.
     > [!IMPORTANT]
     > Routing preference doesn't allow users to set preference between routes learned over VPN and NVA connections. If the same routes are learned over VPN and NVA connections, Route Server will prefer the route with the shortest BGP AS-PATH.
     - **AS-Path**: Prefer routes with the shortest BGP AS-PATH length, irrespective of the source of the route advertisement.

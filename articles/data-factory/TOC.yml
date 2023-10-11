@@ -1336,6 +1336,8 @@ items:
       href: airflow-get-ip-airflow-cluster.md
     - name: Sync a GitHub repository with Airflow
       href: airflow-sync-github-repository.md
+    - name: Diagnostic logs and metrics
+      href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference

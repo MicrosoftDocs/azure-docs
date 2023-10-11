@@ -53,8 +53,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | CostInBillingCurrency | EA, MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
-| CustomerName | MPA | Name of the Azure Active Directory tenant for the customer's subscription. |
-| CustomerTenantId | MPA | Identifier of the Azure Active Directory tenant of the customer's subscription. |
+| CustomerName | MPA | Name of the Microsoft Entra tenant for the customer's subscription. |
+| CustomerTenantId | MPA | Identifier of the Microsoft Entra tenant of the customer's subscription. |
 | Date¹ | All | The usage or purchase date of the charge. |
 | EffectivePrice | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time. |
 | ExchangeRateDate | MCA | Date the exchange rate was established. |
@@ -75,8 +75,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | pay-as-you-goPrice | All | Retail price for the resource. |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit has been applied. |
 | PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
-| PartnerName | MPA | Name of the partner Azure Active Directory tenant. |
-| PartnerTenantId | MPA | Identifier for the partner's Azure Active Directory tenant. |
+| PartnerName | MPA | Name of the partner Microsoft Entra tenant. |
+| PartnerTenantId | MPA | Identifier for the partner's Microsoft Entra tenant. |
 | PartNumber¹ | EA, pay-as-you-go | Identifier used to get specific meter pricing. |
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |

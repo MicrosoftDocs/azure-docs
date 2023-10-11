@@ -10,6 +10,8 @@ ms.author: itnorman
 
 # Create a classic Azure AI Video Indexer account
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 This topic shows how to create a new classic account connected to Azure using the [Azure AI Video Indexer website](https://aka.ms/vi-portal-link). You can also create an Azure AI Video Indexer classic account through our [API](https://aka.ms/avam-dev-portal).
@@ -25,15 +27,15 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
 * An Azure subscription.
 
     If you don't have an Azure subscription yet, sign up for [Azure Free Trial](https://azure.microsoft.com/free/).
-* An Azure Active Directory (Azure AD) domain.
+* A Microsoft Entra domain.
 
-    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../active-directory/enterprise-users/domains-manage.md)
-* A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Azure AI Video Indexer account to Azure.
+    If you don't have a Microsoft Entra domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Microsoft Entra ID](../active-directory/enterprise-users/domains-manage.md)
+* A user in your Microsoft Entra domain with an **Application administrator** role. You'll use this member when connecting your Azure AI Video Indexer account to Azure.
 
-    This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
+    This user should be a Microsoft Entra user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
 
-    :::image type="content" alt-text="Screenshot that shows how to choose a user in your Azure A D domain." source="./media/create-account/all-aad-users.png":::
-* A user and member in your Azure AD domain.
+    :::image type="content" alt-text="Screenshot that shows how to choose a user in your Microsoft Entra domain." source="./media/create-account/all-aad-users.png":::
+* A user and member in your Microsoft Entra domain.
 
     You'll use this member when connecting your Azure AI Video Indexer account to Azure.
 
@@ -51,7 +53,7 @@ For the pricing details, see [pricing](https://azure.microsoft.com/pricing/detai
 ## Connect to Azure 
 
 > [!NOTE]
-> Use the same Azure AD user you used when connecting to Azure.
+> Use the same Microsoft Entra user you used when connecting to Azure.
 
 It's strongly recommended to have the following three accounts located in the same region: 
 
@@ -74,7 +76,7 @@ If your storage account is behind a firewall, see [storage account that is behin
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     :::image type="content" alt-text="Screenshot that shows how to specify streaming endpoints." source="./media/create-account/create-ams-account-se.png":::
-1. For Azure AI Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
+1. For Azure AI Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Microsoft Entra authentication process described in [Get started with Microsoft Entra authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
     2. Select [Service principal authentication method](/azure/media-services/previous/media-services-portal-get-started-with-aad).
@@ -108,12 +110,12 @@ In the dialog, provide the following information:
 |Setting|Description|
 |---|---|
 |Azure AI Video Indexer account region|The name of the Azure AI Video Indexer account region. For better performance and lower costs, it's highly recommended to specify the name of the region where the Azure Media Services resource and Azure Storage account are located. |
-|Azure AD tenant|The name of the Azure AD tenant, for example "contoso.onmicrosoft.com". The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top-right corner. Find the name to the right of **Domain**.|
+|Microsoft Entra tenant|The name of the Microsoft Entra tenant, for example "contoso.onmicrosoft.com". The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top-right corner. Find the name to the right of **Domain**.|
 |Subscription ID|The Azure subscription under which this connection should be created. The subscription ID can be retrieved from the Azure portal. Select **All services** in the left panel, and search for "subscriptions". Select **Subscriptions** and choose the desired ID from the list of your subscriptions.|
 |Azure Media Services resource group name|The name for the resource group in which you created the Media Services account.|
 |Media service resource name|The name of the Azure Media Services account that you created in the previous section.|
-|Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created in the previous section.|
-|Application key|The Azure AD application key that you created in the previous section. |
+|Application ID|The Microsoft Entra application ID (with permissions for the specified Media Services account) that you created in the previous section.|
+|Application key|The Microsoft Entra application key that you created in the previous section. |
 
 ## Import your content from the trial account
 
@@ -123,17 +125,17 @@ See [Import your content from the trial account](import-content-from-trial.md).
 
 To automate the creation of the account is a two steps process:
 
-1. Use Azure Resource Manager to create an Azure Media Services account + Azure AD application.
+1. Use Azure Resource Manager to create an Azure Media Services account + Microsoft Entra application.
 
     See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Call [Create-Account with the Media Services and Azure AD application](https://videoindexer.ai.azure.us/account/login?source=apim).
+1. Call [Create-Account with the Media Services and Microsoft Entra application](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## Azure AI Video Indexer in Azure Government
 
 ### Prerequisites for connecting to Azure Government
 
 - An Azure subscription in [Azure Government](../azure-government/index.yml).
-- An Azure AD account in Azure Government.
+- A Microsoft Entra account in Azure Government.
 - All pre-requirements of permissions and resources as described above in [Prerequisites for connecting to Azure](#prerequisites-for-connecting-to-azure). 
 
 ### Create new account via the Azure Government portal
@@ -144,7 +146,7 @@ To automate the creation of the account is a two steps process:
 To create a paid account via the Azure AI Video Indexer website:
 
 1. Go to https://videoindexer.ai.azure.us
-1. Sign-in with your Azure Government Azure AD account.
+1. Sign-in with your Azure Government Microsoft Entra account.
 1.If you don't have any Azure AI Video Indexer accounts in Azure Government that you're an owner or a contributor to, you'll get an empty experience from which you can start creating your account.
 
     The rest of the flow is as described in above, only the regions to select from will be Government regions in which Azure AI Video Indexer is available
@@ -178,4 +180,3 @@ The account will be permanently deleted in 90 days.
 ## Next steps
 
 You can programmatically interact with your trial account and/or with your Azure AI Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
-
