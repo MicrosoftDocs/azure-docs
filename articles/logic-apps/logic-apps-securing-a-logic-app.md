@@ -1228,7 +1228,7 @@ This list includes information about TLS/SSL self-signed certificates:
 
 * For Standard logic app workflows in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TLS/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
-  If you want to use client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
+  If you want to use client certificate or OAuth with Microsoft Entra ID with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or OAuth with Microsoft Entra ID with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
 Here are more ways that you can help secure endpoints that handle calls sent from your logic app workflows:
 
