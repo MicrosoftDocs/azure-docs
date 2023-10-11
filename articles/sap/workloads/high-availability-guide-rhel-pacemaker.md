@@ -78,7 +78,7 @@ Read the following SAP Notes and papers first:
 >
 > The only supported fencing mechanism for Pacemaker RHEL clusters on Azure is an Azure fence agent.  
 
-The following items are prefixed with either:
+The following items are prefixed with:
 
 - **[A]**: Applicable to all nodes
 - **[1]**: Only applicable to node 1
@@ -426,8 +426,7 @@ If you're using a fencing device based on service principal configuration, read 
 > * The property `priority-fencing-delay` is applicable for Pacemaker version 2.0.4-6.el8 or higher and on a two-node cluster. If you configure the `priority-fencing-delay` cluster property, you don't need to set the `pcmk_delay_max` property. But if the Pacemaker version is less than 2.0.4-6.el8, you need to set the `pcmk_delay_max` property.
 > * For instructions on how to set the `priority-fencing-delay` cluster property, see the respective SAP ASCS/ERS and SAP HANA scale-up HA documents.
 
-> [!IMPORTANT]
-> The monitoring and fencing operations are deserialized. As a result, if there's a longer running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.  
+The monitoring and fencing operations are deserialized. As a result, if there's a longer running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.  
 
 ### **[1]** Enable the use of a fencing device
 
