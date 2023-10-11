@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 10/13/2023
 ---
 
 # Create a vector query in Azure Cognitive Search
@@ -31,7 +31,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
++ Use REST API version **2023-10-01-Preview** if you want pre-filters. Otherwise, you can use **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
 ## Limitations
 
@@ -124,8 +124,10 @@ In this single vector query, which is shortened for brevity, the "value" contain
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
 
+The example request uses **2023-10-01-Preview**. This version provides the `vectorFilterMode` parameter for prefiltering or postfiltering on the query.
+
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {

@@ -7,7 +7,7 @@ author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/13/2023
 ---
 
 # Relevance scoring in vector search
@@ -28,6 +28,13 @@ Vector search algorithms are specified in the json path `vectorSearch.algorithmC
 - [Create a vector index](vector-search-how-to-create-index.md)
 
 Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. There's a subset of query-time parameters that may be modified.
+
+
+<a name="eknn"></a>
+
+## How eKNN ranking works
+
+TBD
 
 ## How HNSW ranking works
 

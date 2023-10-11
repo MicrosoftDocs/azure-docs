@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 10/13/2023
 ---
 
 # Add vector fields to a search index
