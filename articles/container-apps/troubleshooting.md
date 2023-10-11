@@ -325,7 +325,7 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 
 For more information, see [Networking in Azure Container Apps environment] (./networking.md).
 
-TODO1 questions for PMs:
+TODO1 Question(s) for PMs:
 - What if your app is deployed but your container image is stale? How do you force the container app to re-pull the image? Does deploying a new revision do it, or do you need to re-create the app?
 - ACI says they sometimes cache container images. Do we? That could lead to using an outdated image. See: ../container-instances/container-instances-troubleshooting#cached-images
 - ./user-defined-routes#verify-your-firewall-is-blocking-outbound-traffic explains how to use console to check the firewall. But that only works if your container app has deployed and has at least one instance. It wouldn't work if we can't pull your container image. Is there a way to get a console in the environment instead?
@@ -351,7 +351,7 @@ https://azureossd.github.io/2023/03/22/Troubleshooting-ingress-issues-on-Azure-C
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) your client uses to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - If your client uses HTTP/1, verify **Transport** is set to **HTTP/1**. If your client uses HTTP/2, verify **Transport** is set to **HTTP/2**.
-- If your client cannot use a secure connection, verify **Insecure connections** > **Allowed** is enabled. TODO1 Question for PMs: Not sure this is a recommendation we want to make. Depends on how common it is for users to have a client that can't use a secure connection.
+- If your client cannot use a secure connection, verify **Insecure connections** > **Allowed** is enabled. TODO1 Question(s) for PMs: Not sure this is a recommendation we want to make. Depends on how common it is for users to have a client that can't use a secure connection.
 - Verify **Target port** is set to the same port your container app is listening on, or the same port exposed by your container app's Dockerfile.
 - If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied.
 
@@ -400,7 +400,7 @@ You can enable ingress with the [`az containerapp ingress enable`](/cli/azure/co
 TODO1 Question for Craig:
 - Repeat this note in Configure health probes section?
 
-TODO1 Question for PMs:
+TODO1 Question(s) for PMs:
 - See note below. If container app doesn't listen for HTTP traffic,  should we disable ingress, or just set it to internal?
 
 > [!NOTE]
@@ -522,7 +522,7 @@ If the transport isn't correct, run the [`az containerapp ingress update`](/cli/
 
 ### Verify secure connection
 
-TODO1 Question for PMs: Not sure this is a recommendation we want to make. Depends on how common it is for users to have a client that can't use a secure connection.
+TODO1 Question(s) for PMs: Not sure this is a recommendation we want to make. Depends on how common it is for users to have a client that can't use a secure connection.
 
 If your client cannot use a secure connection, verify `allowInsecure` is set to `true`. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
 
@@ -583,7 +583,7 @@ For more information, see [Ingress in Azure Container Apps](./ingress-overview.m
 
 - If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function correctly.
 
-TODO1 Questions for PMs:
+TODO1 Question(s) for PMs:
 - Anything other general networking issues we want to call out?
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
@@ -619,7 +619,7 @@ If your health probes are not configured correctly:
 
 ::: zone pivot="console"
 
-TODO1 Questions for PMs:
+TODO1 Question(s) for PMs:
 - Can we configure health probes from command line? We can view them. containerapp show > template > containers > probes. ./health-probes.md only shows how to do it in ARM template.
 
 ::: zone-end
