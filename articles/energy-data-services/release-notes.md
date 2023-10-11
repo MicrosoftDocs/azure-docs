@@ -25,7 +25,7 @@ This page is updated with the details about the upcoming release approximately a
 
 ## September 2023
 
-### General Availability Fixed Pricing for Azure Data Manager for Energy
+### Azure Data Manager for Energy in Brazil South Region
 Azure Data Manager for Energy is now available in Brazil South Region. Both developer tier and standard tier are available in Brazil South region. You can now select Brazil South as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy)".
 
 ### Audit Logs for DDMS 
