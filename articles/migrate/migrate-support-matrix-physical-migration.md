@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/11/2023
+ms.date: 10/11/2023
 ms.custom: engagement-fy24
 ---
 

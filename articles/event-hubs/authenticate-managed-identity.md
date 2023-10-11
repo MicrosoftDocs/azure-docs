@@ -1,13 +1,13 @@
 ---
-title: Authentication a managed identity with Azure Active Directory
-description: This article provides information about authenticating a managed identity with Azure Active Directory to access Azure Event Hubs resources
+title: Authentication a managed identity with Microsoft Entra ID
+description: This article provides information about authenticating a managed identity with Microsoft Entra ID to access Azure Event Hubs resources
 ms.topic: conceptual
 ms.date: 02/08/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources
-Azure Event Hubs supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Azure AD credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. This article shows how to authorize access to an event hub by using a managed identity from an Azure VM.
+# Authenticate a managed identity with Microsoft Entra ID to access Event Hubs Resources
+Azure Event Hubs supports Microsoft Entra authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Microsoft Entra credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Microsoft Entra authentication, you can avoid storing credentials with your applications that run in the cloud. This article shows how to authorize access to an event hub by using a managed identity from an Azure VM.
 
 ## Enable managed identities on a VM
 Before you use managed identities for Azure resources to access Event Hubs resources from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure resources, see one of these articles:
@@ -18,8 +18,10 @@ Before you use managed identities for Azure resources to access Event Hubs resou
 - [Azure Resource Manager template](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager client libraries](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## Grant permissions to a managed identity in Azure AD
-To authorize a request to Event Hubs service from a managed identity in your application, first configure Azure role-based access control (Azure RBAC) settings for that managed identity. Azure Event Hubs defines Azure roles that encompass permissions for sending and reading from Event Hubs. When the Azure role is assigned to a managed identity, the managed identity is granted access to Event Hubs data at the appropriate scope. For more information about assigning Azure roles, see [Authenticate with Azure Active Directory for access to Event Hubs resources](authorize-access-azure-active-directory.md).
+<a name='grant-permissions-to-a-managed-identity-in-azure-ad'></a>
+
+## Grant permissions to a managed identity in Microsoft Entra ID
+To authorize a request to Event Hubs service from a managed identity in your application, first configure Azure role-based access control (Azure RBAC) settings for that managed identity. Azure Event Hubs defines Azure roles that encompass permissions for sending and reading from Event Hubs. When the Azure role is assigned to a managed identity, the managed identity is granted access to Event Hubs data at the appropriate scope. For more information about assigning Azure roles, see [Authenticate with Microsoft Entra ID for access to Event Hubs resources](authorize-access-azure-active-directory.md).
 
 ## Use Event Hubs with managed identities
 To use Event Hubs with managed identities, assign an Event Hubs RBAC role at the appropriate scope to the identity. The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
@@ -35,7 +37,7 @@ Once the application is created, follow these steps:
     :::image type="content" source="./media/authenticate-managed-identity/identity-web-app.png" alt-text="Screenshot of the Identity page showing the status of system-assigned identity set to ON.":::
 4. Select **Yes** on the information message. 
 
-    Once you've enabled this setting, a new service identity is created in your Azure Active Directory (Azure AD) and configured into the App Service host.
+    Once you've enabled this setting, a new service identity is created in your Microsoft Entra ID and configured into the App Service host.
 
     Now, assign this service identity to a role in the required scope in your Event Hubs resources.
 
@@ -134,7 +136,7 @@ You can use Apache Kafka applications to send messages to and receive messages f
 ## Next steps
 - See the following article to learn about managed identities for Azure resources: [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 - See the following related articles:
-    - [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
+    - [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)
     - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
-    - [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Authorize access to Event Hubs resources using Microsoft Entra ID](authorize-access-azure-active-directory.md)
     - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
