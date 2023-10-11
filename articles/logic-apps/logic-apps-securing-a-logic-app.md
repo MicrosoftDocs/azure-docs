@@ -951,7 +951,7 @@ For more information, review these topics:
 
 ### Expose your logic app with Azure API Management
 
-For more authentication protocols and options, consider exposing your logic app workflow as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app workflow, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
+For more authentication protocols and options, consider exposing your logic app workflow as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use OAuth with Microsoft Entra ID, client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app workflow, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
 
 For more information, review the following documentation:
 
