@@ -39,7 +39,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 :::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
 >[!Important]
->On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).  It is reccomended to use one the explict forms of connectivity discussed below.
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).  It is recomended to use one of the explict forms of connectivity discussed below.
 
 ## Why is disabling default outbound access recommended?
 
@@ -92,4 +92,6 @@ For more information on outbound connections in Azure and Azure Virtual Network 
 
 * [Source Network Address Translation (SNAT) for outbound connections](../../load-balancer/load-balancer-outbound-connections.md).
 
-* [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
+* [What is Azure Virtual Network NAT?](../../nat-gateway/nat-overview.md)
+
+* [Azure Virtual Network NAT FAQ](../../nat-gateway/faq.yml)
