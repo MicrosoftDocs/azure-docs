@@ -25,7 +25,7 @@ This article assumes that you already installed a SLES or openSUSE Leap Linux op
 ## SLES/openSUSE Leap installation notes
 
 * For more tips on preparing Linux images for Azure, see [General Linux installation notes](create-upload-generic.md#general-linux-installation-notes).
-* Azure doesn't support the VHDX format. Azure supports only *fixed VHD*. You can convert the disk to VHD format by using Hyper-V Manager or the `Convert-VHD` cmdlet.
+* Azure doesn't support Windows Hard Disk Image (.vhdx) files. Only VHD (.vhd) files are supported outside virtual machines. You can convert the disk to VHD format by using Hyper-V Manager or the `Convert-VHD` cmdlet.
 * Azure supports Gen1 (BIOS boot) and Gen2 (UEFI boot) virtual machines.
 * The virtual file allocation table (VFAT) kernel module must be enabled in the kernel.
 * Don't configure a swap partition on the OS disk. You can configure the Linux agent to create a swap file on the temporary resource disk. Steps later in this article give more information about configuring swap space.
@@ -52,7 +52,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
     ```
 
-    Then, run the ```dracut``` command to rebuild the initramfs file:
+    Run the ```dracut``` command to rebuild the initramfs file:
 
     ```bash
     sudo dracut --verbose --force
@@ -111,7 +111,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 7. Update the cloud-init configuration:
 
     ```bash
-    cat <<EOF | sudo /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg 
+    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg 
     datasource_list: [ Azure ]
     datasource:
         Azure:
@@ -318,7 +318,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 
     ```bash
         sudo rm -f ~/.bash_history # Remove current user history
-        sudo -i
         sudo rm -rf /var/lib/waagent/
         sudo rm -f /var/log/waagent.log
         sudo waagent -force -deprovision+user

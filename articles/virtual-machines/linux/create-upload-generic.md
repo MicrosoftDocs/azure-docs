@@ -155,7 +155,7 @@ Even if you're already running a relatively recent kernel version, we highly rec
     F:    tools/hv/
 ```
 
-The kernel must include the following patches. This list can't be complete for all distributions.
+The VM's active kernel must include the following patches. This list can't be complete for all distributions.
 
 * [ata_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 * [storvsc: Account for in-transit packets in the RESET path](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
@@ -169,12 +169,12 @@ The kernel must include the following patches. This list can't be complete for a
 
 The [Azure Linux Agent](../extensions/agent-linux.md) (`waagent`) provisions a Linux virtual machine in Azure. You can get the latest version, report problems, or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
 
-Here are considerations for using the Azure Linux Agent:
+Here are some considerations for using the Azure Linux Agent:
 
 * The Linux agent is released under the Apache 2.0 license. Many distributions already provide .rpm or .deb packages for the agent. You can easily install and update these packages.
 * The Azure Linux Agent requires Python v2.6+.
 * The agent also requires the `python-pyasn1` module. Most distributions provide this module as a separate package to be installed.
-* In some cases, the Azure Linux Agent might not be compatible with NetworkManager. Many of the .rpm or .deb packages provided by distributions configure NetworkManager as a conflict to the `waagent` package. In these cases, it will uninstall NetworkManager when you install the Linux agent package.
+* In some cases, the Azure Linux Agent might not be compatible with NetworkManager. Many of the packages (.rpm or .deb) provided by distributions configure NetworkManager as a conflict to the `waagent` package. In these cases, the agent will uninstall NetworkManager when you install the Linux agent package.
 * The Azure Linux Agent must be at or above the [minimum supported version](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 > [!NOTE]
