@@ -926,7 +926,7 @@ Here's the syntax to follow:
 
 #### Include 'Authorization' header in Request or HTTP webhook trigger outputs
 
-For logic apps that [enable Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](#enable-oauth) for authorizing inbound calls to access request-based triggers, you can enable the Request trigger or HTTP Webhook trigger outputs to include the `Authorization` header from the OAuth access token. In the trigger's underlying JSON definition, add and set the `operationOptions` property to `IncludeAuthorizationHeadersInOutputs`. Here's an example for the Request trigger:
+For logic apps that [enable OAuth with Microsoft Entra ID](#enable-oauth) for authorizing inbound calls to access request-based triggers, you can enable the Request trigger or HTTP Webhook trigger outputs to include the `Authorization` header from the OAuth access token. In the trigger's underlying JSON definition, add and set the `operationOptions` property to `IncludeAuthorizationHeadersInOutputs`. Here's an example for the Request trigger:
 
 ```json
 "triggers": {
