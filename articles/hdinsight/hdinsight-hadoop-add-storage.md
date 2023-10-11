@@ -9,7 +9,7 @@ ms.date: 10/11/2023
 
 # Add additional storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure Storage *accounts* to HDInsight. The steps in this document add a storage *account* to an existing HDInsight cluster. This article applies to storage *accounts* (not the default cluster storage account), and not additional storage such as [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) and [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how to use script actions to add extra Azure Storage *accounts* to HDInsight. The steps in this document add a storage *account* to an existing HDInsight cluster. This article applies to storage *accounts* (not the default cluster storage account), and not additional storage such as [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) and [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > The information in this document is about adding additional storage account(s) to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
@@ -18,7 +18,7 @@ Learn how to use script actions to add additional Azure Storage *accounts* to HD
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Storage account name and key. See [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
-* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](/powershell/azure/).
+* If using PowerShell, you need the AZ module.  See [Overview of Azure PowerShell](/powershell/azure/).
 
 ## How it works
 
@@ -53,13 +53,13 @@ Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to
 
 ## Verification
 
-When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ doesn't display storage accounts added through this script action. Azure PowerShell and Azure CLI don't display the additional storage account either. The storage information isn't displayed because the script only modifies the `core-site.xml` configuration for the cluster. This information isn't used when retrieving the cluster information using Azure management APIs.
+When you view the HDInsight cluster in the Azure portal, select the __Storage Accounts__ entry under __Properties__ doesn't display storage accounts added through this script action. Azure PowerShell and Azure CLI don't display the additional storage account either. The storage information isn't displayed because the script only modifies the `core-site.xml` configuration for the cluster. This information isn't used when retrieving the cluster information using Azure management APIs.
 
-To verify the additional storage use one of the methods shown below:
+To verify the additional storage use one of the methods shown:
 
 ### PowerShell
 
-The script will return the Storage Account name(s) associated with the given cluster. Replace `CLUSTERNAME` with the actual cluster name, and then run the script.
+The script returns the Storage Account name(s) associated with the given cluster. Replace `CLUSTERNAME` with the actual cluster name, and then run the script.
 
 ```powershell
 # Update values
@@ -91,7 +91,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Navigate to **HDFS** > **Configs** > **Advanced** > **Custom core-site**.
 
-1. Observe the keys that begin with `fs.azure.account.key`. The account name will be a part of the key as seen in this sample image:
+1. Observe the keys that begin with `fs.azure.account.key`. The account name is part of the key as seen in this sample image:
 
    :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="verification through Apache Ambari":::
 
