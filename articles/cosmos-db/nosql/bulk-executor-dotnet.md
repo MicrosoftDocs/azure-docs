@@ -33,7 +33,7 @@ Currently, bulk executor library is supported by the Azure Cosmos DB for NoSQL a
 
 * You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also [Install and use the Azure Cosmos DB Emulator for local development and testing](../emulator.md) with the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../emulator.md).
 
-* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [Create an Azure Cosmos DB account](quickstart-dotnet.md#create-account) section of [Quickstart: Azure Cosmos DB for NoSQL client library for .NET](quickstart-dotnet.md).
+* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [Create an Azure Cosmos DB account](how-to-create-account.md) section of [Quickstart: Azure Cosmos DB for NoSQL client library for .NET](quickstart-dotnet.md).
 
 ## Clone the sample application
 

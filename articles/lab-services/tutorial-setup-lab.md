@@ -178,7 +178,7 @@ Azure Lab Services supports multiple ways to add users to a lab:
 
 - Manually by entering an email address
 - Upload a CSV file with student information
-- Sync the lab with an Azure Active Directory group
+- Sync the lab with a Microsoft Entra group
 
 In this quickstart, you manually add the users by providing their email address. Follow these steps to add the users:
 

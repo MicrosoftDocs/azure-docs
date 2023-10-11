@@ -43,7 +43,7 @@ Verify the device registration state in your Azure tenant by using **[Get-MsolDe
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device ID** that matches the ID on the Windows client must exist.
-- The value for **DeviceTrustType** is **Domain Joined**. This setting is equivalent to the **Microsoft Entra hybrid joined** state on the **Devices** page in the Microsoft Entra portal.
+- The value for **DeviceTrustType** is **Domain Joined**. This setting is equivalent to the **Microsoft Entra hybrid joined** state on the **Devices** page in the Microsoft Entra admin center.
 - For devices that are used in Conditional Access, the value for **Enabled** is **True** and **DeviceTrustLevel** is **Managed**.
 
 1. Open Windows PowerShell as an administrator.
