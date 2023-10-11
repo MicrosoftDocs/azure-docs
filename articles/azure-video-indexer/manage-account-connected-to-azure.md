@@ -52,8 +52,8 @@ In the **Update connection to Azure Media Services** dialog of your [Azure AI Vi
 |---|---|
 |Azure subscription ID|The subscription ID can be retrieved from the Azure portal. Click on **All services** in the left panel and search for "subscriptions". Select **Subscriptions** and choose the desired ID from the list of your subscriptions.|
 |Azure Media Services resource group name|The name for the resource group in which you created the Media Services account.|
-|Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created for this Azure AI Video Indexer account. <br/><br/>To get the app ID, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Select **Connect to Media Services API with service principal** -> **Azure AD App**. Copy the relevant parameters.|
-|Application key|The Azure AD application key associated with your Media Services account that you specified above. <br/><br/>To get the app key, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Select **Connect to Media Services API with service principal** -> **Manage application** -> **Certificates & secrets**. Copy the relevant parameters.|
+|Application ID|The Microsoft Entra application ID (with permissions for the specified Media Services account) that you created for this Azure AI Video Indexer account. <br/><br/>To get the app ID, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Select **Connect to Media Services API with service principal** -> **Microsoft Entra App**. Copy the relevant parameters.|
+|Application key|The Microsoft Entra application key associated with your Media Services account that you specified above. <br/><br/>To get the app key, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Select **Connect to Media Services API with service principal** -> **Manage application** -> **Certificates & secrets**. Copy the relevant parameters.|
 
 ## Errors and warnings
 
@@ -75,4 +75,4 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 
 You can programmatically interact with your trial account or Azure AI Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
 
-Use the same Azure AD user you used when connecting to Azure.
+Use the same Microsoft Entra user you used when connecting to Azure.
