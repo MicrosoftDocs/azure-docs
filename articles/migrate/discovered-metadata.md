@@ -361,8 +361,8 @@ Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuratio
 
 **Entity** | **Data**
 --- | ---
-Web apps | Application name <br/> <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode
-Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuration Location <br/>Version <br/>FQDN <br/>Credentials used for discovery <br/>List of Applications
+Web apps | Application Name <br/> Web Server ID <br/> Web Server Name <br/> Display Name<br/> Directories <br/>Configurations <br/>Bindings <br/>Discovered Frameworks (may contain JVM version) <br/>Requests (CPU requests) <br/>Limits (CPU Limits) <br/> WorkloadType <br/> Application Scratch Path <br/>Static Folders
+Web server | OS Type <br/> OS Name<br/> OS Version <br/> OS Architecture<br/> Host Name <br/> CatalinaHomes <br/> Tomcat Version <br/>JVM Version<br/> User Name <br/> User ID<br/> Group Name<br/> Group ID
 
 ## Application dependency data
 
