@@ -18,7 +18,7 @@ title: Frequently asked questions about Microsoft Entra ID
 summary: |
   Microsoft Entra ID is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
   
-  For more information, see [What is Microsoft Entra ID?](./whatis.md)
+  For more information, see [What is Microsoft Entra ID?](./whatis.md).
   
   
 
@@ -45,6 +45,8 @@ sections:
           
           Microsoft Entra paid services like Enterprise Mobility + Security complement other web services like Microsoft 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
           
+          
+          
       - question: |
           What are the differences between Owner and Global Administrator?
         answer: |
@@ -55,6 +57,8 @@ sections:
           By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Microsoft Entra directory features. Microsoft Entra ID has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Microsoft Entra directory admins and their roles, see [Assign a user to administrator roles in Microsoft Entra ID](./how-subscriptions-associated-directory.md) and [Assigning administrator roles in Microsoft Entra ID](../roles/permissions-reference.md).
           
           Additionally, Microsoft Entra paid services like Enterprise Mobility + Security complement other web services, such as Microsoft 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
+          
+          
           
       - question: |
           Is there a report that shows when my Microsoft Entra user licenses will expire?
@@ -156,7 +160,8 @@ sections:
           
           For Microsoft 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
           
-          For Microsoft Entra accounts, admins can reset passwords by using one of the following
+          For Microsoft Entra accounts, admins can reset passwords by using one of the following:
+          
           - [Reset accounts in the Azure portal](./users-reset-password-azure-portal.md)
           - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
           
