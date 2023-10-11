@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 10/11/2023
 ms.reviewer: cawa
 ---
 
