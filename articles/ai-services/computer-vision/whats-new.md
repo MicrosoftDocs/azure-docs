@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## November 2023
+
+### Face client-side SDK for liveness detection
+
+TBD The Vision SDK supports face recognition and liveness detection which is available in Kotlin, Java, Swift and Obj-C for Android and iOS.
+
 ## September 2023
 
 ### Deprecation of outdated Computer Vision API versions
