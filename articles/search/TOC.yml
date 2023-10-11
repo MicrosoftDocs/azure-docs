@@ -422,8 +422,10 @@
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Query vector fields
+    - name: Create a vector query
       href: vector-search-how-to-query.md
+    - name: Create a hybrid query
+      href: hybrid-search-how-to-query.md
   - name: Queries
     items:
     - name: Create a basic query
@@ -537,6 +539,10 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Data type reference
+    href: /rest/api/searchservice/supported-data-types
+  - name: Data types for indexer data sources
+    href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
   - name: Stopwords reference
     href: reference-stopwords.md
   - name: OData language reference

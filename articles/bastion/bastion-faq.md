@@ -92,9 +92,9 @@ Azure Bastion is deployed within VNets or peered VNets, and is associated to an 
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
-### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+### <a name="azure-ad-guests"></a>Does Bastion support Microsoft Entra guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+Yes, [Microsoft Entra guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Microsoft Entra guest users can't connect to Azure VMs via Microsoft Entra authentication. Non-guest users are supported via Microsoft Entra authentication. For more information about Microsoft Entra authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
 
@@ -151,7 +151,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Sign in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Microsoft Entra users. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 

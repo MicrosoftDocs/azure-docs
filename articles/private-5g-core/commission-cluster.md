@@ -122,7 +122,7 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 1. Under **Compute virtual switch**, select **Modify**.
       1. Select the vswitch with compute intent (for example, *vswitch-port2*)
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
-      1. Enter one IP address in a range for the service IP address, also on the management network.
+      1. Enter one IP address in a range for the service IP address, also on the management network. This will be used for accessing local monitoring tools for the packet core instance.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Under **Virtual network**, select a virtual network, from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
       1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.

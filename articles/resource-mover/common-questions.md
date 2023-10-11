@@ -82,7 +82,7 @@ Yes, both in transit and at rest.
 
 ### How is managed identity used in Resource Mover?
 
-[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Azure AD.
+[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Microsoft Entra ID.
 - Resource Mover uses managed identity so that it can access Azure subscriptions to move resources across regions.
 - A move collection needs a system-assigned identity, with access to the subscription that contains resources you're moving.
 
