@@ -57,9 +57,9 @@ This section provides a high-level overview of the indoor map creation workflow.
     create new and edit existing [manifest files].
 
 1. **Upload**. Upload your drawing packages into your Azure Storage
-    account. <!--For more information, see [How to create data registry].-->
+    account. For more information, see [How to create data registry].
 
-1. **Convert**. Once the drawing package is uploaded into your Azure Maps account,
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
     use the [Conversion service] to validate the data in the uploaded drawing
     package and convert it into map data.
 
@@ -125,7 +125,7 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Facility Ontology]: creator-facility-ontology.md
 [Features API]: /rest/api/maps/2023-03-01-preview/features
 [features]: glossary.md#feature
-<!--[How to create data registry]: how-to-create-data-registries.md-->
+[How to create data registry]: how-to-create-data-registries.md
 [Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
 [Indoor map concepts]: creator-indoor-maps.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md
