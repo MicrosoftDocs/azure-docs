@@ -44,6 +44,8 @@ Use the *Key concepts* and *Examples* information in the API Reference to learn 
 
 The Provisioning API is available on port 443 of your Azure Communications Gateway's base domain.
 
+The DNS record for this domain has a time-to-live (TTL) of 60 seconds. When a region fails, Azure updates the DNS record to refer to another region, so clients making a new DNS lookup receive the details of the new region. We recommend ensuring that clients can make a new DNS lookup and retry a request 60 seconds after a timeout or a 5xx response.
+
 > [!TIP]
 > To find the base domain:
 > 1. Sign in to the Azure portal.
