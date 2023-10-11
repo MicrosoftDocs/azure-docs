@@ -27,7 +27,7 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 - An Azure account with an active subscription.
   - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
-- [.NET 7.0](https://dotnet.microsoft.com/download/7.0)
+- [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
