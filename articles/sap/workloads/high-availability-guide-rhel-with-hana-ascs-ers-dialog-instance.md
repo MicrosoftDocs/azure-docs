@@ -141,7 +141,7 @@ Once you've Installed, configured and set-up the **HANA Cluster**, follow the st
 Based on your storage, follow the steps described in below guides to configure `SAPInstance` resource for SAP ASCS/SCS and SAP ERS instance in the cluster.
 
 * NFS on Azure Files - [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md#prepare-for-sap-netweaver-installation)
-* Azure NetApp Files - [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation)
+* Azure NetApp Files - [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](high-availability-guide-rhel-netapp-files.md#prepare-for-the-sap-netweaver-installation)
 
 ## Test the cluster setup
 
