@@ -31,6 +31,9 @@ There are a few recommended patterns that are effective at monitoring and cleani
 
 Use the following instructions to learn how to enhance monitoring of inactive guest accounts at scale and create Access Reviews that follow these patterns. Consider the configuration recommendations and then make the needed changes that suit your environment.
 
+### License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
 ## Monitor guest accounts at scale with inactive guest insights (Preview)
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
@@ -47,9 +50,6 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
    - Guest accounts summary (A tabular view with details of all guest accounts with insights into their activity state. The Activity state could be active or inactive based on the configured inactivity threshold)
 
 1. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
-
-### License requirements
-[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 > [!NOTE]
 > When you access the report for the first time, the insights in this report may not be available immediately and may take some time to generate. If you are getting an error, please follow the instructions ensuring you have Microsoft Entra ID Governance license or wait for some time to see the report generated.  
