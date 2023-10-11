@@ -14,26 +14,17 @@ ms.custom: subject-cost-optimization
 
 This article helps you estimate what it will cost to transfer blobs by using AzCopy. 
 
-Each example uses fictitious prices. You can find these sample prices in the [Sample prices](#sample-prices) section at the end of this article. These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+Each section in this article contains an example and explains how cost is calculated along with the individual components that impact the cost estimate.
 
-Because all models must start with a set of assumptions, Each example in this article assumes the transfer of **1000** blobs that are **5 GiB** each in size. By using the [sample prices](#sample-prices)(#sample-prices) that appear in this article, the following table estimates the cost of each type of transfer. 
+Each example uses fictitious prices. You can find these sample prices in the [sample prices](#sample-prices) section at the end of this article. 
 
-| Scenario                                    | Hot     | Cool    | Cold   | Archive       |
-|---------------------------------------------|---------|---------|--------|---------------|
-| Upload blobs (Blob Service endpoint)        | $3.53   | $6.41   | $11.54 | $3.53         |
-| Upload blobs (Data Lake Storage endpoint)   | $9.15   | $16.64  | $29.95 | $18.30        |
-| Download blobs (Blob Service endpoint)      | $0.0059 | $5.01   | $15.02 | Not supported |
-| Download blobs (Data Lake Storage endpoint) | $0.73   | $11.67  | $46.65 | Not supported |
-| Copy blobs                                  | $3.53   | $0.0055 | $0.01  | $0.01         |
-| Copy blobs to another account               | $3.53   | $10.01  | $30.02 | $20.00        |
-
-The sections in this article explain how each cost is calculated and explains the individual components that impact the cost estimate.
+These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
 ## Calculate the cost to upload
 
-This section calculates the cost to upload `1,000` blobs that are `5 GiB` each in size. 
+This section calculates the cost to upload **1,000** blobs that are **5 GiB** each in size. 
 
-You upload blobs by using the `azcopy copy` command. In that command, you'll specify a destination endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section describes the cost using each.
+When you run the [azcopy copy](../common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a destination endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section describes the cost using each.
 
 ### Cost of using the Blob Service endpoint
 
@@ -86,9 +77,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ## Calculate the cost to download
 
-This section calculates the cost to download `1,000` blobs that are `5 GiB` each in size.
+This section calculates the cost to download **1,000** blobs that are **5 GiB** each in size.
 
-You can download blobs by using the `azcopy copy` command. In that command, you'll specify a source endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section describes the cost using each.
+When you run the [azcopy copy](../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command,, you'll specify a source endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section describes the cost using each.
 
 ### Cost of using the Blob Service endpoint
 
@@ -140,9 +131,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ## Calculate the cost to copy between containers
 
-This section calculates the cost to copy `1,000` blobs between containers. Each blob is `5 GiB` in size. 
+This section calculates the cost to copy **1,000** blobs between containers. Each blob is **5 GiB** in size. 
 
-You copy blobs by using the `azcopy copy` command.  In that command, you'll specify a source and destination endpoint. Each endpoint must be a Blob Service endpoint (`blob.core.windows.net`).
+When you run the [azcopy copy](../common/storage-use-azcopy-blobs-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a source and destination endpoint. Each endpoint must be a Blob Service endpoint (`blob.core.windows.net`). 
 
 ### Cost of copying blobs within the same account
 
@@ -197,37 +188,22 @@ Cost table (Data Lake Storage endpoint)
 
 Tips to optimize cost
 
+## Summary of calculations
 
-## Map of commands to REST operations
+The following table contains all of the estimates presented in this article. All estimates are based on transferring **1000** blobs that are each **5 GiB** in size and use the sample prices listed in the next section.
 
-These tables show how each AzCopy command translates to one or more REST operations. 
-
-### Commands that target the Blob service endpoint
-
-| Command      | Scenario | REST operation    |
-|--------------|----------|-------------------------|
-| azcopy bench | upload   | GetBlob                 |
-| azcopy bench | download | PutBlock & PutBlockList |
-
-To map each operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
-
-### Commands that target the Data Lake Storage endpoint
-
-| Command      | Scenario | REST operation   |
-|--------------|----------|-------------------------|
-| azcopy bench | upload   | GetBlob                 |
-| azcopy bench | download | PutBlock & PutBlockList |
-
-To map each operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
+| Scenario                                    | Hot   | Cool    | Cold   | Archive       |
+|---------------------------------------------|-------|---------|--------|---------------|
+| Upload blobs (Blob Service endpoint)        | $3.53 | $6.41   | $11.54 | $3.53         |
+| Upload blobs (Data Lake Storage endpoint)   | $9.15 | $16.64  | $29.95 | $18.30        |
+| Download blobs (Blob Service endpoint)      | $0.01 | $5.01   | $15.02 | Not supported |
+| Download blobs (Data Lake Storage endpoint) | $0.73 | $11.67  | $46.65 | Not supported |
+| Copy blobs                                  | $3.53 | $0.0055 | $0.01  | $0.01         |
+| Copy blobs to another account               | $3.53 | $10.01  | $30.02 | $20.00        |
 
 ## Sample prices
 
-This article uses the fictitious prices that appear in the following tables. 
-
-> [!IMPORTANT]
-> These prices are meant only as examples, and should not be used to calculate your costs.
-
-### Commands that target the Blob service endpoint
+The following table includes sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 | Price factor                               | Hot     | Cool    | Cold    | Archive |
 |--------------------------------------------|---------|---------|---------|---------|
@@ -237,10 +213,7 @@ This article uses the fictitious prices that appear in the following tables.
 | List and container operations (per 10,000) | $0.055  | $0.055   | $0.065   | $0.055   |
 | All other operations (per 10,000)          | $0.0044 | $0.0044 | $0.0052 | $0.0044 |
 
-
-For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-### Commands that target the Data Lake Storage endpoint
+The following table includes sample prices (fictitious) prices for each request to the Data Lake Storage endpoint (`dfs.core.windows.net`). For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
 
 | Price factor                                        | Hot      | Cool     | Cold     | Archive |
 |-----------------------------------------------------|----------|----------|----------|---------|
@@ -251,7 +224,17 @@ For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.co
 | Iterative Write operations (per 10,000)             | $0.0715  | $0.13    | $0.234   | $0.143  |
 | All other operations (per 10,000)                   | $0.00572 | $0.00572 | $0.00676 | $0.0052 |
 
-For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
+## REST operations associated with each AzCopy command
+
+Each request made by AzCopy arrives to the service in the form of a REST operation. By knowing which operations AzCopy uses when you run an AzCopy command, you can determine the cost associated with running a command. The tables below map each AzCopy command to the operation that is called when you run that command. 
+
+To determine the price of each operation, you must first determine how that operation is classified in terms of its type. That's because the pricing pages list prices only by operation type and not by each individual operation. To determine the type of each operation and map that operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
+
+| Command      | Scenario | REST operation          |
+|--------------|----------|-------------------------|
+| azcopy bench | upload   | GetBlob                 |
+| azcopy bench | download | PutBlock & PutBlockList |
+
 
 ## See also
 
