@@ -28,7 +28,7 @@ You can migrate an API Management instance hosted on the `stv1` compute platform
 For more information about the `stv1` and `stv2` platforms and the benefits of using the `stv2` platform, see [Compute platform for API Management](compute-infrastructure.md).
 
 > [!IMPORTANT]
-> * Migration is a long-running operation that involves migrating your API Management instance to new infrastructure. Depending on your scenario, your instance may experience downtime during the last 10-15 minutes of migration, and you may need to update settings for connectivity to your API Management instance. Plan your migration accordingly.
+> * Migrating your API Management instance to new infrastructure is a long-running operation. Depending on your scenario, your instance may experience downtime during the last 10-15 minutes of migration, and you may need to update settings for connectivity to your API Management instance. Plan your migration accordingly.
 > * Migration to `stv2` is not reversible.
 
 > [!IMPORTANT]
@@ -52,13 +52,13 @@ For an API Management instance that's not deployed in a VNet, go to the **Platfo
 1. In the left menu, under **Settings**, select **Platform migration**.
 1. On the **Platform migration** page, select one of the two migration options:
 
-    * **New virtual IP address** - Recommended. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets and to use the new VIP address.
+    * **New virtual IP address (recommended)**. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets and to use the new VIP address.
 
     * **Preserve IP address** - The VIP address of your API Management instance won't change. Your instance will have downtime for up to 15 minutes.
 
         :::image type="content" source="media/migrate-stv1-to-stv2/platform-migration-portal.png" alt-text="Screenshot of API Management platoform migration in the portal.":::
 
-1. Review guidance for the migration process, and perform any necessary preparation steps. After you've completed the preparation steps, select **I have read and understand the impact of the migration process.**. Select **Migrate**.
+1. Review guidance for the migration process, and prepare your environment. After you've completed the preparation steps, select **I have read and understand the impact of the migration process.**. Select **Migrate**.
 
 #### [Azure CLI](#tab/cli)
 
