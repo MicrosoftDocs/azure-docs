@@ -12,4 +12,4 @@ ms.custom: include file
 
 > [!IMPORTANT]On 30 September 2026, we'll retire support of the SBMP protocol for Azure Service Bus, so you'll no longer be able to use this protocol after 30 September 2026. Migrate to the latest Azure Service Bus SDK libraries using the AMQP protocol, which offer critical security updates and improved capabilities, before that date.
 >
->For more information, see the [support retirement announcement](https://azure.microsoft.com/en-us/updates/retirement-notice-update-your-azure-service-bus-sdk-libraries-by-30-september-2026/).
+>For more information, see the [support retirement announcement](https://azure.microsoft.com/updates/retirement-notice-update-your-azure-service-bus-sdk-libraries-by-30-september-2026/).
