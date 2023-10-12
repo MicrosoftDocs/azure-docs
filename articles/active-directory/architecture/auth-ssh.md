@@ -51,4 +51,4 @@ The system includes the following components:
 
 ## Next steps
 
-* To implement SSH with Microsoft Entra ID, see [Log in to a Linux VM by using Microsoft Entra credentials](../devices/howto-vm-sign-in-azure-ad-linux.md). 
+* To implement SSH with Microsoft Entra ID for your users or guest users, see [Log in to a Linux VM by using Microsoft Entra credentials](../devices/howto-vm-sign-in-azure-ad-linux.md). 

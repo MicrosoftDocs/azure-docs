@@ -139,9 +139,11 @@ az container create \
 
 ```
 
-### Connect to Azure AD for authorization
+<a name='connect-to-azure-ad-for-authorization'></a>
 
-It's recommended that you connect your web app to Azure Active Directory (Azure AD). This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Azure Active Directory.
+### Connect to Microsoft Entra ID for authorization
+
+It's recommended that you connect your web app to Microsoft Entra ID. This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Microsoft Entra ID.
 
 ## Open source on GitHub
 
