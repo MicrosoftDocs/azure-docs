@@ -33,16 +33,16 @@ To enable this folder structure to be effectively used by HDInsight clusters, th
 In the table,
 
 - **admin** is the creator and administrator of the Data Lake Storage account.
-- **Service principal** is the Azure Active Directory (AAD) service principal associated with the account.
-- **FINGRP** is a user group created in AAD that contains users from the Finance organization.
+- **Service principal** is the Microsoft Entra service principal associated with the account.
+- **FINGRP** is a user group created in Microsoft Entra ID that contains users from the Finance organization.
 
-For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+For instructions on how to create a Microsoft Entra application (that also creates a Service Principal), see [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). For instructions on how to create a user group in Microsoft Entra ID, see [Managing groups in Microsoft Entra ID](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Some key points to consider.
 
 - The two level folder structure (**/clusters/finance/**) must be created and provisioned with appropriate permissions by the Data Lake Storage admin **before** using the storage account for clusters. This structure isn't created automatically while creating clusters.
 - The example above recommends setting the owning group of **/clusters/finance** as **FINGRP** and permitting **r-x** access to FINGRP to the entire folder hierarchy starting from the root. This ensures that the members of FINGRP can navigate the folder structure starting from root.
-- In the case when different AAD Service Principals can create clusters under **/clusters/finance**, the sticky-bit (when set on the **finance** folder) ensures that folders created by one Service Principal cannot be deleted by the other.
+- In the case when different Microsoft Entra service principals can create clusters under **/clusters/finance**, the sticky-bit (when set on the **finance** folder) ensures that folders created by one Service Principal cannot be deleted by the other.
 - Once the folder structure and permissions are in place, HDInsight cluster creation process creates a cluster-specific storage location under **/clusters/finance/**. For example, the storage for a cluster with the name fincluster01 could be **/clusters/finance/fincluster01**. The ownership and permissions for the folders created by HDInsight cluster is shown in the table here.
 
     |Folder  |Permissions  |Owning user  |Owning group  | Named user | Named user permissions | Named group | Named group permissions |

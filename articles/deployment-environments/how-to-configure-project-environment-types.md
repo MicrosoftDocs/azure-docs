@@ -58,7 +58,7 @@ Add a new project environment type as follows:
     |**Deployment subscription**| Select the target subscription in which the environment will be created.|
     |**Deployment identity** | Select either a system-assigned identity or a user-assigned managed identity that will be used to perform deployments on behalf of the user.|
     |**Permissions on environment resources** > **Environment Creator Role(s)**|  Select the roles that will get access to the environment resources.|
-    |**Permissions on environment resources** > **Additional access** | Select the users or Azure Active Directory groups that will be granted specific roles on the environment resources.|
+    |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups that will be granted specific roles on the environment resources.|
     |**Tags** (optional) | Provide a name and value for tags that will be applied on all resources created as part of the environments.|
 
    :::image type="content" source="./media/configure-project-environment-types/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details on the page for adding a project environment type.":::

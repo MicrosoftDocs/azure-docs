@@ -273,7 +273,7 @@
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
-      - name: Access SMB volume from Azure Active Directory joined Windows VM
+      - name: Access SMB volume from Microsoft Entra joined Windows VM
         href: access-smb-volume-from-windows-client.md
     - name: Manage volume capacity and performance 
       items:
@@ -436,4 +436,4 @@
   - name: Azure Files and Azure NetApp Files comparison
     href: ../storage/files/storage-files-netapp-comparison.md
   - name: Azure NetApp Files on Microsoft Q&A
-    href: /answers/topics/25532/azure-netapp-files.html
+    href: /answers/topics/25532/azure-netapp-files

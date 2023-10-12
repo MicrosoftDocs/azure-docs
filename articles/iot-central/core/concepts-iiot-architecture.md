@@ -74,7 +74,7 @@ Secure your IIoT solution by using the following IoT Central features:
 
 - Create private endpoints to limit and secure industrial assets/gateway connectivity to your Azure IoT Central application with Private Link.
 
-- Ensure safe, secure data exports with Azure Active Directory managed identities.
+- Ensure safe, secure data exports with Microsoft Entra managed identities.
 
 - Use audit logs to track activity in your IoT Central application.
 
@@ -137,4 +137,3 @@ Industrial networks are crucial to the working of a manufacturing facility. With
 ## Next steps
 
 Now that you've learned about IIoT architecture patterns with Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
-

@@ -16,7 +16,7 @@ ms.date: 09/27/2023
 
 In the previous tutorial, you deployed and set up your Azure API for FHIR. Now that you have your Azure API for FHIR setup, we’ll register a public client application. You can read through the full [register a public client app](register-public-azure-ad-client-app.md) how-to guide for more details or troubleshooting, but we’ve called out the major steps for this tutorial in this article.
 
-1. Navigate to Azure Active Directory
+1. Navigate to Microsoft Entra ID
 1. Select **App Registration** --> **New Registration**
 1. Name your application
 1. Select **Public client/native (mobile & desktop)** and set the redirect URI to `https://www.getpostman.com/oauth2/callback`.

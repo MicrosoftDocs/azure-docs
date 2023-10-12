@@ -17,9 +17,9 @@ This article shows you how to send custom metrics for Azure resources to the Azu
 
 ## Create and authorize a service principal to emit metrics
 
-A service principal is an application whose tokens can be used to authenticate and grant access to specific Azure resources by using Azure Active Directory. Resources include user apps, services, or automation tools.
+A service principal is an application whose tokens can be used to authenticate and grant access to specific Azure resources by using Microsoft Entra ID. Resources include user apps, services, or automation tools.
 
-1. [Register an application with Azure Active Directory](../logs/api/register-app-for-token.md) to create a service principal.
+1. [Register an application with Microsoft Entra ID](../logs/api/register-app-for-token.md) to create a service principal.
 
 1. Save the tenant ID, new client ID, and client secret value for your app to use when it requests a token.
 

@@ -8,7 +8,9 @@ ms.reviewer: randolphwest
 ms.date: 07/21/2020
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate/Upgrade Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Single Server  online using DMS via the Azure portal
