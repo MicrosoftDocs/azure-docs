@@ -102,7 +102,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Parameter | Value/Description |
    |--|--|
    | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | To this workspace | Select **Create new** and enter a name, for example **Microsoft Entra ID-ws01**. |
+   | To this workspace | Select **Create new** and enter a name, for example **me-id-ws01**. |
 
    Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs.
 
