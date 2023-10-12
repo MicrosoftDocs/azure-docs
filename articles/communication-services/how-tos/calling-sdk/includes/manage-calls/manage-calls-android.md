@@ -171,6 +171,23 @@ Context appContext = this.getApplicationContext();
 call.mute(appContext).get();
 call.unmute(appContext).get();
 ```
+
+## Mute other participants
+> [!NOTE]
+> This API is provided as a public preview for developers and may change based on feedback that we receive.
+
+To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
+
+```java
+call.muteAllRemoteParticipants();
+```
+
+To mute a specific remote participant, use the `mute` API on a given remote participant.
+
+```java
+remoteParticipant.mute();
+```
+
 ## Change the volume of the call
 
 While you are in a call, the hardware volume keys on the phone should allow the user to change the call volume.
