@@ -95,7 +95,7 @@ productDirectory:
     - title: Video Indexer
       imageSrc: ./media/service-icons/video-indexer.svg
       summary: Extract actionable insights from your videos
-      url: http://learn.microsoft.com/azure/azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
      # Card
     - title: Immersive Reader
       imageSrc: ./media/service-icons/immersive-reader.svg
