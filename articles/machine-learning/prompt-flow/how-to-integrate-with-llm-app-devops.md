@@ -314,7 +314,8 @@ pf.get_metrics("evaluation_run_name")
 ```
 ---
 
-For more information, you can refer to [the Prompt flow CLI documentation for Azure](https://microsoft.github.io/promptflow/reference/pfazure-command-reference.html).
+> [!IMPORTANT]
+> For more information, you can refer to [the Prompt flow CLI documentation for Azure](https://microsoft.github.io/promptflow/reference/pfazure-command-reference.html).
 
 ## Iterative development from fine-tuning
 
