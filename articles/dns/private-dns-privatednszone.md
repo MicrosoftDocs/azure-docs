@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 10/10/2023
+ms.date: 10/12/2023
 ms.author: greglin
 ---
 
@@ -47,6 +47,7 @@ To enable custom DNS to resolve the private zone, you can use an [Azure DNS Priv
 
 ## Next steps
 
+* Review and understand [Private DNS records](dns-private-records.md).
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 * For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).
