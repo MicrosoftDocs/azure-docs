@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Integrate an existing forest and a new forest with a single Microsoft Entra tenant using Microsoft Entra Connect cloud sync.
+title: Tutorial - Integrate an existing forest and a new forest with a single Microsoft Entra tenant using Microsoft Entra Cloud Sync.
 description: Learn how to add cloud sync to an existing hybrid identity environment.
 services: active-directory
 author: billmath
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 This tutorial walks you through adding cloud sync to an existing hybrid identity environment. 
 
-![Diagram that shows the Microsoft Entra Connect cloud sync flow.](media/tutorial-existing-forest/existing-forest-new-forest-2.png)
+![Diagram that shows the Microsoft Entra Cloud Sync flow.](media/tutorial-existing-forest/existing-forest-new-forest-2.png)
 
 You can use the environment you create in this tutorial for testing or for getting more familiar with how a hybrid identity works. 
 
@@ -51,7 +51,7 @@ In this scenario, there's an existing forest synced using Microsoft Entra Connec
 
 <a name='install-the-azure-ad-connect-provisioning-agent'></a>
 
-## Install the Microsoft Entra Connect provisioning agent
+## Install the Microsoft Entra Provisioning Agent
 
 If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1. To install the agent, follow these steps: 
 
@@ -64,7 +64,7 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 <a name='configure-azure-ad-connect-cloud-sync'></a>
 
-## Configure Microsoft Entra Connect cloud sync
+## Configure Microsoft Entra Cloud Sync
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -95,4 +95,4 @@ You have now successfully set up a hybrid identity environment that you can use 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
