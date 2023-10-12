@@ -1,4 +1,4 @@
----
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/45115618/3633f999-bf57-4a45-a24e-a66656c880c7)---
 title: Azure DDoS Protection Overview
 description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
@@ -48,6 +48,9 @@ Get detailed reports in five-minute increments during an attack, and a complete 
 
     - **Attack metrics:**
  Summarized metrics from each attack are accessible through Azure Monitor. See [View and configure DDoS protection telemetry](telemetry.md) to learn more.
+
+- **Custom Mitigation Policies:** 
+You can define custom DDoS mitigation policies to fine-tune protection for your specific applications and services.![image](https://github.com/MicrosoftDocs/azure-docs/assets/45115618/f8e836ee-08b9-4bd8-802b-7922a371eb6b)
 
     - **Attack alerting:**
  Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal. See [View and configure DDoS protection alerts
