@@ -71,29 +71,14 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-* Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
-* Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
+* Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory. 
 * `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
-* PowerShell 5.1 modules uploaded through .zip files might not load in Runbooks. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*).  You can then delete or again add the modules to the new .zip file. 
 * Completed jobs might show a warning message: *Both Az and AzureRM modules were detected on this machine. Az and AzureRM modules cannot be imported in the same session or used in the same script or runbook*. This is just a warning message and does not impact job execution.
 * PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
 * A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 * When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules as well.
-* When you use [New-item cmdlet](/powershell/module/microsoft.powershell.management/new-item), jobs might be suspended. To resolve the issue, follow the mitigation steps:
-    1. Consume the output of `new-item` cmdlet in a variable and **do not** write it to the output stream using `write-output` command. 
-       - You can use debug or progress stream after you enable it from **Logging and Tracing** setting of the runbook.
-        ```powershell-interactive
-        $item = New-Item -Path ".\message.txt" -Force -ErrorAction SilentlyContinue
-        write-debug $item # or use write-progress $item
-        ```
-       - Alternatively, you can check if variable is nonempty if required to do so in the script.
-        ```powershell-interactive
-        $item = New-Item -Path ".\message.txt" -Force -ErrorAction SilentlyContinue
-        if($item) { write-output "File Created" }
-        ```
-    1. You can also upgrade your runbooks to PowerShell 7.1 or PowerShell 7.2 where the same runbook will work as expected.
 * If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 5.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 
 # [PowerShell 7.1 (preview)](#tab/lps71)
@@ -115,13 +100,11 @@ The following are the current limitations and known issues with PowerShell runbo
 **Known issues**
 
 - Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
-- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
 - `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from `Az.Automation` module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference isn't supported in PowerShell 7 runtime.
   **Workaround**: Explicitly set the preference at the start of the runbook as following -
-
   ```
       $VerbosePreference = "Continue"
 
@@ -147,7 +130,6 @@ The following are the current limitations and known issues with PowerShell runbo
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
 - Source control integration doesn't support PowerShell 7.2 (preview). Also, PowerShell 7.2 (preview) runbooks in source control get created in Automation account as Runtime 5.1.
-- Logging job operations to the Log Analytics workspace through linked workspace or diagnostics settings aren't supported.
 - Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
 - Az module 8.3.0 is installed by default and can't be managed at the automation account level. Use custom modules to override the Az module to the desired version.
 - The imported PowerShell 7.2 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
@@ -157,7 +139,6 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 - Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
-- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
 - `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 - Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
