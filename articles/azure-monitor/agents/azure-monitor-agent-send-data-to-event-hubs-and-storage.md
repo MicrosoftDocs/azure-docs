@@ -64,19 +64,8 @@ This section describes what's [supported](#whats-supported) and [not supported](
 A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
 
 - [Storage account](../../storage/common/storage-account-create.md)
-- [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
+- [Event Hubs namespace and event hub]((../../event-hubs/event-hubs-create.md))
 - [Virtual machine](../../virtual-machines/overview.md)
-
-## Required permissions
-
-| Action | Permissions required |
-|:---|:---|
-| Upload data to blob storage | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` permissions to the managed identity on your storage account, as provided by the [Storage Blob Data Contributor built-in role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor), for example |
-| Upload data to table storage | `Microsoft.Storage/storageAccounts/tableServices/tables/entities/write` permissions to the managed identity on your storage account, as provided by the [Storage Table Data Contributor built-in role](../../role-based-access-control/built-in-roles.md#storage-table-data-contributor), for example |
-| Upload data to an event hub | `Microsoft.EventHub/*/send/action` permissions to the managed identity on your event hub, as provided by the [Azure Event Hubs Data Sender built-in role](../../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), for example |
-| Create a data collection rule | See [Required permissions for using programmatic methods to create DCRs and associations](../essentials/data-collection-rule-overview.md#permissions). |
-| Create a DCR association | See [Required permissions for using programmatic methods to create DCRs and associations](../essentials/data-collection-rule-overview.md#permissions). |
-| Deploy the Azure Monitor Agent | See [Permissions required to deploy the Azure Monitor agent](./resource-manager-agent.md#permissions-required). |
 
 ## Create a data collection rule
 
@@ -687,7 +676,6 @@ Create a data collection rule for collecting events and sending to storage and e
    **Storage blob**
 
    | Value | Description |
-   |:---|:---|
    | `dataSources` | Define it per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`. |
    | `destinations` | Use `storageBlobsDirect` for direct upload to blob storage. | 
    | `storageAccountResourceId` | The resource ID of the storage account. | 
@@ -791,11 +779,51 @@ Use custom template deployment to create the DCR association and AMA deployment.
 
 Use the following section to troubleshoot sending data to Event Hubs and Storage.
 
-### Data not found in blob storage or table storage or not flowing to event hub
+### Data not found in storage account blob storage
 
-- Check that the applicable [required permissions](#required-permissions) are assigned with managed identity on the storage account.
+- Check that the built-in role `Storage Blob Data Contributor` is assigned with managed identity on the storage account.
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
+
+### Data not found in storage account table storage
+
+- Check that the built-in role `Storage Table Data Contributor` is assigned with managed identity on storage account.
+- Check that the managed identity is assigned to the VM.
+- Check that the AMA settings have managed identity parameter.
+
+### Data not flowing to event hub
+
+- Check that the built-in role `Azure Event Hubs Data Sender` is assigned with managed identity on storage account.
+- Check that the managed identity is assigned to the VM.
+- Check that the AMA settings have managed identity parameter.
+
+## Questions and Feedback
+
+Participation and early access to this feature requires a quick survey. Please take a couple minutes to input any feedback so that we can make the Azure Monitoring Agent even better for your needs.
+
+## Frequently asked questions 
+
+This section provides answers to common questions.
+
+### Will the Azure Monitoring Agent support data upload to Application Insights?
+
+No, this support isn't a part of the roadmap. Application Insights are now powered by Log Analytics Workspaces.
+
+### Will the Azure Monitoring Agent support Windows Crash Dumps as a data type to upload?
+
+No, this support isn't a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, indicate so in the [feedback form](#questions-and-feedback).
+
+### Does this mean the Linux (LAD) and Windows (WAD) Diagnostic Extensions are no longer supported/retired?
+
+No, not until Azure formally announces the deprecation of these agents, which would start a three-year clock until they're no longer supported. Currently we're planning to announce retirement for LAD and WAD in September of 2023 (subject to change) which would mean end of life in September 2026.
+
+### Will there be a similar configuration experience as the WAD and LAD for AMA?
+
+TBD - The configuration and control plane experience will be Data Collection Rules for AMA. The end UX is still being researched. Product group would appreciate any input on this in the [feedback form](#questions-and-feedback).
+
+### Will you still be actively developing on WAD and LAD?
+
+WAD and LAD will only be getting security/patches going forward. Most engineering funding has gone to the Azure Monitoring Agent. We highly recommend migrating to the Azure Monitoring Agent to benefit from all its awesome capabilities.
 
 ## See also
 
