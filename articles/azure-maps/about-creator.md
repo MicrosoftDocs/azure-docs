@@ -24,12 +24,8 @@ Creator is a platform for building indoor mapping solutions for all your needs. 
 
 An [onboarding tool] is provided to prepare your facility's DWGs by identifying the data to use and to positioning your facility on the map. The conversion service then converts the geometry and data from your DWG files into a digital indoor map.
 
-<<<<<<< HEAD
-The first step in creating your indoor map is to upload a drawing package. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion] service how to read the facility drawing files and metadata. For more information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package, see the [Drawing package guide].
-=======
 The first step in creating your indoor map is to upload a drawing package into your Azure Maps account. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion] service how to read the facility drawing files and metadata. For more
 information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package, see the [Drawing package guide].
->>>>>>> bc33de9e8318446748d95bca5d0871315050b902
 
 ### Dataset
 
@@ -63,11 +59,8 @@ This section provides a high-level overview of the indoor map creation workflow.
 1. **Upload**. Upload your drawing packages into your Azure Storage
     account. For more information, see [How to create data registry].
 
-<<<<<<< HEAD
 1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
-=======
-1. **Convert**. Once the drawing package is uploaded into your Azure Maps account,
->>>>>>> bc33de9e8318446748d95bca5d0871315050b902
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
     use the [Conversion] service to validate the data in the uploaded drawing
     package and convert it into map data.
 
