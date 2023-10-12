@@ -31,9 +31,9 @@ The steps in this article help you do the following:
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 * **A VM in a VNet**.
 
-  When you deploy Bastion using default values, the values are pulled from the VNet in which your VM resides. This VM doesn't become a part of the Bastion deployment itself, but you do connect to it later in the exercise.
+  When you deploy Bastion using default values, the values are pulled from the virtual network in which your VM resides. This VM doesn't become a part of the Bastion deployment itself, but you do connect to it later in the exercise.
 
-  * If you don't already have a VM in a VNet, create one using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
+  * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
   * If you need example values, see the [Example values](#values) section.
   * If you already have a virtual network, make sure it's selected on the Networking tab when you create your VM.
   * If you don't have a virtual network, you can create one at the same time you create your VM.
@@ -67,11 +67,11 @@ You can use the following example values when creating this configuration, or yo
 
 **Bastion values:**
 
-When you deploy from VM settings, Bastion is automatically configured with default values from the VNet
+When you deploy from VM settings, Bastion is automatically configured with default values from the virtual network.
 
 |**Name** | **Default value** |
 |---|---|
-|AzureBastionSubnet | This subnet is created within the VNet as a /26 |
+|AzureBastionSubnet | This subnet is created within the virtual network as a /26 |
 |SKU | Basic |
 | Name | Based on  the virtual network name |
 | Public IP address name | Based on the virtual network name |
@@ -105,8 +105,8 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
 
 1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
-   * When you connect, the desktop of the VM may look different than the example screenshot.
-   * Using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
+   * When you connect, the desktop of the VM might look different than the example screenshot.
+   * Using keyboard shortcut keys while connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
      :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot shows an RDP connection to a virtual machine." lightbox="./media/quickstart-host-portal/connected.png":::
 
