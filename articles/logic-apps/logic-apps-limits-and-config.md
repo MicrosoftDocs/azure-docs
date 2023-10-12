@@ -333,11 +333,11 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 ### Authentication limits
 
-The following table lists the values for a workflow that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+The following table lists the values for a workflow that starts with a Request trigger and enables [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml) (Microsoft Entra ID OAuth) for authorizing inbound calls to the Request trigger:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Azure AD authorization policies | 5 policies | |
+| Microsoft Entra authorization policies | 5 policies | |
 | Claims per authorization policy | 10 claims | |
 | Claim value - Maximum number of characters | 150 characters |
 

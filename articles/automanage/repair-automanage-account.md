@@ -62,7 +62,7 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
 
 - [Azure CLI](/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
 
-- Azure portal: Go to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it appears.
+- Azure portal: Go to **Microsoft Entra ID** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it appears.
 
 ### Azure portal
 

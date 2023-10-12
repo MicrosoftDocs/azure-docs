@@ -88,7 +88,7 @@ To assign management plane roles (Azure RBAC) you can use Azure portal or any of
 
 The Azure CLI snippets in this section are built with the following assumptions:
 
-- The Azure Active Directory administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
+- The Microsoft Entra administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
 - All resources are located in the **ContosoAppRG** resource group.
 - The managed HSM logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
