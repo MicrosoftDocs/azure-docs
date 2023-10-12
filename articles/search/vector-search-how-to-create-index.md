@@ -13,7 +13,7 @@ ms.date: 10/13/2023
 # Add vector fields to a search index
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST APIs, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space definition. 
 
@@ -66,14 +66,15 @@ You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs 
 
 ### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
-REST API version 2023-10-01-Preview introduces breaking changes to vector configuration and vector field definitions. This version adds:
+REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces breaking changes to vector configuration and vector field definitions. This version adds:
 
 + `vectorProfiles`
-+ Exhaustive K nearest neighbors algorithm
-
-Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
++ `exhaustiveKnn` nearest neighbors algorithm for indexing vector content
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+
+> [!TIP]
+> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to create the index.
 
@@ -85,7 +86,7 @@ In the following REST API example, "title" and "content" contain textual content
     "vectorSearch": {
         "algorithms": [
             {
-                "name": "my-hnsw-cosine-config",
+                "name": "my-hnsw-config-1",
                 "kind": "hnsw",
                 "hnswParameters": {
                     "m": 4,
@@ -95,11 +96,13 @@ In the following REST API example, "title" and "content" contain textual content
                 }
             },
             {
-                "name": "my-hnsw-euclidean-config",
+                "name": "my-hnsw-config-2",
                 "kind": "hnsw",
                 "hnswParameters": {
-                    "m": 4,
-                    "metric": "euclidean"
+                    "m": 8,
+                    "efConstruction": 800,
+                    "efSearch": 800,
+                    "metric": "cosine"
                 }
             },
             {
@@ -114,7 +117,7 @@ In the following REST API example, "title" and "content" contain textual content
         "profiles": [
           {
             "name": "my-default-vector-profile",
-            "algorithm": "my-hnsw-cosine-config"
+            "algorithm": "my-hnsw-config-2"
           }
         ]
     }
@@ -122,9 +125,9 @@ In the following REST API example, "title" and "content" contain textual content
 
    **Key points**:
 
-   + Name the configuration. The name must be unique within the index.
-   + Profiles are new in this preview. They add a layer of abstraction for accommodating richer definitions. A profile must be specified on each vector field, as described in the following section.
-   + `"hnsw"` and `"exhaustiveKnn"` are the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing.
+   + Name of the configuration. The name must be unique within the index.
+   + Profiles are new in this preview. They add a layer of abstraction for accommodating richer definitions. A profile is defined in `vectorSearch`, and then on as property on each vector field, as described in the following section.
+   + `"hnsw"` and `"exhaustiveKnn"` are the Approximate Nearest Neighbors (ANN) algorithm used to organize vector content during indexing.
    + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
@@ -196,11 +199,15 @@ In the following REST API example, "title" and "content" contain textual content
 
 ### [**2023-07-01-Preview**](#tab/rest-add-field)
 
-Use the **2023-07-01-Preview** REST API for vector scenarios. This version uses `vectorConfigurations` and supports HNSW for nearest neighbor algorithm.
+REST API version **2023-07-01-Preview** enables vector scenarios. This version adds:
 
-Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
++ `vectorConfigurations`
++ `hnsw` nearest neighbor algorithm for indexing vector content
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+
+> [!TIP]
+> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
 
@@ -225,8 +232,8 @@ In the following REST API example, "title" and "content" contain textual content
 
    **Key points**:
 
-   + Name the configuration. The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+   + Name of the configuration. The name must be unique within the index.
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Only Hierarchical Navigable Small World (HNSW) is supported in this API version. 
    + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.

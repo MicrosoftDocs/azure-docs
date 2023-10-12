@@ -26,22 +26,22 @@ Azure Cognitive Search provides the following scoring algorithms for vector sear
 |`exhaustiveKnn` | Calculates the distances between all pairs of data points. | Metric dependent, usually 0 < 1.00 |
 | `hnsw` | Creates proximity graphs for organizing and querying vector content. | Metric dependent, usually 0 < 1.00. |
 
-Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` (or `vectorSearch.algorithms`) in a search index, and then specified on the field definition (also in the index):
+Vector search algorithms are specified in a search index, and then specified on the field definition (also in the index):
 
 + [Create a vector index](vector-search-how-to-create-index.md)
 
-Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. However, there's a subset of [query-time parameters](vector-search-how-toquery.md) that can be modified.
+Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. However, there's a subset of parameters that can be modified in a [query request](vector-search-how-to-query.md).
 
-Each algorithm has different memory requirements, which affects [vector index size](vector-search-index-size.md) (because it's based on memory usage). When evaluating your choices, remember:
+Each algorithm has different memory requirements, which affect [vector index size](vector-search-index-size.md), predicated on memory usage. When evaluating algorithms, remember:
 
-+ `hnsw` has overhead for vector index size.
-+ `exhaustiveKnn` doesn't require loading the entire vector index into memory. It has no vector index size overhead.
++ `hnsw`, which accesses proximity graphs stored in memory, adds overhead to vector index size.
++ `exhaustiveKnn` doesn't load the entire vector index into memory. As such, it has no vector index size overhead, meaning it doesn't contribute to index size.
 
 <a name="eknn"></a>
 
 ### Exhaustive K-Nearest Neighbors (KNN)
 
-Exhaustive KNN support is available through 2023-10-01-Preview REST API and it enables users to perform an exhaustive search for the nearest neighbors in their vector space. This feature is intended for scenarios where high recall is of utmost importance, and users are willing to accept the trade-offs in terms of search performance. 
+Exhaustive KNN support is available through [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) and it enables users to search the entire vector space for matches that are most similar to the query. This algorithm is intended for scenarios where high recall is of utmost importance, and users are willing to accept the trade-offs in search performance. 
 
 Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It guarantees finding the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use Exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations.
 

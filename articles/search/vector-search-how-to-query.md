@@ -13,15 +13,14 @@ ms.date: 10/13/2023
 # Create a vector query in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST APIs, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to:
 
 > [!div class="checklist"]
-> + [Query vector fields](#vector-query-request).
+> + [Query vector fields](#vector-query-request)
 > + [Filter a vector query](#vector-query-with-filter)
-> + [Query multiple vector fields at once](#multiple-vector-fields).
-> + [Run multiple vector queries in parallel](#multiple-vector-queries).
+> + [Query multiple vector fields at once](#multiple-vector-fields)
 
 Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
@@ -100,17 +99,13 @@ You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs 
 
 ### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
-[Search Documents REST API version 2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/documents/search-post) introduces breaking changes to the vector query definition.  This version adds the following new capability to vector queries:
+REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces breaking changes to the vector query definition in [Search Documents](/rest/api/searchservice/2023-10-01-preview/documents/search-post). This version adds:
 
-+ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution
-+ `exhaustive` which can be set to true or false, and invokes exhaustive KNN at query time.
-+ `kind`, which can only be set to `vector` in this preview.
++ `vectorQueries` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
++ `kind` is a parameter of `vectorQueries` and it can only be set to `vector` in this preview.
++ `exhaustive` can be set to true or false, and invokes exhaustive KNN at query time.
 
-In this single vector query, which is shortened for brevity, the "vector" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
-
-In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
-
-The example request uses **2023-10-01-Preview**. This version provides the `vectorFilterMode` parameter for prefiltering or postfiltering on the query.
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
@@ -119,8 +114,6 @@ api-key: {{admin-api-key}}
 {
     "count": true,
     "select": "title, content, category",
-    "filter": "category eq 'Databases'",
-    "filterMode": "preFilter",
     "vectorQueries": [
         {
             "kind": "vector"
@@ -141,11 +134,11 @@ api-key: {{admin-api-key}}
 
 ### [**2023-07-01-Preview**](#tab/rest-vector-query)
 
-In this single vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
+REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) introduces vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version adds:
+
++ `vectors` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
-
-The example request uses **2023-07-01-Preview**. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
@@ -270,7 +263,54 @@ A query request can include a vector query and a [filter expression](search-filt
 
 In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
 
-Here's an example of filter expressions combined with a vector query:
+> [!TIP]
+> If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
+
+### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
+
+REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces filter options. This version adds:
+
++ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution.
++ `filter` provides the criteria, which is applied to a filterable text field ("category" in this example)
+
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
+
+The filter criteria are applied before the search engine executes the vector query.
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "count": true,
+    "select": "title, content, category",
+    "filter": "category eq 'Databases'",
+    "vectorFilterMode": "preFilter",
+    "vectorQueries": [
+        {
+            "kind": "vector"
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "exhaustive": true,
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
+}
+```
+
+### [**2023-07-01-Preview**](#tab/rest-2023-07-01-Preview)
+
+REST API version [**2023-10-07-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports post-filtering over query results. 
+
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
+
+The filter criteria are applied after the search engine executes the vector query.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
@@ -295,8 +335,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-> [!TIP]
-> If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a filter.
+---
 
 ## Multiple vector fields
 
