@@ -91,7 +91,7 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
  - **Migrate** - Skips validations and starts migrations.
  - **Validate and Migrate** - Performs validation before triggering a migration. Migration gets triggered only if there are no validation failures.
 
-It is always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](concepts-single-to-flexible.md/#pre-migration-validations).
+It is always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
 
 **Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. Support for online migrations will be introduced later in the tool.
 
@@ -168,7 +168,7 @@ The validation grid has the following columns
 
 The validation moves to **Validation Failed** state if there are any errors in the validation. Click on the **Finding** in the grid whose status is **Failed** and a fan-out pane appears giving the details and the corrective action you should take to avoid this error.
 
-:::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid." lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid with failed status" lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
 
 ### Migrate 
 
@@ -188,9 +188,9 @@ Once the migration moves to the **Succeeded** state, migration of schema and dat
 
 ### Validate and Migrate
 
-In this option, validations are performed first before migration starts. After the **PerformingPreRequisiteSteps** state is completed, the workflow moves into the state of **Validation in Progress**. 
+In this option, validations are performed first before migration starts. After the **PerformingPreRequisiteSteps** sub state is completed, the workflow moves into the sub state of **Validation in Progress**. 
 - If validation has errors, the migration will move into a **Failed** state.
-- If validation completes without any error, the migration will start and the workflow will move into state of **Migrating Data**. 
+- If validation completes without any error, the migration will start and the workflow will move into the sub state of **Migrating Data**. 
 
 You can see the results of validation under the **Validation** tab and monitor the migration under the **Migration** tab.
 
