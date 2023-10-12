@@ -32,7 +32,7 @@ The datetime value that results from adding the duration value to the base value
 
 ### Remarks
 
-The Add method takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+The dateTimeAdd function takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
 
 ```bicep
 output add1MonthOutput string = dateTimeAdd('2023-01-31 00:00:00Z', 'P1M') //2023-03-02T00:00:00Z
