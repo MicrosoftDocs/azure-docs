@@ -335,8 +335,6 @@ items:
               href: event-schema-resource-notifications.md
             - name: Health Resources
               href: event-schema-health-resources.md
-            - name: Resources
-              href: event-schema-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
