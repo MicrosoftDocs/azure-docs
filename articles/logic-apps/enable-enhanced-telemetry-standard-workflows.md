@@ -671,11 +671,11 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
 
 ---
 
-<a name="view-enhanced-metrics"></a>
+<a name="view-workflow-metrics"></a>
 
-## View enhanced metrics in Application Insights
+## View workflow metrics in Application Insights
 
-With the telemetry enhancements in Application Insights, you also get an enhanced Metrics dashboard.
+With the telemetry enhancements in Application Insights, you also get workflow insights in the Metrics dashboard.
 
 ### Open the Metrics dashboard and set up basic filters
 
