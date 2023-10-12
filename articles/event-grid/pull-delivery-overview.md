@@ -8,6 +8,7 @@ ms.topic: conceptual
 ---
 
 # Pull delivery with HTTP (Preview)
+
 This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!NOTE]
@@ -56,13 +57,13 @@ The user community also refers to events to those type of messages that carry a 
 
 Events published to Event Grid land on a **topic**, which is a resource that logically contains all events. An **event subscription** is a configuration resource associated with a single topic. Among other things, you use an event subscription to set event selection criteria to define the event collection available to a subscriber out of the total set of events present in a topic.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-high-res.png" border="false":::
+:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" border="false":::
 
 ## Push and pull delivery
 
 Using HTTP, Event Grid supports push and pull event delivery. With **push delivery**, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With **pull delivery**, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery-high-res.png" border="false":::
+:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery-mechanism.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery-mechanism.png" border="false":::
 
 ### When to use push delivery vs. pull delivery 
 
@@ -77,6 +78,7 @@ The following are general guidelines to help you decide when to use pull or push
 - You don't have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
 
 #### Push delivery
+
 - You need to receive events from Azure services, partner (SaaS) event sources or from your applications. Push delivery supports these types of event sources. 
 - You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send events to you at the time state changes happen.
 - You have an application that can't make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
@@ -108,12 +110,12 @@ In some other occasions, your consumer application may want to release or reject
 
 The following articles provide you with information on how to use Event Grid or provide you with additional information on concepts.
 
-
 - Learn about [Namespaces](concepts-pull-delivery.md#namespaces)
 - Learn about [Namespace Topics](concepts-pull-delivery.md#namespace-topics) and [Event Subscriptions](concepts.md#event-subscriptions)
 - [Publish and subscribe to events using Namespace Topics](publish-events-using-namespace-topics.md)
 
 ### Other useful links
+
 - [Control plane and data plane SDKs](sdk-overview.md)
 - [Data plane SDKs announcement](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) with a plethora of information, samples, and links
 - [Quotas and limits](quotas-limits.md)

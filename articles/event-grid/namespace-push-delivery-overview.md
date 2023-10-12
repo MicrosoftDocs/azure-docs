@@ -15,13 +15,13 @@ This article builds on [push delivery with HTTP for Event Grid basic](push-deliv
 
 Events published to Event Grid namespaces will land on a topic, which is a namespace subresource that logically contains all events. Namespace topics allows you to create subscriptions with flexible consumption modes to push events to a particular destination or [pull events](pull-delivery-overview.md) at yourself pace.
 
-[!IMAGE]
+:::image type="content" source="media/namespace-push-delivery-overview/topic-event-subscriptions-namespace.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/namespace-push-delivery-overview/topic-event-subscriptions-namespace.png" border="false":::
 
 ## Push and pull delivery
 
 Using HTTP, Event Grid supports push and pull event delivery. With push delivery, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With pull delivery, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
 
-[!IMAGE]
+:::image type="content" source="media/namespace-push-delivery-overview/push-pull-delivery-mechanism.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/namespace-push-delivery-overview/push-pull-delivery-mechanism.png" border="false":::
 
 ### When to use push delivery vs. pull delivery
 

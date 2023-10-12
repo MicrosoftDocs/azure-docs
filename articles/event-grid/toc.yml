@@ -111,7 +111,7 @@ items:
         - name: Pull delivery terminology
           href: concepts-pull-delivery.md
         - name: Push delivery terminology
-          href: concepts.md
+          href: concepts-namespace-push-delivery.md
         - name: Publisher and subscriber operations
           href: publisher-subscriber-operations.md
         - name: Dead lettering for event subscriptions
