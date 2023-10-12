@@ -89,7 +89,7 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ | ❌ | ❌ | ❌ |
 |                   | Add and remove video stream from spotlight                                                                          | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Allow video stream to be selected for spotlight                                                                     | ✔️ | ✔️ | ✔️ | ✔️ |
-| Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)                               | ✔️ | ✔️ | ✔️ | ✔️ |
+| Video Effects     | [Background Blur](../../../quickstarts/voice-video-calling/get-started-video-effects.md)                               | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Custom background image                                                                                             | ✔️ | ❌ | ❌ | ❌ |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      | ✔️ | ✔️ | ✔️ |
@@ -154,7 +154,7 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ | ❌ | ❌ | ❌ |
 
-1. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+1. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## Teams meeting options
