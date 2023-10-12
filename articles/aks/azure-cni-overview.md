@@ -95,6 +95,20 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 
 The maxPod per node setting can be defined when you create a new node pool. If you need to increase the maxPod per node setting on an existing cluster, add a new node pool with the new desired maxPod count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you're setting node pool modes as defined in the [system node pools document][system-node-pools].
 
+## Dualstack Networking (Preview)
+
+Azure CNI Overlay now supports dualstack networking. This feature is currently in preview. Dualstack networking assigns both IPv4 and IPv6 addresses to each Node and Pod in a cluster. This allows for IPv6 traffic to and from AKS Clusters.
+
+### Limitations
+
+The following features aren't supported with dualstack networking:
+  - Azure network policies
+  - Calico network policies
+  - NAT Gateway
+  - Virtual nodes add-on
+
+
+
 ## Deployment parameters
 
 When you create an AKS cluster, the following parameters are configurable for Azure CNI networking:
