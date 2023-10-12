@@ -98,6 +98,14 @@ landingContent:
             url: emergency-calling-teams-direct-routing.md
 
   # Card
+  - title: Use Azure Communications Gateway for Zoom Phone Cloud Peering
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview of interoperability
+            url: interoperability-zoom.md
+
+  # Card
   - title: Manage Azure Communications Gateway
     linkLists:
       - linkListType: concept

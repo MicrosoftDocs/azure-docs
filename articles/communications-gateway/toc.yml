@@ -68,6 +68,10 @@ items:
       href: prepare-for-live-traffic-teams-direct-routing.md
   - name: Emergency calling
     href: emergency-calling-teams-direct-routing.md
+- name: Integration with Zoom Phone Cloud Peering
+  items:
+  - name: Overview of interoperability
+    href: interoperability-zoom.md
 - name: Maintenance
   items:
   - name: Set up user roles
