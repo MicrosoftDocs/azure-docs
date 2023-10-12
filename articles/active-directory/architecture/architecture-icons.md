@@ -35,7 +35,7 @@ Helping our customers design and architect new solutions is core to the Microsof
 
 | Month | Change description |
 |-------|--------------------|
-| October 12, 2023 | Updated the downloadable package to include more Microsoft Entra product icons and an branding playbook. |
+| October 12, 2023 | Updated the downloadable package to include more Microsoft Entra product icons and updated branding playbook. |
 | August 15, 2023 | Added a downloadable package that contains the Microsoft Entra architecture icons, branding playbook (which contains guidelines about the Microsoft Security visual identity), and terms of use. |
 
 ## Icon terms

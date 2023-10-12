@@ -29,7 +29,7 @@ All features and capabilities are still available in the product. Licensing, ter
 
 To make the transition seamless, all existing login URLs, APIs, PowerShell cmdlets, and Microsoft Authentication Libraries (MSAL) stay the same, as do developer experiences and tooling.
 
-Service plan display names will change on October 1, 2023. Microsoft Entra ID Free, Microsoft Entra ID P1, and Microsoft Entra ID P2 will be the new names of standalone offers, and all capabilities included in the current Azure AD plans remain the same. Microsoft Entra ID – previously known as Azure AD – continues to be included in Microsoft 365 licensing plans, including Microsoft 365 E3 and Microsoft 365 E5. Details on pricing and what’s included are available on the [pricing and free trials page](https://aka.ms/PricingEntra).
+Service plan display names changed on October 1, 2023. Microsoft Entra ID Free, Microsoft Entra ID P1, and Microsoft Entra ID P2 are the new names of standalone offers, and all capabilities included in the current Azure AD plans remain the same. Microsoft Entra ID – previously known as Azure AD – continues to be included in Microsoft 365 licensing plans, including Microsoft 365 E3 and Microsoft 365 E5. Details on pricing and what’s included are available on the [pricing and free trials page](https://aka.ms/PricingEntra).
 
 :::image type="content" source="./media/new-name/azure-ad-new-name.png" alt-text="Diagram showing the new name for Azure AD and Azure AD External Identities." border="false" lightbox="./media/new-name/azure-ad-new-name-high-res.png":::
 
@@ -109,7 +109,7 @@ You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the
 
 ### What are the display names for service plans and SKUs?
 
-Licensing, pricing, and functionality aren't changing. Display names will be updated October 1, 2023 as follows.
+Licensing, pricing, and functionality aren't changing. Display names were updated October 1, 2023 as follows.
 
 | **Old display name for service plan** | **New display name for service plan** |
 |---------|---------|
@@ -155,7 +155,7 @@ No. Prices, terms and service level agreements (SLAs) remain the same. Pricing d
 
 ### Will Microsoft Entra ID be available as a free service with an Azure subscription?
 
-Customers using Azure AD Free as part of their Azure, Microsoft 365, Dynamics 365, Teams, or Intune subscription continue to have access to the same capabilities. It will be called Microsoft Entra ID Free. Get the free version at <https://www.microsoft.com/security/business/microsoft-entra-pricing>.
+Customers using Azure AD Free as part of their Azure, Microsoft 365, Dynamics 365, Teams, or Intune subscription continue to have access to the same capabilities. This is now called Microsoft Entra ID Free. Get the free version at <https://www.microsoft.com/security/business/microsoft-entra-pricing>.
 
 ### What's changing for Microsoft 365 or Azure AD for Office 365?
 
@@ -294,7 +294,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 
 | Date | Change description |
 |------|--------------------|
-| October 12, 2023 | Added three other terms in the glossary: "Azure AD connector", "Azure AD license", and "Azure AD Premium" |
+| October 12, 2023 | <br/>&#8226;Updated that the updated license plans were available as of October 1, 2023.  <br/>&#8226; Added three other terms in the glossary: "Azure AD connector", "Azure AD license", and "Azure AD Premium" |
 | September 15, 2023 | Added a link to the new article, [How to: Rename Azure AD](how-to-rename-azure-ad.md), updated the description for Azure AD B2C, and added more info about why the name Azure AD is changing. |
 | August 29, 2023 | <br/>&#8226; In the [glossary](#glossary-of-updated-terminology), corrected the entry for "Azure AD activity logs" to separate "Azure AD audit log", which is a distinct type of activity log. <br/>&#8226; Added Azure AD Sync and DirSync to the [What names aren't changing](#what-names-arent-changing) section. |
 | August 18, 2023 | <br/>&#8226; Updated the article to include a new section [Glossary of updated terminology](#glossary-of-updated-terminology), which includes the old and new terminology.<br/>&#8226; Updated info and added link to usage of the Microsoft Entra ID icon, and updates to verbiage in some sections.  |
