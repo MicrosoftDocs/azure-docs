@@ -302,7 +302,7 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-To use the Dapr state input binding, start by settihng up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+To use the Dapr state input binding, start by setting up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)

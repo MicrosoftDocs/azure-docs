@@ -124,7 +124,7 @@ The above Dapr configuration values are considered application-scope changes. Wh
 
 When configuring Dapr using the Azure portal, navigate to your function app and select **Dapr** from the left-side menu:
 
-:::image type="content" source="media/functions-bindings-dapr/dapr-enablement-portal.png" alt-text="Screenshot demonstrating where to find Dapr enablement for a Function App in the Azure Portal." :::
+:::image type="content" source="media/functions-bindings-dapr/dapr-enablement-portal.png" alt-text="Screenshot demonstrating where to find Dapr enablement for a Function App in the Azure portal." :::
 
 ## Dapr ports and listeners
 
@@ -191,7 +191,7 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 | [.NET In-process][dapr-in-proc] | Learn how to use Azure Functions in-process model to integrate with multiple Dapr components in .NET, like Service Invocation, Pub/sub, Bindings, and State Management. |
 | [.NET Isolated][dapr-isolated] | Integrate with Dapr components in .NET using the Azure Functions out-of-proc (OOP) execution model. |
 
-[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/quickstarts/dotnet-isolated
 [dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#3-dapr-binding
 [dapr-in-proc]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-azurefunction
 [dapr-isolated]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction
@@ -224,7 +224,7 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 | [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Extension with the Kafka bindings Dapr component. |
 | [JavaScript][dapr-js] | Run a JavaScript Dapr function application and integrate with Dapr Service Invocation, Pub/sub, Bindings, and State Management using Azure Functions. |
 
-[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/quickstarts/javascript
 [dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/javascript-azurefunction#3-dapr-binding
 [dapr-js]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/javascript-azurefunction
 
@@ -252,12 +252,10 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 
 | Samples | Description |
 |-|-| 
-| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
 | [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Extension with the Kafka bindings Dapr component. |
 | [Python v1][dapr-python] | Run a Dapr-ized Python application and use the Azure Functions Python v1 programming model to integrate with Dapr components. |
 | [Python v2][dapr-python-2] | Launch a Dapr application using the Azure Functions Python v2 programming model to integrate with Dapr components. |
 
-[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
 [dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction#3-dapr-binding
 [dapr-python]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
 [dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction

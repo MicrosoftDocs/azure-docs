@@ -96,7 +96,7 @@ module.exports = async function (context) {
 
 ::: zone pivot="programming-language-powershell"
 
-The following example shows Dapr triggers in a _function.json_ file and Powershell code that uses those bindings. 
+The following example shows Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
 
 Here's the _function.json_ file for `daprBindingTrigger`:
 
