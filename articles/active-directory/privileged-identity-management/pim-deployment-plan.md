@@ -172,9 +172,9 @@ The following table shows example settings:
 
 | Role| Require MFA| Require Conditional Access| Notification| Incident ticket| Require approval| Approver| Activation duration| Perm admin |
 | --- | --- | --- |--- |--- |--- |--- |--- |
-| Global Administrator|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| :heavy_check_mark:| Other Global Administrator| 1 Hour| Emergency access accounts |
-| Exchange Admin|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|None| 2 Hour| None |
-| Helpdesk Admin|:x:| | :x:| :heavy_check_mark:| :x:| None| 8 Hour| None |
+| Global Administrator| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other Global Administrator| 1 Hour| Emergency access accounts |
+| Exchange Admin| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |None| 2 Hour| None |
+| Helpdesk Admin| :x: | | :x: | :heavy_check_mark: | :x: | None| 8 Hour| None |
 
 
 <a name='assign-and-activate-azure-ad-roles-'></a>
@@ -246,8 +246,8 @@ The following table shows example settings:
 
 | Role| Require MFA| Notification| Require Conditional Access| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration|
 | --- | --- | --- |--- |--- |--- |--- |---|---|
-| Owner of critical subscriptions|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| :heavy_check_mark:| Other owners of the subscription| 1 Hour| None| n/a| 3 months |
-| User Access Administrator of less critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| | :x:| None| 1 Hour| None| n/a| 3 months |
+| Owner of critical subscriptions| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other owners of the subscription| 1 Hour| None| n/a| 3 months |
+| User Access Administrator of less critical subscriptions| :heavy_check_mark: | :heavy_check_mark: | | :x: | None| 1 Hour| None| n/a| 3 months |
 
 ### Assign and activate Azure Resource role
 
@@ -298,8 +298,8 @@ The following table shows example settings:
 
 | Role| Require MFA| Notification| Require Conditional Access| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration |
 | --- | --- | --- |--- |--- |--- |--- |---|---|
-| Owner|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:| Other owners of the resource| One Hour| None| n/a| Three months |
-| Member|:heavy_check_mark:|:heavy_check_mark:|  |:x:| None| Five Hours| None| n/a| 3 months |
+| Owner| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other owners of the resource| One Hour| None| n/a| Three months |
+| Member| :heavy_check_mark: | :heavy_check_mark: |  | :x: | None| Five Hours| None| n/a| 3 months |
 
 ### Assign eligibility for PIM for Groups
 
