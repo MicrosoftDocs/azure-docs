@@ -3,8 +3,8 @@ title: Azure support for public safety and justice
 description: Guidance on using Azure cloud services for public safety and justice workloads.
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 recommendations: false
 ms.date: 02/06/2023
 ---
