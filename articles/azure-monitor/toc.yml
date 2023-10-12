@@ -174,8 +174,6 @@ items:
                 displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
               - name: Performance counters
                 href: app/performance-counters.md
-              - name: Remove Application Insights
-                href: app/remove-application-insights.md
         - name: Node.js
           href: app/nodejs.md
         - name: Python OpenCensus (deprecated)
@@ -215,7 +213,7 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-    - name: Features
+    - name: Experiences
       items:
       - name: Application dashboard
         displayName: dashboard, Application Insights dashboard
@@ -242,35 +240,15 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-      - name: Transaction diagnostics
-        href: app/transaction-diagnostics.md
-        displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
+      - name: Transaction search
+        href: app/diagnostic-search.md
+        items:
+        - name: Transaction diagnostics
+          href: app/transaction-diagnostics.md
+          displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
-      - name: Transaction search
-        href: app/diagnostic-search.md
-      - name: Smart detection
-        href: alerts/proactive-diagnostics.md
-        items:
-        - name: Upgrade to alerts
-          href: alerts/alerts-smart-detections-migration.md
-        - name: Failure anomalies
-          href: alerts/proactive-failure-diagnostics.md
-        - name: Performance anomalies
-          href: alerts/smart-detection-performance.md
-        - name: Trace degradation
-          href: alerts/proactive-trace-severity.md
-        - name: Exception volume
-          href: alerts/proactive-exception-volume.md
-        - name: Memory leak
-          href: alerts/proactive-potential-memory-leak.md
-        - name: Security detection
-          href: alerts/proactive-application-security-detection-pack.md
-        - name: Manage smart detection rules
-          href: alerts/proactive-arm-config.md
-        - name: E-mail notification
-          href: alerts/proactive-email-notification.md
       - name: Usage (user behavior analytics)
         items:
         - name: Overview
@@ -290,21 +268,17 @@ items:
           href: app/usage-flows.md
         - name: HEART Framework
           href: app/usage-heart.md
-      - name: GitHub and Azure DevOps integration
-        items:
-        - name: Work Item integration
-          href: app/work-item-integration.md
-        - name: Release annotations
-          href: app/annotations.md
-        - name: Continuous monitoring
-          href: app/continuous-monitoring.md
+      - name: Release and work item insights
+        href: app/release-and-work-item-insights.md
+    - name: Code analysis
+      items:
       - name: Profiler
         items:
         - name: Overview
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-overview.md
         - name: Enable Profiler
-          items:        
+          items:
           - name: Azure App Service
             href: profiler/profiler.md
           - name: Azure Functions app
@@ -323,7 +297,7 @@ items:
           displayName: profiling, debugging, code performance, perf
           href: profiler/profiler-data.md
         - name: Configure
-          items:        
+          items:
           - name: Configure Profiler
             href: profiler/profiler-settings.md
           - name: Configure BYOS (Bring Your Own Storage)
@@ -361,6 +335,27 @@ items:
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
           href: snapshot-debugger/snapshot-debugger-troubleshoot.md
+      - name: Smart detection
+        href: alerts/proactive-diagnostics.md
+        items:
+        - name: Upgrade to alerts
+          href: alerts/alerts-smart-detections-migration.md
+        - name: Failure anomalies
+          href: alerts/proactive-failure-diagnostics.md
+        - name: Performance anomalies
+          href: alerts/smart-detection-performance.md
+        - name: Trace degradation
+          href: alerts/proactive-trace-severity.md
+        - name: Exception volume
+          href: alerts/proactive-exception-volume.md
+        - name: Memory leak
+          href: alerts/proactive-potential-memory-leak.md
+        - name: Security detection
+          href: alerts/proactive-application-security-detection-pack.md
+        - name: Manage smart detection rules
+          href: alerts/proactive-arm-config.md
+        - name: E-mail notification
+          href: alerts/proactive-email-notification.md
     - name: Administration and security
       items:
       - name: Manage Application Insights
@@ -369,7 +364,7 @@ items:
         href: app/resources-roles-access-control.md
       - name: Application data collection, retention, and storage
         href: app/data-retention-privacy.md
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: app/azure-ad-authentication.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
@@ -525,19 +520,19 @@ items:
         - name: Managed identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-managed-identity.md
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-active-directory.md
-        - name: Azure Active Directory pod identity
+        - name: Microsoft Entra pod identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
-        - name: Azure Active Directory workload identity (preview)
+        - name: Microsoft Entra Workload ID (preview)
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md    
-      - name: Prometheus Azure Active Directory authorization proxy
+      - name: Prometheus Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
       - name: Private link data ingestion
@@ -915,7 +910,7 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
-  - name: Use Azure AD authentication
+  - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
@@ -960,7 +955,7 @@ items:
           - name: Configure Grafana with managed system identity
             displayName: Prometheus
             href: essentials/prometheus-grafana.md
-          - name: Configure Grafana with Azure Active Directory
+          - name: Configure Grafana with Microsoft Entra ID
             displayName: Prometheus
             href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
         - name: Query using Azure workbooks
@@ -1260,7 +1255,7 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
-          - name: Application Insights API access with Azure Active Directory
+          - name: Application Insights API access with Microsoft Entra ID
             href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 

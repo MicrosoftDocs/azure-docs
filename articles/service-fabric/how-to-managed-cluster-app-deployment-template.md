@@ -56,7 +56,7 @@ After the storage account is created, you create a blob container where the appl
 
 You can grant access to the container in one of the following ways:
 
-* You can assign an Azure RBAC role that grants permissions to the container to a security principal, so that that security principal can access data in the container via Azure AD authorization. For more information, see [Authorize access to blobs using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
+* You can assign an Azure RBAC role that grants permissions to the container to a security principal, so that that security principal can access data in the container via Microsoft Entra authorization. For more information, see [Authorize access to blobs using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md).
 * You can delegate access to the container with a shared access signature to grant a client access to blobs in the container for a limited period of time and with specific permissions. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 * You can use the account access keys to authorize access to blob data. This approach is the least secure and so is not recommended.
 

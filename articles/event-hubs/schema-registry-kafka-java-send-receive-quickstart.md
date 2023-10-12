@@ -65,9 +65,9 @@ Follow instructions from [Create schemas using Schema Registry](create-schema-re
     ```
 
 ## Register an application to access schema registry 
-You can use Azure Active Directory to authorize your Kafka producer and consumer application to access Azure Schema Registry resources by registering your client application with an Azure AD tenant from the Azure portal. 
+You can use Microsoft Entra ID to authorize your Kafka producer and consumer application to access Azure Schema Registry resources by registering your client application with a Microsoft Entra tenant from the Azure portal. 
 
-To register an Azure Active Directory application named  `example-app` see [Register your application with an Azure AD tenant](authenticate-application.md).
+To register a Microsoft Entra application named  `example-app` see [Register your application with a Microsoft Entra tenant](authenticate-application.md).
 
 - tenant.id - sets the tenant ID of the application
 - client.id - sets the client ID of the application
@@ -92,13 +92,13 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
 
 
 ## Update client application configuration of Kafka applications
-You need to update the client configuration of the Kafka producer and consumer applications with the configuration related to Azure Active directory application that we created and the schema registry information. 
+You need to update the client configuration of the Kafka producer and consumer applications with the configuration related to Microsoft Entra application that we created and the schema registry information. 
 
 To update the Kafka Producer configuration, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-producer*.
 
 1. Update the configuration of the Kafka application in *src/main/resources/app.properties* by following [Kafka Quickstart guide for Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md). 
 
-1. Update the configuration details for the producer in *src/main/resources/app.properties* using schema registry related configuration and Azure Active directory application that you created above as follows:
+1. Update the configuration details for the producer in *src/main/resources/app.properties* using schema registry related configuration and Microsoft Entra application that you created above as follows:
 
    ```xml
    schema.group=contoso-sg

@@ -33,9 +33,10 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | Provider | Biometric | USB | NFC | BLE | FIPS Certified |
 |:-|:-:|:-:|:-:|:-:|:-:|
 | [AuthenTrend](https://authentrend.com/about-us/#pg-35-3) | ![y] | ![y]| ![y]| ![y]| ![n] |
-| [ACS](https://www.acs.com.hk/) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [ACS](https://www.acs.com.hk/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [ATOS](https://atos.net/en/solutions/cyber-security/iot-and-ot-security/smart-card-solution-cardos-for-iot) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Ciright](https://www.cyberonecard.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [Composecure](https://www.composecure.com/arculus) | ![n] | ![n]| ![y]| ![n]| ![n] |
 | [Crayonic](https://www.crayonic.com/keyvault) | ![y] | ![n]| ![y]| ![y]| ![n] |
 | [Cryptnox](https://cryptnox.com/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Ensurity](https://www.ensurity.com/contact) | ![y] | ![y]| ![n]| ![n]| ![n] |
