@@ -1003,9 +1003,9 @@ items:
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure ESP clusters using Azure AD DS
+    - name: Configure ESP clusters using Microsoft Entra Domain Services
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
-    - name: Synchronize Azure AD users to an HDInsight cluster
+    - name: Synchronize Microsoft Entra users to an HDInsight cluster
       href: ./hdinsight-sync-aad-users-to-cluster.md
     - name: Manage clusters with enterprise security
       href: ./domain-joined/apache-domain-joined-manage.md

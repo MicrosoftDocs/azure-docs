@@ -92,6 +92,6 @@ Once the Backup admin has the Reader role on the Resource Guard, they can enable
 ## Next steps
 
 - [Protected operations using MUA](multi-user-authorization.md?pivots=vaults-recovery-services-vault#protected-operations-using-mua)
-- [Authorize critical (protected) operations using Azure Active Directory Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management)
+- [Authorize critical (protected) operations using Microsoft Entra Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management)
 - [Performing a protected operation after approval](multi-user-authorization.md#performing-a-protected-operation-after-approval)
 - Disable MUA on a [Recovery Services vault](multi-user-authorization.md?tabs=azure-portal&pivots=vaults-recovery-services-vault#disable-mua-on-a-recovery-services-vault) or a [Backup vault](multi-user-authorization.md?tabs=azure-portal&pivots=vaults-backup-vault#disable-mua-on-a-backup-vault).

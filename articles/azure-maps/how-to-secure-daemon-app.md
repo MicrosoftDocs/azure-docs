@@ -27,33 +27,35 @@ The following are examples of daemon applications:
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 >[!IMPORTANT]
->For production applications, we recommend implementing Azure AD and Azure role-based access control (Azure RBAC). For an overview of Azure AD concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
+>For production applications, we recommend implementing Microsoft Entra ID and Azure role-based access control (Azure RBAC). For an overview of Microsoft Entra concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
 ## Scenario: Shared key authentication with Azure Key Vault
 
 Applications that use Shared Key authentication, should store the keys in a secure store. This scenario describes how to safely store your application key as a secret in Azure Key Vault. Instead of storing the shared key in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, we recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
 >[!IMPORTANT]
->This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, we recommend that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
+>This scenario indirectly accesses Microsoft Entra ID through Azure Key Vault. However, we recommend that you use Microsoft Entra authentication directly. Using Microsoft Entra ID directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
 
 The following steps outline this process:
 
 1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
-2. Create an [Azure AD service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
+2. Create an [Microsoft Entra service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
 3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
-7. To retrieve the shared key secret from Azure Key Vault, implement Azure Active Directory authentication in the daemon application.
+7. To retrieve the shared key secret from Azure Key Vault, implement Microsoft Entra authentication in the daemon application.
 8. Create an Azure Maps REST API request with the shared key.
 Now, the daemon application can retrieve the shared key from the Key Vault.
 
 > [!TIP]
 > If the app is hosted in the Azure environment, we recommend that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
-## Scenario: Azure AD role-based access control
+<a name='scenario-azure-ad-role-based-access-control'></a>
 
-After an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The goal of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
+## Scenario: Microsoft Entra role-based access control
+
+After an Azure Maps account is created, the Azure Maps `Client ID` value is present in the Azure portal authentication details page. This value represents the account that is to be used for REST API requests. This value should be stored in application configuration and retrieved before making HTTP requests. The goal of the scenario is to enable the daemon application to authenticate to Microsoft Entra ID and call Azure Maps REST APIs.
 
 > [!TIP]
 >To enable benefits of managed identity components, we recommend that you host on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services.
@@ -67,13 +69,13 @@ To enable application access to a managed identity, see [Overview of managed ide
 Some managed identity benefits are:
 
 - Azure system-managed X509 certificate public key cryptography authentication.
-- Azure AD security with X509 certificates instead of client secrets.
+- Microsoft Entra security with X509 certificates instead of client secrets.
 - Azure manages and renews all certificates associated with the Managed Identity resource.
 - Credential operational management is simplified because managed identity removes the need for a secured secret store service, such as Azure Key Vault.
 
 ### Host a daemon on non-Azure resources
 
-Managed identities are only available when running on an Azure environment. As such, you must configure a service principal through an Azure AD application registration for the daemon application.
+Managed identities are only available when running on an Azure environment. As such, you must configure a service principal through a Microsoft Entra application registration for the daemon application.
 
 #### Create new application registration
 
@@ -83,7 +85,7 @@ To create a new application registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Azure Active Directory**.
+2. Select **Microsoft Entra ID**.
 
 3. Under **Manage** in the left pane, select **App registrations**.
 
@@ -103,7 +105,7 @@ To assign delegated API permissions to Azure Maps:
 
 1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Azure Active Directory**.
+2. Select **Microsoft Entra ID**.
 
 3. Under **Manage** in the left pane, select **App registrations**.
 
@@ -174,7 +176,7 @@ To create a client secret:
       :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copy client secret.":::
 
      >[!IMPORTANT]
-     >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Azure AD.
+     >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Microsoft Entra ID.
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
@@ -190,7 +192,7 @@ To acquire the access token:
 
 1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Azure Active Directory**.
+2. Select **Microsoft Entra ID**.
 
 3. Under **Manage** in the left pane, select **App registrations**.
 
@@ -235,12 +237,12 @@ For more information about authentication flow, see [OAuth 2.0 client credential
 
 For more detailed examples:
 > [!div class="nextstepaction"]
-> [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md)
+> [Authentication scenarios for Microsoft Entra ID](../active-directory/develop/authentication-vs-authorization.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-Explore samples that show how to integrate Azure AD with Azure Maps:
+Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

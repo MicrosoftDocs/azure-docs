@@ -36,7 +36,7 @@ The following scenarios are supported for a classic to Resource Manager migratio
 
 * Classic Virtual Networks with one availability set per cloud service at the most.
 
-* Classic Virtual Networks that contain Azure AD Domain services.
+* Classic Virtual Networks that contain Microsoft Entra Domain Services.
 
 * Classic Virtual Networks with a single VPN gateway or a single Express Route circuit.
 

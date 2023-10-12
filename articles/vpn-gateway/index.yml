@@ -64,7 +64,7 @@ landingContent:
             url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
           - text: RADIUS authentication
             url: point-to-site-how-to-radius-ps.md
-          - text: Azure AD authentication
+          - text: Microsoft Entra authentication
             url: openvpn-azure-ad-tenant.md
           - text: Multiple authentication types
             url: howto-point-to-site-multi-auth.md

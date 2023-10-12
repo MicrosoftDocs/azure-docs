@@ -38,7 +38,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork           | **Client communication to API Management**                     | External only            |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [Authorizations](authorizations-overview.md) dependency (optional)              | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | **Access to Azure Key Vault**                         | External & Internal  |
@@ -57,7 +57,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork            | **Client communication to API Management**                     | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | Access to Azure Key Vault for [named values](api-management-howto-properties.md) integration (optional)                         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [Authorizations](authorizations-overview.md) dependency (optional)              | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
@@ -85,9 +85,11 @@ To enable TLS/SSL certificate chain building and validation, the API Management 
 
 Outbound access on port `53` is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
 
-## Azure Active Directory integration
+<a name='azure-active-directory-integration'></a>
 
-To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with Azure Active Directory: `<region>.login.microsoft.com` and `login.microsoftonline.com`. 
+## Microsoft Entra integration
+
+To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with Microsoft Entra ID: `<region>.login.microsoft.com` and `login.microsoftonline.com`. 
 
 ## Metrics and health monitoring 
 
