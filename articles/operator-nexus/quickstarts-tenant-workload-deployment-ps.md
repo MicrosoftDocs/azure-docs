@@ -37,7 +37,7 @@ Before you run the commands, you need to set several variables to define the con
 | NETWORK_INTERFACE_NAME     | The name of the L3 network interface for the virtual machine.                                         |
 | ADMIN_USERNAME             | The username for the virtual machine administrator.                                                   |
 | SSH_PUBLIC_KEY             | The SSH public key that is used for secure communication with the virtual machine.                    |
-| CPU_CORES                  | The number of CPU cores for the virtual machine (even number, max 44 vCPUs)                                         |
+| CPU_CORES                  | The number of CPU cores for the virtual machine (even number, max 46 vCPUs)                                         |
 | MEMORY_SIZE                | The amount of memory (in GB, max 224 GB) for the virtual machine.                                                 |
 | VM_DISK_SIZE               | The size (in GB) of the virtual machine disk.                                                         |
 | VM_IMAGE                   | The URL of the virtual machine image.                                                                 |

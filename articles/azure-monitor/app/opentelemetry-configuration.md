@@ -12,8 +12,6 @@ ms.reviewer: mmcc
 
 This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
-> [!TIP]
-> For Node.js, this config guidance applies to the 3.X BETA Package only. If you're using a previous version, see the [Node.js Application Insights SDK Docs](nodejs.md).
 
 ## Connection string
 
