@@ -104,6 +104,20 @@ New-AzStorageMover `
 
 ```
 
+### [CLI](#tab/CLI)
+
+Creates a top-level Storage Mover resource.
+
+```bash
+az storage-mover create --name
+                        --resource-group
+                        [--description]
+                        [--location]
+                        [--tags]
+```
+
+---
+
 ---
 
 ## Next steps
