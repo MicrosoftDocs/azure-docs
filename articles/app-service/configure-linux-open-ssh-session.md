@@ -12,11 +12,11 @@ ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 
 ---
+# Open an SSH session to a container in Azure App Service
+
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a Container.  App Service provides SSH support direct into an app hosted in a Container.
+
 ::: zone pivot="container-windows"
-
-# Open an SSH session to a Windows container in Azure App Service
-
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a Windows Container.  App Service provides SSH support direct into an app hosted in a Windows Container.
 
 ## Open SSH session in browser
 
@@ -25,10 +25,6 @@ zone_pivot_groups: app-service-containers-windows-linux
 ::: zone-end
 
 ::: zone pivot="container-linux"
-
-# Open an SSH session to a Linux container in Azure App Service
-
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
 
 ![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
@@ -133,7 +129,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## Next steps
 
-You can post questions and concerns on the [Azure forum](/answers/topics/azure-webapps.html).
+You can post questions and concerns on the [Azure forum](answers/tags/436/azure-app-service).
 
 For more information on Web App for Containers, see:
 
