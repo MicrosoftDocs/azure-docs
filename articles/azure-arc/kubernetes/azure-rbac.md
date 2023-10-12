@@ -609,7 +609,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
 When you're integrating Microsoft Entra ID with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
 
 > [!NOTE]
-> [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) is a Microsoft Entra ID P1 or P2 capability.
+> [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) is a Microsoft Entra ID P2 capability.
 
 To create an example Conditional Access policy to use with the cluster:
 
