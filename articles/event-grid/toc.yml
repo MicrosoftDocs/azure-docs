@@ -311,6 +311,8 @@ items:
               href: communication-services-email-events.md
             - name: Job Router Events
               href: communication-services-router-events.md
+            - name: Advanced Messaging Events
+              href: communication-services-advanced-messaging-events.md
           - name: Azure Container Registry
             href: event-schema-container-registry.md
           - name: Azure Data Box

@@ -44,15 +44,17 @@ For more information about file permissions with ACLs, see [Access control lists
 
 ### How do I control access to my data in Data Lake Storage Gen2?
 
-Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD. Or maintain credentials such as certificates.
+Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Microsoft Entra whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Microsoft Entra ID. Or maintain credentials such as certificates.
 
-Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A `user-assigned managed identity` is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
+Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A `user-assigned managed identity` is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Microsoft Entra tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
 The lifecycle of a user-assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
-### How do I set permissions for Azure AD users to query data in Data Lake Storage Gen2 by using Hive or other services?
+<a name='how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services'></a>
 
-To set permissions for users to query data, use Azure AD security groups as the assigned principal in ACLs. Don't directly assign file-access permissions to individual users or service principals. With Azure AD security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Azure AD security group. ACLs aren't inherited, so reapplying ACLs requires updating the ACL on every file and subdirectory.
+### How do I set permissions for Microsoft Entra users to query data in Data Lake Storage Gen2 by using Hive or other services?
+
+To set permissions for users to query data, use Microsoft Entra security groups as the assigned principal in ACLs. Don't directly assign file-access permissions to individual users or service principals. With Microsoft Entra security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Microsoft Entra security group. ACLs aren't inherited, so reapplying ACLs requires updating the ACL on every file and subdirectory.
 
 ## Access files from the cluster
 

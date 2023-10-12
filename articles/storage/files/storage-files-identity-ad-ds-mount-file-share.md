@@ -29,7 +29,7 @@ Sign in to the client using the credentials of the identity that you granted per
 
 Before you can mount the Azure file share, make sure you've gone through the following prerequisites:
 
-- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions on how to remove cached credentials with storage account key and delete existing SMB connections before initializing a new connection with AD DS or Azure AD credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#identity-based-authentication).
+- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions on how to remove cached credentials with storage account key and delete existing SMB connections before initializing a new connection with AD DS or Microsoft Entra credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#identity-based-authentication).
 - Your client must have line of sight to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you'll need to enable VPN to reach AD DS for authentication.
 
 > [!NOTE]

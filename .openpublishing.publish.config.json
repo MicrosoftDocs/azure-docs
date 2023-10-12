@@ -471,6 +471,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-temp-fix",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "temp-fix-doc-error",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
