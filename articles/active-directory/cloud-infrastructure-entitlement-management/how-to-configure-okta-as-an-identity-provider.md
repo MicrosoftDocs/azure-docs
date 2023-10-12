@@ -14,12 +14,12 @@ ms.author: jfields
 
 # Configure Okta as an identity provider
 
-This article describes how to integrate Okta as an identity provider (IdP) for an Amazon Web Services (AWS) account in Permissions Management. 
+This article describes how to integrate Okta as an identity provider (IdP) for an Amazon Web Services (AWS) account in Microsoft Entra Permissions Management. 
 
 Permissions Required:
 
 
-| **UI**                  | **Permissions Management**                                         |**Why?**                   |
+| **Account**                  | **Permissions Required**                                         |**Why?**                   |
 |-----------------------|-----------------------------------------------------|---------------------------------|
 | Permissions Management   | Permissions Management Administrator     | Admin can create and edit the AWS authorization system onboarding configuration.   | 
 | Okta                 | API Access Management Administrator     | Admin can add the application in the Okta portal and add or edit the API scope.    |
@@ -27,13 +27,12 @@ Permissions Required:
 
 > [!NOTE]
 > While configuring the Amazon Web Services (AWS) app in Okta, the suggested AWS role group syntax is (```aws#{account alias]#{role name}#{account #]```).
- Sample RegEx pattern for the group filter name are:
- - ```^aws\#\S+\#?{{role}}[\w\-]+)\#(?{{accountid}}\d+)$```
- - ```aws_(?{{accountid}}\d+)_(?{{role}}[a-zA-Z0-9+=,.@\-_]+)```
+> Sample RegEx pattern for the group filter name are:
+> - ```^aws\#\S+\#?{{role}}[\w\-]+)\#(?{{accountid}}\d+)$```
+> - ```aws_(?{{accountid}}\d+)_(?{{role}}[a-zA-Z0-9+=,.@\-_]+)```
+> Permissions Management reads default suggested filters. Custom RegEx expression for group syntax is not supported.
 
-Permissions Management reads default suggested filters. Custom RegEx expression for group syntax is not supported.
-
-## How to configure Okta
+## How to configure Okta as an identity provider
 
 1. Login to the Okta portal with API Access Management Administrator. 
 2. Create a new **Okta API Services Application**. 
@@ -51,9 +50,9 @@ Permissions Management reads default suggested filters. Custom RegEx expression 
     This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe. 
 14. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab. 
 15. From the Okta API scopes tab, grant these scopes:
-    a. okta.users.read
-    b. okta.groups.read
-    c. okta.apps.read
+    - okta.users.read
+    - okta.groups.read
+    - okta.apps.read
 16. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this service application. By default, each new application sets this percentage at 50 percent. 
 
 ### Convert public key to a Base64 string
@@ -62,11 +61,13 @@ Permissions Management reads default suggested filters. Custom RegEx expression 
 
 ### Find your Okta URL (also called an Okta domain)
 
+This Okta URL/Okta domain is saved in the AWS secret.
+
 1. Sign in to your Okta organization with you administrator account.
 2. Look for the Okta URL/Okta domain in the global header of the dashboard. 
 Once located, note the Okta URL in an app such as Notepad. You will need this URL for your next steps. 
 
-### Configure AWS
+### Configure AWS stack details
 
 1. Fill in the following fields on the **CloudFormation Template Specify stack details** screen using the information from your Okta application:
     - **Stack name** - A name of our choosing
@@ -81,7 +82,7 @@ Once located, note the Okta URL in an app such as Notepad. You will need this UR
 4. Review the information you've entered, then click **Submit**.
 5. Select the **Resources** tab, then copy the **Physical ID** (this ID is the Secret ARN) for future use.
 
-### Configure Okta in the Permissions Management UI
+### Configure Okta in Microsoft Entra Permissions Management
 
 > [!NOTE]
 > Integrating Okta as an identity provider is an optional step. You can return to these steps to configure an IdP at any time. 
@@ -91,9 +92,9 @@ Once located, note the Okta URL in an app such as Notepad. You will need this UR
     Complete the **Manage Authorization System** steps.
     > [!NOTE]
     > If a Data Collector already exists in your AWS account and you want to add Okta integration, follow these steps:
-    a. Select the Data Collector for which you want to add Okta integration.
-    b. Click on the ellipsis next to the **Authorization System Status**.
-    c. Select **Integrate Identity Provider**.
+    > a. Select the Data Collector for which you want to add Okta integration.
+    > b. Click on the ellipsis next to the **Authorization System Status**.
+    > c. Select **Integrate Identity Provider**.
 3. On the **Integrate Identity Provider (IdP)** page, select the box for **Okta**.
 4. Select **Launch CloudFormation Template**. The template opens in a new window.
    > [!NOTE]
