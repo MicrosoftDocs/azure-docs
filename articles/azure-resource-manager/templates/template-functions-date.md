@@ -3,7 +3,7 @@ title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 10/12/2023
 ---
 
 # Date functions for ARM templates
@@ -32,6 +32,25 @@ In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) fu
 ### Return value
 
 The datetime value that results from adding the duration value to the base value.
+
+### Remarks
+
+The Add method takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+
+```json
+"outputs": {
+  "add10YearsOutput": {
+    "type": "string",
+    "value": "[dateTimeAdd('2023-01-31 00:00:00Z', 'P1M')]" //2023-03-02T00:00:00Z
+  },
+  "add1MonthOutput": {
+    "type": "string",
+    "value": "[dateTimeAdd('2024-01-31 00:00:00Z', 'P1M')]" //2024-03-01T00:00:00Z
+  }
+}
+```
+
+In this example, `dateTimeAdd` returns `2023-03-02T00:00:00Z`, not `2023-02-28T00:00:00Z`. If the base is `2024-01-31 00:00:00Z`, it returns `2024-03-01T00:00:00Z` because 2024 is a leap year.
 
 ### Examples
 
