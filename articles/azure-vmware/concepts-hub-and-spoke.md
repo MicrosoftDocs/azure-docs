@@ -137,7 +137,7 @@ For identity purposes, the best approach is to deploy at least one domain contro
 
 Additionally, deploy another domain controller on the Azure VMware Solution side to act as identity and DNS source within the vSphere environment.
 
-As a recommended best practice, integrate [AD domain with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+As a recommended best practice, integrate [AD domain with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
 [Azure Architecture Center]: /azure/architecture/

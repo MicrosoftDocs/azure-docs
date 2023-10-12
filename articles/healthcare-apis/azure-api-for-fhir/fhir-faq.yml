@@ -33,7 +33,7 @@ sections:
       - question: |
           What identity provider do you support?
         answer: |
-          We support Microsoft Azure Active Directory as the identity provider.
+          We support Microsoft Entra ID as the identity provider.
 
       - question: |
           Can I use Azure AD B2C with the Azure API for FHIR?

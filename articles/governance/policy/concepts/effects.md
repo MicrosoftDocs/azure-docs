@@ -538,7 +538,7 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
       ]
    },
    "then": {
-      "effect": "DenyAction",
+      "effect": "denyAction",
       "details": {
          "actionNames": [ "delete" ],
          "cascadeBehaviors": { "resourceGroup": "deny" }
