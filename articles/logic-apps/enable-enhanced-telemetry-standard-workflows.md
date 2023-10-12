@@ -59,7 +59,7 @@ For information about the improvements to the telemetry tables in Application In
    }
    ```
 
-   This configuration enables the default level of verbosity. For other options, see [Filter events at the source](#filter-events-source).
+   This configuration enables the default level of verbosity. For other options, see [Apply filtering at the source](#filter-events-source).
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -84,7 +84,7 @@ For information about the improvements to the telemetry tables in Application In
    }
    ```
 
-   This configuration enables the default level of verbosity. For other options, see [Filter events at the source](#filter-events-source).
+   This configuration enables the default level of verbosity. For other options, see [Apply filtering at the source](#filter-events-source).
 
 ---
 
@@ -97,6 +97,8 @@ After your workflow finishes a run and a few minutes pass, open your Application
 1. In the [Azure portal](https://portal.azure.com), on your logic app menu, under **Settings**, select **Application Insights**.
 
 1. On the Application Insights resource menu, under **Monitoring**, select **Logs**.
+
+<a name="view-enhanced-telemetry"></a>
 
 ## View enhanced telemetry in Application Insights
 
@@ -558,12 +560,115 @@ To open the application map, on the Application Insights resource menu, under **
 
 ![Screenshot shows Application Insights and application map with dependency between parent workflow and child workflow.](media/enable-enhanced-telemetry-standard-workflows/dependencies-table/application-map.png)
 
-<a name="filter-events-source"></a>
+<a name="filter-events"></a>
 
-## Filter events at the source
+## Filter events
 
 In Application Insights, you can filter events in the following ways:
 
-- Write queries.
-- Filter at the source by specifying criteria to evaluate before emitting events. By applying filters at the source, you can reduce the amount of necessary storage and as a result, operating costs.
+- Create and run queries as described in earlier sections.
 
+- Filter at the source by specifying criteria to evaluate before emitting events.
+
+  By applying filters at the source, you can reduce the amount of necessary storage and as a result, operating costs.
+
+<a name="filter-events-source"></a>
+
+### Apply filtering at the source
+
+In the Requests table or Traces table, a record has a node named **customDimensions**, which contains a **Category** property. For example, in the Requests table, the request record for a Batch trigger event looks similar to the following sample:
+
+![Screenshot shows Application Insights with Requests table and record for a Batch messages trigger event.](media/enable-enhanced-telemetry-standard-workflows/requests-table-batch-trigger-event.png)
+
+In the Requests table, the following **Category** property values can help you differentiate and associate different verbosity levels:
+
+| Category value | Description |
+|----------------|-------------|
+| **Workflow.Operations.Triggers** | Identifies a request record for a trigger event |
+| **Workflow.Operations.Actions** | Identifies a request record for an action event |
+
+For each **Category** value, you can independently set the verbosity level in the **host.json** file for your logic app resource or project. For example, to return only the records for trigger or action events that have errors, in the **host.json** file, you can add the following **logging** JSON object, which contains a **logLevel** JSON object with the verbosity levels you want:
+
+```json
+{
+   "logging": {
+      "logLevel": {
+         "Workflow.Operations.Actions": "Error",
+         "Workflow.Operations.Triggers": "Error"
+      }
+   }
+}
+```
+
+For Traces table records, the following examples show ways that you can change the verbosity level for events:
+
+```json
+{
+   "logging": {
+      "logLevel": {
+         "Workflow.Host": "Warning",
+         "Workflow.Jobs": "Warning",
+         "Workflow.Runtime": "Warning"
+      }
+   }
+}
+```
+
+The following example sets the log's default verbosity level to **Warning**, but keeps the verbosity level at **Information** for trigger, action, and workflow run events: 
+
+```json
+{
+   "logging": {
+      "logLevel": {
+         "default": "Warning",
+         "Workflow.Operations.Actions": "Information",
+         "Workflow.Operations.Runs": "Information",
+         "Workflow.Operations.Triggers": "Information"
+      }
+   }
+}
+```
+
+If you don't specify any **logLevel** values, the default verbosity level is **Information**. For more information, see [Configure log levels](../azure-functions/configure-monitoring.md#configure-log-levels).
+
+### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app menu, under **Development Tools**, select **Advanced Tools**. On the **Advanced Tools** page, select **Go**, which opens the Kudu tools.
+
+1. On the **Kudu** page, from the **Debug console** menu, select **CMD**. In the folder directory table, browse to the following file and select **Edit**: **site/wwwroot/host.json**
+
+1. In the **host.json** file, add the **logging** JSON object with the **logLevel** values set to the verbosity levels that you want:
+
+   ```json
+   {
+      "logging": {
+         "logLevel": {
+            "Workflow.Operations.Actions": "<verbosity-level>",
+            "Workflow.Operations.Triggers": "<verbosity-level>"
+         }
+      }
+   }
+   ```
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+1. In Visual Studio Code, open your logic app project, and then open the project's **host.json** file.
+
+1. In the **host.json** file, add the **logging** JSON object with the **logLevel** values set to the verbosity levels that you want:
+
+   ```json
+   {
+      "logging": {
+         "logLevel": {
+            "Workflow.Operations.Actions": "<verbosity-level>",
+            "Workflow.Operations.Triggers": "<verbosity-level>"
+         }
+      }
+   }
+   ```
+
+## Next steps
+
+[Enable or open Application Insights](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights)

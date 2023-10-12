@@ -428,6 +428,8 @@
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
+      - name: Enable and view enhanced telemetry for Standard workflows
+        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Tracking schemas for monitoring messages
         href: tracking-schemas-as2-x12-custom.md
   - name: Business continuity and disaster recovery
