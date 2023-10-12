@@ -92,7 +92,7 @@ For access reviews, you'll likely include representatives from the following tea
 
 * **Development teams** build and maintain applications for your organization. This team:
 
-   * Controls who can access and manage components in software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) resources that comprise the developed solutions.
+   * Controls who can access and manage components in SaaS, platform as a service (PaaS), and infrastructure as a service (IaaS) resources that comprise the developed solutions.
    * Manages groups that can access applications and tools for internal application development.
    * Requires privileged identities that have access to production software or solutions that are hosted for your customers.
 
@@ -188,7 +188,7 @@ The creator of the access review decides at the time of creation who will do the
 * Managers review their direct reports' access to the resource.
 
 >[!NOTE]
->When you select Resource owners or Managers, Administrator designate fallback reviewers, who are contacted if the primary contact isn’t available. 
+>When you select Resource owners or Managers, administrators designate fallback reviewers, who are contacted if the primary contact isn’t available. 
 
 When you create an access review, administrators can choose one or more reviewers. All reviewers can start and carry out a review by choosing users for continued access to a resource or removing them.
 
