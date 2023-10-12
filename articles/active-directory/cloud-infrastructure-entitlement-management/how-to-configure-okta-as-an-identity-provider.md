@@ -34,7 +34,7 @@ Permissions Required:
 
 ## How to configure Okta as an identity provider
 
-1. Login to the Okta portal with API Access Management Administrator. 
+1. Log in to the Okta portal with API Access Management Administrator. 
 2. Create a new **Okta API Services Application**. 
 3. In the Admin Console, go to Applications. 
 4. On the Create a new app integration page, select **API Services**.
@@ -43,7 +43,7 @@ Permissions Required:
 7. In the **Client Credentials** section of the General tab, click **Edit** to change the client authentication method. 
 8. Select **Public key/Private key** as the Client authentication method. 
 9. Leave the default **Save keys in Okta**, then click **Add key**. 
-10. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048-bit RSA key. 
+10. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to autogenerate a new 2048-bit RSA key. 
 11. Copy **Public Key Id** for future use.  
 12. Click **Generate new key** and the public and private keys appear in JWK format. 
 13. Click **PEM**. The private key appears in PEM format. 
@@ -63,9 +63,9 @@ Permissions Required:
 
 This Okta URL/Okta domain is saved in the AWS secret.
 
-1. Sign in to your Okta organization with you administrator account.
+1. Sign in to your Okta organization with your administrator account.
 2. Look for the Okta URL/Okta domain in the global header of the dashboard. 
-Once located, note the Okta URL in an app such as Notepad. You will need this URL for your next steps. 
+Once located, note the Okta URL in an app such as Notepad. You'll need this URL for your next steps. 
 
 ### Configure AWS stack details
 
