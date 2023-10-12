@@ -660,6 +660,6 @@
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Microsoft Q&A question page
-        href: /answers/topics/azure-api-management.html
+        href: /answers/tags/29/azure-api-management
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
