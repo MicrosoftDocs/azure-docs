@@ -797,10 +797,6 @@ Use the following section to troubleshoot sending data to Event Hubs and Storage
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
-## Questions and Feedback
-
-Participation and early access to this feature requires a quick survey. Please take a couple minutes to input any feedback so that we can make the Azure Monitoring Agent even better for your needs.
-
 ## Frequently asked questions 
 
 This section provides answers to common questions.
