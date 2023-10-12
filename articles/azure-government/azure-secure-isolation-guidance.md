@@ -1,8 +1,8 @@
 ---
 title: Azure guidance for secure isolation
 description: Customer guidance for Azure secure isolation across compute, networking, and storage.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
@@ -445,7 +445,7 @@ Microsoft provides detailed customer guidance on **[Windows](../virtual-machines
 Azure Compute offers virtual machine sizes that are [isolated to a specific hardware type](../virtual-machines/isolation.md) and dedicated to a single customer. These VM instances allow your workloads to be deployed on dedicated physical servers. Using Isolated VMs essentially guarantees that your VM will be the only one running on that specific server node. You can also choose to further subdivide the resources on these Isolated VMs by using [Azure support for nested Virtual Machines](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
 
 ## Networking isolation
-The logical isolation of tenant infrastructure in a public multi-tenant cloud is [fundamental to maintaining security](https://azure.microsoft.com/resources/azure-network-security/). The overarching principle for a virtualized solution is to allow only connections and communications that are necessary for that virtualized solution to operate, blocking all other ports and connections by default. Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) helps ensure that your private network traffic is logically isolated from traffic belonging to other customers. Virtual Machines (VMs) in one VNet can't communicate directly with VMs in a different VNet even if both VNets are created by the same customer. [Networking isolation](../security/fundamentals/isolation-choices.md#networking-isolation) ensures that communication between your VMs remains private within a VNet. You can connect your VNets via [VNet peering](../virtual-network/virtual-network-peering-overview.md) or [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md), depending on your connectivity options, including bandwidth, latency, and encryption requirements.
+The logical isolation of tenant infrastructure in a public multi-tenant cloud is [fundamental to maintaining security](https://azure.microsoft.com/solutions/network-security/). The overarching principle for a virtualized solution is to allow only connections and communications that are necessary for that virtualized solution to operate, blocking all other ports and connections by default. Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) helps ensure that your private network traffic is logically isolated from traffic belonging to other customers. Virtual Machines (VMs) in one VNet can't communicate directly with VMs in a different VNet even if both VNets are created by the same customer. [Networking isolation](../security/fundamentals/isolation-choices.md#networking-isolation) ensures that communication between your VMs remains private within a VNet. You can connect your VNets via [VNet peering](../virtual-network/virtual-network-peering-overview.md) or [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md), depending on your connectivity options, including bandwidth, latency, and encryption requirements.
 
 This section describes how Azure provides isolation of network traffic among tenants and enforces that isolation with cryptographic certainty.
 
@@ -615,7 +615,7 @@ The cumulative effect of network isolation restrictions is that each cloud servi
 >
 > *Extra resources:*
 > - **[Azure network security overview](../security/fundamentals/network-overview.md)**
-> - **[Azure network security white paper](https://azure.microsoft.com/resources/azure-network-security/)**
+> - **[Azure network security](https://azure.microsoft.com/solutions/network-security/)**
 
 ## Storage isolation
 Microsoft Azure separates your VM-based compute resources from storage as part of its [fundamental design](../security/fundamentals/isolation-choices.md#storage-isolation). The separation allows compute and storage to scale independently, making it easier to provide multi-tenancy and isolation. Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically.
