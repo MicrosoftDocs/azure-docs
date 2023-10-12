@@ -19,13 +19,11 @@ ms.date: 08/28/2023
 Azure Private Link is a powerful service that allows users to connect to Azure Cosmos DB for MongoDB vCore through a designated private endpoint. This private endpoint consists of private IP addresses located in a subnet within your own virtual network, enabling you to restrict access to the Azure Cosmos DB for MongoDB vCore product solely over private IPs. By integrating Private Link with stringent NSG policies, the risk of data exfiltration is substantially reduced. For a deeper understanding of private endpoints, consider checking out [What is Azure Private Link?](../../../private-link/private-endpoint-overview.md).
 
 > [!NOTE]
-> Private Link does secures your connection, however, it doesn't prevent your Azure Cosmos DB endpoints from being resolved by public DNS. The filtration of incoming requests is handled at the application level, not at the transport or network level.
+> Private Link secures your connection, however, it doesn't prevent your Azure Cosmos DB endpoints from being resolved by public DNS. The filtration of incoming requests is handled at the application level, not at the transport or network level.
 
 Private Link offers the flexibility to access the Azure Cosmos DB for MongoDB vCore either from within your virtual network or from any connected peered virtual network. Additionally, resources linked to Private Link are accessible on-premises via private peering, through VPN or Azure ExpressRoute.
 
 To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link supports both automatic and manual approval methods. To delve deeper into this, the approval workflow in our Private Link documentation is an invaluable resource.
-
-This guide delineates the process of setting up private endpoints specifically for the Azure Cosmos DB for MongoDB vCore transactional store, assuming the use of the automatic approval method. For those looking into the analytical store, the Configure private endpoints for the analytical store guide might be of interest.
 
 ## Prerequisites
 
