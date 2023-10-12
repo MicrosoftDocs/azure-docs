@@ -53,7 +53,7 @@ If you set the following values:
 
 The `mediaStatsEmitted` or `summaryReported` event is raised every 60 seconds and contains 1 unique unit for each statistic recorded.
 
-### SDK version 1.8.0 beta and next beta release
+### SDK version 1.8.0 beta and later
 
 As a developer, you can invoke the `createCollector` method with optional `mediaStatsSubscriptionOptions`.
 To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event.
