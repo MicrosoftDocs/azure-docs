@@ -96,5 +96,5 @@ The `NetworkAccessTrafficLogs` logs are associated with Microsoft Entra Internet
 
 ## Next steps
 
-- [Learn about the sign-ins logs](concept-all-sign-ins.md)
+- [Learn about the sign-in logs](concept-all-sign-ins.md)
 - [Explore how to access the activity logs](howto-access-activity-logs.md)

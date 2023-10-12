@@ -168,7 +168,7 @@ A point release to revert a breaking change introduced in 1.4.0.
 Fixed [Method not found in WebJobs](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/15).
 
 ### [1.4.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.0)
-Addressed multiple improvements and added support for Azure Active Directory (Azure AD) authentication for Application Insights ingestion.
+Addressed multiple improvements and added support for Microsoft Entra authentication for Application Insights ingestion.
 
 #### Changes
 - Reduced Snapshot Collector package size by 60% from 10.34 MB to 4.11 MB.
@@ -181,7 +181,7 @@ Addressed multiple improvements and added support for Azure Active Directory (Az
 - Used `System.Diagnostics.Process` in Snapshot Collector and Snapshot Uploader.
 
 #### New features
-Added Azure AD authentication to `SnapshotCollector`. To learn more about Azure AD authentication in Application Insights, see [Azure AD authentication for Application Insights](../app/azure-ad-authentication.md).
+Added Microsoft Entra authentication to `SnapshotCollector`. To learn more about Microsoft Entra authentication in Application Insights, see [Microsoft Entra authentication for Application Insights](../app/azure-ad-authentication.md).
 
 ### [1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
 A point release to backport a fix from 1.4.0-pre.

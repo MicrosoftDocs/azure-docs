@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 10/10/2023
 ---
 
 # Add vector fields to a search index
@@ -15,7 +15,7 @@ ms.date: 08/10/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space. 
+In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space definition. 
 
 Follow these steps to index vector data:
 
@@ -99,9 +99,9 @@ Although you can add a field to an index, there's no portal (Import data wizard)
    + "Bi-directional link count" default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
-   + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric of the embedding model. Supported values are `cosine`, `dotProduct`, `euclidean`.
+   + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model your're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
-   If you're familiar with HNSW parameters, you might be wondering about how to set the "k" number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).
+   If you're familiar with HNSW parameters, you might be wondering about how to set the `"k"` number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).
 
 1. Select **Save** to save the vector configuration and the field definition.
 
@@ -131,6 +131,15 @@ In the following REST API example, "title" and "content" contain textual content
         ]
     }
    ```
+
+   **Key points**:
+
+   + Name the configuration. The name must be unique within the index.
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+   + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
+   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
+   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model your're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
