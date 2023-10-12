@@ -652,40 +652,35 @@ Create a data collection rule for collecting events and sending to storage and e
 
     ---
 
-1. Update the following values in the Azure Resource Manager template:
+1. Update the following values in the Azure Resource Manager template. See the example Azure Resource Manager template for a sample.
 
-    ### [Event hub](#tab/event-hub)
+   **Event hub**
 
-    - Define `dataSources` as per your requirements. The supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. 
-    - Use `destinations` as `eventHubsDirect` for direct upload to event hub. `eventHubResourceId` is resource ID of the event hub instance.
+   | Value | Description |
+   |:---|:---|
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. |
+   | `destinations` | Use `eventHubsDirect` for direct upload to the event hub. |
+   | `eventHubResourceId` | Resource ID of the event hub instance.<br><br>NOTE: It isn't the event hub namespace resource ID. |
+   | `dataFlows` | Under `dataFlows`, include destination name. |
 
-      > [!NOTE]
-      > It isn't the event hub namespace resource ID.
+   **Storage table**
 
-    - under `dataFlows`, include destination name.
+   | Value | Description |
+   |:---|:---|
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. |
+   | `destinations` | Use `storageTablesDirect` for direct upload to table storage. |
+   | `storageAccountResourceId` | Resource ID of the storage account. |
+   | `tableName` | The name of the Table where JSON blob with event data is uploaded to. |
+   | `dataFlows` | Under `dataFlows`, include destination name. |
 
-    See the example Azure Resource Manager template for a sample.
+   **Storage blob**
 
-    ### [Storage table](#tab/storage-table)
-
-    - Define `“dataSources”` as per your requirements. The supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`.
-    - Use `destinations` as `storageTablesDirect` for direct upload to table storage. `storageAccountResourceId` is the resource ID of the storage account. 
-    - `tableName` is the name of the Table where JSON blob with event data is uploaded to.
-    - Under `dataFlows`, include destination name.
-
-    See the example Azure Resource Manager template for a sample. Table is created if it doesn’t already exists.
-
-    ### [Storage blob](#tab/storage-blob)
-
-    - Define `dataSources` as per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`.
-    - Use `destinations` as `storageBlobsDirect` for direct upload to blob storage. 
-    - `storageAccountResourceId` is the resource ID of the storage account. 
-    - `containerName` is the name of the container where JSON blob with event data is uploaded to. 
-    - Under `dataFlows`, include destination name. 
-
-    See the example Azure Resource Manager template for a sample. Container is created if it doesn’t already exist.
-
-    ---
+   | Value | Description |
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`. |
+   | `destinations` | Use `storageBlobsDirect` for direct upload to blob storage. | 
+   | `storageAccountResourceId` | The resource ID of the storage account. | 
+   | `containerName` | The name of the container where JSON blob with event data is uploaded to.  |
+   | `dataFlows` | Under `dataFlows`, include destination name. |
 
 1. Select **Save**.
 
