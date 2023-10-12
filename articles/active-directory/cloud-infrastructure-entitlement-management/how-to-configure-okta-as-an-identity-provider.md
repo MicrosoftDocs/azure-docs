@@ -92,9 +92,10 @@ Once located, note the Okta URL in an app such as Notepad. You'll need this URL 
     Complete the **Manage Authorization System** steps.
     > [!NOTE]
     > If a Data Collector already exists in your AWS account and you want to add Okta integration, follow these steps:
-        > a. Select the Data Collector for which you want to add Okta integration.
-        > b. Click on the ellipsis next to the **Authorization System Status**.
-        > c. Select **Integrate Identity Provider**.
+    >  a. Select the Data Collector for which you want to add Okta integration.
+    >  b. Click on the ellipsis next to the **Authorization System Status**.
+    >  c. Select **Integrate Identity Provider**.
+
 3. On the **Integrate Identity Provider (IdP)** page, select the box for **Okta**.
 4. Select **Launch CloudFormation Template**. The template opens in a new window.
    > [!NOTE]
