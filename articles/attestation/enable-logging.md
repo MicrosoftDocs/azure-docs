@@ -46,6 +46,24 @@ You can create a new Log Analytics workspace using one of these methods:
 
  ### Using Powershell with storage account as destination
 
+```powershell
+
+ Connect-AzAccount 
+
+ Set-AzContext -Subscription "<Subscription id>"
+
+ $attestationProviderName="<Name of the attestation provider>"
+
+ $attestationResourceGroup="<Name of the resource Group>"
+
+ $attestationProvider=Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroup 
+
+ $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name "<Storage Account Name>" -SkuName Standard_LRS -Location "<Location>"
+
+ Set-AzDiagnosticSetting -ResourceId $attestationProvider.Id -StorageAccountId $storageAccount.Id -Enabled $true 
+
+```
+
  When logging is enabled, logs are will be automatically created for you in Containers section of the specified storage account. Please expect some delay for the logs to appear in containers section. 
 
  ### Using portal
@@ -67,9 +85,11 @@ insights-logs-notprocessed includes logs related to malformed requests. insigh
 
 With Azure PowerShell, use [Get-AzStorageBlob](../powershell/module/az.storage/get-azstorageblob.md). To list all the blobs in this container, enter: 
 
+```powershell
 $operationalBlob= Get-AzStorageBlob -Container " insights-logs-operational" -Context $storageAccount.Context 
 
-$operationalBlob.Name 
+$operationalBlob.Name
+```
 
 From the output of the Azure PowerShell cmdlet, you can see that the names of the blobs are in the following format: resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json. The date and time values use Coordinated Universal Time. 
 
