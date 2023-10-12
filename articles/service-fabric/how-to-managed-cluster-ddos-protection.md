@@ -38,7 +38,7 @@ A. Get the service `Id` from your subscription for Service Fabric Resource Provi
    ```
 
    > [!NOTE]
-   > Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
+   > Make sure you are in the correct subscription, the PrincipalId will change if the subscription is in a different tenant.
 
    ```powershell
    ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
@@ -48,7 +48,7 @@ A. Get the service `Id` from your subscription for Service Fabric Resource Provi
    Id                    : 00000000-0000-0000-0000-000000000000
    ```
 
-   Note the **Id** of the previous output as **principalId** for use in a later step
+   Note the **Id** of the previous output as **PrincipalId** for use in a later step
 
    |Role definition name|Role definition ID|
    |----|-------------------------------------|
@@ -58,7 +58,7 @@ A. Get the service `Id` from your subscription for Service Fabric Resource Provi
 
 
        
-B. The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) adds a role assignment to the DDoS Protection Plan with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles#all). This role assignment is defined in the resources section of template         with Principal ID and a role definition ID determined from the first step. 
+B. The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) adds a role assignment to the DDoS Protection Plan with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles#all). This role assignment is defined in the resources section of template         with PrincipalId and a role definition ID determined from the first step. 
 
 
 ```json
@@ -83,7 +83,7 @@ B. The [sample ARM deployment template](https://github.com/Azure-Samples/service
           ]
 ```
 
-or you can also add role assignment via PowerShell using Principal ID determined from the first step and role definition name as "Contributor" where applicable.
+or you can also add role assignment via PowerShell using PrincipalId determined from the first step and role definition name as "Contributor" where applicable.
 
    ```powershell
 New-AzRoleAssignment -PrincipalId "sfrpPrincipalId" `
