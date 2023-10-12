@@ -63,9 +63,11 @@ Secure Score provides recommendations and best practice advice for improving you
 
 Azure Virtual Desktop has many built-in security controls. In this section, you'll learn about security controls you can use to keep your users and data safe.
 
-### Require multi-factor authentication
+<a name='require-multi-factor-authentication'></a>
 
-Requiring multi-factor authentication for all users and admins in Azure Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure AD Multi-Factor Authentication for Azure Virtual Desktop](set-up-mfa.md).
+### Require multifactor authentication
+
+Requiring multifactor authentication for all users and admins in Azure Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Microsoft Entra multifactor authentication for Azure Virtual Desktop](set-up-mfa.md).
 
 ### Enable Conditional Access
 
@@ -76,8 +78,8 @@ Enabling [Conditional Access](../active-directory/conditional-access/overview.md
 Enabling audit log collection lets you view user and admin activity related to Azure Virtual Desktop. Some examples of key audit logs are:
 
 -   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
--   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
--   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
+-   [Microsoft Entra Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
+-   [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
@@ -250,5 +252,5 @@ Software updates for the Remote Desktop clients you can use to access Azure Virt
 
 ## Next steps
 
-- Learn how to [Set up multi-factor authentication](set-up-mfa.md).
+- Learn how to [Set up multifactor authentication](set-up-mfa.md).
 - [Apply Zero Trust principles for an Azure Virtual Desktop deployment](/security/zero-trust/azure-infrastructure-avd).

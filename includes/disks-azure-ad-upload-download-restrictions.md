@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 - VHDs can't be uploaded to empty snapshots.
-- Azure Backup doesn't currently support disks secured with Azure AD.
+- Azure Backup doesn't currently support disks secured with Microsoft Entra ID.

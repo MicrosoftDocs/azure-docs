@@ -300,6 +300,8 @@
     displayName: multiple
   - name: Conditions (if)
     href: conditional-resource-deployment.md
+  - name: Using (using)
+    href: bicep-using.md
   - name: Scopes (targetScope)
     items:
     - name: Resource group

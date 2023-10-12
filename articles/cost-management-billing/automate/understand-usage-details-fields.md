@@ -125,8 +125,8 @@ Some fields might differ in casing and spacing between account types. Older vers
 
 MCA customers can use the following information to reconcile charges between billing and pricing currencies. 
 
-1.	Manually calculate the CostInPricingCurrency by: `(EffectivePrice)` * `(Quantity)`
-2.	Convert the calculated CostInPricingCurrency to the CostInBillingCurrency by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
+1.	Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
+2.	Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
 3.	Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
 
 

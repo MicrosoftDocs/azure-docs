@@ -109,7 +109,7 @@ The following steps create a service connection using an access key or a system-
     - **Name of the storage account**: the name of the storage account that contains your blob.
 
     > [!IMPORTANT]
-    > To use Managed Identity, you must have the permission to manage [Azure Active Directory role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
+    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
     > [!NOTE]
     > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new one.
