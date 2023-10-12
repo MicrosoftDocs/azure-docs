@@ -78,7 +78,7 @@ INSERT INTO github_users
 
 The **COPY** command and **blob_get** method support following file extensions for import:
 
-| File Format  | Description| 
+| **File Format**  | **Description**| 
 |--------------|-----------|
 | .csv         | Comma-separated values format used by PostgreSQL COPY|      
 |.tsv          | Tab-separated values, the default PostgreSQL COPY format|
@@ -106,7 +106,8 @@ TO ‘https://pgquickstart.blob.core.windows.net/github/users.csv.gz'
 WITH (FORMAT 'csv');
 ```
 The **COPY** command and **blob_get** method  support following file extensions for export:
-| File Format  | Description| 
+
+| **File Format**  | **Description**| 
 |--------------|-----------|
 | .csv         | Comma-separated values format used by PostgreSQL COPY|      
 |.tsv          | Tab-separated values, the default PostgreSQL COPY format|
