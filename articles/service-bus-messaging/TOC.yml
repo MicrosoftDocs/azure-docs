@@ -151,7 +151,7 @@
       items:
       - name: Authentication with Shared Access Signatures
         href: service-bus-sas.md
-      - name: Use Azure Active Directory
+      - name: Use Microsoft Entra ID
         items:
         - name: Authenticate with managed identities for Azure resources
           href: service-bus-managed-service-identity.md

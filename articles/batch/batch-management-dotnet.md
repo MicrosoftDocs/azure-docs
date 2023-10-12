@@ -13,7 +13,7 @@ You can lower maintenance overhead in your Azure Batch applications by using the
 - **Create and delete Batch accounts** within any region. If, as an independent software vendor (ISV) for example, you provide a service for your clients in which each is assigned a separate Batch account for billing purposes, you can add account creation and deletion capabilities to your customer portal.
 - **Retrieve and regenerate account keys** programmatically for any of your Batch accounts. This can help you comply with security policies that enforce periodic rollover or expiry of account keys. When you have several Batch accounts in various Azure regions, automation of this rollover process increases your solution's efficiency.
 - **Check account quotas** and take the trial-and-error guesswork out of determining which Batch accounts have what limits. By checking your account quotas before starting jobs, creating pools, or adding compute nodes, you can proactively adjust where or when these compute resources are created. You can determine which accounts require quota increases before allocating additional resources in those accounts.
-- **Combine features of other Azure services** for a full-featured management experience by using Batch Management .NET, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), and the [Azure Resource Manager](../azure-resource-manager/management/overview.md) together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
+- **Combine features of other Azure services** for a full-featured management experience by using Batch Management .NET, [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md), and the [Azure Resource Manager](../azure-resource-manager/management/overview.md) together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
 
 > [!NOTE]
 > While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can also perform many of these activities by [using the Azure portal](batch-account-create-portal.md).
@@ -40,7 +40,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Applications that use the Batch Management .NET library and its BatchManagementClient class require service administrator or coadministrator access to the subscription that owns the Batch account to be managed. For more information, see the Azure Active Directory section and the [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) code sample.
+> Applications that use the Batch Management .NET library and its BatchManagementClient class require service administrator or coadministrator access to the subscription that owns the Batch account to be managed. For more information, see the Microsoft Entra ID section and the [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) code sample.
 
 ## Retrieve and regenerate account keys
 
@@ -121,16 +121,18 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 > [!IMPORTANT]
 > While there are default quotas for Azure subscriptions and services, many of these limits can be raised by [requesting a quota increase in the Azure portal](batch-quota-limit.md#increase-a-quota).
 
-## Use Azure AD with Batch Management .NET
+<a name='use-azure-ad-with-batch-management-net'></a>
 
-The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager](../azure-resource-manager/management/overview.md) to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through Azure Resource Manager. For information about using Azure AD with the Batch Management .NET library, see [Use Azure Active Directory to authenticate Batch solutions](batch-aad-auth.md).
+## Use Microsoft Entra ID with Batch Management .NET
+
+The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager](../azure-resource-manager/management/overview.md) to manage account resources programmatically. Microsoft Entra ID is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through Azure Resource Manager. For information about using Microsoft Entra ID with the Batch Management .NET library, see [Use Microsoft Entra ID to authenticate Batch solutions](batch-aad-auth.md).
 
 ## Sample project on GitHub
 
 To see Batch Management .NET in action, check out the [AccountManagement](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement) sample project on GitHub. The AccountManagement sample application demonstrates the following operations:
 
-1. Acquire a security token from Azure AD by using [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-net-acquire-token-silently.md). If the user is not already signed in, they are prompted for their Azure credentials.
-2. With the security token obtained from Azure AD, create a [SubscriptionClient](/dotnet/api/microsoft.azure.management.resourcemanager.subscriptionclient) to query Azure for a list of subscriptions associated with the account. The user can select a subscription from the list if it contains more than one subscription.
+1. Acquire a security token from Microsoft Entra ID by using [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-net-acquire-token-silently.md). If the user is not already signed in, they are prompted for their Azure credentials.
+2. With the security token obtained from Microsoft Entra ID, create a [SubscriptionClient](/dotnet/api/microsoft.azure.management.resourcemanager.subscriptionclient) to query Azure for a list of subscriptions associated with the account. The user can select a subscription from the list if it contains more than one subscription.
 3. Get credentials associated with the selected subscription.
 4. Create a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanager.resourcemanagementclient) object by using the credentials.
 5. Use a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanager.resourcemanagementclient) object to create a resource group.
@@ -145,7 +147,7 @@ To see Batch Management .NET in action, check out the [AccountManagement](https:
    - Delete the newly created account.
 7. Delete the resource group.
 
-To run the sample application successfully, you must first register it with your Azure AD tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
+To run the sample application successfully, you must first register it with your Microsoft Entra tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
 
 ## Next steps
 

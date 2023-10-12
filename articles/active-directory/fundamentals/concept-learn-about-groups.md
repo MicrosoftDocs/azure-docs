@@ -17,7 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Learn about groups and access rights in Microsoft Entra ID
 
-Microsoft Entra ID provides several ways to manage access to resources, applications, and tasks. With Microsoft Entra groups, you can grant access and permissions to a group of users instead of for each individual user. Limiting access to Microsoft Entra resources to only those users who need access is one of the core security principles of [Zero Trust](/security/zero-trust/zero-trust-overview). This article provides an overview of how groups and access rights can be used together to make managing your Microsoft Entra users easier while also applying security best practices.
+Microsoft Entra ID provides several ways to manage access to resources, applications, and tasks. With Microsoft Entra groups, you can grant access and permissions to a group of users instead of for each individual user. Limiting access to Microsoft Entra resources to only those users who need access is one of the core security principles of [Zero Trust](/security/zero-trust/zero-trust-overview). 
+
+This article provides an overview of how groups and access rights can be used together to make managing your Microsoft Entra users easier while also applying security best practices.
 
 Microsoft Entra ID lets you use groups to manage access to applications, data, and resources. Resources can be:
 
@@ -89,11 +91,7 @@ After a user requests to join a group, the request is forwarded to the group own
 ## Next steps
 
 - [Create and manage Microsoft Entra groups and group membership](how-to-manage-groups.md)
-
 - [Learn about group-based licensing in Microsoft Entra ID](./licensing-whatis-azure-portal.md)
-
 - [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
-
 - [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-
 - [Learn about Privileged Identity Management for Microsoft Entra roles](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)

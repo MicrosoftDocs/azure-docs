@@ -26,7 +26,7 @@ To deploy the template, you need the following information:
 - Name of the resource group your dedicated SQL pool (formerly SQL DW) instance is in
 - Name of the server your dedicated SQL pool (formerly SQL DW) instance is in
 - Name of your dedicated SQL pool (formerly SQL DW) instance
-- Tenant ID (Directory ID) of your Azure Active Directory
+- Tenant ID (Directory ID) of your Microsoft Entra ID
 - Subscription ID
 - Service Principal Application ID
 - Service Principal Secret Key

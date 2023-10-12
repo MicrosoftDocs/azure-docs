@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/05/2023
+ms.date: 10/12/2023
 ---
 
 # Parameters in Bicep
@@ -41,6 +41,14 @@ param demoBool bool
 param demoObject object
 param demoArray array
 ```
+
+The `param` keyword is also used in [.bicepparam files](./parameter-files.md). In .bicepparam files, you don't need to specify the data type as it is defined in Bicep files.
+
+```bicep
+param <parameter-name> = <value>
+```
+
+For more information, see [Parameters file](./parameter-files.md).
 
 ## Default value
 

@@ -419,9 +419,9 @@ sections:
           Yes, but you need to [onboard to Defender for Cloud](agents/azure-monitor-agent-overview.md#supported-services-and-features) (previously Azure Security Center). It's available as an extension to Azure Monitor Agent, which collects Linux auditd logs via AUOMS.	
       
       - question: |
-          Is Azure Arc required for Azure Active Directory-joined machines?
+          Is Azure Arc required for Microsoft Entra joined machines?
         answer: |
-          No. Azure Active Directory-joined (or hybrid Azure Active Directory-joined) machines running Windows 10 or 11 (client OS) **do not require Azure Arc** to be installed. Instead, you can use the Windows MSI installer for Azure Monitor Agent, which is [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
+          No. Microsoft Entra joined (or Microsoft Entra hybrid joined) machines running Windows 10 or 11 (client OS) **do not require Azure Arc** to be installed. Instead, you can use the Windows MSI installer for Azure Monitor Agent, which is [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use Azure Monitor Agent?
@@ -515,7 +515,7 @@ sections:
           - Supported by Microsoft
           - Brings in Azure Specific features such as:
               - Preserves traces with service components using Application Insights SDKs
-              - [Azure Active Directory (Azure AD) Authentication](app/azure-ad-authentication.md)
+              - [Microsoft Entra authentication](app/azure-ad-authentication.md)
               - [Offline Storage and Automatic Retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
               - [Statsbeat](app/statsbeat.md)
               - [Application Insights Standard Metrics](app/standard-metrics.md)
@@ -549,9 +549,9 @@ sections:
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :warning:    | :white_check_mark: | :white_check_mark: |
           | [Custom Events](app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
-          | [Azure Active Directory authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Microsoft Entra authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
           | Detect Resource Context for VM/VMSS and App Svc                                                                    | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
           | Detect Resource Context for AKS and Functions                                                                      | :x:                | :x:                | :x:                | :white_check_mark: |           
@@ -625,7 +625,7 @@ sections:
           For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
 
           - AKS without Kubernetes role-based access control (RBAC) authorization enabled
-          - AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+          - AKS enabled with Microsoft Entra SAML-based single sign-on
           - AKS enabled with Kubernetes RBAC authorization
           - AKS configured with the cluster role binding clusterMonitoringUser
           - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
@@ -758,7 +758,7 @@ sections:
           For a detailed look at the issue, see this [GitHub page](https://github.com/moby/moby/issues/22920).
           
       - question: |
-          How do I resolve Azure Active Directory errors when I enable live logs?
+          How do I resolve Microsoft Entra errors when I enable live logs?
         answer: |
           You might see the following error: "The reply url specified in the request doesn't match the reply urls configured for the application: '<application ID\>'." For the solution, see [View container data in real time with Container insights](containers/container-insights-livedata-setup.md#configure-azure-ad-integrated-authentication).
           

@@ -55,7 +55,7 @@ Azure Event Hubs provides multiple options to authorize access to your secure re
 - Shared access signature (SAS)
 
 ### OAuth 2.0
-Event Hubs integrates with Azure Active Directory (Azure AD), which provides an **OAuth 2.0** compliant centralized authorization server. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about Azure roles and levels for scoping access, see [Authorize access with Azure AD](authorize-access-azure-active-directory.md).
+Event Hubs integrates with Microsoft Entra ID, which provides an **OAuth 2.0** compliant centralized authorization server. With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about Azure roles and levels for scoping access, see [Authorize access with Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 ```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

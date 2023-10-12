@@ -15,7 +15,7 @@
 ### <a name="mfa"></a>Open the MFA page
 
 1. Sign in to the Azure portal.
-2. Navigate to **Azure Active Directory -> All users**.
+2. Navigate to **Microsoft Entra ID -> All users**.
 3. Select **Multi-Factor Authentication** to open the multi-factor authentication page.
 
    ![Sign in](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa1.jpg)
