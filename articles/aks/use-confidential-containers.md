@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/02/2023
+ms.date: 10/12/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -92,8 +92,18 @@ az provider register --namespace "Microsoft.ContainerService"
 
 The following are constraints with this preview of Confidential Containers (preview):
 
-* List of limitation(s) - Manuel Huber can provide me with the limtitations.
-
+* You'll notice an increase in pod startup time compared to runc pods and kernel-isolated pods.
+* Resource requests from pod manifests are being ignored by the Kata container. It's not recommended to specify resource requests.
+* Private container registry is not supported in this release.
+* Config-maps and secrets values cannot be changed if setting using the environment variable method after the pod is deployed.
+* Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. This includes `exec` in container
+log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
+* Cronjob deployment type is not supported.
+* Due to container measurements being encoded in the security policy, it's not recommended to use the `latest` tag when specifying containers.
+* Services, Load Balancers, and EndpointSlices only support the TCP protocol.
+* All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
+* The policy generator only supports pods that use IPv4 addresses.
+ 
 ## Deploy a new cluster
 
 Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
