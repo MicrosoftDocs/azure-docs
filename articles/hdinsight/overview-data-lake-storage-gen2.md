@@ -9,7 +9,7 @@ ms.date: 06/08/2023
 
 # Azure Data Lake Storage Gen2 overview in HDInsight
 
-Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 and integrates them into Azure Blob storage. These features include a file system that is compatible with Hadoop, Azure Active Directory (Azure AD), and POSIX-based access control lists (ACLs). This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1. While also using the tiering and data life-cycle management of Blob storage.
+Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 and integrates them into Azure Blob storage. These features include a file system that is compatible with Hadoop, Microsoft Entra ID, and POSIX-based access control lists (ACLs). This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1. While also using the tiering and data life-cycle management of Blob storage.
 
 For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
@@ -29,7 +29,7 @@ For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure
 
 ### Managed identities for secure file access
 
-Azure HDInsight uses managed identities to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identities are a feature of Azure Active Directory that provides Azure services with a set of automatically managed credentials. These credentials can be used to authenticate to any service that supports Active Directory authentication. Using managed identities doesn't require you to store credentials in code or configuration files.
+Azure HDInsight uses managed identities to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identities are a feature of Microsoft Entra ID that provides Azure services with a set of automatically managed credentials. These credentials can be used to authenticate to any service that supports Active Directory authentication. Using managed identities doesn't require you to store credentials in code or configuration files.
 
 For more information, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 

@@ -84,24 +84,24 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 ## Identity
 
-To access desktops and applications from your session hosts, your users need to be able to authenticate. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) (Azure AD DS), providing you with a choice of flexible configuration options.
+To access desktops and applications from your session hosts, your users need to be able to authenticate. [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's centralized cloud identity service that enables this capability. Microsoft Entra ID is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Microsoft Entra tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) (Microsoft Entra Domain Services), providing you with a choice of flexible configuration options.
 
 ### Session hosts
 
-You need to join session hosts that provide desktops and applications to the same Azure AD tenant as your users, or an Active Directory domain (either AD DS or Azure AD DS).
+You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
-To join session hosts to Azure AD or an Active Directory domain, you need the following permissions:
+To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
-- For Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/manage-device-identities.md#configure-device-settings). To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
+- For Microsoft Entra ID, you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/manage-device-identities.md#configure-device-settings). To learn more about joining session hosts to Microsoft Entra ID, see [Microsoft Entra joined session hosts](azure-ad-joined-session-hosts.md).
 
-- For an Active Directory domain, you need a domain account that can join computers to your domain. For Azure AD DS, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+- For an Active Directory domain, you need a domain account that can join computers to your domain. For Microsoft Entra Domain Services, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ### Users
 
-Your users need accounts that are in Azure AD. If you're also using AD DS or Azure AD DS in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You'll need to keep the following things in mind based on which identity provider you use:
+Your users need accounts that are in Microsoft Entra ID. If you're also using AD DS or Microsoft Entra Domain Services in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You'll need to keep the following things in mind based on which identity provider you use:
 
-- If you're using Azure AD with AD DS, you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Azure AD.
-- If you're using Azure AD with Azure AD DS, user accounts are synchronized one way from Azure AD to Azure AD DS. This synchronization process is automatic.
+- If you're using Microsoft Entra ID with AD DS, you'll need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Microsoft Entra ID.
+- If you're using Microsoft Entra ID with Microsoft Entra Domain Services, user accounts are synchronized one way from Microsoft Entra ID to Microsoft Entra Domain Services. This synchronization process is automatic.
 
 ### Supported identity scenarios
 
@@ -109,28 +109,28 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
-| Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
-| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized |
-| Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
-| Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
-| Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
-| Azure AD only | Joined to Azure AD | In Azure AD |
+| Microsoft Entra ID + AD DS | Joined to AD DS | In Microsoft Entra ID and AD DS, synchronized |
+| Microsoft Entra ID + AD DS | Joined to Microsoft Entra ID | In Microsoft Entra ID and AD DS, synchronized |
+| Microsoft Entra ID + Microsoft Entra Domain Services | Joined to Microsoft Entra Domain Services | In Microsoft Entra ID and Microsoft Entra Domain Services, synchronized |
+| Microsoft Entra ID + Microsoft Entra Domain Services + AD DS | Joined to Microsoft Entra Domain Services | In Microsoft Entra ID and AD DS, synchronized |
+| Microsoft Entra ID + Microsoft Entra Domain Services | Joined to Microsoft Entra ID | In Microsoft Entra ID and Microsoft Entra Domain Services, synchronized|
+| Microsoft Entra-only | Joined to Microsoft Entra ID | In Microsoft Entra ID |
 
-To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Azure AD, you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). This means you must create these accounts in AD DS and synchronize them to Azure AD. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). This means you must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
 
-- [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
-- [Set up FSLogix Profile Container with Azure Files and Azure Active Directory](create-profile-container-azure-ad.md).
+- [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
+- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
 
 > [!IMPORTANT]
-> The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
+> The user account must exist in the Microsoft Entra tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
 >
-> When using hybrid identities, either the UserPrincipalName (UPN) or the Security Identifier (SID) must match across Active Directory Domain Services and Azure Active Directory. For more information, see [Supported identities and authentication methods](authentication.md#hybrid-identity).
+> When using hybrid identities, either the UserPrincipalName (UPN) or the Security Identifier (SID) must match across Active Directory Domain Services and Microsoft Entra ID. For more information, see [Supported identities and authentication methods](authentication.md#hybrid-identity).
 
 ### Deployment parameters
 
 You'll need to enter the following identity parameters when deploying session hosts:
 
-- Domain name, if using AD DS or Azure AD DS.
+- Domain name, if using AD DS or Microsoft Entra Domain Services.
 - Credentials to join session hosts to the domain.
 - Organizational Unit (OU), which is an optional parameter that lets you place session hosts in the desired OU at deployment time.
 
@@ -184,7 +184,7 @@ To successfully deploy Azure Virtual Desktop, you'll need to meet the following 
 
 - You'll need a virtual network and subnet for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list. Your virtual network must be in the same Azure region as the session host.
 
-- Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Azure AD DS, since you'll need to join session hosts to the domain.
+- Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Microsoft Entra Domain Services, since you'll need to join session hosts to the domain.
 
 - Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. These connections also use TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints).
 
@@ -209,11 +209,11 @@ Consider the following when managing session hosts:
 
 - Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
 
-- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-join-plan.md).
+- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [Microsoft Entra hybrid join](../active-directory/devices/hybrid-join-plan.md).
 
-- If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
+- If you're joining session hosts to a Microsoft Entra Domain Services domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
 
-- If you're using Azure AD-join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use hybrid Azure AD-join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
+- If you're using Microsoft Entra join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use Microsoft Entra hybrid join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
 
 ## Remote Desktop clients
 
