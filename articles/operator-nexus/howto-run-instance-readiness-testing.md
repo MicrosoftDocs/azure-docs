@@ -15,7 +15,7 @@ Instance Readiness Testing (IRT) is a framework built to validate that the Azure
 IRT creates Nexus resources such as virtual machines, NAKS clusters, and networks in order to perform various networking, storage and compute tests.
 
 ## Getting Instance Readiness Testing Framework
-For more detailed information, including the latest documentation and release artifacts visit the [nexus-samples](https://github.com/microsoft/nexus-samples/) GitHub repository. If access is required, see "Requesting Access to Nexus-samples GitHub repository".
+For more detailed information, including the latest documentation and release artifacts visit the [nexus-samples](https://github.com/microsoft/nexus-samples/) GitHub repository. If access is required, see "Requesting Access to Nexus-samples GitHub repository."
 
 ### Requesting Access to Nexus-samples GitHub repository
 For access to the nexus-samples GitHub repository
