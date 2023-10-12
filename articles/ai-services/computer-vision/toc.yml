@@ -340,16 +340,24 @@ items:
         href: Tutorials/build-enrollment-app.md
   - name: Reference
     items:
-    - name: Face REST API
-      href: identity-api-reference.md
-    - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/face
-    - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/faceapi
-    - name: Node.js
-      href: /javascript/api/overview/azure/cognitiveservices-face-readme
-    - name: Python
-      href: /python/api/overview/azure/cognitiveservices-vision-face-readme
+    - name: Server-side
+      items:
+      - name: Face REST API
+        href: identity-api-reference.md
+      - name: .NET
+        href: /dotnet/api/overview/azure/cognitiveservices/face
+      - name: Java
+        href: /java/api/overview/azure/cognitiveservices/client/faceapi
+      - name: Node.js
+        href: /javascript/api/overview/azure/cognitiveservices-face-readme
+      - name: Python
+        href: /python/api/overview/azure/cognitiveservices-vision-face-readme
+    - name: Client-side
+      items:
+      - name: Java (Android)
+        href: TBD
+      - name: Swift (iOS)
+        href: TBD
 - name: Spatial Analysis
   items: 
   - name: Spatial Analysis overview
