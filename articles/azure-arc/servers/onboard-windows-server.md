@@ -1,7 +1,7 @@
 ---
 title: Connect Windows Server machines to Azure through Azure Arc Setup
 description: In this article, you learn how to connect Windows Server machines to Azure Arc using the built-in Windows Server Azure Arc Setup wizard.
-ms.date: 10/10/2023
+ms.date: 10/12/2023
 ms.topic: conceptual
 ---
 
@@ -76,6 +76,12 @@ To uninstall Azure Arc Setup, follow these steps:
 1. On the Features page, uncheck the box for **Azure Arc Setup**.
 
 1. On the confirmation page, select **Restart the destination server automatically if required**, then select **Remove**.
+
+To uninstall Azure Arc Setup through PowerShell, run the following command:
+
+```powershell
+Disable-WindowsOptionalFeature -Online -FeatureName AzureArcSetup
+```
 
 > [!NOTE]
 > Uninstalling Azure Arc Setup does not uninstall the Azure Connected Machine agent from the machine. For instructions on uninstalling the agent, see [Managing and maintaining the Connected Machine agent](manage-agent.md).
