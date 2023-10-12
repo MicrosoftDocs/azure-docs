@@ -32,7 +32,7 @@ The following articles present information that is common to each group of conne
 The following integrations are both more unique and popular, and are treated individually, with their own articles:
 
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
-- [Azure Active Directory](connect-azure-active-directory.md)
+- [Microsoft Entra ID](connect-azure-active-directory.md)
 - [Azure Virtual Desktop](connect-azure-virtual-desktop.md)
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
 - [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
