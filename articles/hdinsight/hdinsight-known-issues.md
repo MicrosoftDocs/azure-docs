@@ -3,7 +3,7 @@ title: Azure HDInsight known issues
 description: Track known issues and the ETA for the fix in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting-known-issue
-ms.date: 10/04/2023
+ms.date: 10/12/2023
 ---
 
 # Azure HDInsight known issues
@@ -21,13 +21,13 @@ When submitting cluster creation requests using ARM templates, Runbooks, PowerSh
 
 ### Troubleshooting steps
 
-When using [templates or automation tools](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight Kafka clusters, choose componentVersion = "2.4". This will enable you to successfully create a Kafka 2.4.1 cluster in HDInsight 5.0.
+When using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight Kafka clusters, choose componentVersion = "2.4". This will enable you to successfully create a Kafka 2.4.1 cluster in HDInsight 5.0.
 
 ### Resources
 
-- [Create HDInsight clusters using automation](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods)
-- [Supported HDInsight versions](https://learn.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
-- [HDInsight Kafka cluster](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Create HDInsight clusters using automation](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods)
+- [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+- [HDInsight Kafka cluster](/azure/hdinsight/kafka/apache-kafka-introduction)
 
 ## Conda version regression in recent HDInsight release
 
@@ -40,15 +40,15 @@ In the latest Azure HDInsight release, the conda version was mistakenly downgrad
 1. SSH to any VM in the cluster.
 2. Switch to the root user: `sudo su`
 3. Check the conda version: `/usr/bin/anaconda/bin/conda info`
-4. If the version is 4.2.9, run the following [script action](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster) on all nodes to upgrade the cluster to conda version 4.3.30:
+4. If the version is 4.2.9, run the following [script action](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster) on all nodes to upgrade the cluster to conda version 4.3.30:
 
    `https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/conda_update_4_3_30_patch.sh`
 
 ### Recommended Documents
 
-- [Script action to a running cluster](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
-- [Safely manage Python environment on Azure HDInsight using Script Action](https://learn.microsoft.com/azure/hdinsight/spark/apache-spark-python-package-installation)
-- [Supported HDInsight versions](https://learn.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+- [Script action to a running cluster](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
+- [Safely manage Python environment on Azure HDInsight using Script Action](/azure/hdinsight/spark/apache-spark-python-package-installation)
+- [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
 
 ## Cluster reliability issue
 
@@ -78,14 +78,14 @@ Yes, we've fixed this issue on the HDInsight images dated March 1, 2022 or later
 
 ### How do we determine the date of the HDInsight image our clusters are built on? 
 
-The# last 10 digits in your image version indicate the date and time of HDInsight image. For example, if your cluster image is “5.0.3000.1.2208310943”, this indicates that the date of your image is 31 August 2022. Learn how to [verify your HDInsight image version.](https://learn.microsoft.com/azure/hdinsight/view-hindsight-cluster-image-version)
+The# last 10 digits in your image version indicate the date and time of HDInsight image. For example, if your cluster image is “5.0.3000.1.2208310943”, this indicates that the date of your image is 31 August 2022. Learn how to [verify your HDInsight image version.](/azure/hdinsight/view-hindsight-cluster-image-version)
 
 ### Resources
 
-- [Create HDInsight clusters using automation](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods)
-- [Supported HDInsight versions](https://learn.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
-- [HDInsight Kafka cluster](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction)
-- [Verify your HDInsight image version](https://learn.microsoft.com/azure/hdinsight/view-hindsight-cluster-image-version)
+- [Create HDInsight clusters using automation](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods)
+- [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+- [HDInsight Kafka cluster](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Verify your HDInsight image version](/azure/hdinsight/view-hindsight-cluster-image-version)
 
 ## Currently active known issues
 
