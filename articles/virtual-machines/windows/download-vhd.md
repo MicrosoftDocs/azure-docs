@@ -57,7 +57,9 @@ Your snapshot will be created shortly, and can then be used to download or creat
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 
 
-## Secure downloads and uploads with Azure AD
+<a name='secure-downloads-and-uploads-with-azure-ad'></a>
+
+## Secure downloads and uploads with Microsoft Entra ID
 
 [!INCLUDE [disks-azure-ad-upload-download-portal](../../../includes/disks-azure-ad-upload-download-portal.md)]
 
@@ -98,7 +100,7 @@ az disk grant-access --duration-in-seconds 86400 --access-level Read --name your
 ## Download VHD
 
 > [!NOTE]
-> If you're using Azure AD to secure managed disk downloads, the user downloading the VHD must have the appropriate [RBAC permissions](#assign-rbac-role).
+> If you're using Microsoft Entra ID to secure managed disk downloads, the user downloading the VHD must have the appropriate [RBAC permissions](#assign-rbac-role).
 
 # [Portal](#tab/azure-portal)
 
@@ -123,7 +125,7 @@ When the download finishes, revoke access to your disk using `Revoke-AzDiskAcces
 Replace `yourPathhere` and `sas-URI` with your values, then use the following script to download your VHD:
 
 > [!NOTE]
-> If you're using Azure AD to secure your managed disk uploads and downloads, add `--auth-mode login` to `az storage blob download`.
+> If you're using Microsoft Entra ID to secure your managed disk uploads and downloads, add `--auth-mode login` to `az storage blob download`.
 
 ```azurecli
 
