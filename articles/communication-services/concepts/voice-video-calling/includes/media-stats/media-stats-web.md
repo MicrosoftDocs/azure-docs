@@ -84,7 +84,7 @@ However, if you are using SDK version less than 1.8.0-beta.1, you need use `disp
 
 If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
-## Media quality statistics metrics for SDK version 1.8.0 beta and next beta release
+## Media quality statistics metrics for SDK version 1.8.0 beta and later
 
 In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
 
