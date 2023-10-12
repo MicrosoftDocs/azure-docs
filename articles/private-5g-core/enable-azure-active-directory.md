@@ -78,7 +78,7 @@ Go to the Azure portal and navigate to your site's **Packet Core Control Plane**
 1. If the **Authentication type** is set to **Microsoft Entra ID**, continue to [Create Kubernetes Secret Objects](#create-kubernetes-secret-objects). 
 1. Otherwise:
     1. Select **Microsoft Entra ID** from the **Authentication type** dropdown.
-    1. Sect **Review**.
+    1. Select **Review**.
     1. Select **Submit**.
 
 ## Create Kubernetes Secret Objects
