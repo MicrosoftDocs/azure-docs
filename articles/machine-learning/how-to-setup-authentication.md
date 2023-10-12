@@ -18,7 +18,7 @@ ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, even
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
     
 
-Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Microsoft Entra ID) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Microsoft Entra ID__ for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
 * __Interactive__: You use your account in Microsoft Entra ID to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
