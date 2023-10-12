@@ -793,7 +793,7 @@ Use the following section to troubleshoot sending data to Event Hubs and Storage
 
 ### Data not found in blob storage or table storage or not flowing to event hub
 
-- Check that the applicable required permissions are assigned with managed identity on the storage account.
+- Check that the applicable [required permissions](#required-permissions) are assigned with managed identity on the storage account.
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
