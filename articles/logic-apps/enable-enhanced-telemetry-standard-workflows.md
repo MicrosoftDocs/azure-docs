@@ -3,11 +3,13 @@ title: Enable and view enhanced telemetry for Standard workflows
 description: How to enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
+author: kewear
+ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/16/2023
 
-# Customer intent: As a developer, I want to turn on enhanced telemetry in Application Insights for Standard logic app workflows.
+# Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
 ---
 
 # Enable enhanced and view telemetry in Application Insights for Standard workflows in Azure Logic Apps
