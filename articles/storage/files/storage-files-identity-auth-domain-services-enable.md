@@ -13,7 +13,7 @@ recommendations: false
 # Enable Microsoft Entra Domain Services authentication on Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-This article focuses on enabling and configuring Microsoft Entra Domain Services for identity-based authentication with Azure file shares. In this authentication scenario, Microsoft Entra credentials and Microsoft Entra Domain Services credentials are the same and can be used interchangeably.
+This article focuses on enabling and configuring Microsoft Entra Domain Services (formerly Azure Active Directory Domain Services) for identity-based authentication with Azure file shares. In this authentication scenario, Microsoft Entra credentials and Microsoft Entra Domain Services credentials are the same and can be used interchangeably.
 
 We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the AD source you choose.
 
