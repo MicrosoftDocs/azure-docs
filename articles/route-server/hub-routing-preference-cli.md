@@ -67,7 +67,8 @@ In the output, you can see the current routing preference setting in front of **
 }
 ```
 
-The default routing preference setting is **ExpressRoute**.
+> [!NOTE]
+> The default routing preference setting is **ExpressRoute**.
 
 ## Configure routing preference
 
