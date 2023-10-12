@@ -210,7 +210,7 @@ To retrieve the product code from the agent install package directly, you can us
 
 After installation of the agent is finished, you can verify that it's successfully connected and reporting in two ways.
 
-From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*<br><br> :::image type="content" source="media/agent-windows/log-analytics-mma-laworkspace-status.png" lightbox="media/agent-windows/log-analytics-mma-laworkspace-status.png" alt-text="Screenshot that shows the MMA connection status to Log Analytics message.":::
+From **System and Security** in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*<br><br> :::image type="content" source="media/agent-windows/log-analytics-mma-laworkspace-status.png" lightbox="media/agent-windows/log-analytics-mma-laworkspace-status.png" alt-text="Screenshot that shows the MMA connection status to Log Analytics message.":::
 
 You can also perform a log query in the Azure portal:
 
