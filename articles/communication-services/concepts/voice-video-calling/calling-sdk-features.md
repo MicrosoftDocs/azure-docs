@@ -104,7 +104,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
 \* Starting from ACS Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+While the Calling SDK don't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Calling SDK timeouts
 
@@ -139,7 +139,7 @@ The following table represents the set of supported browsers, which are currentl
 - Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
 - Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
-Running JavaScript Calling SDK on these platforms isn't actively tested, it may or may not work.
+Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
 - [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
