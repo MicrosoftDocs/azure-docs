@@ -14,12 +14,7 @@ ms.author: mametcal
 ---
 # Tutorial: Use dynamic configuration in Python (preview)
 
-This tutorial shows how you can enable dynamic configuration updates in Python. It builds a script to use the App Configuration provider library for its built-in configuration caching and refreshing capabilities.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Set up your app to update its configuration in response to changes in an App Configuration store.
+The App Configuration Python provider includes built-in caching and refreshing capabilities. This tutorial shows how to enable dynamic configuration in Python applications.
 
 > [!NOTE]
 > Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b2/) package version 1.1.0b2 or later.
@@ -42,7 +37,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Console applications
 
-1. Add the following key-values to your App Configuration store if you didn't add it already during the quickstart.
+1. Add the following key-values to your App Configuration store.
 
     | Key            | Value             | Label       | Content type       |
     |----------------|-------------------|-------------|--------------------|
@@ -88,7 +83,8 @@ Add the following key-value to your App Configuration store. For more informatio
 1. Verify Output:
 
     ```console
-    Starting configuration values:
+    Update the `message` in your App Configuration store using Azure portal or CLI.
+    First, update the `message` value, and then update the `sentinel` key value.
     Hello World!
     ```
 
@@ -99,16 +95,15 @@ Add the following key-value to your App Configuration store. For more informatio
     | *message*      | *Hello World Refreshed!*  | Leave empty | Leave empty        |
     | *sentinel*     | *2*                       | Leave empty | Leave empty        |
 
-1. Wait for the refresh interval to pass the refresh to be called, the configuration settings will print again with new values.
+1. Once the values have been updated the updated value will print out when the refresh interval has passed.
 
     ```console
-    Updated configuration values:
     Hello World Refreshed!
     ```
 
 ## Web applications
 
-The following examples show how to update an existing web application to use refreshable configuration values.
+The following example show how to update an existing web application to use refreshable configuration values.
 
 ### [Django](#tab/django)
 
@@ -118,7 +113,7 @@ Setup App Configuration in your Django settings file, `settings.py`.
 AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
 ```
 
-Update your view endpoints to check for updated configuration values.
+You can reference the App Configuration object created in Django settings from views. Call refresh() to check for configuration updates in each Django view before accessing configuration settings. For example, in views.py:
 
 ```python
 from django.shortcuts import render
@@ -129,14 +124,33 @@ def index(request):
     settings.AZURE_APPCONFIGURATION.refresh()
 
     # Once this returns AZURE_APPCONFIGURATION will be updated with the latest values
-
     context = {
-    "message": settings.AZURE_APPCONFIGURATION.get('message'),
-    "key": settings.AZURE_APPCONFIGURATION.get('secret_key'),
-    "color": settings.AZURE_APPCONFIGURATION.get('color'),
-    "font_size": settings.AZURE_APPCONFIGURATION.get('font_size')
+      "message": settings.AZURE_APPCONFIGURATION.get('message')
     }
     return render(request, 'hello_azure/index.html', context)
+```
+
+Update your template `index.html` to use the new configuration values.
+
+```html
+{% load static %}
+<!doctype html>
+
+<head>
+  <title>Hello Azure - Python Django Example</title>
+</head>
+<html>
+
+<body>
+  <main>
+    <div class="px-4 py-3 my-2 text-center">
+      <h1>{{message}}</h1>
+    </div>
+  </main>
+</body>
+
+</html>
+
 ```
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
