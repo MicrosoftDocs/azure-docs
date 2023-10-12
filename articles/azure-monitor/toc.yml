@@ -102,10 +102,6 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
-        - name: Node.js (supplemental)
-          items:
-          - name: Node.js OpenTelemetry exporter
-            href: app/opentelemetry-nodejs-exporter.md
         - name: Python (supplemental)
           items:
           - name: Migrate from Opencensus

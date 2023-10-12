@@ -549,7 +549,7 @@ sections:
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :warning:    | :white_check_mark: | :white_check_mark: |
           | [Custom Events](app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
           | [Microsoft Entra authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
