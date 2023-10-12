@@ -14,54 +14,9 @@ ms.date: 08/14/2023
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.
+Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. Microsoft Azure services that have the potential to access customer data are required to onboard to Customer Lockbox for Microsoft Azure.
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
-
-## Supported services and scenarios
-
-### General Availability
-
-The following services are generally available for Customer Lockbox:
-
-- Azure API Management
-- Azure App Service
-- Azure Cognitive Search
-- Azure AI services
-- Azure Container Registry
-- Azure Data Box
-- Azure Data Explorer
-- Azure Data Factory
-- Azure Database for MySQL
-- Azure Database for MySQL Flexible Server
-- Azure Database for PostgreSQL
-- Azure Databricks
-- Azure Edge Zone Platform Storage
-- Azure Functions
-- Azure HDInsight
-- Azure Health Bot
-- Azure Intelligent Recommendations
-- Azure Kubernetes Service
-- Azure Logic Apps
-- Azure Monitor
-- Azure Spring Apps
-- Azure SQL Database
-- Azure SQL managed Instance
-- Azure Storage
-- Azure subscription transfers
-- Azure Synapse Analytics
-- Azure Unified Vision Service
-- Microsoft Azure Attestation
-- Azure Data Manager for Energy Preview
-- OpenAI
-- Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
-
-
-### Public Preview
-The following services are currently in preview for Customer Lockbox:
-
-- Azure Machine Learning
-- Azure Batch
 
 ## Enable Customer Lockbox
 
@@ -80,7 +35,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 1. If the support engineer can't troubleshoot the issue by using standard tools and service generated data, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
 1. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
     - The scope of the resource
-    - Whether the requester is an isolated identity or using multi-factor authentication
+    - Whether the requester is an isolated identity or using multifactor authentication
     - Permissions levels
     Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
@@ -88,12 +43,12 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 1. The approver(s) at the customer organization for a given Lockbox request are determined as follows: 
     - For Subscription scoped requests (requests to access specific resources contained within a subscription), users who have been assigned the Owner role on the associated subscription. 
-    - For Tenant scope requests (requests to access the Azure Active Directory Tenant), users who have been assigned the Global Administrator role on the Tenant. 
+    - For Tenant scope requests (requests to access the Microsoft Entra tenant), users who have been assigned the Global Administrator role on the Tenant. 
     > [!NOTE]
-    > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Azure AD roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
+    > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
     > 
     > **Role assignments scoped to management groups are not supported in Lockbox at this time.**
-1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Azure AD Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
+1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
     
     Example email:
     

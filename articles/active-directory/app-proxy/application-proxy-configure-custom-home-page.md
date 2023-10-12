@@ -1,6 +1,6 @@
 ---
-title: Custom home page for published apps - Azure Active Directory Application Proxy
-description: Covers the basics about Azure Active Directory Application Proxy connectors
+title: Custom home page for published apps - Microsoft Entra application proxy
+description: Covers the basics about Microsoft Entra application proxy connectors
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: harshja
 ---
-# Set a custom home page for published apps by using Azure Active Directory Application Proxy
+# Set a custom home page for published apps by using Microsoft Entra application proxy
 
-This article discusses how to configure an app to direct a user to a custom home page. When you publish an app with Application Proxy, you set an internal URL, but sometimes that's not the page a user should see first. Set a custom home page so that a user gets the right page when they access the app. A user will see the custom home page that you set, regardless of whether they access the app from the Azure Active Directory My Apps or the Microsoft 365 app launcher.
+This article discusses how to configure an app to direct a user to a custom home page. When you publish an app with Application Proxy, you set an internal URL, but sometimes that's not the page a user should see first. Set a custom home page so that a user gets the right page when they access the app. A user will see the custom home page that you set, regardless of whether they access the app from the Microsoft Entra My Apps or the Microsoft 365 app launcher.
 
 When a user launches the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. Use the Azure AD PowerShell module to define a custom home page URL when you want an app user to land on a specific page within the app.
 
@@ -85,13 +85,13 @@ To install the package, follow these steps:
 
 You get the ObjectId of the app by searching for the app by its display name or home page.
 
-1. In the same PowerShell window, import the Azure AD module.
+1. In the same PowerShell window, import the Microsoft Entra module.
 
    ```powershell
    Import-Module AzureAD
    ```
 
-1. Sign in to the Azure AD module as the tenant administrator.
+1. Sign in to the Microsoft Entra module as the tenant administrator.
 
    ```powershell
    Connect-AzureAD
@@ -119,7 +119,7 @@ You get the ObjectId of the app by searching for the app by its display name or 
 
 ### Update the home page URL
 
-Create the home page URL, and update your app with that value. Continue using the same PowerShell window, or if you're using a new PowerShell window, sign in to the Azure AD module again using `Connect-AzureAD`. Then follow these steps:
+Create the home page URL, and update your app with that value. Continue using the same PowerShell window, or if you're using a new PowerShell window, sign in to the Microsoft Entra module again using `Connect-AzureAD`. Then follow these steps:
 
 1. Create a variable to hold the ObjectId value you copied in the previous section. (Replace the ObjectId value used for in this SharePoint example with your app's ObjectId value.)
 
@@ -172,5 +172,5 @@ Create the home page URL, and update your app with that value. Continue using th
 
 ## Next steps
 
-- [Enable remote access to SharePoint with Azure AD Application Proxy](./application-proxy-integrate-with-sharepoint-server.md)
-- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Enable remote access to SharePoint with Microsoft Entra application proxy](./application-proxy-integrate-with-sharepoint-server.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](application-proxy-add-on-premises-application.md)

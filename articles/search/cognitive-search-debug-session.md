@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 09/29/2023
 ---
 
 # Debug Sessions in Azure Cognitive Search

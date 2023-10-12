@@ -1,5 +1,5 @@
 ---
-title: Configure a Temporary Access Pass in Azure AD to register passwordless authentication methods
+title: Configure a Temporary Access Pass in Microsoft Entra ID to register passwordless authentication methods
 description: Learn how to configure and enable users to register passwordless authentication methods by using a Temporary Access Pass 
 
 services: active-directory
@@ -15,12 +15,12 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Configure Temporary Access Pass in Azure AD to register passwordless authentication methods
+# Configure Temporary Access Pass in Microsoft Entra ID to register passwordless authentication methods
 
 Passwordless authentication methods, such as FIDO2 and passwordless phone sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
 Users can bootstrap Passwordless methods in one of two ways:
 
-- Using existing Azure AD Multi-Factor Authentication methods 
+- Using existing Microsoft Entra multifactor authentication methods 
 - Using a Temporary Access Pass (TAP) 
 
 A Temporary Access Pass is a time-limited passcode that can be configured for single use or multiple. Users can sign in with a Temporary Access Pass to onboard other authentication methods including passwordless methods such as Microsoft Authenticator, FIDO2 or Windows Hello for Business.
@@ -67,7 +67,7 @@ To configure the Temporary Access Pass authentication method policy:
 
 ## Create a Temporary Access Pass
 
-After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
+After you enable a policy, you can create a Temporary Access Pass for a user in Microsoft Entra ID. 
 These roles can perform the following actions related to a Temporary Access Pass.
 
 - Global Administrators can create, delete, and view a Temporary Access Pass on any user (except themselves)
@@ -124,7 +124,7 @@ The most common use for a Temporary Access Pass is for a user to register authen
    :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/enter.png" alt-text="Screenshot of how to enter a Temporary Access Pass.":::
 
 >[!NOTE]
->For federated domains, a Temporary Access Pass is preferred over federation. A user with a Temporary Access Pass completes the authentication in Azure AD and isn't redirected to the federated Identity Provider (IdP).
+>For federated domains, a Temporary Access Pass is preferred over federation. A user with a Temporary Access Pass completes the authentication in Microsoft Entra ID and isn't redirected to the federated Identity Provider (IdP).
 
 The user is now signed in and can update or register a method such as FIDO2 security key. 
 Users who update their authentication methods due to losing their credentials or device should make sure they remove the old authentication methods.
@@ -139,7 +139,7 @@ Users managing their security information at [https://aka.ms/mysecurityinfo](htt
 ### Windows device setup
 Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello for Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state. 
 
-For joined devices to Azure AD: 
+For joined devices to Microsoft Entra ID: 
 - During the domain-join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
 - On already-joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
 - If the [Web sign-in](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user doesn't know or have a password. 
@@ -198,7 +198,7 @@ For more information about NIST standards for onboarding and recovery, see [NIST
 Keep these limitations in mind:
 
 - When using a one-time Temporary Access Pass to register a Passwordless method such as FIDO2 or Phone sign-in, the user must complete the registration within 10 minutes of sign-in with the one-time Temporary Access Pass. This limitation doesn't apply to a Temporary Access Pass that can be used more than once.
-- Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) are required to register authentication methods after they've signed in with a Temporary Access Pass using a browser. 
+- Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection multifactor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) are required to register authentication methods after they've signed in with a Temporary Access Pass using a browser. 
 Users in scope for these policies are redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience doesn't currently support FIDO2 and Phone Sign-in registration. 
 - A Temporary Access Pass can't be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
 - It can take a few minutes for changes to replicate. Because of this, after a Temporary Access Pass is added to an account it can take a while for the prompt to appear. For the same reason, after a Temporary Access Pass expires, users may still see a prompt for Temporary Access Pass. 
@@ -215,4 +215,4 @@ Users in scope for these policies are redirected to the [Interrupt mode of the c
 
 ## Next steps
 
-- [Plan a passwordless authentication deployment in Azure Active Directory](howto-authentication-passwordless-deployment.md)
+- [Plan a passwordless authentication deployment in Microsoft Entra ID](howto-authentication-passwordless-deployment.md)

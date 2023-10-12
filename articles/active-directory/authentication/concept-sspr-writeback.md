@@ -1,6 +1,6 @@
 ---
 title: On-premises password writeback with self-service password reset
-description: Learn how password change or reset events in Azure Active Directory can be written back to an on-premises directory environment
+description: Learn how password change or reset events in Microsoft Entra ID can be written back to an on-premises directory environment
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -13,9 +13,9 @@ ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: ignite-fall-2021
 ---
-# How does self-service password reset writeback work in Azure Active Directory?
+# How does self-service password reset writeback work in Microsoft Entra ID?
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud, but most companies also have an on-premises Active Directory Domain Services (AD DS) environment for users. Password writeback allows password changes in the cloud to be written back to an on-premises directory in real time by using either [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) or [Azure AD Connect cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md). When users change or reset their passwords using SSPR in the cloud, the updated passwords also written back to the on-premises AD DS environment.
+Microsoft Entra self-service password reset (SSPR) lets users reset their passwords in the cloud, but most companies also have an on-premises Active Directory Domain Services (AD DS) environment for users. Password writeback allows password changes in the cloud to be written back to an on-premises directory in real time by using either [Microsoft Entra Connect](../hybrid/whatis-hybrid-identity.md) or [Microsoft Entra Connect cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md). When users change or reset their passwords using SSPR in the cloud, the updated passwords also written back to the on-premises AD DS environment.
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how self-service password reset writeback works. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
@@ -35,7 +35,7 @@ Password writeback provides the following features:
 * **Supports password changes from the access panel and Microsoft 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to AD DS.
 * **Supports password writeback when an admin resets them from the Microsoft Entra admin center**: When an admin resets a user's password in the [Microsoft Entra admin center](https://entra.microsoft.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
 * **Doesn't require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
-* **Supports side-by-side domain-level deployment** using [Azure AD Connect](tutorial-enable-sspr-writeback.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) to target different sets of users depending on their needs, including users who are in disconnected domains.  
+* **Supports side-by-side domain-level deployment** using [Microsoft Entra Connect](tutorial-enable-sspr-writeback.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) to target different sets of users depending on their needs, including users who are in disconnected domains.  
 
 > [!NOTE]
 > The on-premises service account that handles password write-back requests cannot change the passwords for users that belong to protected groups. Administrators can change their password in the cloud but they cannot use password write-back to reset a forgotten password for their on-premises user. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
@@ -43,15 +43,17 @@ Password writeback provides the following features:
 To get started with SSPR writeback, complete either one or both of the following tutorials:
 
 - [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-sspr-writeback.md)
-- [Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)](tutorial-enable-cloud-sync-sspr-writeback.md)
+- [Tutorial: Enable Microsoft Entra Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)](tutorial-enable-cloud-sync-sspr-writeback.md)
 
-## Azure AD Connect and cloud sync side-by-side deployment
+<a name='azure-ad-connect-and-cloud-sync-side-by-side-deployment'></a>
 
-You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
+## Microsoft Entra Connect and cloud sync side-by-side deployment
+
+You can deploy Microsoft Entra Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Microsoft Entra Connect and cloud sync can be configured in different domains so users from one domain can use Microsoft Entra Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Microsoft Entra Connect. For a feature comparison between the two deployment options, see [Comparison between Microsoft Entra Connect and cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
 
 ## How password writeback works
 
-When a user account configured for federation, password hash synchronization (or, in the case of an Azure AD Connect deployment, pass-through authentication) attempts to reset or change a password in the cloud, the following actions occur:
+When a user account configured for federation, password hash synchronization (or, in the case of a Microsoft Entra Connect deployment, pass-through authentication) attempts to reset or change a password in the cloud, the following actions occur:
 
 1. A check is performed to see what type of password the user has. If the password is managed on-premises:
    * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
@@ -65,16 +67,16 @@ When a user account configured for federation, password hash synchronization (or
 
    * The user object must exist in the AD DS connector space.
    * The user object must be linked to the corresponding metaverse (MV) object.
-   * The user object must be linked to the corresponding Azure AD connector object.
+   * The user object must be linked to the corresponding Microsoft Entra connector object.
    * The link from the AD DS connector object to the MV must have the synchronization rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.
 
-   When the call comes in from the cloud, the synchronization engine uses the **cloudAnchor** attribute to look up the Azure AD connector space object. It then follows the link back to the MV object, and then follows the link back to the AD DS object. Because there can be multiple AD DS objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
+   When the call comes in from the cloud, the synchronization engine uses the **cloudAnchor** attribute to look up the Microsoft Entra connector space object. It then follows the link back to the MV object, and then follows the link back to the AD DS object. Because there can be multiple AD DS objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
 
 1. After the user account is found, an attempt to reset the password directly in the appropriate AD DS forest is made.
 1. If the password set operation is successful, the user is told their password has been changed.
 
    > [!NOTE]
-   > If the user's password hash is synchronized to Azure AD by using password hash synchronization, there's a chance that the on-premises password policy is weaker than the cloud password policy. In this case, the on-premises policy is enforced. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
+   > If the user's password hash is synchronized to Microsoft Entra ID by using password hash synchronization, there's a chance that the on-premises password policy is weaker than the cloud password policy. In this case, the on-premises policy is enforced. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
 
 1. If the password set operation fails, an error prompts the user to try again. The operation might fail because of the following reasons:
     * The service was down.
@@ -107,13 +109,13 @@ After a user submits a password reset, the reset request goes through several en
 1. **Password encryption with 2048-bit RSA Key**: After a user submits a password to be written back to on-premises, the submitted password itself is encrypted with a 2048-bit RSA key.
 1. **Package-level encryption with 256-bit AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM (with a key size of 256 bits). This encryption prevents anyone with direct access to the underlying Service Bus channel from viewing or tampering with the contents.
 1. **All communication occurs over TLS/SSL**: All the communication with Service Bus happens in an SSL/TLS channel. This encryption secures the contents from unauthorized third parties.
-1. **Automatic key rollover every six months**: All keys roll over every six months, or every time password writeback is disabled and then re-enabled on Azure AD Connect, to ensure maximum service security and safety.
+1. **Automatic key rollover every six months**: All keys roll over every six months, or every time password writeback is disabled and then re-enabled on Microsoft Entra Connect, to ensure maximum service security and safety.
 
 ### Password writeback bandwidth usage
 
 Password writeback is a low-bandwidth service that only sends requests back to the on-premises agent under the following circumstances:
 
-* Two messages are sent when the feature is enabled or disabled through Azure AD Connect.
+* Two messages are sent when the feature is enabled or disabled through Microsoft Entra Connect.
 * One message is sent once every five minutes as a service heartbeat for as long as the service is running.
 * Two messages are sent each time a new password is submitted:
    * The first message is a request to perform the operation.
@@ -154,7 +156,7 @@ Passwords aren't written back in any of the following situations:
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
+> Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Microsoft Entra Connect. For more information, see [Implement password hash synchronization with Microsoft Entra Connect Sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
 > [!NOTE]
 > If a user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in even if the option to force the user to change their password on next logon option is selected during an administrator-initiated end-user password reset.

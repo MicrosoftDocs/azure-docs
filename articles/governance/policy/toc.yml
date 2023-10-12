@@ -110,6 +110,8 @@
         href: ./samples/cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.4.0
         href: ./samples/cis-azure-1-4-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 2.0.0
+        href: ./samples/cis-azure-2-0-0.md
       - name: CMMC Level 3
         href: ./samples/cmmc-l3.md
       - name: FedRAMP High

@@ -12,7 +12,7 @@ ms.reviewer: msft-poulomi
 ms.collection: M365-identity-device-management
 
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Microsoft Entra ID to improve and secure user sign-in events.
 ---
 
 # System-preferred multifactor authentication  - Authentication methods policy
@@ -54,7 +54,7 @@ By default, system-preferred MFA is [Microsoft managed](concept-authentication-d
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA, which can be a dynamic or nested group.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA, which can be a dynamic or nested group.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 ### Feature target properties
 
@@ -134,7 +134,5 @@ The system-preferred MFA also applies for users who are enabled for MFA in the l
 
 ## Next steps
 
-* [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)
 * [How to run a registration campaign to set up Microsoft Authenticator](how-to-mfa-registration-campaign.md)
-
-

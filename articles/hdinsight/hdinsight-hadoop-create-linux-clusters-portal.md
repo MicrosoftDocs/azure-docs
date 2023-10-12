@@ -58,7 +58,7 @@ Select **Next: Storage >>** to advance to the next tab.
 ## Storage
 
 > [!WARNING] 
-> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
+> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Microsoft Entra ID.
 
 :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight create cluster storage":::
 
@@ -93,7 +93,7 @@ From the **Security + networking** tab, provide the following information:
 
 |Property |Description |
 |---|---|
-|Enterprise security package|Optional: Select the check box to use **Enterprise Security Package**. For more information, see [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Enterprise security package|Optional: Select the check box to use **Enterprise Security Package**. For more information, see [Configure a HDInsight cluster with Enterprise Security Package by using Microsoft Entra Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Optional: Select a TLS version from the drop-down list. For more information, see [Transport Layer Security](./transport-layer-security.md).|
 |Virtual network|Optional: Select an existing virtual network and subnet from the drop-down list. For information, see [Plan a virtual network deployment for Azure HDInsight clusters](hdinsight-plan-virtual-network-deployment.md). The article includes specific configuration requirements for the virtual network.|
 |Disk encryption settings|Optional: Select the check box to use encryption. For more information, see [Customer-managed key disk encryption](./disk-encryption.md).|

@@ -6,7 +6,7 @@ ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 09/07/2023
+ms.date: 10/10/2023
 ---
 # Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster
 
@@ -60,7 +60,6 @@ You can opt out of telemetry, but make sure you understand this feature before d
 - **`infogw.api.openshift.com`**: Used for Red Hat telemetry.
 - **`https://cloud.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights (required in 4.10 and earlier only).
 - **`https://console.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights.
-- In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.12/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
 
 ---
 
@@ -164,7 +163,7 @@ az vm create --name ubuntu-jump \
              --resource-group $RESOURCEGROUP \
              --generate-ssh-keys \
              --admin-username $VMUSERNAME \
-             --image UbuntuLTS \
+             --image Ubuntu2204 \
              --subnet $JUMPSUBNET \
              --public-ip-address jumphost-ip \
              --vnet-name $AROVNET 

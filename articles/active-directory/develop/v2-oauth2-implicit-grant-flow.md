@@ -95,7 +95,7 @@ code=0.AgAAktYV-sfpYESnQynylW_UKZmH-C9y_G1A
 | `access_token` |Included if `response_type` includes `token`. The access token that the app requested. The access token shouldn't be decoded or otherwise inspected, it should be treated as an opaque string. |
 | `token_type` |Included if `response_type` includes `token`. This will always be `Bearer`. |
 | `expires_in`|Included if `response_type` includes `token`. Indicates the number of seconds the token is valid, for caching purposes. |
-| `scope` |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. May not include all the requested scopes if they weren't applicable to the user. For example, Azure AD-only scopes requested when logging in using a personal account. |
+| `scope` |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. May not include all the requested scopes if they weren't applicable to the user. For example, Microsoft Entra-only scopes requested when logging in using a personal account. |
 | `id_token` | A signed JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it shouldn't rely on them for any authorization or security boundaries. For more information about ID tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested and `response_type` included `id_tokens`. |
 | `state` |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
@@ -171,7 +171,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `access_token` |Included if `response_type` includes `token`. The access token that the app requested, in this case for the Microsoft Graph. The access token shouldn't be decoded or otherwise inspected, it should be treated as an opaque string. |
 | `token_type` | This will always be `Bearer`. |
 | `expires_in` | Indicates the number of seconds the token is valid, for caching purposes. |
-| `scope` | Indicates the scope(s) for which the access token will be valid. May not include all of the scopes requested, if they weren't applicable to the user (in the case of Azure AD-only scopes being requested when a personal account is used to log in). |
+| `scope` | Indicates the scope(s) for which the access token will be valid. May not include all of the scopes requested, if they weren't applicable to the user (in the case of Microsoft Entra-only scopes being requested when a personal account is used to log in). |
 | `id_token` | A signed JSON Web Token (JWT). Included if `response_type` includes `id_token`. The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it shouldn't rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token` reference](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 | `state` |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 

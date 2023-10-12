@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/21/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -41,7 +41,7 @@ The following example returns randomly generated numeric values.
 - This function doesn't use the index.
 - This function is nondeterministic. Repetitive calls of this function don't return the same results.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`IS_NUMBER`](is-number.md)

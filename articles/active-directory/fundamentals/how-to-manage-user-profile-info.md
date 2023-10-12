@@ -1,6 +1,6 @@
 ---
 title: How to manage user profile information
-description: Instructions about how to manage a user's profile and settings in Azure Active Directory.
+description: Instructions about how to manage a user's profile and settings in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -17,7 +17,7 @@ ms.reviewer: jeffsta
 
 A user's profile information and settings can be managed on an individual basis and for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Microsoft Entra ID administration portal. Some settings may be managed in more than one area. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
+This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Microsoft Entra administration portal. Some settings may be managed in more than one area. For more information about adding new users, see [How to add or delete users in Microsoft Entra ID](./add-users.md). 
 
 ## Add or change profile information
 
@@ -37,14 +37,14 @@ When new users are created, only a few details are added to their user profile. 
 
 1. After making any changes, select the **Save** button. 
 
-If you selected the **Edit properties option**:
+If you selected the **Edit properties** option:
    - The full list of properties appears in edit mode on the **All** category.
    - To edit properties based on the category, select a category from the top of the page.
    - Select the **Save** button at the bottom of the page to save any changes.
     
    ![Screenshot a selected user's details, with the detail categories and save button highlighted.](media/how-to-manage-user-profile-info/user-profile-properties-tabbed-view.png)
     
-If you selected the **Properties tab option**:
+If you selected the **Properties** tab option:
    - The full list of properties appears for you to review.
    - To edit a property, select the pencil icon next to the category heading.
    - Select the **Save** button at the bottom of the page to save any changes.
@@ -63,15 +63,15 @@ There are six categories of profile details you may be able to edit.
 
 - **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided. *Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
 
-- **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
+- **Settings:** Decide whether the user can sign in to the Microsoft Entra tenant. You can also specify the user's global location.
 
-- **On-premises:** Accounts synced from Windows Server Active Directory include other values not applicable to Azure AD accounts.
+- **On-premises:** Accounts synced from Windows Server Active Directory include other values not applicable to Microsoft Entra accounts.
 
 > [!NOTE]
 > You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ### Add or edit the profile picture
-On the user's overview page, select the camera icon in the lower-right corner of the user's thumbnail. If no image has been added, the user's initials appear here. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page. 
+On the user's overview page, select the camera icon in the lower-right corner of the user's thumbnail. If no image has been added, the user's initials appear here. This picture appears in Microsoft Entra ID and on the user's personal pages, such as the myapps.microsoft.com page. 
 
 All your changes are saved for the user.
 
@@ -85,7 +85,7 @@ In the **User settings** area, you can adjust several settings that affect all u
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Users** > **User settings**.
 
-[ ![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png) ](media/how-to-manage-user-profile-info/user-settings.png#lightbox)
+[ ![Screenshot of the Microsoft Entra user settings options.](media/how-to-manage-user-profile-info/user-settings.png) ](media/how-to-manage-user-profile-info/user-settings.png#lightbox)
 
 The following settings can be managed from **User settings**.
 
@@ -97,7 +97,7 @@ The following settings can be managed from **User settings**.
     - Guest users have the same access as members (most inclusive)
     - Guest users have limited access to properties and memberships of directory objects
     - Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)
-- Restrict access to the Microsoft Entra ID administration portal
+- Restrict access to the Microsoft Entra administration portal
 - [Allow users to connect their work or school account with LinkedIn](../enterprise-users/linkedin-user-consent.md)
 - [Enable the "Stay signed in?" prompt](how-to-manage-stay-signed-in-prompt.md)
 - Manage external collaboration settings
@@ -112,9 +112,6 @@ The following settings can be managed from **User settings**.
 ## Next steps
 
 - [Add or delete users](./add-users.md)
-
 - [Assign roles to users](./how-subscriptions-associated-directory.md)
-
 - [Create a basic group and add members](./how-to-manage-groups.md)
-
-- [View Azure AD enterprise user management documentation](../enterprise-users/index.yml).
+- [View Microsoft Entra enterprise user management documentation](../enterprise-users/index.yml)

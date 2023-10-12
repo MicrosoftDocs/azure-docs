@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Authentication Libraries
+title: Azure Active Directory Authentication Library
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 author: rwike77
@@ -15,7 +15,7 @@ ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
 
-# Azure Active Directory Authentication Libraries
+# Azure Active Directory Authentication Library
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -26,7 +26,7 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 - Support for asynchronous method calls
 
 > [!NOTE]
-> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
+> Looking for the Azure AD v2.0 libraries? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
 
 
 > [!WARNING]
@@ -73,10 +73,10 @@ In this scenario, a developer has an application running on a server that needs 
 
 ### Authenticating a confidential client application running on a server, on behalf of a user
 
-In this scenario, a developer has a web application running on a server that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls, so it must be called from an authorized service on behalf of an authenticated user. The web API is pre-configured to trust access tokens issued by a specific Azure AD tenant, and Azure AD is pre-configured to issue access tokens for that resource to a service with client credentials. Once the user is authenticated in the web application, the application can get an authorization code for the user from Azure AD. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Azure AD. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received. For a code sample that demonstrates this scenario, see [Native client to Web API to Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+In this scenario, a developer has a web application running on a server that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls, so it must be called from an authorized service on behalf of an authenticated user. The web API is pre-configured to trust access tokens issued by a specific Microsoft Entra tenant, and Microsoft Entra ID is pre-configured to issue access tokens for that resource to a service with client credentials. Once the user is authenticated in the web application, the application can get an authorization code for the user from Microsoft Entra ID. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Microsoft Entra ID. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received. For a code sample that demonstrates this scenario, see [Native client to Web API to Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## See Also
 
 - [The Azure Active Directory developer's guide](v1-overview.md)
-- [Authentication scenarios for Azure Active directory](v1-authentication-scenarios.md)
+- [Authentication scenarios for Azure Active Directory](v1-authentication-scenarios.md)
 - [Azure Active Directory code samples](sample-v1-code.md)

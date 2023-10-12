@@ -1,6 +1,6 @@
 ---
 title: Create a trust relationship between a user-assigned managed identity and an external identity provider
-description: Set up a trust relationship between a user-assigned managed identity in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates.
+description: Set up a trust relationship between a user-assigned managed identity in Microsoft Entra ID and an external identity provider.  This allows a software workload outside of Azure to access Microsoft Entra protected resources without using secrets or certificates.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
-#Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
+#Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Microsoft Entra protected resources without managing secrets.
 ---
 
 # Configure a user-assigned managed identity to trust an external identity provider
 
-This article describes how to manage a federated identity credential on a user-assigned managed identity in Azure Active Directory (Azure AD).  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity isn't supported.
+This article describes how to manage a federated identity credential on a user-assigned managed identity in Microsoft Entra ID.  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity isn't supported.
 
-After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload uses the access token to access Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).
+After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload uses the access token to access Microsoft Entra protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).
 
 In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 
@@ -60,7 +60,7 @@ To add a federated identity for GitHub actions, follow these steps:
 
 1. Select **Add** to configure the federated credential.
 
-Use the following values from your Azure AD Managed Identity for your GitHub workflow:
+Use the following values from your Microsoft Entra managed identity for your GitHub workflow:
 
 - `AZURE_CLIENT_ID` the managed identity **Client ID**
 
@@ -70,7 +70,7 @@ Use the following values from your Azure AD Managed Identity for your GitHub wor
 
     [![Screenshot that demonstrates how to copy the managed identity ID and subscription ID from Azure portal.](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png)](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png#lightbox)
 
-- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
+- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 #### Entity type examples
 
@@ -152,7 +152,7 @@ Specify the following fields (using a software workload running in Google Cloud 
 
 - **Name** is the name of the federated credential, which can't be changed later.
 - **Subject identifier**: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
-- **Issuer**: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. For Google Cloud, the *issuer* is "https://accounts.google.com".
+- **Issuer**: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Microsoft Entra ID uses this issuer URL to fetch the keys that are necessary to validate the token. For Google Cloud, the *issuer* is "https://accounts.google.com".
 
 Select **Add** to configure the federated credential.
 

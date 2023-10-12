@@ -1,6 +1,6 @@
 ---
 title: Self-service password reset reports
-description: Reporting on Azure AD self-service password reset events
+description: Reporting on Microsoft Entra self-service password reset events
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -13,11 +13,11 @@ ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: ignite-fall-2021
 ---
-# Reporting options for Azure AD password management
+# Reporting options for Microsoft Entra password management
 
-After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
+After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Microsoft Entra ID provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
-![Reporting on SSPR using the audit logs in Azure AD][Reporting]
+![Reporting on SSPR using the audit logs in Microsoft Entra ID][Reporting]
 
 The following questions can be answered by the reports that exist in the [Microsoft Entra admin center](https://entra.microsoft.com):
 
@@ -74,9 +74,9 @@ The following activity types appear in the **Self-Service Password Management** 
 * [Blocked from self-service password reset](#activity-type-blocked-from-self-service-password-reset): Indicates that a user tried to reset a password, use a specific gate, or validate a phone number more than five total times in 24 hours.
 * [Change password (self-service)](#activity-type-change-password-self-service): Indicates that a user performed a voluntary, or forced (due to expiry) password change.
 * [Reset password (by admin)](#activity-type-reset-password-by-admin): Indicates that an administrator performed a password reset on behalf of a user.
-* [Reset password (self-service)](#activity-type-reset-password-self-service): Indicates that a user successfully reset their password from [Azure AD password reset](https://passwordreset.microsoftonline.com).
+* [Reset password (self-service)](#activity-type-reset-password-self-service): Indicates that a user successfully reset their password from [Microsoft Entra password reset](https://passwordreset.microsoftonline.com).
 * [Self-service password reset flow activity progress](#activity-type-self-serve-password-reset-flow-activity-progress): Indicates each specific step a user proceeds through, such as passing a specific password reset authentication gate, as part of the password reset process.
-* [Unlock user account (self-service)](#activity-type-unlock-a-user-account-self-service): Indicates that a user successfully unlocked their Active Directory account without resetting their password from [Azure AD password reset](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
+* [Unlock user account (self-service)](#activity-type-unlock-a-user-account-self-service): Indicates that a user successfully unlocked their Active Directory account without resetting their password from [Microsoft Entra password reset](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
 * [User registered for self-service password reset](#activity-type-user-registered-for-self-service-password-reset): Indicates that a user has registered all the required information to be able to reset their password in accordance with the currently specified tenant password reset policy.
 
 ### Activity type: Blocked from self-service password reset
@@ -115,14 +115,14 @@ The following list explains this activity in detail:
   * _Failure_: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 - **Activity additional details OnPremisesAgent**:
   - _None_: Indicates cloud-only reset.
-  - _AAD Connect_: Indicates password was reset on-premises via Azure AD Connect writeback agent.
-  - _CloudSync_: Indicates password was reset on-premises via Azure AD CloudSync writeback agent.
+  - _AAD Connect_: Indicates password was reset on-premises via Microsoft Entra Connect writeback agent.
+  - _CloudSync_: Indicates password was reset on-premises via Microsoft Entra CloudSync writeback agent.
 
 ### Activity type: Reset password (self-service)
 
 The following list explains this activity in detail:
 
-* **Activity description**: Indicates that a user successfully reset their password from [Azure AD password reset](https://passwordreset.microsoftonline.com).
+* **Activity description**: Indicates that a user successfully reset their password from [Microsoft Entra password reset](https://passwordreset.microsoftonline.com).
 * **Activity actor**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity target**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity statuses**:
@@ -148,7 +148,7 @@ The following list explains this activity in detail:
 
 The following list explains this activity in detail:
 
-* **Activity description**: Indicates that a user successfully unlocked their Active Directory account without resetting their password from [Azure AD password reset](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
+* **Activity description**: Indicates that a user successfully unlocked their Active Directory account without resetting their password from [Microsoft Entra password reset](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
 * **Activity actor**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Activity target**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Allowed activity statuses**:

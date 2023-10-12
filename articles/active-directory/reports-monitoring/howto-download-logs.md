@@ -1,6 +1,6 @@
 ---
-title: How to download logs in Azure Active Directory
-description: Learn how to download audit, sign-in, and provisioning log data for storage in Azure Active Directory.
+title: How to download logs in Microsoft Entra ID
+description: Learn how to download audit, sign-in, and provisioning log data for storage in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,33 +13,33 @@ ms.author: sarahlipsey
 ms.reviewer: besiler 
 ---
 
-# How to download logs in Azure Active Directory
+# How to download logs in Microsoft Entra ID
 
-The Azure Active Directory (Azure AD) portal gives you access to three types of activity logs:
+The Microsoft Entra admin center gives you access to three types of activity logs:
 
 - **[Sign-ins](concept-sign-ins.md)**: Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)**: Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)**: Activities performed by a provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
-Azure AD stores the data in these logs for a limited amount of time. As an IT administrator, you can download your activity logs to have a long-term backup. This article explains how to download activity logs in Azure AD. 
+Microsoft Entra ID stores the data in these logs for a limited amount of time. As an IT administrator, you can download your activity logs to have a long-term backup. This article explains how to download activity logs in Microsoft Entra ID. 
 
 ## Prerequisites 
 
-The option to download the data of an activity log is available in all editions of Azure AD. You can also download activity logs using Microsoft Graph; however, downloading logs programmatically requires a premium license.
+The option to download the data of an activity log is available in all editions of Microsoft Entra ID. You can also download activity logs using Microsoft Graph; however, downloading logs programmatically requires a premium license.
 
 The required roles and licenses may vary based on the report. Global Administrators can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
 | Log / Report | Roles | Licenses |
 |--|--|--|
-| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
-| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
-| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
+| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
+| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | P1 or P2 |
 
 ## Log download details
 
-Azure AD stores activity logs for a specific period. For more information, see [How long does Azure AD store reporting data?](reference-reports-data-retention.md) By downloading the logs, you can control how long logs are stored. 
+Microsoft Entra ID stores activity logs for a specific period. For more information, see [How long does Microsoft Entra ID store reporting data?](reference-reports-data-retention.md) By downloading the logs, you can control how long logs are stored. 
 
-- Azure AD supports the following formats for your download:
+- Microsoft Entra ID supports the following formats for your download:
     - **CSV** 
     - **JSON** 
 - Timestamps in the downloaded files are based on UTC.
@@ -51,7 +51,7 @@ Azure AD stores activity logs for a specific period. For more information, see [
 
 ## How to download activity logs
 
-You can access the activity logs from the **Monitoring** section of Azure AD or from the **Users** page of Azure AD. If you view the audit logs from the **Users** page, the filter category is set to **UserManagement**. Similarly, if you view the audit logs from the **Groups** page, the filter category is set to **GroupManagement**. Regardless of how you access the activity logs, your download is based on the filter you've set. 
+You can access the activity logs from the **Monitoring** section of Microsoft Entra ID or from the **Users** page of Microsoft Entra ID. If you view the audit logs from the **Users** page, the filter category is set to **UserManagement**. Similarly, if you view the audit logs from the **Groups** page, the filter category is set to **GroupManagement**. Regardless of how you access the activity logs, your download is based on the filter you've set. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
 1. Browse to **Identity** > **Monitoring & health** > **Audit logs**/**Sign-in logs**/**Provisioning logs**.
@@ -73,5 +73,5 @@ If your tenant has enabled the [sign-in logs preview](concept-all-sign-ins.md), 
 
 ## Next steps
 
-- [Integrate Azure AD logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
-- [Access Azure AD logs using the Graph API](quickstart-access-log-with-graph-api.md)
+- [Integrate Microsoft Entra logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+- [Access Microsoft Entra logs using the Graph API](quickstart-access-log-with-graph-api.md)

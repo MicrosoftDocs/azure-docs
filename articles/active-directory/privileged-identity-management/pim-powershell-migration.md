@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 07/11/2023
 ms.author: billmath
 ms.reviewer: shaunliu
-ms.custom: pim 
+ms.custom: pim, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
 ---
 # PIM PowerShell for Azure Resources Migration Guidance
@@ -33,4 +33,4 @@ The following table provides guidance on using the new PowerShell cmdlts in the 
 
 ## Next steps
 
-- [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
+- [Microsoft Entra Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)

@@ -7,9 +7,6 @@ items:
     href: overview.md
   - name: Get started with Azure Orbital Ground Station
     href: get-started.md
-  - name: What is the Azure Space Partner Community?
-    href: space-partner-program-overview.md
-
 - name: Quickstart
   items:
   - name: Register a spacecraft

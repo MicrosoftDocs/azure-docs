@@ -36,7 +36,7 @@ ms.custom: mode-api, devx-track-js
 > * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 > 
 > #### Step 1: Configure the application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
+> For the code sample for this quickstart to work, you need to add a reply URL as `msal://redirect`.
 > 
 > <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 

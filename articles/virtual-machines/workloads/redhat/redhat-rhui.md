@@ -192,7 +192,7 @@ Run the following as root:
 
 RHUI is available in all regions where RHEL on-demand images are available. Availability currently includes all public regions listed in the [Azure status dashboard](https://azure.microsoft.com/status/), Azure US Government, and Microsoft Azure Germany regions.
 
-If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on your environment:
+If you're using a network configuration (custom Firewall or UDR configurations) to further restrict `https` access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on your environment:
 
 ```output
 # Azure Global
@@ -203,6 +203,7 @@ RHUI 3
 52.174.163.213
 52.237.203.198
 
+# For RHUI 4 connections, You are required to allow all IPs in your firewall/UDR configuration as updates are delivered from the nearest healthy region.
 RHUI 4
 westeurope - 52.136.197.163
 southcentralus - 20.225.226.182
@@ -212,15 +213,19 @@ southeastasia - 20.24.186.80
 
 # Azure US Government.
 # To be deprecated after 10th April 2023.
+# Newer RHEL images are already redirected to Public region for updates. If you have already added below IPs to your UDR/firewall, you are not required to remove these IPs until next update on this doc.
 # For RHUI 4 connections, use public RHUI IPs as provided above.
 13.72.186.193
 13.72.14.155
 52.244.249.194
-
 ```
 
 > [!NOTE]
-> The new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
+> 
+> - As of October 12, 2023, all pay-as-you-go (PAYG) clients will be directed to the Red Hat Update Infrastructure (RHUI) 4 IPs in phase over the next two months. During this time, the RHUI3 IPs will remain for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs must be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. Do not remove RHUI3 IPs to continue receiving updates during the transition period.
+>
+> - Also, the new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
+
 >
 > Also, Azure Germany is deprecated in favor of public Germany regions. We recommend for Azure Germany customers to start pointing to public RHUI by using the steps in [Manual update procedure to use the Azure RHUI servers](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
@@ -248,7 +253,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 In September 2016, Azure deployed an updated Azure RHUI. In April 2017, the old Azure RHUI was shut down. If you have been using the RHEL PAYG images or their snapshots from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
 
-The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com, regardless of region.
+The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com and rhui4-1.microfot.com, regardless of region.
 
 ### Manual update procedure to use the Azure RHUI servers
 

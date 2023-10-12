@@ -1,6 +1,6 @@
 ---
 title: Configure cross-tenant synchronization using PowerShell or Microsoft Graph API
-description: Learn how to configure cross-tenant synchronization in Azure Active Directory using Microsoft Graph PowerShell or Microsoft Graph API.
+description: Learn how to configure cross-tenant synchronization in Microsoft Entra ID using Microsoft Graph PowerShell or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Configure cross-tenant synchronization using PowerShell or Microsoft Graph API
 
-This article describes the key steps to configure cross-tenant synchronization using Microsoft Graph PowerShell or Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Microsoft Entra admin center, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+This article describes the key steps to configure cross-tenant synchronization using Microsoft Graph PowerShell or Microsoft Graph API. When configured, Microsoft Entra ID automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Microsoft Entra admin center, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 :::image type="content" source="./media/common/configure-diagram.png" alt-text="Diagram that shows cross-tenant synchronization between source tenant and target tenant." lightbox="./media/common/configure-diagram.png":::
 
@@ -25,7 +25,7 @@ This article describes the key steps to configure cross-tenant synchronization u
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
 - [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization.
 - [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration.
@@ -33,7 +33,7 @@ This article describes the key steps to configure cross-tenant synchronization u
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
@@ -426,7 +426,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 # [PowerShell](#tab/ms-powershell)
 
-1. In the source tenant, use the [Invoke-MgInstantiateApplicationTemplate](/powershell/module/microsoft.graph.applications/invoke-mginstantiateapplicationtemplate) command to add an instance of a configuration application from the Azure AD application gallery into your tenant.
+1. In the source tenant, use the [Invoke-MgInstantiateApplicationTemplate](/powershell/module/microsoft.graph.applications/invoke-mginstantiateapplicationtemplate) command to add an instance of a configuration application from the Microsoft Entra application gallery into your tenant.
 
     ```powershell
     Invoke-MgInstantiateApplicationTemplate -ApplicationTemplateId "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7" -DisplayName "Fabrikam"
@@ -489,7 +489,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 # [Microsoft Graph](#tab/ms-graph)
 
-1. In the source tenant, use the [applicationTemplate: instantiate](/graph/api/applicationtemplate-instantiate) API to add an instance of a configuration application from the Azure AD application gallery into your tenant.
+1. In the source tenant, use the [applicationTemplate: instantiate](/graph/api/applicationtemplate-instantiate) API to add an instance of a configuration application from the Microsoft Entra application gallery into your tenant.
     
     **Request**
     
@@ -1532,5 +1532,5 @@ You are likely trying to update an object that doesn't exist using `PATCH`.
 
 ## Next steps
 
-- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
-- [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
+- [Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID](../app-provisioning/use-scim-to-provision-users-and-groups.md)

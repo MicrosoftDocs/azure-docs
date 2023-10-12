@@ -2,7 +2,7 @@
 title: Distributed tracing and telemetry correlation in Azure Application Insights
 description: This article provides information about distributed tracing and telemetry correlation
 ms.topic: conceptual
-ms.date: 03/30/2023
+ms.date: 10/11/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
@@ -29,7 +29,7 @@ The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](../app/nodejs.md)
 * [JavaScript](./javascript.md#enable-distributed-tracing)
-* [Python](opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
 With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in the [Dependency auto-collection documentation](asp-net-dependencies.md#dependency-auto-collection).
 
@@ -39,7 +39,7 @@ With the proper Application Insights SDK installed and configured, tracing infor
 
 Application Insights now supports distributed tracing through [OpenTelemetry](https://opentelemetry.io/). OpenTelemetry provides a vendor-neutral instrumentation to send traces, metrics, and logs to Application Insights. Initially, the OpenTelemetry community took on distributed tracing. Metrics and logs are still in progress.
 
-A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](opentelemetry-enable.md) only include distributed tracing. Our Java OpenTelemetry-based Azure Monitor offering is generally available and fully supported.
+A complete observability story includes all three pillars. Check the status of our [Azure Monitor OpenTelemetry-based offerings](opentelemetry-enable.md) to see the latest status on what's included, which offerings are generally available, and support options.
 
 The following pages consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
 
@@ -52,7 +52,7 @@ The following pages consist of language-by-language guidance to enable and confi
 
 In addition to the Application Insights SDKs, Application Insights also supports distributed tracing through [OpenCensus](https://opencensus.io/). OpenCensus is an open-source, vendor-agnostic, single distribution of libraries to provide metrics collection and distributed tracing for services. It also enables the open-source community to enable distributed tracing with popular technologies like Redis, Memcached, or MongoDB. [Microsoft collaborates on OpenCensus with several other monitoring and cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-For more information on OpenCensus for Python, see [Set up Azure Monitor for your Python application](opencensus-python.md).
+For more information on OpenCensus for Python, see [Set up Azure Monitor for your Python application](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 The OpenCensus website maintains API reference documentation for [Python](https://opencensus.io/api/python/trace/usage.html), [Go](https://godoc.org/go.opencensus.io), and various guides for using OpenCensus.
 
@@ -171,7 +171,7 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 ### Enable W3C distributed tracing support for web apps
 
-This feature is enabled by default for Javascript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
+This feature is enabled by default for JavaScript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
 
 - **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
@@ -259,7 +259,7 @@ By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-cont
 
 If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under **Logs (Analytics)** in the Azure Monitor Application Insights resource.
 
-:::image type="content" source="./media/opencensus-python/0011-correlation.png" lightbox="./media/opencensus-python/0011-correlation.png" alt-text="Screenshot that shows Request telemetry in Logs (Analytics).":::
+:::image type="content" source="./media/distributed-tracing-telemetry-correlation/0011-correlation.png" lightbox="./media/distributed-tracing-telemetry-correlation/0011-correlation.png" alt-text="Screenshot that shows Request telemetry in Logs (Analytics).":::
 
 The `id` field is in the format `<trace-id>.<span-id>`, where `trace-id` is taken from the trace header that was passed in the request and `span-id` is a generated 8-byte array for this span.
 
@@ -303,7 +303,7 @@ When this code runs, the following prints in the console:
 
 Notice that there's a `spanId` present for the log message that's within the span. The `spanId` is the same as that which belongs to the span named `hello`.
 
-You can export the log data by using `AzureLogHandler`. For more information, see [Set up Azure Monitor for your Python application](./opencensus-python.md#logs).
+You can export the log data by using `AzureLogHandler`. For more information, see [Set up Azure Monitor for your Python application](/previous-versions/azure/azure-monitor/app/opencensus-python#logs).
 
 We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components, `module1` and `module2`. Module1 calls functions in Module2. To get logs from both `module1` and `module2` in a single trace, we can use the following approach:
 

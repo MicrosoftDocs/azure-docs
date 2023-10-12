@@ -1,7 +1,7 @@
 ---
 
 title: Add Facebook as an identity provider
-description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
+description: Federate with Facebook to enable external users (guests) to sign in to your Microsoft Entra apps with their own Facebook accounts.
 
 services: active-directory
 ms.service: active-directory
@@ -38,7 +38,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 > [!NOTE]  
 > Use the following URLs in the steps 9 and 16 below.
 > - For **Site URL** enter the address of your application, such as `https://contoso.com`.
-> - For **Valid OAuth redirect URIs**, enter `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. You can find your `<tenant-ID>` in the Azure Active Directory Overview blade.
+> - For **Valid OAuth redirect URIs**, enter `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. To find your tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Identity**, select **Overview** and copy the **Tenant ID**.
 
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
@@ -48,7 +48,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 1. **Add an app name** and a valid **App contact email**.
 1. Select **Create app**. This may require you to accept Facebook platform policies and complete an online security check.
 1. Select **Settings** > **Basic**.
-1. Choose a **Category**, for example **Business and pages**. This value is required by Facebook, but not used for Azure AD.
+1. Choose a **Category**, for example **Business and pages**. This value is required by Facebook, but not used for Microsoft Entra External ID.
 1. At the bottom of the page, select **Add Platform**, and then select **Website**.
 1. In **Site URL**, enter the appropriate URL (noted above).
 1. In **Privacy Policy URL** at the top of the page, enter the URL for the page where you maintain privacy information for your application, for example `http://www.contoso.com`.
@@ -59,7 +59,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 1. Under **Facebook Login** in the left, select **Settings**.
 1. In **Valid OAuth redirect URIs**, enter the appropriate URL (noted above).
 1. Select **Save changes** at the bottom of the page.
-1. To make your Facebook application available to Azure AD, select the **App Mode** selector at the top of the page and turn it **Live** to make the Application public.
+1. To make your Facebook application available to Microsoft Entra External ID, select the **App Mode** selector at the top of the page and turn it **Live** to make the Application public.
 	
 ## Configure a Facebook account as an identity provider
 Now you'll set the Facebook client ID and client secret, either by entering it in the Microsoft Entra admin center or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.

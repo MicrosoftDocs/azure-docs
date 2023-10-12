@@ -5,8 +5,7 @@ description: Learn about the content moderation APIs for Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: reference
 ms.date: 05/29/2019
 ms.author: pafarley

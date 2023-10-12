@@ -2,8 +2,8 @@
 title: How to use the Azure Maps web map control
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -28,7 +28,7 @@ This article uses the Azure Maps Web SDK, however the Azure Maps services work w
 To use the Map Control in a web page, you must have one of the following prerequisites:
 
 * An [Azure Maps account]
-* A [subscription key] or Azure Active Directory (Azure AD) credentials. For more information, see [authentication options].
+* A [subscription key] or Microsoft Entra credentials. For more information, see [authentication options].
 
 ## Create a new map in a web page
 
@@ -85,7 +85,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </body>
    ```
 
-5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Azure AD credentials with [authentication options].
+5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Microsoft Entra credentials with [authentication options].
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
@@ -106,7 +106,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </script>
     ```
 
-    If you're using Azure AD for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element.
+    If you're using Microsoft Entra ID for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element.
 
       ```HTML
     <script type="text/javascript">
@@ -118,9 +118,9 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                 language: 'en-US',
                 authOptions: {
                     authType: 'aad',
-                    clientId: '<Your AAD Client Id>',
-                    aadAppId: '<Your AAD App Id>',
-                    aadTenant: '<Your AAD Tenant Id>'
+                    clientId: '<Your Microsoft Entra Client Id>',
+                    aadAppId: '<Your Microsoft Entra App Id>',
+                    aadTenant: '<Your Microsoft Entra tenant Id>'
                 }
             });
         }
@@ -437,10 +437,10 @@ Learn best practices and see samples:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-For a list of samples showing how to integrate Azure AD with Azure Maps, see:
+For a list of samples showing how to integrate Microsoft Entra ID with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Microsoft Entra authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
 [3D terrain tiles]: #3d-terrain-tiles
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions

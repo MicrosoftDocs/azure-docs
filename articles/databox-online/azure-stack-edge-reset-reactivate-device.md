@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 10/09/2023
 ms.author: alkohli
 ---
 
@@ -31,7 +31,12 @@ To wipe the data off the data disks of your device, you need to reset your devic
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
 >[!IMPORTANT]
-> Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+> - Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+> - If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior: 
+> -- In the local web UI, if you go to Software updates page, you see that the Kubernetes version is unavailable.
+> -- In Azure portal, you are prompted to apply a Kubernetes update.
+> Go ahead and apply the Kubernetes update.
+> -- After device reset, you must select a Kubernetes workload profile again. Otherwise, the default "Other workloads" profile will be applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1).  
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 

@@ -21,7 +21,7 @@ The *Drawing Error Visualizer* is a stand-alone web application that displays [D
 * A [subscription key]
 * A [Creator resource]
 
-This tutorial uses the [Postman] application, but you may choose a different API development environment.
+This tutorial uses the [Postman] application, but you can choose a different API development environment.
 
 ## Download
 
@@ -63,7 +63,7 @@ Unzip the _VisualizationTool.zip_ folder. It contains the following items:
 * _static_ folder: source code
 * _index.html_ file: the web application.
 
-Open the _index.html_ file using any of the following browsers, with the respective version number. You may use a different version, if the version offers equally compatible behavior as the listed version.
+Open the _index.html_ file using any of the following browsers, with the respective version number. You can use a different version, if the version offers equally compatible behavior as the listed version.
 
 * Microsoft Edge 80
 * Safari 13
@@ -80,7 +80,7 @@ The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the 
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Drawing Error Visualizer App - Drag and drop to load data":::
 
-The _ConversionWarningsAndErrors.json_ contains a list of your drawing package errors and warnings. To view detailed information about an error or warning, select the **Details** link. An intractable section appears below the list. You may now navigate to each error to learn more details on how to resolve the error.
+The _ConversionWarningsAndErrors.json_ contains a list of your drawing package errors and warnings. To view detailed information about an error or warning, select the **Details** link. An intractable section appears below the list. You can now navigate to each error to learn more details on how to resolve the error.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error Visualizer App - Errors and Warnings":::
 

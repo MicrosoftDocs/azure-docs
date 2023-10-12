@@ -1,6 +1,6 @@
 ---
-title: Azure AD Multi-Factor Auth Providers
-description: When should you use an Auth Provider with Azure MFA?
+title: Microsoft Entra multifactor authentication providers
+description: When should you use an authentication provider with Microsoft Entra multifactor authentication (MFA)?
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# When to use an Azure AD Multi-Factor Authentication provider
+# When to use a Microsoft Entra multifactor authentication provider
 
 > [!IMPORTANT]
-> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated, but migration is no longer possible. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
+> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated, but migration is no longer possible. Multifactor authentication will continue to be available as a feature in Microsoft Entra ID P1 or P2 licenses.
 
-Two-step verification is available by default for Global Administrators who have Azure Active Directory, and Microsoft 365 users. However, if you wish to take advantage of [advanced features](howto-mfa-mfasettings.md) then you should purchase the full version of Azure AD Multi-Factor Authentication (MFA).
+Two-step verification is available by default for Global Administrators who have Microsoft Entra ID, and Microsoft 365 users. However, if you wish to take advantage of [advanced features](howto-mfa-mfasettings.md) then you should purchase the full version of Microsoft Entra multifactor authentication.
 
-An Azure AD Multi-Factor Auth Provider is used to take advantage of features provided by Azure AD Multi-Factor Authentication for users who **do not have licenses**.
+A Microsoft Entra multifactor authentication provider is used to take advantage of features provided by Microsoft Entra multifactor authentication for users who **do not have licenses**.
 
 ## Caveats related to the Azure MFA SDK
 
@@ -30,7 +30,7 @@ Note the SDK has been deprecated and will only continue to work until November 1
 
 ## What is an MFA provider?
 
-There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if some accounts authenticate only occasionally. The per-user option calculates the number of accounts that are eligible to perform MFA, which is all accounts in Azure AD, and all enabled accounts in MFA Server. This option is best if some users have licenses but you need to extend MFA to more users beyond your licensing limits.
+There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if some accounts authenticate only occasionally. The per-user option calculates the number of accounts that are eligible to perform MFA, which is all accounts in Microsoft Entra ID, and all enabled accounts in MFA Server. This option is best if some users have licenses but you need to extend MFA to more users beyond your licensing limits.
 
 ## Manage your MFA provider
 
@@ -38,7 +38,7 @@ You can't change the usage model (per enabled user or per authentication) after 
 
 If you purchased enough licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
 
-If your MFA provider isn't linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options aren't transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider.
+If your MFA provider isn't linked to a Microsoft Entra tenant, or you link the new MFA provider to a different Microsoft Entra tenant, user settings and configuration options aren't transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider.
 
 ### Removing an authentication provider
 
@@ -71,4 +71,4 @@ After you confirm that all settings are migrated, browse to **Providers** and se
 
 ## Next steps
 
-[Configure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+[Configure multifactor authentication settings](howto-mfa-mfasettings.md)

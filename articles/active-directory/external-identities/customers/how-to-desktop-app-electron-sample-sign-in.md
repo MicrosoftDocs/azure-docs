@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 05/22/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Electron desktop app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Electron desktop app to sign in and sign out users with my Microsoft Entra ID for customers tenant
 ---
 
 # Sign in users in a sample Electron desktop application
@@ -28,7 +28,7 @@ In this article, you do the following tasks:
 
 - Associate your web application with the user flow. 
 
-- Update a sample Electron desktop application using your own Azure Active Directory (Azure AD) for customers tenant details.
+- Update a sample Electron desktop application using your own Microsoft Entra ID for customers tenant details.
 
 - Run and test the sample desktop application.
 
@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
 ## Register desktop app

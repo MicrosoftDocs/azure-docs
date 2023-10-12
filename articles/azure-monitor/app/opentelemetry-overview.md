@@ -22,7 +22,7 @@ There are two methods to instrument your application:
 **Autoinstrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Autoinstrumentation supported environments and languages](codeless-overview.md). When autoinstrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
 
 > [!TIP]
-> Currently, [Azure AD Authentication](azure-ad-authentication.md) is not available with autoinstrumentation. If you require AAD Auth, you'll need to use manual instrumentation.
+> Currently, [Microsoft Entra authentication](azure-ad-authentication.md) is not available with autoinstrumentation. If you require Microsoft Entra auth, you'll need to use manual instrumentation.
 
 **Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
 
@@ -99,8 +99,8 @@ Select your enablement approach:
     - [ASP.NET](./asp-net.md)
     - [ASP.NET Core](./asp-net-core.md)
     - [Node.js](./nodejs.md)
-    - [Python](./opencensus-python.md)
+    - [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
     - [JavaScript: Web](./javascript.md)
 - [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md)
 
-Check out the [Azure Monitor Application Insights FAQ](/azure/azure-monitor/faq#application-insights) and [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry) for more information.
+Check out the [Azure Monitor Application Insights FAQ](./app-insights-overview.md#frequently-asked-questions) and [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry) for more information.

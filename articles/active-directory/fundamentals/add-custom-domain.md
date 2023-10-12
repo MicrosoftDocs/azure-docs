@@ -15,7 +15,7 @@ ms.reviewer: elkuzmen
 ---
 # Add your custom domain name to your tenant
 
-Azure Active Directory (Azure AD) tenants come with an initial domain name like, `domainname.onmicrosoft.com`. You can't change or delete the initial domain name, but you can add your organization's names. Adding custom domain names helps you to create user names that are familiar to your users, such as `alain@contoso.com`.
+Microsoft Entra tenants come with an initial domain name like, `domainname.onmicrosoft.com`. You can't change or delete the initial domain name, but you can add your organization's name to the initial domain. By adding your custom domain name, you can then add user names that are familiar to your users, such as `alain@contoso.com`.
 
 ## Before you begin
 
@@ -35,16 +35,16 @@ Create your new directory by following the steps in [Create a new tenant for you
 For more information about subscription roles, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 > [!TIP]
-> If you plan to federate on-premises Windows Server Active Directory with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.
+> If you plan to federate on-premises Windows Server Active Directory with Microsoft Entra ID, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Microsoft Entra Connect tool to synchronize your directories.
 >
-> You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the domain selected for federation](../hybrid/connect/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you don't have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
+> You also need to register the same domain name you select for federating with your on-premises directory in the **Microsoft Entra Domain** step in the wizard. To see what that setup looks like, see [Verify the domain selected for federation](../hybrid/connect/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you don't have the Microsoft Entra Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## Add your custom domain name
 
 After you create your directory, you can add your custom domain name.
 
 > [!IMPORTANT]
-> When updating domain information, you may be unable to complete the process and encounter a   HTTP 500 Internal Server Error message. Under some conditions, this error may be expected. This message may appear if you try to use a protected DNS suffix. Protected DNS suffixes may only be used by Microsoft. If you believe that this operation should have been completed successfully, please contact your Microsoft representative for assistance. 
+> When updating domain information, you may be unable to complete the process and encounter a HTTP 500 Internal Server Error message. Under some conditions, this error may be expected. This message may appear if you try to use a protected DNS suffix. Protected DNS suffixes may only be used by Microsoft. If you believe that this operation should have been completed successfully, please contact your Microsoft representative for assistance. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Domain Name Administrator](../roles/permissions-reference.md#domain-name-administrator).
 
@@ -96,8 +96,6 @@ If you can't verify a custom domain name, try the following suggestions:
 
 - **Wait at least an hour and try again.** DNS records must propagate before you can verify the domain. This process can take an hour or more.
  
-- **If you are trying to verify a child domain, verify the parent domain first.** Make sure the parent domain is created and verified first before you try to verify a child domain.
-
 - **Make sure the DNS record is correct.** Go back to the domain name registrar site. Make sure the entry is there, and that it matches the DNS entry information provided in the Microsoft Entra admin center.
 
    - If you can't update the record on the registrar site, share the entry with someone who has permissions to add the entry and verify it's correct.
@@ -112,6 +110,6 @@ If you can't verify a custom domain name, try the following suggestions:
 
 - Add users to your domain. For more information, see [How to add or delete users](./add-users.md).
 
-- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../enterprise-users/domains-manage.md).
+- Manage your domain name information in Microsoft Entra ID. For more information, see [Managing custom domain names](../enterprise-users/domains-manage.md).
 
-- If you have on-premises versions of Windows Server that you want to use alongside Azure Active Directory, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+- If you have on-premises versions of Windows Server that you want to use alongside Microsoft Entra ID, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Integrate an existing forest and a new forest with a single Azure AD tenant using Azure AD Connect cloud sync.
+title: Tutorial - Integrate an existing forest and a new forest with a single Microsoft Entra tenant using Microsoft Entra Connect cloud sync.
 description: Learn how to add cloud sync to an existing hybrid identity environment.
 services: active-directory
 author: billmath
@@ -13,28 +13,30 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate an existing forest and a new forest with a single Azure AD tenant
+# Integrate an existing forest and a new forest with a single Microsoft Entra tenant
 
 This tutorial walks you through adding cloud sync to an existing hybrid identity environment. 
 
-![Diagram that shows the Azure AD Connect cloud sync flow.](media/tutorial-existing-forest/existing-forest-new-forest-2.png)
+![Diagram that shows the Microsoft Entra Connect cloud sync flow.](media/tutorial-existing-forest/existing-forest-new-forest-2.png)
 
 You can use the environment you create in this tutorial for testing or for getting more familiar with how a hybrid identity works. 
 
-In this scenario, there's an existing forest synced using Azure AD Connect sync to an Azure AD tenant. And you have a new forest that you want to sync to the same Azure AD tenant. You'll set up cloud sync for the new forest. 
+In this scenario, there's an existing forest synced using Microsoft Entra Connect Sync to a Microsoft Entra tenant. And you have a new forest that you want to sync to the same Microsoft Entra tenant. You'll set up cloud sync for the new forest. 
 
 ## Prerequisites
-### In the Entra portal
+<a name='in-the-entra-portal'></a>
 
-1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../../fundamentals/add-users.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
-2. Add one or more [custom domain names](../../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
+### In the Microsoft Entra admin center
+
+1. Create a cloud-only Global Administrator account on your Microsoft Entra tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../../fundamentals/add-users.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
+2. Add one or more [custom domain names](../../fundamentals/add-custom-domain.md) to your Microsoft Entra tenant. Your users can sign in with one of these domain names.
 
 ### In your on-premises environment
 
 1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4-GB RAM and .NET 4.7.1+ runtime 
 
-2. If there's a firewall between your servers and Azure AD, configure the following items:
-   - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+2. If there's a firewall between your servers and Microsoft Entra ID, configure the following items:
+   - Ensure that agents can make *outbound* requests to Microsoft Entra ID over the following ports:
 
      | Port number | How it's used |
      | --- | --- |
@@ -47,7 +49,9 @@ In this scenario, there's an existing forest synced using Azure AD Connect sync 
    - Your agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products, you may already have these URLs unblocked.
 
-## Install the Azure AD Connect provisioning agent
+<a name='install-the-azure-ad-connect-provisioning-agent'></a>
+
+## Install the Microsoft Entra Connect provisioning agent
 
 If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1. To install the agent, follow these steps: 
 
@@ -58,7 +62,9 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 [!INCLUDE [active-directory-cloud-sync-how-to-verify-installation](../../../../includes/active-directory-cloud-sync-how-to-verify-installation.md)]
 
-## Configure Azure AD Connect cloud sync
+<a name='configure-azure-ad-connect-cloud-sync'></a>
+
+## Configure Microsoft Entra Connect cloud sync
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -71,9 +77,9 @@ Use the following steps to configure provisioning:
 
 ## Verify users are created and synchronization is occurring
 
-You'll now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Azure AD tenant.  This process may take a few hours to complete.  To verify users are synchronized, do the following:
+You'll now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Microsoft Entra tenant.  This process may take a few hours to complete.  To verify users are synchronized, do the following:
 
- 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+ 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
  2. Browse to **Identity** > **Users**.
  3. Verify that you see the new users in our tenant
 
@@ -89,4 +95,4 @@ You have now successfully set up a hybrid identity environment that you can use 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

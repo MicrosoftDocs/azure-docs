@@ -15,9 +15,9 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to learn about identity solutions for customer-facing apps
 ---
 
-# What is Microsoft Entra External ID for customers?
+# What is Microsoft Entra ID for customers?
 
-Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers, is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Azure AD makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Azure AD, you also benefit from platform features like enhanced security, compliance, and scalability.
+Microsoft Entra ID for customers is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Microsoft Entra ID makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Microsoft Entra ID, you also benefit from platform features like enhanced security, compliance, and scalability.
 
 :::image type="content" source="media/overview-customers-ciam/overview-ciam.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 
@@ -25,22 +25,23 @@ Microsoft Entra External ID for customers, also known as Azure Active Directory 
 
 ## Create a dedicated tenant for your customer scenarios
 
-When getting started with Azure AD for customers, you first create a tenant that will contain your customer-facing apps, resources, and directory of customer accounts.
+When getting started with Microsoft Entra ID for customers, you first create a tenant that will contain your customer-facing apps, resources, and directory of customer accounts.
 
-If you've worked with Azure Active Directory, you're already familiar with using an Azure AD tenant that contains your employee directory, internal apps, and other organizational resources. With Azure AD for customers, you create a distinct tenant that follows the standard Azure AD tenant model but is configured for customer scenarios. This tenant contains:
+If you've worked with Microsoft Entra ID, you're already familiar with using a Microsoft Entra tenant that contains your employee directory, internal apps, and other organizational resources. With Microsoft Entra ID for customers, you create a distinct tenant that follows the standard Microsoft Entra tenant model but is configured for customer scenarios. This tenant contains:
 
 - **A directory**: The directory stores your customers' credentials and profile data. When a customer signs up for your app, a local account is created for them in your customer tenant.
 
-- **Application registrations**: Microsoft Entra performs identity and access management only for registered applications. Registering your app establishes a trust relationship and allows you to integrate your app with Microsoft Entra
+- **Application registrations**: Microsoft Entra ID performs identity and access management only for registered applications. Registering your app establishes a trust relationship and allows you to integrate your app with Microsoft Entra
 
 - **User flows**: The customer tenant contains the self-service sign-up, sign-in, and password reset experiences that you enable for your customers.
 
 - **Extensions**: If you need to add user attributes and data from external systems, you can create custom authentication extensions for your user flows.
 
-- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. Learn more
+- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. 
 
 - **Encryption keys**: Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
+Learn more about [password and one-time passcode](how-to-enable-password-reset-customers.md) login, and about [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md) federation.
 
 There are two types of user accounts you can manage in your customer tenant:
 
@@ -51,7 +52,7 @@ There are two types of user accounts you can manage in your customer tenant:
 Learn more about managing [customer accounts](how-to-manage-customer-accounts.md) and [admin accounts](how-to-manage-admin-accounts.md) in your customer tenant.
 ## Add customized sign-in to your customer-facing apps
 
-Azure AD for customers is intended for businesses that want to make applications available to their customers using the Microsoft Entra platform for identity and access.
+Microsoft Entra ID for customers is intended for businesses that want to make applications available to their customers using the Microsoft Entra platform for identity and access.
 
 - **Add sign-up and sign-in pages to your apps.** Quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. With a single identity, a customer can securely access all the applications you want them to use.
 
@@ -81,14 +82,14 @@ For details about configuring a user flow, see [Create a sign-up and sign-in use
 
 ## Add your own business logic
 
-Azure AD for customers is designed for flexibility by allowing you to define additional actions at certain points within the authentication flow. Using a custom authentication extension, you can add claims from external systems to the token just before it's issued to your application.
+Microsoft Entra ID for customers is designed for flexibility by allowing you to define additional actions at certain points within the authentication flow. Using a custom authentication extension, you can add claims from external systems to the token just before it's issued to your application.
 
 Learn more about [adding your own business logic](concept-custom-extensions.md)  with custom authentication extensions.
 
 
 ## Microsoft Entra security and reliability
 
-Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Azure AD platform. You benefit from platform features like enhanced security, compliance with regulations, and the ability to scale your identity and access management processes.
+Microsoft Entra ID for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. You benefit from platform features like enhanced security, compliance with regulations, and the ability to scale your identity and access management processes.
 
 - **Microsoft Entra security.** Get all the security and data privacy benefits of Microsoft Entra, including Conditional Access, multifactor authentication, and governance. Protect access to your apps using strong authentication and risk-based adaptive access policies. Because customers are managed in a separate tenant, you can tailor your access policies to users who typically use personal and shared devices instead of managed ones.
 
@@ -112,5 +113,5 @@ Opt for the next generation Microsoft Entra External ID platform if:
 
 ## Next steps
 
-- Learn more about [planning for Azure AD for customers](concept-planning-your-solution.md).
-- See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.
+- Learn more about [planning for Microsoft Entra ID for customers](concept-planning-your-solution.md).
+- See also the [Microsoft Entra ID for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

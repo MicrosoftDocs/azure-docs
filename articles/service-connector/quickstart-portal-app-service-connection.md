@@ -50,7 +50,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     ### [System-assigned managed identity](#tab/SMI)
 
-    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Azure Active Directory and tied to the lifecycle of the service instance.
+    System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Microsoft Entra ID and tied to the lifecycle of the service instance.
 
     ### [User-assigned managed identity](#tab/UMI)
 
@@ -62,11 +62,14 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     ### [Service principal](#tab/SP)
 
-    Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
+    Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Microsoft Entra ID.
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
 
 1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
+
+> [!NOTE]
+> You need enough permissions to create connection successfully, for more details, see [Permission requirements](./concept-permission.md).
 
 ## View service connections in App Service
 

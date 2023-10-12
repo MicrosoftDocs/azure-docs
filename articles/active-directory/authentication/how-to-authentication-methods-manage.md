@@ -1,12 +1,12 @@
 ---
 title: How to migrate to the Authentication methods policy 
-description: Learn about how to centrally manage multifactor authentication (MFA) and self-service password reset (SSPR) settings in the Authentication methods policy.
+description: Learn about how to centrally manage multifactor authentication and self-service password reset (SSPR) settings in the Authentication methods policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 09/24/2023
 
 ms.author: justinha
 author: justinha
@@ -16,15 +16,15 @@ manager: amycolannino
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 
-# Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how I can manage them.
+# Customer intent: As an identity administrator, I want to understand what authentication options are available in Microsoft Entra ID and how I can manage them.
 ---
-# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD 
+# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Microsoft Entra ID 
 
-You can migrate Azure Active Directory (Azure AD) [legacy policy settings](concept-authentication-methods-manage.md#legacy-mfa-and-sspr-policies) that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the [Authentication methods policy](./concept-authentication-methods-manage.md). 
+You can migrate Microsoft Entra ID [legacy policy settings](concept-authentication-methods-manage.md#legacy-mfa-and-sspr-policies) that separately control multifactor authentication and self-service password reset (SSPR) to unified management with the [Authentication methods policy](./concept-authentication-methods-manage.md). 
 
 You migrate policy settings on your own schedule, and the process is fully reversible. You can continue to use tenant-wide MFA and SSPR policies while you configure authentication methods more precisely for users and groups in the Authentication methods policy. You complete the migration whenever you're ready to manage all authentication methods together in the Authentication methods policy.
 
-For more information about how these policies work together during migration, see [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md).
+For more information about how these policies work together during migration, see [Manage authentication methods for Microsoft Entra ID](concept-authentication-methods-manage.md).
 
 ## Before you begin
 
@@ -38,9 +38,9 @@ If you aren't using SSPR and aren't yet using the Authentication methods policy,
 
 ### Review the legacy MFA policy
 
-Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Azure Active Directory** > **Users** > **All users** > **Per-user MFA** > **service settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
+Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Identity** > **Users** > **All users** > **Per-user MFA** > **service settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
-:::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-mfa-policy.png" alt-text="Screenshot the shows the legacy Azure AD MFA policy." lightbox="media/how-to-authentication-methods-manage/legacy-mfa-policy.png":::
+:::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-mfa-policy.png" alt-text="Screenshot the shows the legacy Microsoft Entra multifactor authentication policy." lightbox="media/how-to-authentication-methods-manage/legacy-mfa-policy.png":::
 
 For each method, note whether or not it's enabled for the tenant. The following table lists methods available in the legacy MFA policy and corresponding methods in the Authentication method policy. 
 
@@ -53,9 +53,9 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 ### Review the legacy SSPR policy
 
-To get the authentication methods available in the legacy SSPR policy, go to **Azure Active Directory** > **Users** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
+To get the authentication methods available in the legacy SSPR policy, go to **Identity** > **Users** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
 
-:::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-sspr-policy.png" alt-text="Screenshot that shows the legacy Azure AD SSPR policy." lightbox="media/how-to-authentication-methods-manage/legacy-sspr-policy.png":::
+:::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-sspr-policy.png" alt-text="Screenshot that shows the legacy Microsoft Entra SSPR policy." lightbox="media/how-to-authentication-methods-manage/legacy-sspr-policy.png":::
 
 Record which users are in scope for SSPR (either all users, one specific group, or no users) and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you record them for later when they are. 
 
@@ -77,7 +77,7 @@ To check settings in the Authentication methods policy, sign in to the [Microsof
 
 :::image type="content"  source="media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot that shows the authentication methods." lightbox="media/concept-authentication-methods-manage/authentication-methods-policy.png":::
 
-The Authentication methods policy has other methods that aren't available in the legacy policies, such as FIDO2 security key, Temporary Access Pass, and Azure AD certificate-based authentication. These methods aren't in scope for migration and you won't need to make any changes to them if you've  configured them already. 
+The Authentication methods policy has other methods that aren't available in the legacy policies, such as FIDO2 security key, Temporary Access Pass, and Microsoft Entra certificate-based authentication. These methods aren't in scope for migration and you won't need to make any changes to them if you've  configured them already. 
 
 If you've enabled other methods in the Authentication methods policy, write down the users and groups who can or can't use those methods. Take a note of the configuration parameters that govern how the method can be used. For example, you can configure Microsoft Authenticator to provide location in push notifications. Make a record of which users and groups are enabled for similar configuration parameters associated with each method. 
 
@@ -89,7 +89,7 @@ After you capture available authentication methods from the policies you're curr
 
 You'll want to set this option before you make any changes as it will apply your new policy to both sign-in and password reset scenarios.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
+:::image type="content" border="true" source="./media/Concept-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
 The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and isn't using SSPR, the update is straightforward - you can enable each method for all users and precisely match your existing policy. 
 
@@ -147,15 +147,13 @@ A control for **Security questions** is coming soon. If you use security questio
 
 After you update the Authentication methods policy, go through the legacy MFA, and SSPR policies and remove each authentication method one-by-one. Test and validate the changes for each method. 
 
-When you determine that MFA and SSPR work as expected and you no longer need the legacy MFA and SSPR policies, you can change the migration process to **Migration Complete**. In this mode, Azure AD only follows the Authentication methods policy. No changes can be made to the legacy policies if **Migration Complete** is set, except for security questions in the SSPR policy. If you need to go back to the legacy policies for some reason, you can move the migration state back to **Migration in Progress** at any time.
+When you determine that MFA and SSPR work as expected and you no longer need the legacy MFA and SSPR policies, you can change the migration process to **Migration Complete**. In this mode, Microsoft Entra-only follows the Authentication methods policy. No changes can be made to the legacy policies if **Migration Complete** is set, except for security questions in the SSPR policy. If you need to go back to the legacy policies for some reason, you can move the migration state back to **Migration in Progress** at any time.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/migration-complete.png" alt-text="Screenshot of Migration complete.":::
 
 ## Next steps
 
-- [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md)
-- [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
-- [How Azure AD Multi-Factor Authentication works](concept-mfa-howitworks.md)
+- [Manage authentication methods for Microsoft Entra ID](concept-authentication-methods-manage.md)
+- [What authentication and verification methods are available in Microsoft Entra ID?](concept-authentication-methods.md)
+- [How Microsoft Entra multifactor authentication works](concept-mfa-howitworks.md)
 - [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)
-
-

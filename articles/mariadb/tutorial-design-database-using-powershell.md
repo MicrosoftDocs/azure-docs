@@ -12,6 +12,8 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Tutorial: Design an Azure Database for MariaDB using PowerShell
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure Database for MariaDB is a relational database service in the Microsoft cloud based on MariaDB
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
 how to:

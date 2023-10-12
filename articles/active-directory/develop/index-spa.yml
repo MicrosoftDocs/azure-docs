@@ -9,7 +9,7 @@ metadata:
   author: Dickson-Mwendia
   manager: CelesteDG
   ms.author: dmwendia
-  ms.date: 04/01/2022
+  ms.date: 09/21/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: landing-page
@@ -31,14 +31,14 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: React
+            url: tutorial-single-page-app-react-register-app.md
           - text: Angular
             url: tutorial-v2-angular-auth-code.md
-          - text: Blazor WebAssembly
-            url: tutorial-blazor-webassembly.md
           - text: JavaScript
             url: tutorial-v2-javascript-auth-code.md
-          - text: React
-            url: ./single-page-app-tutorial-01-register-app.md
+          - text: Blazor WebAssembly
+            url: tutorial-blazor-webassembly.md
   - title: "Scenario in depth"
     linkLists:
       - linkListType: how-to-guide

@@ -19,7 +19,7 @@ ms.date: 03/28/2023
 
 You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
-Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the "queryLanguage" parameter, but is otherwise an independent feature with its own prerequisites. There's no sign-up or extra charges for using this feature.
+Speller was released in tandem with the [semantic ranking](semantic-search-overview.md) and shares the "queryLanguage" parameter, but is otherwise an independent feature with its own prerequisites. There's no sign-up or extra charges for using this feature.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-## Spell correction with semantic search
+## Spell correction with semantic ranking
 
 This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Configure semantic ranking](semantic-how-to-query-request.md).
 
@@ -136,4 +136,4 @@ While content in a search index can be composed in multiple languages, the query
 + [Create a basic query](search-query-create.md)
 + [Use full Lucene query syntax](query-Lucene-syntax.md)
 + [Use simple query syntax](query-simple-syntax.md)
-+ [Semantic search overview](semantic-search-overview.md)
++ [Semantic ranking](semantic-search-overview.md)

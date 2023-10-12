@@ -1,5 +1,5 @@
 ---
-title: Header-based authentication with PingAccess for Azure Active Directory Application Proxy
+title: Header-based authentication with PingAccess for Microsoft Entra application proxy
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 author: kenwith
@@ -15,34 +15,36 @@ ms.reviewer: ashishj
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess
 
-Azure Active Directory (Azure AD) Application Proxy has partnered with PingAccess so that your Azure AD customers can access more of your applications. PingAccess provides another option beyond integrated [header-based single sign-on](application-proxy-configure-single-sign-on-with-headers.md).
+Microsoft Entra application proxy has partnered with PingAccess so that your Microsoft Entra customers can access more of your applications. PingAccess provides another option beyond integrated [header-based single sign-on](application-proxy-configure-single-sign-on-with-headers.md).
 
-## What's PingAccess for Azure AD?
+<a name='whats-pingaccess-for-azure-ad'></a>
 
-With PingAccess for Azure AD, you can give users access and single sign-on (SSO) to applications that use headers for authentication. Application Proxy treats these applications like any other, using Azure AD to authenticate access and then passing traffic through the connector service. PingAccess sits in front of the applications and translates the access token from Azure AD into a header. The application then receives the authentication in the format it can read.
+## What's PingAccess for Microsoft Entra ID?
+
+With PingAccess for Microsoft Entra ID, you can give users access and single sign-on (SSO) to applications that use headers for authentication. Application Proxy treats these applications like any other, using Microsoft Entra ID to authenticate access and then passing traffic through the connector service. PingAccess sits in front of the applications and translates the access token from Microsoft Entra ID into a header. The application then receives the authentication in the format it can read.
 
 Your users won't notice anything different when they sign in to use your corporate applications. They can still work from anywhere on any device. The Application Proxy connectors direct remote traffic to all apps without regard to their authentication type, so they'll still balance loads automatically.
 
 ## How do I get access?
 
-Since this scenario comes from a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess.
+Since this scenario comes from a partnership between Microsoft Entra ID and PingAccess, you need licenses for both services. However, Microsoft Entra ID P1 or P2 subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess.
 
-For more information, see [Azure Active Directory editions](../fundamentals/whatis.md).
+For more information, see [Microsoft Entra editions](../fundamentals/whatis.md).
 
 ## Publish your application in Azure
 
-This article is for people to publish an application with this scenario for the first time. Besides detailing the publishing steps, it guides you in getting started with both Application Proxy and PingAccess. If you've already configured both services but want a refresher on the publishing steps, skip to the [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy) section.
+This article is for people to publish an application with this scenario for the first time. Besides detailing the publishing steps, it guides you in getting started with both Application Proxy and PingAccess. If you've already configured both services but want a refresher on the publishing steps, skip to the [Add your application to Microsoft Entra ID with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy) section.
 
 > [!NOTE]
-> Since this scenario is a partnership between Azure AD and PingAccess, some of the instructions exist on the Ping Identity site.
+> Since this scenario is a partnership between Microsoft Entra ID and PingAccess, some of the instructions exist on the Ping Identity site.
 
 ### Install an Application Proxy connector
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-If you've enabled Application Proxy and installed a connector already, you can skip this section and go to [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
+If you've enabled Application Proxy and installed a connector already, you can skip this section and go to [Add your application to Microsoft Entra ID with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
 
-The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
+The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
@@ -54,7 +56,9 @@ The Application Proxy connector is a Windows Server service that directs the tra
 
 Downloading the connector should automatically enable Application Proxy for your directory, but if not, you can select **Enable Application Proxy**.
 
-### Add your application to Azure AD with Application Proxy
+<a name='add-your-application-to-azure-ad-with-application-proxy'></a>
+
+### Add your application to Microsoft Entra ID with Application Proxy
 
 There are two actions you need to take in the Microsoft Entra admin center. First, you need to publish your application with Application Proxy. Then, you need to collect some information about the application that you can use during the PingAccess steps.
 
@@ -62,7 +66,7 @@ There are two actions you need to take in the Microsoft Entra admin center. Firs
 
 You'll first have to publish your application. This action involves:
 
-- Adding your on-premises application to Azure AD
+- Adding your on-premises application to Microsoft Entra ID
 - Assigning a user for testing the application and choosing header-based SSO
 - Setting up the application's redirect URL
 - Granting permissions for users and other applications to use your on-premises application
@@ -76,14 +80,14 @@ To publish your own on-premises application:
 1. Fill out the required fields with information about your new application. Use the guidance below for the settings.
 
    > [!NOTE]
-   > For a more detailed walkthrough of this step, see [Add an on-premises app to Azure AD](../app-proxy/application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   > For a more detailed walkthrough of this step, see [Add an on-premises app to Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
 
    1. **Internal URL**: Normally you provide the URL that takes you to the app's sign-in page when you're on the corporate network. For this scenario, the connector needs to treat the PingAccess proxy as the front page of the application. Use this format: `https://<host name of your PingAccess server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
       > [!WARNING]
       > For this type of single sign-on, the internal URL must use `https` and can't use `http`. Also, there is a constraint when configuring an application that no two apps should have the same internal URL as this allows App Proxy to maintain distinction between applications.
 
-   1. **Pre-authentication method**: Choose **Azure Active Directory**.
+   1. **Pre-authentication method**: Choose **Microsoft Entra ID**.
    1. **Translate URL in Headers**: Choose **No**.
 
    > [!NOTE]
@@ -114,7 +118,7 @@ Then make sure your redirect URL is set to your external URL:
 1. Select the link next to **Redirect URIs**, showing the number of redirect URIs set up for web and public clients. The **\<application name> - Authentication** page appears.
 1. Check whether the external URL that you assigned to your application earlier is in the **Redirect URIs** list. If it isn't, add the external URL now, using a redirect URI type of **Web**, and select **Save**.
 
-In addition to the external URL, an authorize endpoint of Azure Active Directory on the external URL should be added to the Redirect URIs list.
+In addition to the external URL, an authorize endpoint of Microsoft Entra ID on the external URL should be added to the Redirect URIs list.
 
 `https://*.msappproxy.net/pa/oidc/cb`
 `https://*.msappproxy.net/`
@@ -134,7 +138,7 @@ Finally, set up your on-premises application so that users have read access and 
 
 You need to collect these three pieces of information (all GUIDs) to set up your application with PingAccess:
 
-| Name of Azure AD field | Name of PingAccess field | Data format |
+| Name of Microsoft Entra ID field | Name of PingAccess field | Data format |
 | --- | --- | --- |
 | **Application (client) ID** | **Client ID** | GUID |
 | **Directory (tenant) ID** | **Issuer** | GUID |
@@ -169,7 +173,7 @@ To collect this information:
 ### Use of optional claims (optional)
 
 Optional claims allows you to add standard-but-not-included-by-default claims that every user and tenant has. 
-You can configure optional claims for your application by modifying the application manifest. For more info, see the [Understanding the Azure AD application manifest article](../develop/reference-app-manifest.md)
+You can configure optional claims for your application by modifying the application manifest. For more info, see the [Understanding the Microsoft Entra application manifest article](../develop/reference-app-manifest.md)
 
 Example to include email address into the access_token that PingAccess will consume:
 
@@ -190,7 +194,7 @@ Example to include email address into the access_token that PingAccess will cons
 
 ### Use of claims mapping policy (optional)
 
-[Claims Mapping Policy (preview)](../develop/reference-claims-mapping-policy-type.md#claims-mapping-policy-properties) for attributes which do not exist in AzureAD. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
+[Claims Mapping Policy (preview)](../develop/reference-claims-mapping-policy-type.md#claims-mapping-policy-properties) for attributes which do not exist in Microsoft Entra ID. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
 
 To make your application use a custom claim and include additional fields, be sure you've also [created a custom claims mapping policy and assigned it to the application](../develop/saml-claims-customization.md).
 
@@ -214,11 +218,11 @@ When you will configure PingAccess in the following step, the Web Session you wi
 
 ## Download PingAccess and configure your application
 
-Now that you've completed all the Azure Active Directory setup steps, you can move on to configuring PingAccess.
+Now that you've completed all the Microsoft Entra setup steps, you can move on to configuring PingAccess.
 
-The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configuring PingAccess for Azure AD](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure) on the Ping Identity web site and download the [latest version of PingAccess](https://www.pingidentity.com/en/lp/azure-download.html).
+The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configuring PingAccess for Microsoft Entra ID](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure) on the Ping Identity web site and download the [latest version of PingAccess](https://www.pingidentity.com/en/lp/azure-download.html).
 
-Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Microsoft Entra admin center. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
+Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create a Microsoft Entra ID OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Microsoft Entra admin center. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
 
 ### Test your application
 
@@ -226,6 +230,6 @@ When you've completed all these steps, your application should be up and running
 
 ## Next steps
 
-- [Configuring PingAccess to use Azure AD as the token provider](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pa_to_use_azure_ad_as_the_token_provider)
-- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Configuring PingAccess to use Microsoft Entra ID as the token provider](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pa_to_use_azure_ad_as_the_token_provider)
+- [Single sign-on to applications in Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)

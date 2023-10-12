@@ -41,7 +41,7 @@ This tutorial uses the [Postman] application, but you can use a different API de
 
 ## Upload a drawing package
 
-Follow the steps outlined in the [How to create data registry] article to upload the the GeoJSON package into your Azure storage account then register it in your Azure Maps account.
+Follow the steps outlined in the [How to create data registry] article to upload the GeoJSON package into your Azure storage account then register it in your Azure Maps account.
 
 > [!IMPORTANT]
 > Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.

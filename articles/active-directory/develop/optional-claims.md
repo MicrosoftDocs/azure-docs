@@ -261,7 +261,7 @@ Configure claims in the Azure portal:
 1. Select **Add optional claim**, select the **ID** token type, select **upn** from the list of claims, and then select **Add**.
 1. Select **Add optional claim**, select the **Access** token type, select **auth_time** from the list of claims, then select **Add**.
 1. From the Token Configuration overview screen, select the pencil icon next to **upn**, select the **Externally authenticated** toggle, and then select **Save**.
-1. Select **Add optional claim**, select the **SAML** token type, select **extn.skypeID** from the list of claims (only applicable if you've created an Azure AD user object called skypeID), and then select **Add**.
+1. Select **Add optional claim**, select the **SAML** token type, select **extn.skypeID** from the list of claims (only applicable if you've created a Microsoft Entra user object called skypeID), and then select **Add**.
 
 Configure claims in the manifest:
 
