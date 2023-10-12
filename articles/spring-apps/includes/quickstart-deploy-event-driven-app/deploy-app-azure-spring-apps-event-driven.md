@@ -14,8 +14,6 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
-This section provides the steps to deploy your application to Azure Spring Apps.
-
 ### [Azure portal](#tab/Azure-portal)
 
 The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.

@@ -14,19 +14,19 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
-Use the following steps to prepare the sample locally.
-
 ### [Azure portal](#tab/Azure-portal)
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
+Use the following steps to prepare the sample locally:
+
 [!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-These steps use AZD to initialize the event-driven application from the Azure Developer CLI templates.
+Use the following steps to prepare the sample locally. These steps use AZD to initialize the event-driven application from the Azure Developer CLI templates.
 
 1. Open a terminal, create a new, empty folder, then navigate to it.
 1. Use the following command to initialize the project:

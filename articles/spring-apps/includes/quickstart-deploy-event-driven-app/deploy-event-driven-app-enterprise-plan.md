@@ -16,13 +16,13 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-Use the following steps to prepare the sample locally.
-
 ### [Azure portal](#tab/Azure-portal-ent)
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
 ### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to prepare the sample locally:
 
 [!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
 
@@ -165,13 +165,13 @@ Now, both the Service Bus and the app in Azure Spring Apps have been created, bu
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now the cloud environment is ready. Deploy the app by using the following command:
-
 ### [Azure portal](#tab/Azure-portal-ent)
 
 The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
 
 ### [Azure CLI](#tab/Azure-CLI)
+
+The cloud environment is now ready. Deploy the app by using the following command:
 
 ```azurecli
 az spring app deploy \
