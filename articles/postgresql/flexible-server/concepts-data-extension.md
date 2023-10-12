@@ -25,7 +25,7 @@ To refer this blob, once it's placed into a container inside a storage account, 
 * A [**blob**](../../storage/blobs/storage-blobs-introduction.md#blobs) in the container.
 The following diagram shows the relationship between these resources.
 
- :::image type="content" source="./media/concepts-extensions/blob1.png" alt-text="Diagram that shows relationships between storage resources.":::
+ :::image type="content" source="./media/concepts-extensions/blob-1.png" alt-text="Diagram that shows relationships between storage resources.":::
 
 ## Key benefits of storing data as blobs in Azure Storage
 
@@ -121,11 +121,11 @@ Granting the permissions to access data in Azure Storage to nonadministrative Po
 SELECT * FROM azure_storage.account_user_add('mystorageaccount', 'support');
 ```
 
-Postgres admin users can see the allowed users in the output of account_list function, which shows all accounts with access keys defined:
+Postgres admin users can see the allowed users in the output of **account_list** function, which shows all accounts with access keys defined:
 ```sql
 SELECT * FROM azure_storage.account_list();
 ```
-When Postgres administrator decides that the user should no longer have access, he'll can use method\function account_user_remove to remove this role. 
+When Postgres administrator decides that the user should no longer have access,  method\function **account_user_remove** can be used to remove this access. 
 ```sql
 SELECT * FROM azure_storage.account_user_remove('mystorageaccount', 'support');
 ```
