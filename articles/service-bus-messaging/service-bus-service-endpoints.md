@@ -62,6 +62,10 @@ This section shows you how to use Azure portal to add a virtual network service 
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
     - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled-page.png" alt-text="Screenshot that shows the Networking page of a namespace with public access disabled."::: 
+
+        Choose whether you want to allow trusted Microsoft services to bypass the firewall. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section.
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]

@@ -66,7 +66,7 @@ For storage accounts, a snapshot can fail because a file is being updated at the
 
 For SQL sources, a snapshot can fail for these other reasons:
 
-* The source SQL script or target SQL script that grants Data Share permission hasn't run. Or for Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse), the script runs by using SQL authentication rather than Azure Active Directory authentication. You can run the below query to check if the Data Share account has proper permission to the SQL database. For source SQL database, query result should show Data Share account has *db_datareader* role. For target SQL database, query result should show Data Share account has *db_datareader*, *db_datawriter*, and *db_dlladmin* roles.
+* The source SQL script or target SQL script that grants Data Share permission hasn't run. Or for Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse), the script runs by using SQL authentication rather than Microsoft Entra authentication. You can run the below query to check if the Data Share account has proper permission to the SQL database. For source SQL database, query result should show Data Share account has *db_datareader* role. For target SQL database, query result should show Data Share account has *db_datareader*, *db_datawriter*, and *db_dlladmin* roles.
 
     ```sql
         SELECT DP1.name AS DatabaseRoleName,

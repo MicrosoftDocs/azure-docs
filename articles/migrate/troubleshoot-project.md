@@ -44,8 +44,8 @@ If you try to create a project and encounter a deployment error:
 - Try to create the project again in case it's a transient error. In **Deployments**, click on **Re-deploy** to try again.
 - Check you have Contributor or Owner permissions in the subscription.
 - If you're deploying in a newly added geography, wait a short time and try again.
-- If you receive the error, "Requests must contain user identity headers", this might indicate that you don't have access to the Azure Active Directory (Azure AD) tenant of the organization. In this case:
-    - When you're added to an Azure AD tenant for the first time, you receive an email invitation to join the tenant.
+- If you receive the error, "Requests must contain user identity headers", this might indicate that you don't have access to the Microsoft Entra tenant of the organization. In this case:
+    - When you're added to a Microsoft Entra tenant for the first time, you receive an email invitation to join the tenant.
     - Accept the invitation to be added to the tenant.
     - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) to you.
     - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.

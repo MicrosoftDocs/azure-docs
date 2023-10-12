@@ -1,6 +1,6 @@
 ---
-title: What's new in Sovereign Clouds? Release notes
-description: Learn what is new with Azure Active Directory Sovereign Cloud.
+title: What's new in Azure Sovereign Clouds? Release notes
+description: Learn what is new with Azure Sovereign Clouds.
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
@@ -12,8 +12,7 @@ ms.custom: template-concept
 
 
 
-# What's new in Azure Active Directory Sovereign Clouds?
-
+# What's new in Azure Sovereign Clouds?
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
