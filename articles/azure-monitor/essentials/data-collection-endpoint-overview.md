@@ -14,14 +14,20 @@ ms.reviwer: nikeist
 
 The [Logs ingestion API](../logs/logs-ingestion-api-overview.md) and [Azure Monitor Agent](../agents/agents-overview.md) use data collection endpoints to receive configuration files from Azure Monitor and to send collected data for processing and ingestion into Azure Monitor. 
 
-This article provides an overview of data collection endpoints and explains how to create and work with them.
+Azure Monitor Agent uses data collection endpoints to collect:
+
+- IIS logs
+- Firewall logs
+- Custom logs
+
+This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
 ## Components of a data collection endpoint
 A data collection endpoint includes the following components:
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint Azure Monitor Agent uses to configuration files.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`.<br>The configuration access endpoint needs to be in the same region as the monitored resources. |
+| Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`.<br>The configuration access endpoint needs to be in the same region as the monitored resources. |
 | Logs ingestion endpoint | The endpoint used to ingest logs to the data ingestion pipeline.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`.<br>The Logs ingestion endpoint needs to be in the same region as the destination Log Analytics workspace. |
 | Network access control lists | Network access control rules for the endpoints. |
 
