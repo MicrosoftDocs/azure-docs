@@ -11,7 +11,7 @@ The Azure mobile app **Home** screen surfaces the most essential information and
 
 ## Display cards
 
-The Azure mobile app **Home** screen consists of customizable display cards that show you information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
+The Azure mobile app **Home** screen consists of customizable display cards that show information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
 
 Current card options include:
 
@@ -21,15 +21,15 @@ Current card options include:
 - **Azure services**: Quick access to Virtual machines, Web Apps, SQL databases, and Application Insights.
 - **Latest alerts**: A list and chart view of the alerts fired in the last 24 hours and the option to see all.
 - **Service Health**: A current count of service issues, maintenance, health advisories, and security advisories.
-- **Cloud Shell**: Quick access to the cloud shell terminal.
-- **Recent resources**: A list of your 4 most recent resources viewed with the option to see all.
+- **Cloud Shell**: Quick access to the Cloud Shell terminal.
+- **Recent resources**: A list of your four most recently viewed resources, with the option to see all.
 - **Favorites**: A list of the resources you have added to your favorites, and the option to see all.
 
 :::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards."::: 
 
 ## Customize Azure mobile app Home screen
 
-You can customize the cards displayed on your Azure mobile app **Home** screen by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: Edit icon in the top right of the **Home**  screen. From there you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home** screen.
+You can customize the cards displayed on your Azure mobile app **Home** screen by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: **Edit** icon in the top right of the **Home**  screen. From there, you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home** screen.
 
 For instance, you could rearrange the default order as follows:
 
@@ -60,7 +60,7 @@ In the top right of the **Home** screen, you'll see a filter option. When select
 - Service health
 - Global search
 
-This filtering option is specific to the **Home** screen, and does not filter for the other bottom navigation sections.
+This filtering option is specific to the **Home** screen, and doesn't filter for the other bottom navigation sections.
 
 ## Next steps
 
