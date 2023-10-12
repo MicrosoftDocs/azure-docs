@@ -245,7 +245,7 @@ Below is the currently supported list of dependency calls that are automatically
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
 | [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - latest stable release. (See Note below.)
 | [Event Hubs Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
-| [ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
+| [ServiceBus Client SDK](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | 7.0.0 |
 | <b>Storage clients</b>|  |
 | ADO.NET | 4.5+ |
 
