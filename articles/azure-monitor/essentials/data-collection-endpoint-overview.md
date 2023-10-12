@@ -21,8 +21,8 @@ A data collection endpoint includes the following components:
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint Azure Monitor Agent uses to configuration files.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`.<br>You need to deploy the configuration access endpoint in the same region as the monitored resources. |
-| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`.<br>You need to deploy the Logs ingestion endpoint in the same region as the destination Log Analytics workspace. |
+| Configuration access endpoint | The endpoint Azure Monitor Agent uses to configuration files.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`.<br>The configuration access endpoint needs to be in the same region as the monitored resources. |
+| Logs ingestion endpoint | The endpoint used to ingest logs to the data ingestion pipeline.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`.<br>The Logs ingestion endpoint needs to be in the same region as the destination Log Analytics workspace. |
 | Network access control lists | Network access control rules for the endpoints. |
 
 ## How to set up data collection endpoints based on your deployment
@@ -31,10 +31,12 @@ A data collection endpoint includes the following components:
 
 Set up one data collection endpoint to send configuration files and receive collected data.
 
+:::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality.png" alt-text="A diagram that shows resources in a single region sending data and receiving configuration files using a data collection endpoint.":::
+
 **Scenario: Monitored resources in multiple regions sending data to one or more Log Analytics workspaces in a single region**
 
 - Create a data collection endpoint in each region to send configuration files to the resources in that region.
-- Send data from all resources to the same data collection endpoint in the region where your Log Analytics workspaces are located. 
+- Send data from all resources to a data collection endpoint in the region where your destintation Log Analytics workspaces are located. 
 
 :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality.png" alt-text="A diagram that shows resources in two regions sending data and receiving configuration files using data collection endpoint.":::
 
