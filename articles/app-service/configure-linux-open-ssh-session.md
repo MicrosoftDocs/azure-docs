@@ -14,9 +14,9 @@ zone_pivot_groups: app-service-containers-windows-linux
 ---
 ::: zone pivot="container-windows"
 
-# Open a SSH session to a Windows container in Azure App Service
+# Open an SSH session to a Windows container in Azure App Service
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can beused to execute administrative commands remotely to a Windows Container.  App Service provides SSH support direct into a app hosted in a Windows Container.
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a Windows Container.  App Service provides SSH support direct into an app hosted in a Windows Container.
 
 ## Open SSH session in browser
 
