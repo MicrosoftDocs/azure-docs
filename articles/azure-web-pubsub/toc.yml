@@ -148,6 +148,8 @@
           href: socketio-migrate-from-self-hosted.md
         - name: Integrate with Azure App Service
           href: socket-io-howto-integrate-web-app.md
+        - name: Authentication
+          href: socketio-authentication.md
         - name: Troubleshoot
           items: 
             - name: Common issues

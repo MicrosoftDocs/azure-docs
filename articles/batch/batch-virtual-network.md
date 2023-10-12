@@ -19,7 +19,7 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 ## Prerequisites
 
-- **Authentication**. To use an Azure Virtual Network, the Batch client API must use Azure Active Directory (Azure AD) authentication. To learn more, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- **Authentication**. To use an Azure Virtual Network, the Batch client API must use Microsoft Entra authentication. To learn more, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 - **An Azure Virtual Network**. To prepare a Virtual Network with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Microsoft Azure CLI (CLI), or other methods.
   - To create an Azure Resource Manager-based Virtual Network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based Virtual Network is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.

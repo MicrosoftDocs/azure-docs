@@ -15,7 +15,7 @@ You will deploy a sample infrastructure by:
 
 > [!div class="checklist"]
 > * Creating a personal host pool.
-> * Creating a session host virtual machine (VM) joined to your Azure Active Directory tenant with Windows 11 Enterprise and add it to the host pool.
+> * Creating a session host virtual machine (VM) joined to your Microsoft Entra tenant with Windows 11 Enterprise and add it to the host pool.
 > * Creating a workspace and an application group that publishes a desktop to the session host VM.
 > * Assigning users to the application group.
 > * Connecting to the desktop.
@@ -33,7 +33,7 @@ You'll need:
 
 - A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to.
 
-- A user account in Azure Active Directory you can use for connecting to the desktop. This account must be assigned the *Virtual Machine User Login* or *Virtual Machine Administrator Login* RBAC role on the subscription. Alternatively you can assign the role to the account on the session host VM or the resource group containing the VM after deployment.
+- A user account in Microsoft Entra ID you can use for connecting to the desktop. This account must be assigned the *Virtual Machine User Login* or *Virtual Machine Administrator Login* RBAC role on the subscription. Alternatively you can assign the role to the account on the session host VM or the resource group containing the VM after deployment.
 
 - A Remote Desktop client installed on your device to connect to the desktop. You can find a list of supported clients in [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md). Alternatively you can use the [Remote Desktop Web client](users/connect-web.md), which you can use through a supported web browser without installing any extra software.
 
@@ -54,7 +54,7 @@ To create a personal host pool, workspace, application group, and session host V
    | **Project details** |  |
    | Subscription | Select the subscription you want to deploy your host pool, session hosts, workspace, and application group in from the drop-down list. |
    | Resource group | Select an existing resource group or select **Create new** and enter a name. |
-   | Host pool name | Enter a name for the host pool, for example *aad-hp01*. |
+   | Host pool name | Enter a name for the host pool, for example *me-id-hp01*. |
    | Location | Select the Azure region from the list where the host pool, workspace, and application group will be deployed. |
    | Validation environment | Select **No**. This setting enables your host pool to receive service updates before all other production host pools, but isn't needed for this tutorial.|
    | Preferred app group type | Select **Desktop**. With this personal host pool, you'll publish a desktop, but you won't also be able to add a RemoteApp application group to publish applications separately. See [Next steps](#next-steps) for more advanced scenarios. |
@@ -72,7 +72,7 @@ To create a personal host pool, workspace, application group, and session host V
    |--|--|
    | Add Azure virtual machines | Select **Yes**. This shows several new options. |
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+   | Name prefix | Enter a name for your session hosts, for example **me-id-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **me-id-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select **No infrastructure dependency required**. This means that your session host VMs won't be deployed in an availability set or in availability zones. |
    | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults of **Enable secure boot** and **Enable vTPM** checked, and **Integrity monitoring** unchecked. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
@@ -86,7 +86,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Network security group | Select **Basic**. |
    | Public inbound ports | Select **No** as you don't need to open inbound ports to connect to Azure Virtual Desktop. Learn more at [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md). |
    | **Domain to join** |  |
-   | Select which directory you would like to join | Select **Azure Active Directory**. |
+   | Select which directory you would like to join | Select **Microsoft Entra ID**. |
    | Enroll VM with Intune | Select **No.** |
    | **Virtual Machine Administrator account** |  |
    | Username | Enter a name to use as the local administrator account for these session host VMs. |
@@ -102,7 +102,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Parameter | Value/Description |
    |--|--|
    | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | To this workspace | Select **Create new** and enter a name, for example **aad-ws01**. |
+   | To this workspace | Select **Create new** and enter a name, for example **me-id-ws01**. |
 
    Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs.
 
@@ -118,7 +118,7 @@ Once your host pool, workspace, application group, and session host VM(s) have b
 
 1. From the host pool overview, select **Application groups**.
 
-1. Select the application group from the list, for example **aad-hp01-DAG**.
+1. Select the application group from the list, for example **me-id-hp01-DAG**.
 
 1. From the application group overview, select **Assignments**.
 
@@ -129,7 +129,7 @@ Once your host pool, workspace, application group, and session host VM(s) have b
 ## Enable connections from Remote Desktop clients
 
 > [!TIP]
-> This section is optional if you're going to use a Windows device to connect to Azure Virtual Desktop that is joined to the same Azure AD tenant as your session host VMs and you're using the [Remote Desktop client for Windows](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
+> This section is optional if you're going to use a Windows device to connect to Azure Virtual Desktop that is joined to the same Microsoft Entra tenant as your session host VMs and you're using the [Remote Desktop client for Windows](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 
 To enable connections from all of the Remote Desktop clients, you'll need to add an RDP property to your host pool configuration.
 
@@ -207,7 +207,7 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 - [Understand network connectivity](network-connectivity.md).
 - Learn about [supported identities and authentication methods](authentication.md)
 - [Set up email discovery to subscribe to Azure Virtual Desktop](/windows-server/remote/remote-desktop-services/rds-email-discovery?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
-- [Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication](configure-single-sign-on.md).
+- [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
 - Learn about [session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 - [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 - [Monitor your deployment with Azure Virtual Desktop Insights](azure-monitor.md).

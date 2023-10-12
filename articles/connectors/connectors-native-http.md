@@ -23,7 +23,7 @@ For example, you can monitor a service endpoint for your website by checking tha
 
 This article shows how to use the HTTP trigger and HTTP action so that your logic app can send outbound calls to other services and systems.
 
-For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## Prerequisites
 
@@ -117,7 +117,7 @@ If you have a **Logic App (Standard)** resource in single-tenant Azure Logic App
 
 * [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
 
-* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
+* [Client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
 
 <a name="tls-ssl-certificate-authentication"></a>
 
@@ -164,7 +164,9 @@ For more information, review the following documentation:
 
 <a name="client-certificate-authentication"></a>
 
-### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
+<a name='client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication'></a>
+
+### Client certificate or Microsoft Entra ID OAuth with "Certificate" credential type authentication
 
 1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
 

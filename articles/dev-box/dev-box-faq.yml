@@ -39,7 +39,7 @@ sections:
           For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
 
       - question: Why does it take 25 minutes or more to provision a dev box?
-        answer: The provisioning process for a dev box involves interacting with several services, including authenticating with Azure Active Directory (Azure AD). The new dev box must be created, initiate networking connectivity services, authenticate to and join the Azure AD, register with Intune, and check for any Azure AD security requirements. Depending on the complexity of the dev box definition, there might also be installation and configuration tasks on the dev box itself to provide you with the environment you need to start work. When your dev box is fully provisioned, it's running, ready for you to sign in.
+        answer: The provisioning process for a dev box involves interacting with several services, including authenticating with Microsoft Entra ID. The new dev box must be created, initiate networking connectivity services, authenticate to and join the Microsoft Entra ID, register with Intune, and check for any Microsoft Entra security requirements. Depending on the complexity of the dev box definition, there might also be installation and configuration tasks on the dev box itself to provide you with the environment you need to start work. When your dev box is fully provisioned, it's running, ready for you to sign in.
 
       - question: How can I check my Dev Box quota? # Question.
         answer: |
