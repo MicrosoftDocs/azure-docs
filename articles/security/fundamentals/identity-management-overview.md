@@ -155,7 +155,7 @@ Microsoft Entra ID Protection is a security service that provides a consolidated
 
 Learn more: [Microsoft Entra ID Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-## Hybrid identity management/Azure AD connect
+## Hybrid identity management (Microsoft Entra Connect)
 
 Microsoft's identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Microsoft Entra Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Microsoft Entra ID. It provides the following features:
 
