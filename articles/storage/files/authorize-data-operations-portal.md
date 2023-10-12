@@ -64,7 +64,7 @@ You can change the authentication method for individual file shares. By default,
 1. Navigate to your storage account in the Azure portal and select **Data storage** > **File shares** from the left navigation.
 1. Select a file share.
 1. Select **Browse**.
-1. The **Authentication method** indicates whether you're currently using the storage account access key or your Microsoft Entra account to authenticate and authorize file share operations. If you're currently authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method, as in the following image. If you're authenticating using your Microsoft Entra account, you'll see **Microsoft Entra user Account** specified instead.
+1. The **Authentication method** indicates whether you're currently using the storage account access key or your Microsoft Entra account to authenticate and authorize file share operations. If you're currently authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method, as in the following image. If you're authenticating using your Microsoft Entra account, you'll see **Microsoft Entra user account** specified instead.
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing the authentication method set to access key.":::
 
