@@ -62,8 +62,9 @@
   - name: Overview
     href: mobile-app/overview.md
     displayName: mobile, app, ios, android
-  - name: Azure mobile app Home
+  - name: Home screen
     href: mobile-app/home.md
+    displayName: mobile, app, start
 - name: Reference
   items:
   - name: Keyboard shortcuts

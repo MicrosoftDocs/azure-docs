@@ -23,13 +23,13 @@ Current card options include:
 - **Service Health**: A current count of service issues, maintenance, health advisories, and security advisories.
 - **Cloud Shell**: Quick access to the cloud shell terminal.
 - **Recent resources**: A list of your 4 most recent resources viewed with the option to see all.
-- **Favorites**: A list of the resources you have favorited and the option to see all.
+- **Favorites**: A list of the resources you have added to your favorites, and the option to see all.
 
 :::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards."::: 
 
 ## Customize Azure mobile app Home screen
 
-You can customize the cards displayed on your Azure mobile app **Home** screen by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: in the top right of the **Home**  screen. From there you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home** screen.
+You can customize the cards displayed on your Azure mobile app **Home** screen by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: Edit icon in the top right of the **Home**  screen. From there you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home** screen.
 
 For instance, you could rearrange the default order as follows:
 
