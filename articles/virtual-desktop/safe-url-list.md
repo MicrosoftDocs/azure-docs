@@ -112,7 +112,7 @@ The following table lists optional URLs that your session host virtual machines 
 > 1. Open **Event viewer**, then go to **Windows logs** > **Application** > **WVD-Agent** and look for event ID **3701**.
 > 1. Unblock the URLs that you find under event ID 3701. The URLs under event ID 3701 are region-specific. You'll need to repeat this process with the relevant URLs for each Azure region you want to deploy your session host virtual machines in.
 
-This list doesn't include URLs for other services like Azure Active Directory or Office 365. Azure Active Directory URLs can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+This list doesn't include URLs for other services like Microsoft Entra ID or Office 365. Microsoft Entra URLs can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
 ### Service tags and FQDN tags
 
@@ -120,7 +120,7 @@ A [virtual network service tag](../virtual-network/service-tags-overview.md) rep
 
 Azure Firewall supports Azure Virtual Desktop as a [FQDN tag](../firewall/fqdn-tags.md). For more information, see [Use Azure Firewall to protect Azure Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md).
 
-We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory. For other services, see [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
+We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Microsoft Entra ID. For other services, see [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
 
 Azure Virtual Desktop currently doesn't have a list of IP address ranges that you can unblock to allow network traffic. We only support unblocking specific URLs. If you're using a Next Generation Firewall (NGFW), you'll need to use a dynamic list specifically made for Azure IPs to make sure you can connect.
 
@@ -156,7 +156,7 @@ Any [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop
 
 ---
 
-These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Azure Active Directory or Office 365. Azure Active Directory URLs can be found under IDs 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Microsoft Entra ID or Office 365. Microsoft Entra URLs can be found under IDs 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
 ## Next steps
 
