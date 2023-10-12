@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up SAP HANA database instance snapshots on Azure VMs (preview)
+# Back up SAP HANA database instance snapshots on Azure VMs
 
 Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire database instance. Backup combines an Azure managed disk full or incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
 
@@ -76,7 +76,7 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
 1. Select **Add**.
 
-1. On the **Select policy type** pane, select **SAP HANA in Azure VM (DB Instance via snapshot) [Preview]**.
+1. On the **Select policy type** pane, select **SAP HANA in Azure VM (DB Instance via snapshot)**.
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png" alt-text="Screenshot that shows a list of policy types.":::
 
@@ -116,7 +116,7 @@ Then, to configure a snapshot backup, do the following:
 
 1. Select **SAP HANA in Azure VM** as the data source type, select a Recovery Services vault to use for backup, and then select **Continue**.
 
-1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **DB Instance via snapshot (Preview)**, and then select **Configure Backup**.
+1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **DB Instance via snapshot**, and then select **Configure Backup**.
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/select-db-instance-via-snapshot.png" alt-text="Screenshot that shows the 'DB Instance via snapshot' option.":::
 
@@ -176,5 +176,5 @@ The Azure Backup service creates a job if you schedule backups or if you trigger
 
 Learn how to:
 
-- [Restore SAP HANA database instance snapshots on Azure VMs (preview)](sap-hana-database-instances-restore.md)
-- [Manage SAP HANA databases on Azure VMs (preview)](sap-hana-database-manage.md)
+- [Restore SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-restore.md)
+- [Manage SAP HANA databases on Azure VMs](sap-hana-database-manage.md)

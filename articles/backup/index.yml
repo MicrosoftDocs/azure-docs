@@ -62,6 +62,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Back up database instance snapshots
+            url: backup/sap-hana-database-about.md#back-up-database-instance-snapshots
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
           - text: Multi-user authorization for Backup vault 
@@ -70,16 +72,9 @@ landingContent:
             url: backup-azure-enhanced-soft-delete-about.md
           - text: Azure Kubernetes Service backup (preview)
             url: azure-kubernetes-service-backup-overview.md
-          - text: Azure Blob vaulted backups (preview)
-            url: blob-backup-overview.md
-          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
+          - text: Selective Disk backup with Enhanced policy for Azure VM
             url: selective-disk-backup-restore.md
-          - text: SAP HANA System Replication backup
-            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
-          - text: Cross Region Restore for PostgreSQL (preview)
-            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview
-          - text: Cross Region Restore support for MARS agent (preview)
-            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
+          
 
   # Card
   - title: Back up Azure VMs
@@ -131,7 +126,7 @@ landingContent:
             url: backup-azure-sap-hana-database.md
           - text: Back up SAP HSR databases on Azure VMs
             url: sap-hana-database-with-hana-system-replication-backup.md
-          - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
+          - text: Back up SAP HANA databases' instance snapshots on Azure VMs
             url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md

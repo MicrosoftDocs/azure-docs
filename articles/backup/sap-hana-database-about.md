@@ -81,7 +81,7 @@ Azure Backup now supports backing up databases that have HSR enabled. This means
 
 Although there are multiple physical nodes (primary and secondary), the backup service now considers them a single HSR container.
 
-## Back up database instance snapshots (preview)
+## Back up database instance snapshots
 
 As databases grow in size, the time it takes to restore them becomes a factor when you're dealing with streaming backups. Also, during backup, the time the database takes to generate Backint streams can grow in proportion to the churn, which can be factor as well.
 
@@ -104,7 +104,7 @@ As per SAP recommendation, it's mandatory to have weekly full snapshots for all 
 Learn how to:
 
 - [Back up SAP HANA databases on Azure VMs](backup-azure-sap-hana-database.md).
-- [Back up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-with-hana-system-replication-backup.md).
-- [Back up SAP HANA database snapshot instances on Azure VMs (preview)](sap-hana-database-instances-backup.md).
+- [Back up SAP HANA System Replication databases on Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
+- [Back up SAP HANA database snapshot instances on Azure VMs](sap-hana-database-instances-backup.md).
 - [Restore SAP HANA databases on Azure VMs](./sap-hana-db-restore.md).
 - [Manage SAP HANA databases that are backed up by using Azure Backup](./sap-hana-db-manage.md).
