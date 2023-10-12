@@ -64,22 +64,22 @@ You can create a new Log Analytics workspace using one of these methods:
 
 ```
 
- When logging is enabled, logs are will be automatically created for you in Containers section of the specified storage account. Please expect some delay for the logs to appear in containers section. 
+ When logging is enabled, logs are will be automatically created for you in **Containers** section of the specified storage account. Please expect some delay for the logs to appear in containers section. 
 
  ### Using portal
 
 To configure diagnostic settings in the Azure portal, follow these steps: 
 
-1. From the Resource pane menu, select Diagnostic settings, and then Add diagnostic setting
-2. Under Category groups, select both audit and allLogs.
-3. If Azure Log Analytics is the destination, select Send to Log Analytics workspace and choose your subscription and workspace from the drop-down menus. You may also select Archive to a storage account and choose your subscription and storage account from the drop-down menus.
-4. When you have selected your desired options, select Save.
+1. From the Resource pane menu, select **Diagnostic settings**, and then **Add diagnostic setting**
+2. Under **Category groups**, select both **audit** and **allLogs**.
+3. If Azure Log Analytics is the destination, select **Send to Log Analytics workspace** and choose your subscription and workspace from the drop-down menus. You may also select **Archive to a storage account** and choose your subscription and storage account from the drop-down menus.
+4. When you have selected your desired options, select **Save**.
 
 ## Access your logs from storage account 
 
-When logging is enabled, upto three containers will be automatically created  in your specified storage account: insights-logs-operational, insights-logs-auditevent and insights-logs-notprocessed. Please expect some delay for the logs to appear in containers section. 
+When logging is enabled, upto three containers will be automatically created  in your specified storage account: **insights-logs-operational, insights-logs-auditevent and insights-logs-notprocessed**. Please expect some delay for the logs to appear in containers section. 
 
-insights-logs-notprocessed includes logs related to malformed requests. insights-logs-auditevent was created to provide early access to logs for customers using VBS. To view the logs, you have to download blobs. 
+**insights-logs-notprocessed** includes logs related to malformed requests. **insights-logs-auditevent** was created to provide early access to logs for customers using VBS. To view the logs, you have to download blobs. 
 
 ### Using PowerShell
 
