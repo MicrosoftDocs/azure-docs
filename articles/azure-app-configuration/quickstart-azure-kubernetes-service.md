@@ -72,8 +72,8 @@ In this section, you will create a simple ASP.NET Core web application running i
     ```json
     {
       "Settings": {
-          "FontColor": "Black",
-          "Message": "Message from the local configuration"
+        "FontColor": "Black",
+        "Message": "Message from the local configuration"
       }
     }
     ```
