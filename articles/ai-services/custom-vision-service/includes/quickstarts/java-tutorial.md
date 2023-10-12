@@ -2,7 +2,7 @@
 author: PatrickFarley
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.service: cognitive-services
+ms.service: azure-ai-custom-vision
 ms.date: 10/13/2020
 ms.topic: include
 ---

@@ -84,11 +84,13 @@ The maximum size for image submissions is 4 MB, and image dimensions must be bet
 
 ## Security
 
-### Use Azure Active Directory or Managed Identity to manage access
+<a name='use-azure-active-directory-or-managed-identity-to-manage-access'></a>
 
-For enhanced security, you can use Azure Active Directory (Azure AD) or Managed Identity (MI) to manage access to your resources.
+### Use Microsoft Entra ID or Managed Identity to manage access
+
+For enhanced security, you can use Microsoft Entra ID or Managed Identity (MI) to manage access to your resources.
 * Managed Identity is automatically enabled when you create a Content Safety resource.
-* Azure Active Directory is supported in both API and SDK scenarios. Refer to the general AI services guideline of [Authenticating with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory). You can also grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure portal, refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+* Microsoft Entra ID is supported in both API and SDK scenarios. Refer to the general AI services guideline of [Authenticating with Microsoft Entra ID](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory). You can also grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure portal, refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### Encryption of data at rest
 

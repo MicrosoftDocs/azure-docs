@@ -566,7 +566,7 @@
       items:
         - name: Configure auth providers
           items:
-            - name: Authenticate with Azure AD
+            - name: Authenticate with Microsoft Entra ID
               href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Facebook
               href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json
@@ -633,7 +633,9 @@
                 - name: JavaScript
                   href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
                 - name: Python
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json                  
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json
+            - name: Web PubSub
+              href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -908,6 +910,8 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+        - name: Web PubSub
+          href: ../azure-web-pubsub/reference-functions-bindings.md?toc=/azure/azure-functions/toc.json
     - name: Errors and diagnostics
       items:
         - name: .NET worker rules

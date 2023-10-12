@@ -84,7 +84,7 @@ Follow these steps to enable Microsoft Entra SSO.
     1. Click your organization name on the lower-left corner of the page and select **Organization settings**.
     1. Select **Security** on the top of the page.
     1. Click **Set up** in the **Single sign-on (SSO)** box.
-    1. Select **SAML**, **_not Azure AD_**, as the connection option.
+    1. Select **SAML**, **_not Microsoft Entra ID_**, as the connection option.
     1. Perform the following steps on the below page.
 
         ![Screenshot shows sample SSO details from the SafetyCulture web app.](./media/safety-culture-tutorial/connection-details.png "Sample SSO details")

@@ -29,10 +29,10 @@ Users must have at least the Security Reader role assigned and Log Analytics wor
 
 ### Stream sign-in logs from Microsoft Entra ID to Azure Monitor logs 
 
-If you haven't integrated Microsoft Entra ID logs with Azure Monitor logs, you need to take the following steps before the workbook loads:  
+If you haven't integrated Microsoft Entra logs with Azure Monitor logs, you need to take the following steps before the workbook loads:  
 
 1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
-1. [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+1. [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## How it works 
 
@@ -49,7 +49,7 @@ The insights and reporting dashboard lets you see the impact of one or more Cond
 
 **Conditional Access policy**: Select one or more Conditional Access policies to view their combined impact. Policies are separated into two groups: Enabled and Report-only policies. By default, all Enabled policies are selected. These enabled policies are the policies currently enforced in your tenant.  
 
-**Time range**: Select a time range from 4 hours to as far back as 90 days. If you select a time range further back than when you integrated the Microsoft Entra ID logs with Azure Monitor, only sign-ins after the time of integration appear.  
+**Time range**: Select a time range from 4 hours to as far back as 90 days. If you select a time range further back than when you integrated the Microsoft Entra logs with Azure Monitor, only sign-ins after the time of integration appear.  
 
 **User**: By default, the dashboard shows the impact of the selected policies for all users. To filter by an individual user, type the name of the user into the text field. To filter by all users, type “All users” into the text field or leave the parameter empty. 
 
@@ -86,7 +86,7 @@ View the breakdown of users or sign-ins for each of the conditions. You can filt
 You can also investigate the sign-ins of a specific user by searching for sign-ins at the bottom of the dashboard. The query displays the most frequent users. Selecting a user filters the query.  
 
 > [!NOTE]
-> When downloading the Sign-ins logs, choose JSON format to include Conditional Access report-only result data.
+> When downloading the sign-in logs, choose JSON format to include Conditional Access report-only result data.
 
 ## Configure a Conditional Access policy in report-only mode
 
@@ -114,7 +114,7 @@ In order to access the workbook, you need the proper permissions in Microsoft En
 
 ![Screenshot showing how to troubleshoot failing queries.](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
-For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+For more information about how to stream Microsoft Entra sign-in logs to a Log Analytics workspace, see the article [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ### Why are the queries in the workbook failing?
 
@@ -144,6 +144,6 @@ You can edit and customize the workbook by going to **Identity** > **Monitoring 
 
 - [Conditional Access report-only mode](concept-conditional-access-report-only.md)
 
-- For more information about Microsoft Entra workbooks, see the article, [How to use Azure Monitor workbooks for Microsoft Entra ID reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+- For more information about Microsoft Entra workbooks, see the article, [How to use Azure Monitor workbooks for Microsoft Entra reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)

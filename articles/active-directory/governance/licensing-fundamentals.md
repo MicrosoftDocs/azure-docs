@@ -17,23 +17,24 @@ ms.author: billmath
 
 # Microsoft Entra ID Governance licensing fundamentals
 
-The following tables show the licensing requirements for Microsoft Entra ID Governance features
+The following tables show the licensing requirements for Microsoft Entra ID Governance features.
 
 ## Types of licenses
-The following licenses are available for use with Microsoft Entra ID Governance.  The choice of licenses you need in a tenant depends on the features you're using in that tenant.
+The following licenses are available for use with Microsoft Entra ID Governance in the commercial cloud.  The choice of licenses you need in a tenant depends on the features you're using in that tenant.
 
 - **Free** - Included with Microsoft cloud subscriptions such as Microsoft Azure, Microsoft 365, and others.
-- **Microsoft Entra ID P1** - Microsoft Entra ID P1 (becoming Microsoft Entra ID P1) is available as a standalone product or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
-- **Microsoft Entra ID P2** - Microsoft Entra ID P2 (becoming Microsoft Entra ID P2) is available as a standalone product or included with Microsoft 365 E5 for enterprise customers.
-- **Microsoft Entra ID Governance** - Microsoft Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers, as two products **Microsoft Entra ID Governance** and **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2**.
+- **Microsoft Entra ID P1** - Microsoft Entra ID P1 is available as a standalone product or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
+- **Microsoft Entra ID P2** - Microsoft Entra ID P2 is available as a standalone product or included with Microsoft 365 E5 for enterprise customers.
+- **Microsoft Entra ID Governance** - Microsoft Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers, as two products **Microsoft Entra ID Governance** and **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2**.  These products contain the basic identity governance capabilities that were in Microsoft Entra ID P2, and additional advanced identity governance capabilities. 
 
 >[!NOTE]
 >Microsoft Entra ID Governance scenarios may depends upon other features that aren't covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
+Microsoft Entra ID Governance products are not yet available in the US government or US national clouds.
 
-### Prerequisites
+### Governance products and prerequisites
 
-The Microsoft Entra ID Governance capabilities are currently available in two products. These two products provide the same identity governance capabilities. The difference between the two products is that they have different prerequisites.
+The Microsoft Entra ID Governance capabilities are currently available in two products in the commercial cloud. These two products provide the same identity governance capabilities. The difference between the two products is that they have different prerequisites.
 
 - A subscription to **Microsoft Entra ID Governance** requires that the tenant also have an active subscription to another product, one that contains the `AAD_PREMIUM` or `AAD_PREMIUM_P2` service plan. Examples of products meeting this prerequisite include **Microsoft Entra ID P1** or **Microsoft 365 E3**.
 - A subscription to **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2** requires that the tenant also have an active subscription to another product, one that contains the `AAD_PREMIUM_P2` service plan.  Examples of products meeting this prerequisite include **Microsoft Entra ID P2** or **Microsoft 365 E5**.

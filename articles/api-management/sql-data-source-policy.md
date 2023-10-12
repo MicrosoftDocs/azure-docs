@@ -67,7 +67,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 |Element|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Specifies the Azure SQL connection string. The connection string uses either SQL authentication (username and password) or Azure AD authentication if an API Management managed identity is configured. |  Yes |
+| [connection-string](#connection-string-attributes) | Specifies the Azure SQL connection string. The connection string uses either SQL authentication (username and password) or Microsoft Entra authentication if an API Management managed identity is configured. |  Yes |
 | [include-fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. If there are multiple fragments, then add additional `include-fragment` elements. | No |
 | [authentication-certificate](authentication-certificate-policy.md)  | Authenticates using a client certificate in the resolver's SQL request.  | No  | 
 
@@ -126,18 +126,20 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 ## Configure managed identity integration with Azure SQL
 
-You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
+You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Microsoft Entra authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
 
 ### Prerequisites
 
 * Enable a system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in your API Management instance. 
 
-### Enable Azure AD access
+<a name='enable-azure-ad-access'></a>
 
-Enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server.
+### Enable Microsoft Entra ID access
+
+Enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the server.
 
 1. In the [portal](https://portal.azure.com), go to your Azure SQL server. 
-1. Select **Azure Active Directory**.
+1. Select **Microsoft Entra ID**.
 1. Select **Set admin** and select yourself or a group to which you belong. 
 1. Select **Save**.
 

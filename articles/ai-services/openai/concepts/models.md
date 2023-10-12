@@ -32,7 +32,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 - `gpt-4`
 - `gpt-4-32k`
 
-The `gpt-4` model supports 8192 max input tokens and the `gpt-4-32k` model supports up to 32,768 tokens.
+You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
 ## GPT-3.5
 
@@ -42,7 +42,7 @@ GPT-3.5 models can understand and generate natural language or code. The most ca
 - `gpt-35-turbo-16k`
 - `gpt-35-turbo-instruct`
 
-The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.  `gpt-35-turbo-instruct` supports 4097 max input tokens.
+You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
 To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
@@ -78,19 +78,24 @@ GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers.  Av
 
 These models can only be used with the Chat Completion API.
 
+GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
+
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>2</sup> (0314)     | East US<sup>1</sup>, France Central<sup>1</sup>  |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>2</sup> (0314)  |  East US<sup>1</sup>, France Central<sup>1</sup> |  N/A                | 32,768               | September 2021         |
-| `gpt-4` (0613)     |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` (0613)  |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>2</sup> (0314)     | East US<sup>1</sup>, France Central<sup>1</sup>  |  N/A<sup>3</sup>                 | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>2</sup> (0314)  |  East US<sup>1</sup>, France Central<sup>1</sup> |  N/A<sup>3</sup>                | 32,768               | September 2021         |
+| `gpt-4` (0613)     |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A<sup>3</sup>                | 8,192                | September 2021         |
+| `gpt-4-32k` (0613)  |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A<sup>3</sup>                | 32,768               | September 2021         |
 
 <sup>1</sup> Due to high demand, availability is limited in the region<br>
 <sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.<br>
+<sup>3</sup> Fine-tuning is not supported for GPT-4 models.
 
 ### GPT-3.5 models
 
 GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can also be used with the Completions API.  GPT3.5 Turbo (0613) only supports the Chat Completions API.
+
+GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
@@ -110,7 +115,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  | Output dimensions |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | Canada East, East US, East US2, France Central, Japan East, North Central US, South Central US, Switzerland North, UK South, West Europe | N/A |8,191 | Sep 2021 | 1536 |
+| text-embedding-ada-002 (version 2) | Australia East, Canada East, East US, East US2, France Central, Japan East, North Central US, South Central US, Switzerland North, UK South, West Europe | N/A |8,191 | Sep 2021 | 1536 |
 | text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 | 1536 |
 
 ### DALL-E models (Preview)
