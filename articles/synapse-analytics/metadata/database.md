@@ -37,24 +37,24 @@ The Spark `default` database is available in the serverless SQL pool context as 
 Tables in the lake databases cannot be modified from a serverless SQL pool. Use the [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify a lake database. The serverless SQL pool enables you to make the following changes in a lake database using Transact-SQL commands:
 
 - Adding, altering, and dropping views, procedures, inline table-value functions in a lake database.
-- Adding and removing database-scoped Azure AD users.
-- Add or remove Azure AD database users to the **db_datareader** role. Azure AD database users in the **db_datareader** role have permission to read all tables in the lake database, but cannot read data from other databases.
+- Adding and removing database-scoped Microsoft Entra users.
+- Add or remove Microsoft Entra database users to the **db_datareader** role. Microsoft Entra database users in the **db_datareader** role have permission to read all tables in the lake database, but cannot read data from other databases.
 
 ## Security model
 
 The lake databases and tables are secured at two levels:
 
-- The underlying storage layer by assigning to Azure AD users one of the following: 
+- The underlying storage layer by assigning to Microsoft Entra users one of the following: 
     - Azure role-based access control (Azure RBAC) 
     - Azure attribute-based access control (Azure ABAC) role
     - ACL permissions
-- The SQL layer where you can define an Azure AD user and grant SQL permissions to SELECT data from tables referencing the lake data.
+- The SQL layer where you can define a Microsoft Entra user and grant SQL permissions to SELECT data from tables referencing the lake data.
 
 ## Lake security model
 
-Access to lake database files is controlled using the lake permissions on storage layer. Only Azure AD users can use tables in the lake databases, and they can access the data in the lake using their own identities.
+Access to lake database files is controlled using the lake permissions on storage layer. Only Microsoft Entra users can use tables in the lake databases, and they can access the data in the lake using their own identities.
 
-You can grant access to the underlying data used for external tables to a security principal, such as: a user, an Azure AD application with [assigned service principal](../../active-directory/develop/howto-create-service-principal-portal.md), or a security group. For data access, grant both of the following permissions:
+You can grant access to the underlying data used for external tables to a security principal, such as: a user, a Microsoft Entra application with [assigned service principal](../../active-directory/develop/howto-create-service-principal-portal.md), or a security group. For data access, grant both of the following permissions:
 
 - Grant `read (R)` permission on files (such as the table's underlying data files).
 - Grant `execute (X)` permission on the folder where the files are stored and on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](../../storage/blobs/data-lake-storage-access-control.md) page. 
@@ -72,7 +72,7 @@ The Azure Synapse workspace provides a T-SQL endpoint that enables you to query 
 
 - Administrators: Assign the **Synapse SQL Administrator** workspace role or **sysadmin** server-level role inside the serverless SQL pool. This role has full control over all databases. The **Synapse Administrator** and **Synapse SQL Administrator** roles also have all permissions on all objects in a serverless SQL pool, by default. 
 - Workspace readers: Grant the server-level permissions **GRANT CONNECT ANY DATABASE** and **GRANT SELECT ALL USER SECURABLES** on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
-- Database readers: Create database users from Azure AD in your lake database and add them to **db_datareader** role, which will enable them to read data in the lake database.
+- Database readers: Create database users from Microsoft Entra ID in your lake database and add them to **db_datareader** role, which will enable them to read data in the lake database.
 
 Learn more about [setting access control on shared databases here](../sql/shared-databases-access-control.md).
 
@@ -87,7 +87,7 @@ Lake databases allow creation of custom T-SQL objects, such as schemas, procedur
 
 ### Create SQL database reader in lake database
 
-In this example, we are adding an Azure AD user in the lake database who can read data via shared tables. The users are added in the lake database via the serverless SQL pool. Then, assign the user to the **db_datareader** role so they can read data.
+In this example, we are adding a Microsoft Entra user in the lake database who can read data via shared tables. The users are added in the lake database via the serverless SQL pool. Then, assign the user to the **db_datareader** role so they can read data.
 
 ```sql
 CREATE USER [customuser@contoso.com] FROM EXTERNAL PROVIDER;
