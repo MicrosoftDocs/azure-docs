@@ -102,43 +102,6 @@ Run the following steps in each domain and forest in your organization that cont
 1. Open a PowerShell prompt using the Run as administrator option.
 1. Run the following PowerShell commands to create a new Microsoft Entra Kerberos server object both in your on-premises Active Directory domain and in your Microsoft Entra tenant.
 
-### Example 1 prompt for all credentials
-
-   ```powershell
-   # Specify the on-premises Active Directory domain. A new Azure AD
-   # Kerberos Server object will be created in this Active Directory domain.
-   $domain = $env:USERDNSDOMAIN
-
-   # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Global Administrators group for Azure AD.'
-
-   # Enter a domain administrator username and password.
-   $domainCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group.'
-
-   # Create the new Azure AD Kerberos Server object in Active Directory
-   # and then publish it to Azure Active Directory.
-   Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
-   ```
-
-### Example 2 prompt for cloud credential
-   > [!NOTE]
-   > If you're working on a domain-joined machine with an account that has domain administrator privileges, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter isn't provided, the current Windows login credential is used to access your on-premises Active Directory Domain Controller.
-
-   ```powershell
-   # Specify the on-premises Active Directory domain. A new Azure AD
-   # Kerberos Server object will be created in this Active Directory domain.
-   $domain = $env:USERDNSDOMAIN
-
-   # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential
-
-   # Create the new Azure AD Kerberos Server object in Active Directory
-   # and then publish it to Azure Active Directory.
-   # Use the current windows login credential to access the on-prem AD.
-   Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred
-   ```
-
-### Example 3 prompt for all credentials using modern authentication
    > [!NOTE]
    > If your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator.
    > - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
@@ -147,7 +110,7 @@ Run the following steps in each domain and forest in your organization that cont
    ```powershell
    # Specify the on-premises Active Directory domain. A new Azure AD
    # Kerberos Server object will be created in this Active Directory domain.
-   $domain = $env:USERDNSDOMAIN
+   $domain = "contoso.corp.com"
 
    # Enter a UPN of an Azure Active Directory global administrator
    $userPrincipalName = "administrator@contoso.onmicrosoft.com"
@@ -159,25 +122,6 @@ Run the following steps in each domain and forest in your organization that cont
    # and then publish it to Azure Active Directory.
    # Open an interactive sign-in prompt with given username to access the Azure AD.
    Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
-   ```
-
-### Example 4 prompt for cloud credentials using modern authentication
-   > [!NOTE]
-   > If you are working on a domain-joined machine with an account that has domain administrator privileges and your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator. And you can skip the "-DomainCredential" parameter.
-      > - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a global administrator.
-
-   ```powershell
-   # Specify the on-premises Active Directory domain. A new Azure AD
-   # Kerberos Server object will be created in this Active Directory domain.
-   $domain = $env:USERDNSDOMAIN
-
-   # Enter a UPN of an Azure Active Directory global administrator
-   $userPrincipalName = "administrator@contoso.onmicrosoft.com"
-
-   # Create the new Azure AD Kerberos Server object in Active Directory
-   # and then publish it to Azure Active Directory.
-   # Open an interactive sign-in prompt with given username to access the Azure AD.
-   Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName
    ```
 
 <a name='view-and-verify-the-azure-ad-kerberos-server'></a>
