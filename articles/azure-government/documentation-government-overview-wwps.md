@@ -1,8 +1,8 @@
 ---
 title: Azure for secure worldwide public sector cloud adoption
 description: Customer guidance for Azure public sector cloud adoption
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
