@@ -74,7 +74,7 @@ const phoneNumber = { phoneNumber: "+112345556789" };
 > [!NOTE]
 > The Microsoft Bot Identifier is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The `MicrosoftBotIdentifier` interface represents a Microsoft bot with its Azure AD bot object ID. In the preview version the interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant, and the application should be configured with a resource account. You can retrieve the Azure AD bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+The `MicrosoftTeamsAppIdentifier` interface represents a Microsoft bot with its Azure AD bot object ID. In the preview version the interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant, and the application should be configured with a resource account. You can retrieve the Azure AD bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
 
 #### Basic usage
 
@@ -87,11 +87,11 @@ const users = await graphClient.api("/users")
 //Here we assume that you have a function getBotFromUsers that gets the bot from the returned response
 const bot = getBotFromUsers(users);
 // Create an identifier
-const botIdentifier = { botId: bot.id };
+const botIdentifier = { teamsAppId: bot.id };
 
 // If you're not operating in the public cloud, you must also pass the right Cloud type.
 // If you use Azure Bot Framework instead of Teams Voice applications, set property isResourceAccountConfigured to false.
-const gcchBotIdentifier = { botId: id, cloud: "gcch", isResourceAccountConfigured: true };
+const gcchBotIdentifier = { teamsAppId: id, cloud: "gcch" };
 ```
 
 #### API reference
