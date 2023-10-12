@@ -72,6 +72,8 @@
       href: chaos-studio-tutorial-dynamic-target-portal.md
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
+  - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
+    href: chaos-studio-tutorial-aad-outage-portal.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
   - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor

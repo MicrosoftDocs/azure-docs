@@ -133,7 +133,7 @@ The Azure EA portal can transfer subscriptions from one account owner to another
 
 ## Subscription transfer effects
 
-When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had Azure role-based access control (RBAC) to manage resources keep their access. For more information, see [(Azure RBAC)](../../role-based-access-control/overview.md).
+When an Azure subscription is transferred to an account in the same Microsoft Entra tenant, then all users, groups, and service principals that had Azure role-based access control (RBAC) to manage resources keep their access. For more information, see [(Azure RBAC)](../../role-based-access-control/overview.md).
 
 To view users with Azure RBAC access to the subscription:
 
@@ -141,7 +141,7 @@ To view users with Azure RBAC access to the subscription:
 2. Select the subscription you want to view, and then select **Access control (IAM)**.
 3. Select **Role assignments**. The role assignments page lists all users who have Azure RBAC access to the subscription.
 
-If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had an [Azure RBAC role](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although Azure RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
+If the subscription is transferred to an account in a different Microsoft Entra tenant, then all users, groups, and service principals that had an [Azure RBAC role](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although Azure RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
 
 - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../../storage/common/storage-account-overview.md).
