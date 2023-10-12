@@ -24,8 +24,8 @@ To address this issue, we've bundled as many of these newer components into a ne
 
 <a name='consider-moving-to-azure-ad-connect-cloud-sync'></a>
 
-## Consider moving to Microsoft Entra Connect cloud sync
-Microsoft Entra Connect cloud sync is the future of synchronization for Microsoft.  It replaces Microsoft Entra Connect.  
+## Consider moving to Microsoft Entra Cloud Sync
+Microsoft Entra Cloud Sync is the future of synchronization for Microsoft.  It replaces Microsoft Entra Connect.  
 
 > [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
 
