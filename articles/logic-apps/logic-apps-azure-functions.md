@@ -320,7 +320,7 @@ To find your Azure AD tenant ID, either run the PowerShell command named [**Get-
 
 ### Create app registration for your function app (Consumption workflows only)
 
-After you find the object ID for your Consumption logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
+After you find the object ID for your Consumption logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration.
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 
@@ -351,8 +351,6 @@ After you find the object ID for your Consumption logic app's managed identity a
 1. To finish creating the app registration, select **Add**.
 
    When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. Your function app can now use this app registration for authentication.
-
-   For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
 
 1. Copy the app ID (client ID) for your function to use in the **Audience** property later in your workflow.
 
