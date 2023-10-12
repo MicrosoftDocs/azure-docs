@@ -1,5 +1,5 @@
 ---
-title: Use a Public IP address prefix in a Service Fabric managed cluster
+title: Use Azure DDoS Protection in a Service Fabric managed cluster
 description: This article describes how to use Azure DDoS Protection in a Service Fabric managed cluster.
 ms.topic: how-to
 ms.author: ankurjain
