@@ -87,10 +87,13 @@ kvResourceId=$(az keyvault show --resource-group $rgName \
     --query id \
     --output tsv)
 
-az role assignment create --assignee "<user-email>" \
+useroId=$(az ad user show --id "<user-email>" --query id --output tsv)
+
+az role assignment create \
     --role "Key Vault Crypto Officer" \
     --scope $kvResourceId \
-    --assignee-principal-type User
+    --assignee-principal-type User \
+    -assignee-object-id $useroId
 ```
 
 For more information on how to assign an RBAC role with Azure CLI, see [Assign Azure roles using Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).
