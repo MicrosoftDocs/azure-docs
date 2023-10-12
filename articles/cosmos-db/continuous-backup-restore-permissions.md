@@ -103,7 +103,7 @@ This operation is currently not supported.
 
 ## <a id="custom-restorable-action"></a>Custom role creation for restore action with CLI
 
-The subscription owner can provide the permission to restore to any other Azure AD identity. The restore permission is based on the action: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, and it should be included in their restore permission. There is a built-in role called *CosmosRestoreOperator* that has this role included. You can either assign the permission using this built-in role or create a custom role.
+The subscription owner can provide the permission to restore to any other Microsoft Entra identity. The restore permission is based on the action: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, and it should be included in their restore permission. There is a built-in role called *CosmosRestoreOperator* that has this role included. You can either assign the permission using this built-in role or create a custom role.
 
 The RestorableAction below represents a custom role. You have to explicitly create this role. The following JSON template creates a custom role *RestorableAction* with restore permission:
 

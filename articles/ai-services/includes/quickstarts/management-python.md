@@ -35,7 +35,7 @@ You can install the client library with:
 pip install azure-mgmt-cognitiveservices
 ```
 
-Also install the [Azure Identity library](/python/api/overview/azure/identity-readme) for Azure Active Directory (Azure AD) token authentication support. 
+Also install the [Azure Identity library](/python/api/overview/azure/identity-readme) for Microsoft Entra token authentication support. 
 
 ```console
 pip install azure-identity

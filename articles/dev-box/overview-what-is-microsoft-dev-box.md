@@ -46,8 +46,8 @@ Dev Box has the following benefits for IT admins:
   - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
   - If a dev box is compromised, isolate it while helping users get backup and running on a new dev box.
-- Dev Box provides secure access in a secure environment. Access controls in Azure Active Directory (Azure AD) organize access by project or user type:
-  - Join dev boxes natively to an Azure AD or Active Directory domain.
+- Dev Box provides secure access in a secure environment. Access controls in Microsoft Entra ID organize access by project or user type:
+  - Join dev boxes natively to a Microsoft Entra ID or Active Directory domain.
   - Set conditional access policies that require users to connect via a compliant device.
   - Require multifactor authentication at sign-in.
   - Configure risk-based sign-in policies for dev boxes that access sensitive source code and customer data.
@@ -75,7 +75,7 @@ This diagram shows the components of the Dev Box service and the relationships b
 
 Dev Box service configuration begins with the creation of a dev center, which represents the units of organization in the enterprise. Dev centers are logical containers to help organize dev box resources. There's no limit on the number of dev centers that you can create, but most organizations need only one.
 
-Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Azure AD. Use an Azure AD join to connect exclusively to cloud-based resources, or use a hybrid Azure AD join to connect to on-premises resources and cloud-based resources.
+Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Microsoft Entra ID. Use a Microsoft Entra join to connect exclusively to cloud-based resources, or use a Microsoft Entra hybrid join to connect to on-premises resources and cloud-based resources.
 
 Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in Azure Compute Gallery. Specify a SKU with compute and storage to complete the dev box definition.
 

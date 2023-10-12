@@ -22,14 +22,14 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> , Managed Identity|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Microsoft Entra user </br> , Managed Identity|
 |[Azure Data Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
 |[Azure Database for PostgreSQL](postgresql-database-output.md)|Yes|Username and password auth|
 |[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth, </br> Managed Identity|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
-|[Power BI](power-bi-output.md)|No|Azure Active Directory user, </br> Managed Identity|
+|[Power BI](power-bi-output.md)|No|Microsoft Entra user, </br> Managed Identity|
 |[Azure Table storage](table-storage-output.md)|Yes|Account key|
 |[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key, </br> Managed Identity|

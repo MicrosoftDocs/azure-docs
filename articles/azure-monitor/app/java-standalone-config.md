@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 10/10/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -796,7 +796,7 @@ By default, Application Insights Java 3.x sends a heartbeat metric once every 15
 > [!NOTE]
 > The authentication feature is GA since version 3.4.17.
 
-You can use authentication to configure the agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory authentication.
+You can use authentication to configure the agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Microsoft Entra authentication.
 For more information, see the [Authentication](./azure-ad-authentication.md) documentation.
 
 ## HTTP proxy

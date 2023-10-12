@@ -47,6 +47,8 @@
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
     href: monitor-route-server.md
+  - name: Configure routing preference - Portal
+    href: hub-routing-preference-portal.md
   - name: Configure routing preference - PowerShell
     href: hub-routing-preference-powershell.md
 - name: Reference

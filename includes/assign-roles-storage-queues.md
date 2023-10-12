@@ -30,7 +30,7 @@ The following example assigns the **Storage Queue Data Contributor** role to you
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+7. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
