@@ -17,7 +17,7 @@ ms.subservice: teams-interop
 The Azure Communication Services Calling SDK enables Microsoft 365 users to join and participate in voice and video meeting experiences. This page provides detailed descriptions of Teams meeting features. To get started right away, check out [Calling quickstarts](../../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md). 
 
 
-The following list of capabilities is allowed when Microsoft 365 users participates in Teams meeting:
+The following list of capabilities is allowed when Microsoft 365 users participate in Teams meeting:
 
 | Group of features | Capability                                                                                                          | JavaScript |	Windows | Java (Android) |	Objective-C (iOS)|
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---------- | --- | --- | --- |
