@@ -94,7 +94,11 @@ As a temporary extension, we have introduced a subscription-level [Azure Feature
 
 ## Azure Virtual Network Manager
 
-Azure Virtual Network Manager is a management service that allows you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. After that you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. Azure Virtual Network Manager also provides [security admin rules](../virtual-network-manager/concept-security-admins.md) that allows you to define security policies at scale and apply them to multiple virtual networks at once. However, it’s important to note that Azure Virtual Network Manager security admin rules applied at Application Gateway subnet are ignored and have no impact on Application Gateway.
+Azure Virtual Network Manager is a management service that allows you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. After that you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. Azure Virtual Network Manager also provides [security admin rules](../virtual-network-manager/concept-security-admins.md) that allows you to define security policies at scale and apply them to multiple virtual networks at once. 
+
+> [!NOTE]
+> Security admin rules of Azure Virtual Network Manager applies  to Application Gateway subnets that  only contains Application Gateways that has ["Network Isolation"](Application-gateway-private-deployment.md) enabled. Subnet that has any Application Gateway that  does not  have ["Network Isolation"](Application-gateway-private-deployment.md) enabled, will not follow security admin rules.
+
 
 ## Network security groups
 
