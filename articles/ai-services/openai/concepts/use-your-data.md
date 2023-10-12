@@ -72,20 +72,20 @@ There are three different sources of data that you can use with Azure OpenAI on 
 
 Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
 
-**Ingestion from Azure storage container**
+**Data ingestion from Azure storage containers**
 
-1. Ingestion assets are created in Azure Cognitive Search resource and storage account. Currently these assets are: indexers, indexes, data sources and a [custom skill](/azure/search/cognitive-search-custom-skill-interface). A container (later referred to as a chunks container) is created in the Azure storage account. You can specify an Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
+1. Ingestion assets are created in Azure Cognitive Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
 
-2. Data is read from the raw input container, contents are opened and chunked into small chunks with a maximum of 1024 tokens each. If vector search is enabled, the service will calculate the vector representing the embeddings on each chunk. the embeddings vectors are calculated for these chunks. The output of this step is called the "preprocessed" or "chunked" data. 
+2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1024 tokens each. If vector search is enabled, the service will calculate the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
 
-3. The preprocessed data is loaded and indexed in the Azure Cognitive Search index. 
+3. The preprocessed data is loaded from the chunks container, and indexed in the Azure Cognitive Search index. 
 
 
-**Ingestion from local files**
+**Data ingestion from local files**
 
 Using the Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
 
-**Ingestion from URL** 
+**Data ingestion from URLs** 
 
 A crawling component first crawls the provided URL and stores its contents to an Azure Storage Container. The service then performs ingestion from the container. 
 
@@ -123,22 +123,22 @@ This means the storage account is not accessible with the given credentials. In 
 
 ## Virtual network support & private endpoint support
 
-See the following table for scenarios supported by virtual networks and private endpoints when you bring your own Azure Cognitive Search index. 
+See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure Cognitive Search index**. 
 
-| Azure OpenAI resource                                                                  | Azure Cognitive search resource                              | Vector search enabled                                | Azure OpenAI studio | Chat with the model using the API |
-|----------------------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------|-----------------------------|-------------|
-| The resource allows access from all networks.                                           | The resource allows access from all networks. | Regardless of vector search enablement.                                            | Supported.                   | Supported.   |
-| The resource allows access from selected networks or only private endpoint connections. | The resource allows access from all networks. | Vector search is enabled. | Not supported.                |Supported. |
-| The resource allows access from selected networks or only private endpoint connections.  | The resource allows access from all networks.  | Vector search is not enabled. |   Supported. |  Supported. |
-| Regardless of resource access allowances.                                 | The resource allows access from selected networks or only private endpoint connections.   |     Regardless of vector search enablement.                                     |   Not supported.    | Supported.  |
+| Network access to the Azure OpenAI Resource | Network access to the Azure Cognitive search resource | Is vector search enabled? | Azure OpenAI studio | Chat with the model using the API |
+|---------------------------------------------|-------------------------------------------------------|---------------------------|---------------------|-----------------------------------|
+| Public                                      | Public                                                | Either                    | Supported           | Supported                         |
+| Private                                     | Public                                                | Yes                       | Not supported       | Supported                         |
+| Private                                     | Public                                                | No                        | Supported           | Supported                         |
+| Regardless of resource access allowances    | Private                                               | Either                    | Not supported       | Supported                         |
 
-Additionally, data ingestion has the following configuration requirements:
+Additionally, data ingestion has the following configuration support:
 
-| Azure OpenAI resource                                                                  | Azure Cognitive search resource                              | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
-|----------------------------------------------------------------------------------------|----------------------------------------------|-----------------------------|-------------|
-| The resource allows access from all networks.                                           | The resource allows access from all networks. | Supported.                   | Supported.   |
-| The resource allows access from selected networks or only private endpoint connections. | Regardless of resource access allowances. |  Not supported.                |Not supported. |
-| The resource allows access from all networks.   | The resource allows access from selected networks or only private endpoint connections. |   Not supported. |  Not supported. |
+| Network access to the Azure OpenAI Resource | Network access to the Azure Cognitive search resource | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
+|---------------------------------------------|-------------------------------------------------------|-----------------------------|-----------------------------------------------------------------|
+| Public                                      | Public                                                | Supported                   | Supported                                                       |
+| Private                                     | Regardless of resource access allowances.             | Not supported               | Not supported                                                   |
+| Public                                      | Private                                               | Not supported               | Not supported                                                   |
 
 
 

@@ -403,16 +403,14 @@ The following parameters can be used inside of the `parameters` field inside of 
 ### Start an ingestion job 
 
 ```console
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/JOB_NAME?api-version=2023-10-01-preview 
-api-key: YOUR_API_KEY 
-searchServiceEndpoint: https://YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT.search.windows.net 
-searchServiceAdminKey: YOUR_SEARCH_SERVICE_ADMIN_KEY
-storageConnectionString: YOUR_STORAGE_CONNECTION_STRING
-storageContainer: ingestion-test-data 
-Sample Request Body 
-{ 
-    "dataRefreshIntervalInMinutes": 10 
-} 
+curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/JOB_NAME?api-version=2023-10-01-preview \ 
+-H "Content-Type: application/json" \ 
+-H "api-key: YOUR_API_KEY" \ 
+-H "searchServiceEndpoint: https://YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT.search.windows.net" \ 
+-H "searchServiceAdminKey: YOUR_SEARCH_SERVICE_ADMIN_KEY" \ 
+-H  "storageConnectionString: YOUR_STORAGE_CONNECTION_STRING" \ 
+-H "storageContainer: YOUR_INPUT_CONTAINER" \ 
+-d \ '{ "dataRefreshIntervalInMinutes": 10 } '
 ```
 
 ### Example response 
@@ -422,19 +420,19 @@ Sample Request Body
     "id": "test-1", 
     "dataRefreshIntervalInMinutes": 10, 
     "completionAction": "cleanUpAssets", 
-    "status": "notRunning", 
+    "status": "running", 
     "warnings": [], 
     "progress": { 
         "stageProgress": [ 
             { 
                 "name": "Preprocessing", 
-                "totalItems": 0, 
-                "processedItems": 0 
+                "totalItems": 100, 
+                "processedItems": 100 
             }, 
             { 
                 "name": "Indexing", 
-                "totalItems": 0, 
-                "processedItems": 0 
+                "totalItems": 350, 
+                "processedItems": 40 
             } 
         ] 
     } 
@@ -442,13 +440,19 @@ Sample Request Body
 ```
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `dataRefreshIntervalInMinutes` | string | Required | null | The data refresh interval in minutes. |
+| `dataRefreshIntervalInMinutes` | string | Required | 0 | The data refresh interval in minutes. If you want to run a single ingestion job without a schedule, set this parameter to `0`. |
+| `completionAction` | string | Optional | `cleanUpAssets` | What should happen to the assets created during the ingestion process upon job completion. Valid values are `cleanUpAssets` or `keepAllAssets`. `keepAllAssets` leaves all the intermediate assets for users interested in reviewing the intermediate results, which can be helpful for debugging assets. `cleanUpAssets` removes the assets after job completion. |
 
 ### List ingestion jobs
 
 ```console
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs?api-version=2023-10-01-preview 
-api-key: YOUR_API_KEY 
+curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs?api-version=2023-10-01-preview \ 
+-H "api-key: YOUR_API_KEY"
+```
+ 
+### Example response
+
+```json
 { 
     "value": [ 
         { 
@@ -472,13 +476,12 @@ api-key: YOUR_API_KEY
     ] 
 } 
 ```
- 
+
 ### Get the status of an ingestion job 
 
 ```console
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/YOUR_JOB_NAME?api-version=2023-10-01-preview 
-api-key: YOUR_API_KEY  
-Retry-After: 5 
+curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/YOUR_JOB_NAME?api-version=2023-10-01-preview \ 
+-H "api-key: YOUR_API_KEY"
 ```
 
 #### Example response body 
