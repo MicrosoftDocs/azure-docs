@@ -387,7 +387,7 @@ items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
       - name: Q&A forum (general questions)
-        href: /answers/topics/24223/azure-monitor
+        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback

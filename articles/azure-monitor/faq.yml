@@ -11,7 +11,7 @@ metadata:
   ms.date: 10/24/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
-  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any other questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor.
   
 
 sections:
@@ -935,13 +935,3 @@ sections:
         answer: |
           The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview#collected-data) for information on the default frequencies. See [Create SQL monitoring profile](/azure/azure-sql/database/sql-insights-enable#create-sql-monitoring-profile) for instructions on customizing frequencies.
           
-additionalContent: |
-
-  ## Next steps
-  
-  If your question isn't answered here, see more questions and answers at the following forums:
-
-  - [Log Analytics](/answers/topics/azure-monitor.html)
-  - [Application Insights](/answers/topics/azure-monitor.html)
-
-  For general feedback on Azure Monitor, see the [feedback forum](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
