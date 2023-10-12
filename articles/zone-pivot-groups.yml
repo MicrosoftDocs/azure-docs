@@ -2357,7 +2357,7 @@ groups:
   title: Manage Enterprise apps
   prompt: Choose an option
   pivots:
-  - id: Microsoft Entra ID-powershell
+  - id: aad-powershell
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
