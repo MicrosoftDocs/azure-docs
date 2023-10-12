@@ -38,7 +38,7 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Create the storage account context by using the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) command. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure Active Directory (Azure AD) credentials.
+4. Create the storage account context by using the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) command. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Microsoft Entra credentials.
 
    ```powershell
    $ctx = New-AzStorageContext -StorageAccountName '<storage account name>' -UseConnectedAccount
@@ -139,5 +139,3 @@ azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<cont
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Set a blob's access tier](access-tiers-online-manage.md)
 - [Best practices for using blob access tiers](access-tiers-best-practices.md)
-
-

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/09/2023
 ---
 
-# Quickstart: Use semantic search with an existing index
+# Quickstart: Semantic search with .NET or Python
 
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).

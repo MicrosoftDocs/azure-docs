@@ -57,7 +57,7 @@ For more information, see [Microsoft Sentinel data included in Azure Activity lo
 
 ### Find all actions taken by a specific user in the last 24 hours
 
-The following **AzureActivity** table query lists all actions taken by a specific Azure AD user in the last 24 hours.
+The following **AzureActivity** table query lists all actions taken by a specific Microsoft Entra user in the last 24 hours.
 
 ```kql
 AzureActivity

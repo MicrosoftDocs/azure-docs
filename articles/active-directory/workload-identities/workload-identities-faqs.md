@@ -39,7 +39,7 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 | Authenticate workload identities and tokens to access resources |  Use Microsoft Entra ID to protect resource access |  Yes|  Yes |
 | Workload identities sign-in activity and audit trail |   Monitor and track workload identity behavior  |  Yes |  Yes |
 | **Managed identities**| Use Microsoft Entra identities in Azure without handling credentials |  Yes| Yes |
-| Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Microsoft Entra ID protected resources | Yes | Yes |
+| Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Microsoft Entra protected resources | Yes | Yes |
 |  **Conditional Access**     |   |   |    
 | Conditional Access policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
 |**Lifecycle Management**|    |    |   |

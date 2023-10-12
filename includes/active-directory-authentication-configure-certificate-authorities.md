@@ -7,7 +7,7 @@ ms.date: 08/14/2023
 ms.author: justinha
 ---
 
-To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
+To configure your certificate authorities in Microsoft Entra ID, for each certificate authority, upload the following:
 
 * The public portion of the certificate, in *.cer* format
 * The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside

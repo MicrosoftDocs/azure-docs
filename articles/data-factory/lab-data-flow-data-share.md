@@ -348,7 +348,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 > [!IMPORTANT]
 > Before running the script, you must set yourself as the Active Directory Admin for the SQL Server. 
 
-1. Open a new tab and navigate to the Azure portal. Copy the script provided to create a user in the database that you want to share data from. Do this by logging into the EDW database using Query Explorer (preview) using Azure AD authentication. 
+1. Open a new tab and navigate to the Azure portal. Copy the script provided to create a user in the database that you want to share data from. Do this by logging into the EDW database using Query Explorer (preview) using Microsoft Entra authentication. 
 
     You'll need to modify the script so that the user created is contained within brackets. Eg:
     
@@ -481,7 +481,7 @@ You may be prompted to select a subscription. Make sure you select the subscript
 
 1. Select **Query editor (preview)**
 
-1. Use Azure AD authentication to log on to Query editor. 
+1. Use Microsoft Entra authentication to log on to Query editor. 
 
 1. Run the query provided in your data share (copied to clipboard in step 14). 
 

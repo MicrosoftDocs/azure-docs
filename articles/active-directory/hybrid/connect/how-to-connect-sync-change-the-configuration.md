@@ -276,7 +276,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | User\_ |
 
-    The scoping filter determines to which on-premises AD objects this inbound synchronization rule is applied. In this example, we use the same scoping filter used in the *In from AD – User Common* out-of-box synchronization rule, which prevents the synchronization rule from being applied to User objects created through the Microsoft Entra User writeback feature. You might need to tweak the scoping filter according to your Microsoft Entra Connect deployment.
+    The scoping filter determines to which on-premises AD objects this inbound synchronization rule is applied. In this example, we use the same scoping filter used in the *In from AD – User Common* out-of-box synchronization rule, which prevents the synchronization rule from being applied to User objects created through the Microsoft Entra user writeback feature. You might need to tweak the scoping filter according to your Microsoft Entra Connect deployment.
 
 6. Go to the **Transformation** tab and implement the desired transformation rule. For example, if you have designated an unused on-premises AD attribute (such as extensionAttribute1) as the source attribute for the UserType, you can implement a direct attribute flow:
 

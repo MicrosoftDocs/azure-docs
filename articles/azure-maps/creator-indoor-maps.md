@@ -40,7 +40,7 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 >[!Important]
 >We recommend using:
 >
-> - Azure Active Directory (Azure AD) in all solutions that are built with an Azure Maps account using Creator services. For more information about Azure AD, see [Azure AD authentication].
+> - Microsoft Entra ID in all solutions that are built with an Azure Maps account using Creator services. For more information about Microsoft Entra ID, see [Microsoft Entra authentication].
 >
 >- Role-based access control settings. Using these settings, map makers can act as the Azure Maps Data Contributor role, and Creator map data users can act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control].
 

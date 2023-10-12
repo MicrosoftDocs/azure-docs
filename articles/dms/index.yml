@@ -54,15 +54,15 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Migrate to Azure SQL Database (Offline)
-            url: tutorial-sql-server-azure-sql-database-offline-ads.md
-          - text: Migrate to Azure SQL Managed Instance (Online)
+          - text: Migrate to Azure SQL Database (offline)
+            url: tutorial-sql-server-azure-sql-database-offline.md
+          - text: Migrate to Azure SQL Managed Instance (online)
             url: tutorial-sql-server-managed-instance-online-ads.md
-          - text: Migrate to SQL Managed Instance (Offline)
+          - text: Migrate to SQL Managed Instance (offline)
             url: tutorial-sql-server-managed-instance-offline-ads.md
-          - text: Migrate to SQL Server on Azure Virtual Machines (Online)
+          - text: Migrate to SQL Server on Azure Virtual Machines (online)
             url: tutorial-sql-server-to-virtual-machine-online-ads.md
-          - text: Migrate to SQL Server on Azure Virtual Machines (Offline)
+          - text: Migrate to SQL Server on Azure Virtual Machines (offline)
             url: tutorial-sql-server-to-virtual-machine-offline-ads.md
       - linkListType: reference
         links:

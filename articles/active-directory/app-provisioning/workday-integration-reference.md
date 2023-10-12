@@ -175,7 +175,7 @@ Microsoft Entra provisioning service processes each page and iterates through th
 For each worker entry imported from Workday:
 * The [XPATH expression](workday-attribute-reference.md) is applied to retrieve attribute values from Workday.
 * The attribute mapping and matching rules are applied and 
-* The service determines what operation to perform in the target (Azure AD/AD). 
+* The service determines what operation to perform in the target (Microsoft Entra ID / Active Directory). 
 
 Once the processing is complete, it saves the timestamp associated with the start of full sync as a watermark. This watermark serves as the starting point for the incremental sync cycle. 
 

@@ -21,6 +21,8 @@ Related information:
 
 * For more information about the API Management service tiers and features, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
+[!INCLUDE [api-management-v2-tier-preview](../../includes/api-management-v2-tier-preview.md)]
+
 ## Role of the gateway
 
 The API Management *gateway* (also called *data plane* or *runtime*) is the service component that's responsible for proxying API requests, applying policies, and collecting telemetry. 

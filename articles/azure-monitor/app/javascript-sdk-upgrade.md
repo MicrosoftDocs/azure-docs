@@ -2,7 +2,7 @@
 title: Azure Application Insights JavaScript SDK upgrade information
 description: Azure Application Insights JavaScript SDK upgrade information
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 10/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
