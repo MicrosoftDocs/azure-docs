@@ -132,23 +132,14 @@ For large data files, we recommend that you import from an Azure Blob  store. La
 The following Python example uploads local training and validation files by using the Python SDK, and retrieves the returned file IDs.
 
 ```python
-
 # Upload fine-tuning files
-import os
-import requests
-import json
-import time
+
 import openai
 
-api_key = os.getenv("AZURE_OPENAI_API_KEY") 
-api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
-api_type = 'azure'
-api_version = '2023-09-15-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
-
-openai.api_key = api_key
-openai.api_base = api_base
-openai.api_type = api_type
-openai.api_version = api_version
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
+openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_type = 'azure'
+openai.api_version = '2023-09-15-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 
 training_file_name = 'training_set.jsonl'
 validation_file_name = 'validation_set.jsonl'
@@ -215,7 +206,7 @@ When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in
 > [!NOTE]
 > As with all applications, Microsoft requires a review process for your custom model before it's available live.
 
-You can use either [Azure OpenAI](#deploy-a-model-with-azure-openai) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
+You can use either [Azure OpenAI](#deploy-a-fine-tuned-model) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error occurs if you select an already-deployed customized model.
