@@ -75,15 +75,15 @@ Before you deploy zone-to-zone disaster recovery for your VMs, ensure that other
 
 |Feature  | Support statement  |
 |---------|---------|
-|VMs (classic)   |     Not supported.    |
-|VMs (Azure Resource Manager)   |    Supported.    |
-|Azure Disk Encryption v1 (dual pass, with Microsoft Entra ID)     |     Supported.    |
-|Azure Disk Encryption v2 (single pass, without Microsoft Entra ID)    |    Supported.    |
-|Unmanaged disks    |    Not supported.    |
-|Managed disks    |    Supported.    |
-|Customer-managed keys    |    Supported.    |
-|Proximity placement groups    |    Supported.    |
-|Backup interoperability    |    File-level backup and restore are supported. Disk and VM-level backup and restore aren't supported.    |
+|Classic VMs   |     Not supported    |
+|ARM VMs    |    Supported    |
+|Azure Disk Encryption v1 (dual pass, with Microsoft Entra ID)     |     Supported	|
+|Azure Disk Encryption v2 (single pass, without Microsoft Entra ID)    |    Supported    |
+|Unmanaged disks    |    Not supported    |
+|Managed disks    |    Supported    |
+|Customer-managed keys    |    Supported    |
+|Proximity placement groups    |    Supported    |
+|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore aren't supported.    |
 |Hot add/remove    |    You can add disks after you enable zone-to-zone replication. Removing disks after you enable zone-to-zone replication isn't supported.    |
 
 ## Set up Site Recovery zone-to-zone disaster recovery
