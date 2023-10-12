@@ -92,7 +92,7 @@ A DNS forwarding rule includes one or more target DNS servers that are used for 
 - A target IP address 
 - A target Port and Protocol (UDP or TCP)
 
-## Restrictions:
+## Restrictions
 
 The following limits currently apply to Azure DNS Private Resolver: 
 
