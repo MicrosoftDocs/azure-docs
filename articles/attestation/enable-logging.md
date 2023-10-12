@@ -24,21 +24,21 @@ After you create one or more Azure Attestation providers, you'll likely want to 
 
 To complete this tutorial, you will need an Azure Attestation provider. You can create a new provider using one of these methods: 
 
-- [Create an attestation provider using the Azure CLI](../azure/attestation/quickstart-azure-cli.md)
-- [Create an attestation provider using Azure PowerShell](../azure/attestation/quickstart-powershell.md)
-- [Create an attestation provider using the Azure portal](../azure/attestation/quickstart-portal.md)
+- [Create an attestation provider using the Azure CLI](quickstart-azure-cli.md)
+- [Create an attestation provider using Azure PowerShell](quickstart-powershell.md)
+- [Create an attestation provider using the Azure portal](quickstart-portal.md)
 
 You will also need a destination for your logs. This can be an existing or new Azure storage account and/or Log Analytics workspace. You can create a new Azure storage account using one of these methods: 
 
-- [Create a storage account using the Azure CLI]([../azure/storage/common/storage-account-create.md#azure-cli)
-- [Create a storage account using Azure PowerShell](../azure/storage/common/storage-account-create.md#azure-powershell)
-- [Create a storage account using the Azure portal](../azure/storage/common/storage-account-create.md#azure-portal)
+- [Create a storage account using the Azure CLI]([../storage/common/storage-account-create.md)
+- [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md)
+- [Create a storage account using the Azure portal](../storage/common/storage-account-create.md)
 
 You can create a new Log Analytics workspace using one of these methods: 
 
-- [Create a Log Analytics workspace using the Azure CLI](../azure/azure-monitor/logs/quick-create-workspace.md#azure-cli)
-- [Create a Log Analytics workspace using Azure PowerShell](../azure/azure-monitor/logs/quick-create-workspace.md#azure-powershell)
-- [Create a Log Analytics workspace the Azure portal](../azure/azure-monitor/logs/quick-create-workspace.md#azure-portal)
+- [Create a Log Analytics workspace using the Azure CLI](../azure-monitor/logs/quick-create-workspace.md)
+- [Create a Log Analytics workspace using Azure PowerShell](../azure-monitor/logs/quick-create-workspace.md)
+- [Create a Log Analytics workspace the Azure portal](../azure-monitor/logs/quick-create-workspace.md)
 
  ## Enable logging 
 
@@ -104,9 +104,9 @@ To access logs in the Azure portal, follow these steps:
 
 ## Use Azure Monitor logs  
 
-You can use Azure Monitor logs to review activity in Azure Attestation resources. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, see [Monitoring Azure Attestation](../azure/attestation/monitor-azure-attestation.md) 
+You can use Azure Monitor logs to review activity in Azure Attestation resources. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, see [Monitoring Azure Attestation](monitor-azure-attestation.md) 
 
 ## Next steps 
 
-- For information on how to interpret logs, see [Azure Attestation logging](../azure/attestation/view-logs.md) .
-- To learn more about using Azure Monitor for analyzing Azure Attestation logs, see [Monitoring Azure Attestation](../azure/attestation/monitor-azure-attestation.md) . 
+- For information on how to interpret logs, see [Azure Attestation logging](view-logs.md) .
+- To learn more about using Azure Monitor for analyzing Azure Attestation logs, see [Monitoring Azure Attestation](monitor-azure-attestation.md) . 
