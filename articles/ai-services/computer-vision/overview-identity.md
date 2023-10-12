@@ -68,6 +68,10 @@ You can try out Face detection quickly and easily in your browser using Vision S
 > [!div class="nextstepaction"]
 > [Try Vision Studio for Face](https://portal.vision.cognitive.azure.com/gallery/face)
 
+## Liveness detection
+
+should have links to all the liveness docs TBD. 
+
 
 ## Identity verification
 
@@ -87,7 +91,7 @@ After you create and train a group, you can do identification against the group 
 
 The verification operation answers the question, "Do these two faces belong to the same person?". 
 
-Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for Identity Verification, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID.
+Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for access control, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID. It can also be used as a final check on the results of an Identification API call.
 
 For more information about identity verification, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
