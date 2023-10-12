@@ -1,6 +1,6 @@
 ---
-title: Verify users with liveness detection
-description: In this Tutorial, you learn how to verify users with liveness detection, using both server-side code and a client-side mobile application.
+title: Detect liveness in faces
+description: In this Tutorial, you learn how to Detect liveness in faces, using both server-side code and a client-side mobile application.
 author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-vision
@@ -9,7 +9,7 @@ ms.date: 10/12/2023
 ---
 
 
-# Tutorial: Verify users with liveness detection
+# Tutorial: Detect liveness in faces
 
 In 
 
@@ -187,21 +187,11 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 -->
 
-## Next step
+## Next steps
 
-TODO: Add your next step link(s)
+See the liveness detection how-to guide to learn about other options in the liveness APIs.
 
 > [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+> [Face liveness how-to guide](../how-to/detect-liveness.md)
 
-<!-- OR -->
 
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->

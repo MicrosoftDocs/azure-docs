@@ -70,7 +70,14 @@ You can try out Face detection quickly and easily in your browser using Vision S
 
 ## Liveness detection
 
-should have links to all the liveness docs TBD. 
+should have links to all the liveness docs TBD:
+
+concept
+- [Face liveness Tutorial](Tutorials/liveness.md)
+howto
+reference
+
+refs
 
 
 ## Identity verification
@@ -126,4 +133,4 @@ As with all of the Azure AI services resources, developers who use the Face serv
 
 Follow a quickstart to code the basic components of a face recognition app in the language of your choice.
 
-- [Face quickstart](quickstarts-sdk/identity-client-library.md).
+- [Face quickstart](quickstarts-sdk/identity-client-library.md)
