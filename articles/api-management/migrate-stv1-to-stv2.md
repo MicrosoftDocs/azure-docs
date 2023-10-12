@@ -56,6 +56,8 @@ For an API Management instance that's not deployed in a VNet, go to the **Platfo
 
     * **Preserve IP address** - The VIP address of your API Management instance won't change. Your instance will have downtime for up to 15 minutes.
 
+        :::image type="content" source="media/migrate-stv1-to-stv2/platform-migration-portal.png" alt-text="Screenshot of API Management platoform migration in the portal.":::
+
 1. Review guidance for the migration process, and perform any necessary preparation steps. After you've completed the preparation steps, select **I have read and understand the impact of the migration process.**. Select **Migrate**.
 
 #### [Azure CLI](#tab/cli)
