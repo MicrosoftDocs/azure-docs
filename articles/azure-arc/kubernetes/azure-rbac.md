@@ -660,7 +660,7 @@ Follow the instructions to sign in again. An error message states that you're su
 Another option for cluster access control is to use [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) for just-in-time requests.
 
 >[!NOTE]
-> [Microsoft Entra PIM](../../active-directory/privileged-identity-management/pim-configure.md) is a Microsoft Entra ID P1 or P2 capability that requires a Premium P2 SKU. For more on Microsoft Entra ID SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+> [Microsoft Entra PIM](../../active-directory/privileged-identity-management/pim-configure.md) is a Microsoft Entra ID P2 capability. For more on Microsoft Entra ID SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
 
 To configure just-in-time access requests for your cluster, complete the following steps:
 
