@@ -171,7 +171,7 @@ When you use Azure NetApp Files volumes for access to both SMB and NFS, some con
 * Dual-protocol volumes require a reverse lookup zone in DNS with an associated pointer (PTR) record of the AD host machine to prevent dual-protocol volume creation failures.
 * Your NFS client and associated packages (such as `nfs-utils`) should be up to date for the best security, reliability and feature support.
 * Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services.
-* Dual-protocol volumes don't support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
+* Dual-protocol volumes don't support the use of LDAP over TLS with Microsoft Entra Domain Services. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * Supported NFS versions include: NFSv3 and NFSv4.1.
 * NFSv4.1 features such as parallel network file system (pNFS), session trunking, and referrals aren't currently supported with Azure NetApp Files volumes.
 * [Windows extended attributes `set`/`get`](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) aren't supported in dual-protocol volumes.
