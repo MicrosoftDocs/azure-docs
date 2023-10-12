@@ -67,6 +67,17 @@ A [user-assigned managed identity](../../active-directory/managed-identities-azu
 - [Event Hubs namespace and event hub]((../../event-hubs/event-hubs-create.md))
 - [Virtual machine](../../virtual-machines/overview.md)
 
+## Required permissions
+
+| Action | Permissions required |
+|:---|:---|
+| Upload data to blob storage | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` permissions to the managed identity on your storage account, as provided by the [Storage Blob Data Contributor built-in role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor), for example |
+| Upload data to table storage | `Microsoft.Storage/storageAccounts/tableServices/tables/entities/write` permissions to the managed identity on your storage account, as provided by the [Storage Table Data Contributor built-in role](../../role-based-access-control/built-in-roles.md#storage-table-data-contributor), for example |
+| Upload data to an event hub | `Microsoft.EventHub/*/send/action` permissions to the managed identity on your event hub, as provided by the [Azure Event Hubs Data Sender built-in role](../../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), for example |
+| Create a data collection rule | See [Required permissions for using programmatic methods to create DCRs and associations](../essentials/data-collection-rule-overview.md#permissions). |
+| Create a DCR association | See [Required permissions for using programmatic methods to create DCRs and associations](../essentials/data-collection-rule-overview.md#permissions). |
+| Deploy the Azure Monitor Agent | See [Permissions required to deploy the Azure Monitor agent](./resource-manager-agent.md#permissions-required). |
+
 ## Create a data collection rule
 
 Create a data collection rule for collecting events and sending to storage and event hub.
