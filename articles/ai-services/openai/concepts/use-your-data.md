@@ -158,8 +158,6 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
 
-> [!NOTE]
-> Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
 ### Storage accounts
 
 Storage accounts in virtual networks, firewalls, and private endpoints are currently not supported by Azure OpenAI on your data.
