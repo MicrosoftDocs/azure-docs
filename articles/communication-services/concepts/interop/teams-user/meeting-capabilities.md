@@ -39,6 +39,7 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | Indicator of call's state <br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Indicate participants being muted                                                                                   | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Indicate participants' reasons for terminating the call                                                             | ✔️        | ✔️ | ✔️ | ✔️ |
+|                   | Get associated toll and toll-free phone numbers with the meeting                                                    | ✔️        | ❌ | ❌ | ❌ |
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️        | ✔️<sup>1</sup>  | ✔️<sup>1</sup>  | ✔️<sup>1</sup>  |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️        | ✔️<sup>1</sup>  | ❌ | ❌ |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️        | ✔️ | ✔️ | ✔️ |
@@ -63,7 +64,7 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | Participation in breakout rooms                                                                                     | ❌ | ❌ | ❌ | ❌ |
 |                   | Admit participants in the lobby into the Teams meeting                                                               | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Be admitted from the lobby into the Teams meeting                                                                   | ✔️        | ✔️ | ✔️ | ✔️ |
-|                   | Promote participant to a presenter or attendee                                                                        | ❌        |
+|                   | Promote participant to a presenter or attendee                                                                        | ❌ | ❌ | ❌ | ❌ |
 |                   | Be promoted to presenter or attendee                                                                                | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Disable or enable mic for attendees                                                                                 | ❌        | ❌ | ❌ | ❌ |
 |                   | Honor disabling or enabling a mic as an attendee                                                                    | ✔️        | ✔️ | ✔️ | ✔️ |
@@ -108,7 +109,7 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | Interact with a Q&A                                                                                                 | ❌ | ❌ | ❌ | ❌ |
 |                   | Interact with a OneNote                                                                                             | ❌ | ❌ | ❌ | ❌ |
 |                   | Manage SpeakerCoach                                                                                                 | ❌ | ❌ | ❌ | ❌ |
-| | [Include participant in Teams meeting attendance report](https://support.microsoft.com/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ❌  ❌ | ❌ | ❌ |
+| | [Include participant in Teams meeting attendance report](https://support.microsoft.com/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ❌ | ❌ | ❌ | ❌ |
 | Accessibility     | Receive closed captions                                                                                             | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Communication access real-time translation (CART)                                                                   | ❌ | ❌ | ❌ | ❌ |
 |                   | Language interpretation                                                                                             | ❌ | ❌ | ❌ | ❌ |
