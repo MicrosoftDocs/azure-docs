@@ -85,11 +85,10 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
     mongoimport \
         --file <filename>.json \
         --type json \
-        --writeConcern="{w:0}" \
         --db <database-name> \
         --collection <collection-name> \
         --ssl \
-        <target-connection-string>
+        --uri <target-connection-string>
     ```
 
 1. Monitor the terminal output from *mongoimport*. The output prints lines of text to the terminal with updates on the import operation's status.
@@ -133,11 +132,11 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 
     ```bash
     mongorestore \ 
-        --writeConcern="{w:0}" \
-        --db <database-name> \
-        --collection <collection-name> \
-        --ssl \
-        <dump-directory>/<database-name>/<collection-name>.bson
+       --db <database-name> \
+       --collection <collection-name> \
+       --ssl \
+       --uri <target-connection-string> \
+       <dump-directory>/<database-name>/<collection-name>.bson
     ```
 
 1. Monitor the terminal output from *mongoimport*. The output prints lines of text to the terminal with updates on the restore operation's status.
