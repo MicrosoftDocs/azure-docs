@@ -68,23 +68,28 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
    :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, Workspace section toolbar, and selected option for Create new logic app workspace.":::
 
-1. In the **Create new logic app workspace** prompt that appears, find and select the local folder that you created for your project.
+1. In the **Select folder** box, browse to and select the local folder that you created for your project.
 
-   :::image type="content" source="media/create-run-custom-code-functions/select-local-folder.png" alt-text="Screenshot shows Visual Studio Code with prompt to select a local folder for workflow project.":::
+1. In the **Create new logic app workspace** prompt box, at the **Workspace name** prompt, provide a name for your workspace:
 
-1. Follow the prompts to provide the following example values:
+   :::image type="content" source="media/create-run-custom-code-functions/workspace-name.png" alt-text="Screenshot shows Visual Studio Code with prompt to enter workspace name.":::
+
+   This example continues with **MyLogicAppWorkspace**.
+
+1. At the **Select a project template for your logic app workspace** prompt, select **Logic app with custom code project**.
+
+1. Follow the subsequent prompts to provide the following example values:
 
    | Item | Example value |
    |------|---------------|
-   | Workspace name | **MyLogicAppWorkspace** |
-   | Function name | **WeatherForecast** |
-   | Namespace name | **Contoso.Enterprise** |
+   | Function name for functions project | **WeatherForecast** |
+   | Namespace name for functions project | **Contoso.Enterprise** |
    | Workflow template: <br>- **Stateful Workflow** <br>- **Stateless Workflow** | **Stateful Workflow** |
    | Workflow name | **MyWorkflow** |
 
 1. Select **Open in current window**.
 
-   After you finish this step, Visual Studio Code creates your workspace, which includes a function project and a logic app workflow project, by default, for example:
+   After you finish this step, Visual Studio Code creates your workspace, which includes a functions project and a logic app project, by default, for example:
 
    :::image type="content" source="media/create-run-custom-code-functions/created-workspace.png" alt-text="Screenshot shows Visual Studio Code with created workspace.":::
 
@@ -98,7 +103,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 1. In your workspace, expand the **Functions** node, if not already expanded.
 
-1. Open the **<*function-name*>.cs** file.
+1. Open the **<*function-name*>.cs** file, which is named **WeatherForecast.cs** in this example.
 
    By default, this file contains sample code that has the following code elements along with the previously provided example values where appropriate:
 
@@ -123,20 +128,32 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
        using System.Threading.Tasks;
        using Microsoft.Azure.Functions.Extensions.Workflows;
        using Microsoft.Azure.WebJobs;
+       using Microsoft.Extensions.Logging;
 
        /// <summary>
        /// Represents the WeatherForecast flow invoked function.
        /// </summary>
-       public static class WeatherForecast
+       public class WeatherForecast
        {
+
+           private readonly ILogger<WeatherForecast> logger;
+
+           public WeatherForecast(ILoggerFactory loggerFactory)
+           {
+               logger = loggerFactory.CreateLogger<WeatherForecast>();
+           }
+
            /// <summary>
            /// Executes the logic app workflow.
            /// </summary>
            /// <param name="zipCode">The zip code.</param>
            /// <param name="temperatureScale">The temperature scale (e.g., Celsius or Fahrenheit).</param>
            [FunctionName("WeatherForecast")]
-           public static Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
+           public Task<Weather> Run([WorkflowActionTrigger] int zipCode, string temperatureScale)
            {
+
+               this.logger.LogInformation("Starting WeatherForecast with Zip Code: " + zipCode + " and Scale: " + temperatureScale);
+
                // Generate random temperature within a range based on the temperature scale
                Random rnd = new Random();
                var currentTemp = temperatureScale == "Celsius" ? rnd.Next(1, 30) : rnd.Next(40, 90);
@@ -156,7 +173,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
            }
 
            /// <summary>
-           /// Represents the weather information.
+           /// Represents the weather information for WeatherForecast.
            /// </summary>
            public class Weather
            {
