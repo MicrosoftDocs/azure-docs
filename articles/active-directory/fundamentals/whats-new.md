@@ -1,6 +1,6 @@
 ---
 title: What's new? Release notes
-description: Learn what is new with Azure Active Directory; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+description: Learn what is new with Microsoft Entra ID, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: owinfreyATL
 manager: amycolannino
 featureFlags:
@@ -17,17 +17,20 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# What's new in Azure Active Directory?
+# What's new in Microsoft Entra ID?
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Active+Directory%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
-Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Microsoft Entra ID (previously known as Azure AD) receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
 - Bug fixes
 - Deprecated functionality
 - Plans for changes
+
+> ![NOTE] 
+> If you're currently using Azure AD today or are have previously deployed Azure AD in your organizations, you can continue to use the service without interruption. All existing deployments, configurations, and integrations continue to function as they do today without any action from you.
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
@@ -112,7 +115,7 @@ When a Conditional Access policy targets the Microsoft Admin Portals cloud app, 
 - Microsoft Intune admin center
 - Microsoft Purview compliance portal                   
 
-For more information, see: [Microsoft Admin Portals (preview)](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals-preview).
+For more information, see: [Microsoft Admin Portals](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals).
 
 ---
 

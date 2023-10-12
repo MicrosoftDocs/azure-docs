@@ -21,6 +21,8 @@
           href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Optimize costs
           href: best-practices-cost.md
+        - name: Windows vs. Linux containers
+          href: windows-vs-linux-containers.md
 - name: Quickstarts
   expanded: true
   items:
@@ -122,6 +124,8 @@
               href: cis-ubuntu.md
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
+            - name: CIS Windows Server benchmark
+              href: cis-windows.md
     - name: Networking
       items:
         - name: Concepts
@@ -190,8 +194,6 @@
       items:
         - name: Plan and execute a migration
           href: aks-migration.md
-        - name: Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Wildfly
@@ -679,6 +681,14 @@
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Deploy Kubernetes applications
+          items:
+            - name: Deploy Kubernetes applications from Azure Marketplace
+              href: deploy-marketplace.md
+            - name: Deploy Kubernetes applications with ARM template
+              href: deploy-application-template.md
+            - name: Deploy Kubernetes applications with Azure CLI
+              href: deploy-application-az-cli.md
         - name: Dapr
           items:
             - name: Create the Dapr extension

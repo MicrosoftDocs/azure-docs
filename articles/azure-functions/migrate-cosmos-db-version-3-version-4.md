@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 08/16/2023
+ms.date: 10/05/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -16,6 +16,10 @@ This article highlights considerations for upgrading your existing Azure Functio
 > On August 31, 2024 the Azure Cosmos DB extension version 3.x will be retired. The extension and all applications using the extension will continue to function, but Azure Cosmos DB will cease to provide further maintenance and support for this extension. We recommend migrating to the latest version 4.x of the extension.
 
 This article walks you through the process of migrating your function app to run on version 4.x of the Azure Cosmos DB extension. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+## Changes to item ID generation
+
+Item ID is no longer auto populated in the Extension. Therefore, the Item ID must specifically include a generated ID for cases where you were using the Output Binding to create items.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -79,6 +83,10 @@ Update your `.csproj` project file to use the latest extension version for your 
   </ItemGroup>
 </Project>
 ```
+
+## Azure Cosmos DB SDK changes
+
+The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, for cases where you were using SDK related types, please look at the [Azure Cosmos DB SDK V3 migration guide](../cosmos-db/nosql/migrate-dotnet-v3.md) for more information.
 
 ---
 

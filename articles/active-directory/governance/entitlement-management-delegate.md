@@ -179,7 +179,7 @@ You can view the list of catalogs currently enabled for external users in the Mi
 1. If any of those catalogs have a non-zero number of access packages, those access packages may have a policy for users not in directory.
 
 
-## Manage role assignments to entitlement management roles programmatically (preview)
+## Manage role assignments to entitlement management roles programmatically
 
 You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
 

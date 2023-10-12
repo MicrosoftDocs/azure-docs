@@ -8,7 +8,8 @@ author: nickomang
 ms.date: 02/03/2023
 ---
 
-# Auto-upgrade Azure Kubernetes Service cluster node OS images 
+# Auto-upgrade Azure Kubernetes Service cluster node OS images
+
 AKS now supports the node OS auto-upgrade channel, an exclusive channel dedicated to controlling node-level OS security updates. This channel can't be used for cluster-level Kubernetes version upgrades.
 
 ## How does node OS auto-upgrade work with cluster auto-upgrade?
@@ -50,9 +51,9 @@ The default cadence means there's no planned maintenance window applied.
 
 |Channel|Updates Ownership|Default cadence|
 |---|---|
-| `Unmanaged`|OS driven security updates. AKS has no control over these updates|Nightly around 6AM UTC for Ubuntu and Mariner, Windows every month.|
-| `SecurityPatch`|AKS|Weekly|
-| `NodeImage`|AKS|Weekly|
+| `Unmanaged`|OS driven security updates. AKS has no control over these updates.|Nightly around 6AM UTC for Ubuntu and Azure Linux. Monthly for Windows.|
+| `SecurityPatch`|AKS|Weekly.|
+| `NodeImage`|AKS|Weekly.|
 
 ## Prerequisites
 

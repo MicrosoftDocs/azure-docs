@@ -5,7 +5,7 @@ description: Configure layered network security for your Azure AI services resou
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/10/2023

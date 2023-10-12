@@ -5,7 +5,7 @@ description: "This article describes disabling local authentication in Azure AI 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 09/22/2023
 ms.author: pafarley

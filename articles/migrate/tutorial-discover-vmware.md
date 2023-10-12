@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/15/2023
+ms.date: 10/11/2023
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -47,7 +47,7 @@ Requirement | Details
 To create a project and register the Azure Migrate appliance, you must have an Azure account that has these permissions:
 
 - Contributor or Owner permissions in the Azure subscription.
-- Permissions to register Azure Active Directory (Azure AD) apps.
+- Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permissions at subscription level to create an instance of Azure Key Vault, which is used during agentless server migration.
 
 If you created a free Azure account, by default, you're the owner of the Azure subscription. If you're not the subscription owner, work with the owner to assign permissions.
@@ -74,17 +74,17 @@ To set Contributor or Owner permissions in the Azure subscription:
 
     :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
-To give the account the required permissions to register Azure AD apps:
+To give the account the required permissions to register Microsoft Entra apps:
 
-1. In the portal, go to **Azure Active Directory** > **Users**.
+1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare VMware
 
-On vCenter Server, check that your account has permissions to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these permissions when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
+On vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
 
-Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have permissions enabled in VMware for VM guest operations.
+Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) enabled in VMware for VM guest operations.
 
 ### Create an account to access vCenter Server
 

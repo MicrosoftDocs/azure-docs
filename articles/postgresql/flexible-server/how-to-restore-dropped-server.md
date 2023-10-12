@@ -40,6 +40,9 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
 
 4. Browse to the PostgreSQL [Create Server REST API Page](/rest/api/postgresql/flexibleserver/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
 
+   > [!Important]
+   > Use this api-version **_2023-03-01-preview_** rather than the default before running to enable this API function as expected as detailed in the following step.
+
 5. Provide the **resourceGroupName**, **serverName** (Target server name), **subscriptionId** properties, based on the resourceId attribute JSON value captured in the preceding step 3. The api-version property is prepopulated and can be left as-is, as shown in the following image.
 
     ![Screenshot showing the REST API Try It page.](./media/how-to-restore-server-portal/create-server-from-rest-api-azure.png)

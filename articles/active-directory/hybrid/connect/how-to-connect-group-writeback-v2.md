@@ -93,7 +93,7 @@ To verify if Active Directory has been prepared for Exchange, see [Prepare Activ
 ## Meet prerequisites for public preview 
 The following are prerequisites for group writeback:
 
-- A Microsoft Entra ID P1 or P2 1 license 
+- A Microsoft Entra ID P1 or P2 license 
 - Microsoft Entra Connect version 2.0.89.0 or later
 
 An optional prerequisite is Exchange Server 2016 CU15 or later. You need it only for configuring cloud groups with an Exchange hybrid. For more information, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites). If you haven't [prepared Active Directory for Exchange](/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019&preserve-view=true), mail-related attributes of groups won't be written back. 

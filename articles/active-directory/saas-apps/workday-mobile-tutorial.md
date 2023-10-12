@@ -135,7 +135,7 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 ## iOS configuration policies
 
-1. Sign in to the [Azure portal](https://portal.azure.com/), and sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for **Intune** or select the widget from the list.
 1. Go to **Client Apps** > **Apps** > **App Configuration Policies**. Then select **+ Add** > **Managed Devices**.
 1. Enter a name.
@@ -168,7 +168,7 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 ## Android configuration policies
 
-1. Sign in to the [Azure portal](https://portal.azure.com/), and sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for **Intune** or select the widget from the list.
 3. Go to **Client Apps** > **Apps** > **App Configuration Policies**. Then select **+ Add** > **Managed Devices**.
 5. Enter a name. 
