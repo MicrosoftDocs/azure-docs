@@ -22,9 +22,9 @@ There are a few solutions that let you avoid SNAT port limitations with Service 
 
 2. If your destination is an Azure service that supports [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), you can avoid SNAT port exhaustion issues by using [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) (supported on all node types). To configure service endpoints, you need to add the following to the ARM template for the cluster resource and deploy:
 
-    #### ARM Template:
+#### ARM Template:
     
-    ```json
+```json
     "serviceEndpoints": [ 
       {
         "service": "Microsoft.Storage",
@@ -34,7 +34,7 @@ There are a few solutions that let you avoid SNAT port limitations with Service 
         "service": "Microsoft.ServiceBus"
       }
     ]
-    ```
+```
 
 3. With [Bring your own load balancer](../service-fabric/how-to-managed-cluster-networking.md#bring-your-own-azure-load-balancer), you can define your own outbound rules or attach multiple outgoing [public IP addresses](../service-fabric/how-to-managed-cluster-networking#enable-public-ip.md) to provide more SNAT ports (supported on secondary node types). 
 
