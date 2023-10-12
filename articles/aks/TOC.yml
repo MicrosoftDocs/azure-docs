@@ -681,6 +681,14 @@
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Deploy Kubernetes applications
+          items:
+            - name: Deploy Kubernetes applications from Azure Marketplace
+              href: deploy-marketplace.md
+            - name: Deploy Kubernetes applications with ARM template
+              href: deploy-application-template.md
+            - name: Deploy Kubernetes applications with Azure CLI
+              href: deploy-application-az-cli.md
         - name: Dapr
           items:
             - name: Create the Dapr extension
