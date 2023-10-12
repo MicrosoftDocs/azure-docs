@@ -695,9 +695,9 @@ With the telemetry enhancements in Application Insights, you also get an enhance
 
 ### Filter based on a specific workflow
 
-Multi-dimensional metrics let you target a subset of the overall events captured in Application Insights and filter events based on a specific workflow.
+When you enable multidimensional metrics in the Metrics dashboard, you can target a subset of the overall events captured in Application Insights and filter events based on a specific workflow.
 
-1. On your Application Insights instance, [enable multi-dimensional metrics](../azure-monitor/app/get-metric.md#enable-multi-dimensional-metrics).
+1. On your Application Insights resource, [enable multidimensional metrics](../azure-monitor/app/get-metric.md#enable-multidimensional-metrics).
 
 1. On the chart toolbar, select **Add filter**.
 
