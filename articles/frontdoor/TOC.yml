@@ -316,6 +316,14 @@
         items:
         - name: Azure Storage Account
           href: integrate-storage-account.md
+        - name: Azure API Management
+          href: ../api-management/front-door-api-management.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Open AI
+          href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Static Web Apps
+          href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Spring Apps
+          href: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy?toc=/azure/frontdoor/toc.json
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
