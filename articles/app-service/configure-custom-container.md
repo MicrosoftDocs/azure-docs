@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 09/14/2023
+ms.date: 10/12/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -253,14 +253,13 @@ The front ends are located inside Azure data centers. If you use TLS/SSL with yo
 
 The new keys at each restart may reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables). 
 
-## Connect to the container
+## Connect to the container with SSH
 
-You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Here's how it works:
+You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/` and choosing the SSH option. This opens a direct SSH session with your container in which you can run commands inside your container
 
-- The debug console lets you execute interactive commands, such as starting PowerShell sessions, inspecting registry keys, and navigate the entire container file system.
 - It functions separately from the graphical browser above it, which only shows the files in your [shared storage](#use-persistent-shared-storage).
-- In a scaled-out app, the debug console is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top menu.
-- Any change you make to the container from within the console does *not* persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
+- In a scaled-out app, the SSH session is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top Kudu menu.
+- Any change you make to the container from within the SSH session does *not* persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
 
 ## Access diagnostic logs
 
