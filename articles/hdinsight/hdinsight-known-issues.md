@@ -14,7 +14,7 @@ For service level outages or degradation notifications, check the [Azure service
 
 Azure HDInsight has the following known issues:
 
-| Azure component | Status | 
+| Azure component | Issue description | 
 |-|-|
 | Kafka | [Kafka 2.4.1 has validation error in ARM templates](#kafka-241-has-validation-error-in-arm-templates) |
 | Conda | [Conda version regression in recent HDInsight release](#conda-version-regression-in-recent-hdinsight-release)|
