@@ -794,6 +794,11 @@
         "source_path_from_root": "/articles/mysql/flexible-server/tutorial-archive-laravel.md",
         "redirect_url": "/azure/mysql/flexible-server/tutorial-php-database-app",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/video.md",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
     }
   ]
 }
