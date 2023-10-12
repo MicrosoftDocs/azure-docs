@@ -19,7 +19,7 @@ The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, 
 
 ## Add file attachment support
 
-The Chat SDK for JavaScript provides `previewUrl` and `url` for each file attachment. Specifically, `url` provides a direct download URL to the file. While `previewUrl` provides a link to a webpage on SharePoint where the user can see the content of the file, edit the file and download the file if permission allows. 
+The Chat SDK for JavaScript provides `previewUrl` for each file attachment. Specifically, the `previewUrl` provides a link to a webpage on the SharePoint where the user can see the content of the file, edit the file and download the file if permission allows. 
 
 You should be aware of couple constraints that come with this feature:
 
@@ -29,7 +29,7 @@ You should be aware of couple constraints that come with this feature:
    - "People you choose" (with email address)
 
    The Teams user should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
-3. The direct download URL (`url`) might be inaccessible if file is protected (files with restricted permissions such as file being password protected or shared with a specific email address owner)
+3. The direct download URL (`url`) is not supported.
 
 In addition to regular files (with `AttachmentType` of `file`), the Chat SDK for JavaScript also provides the `AttachmentType` of `teamsImage` for image attachments so that you can use it to mirror the behavior of how Microsoft Teams client converts image attachment to inline images in the UI layer. See section "Image Attachment Handling" for more info. 
 
