@@ -144,7 +144,7 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 |Operating system |User access rights|
 |---|---|
 |<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) by enrolling an Azure subscription instead of license entitlement.</li></ul>|
-|<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li><li>[Windows Server 2012 R2](/lifecycle/products/windows-server-2012-r2)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
+|<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!IMPORTANT]
 > - The following items are not supported:
@@ -155,6 +155,7 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
 > 
 > - Support for Windows 7 ended on January 10, 2023.
+> - Support for Windows Server 2012 R2 ended on October 10, 2023. For more information, view [SQL Server 2012 and Windows Server 2012/2012 R2 end of support](/lifecycle/announcements/sql-server-2012-windows-server-2012-2012-r2-end-of-support).
 
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 

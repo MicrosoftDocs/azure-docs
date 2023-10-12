@@ -670,8 +670,8 @@ Azure Functions currently can be used with the following preview versions of .NE
 
 | Operating system | .NET preview version |
 | - | - |
-| Windows | .NET 8 Preview 7 | 
-| Linux | .NET 8 RC1 |
+| Windows | .NET 8 RC1 | 
+| Linux | .NET 8 RC2 |
 
 ### Using a preview .NET SDK
 
