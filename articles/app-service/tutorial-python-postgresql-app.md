@@ -29,7 +29,7 @@ zone_pivot_groups: app-service-portal-azd
 > With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
 >
 > ```bash
-> cd <empty-directory>
+> azd auth login
 > azd init --template msdocs-django-postgresql-sample-app
 > azd up
 > ```
@@ -556,7 +556,7 @@ A sample Python application using the Flask framework is provided to help you fo
 > [!NOTE]
 > To run the sample application locally, you need [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 
-Clone the sample repository's `starter-no-infra` branch and change to the sample directory.
+Clone the sample repository's `starter-no-infra` branch and change to the repository root.
 
 ```bash
 git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
@@ -597,6 +597,8 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
     cd msdocs-flask-postgresql-sample-app
     ```
+
+    This cloned branch is your starting point. It contains a simple data-drive Flask application.
 
 1. From the repository root, run `azd init`.
 
@@ -704,7 +706,9 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 ## 6. Stream diagnostic logs
 
-Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
+Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) as well as [shipping them to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+
+The sample app includes `print()` statements to demonstrate this capability as shown in the following snippet.
 
 :::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
