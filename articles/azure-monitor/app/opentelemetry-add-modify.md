@@ -152,12 +152,40 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Automatic instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+Instrumentations can be configured using AzureMonitorOpenTelemetryOptions  
 
-Logs
-- [Node.js console](https://nodejs.org/api/console.html)
-- [Bunyan](https://github.com/trentm/node-bunyan#readme)
-- [Winston](https://github.com/winstonjs/winston#readme)
+```typescript
+    // Import Azure Monitor OpenTelemetry
+    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+    // Import OpenTelemetry HTTP Instrumentation to get config type
+    const { HttpInstrumentationConfig } = require("@azure/monitor-opentelemetry");
+     // Import HTTP to get type
+    const { IncomingMessage } = require("http");
+
+    // Specific Instrumentation configs could be added
+    const httpInstrumentationConfig: HttpInstrumentationConfig = {
+        ignoreIncomingRequestHook: (request: IncomingMessage) => {
+            return false; //Return true if you want to ignore a specific request 
+        },
+        enabled: true
+    };
+    // Instrumentations configuration
+    const options: AzureMonitorOpenTelemetryOptions = {
+    instrumentationOptions: {
+        http: httpInstrumentationConfig,
+        azureSdk: { enabled: true },
+        mongoDb: { enabled: true },
+        mySql: { enabled: true },
+        postgreSql: { enabled: true },
+        redis: { enabled: true },
+        redis4: { enabled: true },
+    }
+    };
+
+    // Enable Azure Monitor integration
+    useAzureMonitor(options);
+
+```
 
 
 #### [Python](#tab/python)
@@ -332,8 +360,6 @@ The following table represents the currently supported custom telemetry types:
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Console, Winston, Bunyan|               |                |              |            |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
