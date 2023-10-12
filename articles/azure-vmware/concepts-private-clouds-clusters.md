@@ -152,7 +152,7 @@ Azure VMware Solution continuously monitors the health of both the physical unde
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution private cloud concepts, you may want to learn about:
+Now that you've covered Azure VMware Solution private cloud concepts, you might want to learn about:
 
 - [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
 - [Azure VMware Solution storage concepts](concepts-storage.md)
