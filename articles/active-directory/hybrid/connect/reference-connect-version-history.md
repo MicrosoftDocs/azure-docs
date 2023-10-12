@@ -282,7 +282,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 ### Functional changes
 
 - We added the latest versions of Microsoft Identity Manager (MIM) Connectors (1.1.1610.0). For more information, see the [release history page of the MIM Connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
-- We added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](../../hybrid/connect/how-to-connect-install-existing-tenant#hard-match-vs-soft-match).
+- We added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](/how-to-connect-install-existing-tenant#hard-match-vs-soft-match).
 
 ### Bug fixes
 
