@@ -1,7 +1,7 @@
 ---
 title: Authentication with Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
+description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Microsoft Entra authentication."
 author: eriklindeman
 ms.author: eriklind
 ms.date: 07/05/2023
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Authentication with Azure Maps
 
-Azure Maps supports three ways to authenticate requests: Shared Key authentication, [Azure Active Directory (Azure AD)] authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes other account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
+Azure Maps supports three ways to authenticate requests: Shared Key authentication, [Microsoft Entra ID] authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes other account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
 
 > [!NOTE]
 > To improve secure communication with Azure Maps, we now support Transport Layer Security (TLS) 1.2, and we're retiring support for TLS 1.0 and 1.1. If you currently use TLS 1.x, evaluate your TLS 1.2 readiness and develop a migration plan with the testing described in [Solving the TLS 1.0 Problem].
@@ -33,29 +33,33 @@ https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscr
 > [!IMPORTANT]
 > Primary and Secondary keys should be treated as sensitive data. The shared key is used to authenticate all Azure Maps REST API. Users who use a shared key should abstract the API key away, either through environment variables or secure secret storage, where it can be managed centrally.
 
-## Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-Azure Subscriptions are provided with an Azure AD tenant to enable fine grained access control. Azure Maps offers authentication for Azure Maps services using Azure AD. Azure AD provides identity-based authentication for users and applications registered in the Azure AD tenant.
+## Microsoft Entra authentication
 
-Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated with an Azure subscription that contains an Azure Maps account. Azure Maps also accepts tokens for:
+Azure Subscriptions are provided with a Microsoft Entra tenant to enable fine grained access control. Azure Maps offers authentication for Azure Maps services using Microsoft Entra ID. Microsoft Entra ID provides identity-based authentication for users and applications registered in the Microsoft Entra tenant.
 
-- Azure AD users
+Azure Maps accepts **OAuth 2.0** access tokens for Microsoft Entra tenants associated with an Azure subscription that contains an Azure Maps account. Azure Maps also accepts tokens for:
+
+- Microsoft Entra users
 - Partner applications that use permissions delegated by users
 - Managed identities for Azure resources
 
-Azure Maps generates a _unique identifier_ (client ID) for each Azure Maps account. You can request tokens from Azure AD when you combine this client ID with other parameters.
+Azure Maps generates a _unique identifier_ (client ID) for each Azure Maps account. You can request tokens from Microsoft Entra ID when you combine this client ID with other parameters.
 
-For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps].
+For more information about how to configure Microsoft Entra ID and request tokens for Azure Maps, see [Manage authentication in Azure Maps].
 
-For general information about authenticating with Azure AD, see [Authentication vs. authorization].
+For general information about authenticating with Microsoft Entra ID, see [Authentication vs. authorization].
 
 ## Managed identities for Azure resources and Azure Maps
 
-[Managed identities for Azure resources] provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [Azure services that can use managed identities to access other services]. For more information on managed identities, see [Manage authentication in Azure Maps].
+[Managed identities for Azure resources] provide Azure services with an automatically managed application based security principal that can authenticate with Microsoft Entra ID. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [Azure services that can use managed identities to access other services]. For more information on managed identities, see [Manage authentication in Azure Maps].
 
-### Configure application Azure AD authentication
+<a name='configure-application-azure-ad-authentication'></a>
 
-Applications authenticate with the Azure AD tenant using one or more supported scenarios provided by Azure AD. Each Azure AD application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. For more information, see [Authentication flows and application scenarios].
+### Configure application Microsoft Entra authentication
+
+Applications authenticate with the Microsoft Entra tenant using one or more supported scenarios provided by Microsoft Entra ID. Each Microsoft Entra application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. For more information, see [Authentication flows and application scenarios].
 
 After the application receives an access token, the SDK and/or application sends an HTTPS request with the following set of required HTTP headers in addition to other REST API HTTP headers:
 
@@ -67,7 +71,7 @@ After the application receives an access token, the SDK and/or application sends
 > [!NOTE]
 > `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
 
-Here's an example of an Azure Maps route request that uses an Azure AD OAuth Bearer token:
+Here's an example of an Azure Maps route request that uses a Microsoft Entra ID OAuth Bearer token:
 
 ```http
 GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872
@@ -99,11 +103,11 @@ For information about viewing your client ID, see [View authentication details].
 
 ### Prerequisites
 
-If you're new to Azure RBAC, [Azure role-based access control (Azure RBAC)] overview provides Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)] including: individual Azure AD users, groups, applications, Azure resources, and Azure managed identities. Applying access to one or more Azure Maps accounts is known as a scope. A role assignment is created when a principal, role definition, and scope are applied.
+If you're new to Azure RBAC, [Azure role-based access control (Azure RBAC)] overview provides Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)] including: individual Microsoft Entra users, groups, applications, Azure resources, and Azure managed identities. Applying access to one or more Azure Maps accounts is known as a scope. A role assignment is created when a principal, role definition, and scope are applied.
 
 ### Overview
 
-The next sections discuss concepts and components of Azure Maps integration with Azure RBAC. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription, which the Azure Maps account resides.
+The next sections discuss concepts and components of Azure Maps integration with Azure RBAC. As part of the process to set up your Azure Maps account, a Microsoft Entra directory is associated to the Azure subscription, which the Azure Maps account resides.
 
 When you configure Azure RBAC, you choose a security principal and apply it to a role assignment. To learn how to add role assignments on the Azure portal, see [Assign Azure roles using the Azure portal].
 
@@ -155,7 +159,7 @@ Assigning a role assignment to a resource group can enable access to multiple Az
 
 ## Disable local authentication
 
-Azure Maps accounts support the standard Azure property in the [Management API] for `Microsoft.Maps/accounts` called `disableLocalAuth`. When `true`, all authentication to the Azure Maps data-plane REST API is disabled, except [Azure AD authentication]. This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?].
+Azure Maps accounts support the standard Azure property in the [Management API] for `Microsoft.Maps/accounts` called `disableLocalAuth`. When `true`, all authentication to the Azure Maps data-plane REST API is disabled, except [Microsoft Entra authentication]. This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?].
 
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests. To re-enable local authentication, set the property to `false` and after a few minutes local authentication resumes.
 
@@ -172,7 +176,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token, created by integrating a [user-assigned managed identity] with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using either built-in or custom role definitions.
 
-Functional key differences of SAS token from Azure AD Access tokens:
+Functional key differences of SAS token from Microsoft Entra access tokens:
 
 - Lifetime of a token for a max expiration of one day (24 hours).
 - Azure location and geography access control per token.
@@ -289,7 +293,7 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 [CORS] is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy] that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Using the Azure Maps account resource, you can configure which origins are allowed to access the Azure Maps REST API from your applications.
 
 > [!IMPORTANT]
-> CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Azure AD, or SAS token.
+> CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Microsoft Entra ID, or SAS token.
 >
 > CORS is supported for all map account pricing tiers, data-plane endpoints, and locations.
 
@@ -412,12 +416,12 @@ To learn more about security best practices, see:
 > [!div class="nextstepaction"]
 > [Authentication and authorization best practices]
 
-To learn more about authenticating an application with Azure AD and Azure Maps, see:
+To learn more about authenticating an application with Microsoft Entra ID and Azure Maps, see:
 
 > [!div class="nextstepaction"]
 > [Manage authentication in Azure Maps]
 
-To learn more about authenticating the Azure Maps Control with Azure AD, see:
+To learn more about authenticating the Azure Maps Control with Microsoft Entra ID, see:
 
 > [!div class="nextstepaction"]
 > [Use the Azure Maps Map Control]
