@@ -80,7 +80,7 @@ The following sites work with video playback redirection:
    :::column-end:::
 :::row-end:::
 
-\* MMR video redirection only supports non-DRM content on these sites. Any digital rights managed content can only be played with regular video playback without MMR.
+\* Multimedia redirection only supports non-DRM content on these sites. Any digital rights managed content can only be played with regular video playback without multimedia redirection.
 
 ### Call redirection
 
