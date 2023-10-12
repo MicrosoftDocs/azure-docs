@@ -27,15 +27,26 @@ In AKS cluster, you can use the built-in ability to collect container logs. Foll
 
 1. Go to the AKS portal and select **Logs** tab
 
-    :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-monitor-logs.png" alt-text="Diagram illustrating how to configure Auzre monitor in AKS." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-monitor-logs.png":::
+    :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-monitor-logs.png" alt-text="Diagram illustrating how to configure Azure monitor in AKS." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-monitor-logs.png":::
 
 1. Click **Configure Monitoring** to enable Azure Monitor for your AKS. In the **Advanced Settings** section, you can specify an existing **Log Analytics** or create a new one for collecting logs.
 
-    :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-config-azmonitor.png" alt-text="Diagram illustrating how to configure container insight in AKS monitor." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-config-azmonitor.png":::
+    :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-config-az-monitor.png" alt-text="Diagram illustrating how to configure container insight in AKS monitor." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-config-az-monitor.png":::
 
 1. After about 1 hour for it to take effect, you can query inference server logs from **AKS** or **Log Analytics** portal.
 
     :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-query-inference-server-logs.png" alt-text="Example of query run in AKS monitor." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-query-inference-server-logs.png":::
+
+1. Query example:
+    ```
+        let starttime = ago(1d);
+        ContainerLogV2
+        | where TimeGenerated > starttime
+        | where PodName has "blue-sklearn-mnist"
+        | where ContainerName has "inference-server"
+        | project TimeGenerated, PodNamespace, PodName, ContainerName, LogMessage
+        | limit 100
+    ```
 
 ## Azure Arc enabled cluster
 
