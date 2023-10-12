@@ -5,16 +5,15 @@ items:
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
-  - name: Get started with Azure Orbital Ground Station
-    href: get-started.md
+  - name: About Microsoft and partner ground stations
+    href: about-ground-stations.md
+    
 - name: Quickstart
   items:
-  - name: Register a spacecraft
-    href: register-spacecraft.md
-  - name: Configure a contact profile
-    href: contact-profile.md
-  - name: Schedule a contact
-    href: schedule-contact.md
+  - name: Get started with Azure Orbital Ground Station
+    href: get-started.md
+  - name: Mission phases
+    href: mission-phases.md
     
 - name: Concepts
   items:
@@ -27,18 +26,24 @@ items:
     
 - name: How-to guides
   items:
+  - name: Register a spacecraft
+    href: register-spacecraft.md
+  - name: Configure a contact profile
+    href: contact-profile.md
   - name: Prepare network to send and receive data
     href: prepare-network.md
   - name: Integrate partner network ground stations
     href: partner-network-integration.md 
   - name: Configure the RF chain
-    href: modem-chain.md 
-  - name: Receive real-time telemetry
-    href: receive-real-time-telemetry.md
-  - name: Azure Resource Graph Queries
-    href: resource-graph-samples.md
+    href: modem-chain.md
+  - name: Schedule a contact
+    href: schedule-contact.md
   - name: Update the spacecraft TLE
     href: update-tle.md
+  - name: Receive real-time telemetry
+    href: receive-real-time-telemetry.md
+  - name: Use Azure Resource Graph Queries
+    href: resource-graph-samples.md
   - name: Cancel a contact
     href: delete-contact.md
     
