@@ -1,30 +1,30 @@
----,
-"title: Archive for What's new with Azure Connected Machine agent,
-"description: Release notes for Azure Connected Machine agent versions older than six months,
-"ms.topic: overview,
-"ms.date: 08/01/2023,
-"ms.custom: references_regions
+---
+title: Archive for What's new with Azure Connected Machine agent
+description: Release notes for Azure Connected Machine agent versions older than six months
+ms.topic: overview
+ms.date: 08/01/2023
+ms.custom: references_regions
 ---
 
 # Archive for What's new with Azure Connected Machine agent
-,
-"The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
-,
-"The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
+
+The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
+
+The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
 
 - Previous releases
 - Known issues
 - Bug fixes
 
 ## Version 1.31 - June 2023
-,
-"Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-1364-41ed-90b0-1340a44ba409/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-1364-41ed-90b0-1340a44ba409/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issue
-,
-"The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue displays as  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
-,
-"To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
+
+The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue displays as  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
+
+To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
 
 | Package type | Version number with proxy issue | Version number of patched agent |
 | ------------ | ------------------------------- | ------------------------------- |
@@ -50,8 +50,8 @@
 - Better handling of spaces in the `--location` parameter of [azcmagent connect](azcmagent-connect.md)
 
 ## Version 1.30 - May 2023
-,
-"Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -63,8 +63,8 @@
 - `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
 
 ## Version 1.29 - April 2023
-,
-"Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -80,8 +80,8 @@
 - Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
 
 ## Version 1.28 - March 2023
-,
-"Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -93,8 +93,8 @@
 - Removed weekly restarts for the extension and guest configuration services
 
 ## Version 1.27 - February 2023
-,
-"Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -106,8 +106,8 @@
 - Tenant IDs are better validated when connecting the server
 
 ## Version 1.26 - January 2023
-,
-"Download for [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 > [!NOTE]
 > Version 1.26 is only available for Linux operating systems.
@@ -117,8 +117,8 @@
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
 
 ## Version 1.25 - January 2023
-,
-"Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent%20(1).msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent%20(1).msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -130,8 +130,8 @@
 - Improved error messages in the Windows MSI installer
 - Additional improvements to the detection logic for machines running on Azure Stack HCI
 ## Version 1.24 - November 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/f/9/d/f9d60cc9-7c2a-4077-b890-f6a54cc55775/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/f/9/d/f9d60cc9-7c2a-4077-b890-f6a54cc55775/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -152,8 +152,8 @@
 - Improved error handling when extensions don't download successfully, fail validation, or have corrupt state files
 
 ## Version 1.23 - October 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/3/9/8/398f6036-958d-43c4-ad7d-4576f1d860aa/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/3/9/8/398f6036-958d-43c4-ad7d-4576f1d860aa/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -172,8 +172,8 @@
 - The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
 
 ## Version 1.22 - September 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/1/3/5/135f1f2b-7b14-40f6-bceb-3af4ebadf434/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/1/3/5/135f1f2b-7b14-40f6-bceb-3af4ebadf434/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 
@@ -194,8 +194,8 @@
 - The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent config clear](azcmagent-config.md) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/a/4/c/a4cce0a3-5830-4bd4-a4aa-a26794690e3d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/a/4/c/a4cce0a3-5830-4bd4-a4aa-a26794690e3d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -214,8 +214,8 @@
 - Linux only: resolves local escalation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
 
 ## Version 1.20 - July 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/f/b/1/fb143ada-1b82-4d19-a125-40f2b352e257/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/f/b/1/fb143ada-1b82-4d19-a125-40f2b352e257/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 
@@ -236,8 +236,8 @@
 - Renamed the `--use-private-link` flag on [azcmagent check](azcmagent-check.md) to `--enable-pls-check` to more accurately represent its function
 
 ## Version 1.19 - June 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/8/9/f/89f80a2b-32c3-43e8-b3b8-fce6cea8e2cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/8/9/f/89f80a2b-32c3-43e8-b3b8-fce6cea8e2cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 
@@ -254,8 +254,8 @@
 - Improved support for TLS 1.3
 
 ## Version 1.18 - May 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/2/5/6/25685d0f-2895-4b80-9b1d-5ba53a46097f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/2/5/6/25685d0f-2895-4b80-9b1d-5ba53a46097f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -270,8 +270,8 @@
 - Improved reliability for guest configuration policies that have child processes
 
 ## Version 1.17 - April 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d563-4ebf-bcbf-d5c5e7aaf4a3/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d563-4ebf-bcbf-d5c5e7aaf4a3/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -288,8 +288,8 @@
 - `azcmagent logs` collects Guest Configuration logs again.
 
 ## Version 1.16 - March 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/e/a/4/ea4ea4a9-a947-4c94-995c-52eaf200f651/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/e/a/4/ea4ea4a9-a947-4c94-995c-52eaf200f651/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 
@@ -305,8 +305,8 @@
 - The "Arc" proxy bypass keyword now includes Azure Storage endpoints for extension downloads
 
 ## Version 1.15 - February 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/0/7/4/074a7a9e-1d86-4588-8297-b4e587ea0307/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/0/7/4/074a7a9e-1d86-4588-8297-b4e587ea0307/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 
@@ -330,16 +330,16 @@
 - Removed resource constraints for Azure Monitor Agent to support high throughput scenarios
 
 ## Version 1.14 - January 2022
-,
-"Download for [Windows](https://download.microsoft.com/download/e/8/1/e816ff18-251b-4160-b421-a4f8ab9c2bfe/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/e/8/1/e816ff18-251b-4160-b421-a4f8ab9c2bfe/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
 - Fixed a state corruption issue in the extension manager that could cause extension operations to get stuck in transient states. Customers running agent version 1.13 are encouraged to upgrade to version 1.14 as soon as possible. If you continue to have issues with extensions after upgrading the agent, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Version 1.13 - November 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/8/a/9/8a963958-c446-4898-b635-58f3be58f251/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/8/a/9/8a963958-c446-4898-b635-58f3be58f251/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Known issues
 
@@ -357,8 +357,8 @@
 - Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
 
 ## Version 1.12 - October 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/9/e/e/9eec9acb-53f1-4416-9e10-afdd8e5281ad/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/9/e/e/9eec9acb-53f1-4416-9e10-afdd8e5281ad/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -367,8 +367,8 @@
 - `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
 
 ## Version 1.11 - September 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/6/d/b/6dbf7141-0bf0-4b18-93f5-20de4018369d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/6/d/b/6dbf7141-0bf0-4b18-93f5-20de4018369d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -377,8 +377,8 @@
 - Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
 
 ## Version 1.10 - August 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/1/c/4/1c4a0bde-0b6c-4c52-bdaf-04851c567f43/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/1/c/4/1c4a0bde-0b6c-4c52-bdaf-04851c567f43/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -386,20 +386,20 @@
 - The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
 
 ## Version 1.9 - July 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/5/1/d/51d4340b-c927-4fc9-a0da-0bb8556338d0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/5/1/d/51d4340b-c927-4fc9-a0da-0bb8556338d0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
-,
-"Added support for the Indonesian language
+
+Added support for the Indonesian language
 
 ### Fixed
-,
-"Fixed a bug that prevented extension management in the West US 3 region
+
+Fixed a bug that prevented extension management in the West US 3 region
 
 ## Version 1.8 - July 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/1/7/5/1758f4ea-3114-4a20-9113-6bc5fff1c3e8/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/1/7/5/1758f4ea-3114-4a20-9113-6bc5fff1c3e8/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -415,8 +415,8 @@
 - The agent continues running if it is unable to write service start/stop events to the Windows Application event log
 
 ## Version 1.7 - June 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/6/1/c/61c69f31-8e22-4298-ac9d-47cd2090c81d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/6/1/c/61c69f31-8e22-4298-ac9d-47cd2090c81d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -426,8 +426,8 @@
 - Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
 
 ## Version 1.6 - May 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/d/3/d/d3df034a-d231-4ca6-9199-dbaa139b1eaf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/d/3/d/d3df034a-d231-4ca6-9199-dbaa139b1eaf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -438,8 +438,8 @@
   - Minor update to data logging.
 
 ## Version 1.5 - April 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/1/d/4/1d44ef2e-dcc9-42e4-b76c-2da6a6e852af/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/1/d/4/1d44ef2e-dcc9-42e4-b76c-2da6a6e852af/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -449,8 +449,8 @@
 - Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
 
 ## Version 1.4 - March 2021
-,
-"Download for [Windows](https://download.microsoft.com/download/e/b/1/eb128465-8830-47b0-b89e-051eefd33f7c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/e/b/1/eb128465-8830-47b0-b89e-051eefd33f7c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -460,28 +460,28 @@
 - Automatically detects the presence of Microsoft SQL Server on the server
 
 ### Fixed
-,
-"Network endpoint checks are now faster.
+
+Network endpoint checks are now faster.
 
 ## Version 1.3 - December 2020
-,
-"Download for [Windows](https://download.microsoft.com/download/5/4/c/54c2afd8-e559-41ab-8aa2-cc39bc13156b/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/5/4/c/54c2afd8-e559-41ab-8aa2-cc39bc13156b/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
-,
-"Added support for Windows Server 2008 R2 SP1.
+
+Added support for Windows Server 2008 R2 SP1.
 
 ### Fixed
-,
-"Resolved issue preventing the Custom Script Extension on Linux from installing successfully.
+
+Resolved issue preventing the Custom Script Extension on Linux from installing successfully.
 
 ## Version 1.2 - November 2020
-,
-"Download for [Windows](https://download.microsoft.com/download/4/c/2/4c287d81-6657-4cd8-9254-881ae6a2d1f4/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+Download for [Windows](https://download.microsoft.com/download/4/c/2/4c287d81-6657-4cd8-9254-881ae6a2d1f4/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
-,
-"Resolved issue where proxy configuration resets after upgrade on RPM-based distributions.
+
+Resolved issue where proxy configuration resets after upgrade on RPM-based distributions.
 
 ## Version 1.1 - October 2020
 
@@ -493,8 +493,8 @@
 - GuestConfig agent extension report messages to be more verbose if there is a failure.
 
 ## Version 1.0 - September 2020
-,
-"This version is the first generally available release of the Azure Connected Machine Agent.
+
+This version is the first generally available release of the Azure Connected Machine Agent.
 
 ### Plan for change
 
