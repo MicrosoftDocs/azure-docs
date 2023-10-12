@@ -1,14 +1,14 @@
 ---
 title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
-ms.date: 08/30/2023
+ms.date: 10/12/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
+description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters from anywhere without requiring any inbound port to be enabled on the firewall."
 ---
 
 # Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters
 
-With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall.
+With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters from anywhere without requiring any inbound port to be enabled on the firewall.
 
 Access to the `apiserver` of the Azure Arc-enabled Kubernetes cluster enables the following scenarios:
 
@@ -91,11 +91,15 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 [!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
 
+## Set up authentication
+
+On the existing Arc-enabled cluster, create the ClusterRoleBinding with either Microsoft Entra authentication, or a service account token.
+
 <a name='azure-active-directory-authentication-option'></a>
 
-## Microsoft Entra authentication option
+### Microsoft Entra authentication option
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 1. Get the `objectId` associated with your Microsoft Entra entity.
 
@@ -126,7 +130,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
      az role assignment create --role "Azure Arc Enabled Kubernetes Cluster User Role" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
      ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get the `objectId` associated with your Microsoft Entra entity.
 
@@ -154,13 +158,14 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
      ```azurecli
      az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
+     az role assignment create --role "Azure Arc Enabled Kubernetes Cluster User Role" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
      ```
 
 ---
 
-## Service account token authentication option
+### Service account token authentication option
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace for `default`.
 
@@ -198,7 +203,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
      echo $TOKEN
      ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace for `default`.
 
@@ -236,7 +241,9 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ---
 
-## Access your cluster
+## Access your cluster from a client device
+
+Now you can access the cluster from a different client. Run the following steps on another client device, such as with PowerShell.
 
 1. Set up the cluster connect `kubeconfig` needed to access your cluster based on the authentication option used:
 
@@ -252,10 +259,39 @@ Before you begin, review the [conceptual overview of the cluster connect feature
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
      ```
 
-1. Use `kubectl` to send requests to the cluster:
+1. Sign in to Azure using the Microsoft Entra ID entity of interest:
+  
+    ```powershell
+    set SUBSCRIPTION_ID <subscription-id>
+    set CLUSTER_NAME <cluster-name>
+    set RESOURCE_GROUP <resource-group-name>
+    
+    az login
+    az account set --subscription $SUBSCRIPTION_ID
+    ```
 
-   ```console
-   kubectl get pods
+1. Get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster), based on the authentication option used:
+
+   - If using Microsoft Entra ID authentication:
+  
+     ```powershell
+     az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
+     ```
+
+   - If using service account authentication:
+
+     ```powershell
+     set TOKEN <token-from-previous-step>
+     az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
+     ```
+
+    > [!NOTE]
+    > This command will open the proxy and block the current shell.
+
+1. In a different shell session, use `kubectl` to send requests to the cluster:
+
+   ```powershell
+   kubectl get pods -A
    ```
 
 You should now see a response from the cluster containing the list of all pods under the `default` namespace.
