@@ -10,9 +10,12 @@ ms.reviewer: luki
 
 # Send data to Event Hubs and Storage (Preview)
 
-This article provides all required information for using the new Azure Monitor Agent (AMA) feature to upload data to Azure Storage and Event Hubs. This feature is in preview.
+This article describes how to use the Azure Monitor Agent (AMA) to upload data to Azure Storage and Event Hubs. This feature is in preview.
 
-The Azure Monitor Agent is the new, consolidated telemetry agent for collecting data from IaaS resources like virtual machines. This preview brings us closer to retiring the Diagnostics Extensions for Windows and Linux (WAD/LAD). By using the new upload capability in this preview, you can now upload the logs<sup>[1](#FN1)</sup> you send to Log Analytics workspaces to Event Hubs and Storage. Both new data destinations use data collection rules to configure collection setup for the agents.
+The Azure Monitor Agent is the new, consolidated telemetry agent for collecting data from IaaS resources like virtual machines. By using the upload capability in this preview, you can upload the logs<sup>[1](#FN1)</sup> you send to Log Analytics workspaces to Event Hubs and Storage. Both data destinations use data collection rules to configure collection setup for the agents.
+
+> [!NOTE]
+> This functionality replaces the Windows diagnostics extension (WAD) and Linux diagnostics extension (LAD). For more information, see [Compare Azure Monitor Agent to legacy agents](./agents-overview.md#compare-to-legacy-agents).
 
 **Footnotes**
 
