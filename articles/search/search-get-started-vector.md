@@ -23,9 +23,9 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic ranking](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-  Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
+  For the optional [semantic search](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
 
 + [Sample Postman collection](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection), with requests targeting the **2023-07-01-preview** API version of Azure Cognitive Search.
 
