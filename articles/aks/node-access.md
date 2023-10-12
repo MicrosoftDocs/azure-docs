@@ -213,7 +213,7 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ## Next steps
 
 * To help troubleshoot any issues with SSH connectivity to your clusters nodes, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
-* See [Manage SSH configuration][manage-ssh-node-access] to learn about the SSH configuration options for AKS cluster nodes.
+* See [Manage SSH configuration][manage-ssh-node-access] to learn about managing the SSH key on an AKS cluster or node pools.
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
