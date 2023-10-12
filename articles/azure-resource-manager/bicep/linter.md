@@ -26,6 +26,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [max-resources](./linter-rule-max-resources.md)
 - [max-variables](./linter-rule-max-variables.md)
 - [no-conflicting-metadata](./linter-rule-no-conflicting-metadata.md)
+- [no-deployments-resources](./linter-rule-no-deployments-resources.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
 - [no-hardcoded-location](./linter-rule-no-hardcoded-location.md)
 - [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)
