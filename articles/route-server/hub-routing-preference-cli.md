@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
 ms.date: 10/12/2023
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: devx-track-azurecli
 
 #CustomerIntent: As an Azure administrator, I want learn how to use routing preference setting so that I can influence route selection in Azure Route Server by using the Azure CLI.
 ---
@@ -17,8 +17,7 @@ ms.custom: mode-api, devx-track-azurecli
 Learn how to use routing preference setting in Azure Route Server to influence its route learning and selection. For more information, see [Routing preference (preview)](hub-routing-preference.md).
 
 > [!IMPORTANT]
-> Routing preference is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Routing preference is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -76,17 +75,17 @@ Use [az network routeserver update](/cli/azure/network/routeserver#az-network-ro
 
 ```azurecli-interactive
 # Change the routing preference to AS Path.
-az network routeserver update --name 'myRouteServer' --resource-group 'myResourceGroup' --hub-routing-preference 'ASPath'
+az network routeserver update --name 'myRouteServer' --hub-routing-preference 'ASPath' --resource-group 'myResourceGroup'
 ```
 
 ```azurecli-interactive
 # Change the routing preference to VPN Gateway.
-az network routeserver update --name 'myRouteServer' --resource-group 'myResourceGroup' --hub-routing-preference 'VpnGateway'
+az network routeserver update --name 'myRouteServer' --hub-routing-preference 'VpnGateway' --resource-group 'myResourceGroup'
 ```
 
 ```azurecli-interactive
 # Change the routing preference to ExpressRoute.
-az network routeserver update --name 'myRouteServer' --resource-group 'myResourceGroup' --hub-routing-preference 'ExpressRoute'
+az network routeserver update --name 'myRouteServer' --hub-routing-preference 'ExpressRoute' --resource-group 'myResourceGroup'
 ```
 
 ## Related content
