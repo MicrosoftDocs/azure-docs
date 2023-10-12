@@ -29,6 +29,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Improved reliability when installing Microsoft Defender for Endpoint on Linux by increasing [available system resources](agent-overview.md#agent-resource-governance) and extending the timeout
 - Better error handling when a user specifies an invalid location name to [azcmagent connect](azcmagent-connect.md)
 - Fixed a bug where clearing the `incomingconnections.enabled` [configuration setting](azcmagent-config.md) would show `<nil>` as the previous value
+- Security fix for the extension allowlist and blocklist feature to address an issue where an invalid extension name could impact enforcement of the lists.
 
 ## Version 1.34 - September 2023
 
