@@ -295,7 +295,7 @@ Regardless of the configuration you use to set up authentication, the following 
 
 Some older apps may also have been set up with a dependency on the [deprecated Azure AD Graph][aad-graph], which is scheduled for full retirement. For example, your app code may have called Azure AD Graph to check group membership as part of an authorization filter in a middleware pipeline. Apps should move to the [Microsoft Graph](/graph/overview) by following the [guidance provided by Microsoft Entra ID as part of the Azure AD Graph deprecation process][aad-graph]. In following those instructions, you may need to make some changes to your configuration of App Service authentication. Once you have added Microsoft Graph permissions to your app registration, you can:
 
-1. Update the **Issuer URL** to include the "/v2.0" suffix if it doesn't already. See [Enable Microsoft Entra ID in your App Service app](#-step-2-enable-azure-active-directory-in-your-app-service-app) for general expectations around this value.
+1. Update the **Issuer URL** to include the "/v2.0" suffix if it doesn't already. 
 1. Remove requests for Azure AD Graph permissions from your sign-in configuration. The properties to change depend on [which version of the management API you're using](./configure-authentication-api-version.md):
     - If you're using the V1 API (`/authsettings`), this would be in the `additionalLoginParams` array. 
     - If you're using the V2 API (`/authsettingsV2`), this would be in the `loginParameters` array.
