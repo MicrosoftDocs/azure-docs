@@ -72,7 +72,7 @@ You can change the authentication method for individual file shares. By default,
 
 ### Authenticate with your Microsoft Entra account
 
-To switch to using your Microsoft Entra account, select the link highlighted in the image that says **Switch to Microsoft Entra user Account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Microsoft Entra ID.
+To switch to using your Microsoft Entra account, select the link highlighted in the image that says **Switch to Microsoft Entra user account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Microsoft Entra ID.
 
 Two additional RBAC permissions are required to use your Microsoft Entra account:
 - `Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action`
