@@ -53,7 +53,7 @@ For more information about these features, see [Best practices for advanced sche
 *Authentication and authorization* uses:
 
 * Role-based access control (RBAC).
-* Azure Active Directory (AD) integration.
+* Microsoft Entra integration.
 * Pod identities.
 * Secrets in Azure Key Vault.
 

@@ -59,7 +59,7 @@ If you've already created a host pool and session host VMs using the Azure porta
 
 7.  Select **Next: Assignments >** tab.
 
-8.  To assign individual users or user groups to the application group, select **+Add Azure AD users or user groups**.
+8.  To assign individual users or user groups to the application group, select **+Add Microsoft Entra users or user groups**.
 
 9.  Select the users you want to have access to the apps. You can select single or multiple users and user groups.
 
@@ -125,7 +125,7 @@ The deployment process will do the following things for you:
 Once a user connects to a RemoteApp, any other RemoteApp that they connect to during the same session will be from the same session host.
 
 >[!IMPORTANT]
->You can only create 500 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to application groups created in Azure Virtual Desktop (classic).
+>You can only create 500 application groups for each Microsoft Entra tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to application groups created in Azure Virtual Desktop (classic).
 
 ## Edit or remove an app
 

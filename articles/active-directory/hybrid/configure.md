@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 How you configure your synchronization, depends on which synchronization tool you're using and what your business goals are.  Use the tables to determine which features you would
 
 ## Cloud sync
-After installing the Microsoft Entra Connect provisioning agent, you'll need to configure cloud sync.  This configuration is done via the portal.  The following table provides a list of features you can use to meet your business goals.  
+After installing the Microsoft Entra Provisioning Agent, you'll need to configure cloud sync.  This configuration is done via the portal.  The following table provides a list of features you can use to meet your business goals.  
 
 |Task|Description|
 |-----|-----|

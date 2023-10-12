@@ -170,7 +170,7 @@ sections:
       - question: |
          How can I enforce restricted access on my storage accounts, which are accessed by Site Recovery service for reading/writing replication data?
         answer: |
-              You can switch on the managed identity of the recovery services vault by going to the *Identity* setting. Once the vault gets registered with Azure Active Directory, you can go to your storage accounts and give the following role-assignments to the vault:
+              You can switch on the managed identity of the recovery services vault by going to the *Identity* setting. Once the vault gets registered with Microsoft Entra ID, you can go to your storage accounts and give the following role-assignments to the vault:
 
               - Resource Manager based storage accounts (Standard Type):
                 - [Contributor](../role-based-access-control/built-in-roles.md#contributor)

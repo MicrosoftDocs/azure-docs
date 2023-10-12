@@ -28,6 +28,7 @@ ms.author: eur
 |Russian (Russia)|`ru-RU`<sup>1</sup>|
 |Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
+|Swedish (Sweden)|`sv-SE`<sup>1</sup>|
 |Tamil (India)|`ta-IN`<sup>1</sup> | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 

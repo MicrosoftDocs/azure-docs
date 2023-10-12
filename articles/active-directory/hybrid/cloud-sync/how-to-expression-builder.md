@@ -1,5 +1,5 @@
 ---
-title: 'Use the expression builder with Microsoft Entra Connect cloud sync'
+title: 'Use the expression builder with Microsoft Entra Cloud Sync'
 description: This article describes how to use the expression builder with cloud sync.
 services: active-directory
 author: billmath

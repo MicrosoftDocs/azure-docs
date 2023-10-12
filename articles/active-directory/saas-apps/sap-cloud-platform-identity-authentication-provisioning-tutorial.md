@@ -71,21 +71,10 @@ Before configuring SAP Cloud Identity Services for automatic user provisioning w
 
 **To add SAP Cloud Identity Services from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Microsoft Entra ID**.
-
-	![Screenshot of the Microsoft Entra button.](common/select-azuread.png)
-
-1. Go to **Enterprise applications**, and then select **All applications**.
-
-	![Screenshot of the Enterprise applications blade.](common/enterprise-applications.png)
-
-1. To add a new application, select the **New application** button at the top of the pane.
-
-	![Screenshot of the New application button.](common/add-new-app.png)
-
-1. In the search box, enter **SAP Cloud Identity Services**, select **SAP Cloud Identity Services** in the search box.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SAP Cloud Identity Services** in the search box.
 1. Select **SAP Cloud Identity Services** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-	![Screenshot of the SAP Cloud Identity Services in the results list.](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to SAP Cloud Identity Services 
 
@@ -113,7 +102,7 @@ This section guides you through the steps to configure the Microsoft Entra provi
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input `https://<tenantID>.accounts.ondemand.com/service/scim ` in **Tenant URL**. Input the **User ID** and **Password** values retrieved earlier in **Admin Username** and **Admin Password** respectively. Click **Test Connection** to ensure Microsoft Entra ID can connect to SAP Cloud Identity Services. If the connection fails, ensure your SAP Cloud Identity Services account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input `https://<tenantID>.accounts.ondemand.com/service/scim` in **Tenant URL**. Input the **User ID** and **Password** values retrieved earlier in **Admin Username** and **Admin Password** respectively. Click **Test Connection** to ensure Microsoft Entra ID can connect to SAP Cloud Identity Services. If the connection fails, ensure your SAP Cloud Identity Services account has Admin permissions and try again.
 
 	![Screenshot of the Tenant URL and Token.](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 

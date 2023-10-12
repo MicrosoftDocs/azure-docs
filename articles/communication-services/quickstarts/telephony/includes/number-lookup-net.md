@@ -82,7 +82,7 @@ string? connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SER
 PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2023_05_01_Preview));
 ```
 
-Phone Number clients can also authenticate with Azure Active Directory Authentication. With this option,
+Phone Number clients can also authenticate with Microsoft Entra authentication. With this option,
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables need to be set up for authentication.
 
 ```csharp
