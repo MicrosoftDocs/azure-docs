@@ -294,7 +294,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 
 | Date | Change description |
 |------|--------------------|
-| October 12, 2023 | <br/>&#8226;Updated that the updated license plans were available as of October 1, 2023.  <br/>&#8226; Added three other terms in the glossary: "Azure AD connector", "Azure AD license", and "Azure AD Premium" |
+| October 12, 2023 | <br/>&#8226;Updated statement about availability of license plans.  <br/>&#8226; Added three other terms in the glossary: "Azure AD connector", "Azure AD license", and "Azure AD Premium" |
 | September 15, 2023 | Added a link to the new article, [How to: Rename Azure AD](how-to-rename-azure-ad.md), updated the description for Azure AD B2C, and added more info about why the name Azure AD is changing. |
 | August 29, 2023 | <br/>&#8226; In the [glossary](#glossary-of-updated-terminology), corrected the entry for "Azure AD activity logs" to separate "Azure AD audit log", which is a distinct type of activity log. <br/>&#8226; Added Azure AD Sync and DirSync to the [What names aren't changing](#what-names-arent-changing) section. |
 | August 18, 2023 | <br/>&#8226; Updated the article to include a new section [Glossary of updated terminology](#glossary-of-updated-terminology), which includes the old and new terminology.<br/>&#8226; Updated info and added link to usage of the Microsoft Entra ID icon, and updates to verbiage in some sections.  |
