@@ -12,7 +12,7 @@ ms.reviwer: nikeist
 
 # Data collection endpoints in Azure Monitor
 
-The [Logs ingestion API](../logs/logs-ingestion-api-overview.md) and [Azure Monitor Agent](../agents/agents-overview.md) use data collection endpoints to receive configuration files from Azure Monitor and to send collected data for processing and ingestion into Azure Monitor. 
+The [Logs ingestion API](../logs/logs-ingestion-api-overview.md) and [Azure Monitor Agent](../agents/agents-overview.md) use data collection endpoints (DCEs) to receive configuration files from Azure Monitor and to send collected data for processing and ingestion into Azure Monitor. 
 
 Azure Monitor Agent uses data collection endpoints to collect:
 
@@ -56,9 +56,6 @@ A data collection endpoint includes the following components:
 
 ## Create a data collection endpoint
 
-> [!IMPORTANT]
-> If agents will connect to your DCE, it must be created in the same region. If you have agents in different regions, you'll need multiple DCEs.
-
 # [Azure portal](#tab/portal)
 
 1. On the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoints** under the **Settings** section. Select **Create** to create a new DCR and assignment.
@@ -73,7 +70,7 @@ A data collection endpoint includes the following components:
 
 # [REST API](#tab/restapi)
 
-Create DCRs by using the [DCE REST APIs](/cli/azure/monitor/data-collection/endpoint).
+Create DCEs by using the [DCE REST APIs](/cli/azure/monitor/data-collection/endpoint).
 
 Create associations between endpoints to your target machines or resources by using the [DCRA REST APIs](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
