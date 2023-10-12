@@ -39,6 +39,11 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
+    - name: Advanced Messaging
+      expanded: true
+      items:
+      - name: WhatsApp
+        href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
     - name: Job Router
       href: concepts/router/concepts.md
   - name: Common scenarios
@@ -189,7 +194,21 @@ items:
   - name: Network Traversal
     items:
     - name: Access TURN relays
-      href: quickstarts/relay-token.md
+      href: quickstarts/relay-token.md  
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+        - name: Register WhatsApp Business Account
+          href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+        - name: WhatsApp Business Account FAQ
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
+        - name: Send WhatsApp Messages
+          href: quickstarts/advanced-messaging/whatsapp/get-started.md
+        - name: Handle Advanced Messaging Events
+          href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
+        - name: Try Advanced Messaging Sandbox
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
 - name: Tutorials
   items:
   - name: SMS
@@ -925,6 +944,24 @@ items:
         href: concepts/analytics/turn-metrics.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+      - name: Overview
+        href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
+      - name: WhatsApp Terms of Service
+        href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
+      - name: Messaging policy
+        href: concepts/sms/messaging-policy.md
+      - name: Events
+        items:
+        - name: Overview
+          href: ../event-grid/event-schema-communication-services.md
+        - name: Advanced Messaging events
+          href: ../event-grid/communication-services-advanced-messaging-events.md
+      - name: Templates
+        href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
@@ -1001,6 +1038,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: Advanced Messaging
+    items:
+    - name: Advanced Messaging (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
   - name: Common 
     items:
     - name: Common (JavaScript)

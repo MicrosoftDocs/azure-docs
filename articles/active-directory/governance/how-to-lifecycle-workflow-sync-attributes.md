@@ -110,7 +110,7 @@ For more information on attributes, see [Attribute mapping in Microsoft Entra Co
 ## How to create a custom sync rule in Microsoft Entra Connect for EmployeeHireDate
 The following example walks you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Microsoft Entra ID.
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
-   1. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
+   1. Go to Start\Microsoft Entra Connect\ and open the Synchronization Rules Editor
    1. Ensure the direction at the top is set to **Inbound**.
    1. Select **Add Rule.**
    1. On the **Create Inbound synchronization rule** screen, enter the following information and select **Next**.

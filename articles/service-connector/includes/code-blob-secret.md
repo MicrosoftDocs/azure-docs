@@ -100,7 +100,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    }
    ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install @azure/storage-blob

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/05/2023
+ms.date: 10/10/2023
 ms.author: victorh
 ---
 
@@ -19,9 +19,9 @@ The following Azure Firewall preview features are available publicly for you to 
 
 ## Feature flags
 
-As new features are released to preview, some of them will be behind a feature flag. To enable the functionality in your environment, you must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (VNet firewalls and SecureHub firewalls).  
+As new features are released to preview, some of them are behind a feature flag. To enable the functionality in your environment, you must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (virtual network firewalls and SecureHub firewalls).  
 
-This article will be updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they're available to all customers without the need to enable a feature flag. 
+This article is updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they're available to all customers without the need to enable a feature flag. 
 
 ## Preview features
 
@@ -36,7 +36,7 @@ For more information, see [Azure Firewall Explicit proxy (preview)](explicit-pro
 ### Resource Health (preview)
 
 With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
-Starting in August 2023, this preview will be automatically enabled on all firewalls and no action will be required to enable this functionality.
+Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
 For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 ### Top flows (preview) and Flow trace logs (preview)
@@ -52,9 +52,15 @@ You can configure Azure Firewall to auto-learn both registered and private range
 
 ### Embedded Firewall Workbooks (preview)
 
-Azure Firewall predefined workbooks are two clicks away and fully available from the **Monitoring** section in the Azure Firewall portal UI.
+Azure Firewall predefined workbooks are two selections away and fully available from the **Monitoring** section in the Azure Firewall portal UI.
 
 For more information, see [Azure Firewall: New Monitoring and Logging Updates](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-new-monitoring-and-logging-updates/ba-p/3897897#:~:text=Embedded%20Firewall%20Workbooks%20are%20now%20in%20public%20preview)
+
+### Parallel IP Group updates (preview)
+
+You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
+
+For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
 
 ## Next steps
 
