@@ -213,7 +213,7 @@ items:
   items:
   - name: SMS
     items:
-    - name: Authenticate with Azure AD
+    - name: Authenticate with Microsoft Entra ID
       href: quickstarts/identity/service-principal.md
     - name: Use Postman to send SMS messages
       href: tutorials/postman-tutorial.md
@@ -673,7 +673,7 @@ items:
             href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
-          - name: Azure AD API permissions
+          - name: Microsoft Entra API permissions
             href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
