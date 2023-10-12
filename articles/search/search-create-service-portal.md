@@ -99,7 +99,7 @@ Some features are subject to regional availability. If you require any of follow
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" lightbox="media/search-create-service-portal/region-availability.png" alt-text="Screenshot of the regional availability page." border="true":::
 
-+ Semantic search is [currently in preview in selected regions](https://azure.microsoft.com/global-infrastructure/services/?products=search), such as "Australia East" in the above screenshot. 
++ Semantic ranking is an optional premium feature. Check the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page to confirm the feature is available in your chosen region. 
 
 Other features that have regional constraints:
 

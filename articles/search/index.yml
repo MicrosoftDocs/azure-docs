@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 03/02/2021
+  ms.date: 10/04/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
             url: vector-search-overview.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
-          - text: What is semantic search?
+          - text: What is semantic ranking?
             url: semantic-search-overview.md
       - linkListType: learn
         links:

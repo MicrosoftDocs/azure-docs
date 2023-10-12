@@ -34,7 +34,7 @@ sections:
       - question: |
           What languages are supported?
         answer: |
-          The default analyzer used for tokenization is standard Lucene and its language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [semantic search](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+          The default analyzer used for tokenization is standard Lucene and its language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [semantic ranking](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
 
       - question: |
           How do I integrate search into my solution?
@@ -114,13 +114,6 @@ sections:
           Can Cognitive Search vectorize my content or queries?
         answer: |
           Today Cognitive Search doesn't perform vectorization. It's up to the application layer to pick the best model for the data and generate embeddings for the content that it indexes and for the queries.
-
-      - question: |
-          Cognitive Search has features named "vector search" and "semantic search". Are they related?
-        answer: |
-          Both [vector search](vector-search-overview.md) and [semantic search](semantic-search-overview.md) are used to improve the relevance of your search results. However, they're orthogonal features, meaning you can use them independently or together. They both use deep neural networks (DNNs) to improve relevance, but the models and infrastructure are different for each feature.
-
-          You can use vector search and semantic search together if the search request contains a text query - hybrid search. The search engine uses Reciprocal Rank Fusion to merge results from both vector and term queries before semantic search reranking is applied.
 
       - question: |
           Does my search service support vector search?

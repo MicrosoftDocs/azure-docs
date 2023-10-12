@@ -109,7 +109,7 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
 Use the **2023-07-01-Preview** REST API for vector scenarios. If you're updating an existing index to include vector fields, make sure the `allowIndexDowntime` query parameter is set to `true`.
 
-In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic ranking, while "titleVector" and "contentVector" contain vector data.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
 

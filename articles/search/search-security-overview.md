@@ -70,7 +70,7 @@ Internal traffic consists of:
 
 + Service-to-service calls for tasks like authentication and authorization through Microsoft Entra ID, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
 + Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
-+ Requests made to the machine learning models that support [semantic search](semantic-search-overview.md#availability-and-pricing).
++ Requests made to the machine learning models that support [semantic ranking](semantic-search-overview.md#availability-and-pricing).
 
 <a name="service-access-and-authentication"></a>
 

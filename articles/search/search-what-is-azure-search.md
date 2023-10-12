@@ -44,7 +44,7 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 + [**Querying**](search-query-overview.md) can happen once an index is populated with searchable text, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you control.
 
-  [Semantic search](semantic-search-overview.md) is an extension of query execution. It adds language understanding to search results processing, promoting the most semantically relevant results to the top.
+  [Semantic ranking](semantic-search-overview.md) is an extension of query execution. It adds language understanding to search results processing, promoting the most semantically relevant results to the top.
 
 ## Why use Cognitive Search?
 
