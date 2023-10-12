@@ -4,7 +4,7 @@ description: Learn how to track custom operations with the Application Insights 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 08/11/2023
+ms.date: 10/10/2023
 ms.reviewer: mmcc
 ---
 

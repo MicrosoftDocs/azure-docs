@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 10/09/2023
 ---
 
-# How to create a full-text query in Azure Cognitive Search
+# Create a full-text query in Azure Cognitive Search
 
 If you're building a query for [full text search](search-lucene-query-architecture.md), this article provides steps for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 

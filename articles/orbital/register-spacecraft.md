@@ -10,7 +10,7 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Quickstart: Register and Authorize Spacecraft
+# Register and Authorize Spacecraft
 
 To contact a satellite, it must be registered and authorized as a spacecraft resource with Azure Orbital Ground Station using required identifying information.
 

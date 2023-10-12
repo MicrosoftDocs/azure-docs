@@ -248,8 +248,8 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAu
 `time Generated (UTC)` | Aggregated time | No | Yes
 `Status` | Status of the activity (success or failure).| Yes | Yes
 `Protocol` | Type of the protocol associated with the operation. | Yes | Yes
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy). | Yes | Yes
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes
+`AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy). | Yes | Yes
+`AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes
 `NetworkType` | Type of the network access: `Public` or`Private`. | yes | Yes
 `ClientIP` | IP address of the client application. | Yes | Yes
 `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes
@@ -306,4 +306,3 @@ Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
 - For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
-
