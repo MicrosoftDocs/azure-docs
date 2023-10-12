@@ -24,8 +24,8 @@ Use the [az aks update][az-aks-update] command to update the SSH public key on y
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
-|-----|-----|-----|
 |SSH parameter |Description |Default value |
+|-----|-----|-----|
 |--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
 |--no-ssh-key |Do not use or create a local SSH key. |False |
 
