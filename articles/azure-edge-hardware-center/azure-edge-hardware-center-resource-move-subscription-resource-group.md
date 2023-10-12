@@ -28,7 +28,7 @@ Before you begin:
 - If moving your resource to a different subscription:
 
     - Make sure that both the source and destinations subscriptions are active.
-    - Make sure that both the source and resource subscriptions exist within the same Azure Active Directory tenant.
+    - Make sure that both the source and resource subscriptions exist within the same Microsoft Entra tenant.
     - The destination subscription must be registered to the `Microsoft.EdgeOrder` resource provider. If not, you receive an error stating that the subscription is not registered for a resource type. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 - If moving your resource to a different resource group, make sure that the account moving the resources must have at least the following permissions:
 

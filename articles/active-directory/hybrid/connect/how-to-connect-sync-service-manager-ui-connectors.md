@@ -1,5 +1,5 @@
 ---
-title: Connectors in the Azure AD Synchronization Service Manager UI'
+title: Connectors in the Microsoft Entra Synchronization Service Manager UI'
 description: Understand the Connectors tab in the Synchronization Service Manager for Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''

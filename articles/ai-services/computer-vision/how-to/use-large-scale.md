@@ -19,7 +19,10 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. PersonGroups can hold up to 1000 persons in the free tier and 10,000 in the paid tier, while LargePersonGroups can hold up to one million persons in the paid tier.
+This guide shows you how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. PersonGroups can hold up to 1000 persons in the free tier and 10,000 in the paid tier, while LargePersonGroups can hold up to one million persons in the paid tier.
+
+> [!IMPORTANT]
+> The newer data structure **PersonDirectory** is recommended for new development. It can hold up to 75 million identities and does not require manual training. For more information, see the [PersonDirectory guide](./use-persondirectory.md).
 
 This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
 
