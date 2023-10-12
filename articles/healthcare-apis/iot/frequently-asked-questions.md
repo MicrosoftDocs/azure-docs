@@ -75,7 +75,7 @@ To learn more about event hub message retention, see [What is the maximum retent
 
 \* FHIR destination is a child resource of the MedTech service.
 
-## I'm receiving cross-tenant credential request errors with my MedTech service after moving my Azure subscription to a different Azure tenant. How do I fix this issue?
+## I'm receiving authentication errors with my MedTech service after moving my Azure subscription to a different Azure tenant. How do I fix this issue?
 
 If the Azure subscription that your MedTech service was provisioned in has since been moved to a different Azure tenant, you could see failing MedTech service HealthChecks for `ExternalEventHub:IsAuthenticated` and `FhirService:IsAuthenticated`. For guidance on how to view these failed HealthChecks, see [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md). There are two methods for fixing this issue based on the type of managed identity you're using with your MedTech service:
 
