@@ -114,6 +114,10 @@ To resolve dependencies before the move, follow these steps:
 4. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.  
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png" alt-text="Screenshot displays page to add additional dependencies." lightbox="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png":::
 
+> [!NOTE]
+> The default name for the resource group follows `<sourceRGName-targetRegion>` convention. If you want to use an existing resource group name, you can find the option to choose the target resource group in the **Edit** section.
+> <br>
+> :::image type="content" source="./media/tutorial-move-region-virtual-machines/target-region.png" alt-text="Screenshot displays add target resource group." :::
 
 ## Prepare resources to move
 
