@@ -142,7 +142,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: ./azure-video-indexer/index.yml
+      url: http://learn.microsoft.com/azure/azure-video-indexer/index.yml
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
