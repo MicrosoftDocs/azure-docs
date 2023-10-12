@@ -33,7 +33,7 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
 -   **Microsoft Entra ID**
 
-    Microsoft Entra ID is Microsoft's multi-tenant cloud-based directory and identity management service. Microsoft Entra ID combines core directory services, application access management, and identity protection into a single solution. 
+    Microsoft Entra ID (formerly Azure AD) is Microsoft's multi-tenant cloud-based directory and identity management service. Microsoft Entra ID combines core directory services, application access management, and identity protection into a single solution. 
 
 -   **Microsoft Entra Domain Services**
 
