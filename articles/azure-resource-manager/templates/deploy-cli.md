@@ -89,7 +89,7 @@ The Azure deployment template can take a few minutes to complete. When it finish
 
 ## Deploy remote template
 
-Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+Instead of storing ARM templates on your local machine, you might prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
 [!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
@@ -256,7 +256,7 @@ However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShe
 
 ### JSON parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
+Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
 To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
 
