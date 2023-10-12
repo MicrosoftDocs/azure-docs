@@ -253,7 +253,7 @@ The front ends are located inside Azure data centers. If you use TLS/SSL with yo
 
 The new keys at each restart may reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables). 
 
-## Connect to the container with SSH
+## Connect to the container
 
 You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/` and choosing the SSH option. A direct SSH session with your container is established in which you can run commands inside your container
 
