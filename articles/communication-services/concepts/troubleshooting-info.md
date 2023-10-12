@@ -227,7 +227,9 @@ These are accessed by looking at where your app is keeping its local data. There
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
 
-## Finding Azure Active Directory information
+<a name='finding-azure-active-directory-information'></a>
+
+## Finding Microsoft Entra information
 
 * **Getting Directory ID**
 * **Getting Application ID**
@@ -237,20 +239,20 @@ These are accessed by looking at where your app is keeping its local data. There
 To find your Directory (tenant) ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **Overview** page in Microsoft Entra ID, copy the Directory (tenant) ID and store it in your application code.
 
-    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+    ![Screenshot of how to copy Microsoft Entra tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
 
 ## Getting Application ID 
 To find your Application ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **App registrations** in Azure AD, select your application.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **App registrations** in Microsoft Entra ID, select your application.
 1. Copy the **Application ID** and store it in your application code.
 
-   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+   ![Screenshot of how to copy Microsoft Entra application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
 
    The directory (tenant) ID can also be found in the application overview page.
 
@@ -258,11 +260,11 @@ To find your Application ID, follow the steps listed below:
 To find your User ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **Users** in Azure AD, select your user.
-1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **Users** in Microsoft Entra ID, select your user.
+1. From **Profile** page in Microsoft Entra users, copy the **Object ID** and store it in your application code.
 
-   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+   ![Screenshot of how to copy Microsoft Entra user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Getting immutable resource ID 
 Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
@@ -419,5 +421,3 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 - Log Filename APIs for Calling SDK
 - [Metrics](metrics.md)
 - [Service limits](service-limits.md)
-
-

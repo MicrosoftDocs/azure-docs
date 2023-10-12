@@ -13,12 +13,14 @@ To ensure your session hosts have licenses applied correctly, you'll need to do 
 
 - If your session hosts are running a Windows Server OS, you'll also need to issue them a Remote Desktop Services (RDS) Client Access License (CAL) from a Remote Desktop Licensing Server. For more information, see [License your RDS deployment with client access licenses (CALs)](/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
-### Azure AD-joined session hosts
+<a name='azure-ad-joined-session-hosts'></a>
 
-If your users are going to connect to session hosts joined to Azure Active Directory, you'll need to do the following tasks:
+### Microsoft Entra joined session hosts
 
-- If your users are going to connect to session hosts joined to Azure Active Directory, you must assign them the [*Virtual Machine User Login*](../../role-based-access-control/built-in-roles.md#virtual-machine-user-login) or [*Virtual Machine Administrator Login*](../../role-based-access-control/built-in-roles.md#virtual-machine-administrator-login) RBAC role either on each virtual machine, the resource group containing the virtual machines, or the subscription. We recommend you assign the *Virtual Machine User Login* RBAC role on the resource group containing your session hosts to the same user group as you assign to the application group. For more information, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm).
+If your users are going to connect to session hosts joined to Microsoft Entra ID, you'll need to do the following tasks:
 
-- For users connecting from Windows devices that aren't joined to Azure AD or non-Windows devices, add the custom RDP property `targetisaadjoined:i:1` to the host pool's RDP properties. These connections are restricted to entering user name and password credentials when signing in to a session host. For more information, see [Customize RDP properties for a host pool](../customize-rdp-properties.md).
+- If your users are going to connect to session hosts joined to Microsoft Entra ID, you must assign them the [*Virtual Machine User Login*](../../role-based-access-control/built-in-roles.md#virtual-machine-user-login) or [*Virtual Machine Administrator Login*](../../role-based-access-control/built-in-roles.md#virtual-machine-administrator-login) RBAC role either on each virtual machine, the resource group containing the virtual machines, or the subscription. We recommend you assign the *Virtual Machine User Login* RBAC role on the resource group containing your session hosts to the same user group as you assign to the application group. For more information, see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm).
 
-For more information about using session hosts joined to Azure AD, see [Azure AD-joined session hosts](../azure-ad-joined-session-hosts.md).
+- For users connecting from Windows devices that aren't joined to Microsoft Entra ID or non-Windows devices, add the custom RDP property `targetisaadjoined:i:1` to the host pool's RDP properties. These connections are restricted to entering user name and password credentials when signing in to a session host. For more information, see [Customize RDP properties for a host pool](../customize-rdp-properties.md).
+
+For more information about using session hosts joined to Microsoft Entra ID, see [Microsoft Entra joined session hosts](../azure-ad-joined-session-hosts.md).

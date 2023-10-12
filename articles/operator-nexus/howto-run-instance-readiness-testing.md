@@ -69,7 +69,7 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 
 If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These four scripts make up the `all-in-one.sh`.
 
-IRT makes commands against your resources, and needs permission to do so. IRT requires a managed identity and a service principal to execute. It also requires that the service principal is a  member of the Azure AD Security Group that is also provided as input.
+IRT makes commands against your resources, and needs permission to do so. IRT requires a managed identity and a service principal to execute. It also requires that the service principal is a  member of the Microsoft Entra Security Group that is also provided as input.
 
 #### Create managed identity
 <details>

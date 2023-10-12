@@ -129,7 +129,7 @@ Improving business continuity using cross region high availability disaster reco
 |Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
 |Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
 |Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure. Use Autoscaling to keep secondary cluster size to a minimum. Use cheaper VM SKUs. Create secondaries in regions where VM SKUs may be discounted.|
-|Authentication |Multiuser scenarios in secondary region will incur additional Azure AD DS setups|Avoid multiuser setups in secondary region.|
+|Authentication |Multiuser scenarios in secondary region will incur additional Microsoft Entra Domain Services setups|Avoid multiuser setups in secondary region.|
 
 ### Complexity optimizations
 
@@ -197,9 +197,9 @@ functionality. Service incidents in one or more of the following services in a s
 
 - **Storage: Azure Data Lake Gen2 or Blob storage**. HDInsight recommends Azure Data Lake Storage Gen2 as the underlying storage layer. [Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/), including Azure Data Lake Storage Gen2, provides an SLA of 99.9%. HDInsight uses the LRS service in which three replicas of data persist within a data center, and replication is synchronous. When there is a replica loss, a replica is served seamlessly.
 
-- **Authentication: Azure Active Directory, Azure Active Directory Domain Services, Enterprise Security Package**. 
-    - [Azure Active Directory](https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/) provides an SLA of 99.9%. Active Directory is a global service with multiple levels of internal redundancy and automatic recoverability. For more information, see how [Microsoft in continually improving the reliability of Azure Active Directory](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
-    - [Azure Active Directory Domain Services](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) provides an SLA of 99.9%. Azure AD DS is a highly available service hosted in globally distributed data centers. Replica sets are a preview feature in Azure AD DS that enables geographic disaster recovery if an Azure region goes offline. For more information, see [replica sets concepts and features for Azure Active Directory Domain Services](../active-directory-domain-services/concepts-replica-sets.md) to learn more.  
+- **Authentication: Microsoft Entra ID, Microsoft Entra Domain Services, Enterprise Security Package**. 
+    - [Microsoft Entra ID](https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/) provides an SLA of 99.9%. Active Directory is a global service with multiple levels of internal redundancy and automatic recoverability. For more information, see how [Microsoft in continually improving the reliability of Microsoft Entra ID](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
+    - [Microsoft Entra Domain Services](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) provides an SLA of 99.9%. Microsoft Entra Domain Services is a highly available service hosted in globally distributed data centers. Replica sets are a preview feature in Microsoft Entra Domain Services that enables geographic disaster recovery if an Azure region goes offline. For more information, see [replica sets concepts and features for Microsoft Entra Domain Services](../active-directory-domain-services/concepts-replica-sets.md) to learn more.  
     - [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/) provides an SLA of 100%. HDInsight uses Azure DNS in various places for domain name resolution.
     
 

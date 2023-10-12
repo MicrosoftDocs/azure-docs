@@ -139,7 +139,7 @@ items:
       items:
       - name: Deploy Apache Superset
         href: ./trino/trino-superset.md
-      - name: Configure Azure Active Directory OAuth2 login
+      - name: Configure Microsoft Entra ID OAuth2 login
         href: ./trino/configure-azure-active-directory-login-for-superset.md
       - name: Role Based Access Control
         href: ./trino/role-based-access-control.md

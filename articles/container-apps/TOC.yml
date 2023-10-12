@@ -155,7 +155,7 @@
       href: authentication.md
     - name: Enable authentication
       items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: authentication-azure-active-directory.md
         - name: Facebook
           href: authentication-facebook.md

@@ -69,7 +69,7 @@ Now let's check if you can access your new Managed Grafana instance.
 
 1. Take note of the **endpoint** URL ending by `eus.grafana.azure.com`, listed in the CLI output.  
 
-1. Open a browser and enter the endpoint URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
+1. Open a browser and enter the endpoint URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
 
    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
