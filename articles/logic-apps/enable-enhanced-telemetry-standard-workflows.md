@@ -675,6 +675,8 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
 
 With the telemetry enhancements in Application Insights, you also get an enhanced Metrics dashboard.
 
+### Open the Metrics dashboard and set up basic filters
+
 1. On your Application Insights resource menu, under **Monitoring**, select **Metrics**.
 
 1. From the **Scope** list, select your Application Insights instance.
@@ -688,6 +690,22 @@ With the telemetry enhancements in Application Insights, you also get an enhance
    When you're done, the Metrics dashboard shows a chart with your finished workflow executions.
 
    ![Screenshot shows Application Insights with Metrics dashboard and chart that shows number of finished workflow executions over time.](media/enable-enhanced-telemetry-standard-workflows/metrics-dashboard.png)
+
+### Filter based on a specific workflow
+
+Multi-dimensional metrics let you target a subset of the overall events captured in Application Insights and filter events based on a specific workflow.
+
+1. On your Application Insights instance, [enable multi-dimensional metrics](../azure-monitor/app/get-metric.md#enable-multi-dimensional-metrics).
+
+1. On the chart toolbar, select **Add filter**.
+
+1. From the **Property** list, select **Workflow**.
+
+1. From the **Operator** list, select the equal sign (**=**).
+
+1. From the **Values** list, select the workflows you want.
+
+   ![Screenshot shows Application Insights with Metrics dashboard and chart with multi-dimensional metrics.](media/enable-enhanced-telemetry-standard-workflows/multi-dimensional-metrics.png)
 
 ## Next steps
 
