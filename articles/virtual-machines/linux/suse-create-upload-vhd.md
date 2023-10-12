@@ -52,7 +52,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
     ```
 
-    Run the ```dracut``` command to rebuild the initramfs file:
+    Run the `dracut` command to rebuild the initramfs file:
 
     ```bash
     sudo dracut --verbose --force
