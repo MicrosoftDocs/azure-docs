@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Migrate to Microsoft Entra Connect cloud sync for an existing synced AD forest
+title: Tutorial - Migrate to Microsoft Entra Cloud Sync for an existing synced AD forest
 description: Learn how to pilot cloud sync for a test Active Directory forest that is already synced using Microsoft Entra Connect Sync.
 services: active-directory
 author: billmath
@@ -14,14 +14,14 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Migrate to Microsoft Entra Connect cloud sync for an existing synced AD forest
+# Migrate to Microsoft Entra Cloud Sync for an existing synced AD forest
 
 This tutorial walks you through how you would migrate to cloud sync for a test Active Directory forest that is already synced using Microsoft Entra Connect Sync.  
 
 > [!NOTE]
 > This article provides information for a basic migration and you should review the [Migrating to cloud sync](migrate-azure-ad-connect-to-cloud-sync.md) documentation before attempting to migrate your production environment.
 
-![Diagram that shows the Microsoft Entra Connect cloud sync flow.](media/tutorial-migrate-aadc-aadccp/diagram-2.png)
+![Diagram that shows the Microsoft Entra Cloud Sync flow.](media/tutorial-migrate-aadc-aadccp/diagram-2.png)
 
 ## Considerations
 
@@ -145,7 +145,7 @@ Same steps need to be followed for all object types (user, group and contact).
 
 <a name='install-the-azure-ad-connect-provisioning-agent'></a>
 
-## Install the Microsoft Entra Connect provisioning agent
+## Install the Microsoft Entra Provisioning Agent
 
 If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be CP1. To install the agent, follow these steps: 
 
@@ -157,7 +157,7 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 <a name='configure-azure-ad-connect-cloud-sync'></a>
 
-## Configure Microsoft Entra Connect cloud sync
+## Configure Microsoft Entra Cloud Sync
 
 Use the following steps to configure provisioning:
 
@@ -212,4 +212,4 @@ In case the pilot doesn't work as expected, you can go back to the Microsoft Ent
 ## Next steps
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
