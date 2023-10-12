@@ -46,7 +46,7 @@ Data export is optimized to move large data volume to your destinations. The exp
 ## Pricing model
 Data export charges are based on the number of bytes exported to destinations in JSON formatted data, and measured in GB (10^9 bytes). Size calculation in workspace query can't correspond with export charges since doesn't include the JSON formatted data. You can use PowerShell to [calculate the total billing size of a blob container](../../storage/scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
-For more information, including the data export billing timeline, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). Billing was enabled in earlu October 2023. 
+For more information, including the data export billing timeline, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). Billing for Data Export was enabled in early October 2023. 
 
 ## Export destinations
 
