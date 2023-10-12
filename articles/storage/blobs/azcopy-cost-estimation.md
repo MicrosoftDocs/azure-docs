@@ -219,22 +219,26 @@ The following table shows the total cost of synchronizing changes for each scena
 | Synchronize containers in separate accounts (listing cost + copy costs) | $3.541  | $10.021 | $30.033 |
 | Synchronize containers in separate regions (listing cost + copy costs)  | $107.06 | $120.02 | $160.04 |
 
-
-## Calculate the cost to update tags, metadata, and properties
-
 ## Summary of calculations
 
 The following table contains all of the estimates presented in this article. All estimates are based on transferring **1000** blobs that are each **5 GiB** in size and use the sample prices listed in the next section.
 
-| Scenario                                    | Hot     | Cool    | Cold    | Archive |
-|---------------------------------------------|---------|---------|---------|---------|
-| Upload blobs (Blob Service endpoint)        | $3.53   | $6.41   | $11.54  | $3.53   |
-| Upload blobs (Data Lake Storage endpoint)   | $9.15   | $16.64  | $29.95  | $18.30  |
-| Download blobs (Blob Service endpoint)      | $0.01   | $5.01   | $15.02  | N/A     |
-| Download blobs (Data Lake Storage endpoint) | $0.73   | $11.67  | $46.65  | N/A     |
-| Copy blobs                                  | $3.53   | $0.0055 | $0.01   | N/A     |
-| Copy blobs to another account               | $3.53   | $10.01  | $30.02  | $20.00  |
-| Copy blobs to an account in another region  | $103.53 | $110.01 | $130.02 | N/A     |
+| Scenario                                                           | Hot     | Cool     | Cold     | Archive |
+|--------------------------------------------------------------------|---------|----------|----------|---------|
+| Upload blobs (Blob Service endpoint)                               | $3.53   | $6.41    | $11.54   | $3.53   |
+| Upload blobs (Data Lake Storage endpoint)                          | $9.15   | $16.64   | $29.95   | $18.30  |
+| Download blobs (Blob Service endpoint)                             | $0.01   | $5.01    | $15.02   | N/A     |
+| Download blobs (Data Lake Storage endpoint)                        | $0.73   | $11.67   | $46.65   | N/A     |
+| Copy blobs                                                         | $3.53   | $0.0055  | $0.01    | N/A     |
+| Copy blobs to another account                                      | $3.53   | $10.01   | $30.02   | N/A     |
+| Copy blobs to an account in another region                         | $103.53 | $110.01  | $130.02  | N/A     |
+| Update local file system with changes to a container<sup>1</sup>   | $9.1555 | $16.6455 | $29.9565 | N/A     |
+| Update a container with changes to a local file system<sup>1</sup> | $0.01   | $5.01    | $15.02   | N/A     |
+| Synchronize containers<sup>1</sup>                                 | $3.541  | $0.0165  | $0.023   | N/A     |
+| Synchronize containers in separate accounts<sup>1</sup>            | $3.541  | $10.021  | $30.033  | N/A     |
+| Synchronize containers in separate regions<sup>1</sup>             | $107.06 | $120.02  | $160.04  | N/A     |
+
+<sup>1</sup>    To keep these examples, these estimate assumes that all 1000 blobs listed were modified and then copied. In most cases, only some smaller portion of the total number blobs would be modified and then copied. 
 
 ## Sample prices
 
@@ -270,14 +274,23 @@ To determine the price of each operation, you must first determine how that oper
 
 | Command      | Scenario | REST operations (Blob Service endpoint) | REST operations (Data Lake Storage endpoint) |
 |--------------|----------|-------------------------|-----|
-| azcopy bench | Upload   | PutBlock & PutBlockList | ?  |
-| azcopy bench | Download | GetBlob |  ? |
-| azcopy copy | Upload | PutBlock & PuBlockList | ? |
+| azcopy bench | Upload   | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block from URL](/rest/api/storageservices/put-block-from-url) | ?  |
+| azcopy bench | Download | [Put Blob](/rest/api/storageservices/put-blob) |  ? |
+| azcopy copy | Upload | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block from URL](/rest/api/storageservices/put-block-from-url) | ? |
 | azcopy copy | Download | GetBlock | ? |
 | azcopy copy | Copy from Amazon S3| GetBlobFromUrl | ? |
 | azcopy copy | Copy from Google Cloud Storage | GetBlobFromUrl | ?|
 | azcopy copy | Copy to another container |  CopyBlob | ? | 
 | azcopy copy | Perform a dry run | ListBlobs | ? |
+| azcopy sync | Update local with changes to container | ListBlobs and [Put Blob](/rest/api/storageservices/put-blob) |
+| azcopy sync | Update container with changes to local file system | ListBlobs, [Put Block](/rest/api/storageservices/put-block-list), and [Put Block from URL](/rest/api/storageservices/put-block-from-url) |
+| azcopy sync | Synchronize containers | ListBlobs and CopyBlob |
+| azcopy set-properties | Set blob tier | SetBlobTier |
+| azcopy set-properties | Set metadata | SetBlobMetadata |
+| azcopy set-properties | Set blob tags | SetBlobTags |
+| azcopy list | ListContainers or ListBlobs |
+| azcopy make | CreateContainer |
+| azcopy remove | DeleteContainer or DeleteBlob |
 
 ## See also
 
