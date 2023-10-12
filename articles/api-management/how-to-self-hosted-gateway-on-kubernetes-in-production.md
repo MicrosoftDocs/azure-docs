@@ -26,7 +26,7 @@ Without a valid access token, a self-hosted gateway can't access and download co
 When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/current-ga/gateway/generate-token) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
 
 > [!TIP]
-> You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Azure AD](self-hosted-gateway-enable-azure-ad.md).
+> You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Microsoft Entra ID](self-hosted-gateway-enable-azure-ad.md).
 
 ## Autoscaling
 

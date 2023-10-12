@@ -1,43 +1,45 @@
 ---
-title: Authenticate Azure Batch services with Azure Active Directory
-description: Learn how to authenticate Azure Batch service applications with Azure AD by using integrated authentication or a service principal.
+title: Authenticate Azure Batch services with Microsoft Entra ID
+description: Learn how to authenticate Azure Batch service applications with Microsoft Entra ID by using integrated authentication or a service principal.
 ms.topic: how-to
 ms.date: 04/03/2023
 ms.custom: has-adal-ref, subject-rbac-steps
 ---
 
-# Authenticate Azure Batch services with Azure Active Directory
+# Authenticate Azure Batch services with Microsoft Entra ID
 
-Azure Batch supports authentication with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD), Microsoft's multi-tenant cloud based directory and identity management service. Azure uses Azure AD to authenticate its own customers, service administrators, and organizational users.
+Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multi-tenant cloud based directory and identity management service. Azure uses Microsoft Entra ID to authenticate its own customers, service administrators, and organizational users.
 
-This article describes two ways to use Azure AD authentication with Azure Batch:
+This article describes two ways to use Microsoft Entra authentication with Azure Batch:
 
 - **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authorize access to Batch resources.
 
 - A **service principal** authenticates an unattended application. The service principal defines the policy and permissions for the application and represents the application to access Batch resources at runtime.
 
-For more information about Azure AD, see the [Azure AD documentation](/azure/active-directory/index).
+For more information about Microsoft Entra ID, see the [Microsoft Entra documentation](/azure/active-directory/index).
 
 ## Gather endpoints for authentication
 
-To authenticate Batch applications with Azure AD, you need to include the Azure AD endpoint and Batch resource endpoint in your code.
+To authenticate Batch applications with Microsoft Entra ID, you need to include the Microsoft Entra endpoint and Batch resource endpoint in your code.
 
-### Azure AD endpoint
+<a name='azure-ad-endpoint'></a>
 
-The base Azure AD authority endpoint is `https://login.microsoftonline.com/`. To authenticate with Azure AD, use this endpoint with the *tenant ID* that identifies the Azure AD tenant to use for authentication:
+### Microsoft Entra endpoint
+
+The base Microsoft Entra authority endpoint is `https://login.microsoftonline.com/`. To authenticate with Microsoft Entra ID, use this endpoint with the *tenant ID* that identifies the Microsoft Entra tenant to use for authentication:
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-You can get your tenant ID from the main Azure AD page in the Azure portal. You can also select **Properties** in the left navigation and see the **Tenant ID** on the **Properties** page.
+You can get your tenant ID from the main Microsoft Entra ID page in the Azure portal. You can also select **Properties** in the left navigation and see the **Tenant ID** on the **Properties** page.
 
 ![Screenshot of the Tenant ID in the Azure portal.](./media/batch-aad-auth/aad-directory-id.png)
 
 >[!IMPORTANT]
->- The tenant-specific Azure AD endpoint is required when you authenticate by using a service principal.
+>- The tenant-specific Microsoft Entra endpoint is required when you authenticate by using a service principal.
 >
->- When you authenticate by using integrated authentication, the tenant-specific endpoint is recommended, but optional. You can also use the Azure AD common endpoint to provide a generic credential gathering interface when a specific tenant isn't provided. The common endpoint is `https://login.microsoftonline.com/common`.
+>- When you authenticate by using integrated authentication, the tenant-specific endpoint is recommended, but optional. You can also use the Microsoft Entra common endpoint to provide a generic credential gathering interface when a specific tenant isn't provided. The common endpoint is `https://login.microsoftonline.com/common`.
 >
->For more information about Azure AD endpoints, see [Authentication vs. authorization](/azure/active-directory/develop/authentication-vs-authorization).
+>For more information about Microsoft Entra endpoints, see [Authentication vs. authorization](/azure/active-directory/develop/authentication-vs-authorization).
 
 ### Batch resource endpoint
 
@@ -45,9 +47,9 @@ Use the Batch resource endpoint `https://batch.core.windows.net/` to acquire a t
 
 ## Register your application with a tenant
 
-The first step in using Azure AD authentication is to register your application in an Azure AD tenant. Once you register your application, you can call the [Microsoft Authentication Library](/azure/active-directory/develop/msal-overview) (MSAL) from your code. The MSAL provides an API for authenticating with Azure AD from your application. Registering your application is required whether you use integrated authentication or a service principal.
+The first step in using Microsoft Entra authentication is to register your application in a Microsoft Entra tenant. Once you register your application, you can call the [Microsoft Authentication Library](/azure/active-directory/develop/msal-overview) (MSAL) from your code. The MSAL provides an API for authenticating with Microsoft Entra ID from your application. Registering your application is required whether you use integrated authentication or a service principal.
 
-When you register your application, you supply information about your application to Azure AD. Azure AD then provides an *application ID*, also called a *client ID*, that you use to associate your application with Azure AD at runtime. For more information about the application ID, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals).
+When you register your application, you supply information about your application to Microsoft Entra ID. Microsoft Entra ID then provides an *application ID*, also called a *client ID*, that you use to associate your application with Microsoft Entra ID at runtime. For more information about the application ID, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals).
 
 To register your Batch application, follow the steps at [Register an application](/azure/active-directory/develop/quickstart-register-app#register-an-application).
 
@@ -57,7 +59,7 @@ After you register your application, you can see the **Application (client) ID**
 
 ## Configure integrated authentication
 
-To authenticate with integrated authentication, you need to grant your application permission to connect to the Batch service API. This step enables your application to use Azure AD to authenticate calls to the Batch service API.
+To authenticate with integrated authentication, you need to grant your application permission to connect to the Batch service API. This step enables your application to use Microsoft Entra ID to authenticate calls to the Batch service API.
 
 After you register your application, follow these steps to grant the application access to the Batch service:
 
@@ -68,11 +70,11 @@ After you register your application, follow these steps to grant the application
 1. On the **Request API permissions** page, select **Azure Batch**.
 1. On the **Azure Batch** page, under **Select permissions**, select the checkbox next to **user_impersonation**, and then select **Add permissions**.
 
-The **API permissions** page now shows that your Azure AD application has access to both **Microsoft Graph** and **Azure Batch**. Permissions are granted to Microsoft Graph automatically when you register an app with Azure AD.
+The **API permissions** page now shows that your Microsoft Entra application has access to both **Microsoft Graph** and **Azure Batch**. Permissions are granted to Microsoft Graph automatically when you register an app with Microsoft Entra ID.
 
 ## Configure a service principal
 
-To authenticate an application that runs unattended, you use a service principal. When your application authenticates by using a service principal, it sends both the application ID and a secret key to Azure AD.
+To authenticate an application that runs unattended, you use a service principal. When your application authenticates by using a service principal, it sends both the application ID and a secret key to Microsoft Entra ID.
 
 After you register your application, follow these steps in the Azure portal to configure a service principal:
 
@@ -109,7 +111,7 @@ Your application should now appear on the **Role assignments** tab of the Batch 
 
 A custom role grants granular permission to a user for submitting jobs, tasks, and more. You can use custom roles to prevent users from performing operations that affect cost, such as creating pools or modifying nodes.
 
-You can use a custom role to grant or deny permissions to an Azure AD user, group, or service principal for the following Azure Batch RBAC operations:
+You can use a custom role to grant or deny permissions to a Microsoft Entra user, group, or service principal for the following Azure Batch RBAC operations:
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete
@@ -126,7 +128,7 @@ You can use a custom role to grant or deny permissions to an Azure AD user, grou
 - Microsoft.Batch/batchAccounts/read, for any read operation
 - Microsoft.Batch/batchAccounts/listKeys/action, for any operation
 
-Custom roles are for users authenticated by Azure AD, not for the Batch shared key account credentials. The Batch account credentials give full permission to the Batch account. Jobs that use [autopool](nodes-and-pools.md#autopools) require pool-level permissions.
+Custom roles are for users authenticated by Microsoft Entra ID, not for the Batch shared key account credentials. The Batch account credentials give full permission to the Batch account. Jobs that use [autopool](nodes-and-pools.md#autopools) require pool-level permissions.
 
 > [!NOTE]
 > Certain role assignments need to be specified in the `actions` field, whereas others need to be specified in the `dataActions` field. For more information, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftbatch).
@@ -171,14 +173,16 @@ For more information on creating a custom role, see [Azure custom roles](../role
 
 ## Code examples
 
-The code examples in this section show how to authenticate with Azure AD by using integrated authentication or with a service principal. The code examples use .NET and Python, but the concepts are similar for other languages.
+The code examples in this section show how to authenticate with Microsoft Entra ID by using integrated authentication or with a service principal. The code examples use .NET and Python, but the concepts are similar for other languages.
 
 > [!NOTE]
-> An Azure AD authentication token expires after one hour. When you use a long-lived **BatchClient** object, it's best to get a token from MSAL on every request to ensure that you always have a valid token.
+> A Microsoft Entra authentication token expires after one hour. When you use a long-lived **BatchClient** object, it's best to get a token from MSAL on every request to ensure that you always have a valid token.
 >
-> To do this in .NET, write a method that retrieves the token from Azure AD, and pass that method to a **BatchTokenCredentials** object as a delegate. Every request to the Batch service calls the delegate method to ensure that a valid token is provided. By default MSAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For more information about tokens in Azure AD, see [Security tokens](/azure/active-directory/develop/security-tokens).
+> To do this in .NET, write a method that retrieves the token from Microsoft Entra ID, and pass that method to a **BatchTokenCredentials** object as a delegate. Every request to the Batch service calls the delegate method to ensure that a valid token is provided. By default MSAL caches tokens, so a new token is retrieved from Microsoft Entra-only when necessary. For more information about tokens in Microsoft Entra ID, see [Security tokens](/azure/active-directory/develop/security-tokens).
 
-### Code example: Use Azure AD integrated authentication with Batch .NET
+<a name='code-example-use-azure-ad-integrated-authentication-with-batch-net'></a>
+
+### Code example: Use Microsoft Entra integrated authentication with Batch .NET
 
 To authenticate with integrated authentication from Batch .NET:
 
@@ -192,7 +196,7 @@ To authenticate with integrated authentication from Batch .NET:
    using Microsoft.Identity.Client;
    ```
 
-1. Reference the Azure AD endpoint, including the tenant ID. You can get your tenant ID from the Azure AD **Overview** page in the Azure portal.
+1. Reference the Microsoft Entra endpoint, including the tenant ID. You can get your tenant ID from the Microsoft Entra ID **Overview** page in the Azure portal.
 
    ```csharp
    private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -222,7 +226,7 @@ To authenticate with integrated authentication from Batch .NET:
    private const string RedirectUri = "https://<redirect-uri>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following example calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides credentials.
+1. Write a callback method to acquire the authentication token from Microsoft Entra ID. The following example calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides credentials.
 
    The *authorizationCode* parameter is the authorization code obtained from the authorization server after the user authenticates. `WithRedirectUri` specifies the redirect URI that the authorization server redirects the user to after authentication.
 
@@ -260,7 +264,9 @@ To authenticate with integrated authentication from Batch .NET:
    }
    ```
 
-### Code example: Use an Azure AD service principal with Batch .NET
+<a name='code-example-use-an-azure-ad-service-principal-with-batch-net'></a>
+
+### Code example: Use a Microsoft Entra service principal with Batch .NET
 
 To authenticate with a service principal from Batch .NET:
 
@@ -274,7 +280,7 @@ To authenticate with a service principal from Batch .NET:
    using Microsoft.Identity.Client;
    ```
 
-1. Reference the Azure AD endpoint, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Azure AD **Overview** page in the Azure portal.
+1. Reference the Microsoft Entra endpoint, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Microsoft Entra ID **Overview** page in the Azure portal.
 
    ```csharp
    private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -304,7 +310,7 @@ To authenticate with a service principal from Batch .NET:
    private const string ClientKey = "<secret-key>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL for unattended authentication.
+1. Write a callback method to acquire the authentication token from Microsoft Entra ID. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL for unattended authentication.
 
    ```csharp
    public static async Task<string> GetAccessToken(string[] scopes)
@@ -338,7 +344,9 @@ To authenticate with a service principal from Batch .NET:
    }
    ```
 
-### Code example: Use an Azure AD service principal with Batch Python
+<a name='code-example-use-an-azure-ad-service-principal-with-batch-python'></a>
+
+### Code example: Use a Microsoft Entra service principal with Batch Python
 
 To authenticate with a service principal from Batch Python:
 
@@ -351,7 +359,7 @@ To authenticate with a service principal from Batch Python:
    from azure.common.credentials import ServicePrincipalCredentials
    ```
 
-1. To use a service principal, provide a tenant-specific endpoint. You can get your tenant ID from the Azure AD **Overview** page or **Properties** page in the Azure portal.
+1. To use a service principal, provide a tenant-specific endpoint. You can get your tenant ID from the Microsoft Entra ID **Overview** page or **Properties** page in the Azure portal.
 
    ```python
    TENANT_ID = "<tenant-id>"
@@ -401,13 +409,13 @@ To authenticate with a service principal from Batch Python:
    )
    ```
 
-For a Python example of how to create a Batch client authenticated by using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script sample](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
+For a Python example of how to create a Batch client authenticated by using a Microsoft Entra token, see the [Deploying Azure Batch Custom Image with a Python Script sample](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
 
 ## Next steps
 
 - [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md)
 - [Client credential flows in MSAL.NET](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/client-credential-flows)
 - [Using MSAL.NET to get tokens by authorization code (for web sites)](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/authorization-codes)
-- [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
-- [How to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
+- [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals)
+- [How to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code)

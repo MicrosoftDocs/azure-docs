@@ -62,7 +62,7 @@ The DICOM service enables organizations to manage medical imaging data with seve
 
 ## Prerequisites to deploy the DICOM service
 
-Your organization needs an Azure subscription to configure and run the components required for the DICOM service. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra ID account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
+Your organization needs an Azure subscription to configure and run the components required for the DICOM service. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
  
 ## Next steps
 
