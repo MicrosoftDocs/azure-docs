@@ -196,7 +196,7 @@ To avoid this situation, the server is automatically switched to read-only mode 
 
 We recommend that you actively monitor the disk space that's in use and increase the disk size before you run out of storage. You can set up an alert to notify you when your server storage is approaching an out-of-disk state. For more information, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](howto-alert-on-metrics.md).
 
-### Storage auto-grow (preview)
+### Storage auto-grow
 
 Storage auto-grow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage auto-grow, the storage will automatically expand without affecting the workload. This feature is currently in preview.
 
@@ -215,10 +215,12 @@ Remember that storage can only be scaled up, not down.
 ## Limitations
 
 - Disk scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
+- 
+- Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. Customers moving from lower disk size to 4096 Gib or higher will lose disk caching ability.
 
-  This limitation is due to the underlying Azure managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
+  This limitation is due to the underlying Azure Managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
-- Storage auto-grow currently doesn't work for high-availability or read-replica-enabled servers.
+-  Storage auto-grow currently doesn't work with read-replica-enabled servers.
 
 - Storage auto-grow isn't triggered when you have high WAL usage.
 
