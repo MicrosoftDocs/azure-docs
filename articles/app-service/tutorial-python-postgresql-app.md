@@ -712,7 +712,7 @@ The sample app includes `print()` statements to demonstrate this capability as s
 
 :::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
-1. In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
+- In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
 
     <pre>
     Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
@@ -731,11 +731,11 @@ azd down
 
 ## Troubleshooting
 
-Listed below are issues you may encounter while trying to work through this tutorial and steps to resolve them.
+Listed below are issues you might encounter while trying to work through this tutorial and steps to resolve them.
 
 #### I can't connect to the SSH session
 
-If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_CONNECTIONSTRING'`, it may mean that the environment variable is missing (you may have removed the app setting).
+If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_CONNECTIONSTRING'`, it might mean that the environment variable is missing (you might have removed the app setting).
 
 #### I get an error when running database migrations
 
