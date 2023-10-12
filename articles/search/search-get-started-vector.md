@@ -30,7 +30,7 @@ Search indexes now support vector fields in the fields collection. When querying
 
 + Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-  For the optional [semantic search](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
+  For the optional [semantic ranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-07-01-preview** API version of Azure Cognitive Search.
 
@@ -216,7 +216,7 @@ You should get a status HTTP 201 success.
 
 + The `"vectorSearch"` section is an array of algorithm configurations used by vector fields. Currently, only HNSW is supported. HNSW is a graph-based Approximate Nearest Neighbors (ANN) algorithm optimized for high-recall, low-latency applications.
 
-+ [Optional]: The `"semantic"` configuration enables reranking of search results. You can rerank results in queries of type `"semantic"` for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
++ [Optional]: The `"semantic"` configuration enables reranking of search results. You can rerank results in queries of type `"semantic"` for string fields that are specified in the configuration. See [Semantic ranking overview](semantic-search-overview.md) to learn more.
 
 ## Upload documents
 
