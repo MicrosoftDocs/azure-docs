@@ -96,7 +96,7 @@ hangUpButton.addEventListener("click", async () => {
 teamsMeetingJoinButton.addEventListener("click", () => {    
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
-     (or)
+   //  (or)
    // join with meetingId and passcode
    call = callAgent.join({meetingId: meetingIdInput.value, passcode: meetingPasscodeInput.value}, {});
     
