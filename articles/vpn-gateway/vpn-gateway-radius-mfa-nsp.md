@@ -1,7 +1,7 @@
 ---
 title: 'Integrate NPS with VPN Gateway RADIUS authentication for MFA'
 titleSuffix: Azure VPN Gateway
-description: Learn about integrating Azure VPN Gateway RADIUS authentication with NPS server for Multi-Factor Authentication.
+description: Learn about integrating Azure VPN Gateway RADIUS authentication with NPS server for multifactor authentication.
 author: ahmadnyasin  
 manager: dcscontentpm
 ms.service: vpn-gateway
@@ -10,13 +10,13 @@ ms.date: 09/16/2019
 ms.author: genli
 
 ---
-# Integrate Azure VPN gateway RADIUS authentication with NPS server for Multi-Factor Authentication 
+# Integrate Azure VPN gateway RADIUS authentication with NPS server for multifactor authentication 
 
-The article describes how to integrate Network Policy Server (NPS) with Azure VPN gateway RADIUS authentication to deliver Multi-Factor Authentication (MFA) for point-to-site VPN connections. 
+The article describes how to integrate Network Policy Server (NPS) with Azure VPN gateway RADIUS authentication to deliver multifactor authentication (MFA) for point-to-site VPN connections. 
 
 ## Prerequisite
 
-To enable MFA, the users must be in Azure Active Directory (Azure AD), which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
+To enable MFA, the users must be in Microsoft Entra ID, which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 
 ## Detailed steps
 
@@ -37,9 +37,11 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 
  
-### Step 2: Configure the NPS for Azure AD MFA
+<a name='step-2-configure-the-nps-for-azure-ad-mfa'></a>
 
-1. On the NPS server, [install the NPS extension for Azure AD MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
+### Step 2: Configure the NPS for Microsoft Entra multifactor authentication
+
+1. On the NPS server, [install the NPS extension for Microsoft Entra multifactor authentication](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Open the NPS console, right-click **RADIUS Clients**, and then select **New**. Create the RADIUS client by specifying the following settings:
 
     - **Friendly Name**: Type any name.
@@ -69,5 +71,5 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 ## Next steps
 
-- [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
-- [Integrate your existing NPS infrastructure with Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)
+- [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md)
+- [Integrate your existing NPS infrastructure with Microsoft Entra multifactor authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

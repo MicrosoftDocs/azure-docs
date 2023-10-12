@@ -84,7 +84,7 @@ If you receive this error, it indicates that the service timed out while provisi
 
 If you receive an overage claim, review the following factors in order:
 
-1. Are you using a service principal that is part of more than 200 Azure AD groups? If yes, then you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
+1. Are you using a service principal that is part of more than 200 Microsoft Entra groups? If yes, then you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
 
 1. Have you configured outbound proxy environment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
 
@@ -360,9 +360,11 @@ Some other aspects to consider:
 
 With these actions accomplished, you can either [recreate a flux configuration](./tutorial-use-gitops-flux2.md), which installs the flux extension automatically, or you can reinstall the flux extension manually.
 
-### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Azure AD Pod Identity enabled
+<a name='flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-azure-ad-pod-identity-enabled'></a>
 
-If you attempt to install the Flux extension in a cluster that has Azure Active Directory (Azure AD) Pod Identity enabled, an error may occur in the extension-agent pod.
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Microsoft Entra Pod Identity enabled
+
+If you attempt to install the Flux extension in a cluster that has Microsoft Entra Pod Identity enabled, an error may occur in the extension-agent pod.
 
 ```console
 {"Message":"2021/12/02 10:24:56 Error: in getting auth header : error {adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID <REDACTED>\n}","LogType":"ConfigAgentTrace","LogLevel":"Information","Environment":"prod","Role":"ClusterConfigAgent","Location":"westeurope","ArmId":"/subscriptions/<REDACTED>/resourceGroups/<REDACTED>/providers/Microsoft.Kubernetes/managedclusters/<REDACTED>","CorrelationId":"","AgentName":"FluxConfigAgent","AgentVersion":"0.4.2","AgentTimestamp":"2021/12/02 10:24:56"}
@@ -376,7 +378,7 @@ The extension status also returns as "Failed".
 
 The extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
-You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that tells Azure AD Pod Identity to ignore the token requests from flux-extension pods.
+You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that tells Microsoft Entra Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1
@@ -531,7 +533,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
 
 This warning occurs when you use a service principal to log into Azure. The service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
 
-1. Sign in into Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+1. Sign in into Azure CLI using your user account. Fetch the Object ID of the Microsoft Entra application used by Azure Arc service:
 
     ```azurecli
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv

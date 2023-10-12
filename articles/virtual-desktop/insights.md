@@ -214,7 +214,7 @@ Azure Virtual Desktop Insights allows you to monitor Azure Monitor alerts happen
 
 Microsoft automatically collects usage and performance data through your use of the Azure Virtual Desktop Insights service. Microsoft uses this data to improve the quality, security, and integrity of the service.
 
-To provide accurate and efficient troubleshooting capabilities, the collected data includes the portal session ID, Azure Active Directory user ID, and the name of the portal tab where the event occurred. Microsoft doesn't collect names, addresses, or other contact information.
+To provide accurate and efficient troubleshooting capabilities, the collected data includes the portal session ID, Microsoft Entra user ID, and the name of the portal tab where the event occurred. Microsoft doesn't collect names, addresses, or other contact information.
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://privacy.microsoft.com/privacystatement).
 

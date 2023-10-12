@@ -1,6 +1,6 @@
 ---
 title: Configure authorization providers - Azure API Management | Microsoft Docs
-description: Learn how to configure common identity providers for authorizations in Azure API Management. Example providers are Azure Active Directory and a generic OAuth 2.0 provider. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
+description: Learn how to configure common identity providers for authorizations in Azure API Management. Example providers are Microsoft Entra ID and a generic OAuth 2.0 provider. An authorization manages authorization tokens to an OAuth 2.0 backend service. 
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -13,10 +13,10 @@ ms.author: danlep
 
 In this article, you learn about configuring identity providers for [authorizations](authorizations-overview.md) in your API Management instance. Settings for the following common providers are shown:
 
-* Azure AD provider
+* Microsoft Entra provider
 * Generic OAuth 2.0 provider
 
-You add identity provider settings when configuring an authorization in your API Management instance. For a step-by-step example of configuring an Azure AD provider and authorization, see:
+You add identity provider settings when configuring an authorization in your API Management instance. For a step-by-step example of configuring a Microsoft Entra provider and authorization, see:
 
 * [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
@@ -32,17 +32,21 @@ To configure any of the supported providers in API Management, first configure a
 
 * Depending on the provider and your scenario, you might need to retrieve other settings such as authorization endpoint URLs or scopes.
 
-## Azure AD provider
+<a name='azure-ad-provider'></a>
 
-Authorizations support the Azure AD identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+## Microsoft Entra provider
+
+Authorizations support the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
 
 * **Supported grant types**: authorization code, client credentials
 
 > [!NOTE]
->  Currently, the Azure AD authorization provider supports only the Azure AD v1.0 endpoints.
+>  Currently, the Microsoft Entra authorization provider supports only the Azure AD v1.0 endpoints.
  
 
-### Azure AD provider settings
+<a name='azure-ad-provider-settings'></a>
+
+### Microsoft Entra provider settings
     
 [!INCLUDE [api-management-authorization-azure-ad-provider](../../includes/api-management-authorization-azure-ad-provider.md)]
 
@@ -77,4 +81,4 @@ Required settings for these providers differ from provider to provider but are s
 ## Next steps
 
 * Learn more about [authorizations](authorizations-overview.md) in API Management.
-* Create an authorization for [Azure AD](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
+* Create an authorization for [Microsoft Entra ID](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
