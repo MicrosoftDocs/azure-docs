@@ -38,13 +38,15 @@ Set up one data collection endpoint to send configuration files and receive coll
 - Create a data collection endpoint in each region to send configuration files to the resources in that region.
 - Send data from all resources to a data collection endpoint in the region where your destintation Log Analytics workspaces are located. 
 
-:::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality.png" alt-text="A diagram that shows resources in two regions sending data and receiving configuration files using data collection endpoint.":::
+:::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality.png" alt-text="A diagram that shows resources in two regions sending data and receiving configuration files using data collection endpoints.":::
 
 **Scenario: Monitored resources in multiple regions sending data to multiple Log Analytics workspaces in different regions**
 
  - Create a data collection endpoint in each region with monitored resources to send configuration files to the resources in that region.
  - Create a data collection endpoint in each region a destination Log Analytics workspaces to send data to the Log Analytics workspaces in that region.
  - Send data from each monitored resource to the data collection endpoint in the region where the destination Log Analytics workspace is located.
+  
+ :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png" alt-text="A diagram that shows monitored resources in multiple regions sending data to multiple Log Analytics workspaces in different regions using data collection endpoints.":::
 
 ## Create a data collection endpoint
 
