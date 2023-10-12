@@ -126,7 +126,7 @@ The following table shows an example test case:
 
 | Role| Expected behavior during activation| Actual results |
 | --- | --- | --- |
-|Global Administrator| <li> Require MFA <br><li>  Require approval <br><li>  <br><li>	Require Conditional Access context (Public preview) <br><li> Approver receives notification and can approve <br><li>  Role expires after preset time|
+|Global Administrator| <li> Require MFA <br><li> Require approval <br><li> Require Conditional Access context (Public preview) <br><li> Approver receives notification and can approve <br><li>  Role expires after preset time|
 
 
 For both Microsoft Entra ID and Azure resource role, make sure that you have users represented who will take those roles. In addition, consider the following roles when you test PIM in your staged environment:
