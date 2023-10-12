@@ -129,7 +129,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## Next steps
 
-You can post questions and concerns on the [Azure forum](answers/tags/436/azure-app-service).
+You can post questions and concerns on the [Azure forum](/answers/tags/436/azure-app-service).
 
 For more information on Web App for Containers, see:
 
