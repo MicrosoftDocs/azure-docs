@@ -104,10 +104,10 @@ The following sections describe the tables in Application Insights where you can
 
 | Table name | Description |
 |------------|-------------|
-| [Requests](#requests-table) | Details about the following events in a workflow run: <br><br>- Trigger and action events <br>- Retry attempts <br>- Connector usage |
+| [Requests](#requests-table) | Details about the following events in one or more workflow runs: <br><br>- Trigger and action events <br>- Retry attempts <br>- Connector usage |
 | [Traces](#traces-table) | Details about the following events in one or more workflow runs: <br><br>- Workflow start and end events <br>- Batch send and receive events |
-| [Exceptions](#exceptions-table) | Details about exception events in a workflow run |
-| [Dependencies](#dependencies-table) | Details about dependency events in a workflow run |
+| [Exceptions](#exceptions-table) | Details about exception events in one or more workflow runs |
+| [Dependencies](#dependencies-table) | Details about dependency events in one or more workflow runs |
 
 ### Requests table
 
@@ -119,7 +119,7 @@ The Requests table contains fields that track data about the following events in
 
 To show how data gets into these fields, suppose you have the following example Standard workflow that starts with the **Request** trigger followed by the **Compose** action and the **Response** action.
 
-![Screenshot shows Azure portal, Standard workflow, with trigger and actions.](media/enable-enhanced-telemetry-standard-workflows/workflow-overview.png)
+![Screenshot shows Azure portal and Standard workflow designer with trigger and actions.](media/enable-enhanced-telemetry-standard-workflows/workflow-overview.png)
 
 The trigger settings has a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
 
@@ -511,8 +511,52 @@ You can create a query against the Exceptions table to view the exception events
 
 ### Dependencies table
 
-The Dependencies table contains fields that track dependency events, which are emitted when one resource calls another resource, and both use Application Insights. Examples for Azure Logic Apps include a service calling another service over HTTP, a database, or file system. Application Insights measures the duration of dependency calls and whether those calls succeed or fail, along with information, such as the dependency name. You can investigate specific dependency calls and correlate them to requests and exceptions.
+The Dependencies table contains fields that track data about dependency events in Standard workflow runs. These events are emitted when one resource calls another resource and when both resources use Application Insights. Examples for Azure Logic Apps include a service calling another service over HTTP, a database, or file system. Application Insights measures the duration of dependency calls and whether those calls succeed or fail, along with information, such as the dependency name. You can investigate specific dependency calls and correlate them to requests and exceptions.
 
+To show how data gets into these fields, suppose you have the following example Standard parent workflow that calls a child workflow over HTTP using the **HTTP** action:
+
+![Screenshot shows Azure portal, Standard workflow designer with parent workflow using HTTP action to call a child workflow.](media/enable-enhanced-telemetry-standard-workflows/dependencies-table/parent-child-workflow.png)
+
+<a name="dependencies-table-view-dependency-events"></a>
+
+#### Query for dependency events in a specific workflow
+
+You can create a query against the Dependencies table to view the dependency events in a specific workflow run.
+
+1. If necessary, select the time range that you want to review. By default, this value is the last 24 hours.
+
+1. To view dependency events between the parent workflow and the child workflow, create and run the following query:
+
+   ```kusto
+   union requests, dependencies
+   | where operation_Id contains "<runId>"
+   ```
+
+   This query uses the [**union** operator](/azure/data-explorer/kusto/query/unionoperator) to return records from the Requests table and Dependencies table. The query also uses the **operation_Id** property value to provide the link between records by specifying the workflow **runId** value you want, for example:
+
+   ```kusto
+   union requests, dependencies
+   | where operation_Id contains "08585355753671110236506928546CU00"
+   ```
+
+   The following example shows a dependency event for the specified workflow, including records for the operation events in the parent workflow from the Requests table and then a dependency record from the Dependencies table:
+
+   ![Screenshot shows Application Insights, Results tab with dependency events for a specific workflow.](media/enable-enhanced-telemetry-standard-workflows/dependencies-table/dependency-details.png)
+
+   For the operation event records, the **itemType** column shows their record types as **request**. For the dependency record, the **itemType** column indicates the record type as **dependency**.
+
+   | Property | Description |
+   |----------|-------------|
+   | **runId** | ID for the workflow run instance |
+   | **actionName** | Name for the action where the dependency event happens |
+   | **operation_Id** | ID for the specified workflow. This ID is the same as the **runId** value for the workflow run instance. This value transcends tables so you can link this dependency record with the workflow run instance. |
+   | **operation_ParentId** | ID for the action where the dependency event happens, which also links the operation event record and dependency event record together |
+
+With your query, you can also visualize the dependency call from a parent workflow to a child workflow when you use the application map in Application Insights. The **operation_Id** value in your query provides the link that makes this visualization possible.
+
+To open the application map, on the Application Insights resource menu, under **Investigate**, select **Application map**.
+
+![Screenshot shows Application Insights and application map with dependency between parent workflow and child workflow.](media/enable-enhanced-telemetry-standard-workflows/dependencies-table/application-map.png)
 
 <a name="filter-events-source"></a>
 
