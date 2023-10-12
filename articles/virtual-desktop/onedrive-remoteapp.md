@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft OneDrive with a RemoteApp - Azure Virtual Desktop
+title: Use Microsoft OneDrive with a RemoteApp (preview) - Azure Virtual Desktop
 description: Learn how to use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop.
 ms.topic: how-to
 author: dknappettmsft
@@ -7,9 +7,13 @@ ms.author: daknappe
 ms.date: 10/11/2023
 ---
 
-# Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop
+# Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)
 
-You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop, allowing users to access and synchronize their files while using a RemoteApp. When a user connects to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp. This article describes how to configure OneDrive to automatically launch alongside a RemoteApp in Azure Virtual Desktop.
+> [!IMPORTANT]
+> Using Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop (preview), allowing users to access and synchronize their files while using a RemoteApp. When a user connects to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp. This article describes how to configure OneDrive to automatically launch alongside a RemoteApp in Azure Virtual Desktop.
 
 > [!IMPORTANT]
 > - You should only use OneDrive with a RemoteApp for testing purposes as it requires an Insider Preview build of Windows 11 for your session hosts.

@@ -106,7 +106,7 @@ This issue occurs when the current user doesn't have the proper role assignment 
 - `Request for Azure Relay Information Failed: (AuthorizationFailed) The client '\<user name\>' with object id '\<ID\>' does not have authorization to perform action 'Microsoft.HybridConnectivity/endpoints/listCredentials/action' over scope '/subscriptions/\<Subscription ID\>/resourceGroups/\<Resource Group\>/providers/Microsoft.HybridCompute/machines/\<Machine Name\>/providers/Microsoft.HybridConnectivity/endpoints/default' or the scope is invalid. If access was recently granted, please refresh your credentials.`
 
 Resolution:
-- Ensure that you have the Virtual Machine Local user Login role on the resource you're connecting to. If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the Azure AD SSH Login extension is installed on the Arc-Enabled Server.
+- Ensure that you have the Virtual Machine Local user Login role on the resource you're connecting to. If using Microsoft Entra login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the Microsoft Entra SSH Login extension is installed on the Arc-Enabled Server.
 
 ### HybridConnectivity RP not registered
 
@@ -143,4 +143,3 @@ Resolution:
 
 - Learn about SSH access to [Azure Arc-enabled servers](ssh-arc-overview.md).
 - Learn about troubleshooting [agent connection issues](troubleshoot-agent-onboard.md).
-

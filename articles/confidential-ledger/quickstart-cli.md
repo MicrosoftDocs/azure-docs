@@ -25,7 +25,7 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 ## Get your principal ID
 
-To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
+To create a confidential ledger, you'll need your Microsoft Entra principal ID (also called your object ID).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
 
 ```azurecli
 az ad signed-in-user show --query objectId

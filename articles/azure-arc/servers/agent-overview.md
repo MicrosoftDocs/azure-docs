@@ -54,7 +54,7 @@ Installing the Connected Machine agent for Window applies the following system-w
 
     | Service name | Display name | Process name | Description |
     |--------------|--------------|--------------|-------------|
-    | himds | Azure Hybrid Instance Metadata Service | himds | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Azure Active Directory managed identity tokens |
+    | himds | Azure Hybrid Instance Metadata Service | himds | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Microsoft Entra managed identity tokens |
     | GCArcService | Guest configuration Arc Service | gc_service | Audits and enforces Azure guest configuration policies on the machine. |
     | ExtensionService | Guest configuration Extension Service | gc_service | Installs, updates, and manages extensions on the machine. |
 
@@ -71,7 +71,7 @@ Installing the Connected Machine agent for Window applies the following system-w
 
     | Security group name | Description |
     |---------------------|-------------|
-    | Hybrid agent extension applications | Members of this security group can request Azure Active Directory tokens for the system-assigned managed identity |
+    | Hybrid agent extension applications | Members of this security group can request Microsoft Entra tokens for the system-assigned managed identity |
 
 * Agent installation creates the following environmental variables
 
@@ -216,7 +216,7 @@ The agent requests the following metadata information from Azure:
 * Resource location (region)
 * Virtual machine ID
 * Tags
-* Azure Active Directory managed identity certificate
+* Microsoft Entra managed identity certificate
 * Guest configuration policy assignments
 * Extension requests - install, update, and delete.
 
