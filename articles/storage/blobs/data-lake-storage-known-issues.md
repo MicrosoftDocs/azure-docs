@@ -48,6 +48,8 @@ This section describes issues and limitations with using blob APIs, NFS 3.0, and
 
 These Blob REST APIs aren't supported:
 
+- [Put Block](/rest/api/storageservices/put-block)
+- [Put Block List](/rest/api/storageservices/put-block-list)
 - [Put Blob (Page)](/rest/api/storageservices/put-blob)
 - [Put Page](/rest/api/storageservices/put-page)
 - [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
