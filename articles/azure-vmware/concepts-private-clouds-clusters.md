@@ -96,8 +96,8 @@ Customer quota for Azure VMware Solution is assigned by Azure region, and you ar
 | West US 2 | AZ01 | AV36 | No |
 | West US 2 | AZ02 | AV36P | No |
 | West US 3 | AZ01 | AV36P | No |
-| US Gov Arizona | AZ01 | AV36P | No |
-| US Gov Virginia | AZ01 | AV36 | No |
+| US Gov Arizona | AZ02 | AV36P | No |
+| US Gov Virginia | AZ03 | AV36 | No |
 
 ## Clusters
 
