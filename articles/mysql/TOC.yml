@@ -817,8 +817,6 @@
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
     items:
-    - name: Product videos
-      href: videos.md
     - name: How to video series
       items:
       - name: Learn product features and benefits

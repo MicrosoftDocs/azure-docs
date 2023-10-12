@@ -797,7 +797,7 @@
     },
     {
         "source_path_from_root": "/articles/mysql/video.md",
-        "redirect_url": "/azure/mysql/index",
+        "redirect_url": "https://aka.ms/mysql-intro-vid",
         "redirect_document_id": false
     }
   ]
