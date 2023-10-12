@@ -5,7 +5,7 @@ description: Learn how to deploy Bastion with default settings from the Azure po
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/03/2023
+ms.date: 10/12/2023
 ms.author: cherylmc
 
 ---
