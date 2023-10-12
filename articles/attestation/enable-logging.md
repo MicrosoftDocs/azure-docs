@@ -95,6 +95,13 @@ From the output of the Azure PowerShell cmdlet, you can see that the names of th
 
 ### Using portal
 
+To access logs in the Azure portal, follow these steps: 
+
+1. Open your storage account and click on **Containers** from resource pane menu
+2. Select **insights-logs-operational** and follow the navigation shown in the below screenshot to locate a json file and view the logs
+
+
+
 ## Use Azure Monitor logs  
 
 You can use Azure Monitor logs to review activity in Azure Attestation resources. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, see [Monitoring Azure Attestation](../azure/attestation/monitor-azure-attestation.md) 
