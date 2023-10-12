@@ -30,7 +30,7 @@ To complete this tutorial, you will need an Azure Attestation provider. You can 
 
 You will also need a destination for your logs. This can be an existing or new Azure storage account and/or Log Analytics workspace. You can create a new Azure storage account using one of these methods: 
 
-- [Create a storage account using the Azure CLI]([../storage/common/storage-account-create.md)
+- [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md)
 - [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md)
 - [Create a storage account using the Azure portal](../storage/common/storage-account-create.md)
 
@@ -83,7 +83,7 @@ When logging is enabled, upto three containers will be automatically created  in
 
 ### Using PowerShell
 
-With Azure PowerShell, use [Get-AzStorageBlob](../powershell/module/az.storage/get-azstorageblob.md). To list all the blobs in this container, enter: 
+With Azure PowerShell, use [Get-AzStorageBlob](../../powershell/module/az.storage/get-azstorageblob.md). To list all the blobs in this container, enter: 
 
 ```powershell
 $operationalBlob= Get-AzStorageBlob -Container " insights-logs-operational" -Context $storageAccount.Context 
