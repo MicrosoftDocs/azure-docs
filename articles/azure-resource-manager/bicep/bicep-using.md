@@ -15,7 +15,7 @@ The `using` statement in [Bicep parameter files](./parameter-files.md) ties the 
 >
 > To use the statement with ARM JSON templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.53.0 or later.
 
-The syntax:
+## Syntax
 
 - To use Bicep file:
 
@@ -79,7 +79,7 @@ The syntax:
   using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
   ```
 
-  To use a template spce with an alias defined in [bicepconfig.json](./bicep-config.md):
+  To use a template spec with an alias defined in [bicepconfig.json](./bicep-config.md):
 
   ```bicep
   using 'ts/<alias>:<template-spec-name>:<tag>'
