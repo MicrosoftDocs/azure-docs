@@ -64,6 +64,7 @@
     displayName: mobile, app, ios, android
   - name: Azure mobile app Home
     href: mobile-app/home.md
+- name: Reference
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
