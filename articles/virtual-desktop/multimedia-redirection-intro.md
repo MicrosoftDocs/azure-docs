@@ -43,7 +43,7 @@ The following sites work with video playback redirection:
       - Bleacher Report
       - Brightcove
       - CNBC
-      - Coursera
+      - Coursera\*
       - Daily Mail
       - Facebook
       - Fidelity
@@ -54,8 +54,8 @@ The following sites work with video playback redirection:
       - Fox Weather
       - IMDB
       - Infosec Institute
-      - LinkedIn Learning
-      - Microsoft Learn
+      - LinkedIn Learning\*
+      - Microsoft Learn\*
       - Microsoft Stream
       - NBC Sports
       - The New York Times
@@ -68,7 +68,7 @@ The following sites work with video playback redirection:
       - The Guardian
       - Twitch
       - Twitter
-      - Udemy
+      - Udemy\*
       - UMU
       - U.S. News
       - Vidazoo
@@ -79,6 +79,8 @@ The following sites work with video playback redirection:
       - YouTube (including sites with embedded YouTube videos).
    :::column-end:::
 :::row-end:::
+
+\* MMR video redirection only supports non-DRM content on these sites. Any digital rights managed content can only be played with regular video playback without MMR.
 
 ### Call redirection
 
