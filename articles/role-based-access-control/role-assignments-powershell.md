@@ -36,7 +36,7 @@ You can assign a role to a user, group, service principal, or managed identity. 
 
 **User**
 
-For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+For a Microsoft Entra user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
 Get-AzADUser -StartsWith <userName>
@@ -45,7 +45,7 @@ Get-AzADUser -StartsWith <userName>
 
 **Group**
 
-For an Azure AD group, you need the group object ID. To get the object ID, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+For a Microsoft Entra group, you need the group object ID. To get the object ID, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
 Get-AzADGroup -SearchString <groupName>
@@ -54,7 +54,7 @@ Get-AzADGroup -SearchString <groupName>
 
 **Service principal**
 
-For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
+For a Microsoft Entra service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <principalName>

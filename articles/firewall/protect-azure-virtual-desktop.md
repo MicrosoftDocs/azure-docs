@@ -68,7 +68,7 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 ---
 
 > [!NOTE]
-> Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
+> Some deployments might not need DNS rules. For example, Microsoft Entra Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
 
 Azure Virtual Desktop (AVD) official documentation reports the following Network rules as **optional** depending on the usage and scenario: 
 
@@ -111,4 +111,3 @@ Admins can allow or deny user access to different website categories. Add a rule
 ## Next steps
 
 - Learn more about Azure Virtual Desktop: [What is Azure Virtual Desktop?](../virtual-desktop/overview.md)
-
