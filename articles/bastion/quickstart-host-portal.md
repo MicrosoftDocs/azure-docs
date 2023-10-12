@@ -18,8 +18,8 @@ In this quickstart, you'll learn how to deploy Azure Bastion with default settin
 
 The steps in this article help you do the following:
 
-* Deploy Bastion with default settings from your VM resource using the Azure portal. When you deploy using default settings, the settings are based on the virtual network to which Bastion will be deployed. 
-* After you deploy Bastion, you'll then connect to your VM via the portal using RDP/SSH connectivity and the VM's private IP address. 
+* Deploy Bastion with default settings from your VM resource using the Azure portal. When you deploy using default settings, the settings are based on the virtual network to which Bastion will be deployed.
+* After you deploy Bastion, you'll then connect to your VM via the portal using RDP/SSH connectivity and the VM's private IP address.
 * If your VM has a public IP address that you don't need for anything else, you can remove it. 
 
 > [!IMPORTANT]
@@ -78,15 +78,17 @@ When you deploy from VM settings, Bastion is automatically configured with defau
 
 ## <a name="createvmset"></a>Deploy Bastion
 
-When you create Azure Bastion using default settings, the settings are configured for you. You can't modify or specify additional values for a default deployment. For example, the default SKU is the Basic SKU. If you want to deploy using the Developer SKU instead, use the [Deploy Bastion using specified settings](tutorial-create-host-portal.md) article. After deployment completes, you can go to the bastion host **Configuration** page to select certain additional settings and features. You can also upgrade a SKU later to add more features, but you can't downgrade a SKU once Bastion is deployed. For more information, see [About configuration settings](configuration-settings.md).
+When you create Azure Bastion using default settings, the settings are configured for you. You can't modify or specify additional values for a default deployment. For example, the default SKU is the Basic SKU. If you want to deploy using the Developer SKU instead, use the [Deploy Bastion using the Developer SKU](deploy-host-developer-sku.md) article.
+
+After deployment completes, you can go to the bastion host **Configuration** page to select certain additional settings and features. You can also upgrade a SKU later to add more features, but you can't downgrade a SKU once Bastion is deployed. For more information, see [About configuration settings](configuration-settings.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment.
-1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**. When the **Bastion** page opens, it checks to see if you have enough available address space to create the AzureBastionSubnet. If you don't, you'll see settings to allow you to add more address space to your VNet to meet this requirement.
-1. On the **Bastion** page, you can view some of the values that will be used when creating the bastion host for your virtual network. Select **Deploy Bastion** to deploy bastion using default settings.
+1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**.
+1. On the Bastion page, select the arrow next to **Dedicated Deployment Options** to expand the section.
 
-   :::image type="content" source="./media/quickstart-host-portal/deploy.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy.png":::
-
+   :::image type="content" source="./media/quickstart-host-portal/deploy-bastion-automatically.png" alt-text="Screenshot showing how to expand Dedicated Deployent Options and Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion-automatically.png":::
+1. In the Create Bastion section, select **Deploy Bastion**.
 1. Bastion begins deploying. This can take around 10 minutes to complete.
 
    > [!NOTE]
@@ -106,7 +108,7 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
    * When you connect, the desktop of the VM may look different than the example screenshot.
    * Using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
-     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot of RDP connection." lightbox="./media/quickstart-host-portal/connected.png":::
+     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot shows an RDP connection to a virtual machine." lightbox="./media/quickstart-host-portal/connected.png":::
 
 ### <a name="audio"></a>To enable audio output
 
