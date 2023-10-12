@@ -1,13 +1,12 @@
 ### YamlMime:Landing
 
-title: Azure HDInsight on AKS documentation # < 60 chars
-summary: HDInsight on AKS, a new HDInsight version, provides enterprise ready managed cluster service with emerging open-source analytics. # < 160 chars
+title: Azure HDInsight on AKS documentation (Preview)
+summary: HDInsight on AKS, a new HDInsight version, provides enterprise-ready managed cluster service with emerging open-source analytics.
 metadata:
-  title: Azure HDInsight on AKS # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: HDInsight on AKS, a new HDInsight version, provides enterprise ready managed cluster service with emerging open-source analytics projects like Apache Flink (for Streaming), Trino (for adhoc analytics and BI) and Spark. < 160 chars.
+  title: Azure HDInsight on AKS (Preview) # Required; page title displayed in search results. Include the brand.
+  description: HDInsight on AKS, a new HDInsight version in preview, provides enterprise-ready managed cluster service with emerging open-source analytics projects like Apache Flink (for Streaming), Trino (for adhoc analytics and BI), and Spark.
   ms.service: hdinsight-aks #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
-  ms.collection: collection
   author: sairamyeturi  #Required; your GitHub user alias, with correct capitalization.
   ms.author: v-sreiyer #Required; microsoft alias of author; optional team alias.
   ms.date: 08/29/2023 #Required; mm/dd/yyyy format.

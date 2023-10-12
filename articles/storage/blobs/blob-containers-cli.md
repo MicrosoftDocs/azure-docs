@@ -31,9 +31,9 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 ### Authorize access to Blob storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
+You can authorize access to Blob storage from the Azure CLI either with Microsoft Entra credentials or by using the storage account access key. Using Microsoft Entra credentials is recommended, and this article's examples use Microsoft Entra ID exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Microsoft Entra credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 

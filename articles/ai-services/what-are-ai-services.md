@@ -6,7 +6,7 @@ services: cognitive-services
 author: eric-urban
 manager: nitinme
 keywords: Azure AI services, cognitive
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: overview
 ms.date: 7/18/2023
 ms.author: eur
