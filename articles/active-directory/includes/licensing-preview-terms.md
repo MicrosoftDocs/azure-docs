@@ -17,7 +17,7 @@ Microsoft Entra ID may include preview, beta, or other prerelease features, serv
 Microsoft may roll out previews in phases to give Microsoft and customers the opportunity to evaluate and understand potential new features. 
 
 > [!NOTE]
-> Not all features that are in preview become generally available. While it isn't the norm, it is possible that Microsoft may cancel features during preview. 
+> Not all features that are in preview become generally available. While it isn't the norm, it is possible that Microsoft might cancel features during preview. 
 
 The phases may include: 
 
