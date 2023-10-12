@@ -255,7 +255,7 @@ The new keys at each restart may reset ASP.NET forms authentication and view sta
 
 ## Connect to the container with SSH
 
-You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/` and choosing the SSH option. This opens a direct SSH session with your container in which you can run commands inside your container
+You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/` and choosing the SSH option. A direct SSH session with your container is established in which you can run commands inside your container
 
 - It functions separately from the graphical browser above it, which only shows the files in your [shared storage](#use-persistent-shared-storage).
 - In a scaled-out app, the SSH session is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top Kudu menu.
