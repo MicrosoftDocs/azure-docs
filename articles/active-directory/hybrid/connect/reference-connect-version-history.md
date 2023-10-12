@@ -98,7 +98,7 @@ To read more about autoupgrade, see [Microsoft Entra Connect: Automatic upgrade]
 
 ### Bug fixes
 
- - We fixed a bug where the new employeeLeaveDateTime attribute wasn't syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the Microsoft Entra connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
+- We fixed a bug where the new employeeLeaveDateTime attribute wasn't syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the Microsoft Entra connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
 
 ## 2.1.19.0
 
@@ -107,11 +107,11 @@ To read more about autoupgrade, see [Microsoft Entra Connect: Automatic upgrade]
 
 ### Functional changes
 
- - We added a new attribute 'employeeLeaveDateTime' for syncing to Microsoft Entra ID. To learn more about how to use this attribute to manage your users' life cycles, please refer to [this article](../../governance/how-to-lifecycle-workflow-sync-attributes.md)
+- We added a new attribute 'employeeLeaveDateTime' for syncing to Microsoft Entra ID. To learn more about how to use this attribute to manage your users' life cycles, please refer to [this article](../../governance/how-to-lifecycle-workflow-sync-attributes.md)
 
 ### Bug fixes
 
- - we fixed a bug where Microsoft Entra Connect Password writeback stopped with error code "SSPR_0029 ERROR_ACCESS_DENIED"
+- we fixed a bug where Microsoft Entra Connect Password writeback stopped with error code "SSPR_0029 ERROR_ACCESS_DENIED"
 
 ## 2.1.18.0
 
@@ -128,7 +128,7 @@ To read more about autoupgrade, see [Microsoft Entra Connect: Automatic upgrade]
 8/2/2022: Released for download and autoupgrade.
 
 ### Bug fixes
- - We fixed a bug where autoupgrade fails when the service account is in "UPN" format.
+- We fixed a bug where autoupgrade fails when the service account is in "UPN" format.
 
 ## 2.1.15.0
 
@@ -282,7 +282,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 ### Functional changes
 
 - We added the latest versions of Microsoft Identity Manager (MIM) Connectors (1.1.1610.0). For more information, see the [release history page of the MIM Connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
-- We added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](/powershell/module/msonline/set-msoldirsyncfeature#example-2--block-soft-matching-for-the-tenant).
+- We added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](../../hybrid/connect/how-to-connect-install-existing-tenant.md#hard-match-vs-soft-match).
 
 ### Bug fixes
 
@@ -315,7 +315,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 ### Functional changes
 
 - We added the latest versions of MIM Connectors (1.1.1610.0). For more information, see the [release history page of the MIM Connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
-- We added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](/powershell/module/msonline/set-msoldirsyncfeature#example-2--block-soft-matching-for-the-tenant).
+- We added a configuration option to disable the Soft Matching feature in Microsoft Entra Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](../../hybrid/connect/how-to-connect-install-existing-tenant.md#hard-match-vs-soft-match).
 
 ## 2.0.10.0
 
@@ -618,3 +618,4 @@ This is a bug fix release. There are no functional changes in this release.
 ## Next steps
 
 Learn more about how to [integrate your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).
+

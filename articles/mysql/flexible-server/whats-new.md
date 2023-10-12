@@ -26,6 +26,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+## October 2023
+
+- **Metrics computation for Azure Database for MySQL - Flexible Server**
+"Host Memory Percent" metric will provide more accurate calculations of memory usage. It will now reflect the actual memory consumed by the server, excluding re-usable memory from the calculation. This improvement ensures that you have a more precise understanding of your server's memory utilization. After the completion of the [scheduled maintenance window](./concepts-maintenance.md), existing servers will benefit from this enhancement.
+
 ## September 2023
 
 - **Flexible Maintenance for Azure Database for MySQL - Flexible server(Public Preview)**
