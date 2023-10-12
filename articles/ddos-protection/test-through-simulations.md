@@ -432,8 +432,16 @@ Now we'll configure metrics and alerts to monitor for attacks and traffic patter
 
 ### BreakingPoint Cloud
 
+BreakingPoint Cloud is a self-service traffic generator where you can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
 
-For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud). 
+BreakingPoint Cloud offers:
+
+- A simplified user interface and an “out-of-the-box” experience.
+- pay-per-use model.
+- Pre-defined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.v
+
+> [!NOTE]
+> For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud). 
 
 Example attack values:
 
@@ -473,8 +481,9 @@ RedWolf offers an easy-to-use testing system that is either self-serve or guided
 
 RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suite includes:
 
-   - **Attack Vectors**: Unique cloud attacks designed by RedWolf.
-   - **Guided and self service**: Leverage RedWolf's team or run tests yourself.
+   - **Attack Vectors**: Unique cloud attacks designed by RedWolf. For more information about RedWolf attack vectors, see [Technical Details](https://www.redwolfsecurity.com/redwolf-technical-details/).
+   - **Guided Service**: Leverage RedWolf's team to run tests. For more information about RedWolf's guided service, see [Guided Service](https://www.redwolfsecurity.com/managed-testing-explained/).
+   - **Self Service**: Leverage RedWol to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
 
 
 ## Next steps
