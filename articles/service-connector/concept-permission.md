@@ -10,7 +10,7 @@ ms.date: 08/04/2023
 
 # Permission requirement for Service Connector
 
-Service Connector creates connections between Azure services using a [on-behalf-Of token](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Creating a connection to a specific Azure resource requires its corresponding permissions.
+Service Connector creates connections between Azure services using an [on-behalf-of token](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Creating a connection to a specific Azure resource requires its corresponding permissions.
 
 ### App Service  
 
