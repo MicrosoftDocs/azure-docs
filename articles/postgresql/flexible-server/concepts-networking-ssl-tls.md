@@ -23,13 +23,13 @@ TLS made from Netscape Communications Corp's. Secure Sockets Layer show and has 
 :::image type="content" source="./media/concepts-networking/tls-1-2.png" alt-text="Diagram that shows typical TLS 1.2 handshake sequence.":::
 
 Diagram above shows typical TLS 1.2 handshake sequence, consisting of following:
-- The client starts by sending a message called the *ClientHello*, that essentially expresses willingness to communicate via TLS 1.2 with a set of cipher suites client supports
-- The server receives that and answers with a *ServerHello* that agrees to communication with client via TLS 1.2 using a particular cipher suite
-- Along with that the server sends its key share. The specifics of this key share change based on what cipher suite was selected. The important detail  to note is that for the client and server to agree on a cryptographic key, they need to receive each other's portion, or share.
-- The server sends the  certificate (signed by the CA) and a signature on portions of *ClientHello* and *ServerHello*, including the key share, so that the client knows that those are authentic.
-- After the  client successfully receives above mentioned data, and *then* generates its own key share, mixes it with the server key share, and thus generates the encryption keys for the session.
-- As the final steps, the client sends the server its key share, enables encryption and sends a *Finished* message (which is a hash of a transcript of what happened so far). The server does the same: it mixes the key shares to get the key and sends its own Finished message.
-- At that time application  data can be sent encrypted on the connection.
+1.  The client starts by sending a message called the *ClientHello*, that essentially expresses willingness to communicate via TLS 1.2 with a set of cipher suites client supports
+2.  The server receives that and answers with a *ServerHello* that agrees to communication with client via TLS 1.2 using a particular cipher suite
+3.  Along with that the server sends its key share. The specifics of this key share change based on what cipher suite was selected. The important detail  to note is that for the client and server to agree on a cryptographic key, they need to receive each other's portion, or share.
+4.  The server sends the  certificate (signed by the CA) and a signature on portions of *ClientHello* and *ServerHello*, including the key share, so that the client knows that those are authentic.
+5.  After the  client successfully receives above mentioned data, and *then* generates its own key share, mixes it with the server key share, and thus generates the encryption keys for the session.
+6. As the final steps, the client sends the server its key share, enables encryption and sends a *Finished* message (which is a hash of a transcript of what happened so far). The server does the same: it mixes the key shares to get the key and sends its own Finished message.
+7.  At that time application  data can be sent encrypted on the connection.
 
 
 
