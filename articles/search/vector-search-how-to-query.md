@@ -27,7 +27,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there is a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
@@ -98,33 +98,54 @@ The actual response for this POST call to the deployment model includes 1536 emb
 
 You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
 
-### [**Azure portal**](#tab/portal-vector-query)
+### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
-Be sure to the **JSON view** and formulate the query in JSON. The search bar in **Query view** is for full text search and will treat any vector input as plain text.
+[Search Documents REST API version 2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/documents/search-post) introduces breaking changes to the vector query definition.  This version adds the following new capability to vector queries:
 
-1. Sign in to Azure portal and find your search service.
++ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution
++ `exhaustive` which can be set to true or false, and invokes exhaustive KNN at query time.
++ `kind`, which can only be set to `vector` in this preview.
 
-1. Under **Search management** and **Indexes**, select the index.
+In this single vector query, which is shortened for brevity, the "vector" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
 
-   :::image type="content" source="media/vector-search-how-to-query/select-index.png" alt-text="Screenshot of the indexes menu." border="true":::
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
 
-1. On Search Explorer, under **View**, select **JSON view**.
+The example request uses **2023-10-01-Preview**. This version provides the `vectorFilterMode` parameter for prefiltering or postfiltering on the query.
 
-   :::image type="content" source="media/vector-search-how-to-query/select-json-view.png" alt-text="Screenshot of the index list." border="true":::
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "count": true,
+    "select": "title, content, category",
+    "filter": "category eq 'Databases'",
+    "filterMode": "preFilter",
+    "vectorQueries": [
+        {
+            "kind": "vector"
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "exhaustive": true,
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
+}
+```
 
-1. By default, the search API is **2023-07-01-Preview**. This is the correct API version for vector search.
-
-1. Paste in a JSON vector query, and then select **Search**. You can use the REST example as a template for your JSON query.
-
-   :::image type="content" source="media/vector-search-how-to-query/paste-vector-query.png" alt-text="Screenshot of the JSON query." border="true":::
-
-### [**REST API**](#tab/rest-vector-query)
+### [**2023-07-01-Preview**](#tab/rest-vector-query)
 
 In this single vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
 
-The example request uses **2023-10-01-Preview**. This version provides the `vectorFilterMode` parameter for prefiltering or postfiltering on the query.
+The example request uses **2023-07-01-Preview**. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
@@ -200,6 +221,28 @@ Here's a modified example so that you can see the basic structure of a response 
 + It's reduced to 3 "k" matches.
 + It shows a **`@search.score`** that's determined by the HNSW algorithm and a `cosine` similarity metric. 
 + Fields include text and vector values. The content vector field consists of 1536 dimensions for each match, so it's truncated for brevity (normally, you might exclude vector fields from results). The text fields used in the response (`"select": "title, category"`) aren't used during query execution. The match is made on vector data alone. However, a response can include any "retrievable" field in an index. As such, the inclusion of text fields is helpful because its values are easily recognized by users.
+
+### [**Azure portal**](#tab/portal-vector-query)
+
+Azure portal supports **2023-07-01-Preview** behaviors.
+
+Be sure to the **JSON view** and formulate the query in JSON. The search bar in **Query view** is for full text search and will treat any vector input as plain text.
+
+1. Sign in to Azure portal and find your search service.
+
+1. Under **Search management** and **Indexes**, select the index.
+
+   :::image type="content" source="media/vector-search-how-to-query/select-index.png" alt-text="Screenshot of the indexes menu." border="true":::
+
+1. On Search Explorer, under **View**, select **JSON view**.
+
+   :::image type="content" source="media/vector-search-how-to-query/select-json-view.png" alt-text="Screenshot of the index list." border="true":::
+
+1. By default, the search API is **2023-07-01-Preview**. This is the correct API version for vector search.
+
+1. Paste in a JSON vector query, and then select **Search**. You can use the REST example as a template for your JSON query.
+
+   :::image type="content" source="media/vector-search-how-to-query/paste-vector-query.png" alt-text="Screenshot of the JSON query." border="true":::
 
 ### [**.NET**](#tab/dotnet-vector-query)
 

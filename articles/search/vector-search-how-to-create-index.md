@@ -28,7 +28,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there is a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
@@ -54,60 +54,151 @@ A short example of a documents payload that includes vector and non-vector field
 
 ## Add a vector field to the fields collection
 
-The schema must include a `vectorConfiguration` section, a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
+The schema must include a field for the document key, a vector configuration object, vector fields, and any other fields that you need for hybrid search scenarios.
 
-+ `vectorConfiguration` specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
++ A vector configuration object specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. 
 
-+ Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration` property
++ Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a vector configuration property.
 
-During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
+During indexing, nearest neighbor algorithm determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
-You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors.
+You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors. To evaluate the newest vector search behaviors, use the **2023-10-01-Preview** REST API version.
 
-### [**Azure portal**](#tab/portal-add-field)
+### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
 
-Use the index designer in the Azure portal to add vector field definitions. If the index doesn't have a vector configuration, you're prompted to create one when you add your first vector field to the index.
+REST API version 2023-10-01-Preview introduces breaking changes to vector configuration and vector field definitions. This version adds:
 
-Although you can add a field to an index, there's no portal (Import data wizard) support for loading it with vector data. Instead, use the REST APIs or an SDK for data import.
++ `vectorProfiles`
++ Exhaustive K nearest neighbors algorithm
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your search service page in a browser.
+Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
 
-1. In the left-side navigation pane, select **Search management** > **Indexes**.
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
 
-1. Select **+ Add Index** and give the index a name.
+1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to create the index.
 
-1. Select **Add Field**:
+1. Add a `vectorSearch` section in the index that specifies the similarity algorithms used to create the embedding space. Valid algorithms are `"hnsw"` and `exhaustiveKnn`. You can specify variants of each algorithm if you want different parameter combinations.
 
-   :::image type="content" source="media/vector-search-how-to-create-index/portal-add-field.png" alt-text="Screenshot of the Add Field pane." border="true":::
+   For "metric", valid values are `cosine`, `euclidean`, and `dotProduct`. The `cosine` metric is specified because it's the similarity metric that the Azure OpenAI models use to create embeddings.
 
-   **Key points**:
+   ```json
+    "vectorSearch": {
+        "algorithms": [
+            {
+                "name": "my-hnsw-cosine-config",
+                "kind": "hnsw",
+                "hnswParameters": {
+                    "m": 4,
+                    "efConstruction": 400,
+                    "efSearch": 500,
+                    "metric": "cosine"
+                }
+            },
+            {
+                "name": "my-hnsw-euclidean-config",
+                "kind": "hnsw",
+                "hnswParameters": {
+                    "m": 4,
+                    "metric": "euclidean"
+                }
+            },
+            {
+                "name": "my-eknn-config",
+                "kind": "exhaustiveKnn",
+                "exhaustiveKnnParameters": {
+                    "metric": "cosine"
+                }
+            }
 
-   + Name the field (no spaces).
-   + Choose type `Collection(Edm.Single)`.
-   + Select "Retrievable" if you want the query to return the vector data in search results. If you have other fields with human readable content that you can return as a proxy for the match, you should set "Retrievable" to false to save space.
-   + "Searchable" is mandatory for a vector field and can't be changed.
-   + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text that you provide is numerically described using 1536 dimensions.
-
-1. Select or create a vector configuration used for similarity search. If the index doesn't have a vector configuration, you must select **Create**.
-
-   :::image type="content" source="media/vector-search-how-to-create-index/portal-add-vector-configuration.png" alt-text="Screenshot of the vector configuration properties." border="true":::
+        ],
+        "profiles": [
+          {
+            "name": "my-default-vector-profile",
+            "algorithm": "my-hnsw-cosine-config"
+          }
+        ]
+    }
+   ```
 
    **Key points**:
 
    + Name the configuration. The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
-   + "Bi-directional link count" default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + Profiles are new in this preview. They add a layer of abstraction for accommodating richer definitions. A profile must be specified on each vector field, as described in the following section.
+   + `"hnsw"` and `"exhaustiveKnn"` are the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing.
+   + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
-   + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model your're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
+   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
-   If you're familiar with HNSW parameters, you might be wondering about how to set the `"k"` number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).
+1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
-1. Select **Save** to save the vector configuration and the field definition.
+   + Assign the `Collection(Edm.Single)` data type.
+   + For `Collection(Edm.Single)`, the "filterable", "facetable", "sortable" attributes are "false" by default. Don't set them to "true" because those behaviors don't apply within the context of vector fields and the request will fail.
+   + Provide the name of the vector search profile.
+   + Provide the number of dimensions generated by the embedding model.
+   + "searchable" must be "true".
+   + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so increases storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
 
-### [**REST API**](#tab/rest-add-field)
+1. Add filterable fields to the collection, such as "title" with "filterable" set to true, if you want to invoke prefiltering or postfiltering on the [vector query](vector-search-how-to-query.md).
 
-Use the **2023-07-01-Preview** REST API for vector scenarios. If you're updating an existing index to include vector fields, make sure the `allowIndexDowntime` query parameter is set to `true`.
+1. Add other fields that define the substance and structure of the textual content you're indexing. At a minimum, you need a document key. 
+
+   You should also add fields that are useful in the query or in its response. The following example shows vector fields for title and content ("titleVector", "contentVector") that are equivalent to vectors. It also provides fields for equivalent textual content ("title", "content") useful for sorting, filtering, and reading in a search result.
+
+   The following example shows the fields collection:
+
+    ```http
+    PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-07-01-Preview&allowIndexDowntime=true
+    Content-Type: application/json
+    api-key: {{admin-api-key}}
+    {
+        "name": "{{index-name}}",
+        "fields": [
+            {
+                "name": "id",
+                "type": "Edm.String",
+                "key": true,
+                "filterable": true
+            },
+            {
+                "name": "title",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "sortable": true,
+                "retrievable": true
+            },
+            {
+                "name": "titleVector",
+                "type": "Collection(Edm.Single)",
+                "searchable": true,
+                "retrievable": true,
+                "dimensions": 1536,
+                "vectorSearchProfile": "my-default-vector-profile"
+            },
+            {
+                "name": "content",
+                "type": "Edm.String",
+                "searchable": true,
+                "retrievable": true
+            },
+            {
+                "name": "contentVector",
+                "type": "Collection(Edm.Single)",
+                "searchable": true,
+                "retrievable": true,
+                "dimensions": 1536,
+                "vectorSearchProfile": "my-default-vector-profile"
+            }
+        ]
+    }
+    ```
+
+### [**2023-07-01-Preview**](#tab/rest-add-field)
+
+Use the **2023-07-01-Preview** REST API for vector scenarios. This version uses `vectorConfigurations` and supports HNSW for nearest neighbor algorithm.
+
+Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
 
@@ -139,7 +230,7 @@ In the following REST API example, "title" and "content" contain textual content
    + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
-   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model your're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
+   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
@@ -216,6 +307,49 @@ In the following REST API example, "title" and "content" contain textual content
         }
     }
     ```
+
+### [**Azure portal**](#tab/portal-add-field)
+
+Azure portal supports **2023-07-01-Preview** behaviors.
+
+Use the index designer in the Azure portal to add vector field definitions. If the index doesn't have a vector configuration, you're prompted to create one when you add your first vector field to the index.
+
+Although you can add a field to an index, there's no portal (Import data wizard) support for loading it with vector data. Instead, use the REST APIs or an SDK for data import.
+
+1. [Sign in to Azure portal](https://portal.azure.com) and open your search service page in a browser.
+
+1. In the left-side navigation pane, select **Search management** > **Indexes**.
+
+1. Select **+ Add Index** and give the index a name.
+
+1. Select **Add Field**:
+
+   :::image type="content" source="media/vector-search-how-to-create-index/portal-add-field.png" alt-text="Screenshot of the Add Field pane." border="true":::
+
+   **Key points**:
+
+   + Name the field (no spaces).
+   + Choose type `Collection(Edm.Single)`.
+   + Select "Retrievable" if you want the query to return the vector data in search results. If you have other fields with human readable content that you can return as a proxy for the match, you should set "Retrievable" to false to save space.
+   + "Searchable" is mandatory for a vector field and can't be changed.
+   + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text that you provide is numerically described using 1536 dimensions.
+
+1. Select or create a vector configuration used for similarity search. If the index doesn't have a vector configuration, you must select **Create**.
+
+   :::image type="content" source="media/vector-search-how-to-create-index/portal-add-vector-configuration.png" alt-text="Screenshot of the vector configuration properties." border="true":::
+
+   **Key points**:
+
+   + Name the configuration. The name must be unique within the index.
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+   + "Bi-directional link count" default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
+   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
+   + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
+
+   If you're familiar with HNSW parameters, you might be wondering about how to set the `"k"` number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).
+
+1. Select **Save** to save the vector configuration and the field definition.
 
 ### [**.NET**](#tab/dotnet-add-field)
 

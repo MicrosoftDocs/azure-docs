@@ -19,22 +19,32 @@ This article is for developers who need a deeper understanding of relevance scor
 
 ## Scoring algorithms used in vector search
 
-Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
+Azure Cognitive Search provides the following scoring algorithms for vector search:
 
-HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
+| Algorithm | Usage | Range |
+|-----------|-------------|-------|
+|`exhaustiveKnn` | Calculates the distances between all pairs of data points. | Metric dependent, usually 0 < 1.00 |
+| `hnsw` | Creates proximity graphs for organizing and querying vector content. | Metric dependent, usually 0 < 1.00. |
 
-Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
+Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` (or `vectorSearch.algorithms`) in a search index, and then specified on the field definition (also in the index):
 
 - [Create a vector index](vector-search-how-to-create-index.md)
 
-Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. There's a subset of query-time parameters that may be modified.
-
+Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. However, there's a subset of [query-time parameters](vector-search-how-toquery.md) that can be modified.
 
 <a name="eknn"></a>
 
-## How eKNN ranking works
+### Exhaustive K-Nearest Neighbors (KNN)
 
-TBD
+Exhaustive KNN support is available through 2023-10-01-Preview REST API and it enables users to perform an exhaustive search for the nearest neighbors in their vector space. This feature is intended for scenarios where high recall is of utmost importance, and users are willing to accept the trade-offs in terms of search performance. 
+
+Exhaustive KNN performs a brute-force search by calculating the distances between all pairs of data points. It guarantees finding the exact `k` nearest neighbors for a query point. Because it's computationally intensive, use Exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations. 
+
+### Hierarchical Navigable Small World (HNSW) 
+
+HNSW is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
+
+HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
 
 ## How HNSW ranking works
 
@@ -58,7 +68,7 @@ The goal of indexing a new vector into an HNSW graph is to add it to the graph s
 
    - These connections use the configured similarity `metric` to determine distance. Some connections are "long-distance" connections that connect across different hierarchical levels, creating shortcuts in the graph that enhance search efficiency.
 
-1. Graph pruning and optimization: This may be performed after indexing all vectors to improve navigability and efficiency of the HNSW graph. 
+1. Graph pruning and optimization: This can happen after indexing all vectors, and it improves navigability and efficiency of the HNSW graph. 
 
 ### Retrieving vectors with the HNSW algorithm
 
