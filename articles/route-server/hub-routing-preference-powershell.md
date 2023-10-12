@@ -47,22 +47,25 @@ The default routing preference setting is **ExpressRoute**.
 
 ## Configure routing preference
 
-To configure routing preference, use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver).
+Use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) to configure routing preference.
 
 ```azurepowershell-interactive
-# Change the routing preference to AS Path.
-Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ASPath' -ResourceGroupName 'myResourceGroup'
+# Change the routing preference to AS Path (with branch-to-branch enabled).
+Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ASPath' -ResourceGroupName 'myResourceGroup' -AllowBranchToBranchTraffic
 ```
 
 ```azurepowershell-interactive
-# Change the routing preference to VPN Gateway.
-Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'VpnGateway' -ResourceGroupName 'myResourceGroup'
+# Change the routing preference to VPN Gateway (with branch-to-branch enabled).
+Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'VpnGateway' -ResourceGroupName 'myResourceGroup' -AllowBranchToBranchTraffic
 ```
 
 ```azurepowershell-interactive
-# Change the routing preference to ExpressRoute.
-Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ExpressRoute' -ResourceGroupName 'myResourceGroup'
+# Change the routing preference to ExpressRoute (with branch-to-branch enabled).
+Update-AzRouteServer -RouteServerName 'myRouteServer' -HubRoutingPreference 'ExpressRoute' -ResourceGroupName 'myResourceGroup' -AllowBranchToBranchTraffic
 ```
+
+> [!IMPORTANT]
+> If you don't include ***-AllowBranchToBranchTraffic*** parameter, **route exchange (branch-to-branch)** will be disabled even if it was enabled before running the **Update-AzRouteServer** cmdlet.
 
 ## Related content
 
