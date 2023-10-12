@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate from MFA Server to Microsoft Entra multifactor authentication
 
-Multifactor authentication is important to securing your infrastructure and assets from bad actors. Microsoft Entra multifactor authentication Server (MFA Server) isn't available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Microsoft Entra multifactor authentication.
+Multifactor authentication is important to securing your infrastructure and assets from bad actors. Azure Multi-Factor Authentication Server (MFA Server) isn't available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Microsoft Entra multifactor authentication.
 
 In this article, we assume that you have a hybrid environment where:
 
@@ -80,7 +80,7 @@ If you no longer have access to the secret keys, contact your hardware vendor fo
 The MFA Server Web Service SDK can be used to export the serial number for any OATH tokens assigned to a given user. 
 You can use this information along with the seed file to import the tokens into Microsoft Entra ID and assign the OATH token to the specified user based on the serial number. 
 The user will also need to be contacted at the time of import to supply OTP information from the device to complete the registration. 
-Refer to the help file topic **GetUserInfo** > **userSettings** > **OathTokenSerialNumber** in multifactor authentication Server on your MFA Server. 
+Refer to the help file topic **GetUserInfo** > **userSettings** > **OathTokenSerialNumber** in Multi-Factor Authentication Server on your MFA Server. 
 
 ### More migrations
 

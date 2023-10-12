@@ -65,7 +65,7 @@
 | HNL | Honolulu, Hawaii, USA | West US, United States |
 | HOU | Houston, Texas, USA | Central US, United States |
 | HYD | Hyderabad, India | Central India, Asia |
-| IST | Istanbul, Turkey | West Europe |
+| IST | Istanbul, Türkiye | West Europe |
 | JAX | Jacksonville, Florida, USA | East US, United States |
 | JKT | Jakarta, Indonesia | Indonesia Central, Asia |
 | JNB | Johannesburg, South Africa | South Africa North |

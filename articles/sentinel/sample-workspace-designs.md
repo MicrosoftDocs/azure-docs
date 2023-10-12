@@ -17,6 +17,8 @@ This article describes suggested workspace designs for organizations with the fo
 
 The samples in this article use the [Microsoft Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for each organization. For more information, see [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
+This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
+
 ## Sample 1: Multiple tenants and regions
 
 The Contoso Corporation is a multinational business with headquarters in London. Contoso has offices around the world, with important hubs in New York City and Tokyo. Recently, Contoso has migrated their productivity suite to Office 365, with many workloads migrated to Azure.

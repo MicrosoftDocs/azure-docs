@@ -23,9 +23,9 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 |:---|:---|:---|
 | Agent installation method | Via VM extension | Via client installer |
 | Agent installed | Azure Monitor Agent | Same |
-| Authentication | Using Managed Identity | Using AAD device token |
+| Authentication | Using Managed Identity | Using Microsoft Entra device token |
 | Central configuration | Via Data collection rules | Same |
-| Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the AAD tenant |
+| Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the Microsoft Entra tenant |
 | Data upload to Log Analytics | Via Log Analytics endpoints | Same |
 | Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require additional extensions. This includes support for Sentinel Windows Event filtering |
 | [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |
@@ -42,16 +42,16 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
 ## Limitations
-1. The Windows client installer supports latest Windows machines only that are **Azure AD joined** or hybrid Azure AD joined. More information under [prerequisites](#prerequisites) below
-2. The Data Collection rules can only target the Azure AD tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
+1. The Windows client installer supports latest Windows machines only that are **Microsoft Entra joined** or Microsoft Entra hybrid joined. More information under [prerequisites](#prerequisites) below
+2. The Data Collection rules can only target the Microsoft Entra tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
 3. No support for Windows machines connected via **Azure private links** 
 4. The agent installed using the Windows client installer is designed mainly for Windows desktops or workstations that are **always connected**. While the agent can be installed via this method on laptops, it is not optimized for battery consumption and network limitations on a laptop.
 
 ## Prerequisites
 1. The machine must be running Windows client OS version 10 RS4 or higher.
 2. To download the installer, the machine should have [C++ Redistributable version 2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) or higher
-3. The machine must be domain joined to an Azure AD tenant (AADj or Hybrid AADj machines), which enables the agent to fetch Azure AD device tokens used to authenticate and fetch data collection rules from Azure.
-4. You may need tenant admin permissions on the Azure AD tenant.
+3. The machine must be domain joined to a Microsoft Entra tenant (AADj or Hybrid AADj machines), which enables the agent to fetch Microsoft Entra device tokens used to authenticate and fetch data collection rules from Azure.
+4. You may need tenant admin permissions on the Microsoft Entra tenant.
 5. The device must have access to the following HTTPS endpoints:
     - global.handler.control.monitor.azure.com
     - `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
@@ -96,8 +96,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 
 ## Create and associate a 'Monitored Object'
-You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single AAD tenant**.
-Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the AAD tenant will be applied to all devices that are part of the tenant and running the agent installed via the client installer. Agents installed as virtual machine extension will not be impacted by this.
+You need to create a 'Monitored Object' (MO) that creates a representation for the Microsoft Entra tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single Microsoft Entra tenant**.
+Currently this association is only **limited** to the Microsoft Entra tenant scope, which means configuration applied to the Microsoft Entra tenant will be applied to all devices that are part of the tenant and running the agent installed via the client installer. Agents installed as virtual machine extension will not be impacted by this.
 The image below demonstrates how this works:
 
 :::image type="content" source="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" lightbox="media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png" alt-text="Diagram shows monitored object purpose and association.":::
@@ -105,7 +105,7 @@ The image below demonstrates how this works:
 Then, proceed with the instructions below to create and associate them to a Monitored Object, using REST APIs or PowerShell commands.
 
 ### Permissions required
-Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Azure AD admin 'owner' permissions at the root scope. This is needed for all methods described below in this section.
+Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Microsoft Entra tenant admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Microsoft Entra admin 'owner' permissions at the root scope. This is needed for all methods described below in this section.
 
 ### Using REST APIs
 
@@ -148,7 +148,7 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 After this step is complete, **reauthenticate** your session and **reacquire** your ARM bearer token.
 
 #### 2. Create Monitored Object
-This step creates the Monitored Object for the Azure AD Tenant scope. It will be used to represent client devices that are signed with that Azure AD Tenant identity.
+This step creates the Monitored Object for the Microsoft Entra tenant scope. It will be used to represent client devices that are signed with that Microsoft Entra tenant identity.
 
 **Permissions required**: Anyone who has 'Monitored Object Contributor' at an appropriate scope can perform this operation, as assigned in step 1.
 
@@ -160,7 +160,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 
 | Name | In | Type | Description |
 |:---|:---|:---|:---|:---|
-| `AADTenantId` | path | string | ID of the Azure AD tenant that the device(s) belong to. The MO will be created with the same ID |
+| `AADTenantId` | path | string | ID of the Microsoft Entra tenant that the device(s) belong to. The MO will be created with the same ID |
 
 **Headers**
 - Authorization: ARM Bearer Token
@@ -466,9 +466,11 @@ In order to update the version, install the new version you wish to update to.
 - Error message: "There's a problem with this Windows Installer package. A DLL required for this installer to complete could not be run. …"
 - Ensure you have installed [C++ Redistributable (>2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) before installing AMA:
 
-#### Not AAD joined
+<a name='not-aad-joined'></a>
+
+#### Not Microsoft Entra joined
 Error message: "Tenant and device ids retrieval failed"
-1. Run the command `dsregcmd /status`. This should produce the output as `AzureAdJoined : YES` in the 'Device State' section. If not, join the device with an AAD tenant and try installation again. 
+1. Run the command `dsregcmd /status`. This should produce the output as `AzureAdJoined : YES` in the 'Device State' section. If not, join the device with a Microsoft Entra tenant and try installation again. 
 
 #### Silent install from command prompt fails
 Make sure to start the installer on administrator command prompt. Silent install can only be initiated from the administrator command prompt.
