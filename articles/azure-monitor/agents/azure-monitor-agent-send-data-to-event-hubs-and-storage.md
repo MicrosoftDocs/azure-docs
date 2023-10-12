@@ -797,30 +797,6 @@ Use the following section to troubleshoot sending data to Event Hubs and Storage
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
-## Frequently asked questions 
-
-This section provides answers to common questions.
-
-### Will the Azure Monitoring Agent support data upload to Application Insights?
-
-No, this support isn't a part of the roadmap. Application Insights are now powered by Log Analytics Workspaces.
-
-### Will the Azure Monitoring Agent support Windows Crash Dumps as a data type to upload?
-
-No, this support isn't a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, indicate so in the [feedback form](#questions-and-feedback).
-
-### Does this mean the Linux (LAD) and Windows (WAD) Diagnostic Extensions are no longer supported/retired?
-
-No, not until Azure formally announces the deprecation of these agents, which would start a three-year clock until they're no longer supported. Currently we're planning to announce retirement for LAD and WAD in September of 2023 (subject to change) which would mean end of life in September 2026.
-
-### Will there be a similar configuration experience as the WAD and LAD for AMA?
-
-TBD - The configuration and control plane experience will be Data Collection Rules for AMA. The end UX is still being researched. Product group would appreciate any input on this in the [feedback form](#questions-and-feedback).
-
-### Will you still be actively developing on WAD and LAD?
-
-WAD and LAD will only be getting security/patches going forward. Most engineering funding has gone to the Azure Monitoring Agent. We highly recommend migrating to the Azure Monitoring Agent to benefit from all its awesome capabilities.
-
 ## See also
 
 - For more information on creating a data collection rule, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
