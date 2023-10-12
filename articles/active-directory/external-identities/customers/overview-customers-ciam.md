@@ -37,7 +37,7 @@ If you've worked with Microsoft Entra ID, you're already familiar with using a M
 
 - **Extensions**: If you need to add user attributes and data from external systems, you can create custom authentication extensions for your user flows.
 
-- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. Learn more
+- **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. Learn more about [password and one-time passcode](how-to-enable-password-reset-customers.md) login, and about [Google](how-to-google-federation-customers.md) and [Facebook](how-to-facebook-federation-customers.md) federation.
 
 - **Encryption keys**: Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
@@ -112,5 +112,5 @@ Opt for the next generation Microsoft Entra External ID platform if:
 
 ## Next steps
 
-- Learn more about [planning for Microsoft Entra ID for customers](concept-planning-your-solution.md).
+-  about [planning for Microsoft Entra ID for customers](concept-planning-your-solution.md).
 - See also the [Microsoft Entra ID for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.
