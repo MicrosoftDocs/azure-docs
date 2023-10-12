@@ -436,4 +436,4 @@
   - name: Azure Files and Azure NetApp Files comparison
     href: ../storage/files/storage-files-netapp-comparison.md
   - name: Azure NetApp Files on Microsoft Q&A
-    href: /answers/topics/25532/azure-netapp-files.html
+    href: /answers/topics/25532/azure-netapp-files
