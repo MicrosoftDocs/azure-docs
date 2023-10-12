@@ -52,7 +52,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 
     Once the Excel file is generated, the report is automatically sent to your email.
 
-## Download the Permissions Analytics Report in PDF format
+## Download the Permissions Analytics Report in PDF format (preview)
 
 1. From the Permissions Management home page, select the **Reports** tab, then select the **Systems Reports** subtab.
     
