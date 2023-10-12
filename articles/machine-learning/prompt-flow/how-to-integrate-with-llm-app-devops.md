@@ -312,8 +312,9 @@ pfazure run show-metrics --name <evaluation_run_name>
 ```python
 pf.get_metrics("evaluation_run_name")
 ```
-
 ---
+
+For more information, you can refer to [the Prompt flow CLI documentation for Azure](https://microsoft.github.io/promptflow/reference/pfazure-command-reference.html).
 
 ## Iterative development from fine-tuning
 
@@ -417,3 +418,4 @@ For more information on how to deploy your flow, see [Deploy flows to Azure Mach
 ## Next steps
 
 - [Set up end-to-end LLMOps with Prompt Flow and GitHub](how-to-end-to-end-llmops-with-prompt-flow.md)
+- [Prompt flow CLI documentation for Azure](https://microsoft.github.io/promptflow/reference/pfazure-command-reference.html)
