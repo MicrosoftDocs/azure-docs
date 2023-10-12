@@ -19,7 +19,7 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 Expanded character support will allow users to create SMB file shares with file and directory names on par with the NTFS file system for all valid Unicode characters. It also enables tools like AzCopy and Storage Mover to migrate all the files into Azure Files using the REST protocol. Expanded character support is now available in all Azure regions. For more information, [read the announcement](https://azure.microsoft.com/updates/azurefilessupportforunicodecharacters/).
 
-Azure File Sync also supports most of the special case valid Unicode characters and control characters except for the trailing dot (.)
+Azure File Sync also supports some of these characters now. While some of the special case valid Unicode characters and control characters are supported, support for the remaining characters including the trailing dot(.) will be gradually rolled out after the v17 agent release is complete across all regions. 
 
 For more information on unsupported characters in Azure File Sync, refer to the [documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors#handling-unsupported-characters).
 
