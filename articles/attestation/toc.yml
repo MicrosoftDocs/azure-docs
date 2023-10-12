@@ -29,12 +29,16 @@
     href: custom-tcb-baseline-enforcement.md
   - name: Create a Private Endpoint - PowerShell
     href: private-endpoint-powershell.md
-  - name: Azure Diagnostic Monitoring
-    href: azure-diagnostic-monitoring.md
   - name: How to perform TPM and VBS attestation
     href: azure-tpm-vbs-attestation-usage.md
   - name: How to perform SGX attestation
     href: /samples/browse/?expanded=azure&terms=attestation
+  - name: Enable logging in Azure Attestation
+    href: enable-logging.md
+  - name: How to interpret Azure Attestation logs
+    href: view-logs.md
+  - name: Monitoring Azure Attestation
+    href: monitor-azure-attestation.md
 - name: Examples
   items:
     - name: Attestation policy
@@ -69,8 +73,6 @@
         href: policy-version-1-2.md
   - name: Workflow
     href: workflow.md
-  - name: View logs
-    href: view-logs.md
 - name: References
   items:
   - name: Regional availability
