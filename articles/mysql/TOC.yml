@@ -812,7 +812,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-database-mysql.html
+    href: /answers/tags/181/azure-database-mysql
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos

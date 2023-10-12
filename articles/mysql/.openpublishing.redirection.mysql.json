@@ -796,7 +796,7 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/mysql/video.md",
+        "source_path_from_root": "/articles/mysql/videos.md",
         "redirect_url": "https://aka.ms/mysql-intro-vid",
         "redirect_document_id": false
     }
