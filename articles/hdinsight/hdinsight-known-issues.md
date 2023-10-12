@@ -26,7 +26,7 @@ When submitting cluster creation requests using ARM templates, Runbooks, PowerSh
 
 ### Troubleshooting steps
 
-When using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight Kafka clusters, choose componentVersion = "2.4". This will enable you to successfully create a Kafka 2.4.1 cluster in HDInsight 5.0.
+When using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight Kafka clusters, choose componentVersion = "2.4". This enables you to successfully create a Kafka 2.4.1 cluster in HDInsight 5.0.
 
 ### Resources
 
@@ -36,7 +36,7 @@ When using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-pro
 
 ## Conda version regression in recent HDInsight release
 
-In the latest Azure HDInsight release, the conda version was mistakenly downgraded to version 4.2.9. This regression will be fixed in an upcoming release, but currently it can impact Spark job execution and result in script action failures. Conda 4.3.30 is the expected version in 5.0 and 5.1 clusters, so follow the steps below to mitigate the issue.
+In the latest Azure HDInsight release, the conda version was mistakenly downgraded to version 4.2.9. This regression is fixed in an upcoming release, but currently it can impact Spark job execution and result in script action failures. Conda 4.3.30 is the expected version in 5.0 and 5.1 clusters, so follow the steps to mitigate the issue.
 
 <!--/issueDescription-->
 
@@ -65,7 +65,7 @@ In HDInsight images dated prior to March 2022, a known bug was discovered on one
 
 ### Required Action
 
-If your cluster was created prior to February 2022, we advise rebuilding your cluster with the latest HDInsight image by October 31, 2023. Cluster images dated prior to March 2022 won't be supported beyond this date. These images won't receive security updates, bug fixes, or patches, leaving them susceptible to vulnerabilities. 
+If your cluster was created prior to February 2022, we advise rebuilding your cluster with the latest HDInsight image by October 31, 2023. Cluster images dated prior to March 2022 not support beyond this date. These images not receive security updates, bug fixes, or patches, leaving them susceptible to vulnerabilities. 
 
 > [!IMPORTANT]  
 > It’s recommended to keep your clusters updated to the latest HDInsight version on a regular basis. Using clusters based on the latest HDInsight image will ensure that clusters have the latest operating system patches, security patches, bug fixes, library versions, and minimizes risk and potential security vulnerabilities.
@@ -73,17 +73,17 @@ If your cluster was created prior to February 2022, we advise rebuilding your cl
 
 ### FAQ
 
-#### What happens in the case of a VM outage in the HDInsight clusters which use these impacted HDInsight images?
+#### What happens in the case of a VM outage in the HDInsight clusters that use these impacted HDInsight images?
 
-Recovery of such Virtual Machines are not straight-forward restarts and could result in several hours of outage with a mandatory manual intervention from the Microsoft support team.
+Recovery of such Virtual Machines is not straight-forward restarts and could result in several hours of outage with a mandatory manual intervention from the Microsoft support team.
 
 #### Is this issue rectified in latest HDInsight images?
 
-Yes, we've fixed this issue on the HDInsight images dated March 1, 2022 or later. It is advised to move to the latest stable version to ensure SLA and serivce reliability. 
+Yes, we've fixed this issue on the HDInsight images dated March 1, 2022 or later. It is advised to move to the latest stable version to ensure SLA and service reliability. 
 
 ### How do we determine the date of the HDInsight image our clusters are built on? 
 
-The# last 10 digits in your image version indicate the date and time of HDInsight image. For example, if your cluster image is “5.0.3000.1.2208310943”, this indicates that the date of your image is 31 August 2022. Learn how to [verify your HDInsight image version.](/azure/hdinsight/view-hindsight-cluster-image-version)
+The last 10 digits in your image version indicate the date and time of HDInsight image. For example, if your cluster image is “5.0.3000.1.2208310943” indicates that the date of your image is 31 August 2022. Learn how to [verify your HDInsight image version.](/azure/hdinsight/view-hindsight-cluster-image-version)
 
 ### Resources
 
@@ -96,7 +96,7 @@ The# last 10 digits in your image version indicate the date and time of HDInsigh
 
 Select the **Title** to view more information about that specific known issue.
 
-| Issue ID         | Area                   |Title                    | Issue publish date|
+| Issue ID         | Area                   |Title                    | Issues publish date|
 |------------------|------------------------|-------------------------|-------------------|
 | 450              | Cluster Creation       | [Linux VM agent 9.9.9.9](https://github.com/Azure/SelfHelpContent/blob/master/articles/microsoft.hdinsight/asc-hdinsight-vmagent9999.md)| October 12, 2023  |
 | 451              | Spark Library management       | [Conda version regression in recent HDInsight release](https://github.com/Azure/SelfHelpContent/blob/master/articles/microsoft.hdinsight/asc-hdinsight-condaregressionversion429.md)| October 12, 2023  |
@@ -106,7 +106,7 @@ Select the **Title** to view more information about that specific known issue.
 
 Select the **Title** to view more information about that specific known issue. Fixed issues are removed after 60 days.
 
-| Issue ID         | Area                   |Title                    | Issue publish date| Status|
+| Issue ID         | Area                   |Title                    | Issues publish date| Status |
 |------------------|------------------------|-------------------------|-------------------|-------|
 |NA|NA|NA|NA|NA|
 
