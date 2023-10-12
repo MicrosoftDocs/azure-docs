@@ -63,8 +63,6 @@ The following videos help you learn about access reviews:
 
 ### Licenses
 
-Using this feature requires Microsoft Entra ID Governance subscriptions for your organization's users. Some capabilities in this feature might operate with a Microsoft Entra ID Premium P2 subscription. To find a license for your requirements, see [Microsoft Entra ID Governance licensing fundamentals](licensing-fundamentals.md).
-
 [!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 >[!NOTE]
