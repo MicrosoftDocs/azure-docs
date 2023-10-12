@@ -57,7 +57,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check permissions
 
-A system managed identity is an Azure AD login. The assignment needs **Storage Blob Data Reader** at a minimum.
+A system managed identity is a Microsoft Entra login. The assignment needs **Storage Blob Data Reader** at a minimum.
 
 1. In the left navigation pane under **Access Control**, view all role assignments and make sure that **Storage Blob Data Reader** is assigned to the search service system identity.
 
@@ -80,5 +80,5 @@ The easiest way to test the connection is by running the Import data wizard.
 + [Connect to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md)
 + [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
-+ [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
++ [Authenticate with Microsoft Entra ID](/azure/architecture/framework/security/design-identity-authentication)
++ [About managed identities (Microsoft Entra ID)](../active-directory/managed-identities-azure-resources/overview.md)

@@ -51,7 +51,7 @@ For more information, including the data export billing timeline, see [Azure Mon
 
 ## Export destinations
 
-The data export destination must be available before you create export rules in your workspace. Destinations don't have to be in the same subscription as your workspace. When you use Azure Lighthouse, it's also possible to send data to destinations in another Azure Active Directory tenant.
+The data export destination must be available before you create export rules in your workspace. Destinations don't have to be in the same subscription as your workspace. When you use Azure Lighthouse, it's also possible to send data to destinations in another Microsoft Entra tenant.
 
 You need to have write permissions to both workspace and destination to configure a data export rule on any table in a workspace. The shared access policy for the Event Hubs namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires manage, send, and listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
 

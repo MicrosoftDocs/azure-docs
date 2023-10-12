@@ -213,7 +213,7 @@ Depending on whether you have a Microsoft Entra ID P1 or P2 license, here are th
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P1 license](../../../includes/active-directory-p1-license.md)]
+[!INCLUDE [Microsoft Entra ID Premium P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

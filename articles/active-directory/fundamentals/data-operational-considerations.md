@@ -56,6 +56,5 @@ To roll out changes to the service across data centers, the Microsoft Entra team
 ## Next steps
 
 * [Microsoft Entra ID and data residency](data-residency.md)
-
 * [Data operational considerations](data-operational-considerations.md) (You're here)
 * [Data protection considerations](data-protection-considerations.md)

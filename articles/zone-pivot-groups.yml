@@ -1632,6 +1632,14 @@ groups:
     title: Android
   - id: programming-language-rest
     title: REST
+- id: acs-dev-environment-vs-vscode
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
