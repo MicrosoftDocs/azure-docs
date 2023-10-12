@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 06/27/2023
+ms.date: 10/12/2023
 ms.custom: engagement-fy23
 ---
 
@@ -46,6 +46,59 @@ Each Azure VMware Solution architectural component has the following function:
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
+## Azure Region Availability Zone (AZ) to SKU mapping
+
+When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). This is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Storage (CBS). The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the table below.
+
+Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open an SR with Microsoft requesting a "special placement policy" for your Subscription, Azure region, Availability Zone, and SKU type. This policy will remain in place until you request it be removed or changed.
+
+| Azure region | Availability Zone | SKU   | Multi-AZ SDDC |
+| :---         | :---:             | :---: | :---:         |
+| Australia East | AZ01 | AV36P | Yes |
+| Australia East | AZ02 | AV36 | No |
+| Australia East | AZ03 | AV36P | Yes |
+| Australia South East | N/A | AV36 | No |
+| Brazil South | AZ02 | AV36 | No |
+| Canada Central | AZ02 | AV36, AV36P | No |
+| Canada East | N/A | AV36 | No |
+| Central US | AZ01 | AV36P | No |
+| Central US | AZ02 | AV36 | No |
+| East Asia | AZ01 | AV36 | No |
+| East US | AZ01 | AV36P | No |
+| East US | AZ02 | AV36P | No |
+| East US | AZ03 | AV36, AV36P | No |
+| East US 2 | AZ01 | AV36 | No |
+| East US 2 | AZ02 | AV36P, AV52 | No |
+| France Central | AZ01 | AV36 | No |
+| Germany West Central | AZ02 | AV36 | Yes |
+| Germany West Central | AZ03 | AV36, AV36P | Yes |
+| Japan East | N/A | AV36 | No |
+| Japan West | N/A | AV36 | No |
+| North Central US | AZ01 | AV36 | No |
+| North Central US | AZ02 | AV36P | No |
+| North Europe | AZ02 | AV36 | No |
+| Qatar Central | AZ03 | AV36P | No |
+| South Africa North | AZ03 | AV36 | No |
+| South Central US | AZ01 | AV36 | No |
+| South Central US | AZ02 | AV36P, AV52 | No |
+| South East Asia | AZ02 | AV36 | No |
+| Sweden Central | AZ01 | AV36 | No |
+| Switzerland North | AZ01 | AV36 | No |
+| Switzerland West | N/A | AV36 | No |
+| UK South | AZ01 | AV36, AV36P, AV52 | Yes |
+| UK South | AZ02 | AV36 | Yes |
+| UK South | AZ03 | AV36P | No |
+| UK West | AZ01 | AV36 | No |
+| West Europe | AZ01 | AV36, AV36P, AV52 | Yes |
+| West Europe | AZ02 | AV36 | Yes |
+| West Europe | AZ03 | AV36P | Yes |
+| West US | AZ01 | AV36, AV36P | No |
+| West US 2 | AZ01 | AV36 | No |
+| West US 2 | AZ02 | AV36P | No |
+| West US 3 | AZ01 | AV36P | No |
+| US Gov Arizona | AZ01 | AV36P | No |
+| US Gov Virginia | AZ01 | AV36 | No |
+
 ## Clusters
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
@@ -53,6 +106,8 @@ Each Azure VMware Solution architectural component has the following function:
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
 ## VMware software versions
+
+Microsoft is a member of the VMware Metal-as-a-Service (MaaS) program and uses the [VMware Cloud Provider Stack (VCPS)](https://docs.vmware.com/en/VMware-Cloud-Provider-Stack/1.1/com.vmware.vcps.gsg.doc/GUID-5D686FB2-9886-44D3-845B-FDEF650C7575.html) for Azure VMware Solution upgrade planning.
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
