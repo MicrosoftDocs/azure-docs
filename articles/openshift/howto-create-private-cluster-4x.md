@@ -3,7 +3,7 @@ title: Create an Azure Red Hat OpenShift 4 private cluster
 description: Learn how to create an Azure Red Hat OpenShift private cluster running OpenShift 4
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 09/01/2023
+ms.date: 10/12/2023
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli
@@ -229,11 +229,16 @@ This User Defined Routing option prevents a public IP address from being provisi
 > [!IMPORTANT]
 > Be sure to specify the correct subnet with the properly configured routing table when creating your private cluster. 
 
-For egress, the User Defined Routing option ensures that the newly created cluster has the egress lockdown feature enabled to allow you to secure outbound traffic from your new private cluster. See [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)](howto-restrict-egress.md) to learn more.
+For egress, the User Defined Routing option ensures that the newly created cluster has the egress lockdown feature enabled to allow you to secure outbound traffic from your new private cluster. See [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster](howto-restrict-egress.md) to learn more.
 
 > [!NOTE]
 > If you choose the User Defined Routing network type, you're completely responsible for managing the egress of your cluster's routing outside of your virtual network (for example, getting access to public internet). Azure Red Hat OpenShift cannot manage this for you.
 > 
+
+You can configure an egress IP for a private cluster with no public IP address. To do so, follow the procedure above to create a private cluster without a public IP address, and then configure the egress IP as per [this Red Hat OpenShift document](https://docs.openshift.com/container-platform/4.13/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html).
+
+Configuring an egress IP for an ARO private cluster in only supported for clusters with the `--outbound-type UserDefinedRouting` parameter. It is not supported for public ARO clusters that have the `--outbound-type LoadBalancer` parameter.
+
 ## Connect to the private cluster
 
 You can log into the cluster using the `kubeadmin` user.  Run the following command to find the password for the `kubeadmin` user.
