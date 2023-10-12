@@ -85,7 +85,7 @@ Azure AI services supports a wide range of cultural languages at the service lev
 
 ## Security
 
-Azure AI services provides a layered security model, including [authentication](authentication.md "Authentication") with Azure Active Directory credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md "Azure Virtual Networks").
+Azure AI services provides a layered security model, including [authentication](authentication.md "Authentication") with Microsoft Entra credentials, a valid resource key, and [Azure Virtual Networks](cognitive-services-virtual-networks.md "Azure Virtual Networks").
 
 ## Certifications and compliance
 

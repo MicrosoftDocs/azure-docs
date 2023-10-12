@@ -9,7 +9,7 @@ ms.date: 01/30/2023
 
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
-Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Azure Active Directory tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
+Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Microsoft Entra tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
 
 > [!IMPORTANT]
 > In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.

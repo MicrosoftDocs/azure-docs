@@ -36,7 +36,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
    > - Azure Monitoring
-   > - Azure Active Directory
+   > - Microsoft Entra ID
    > - Azure Security
 
 1. Now we will apply some special permissions to the VNet and subnet which Cassandra Managed Instance requires, using Azure CLI. Use the `az role assignment create` command, replacing `<subscriptionID>`, `<resourceGroupName>`, and `<vnetName>` with the appropriate values:
