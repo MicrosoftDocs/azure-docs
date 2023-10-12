@@ -97,7 +97,7 @@ The actual response for this POST call to the deployment model includes 1536 emb
 
 You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
 
-### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
+### [**2023-10-01-Preview**](#tab/query-2023-10-01-Preview)
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces breaking changes to the vector query definition in [Search Documents](/rest/api/searchservice/2023-10-01-preview/documents/search-post). This version adds:
 
@@ -132,7 +132,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### [**2023-07-01-Preview**](#tab/rest-vector-query)
+### [**2023-07-01-Preview**](#tab/query-vector-query)
 
 REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) introduces vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version adds:
 
@@ -266,7 +266,7 @@ In contrast with full text search, a filter in a pure vector query is effectivel
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
 
-### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
+### [**2023-10-01-Preview**](#tab/filter-2023-10-01-Preview)
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces filter options. This version adds:
 
@@ -304,9 +304,9 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### [**2023-07-01-Preview**](#tab/rest-2023-07-01-Preview)
+### [**2023-07-01-Preview**](#tab/filter-2023-07-01-Preview)
 
-REST API version [**2023-10-07-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports post-filtering over query results. 
+REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) supports post-filtering over query results. 
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 

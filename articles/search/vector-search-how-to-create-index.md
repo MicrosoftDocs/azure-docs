@@ -126,8 +126,8 @@ In the following REST API example, "title" and "content" contain textual content
    **Key points**:
 
    + Name of the configuration. The name must be unique within the index.
-   + Profiles are new in this preview. They add a layer of abstraction for accommodating richer definitions. A profile is defined in `vectorSearch`, and then on as property on each vector field, as described in the following section.
-   + `"hnsw"` and `"exhaustiveKnn"` are the Approximate Nearest Neighbors (ANN) algorithm used to organize vector content during indexing.
+   + Profiles are new in this preview. They add a layer of abstraction for accommodating richer definitions. A profile is defined in `vectorSearch`, and then as a property on each vector field.
+   + `"hnsw"` and `"exhaustiveKnn"` are the Approximate Nearest Neighbors (ANN) algorithms used to organize vector content during indexing.
    + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
@@ -199,7 +199,7 @@ In the following REST API example, "title" and "content" contain textual content
 
 ### [**2023-07-01-Preview**](#tab/rest-add-field)
 
-REST API version **2023-07-01-Preview** enables vector scenarios. This version adds:
+REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) enables vector scenarios. This version adds:
 
 + `vectorConfigurations`
 + `hnsw` nearest neighbor algorithm for indexing vector content
