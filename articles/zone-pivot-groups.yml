@@ -519,7 +519,7 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
-  - id: devlang-nodejs-MSAL
+  - id: devlang-nodejs-msal
     title: Node.js - MSAL
   - id: devlang-java
     title: Java
