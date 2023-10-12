@@ -66,7 +66,7 @@ To reinstall your packet core instance:
 
 1. Select **Reinstall**.
 1. Azure will now uninstall the packet core instance and redeploy it with the same configuration. You can check the status of the reinstall by selecting **Refresh** and looking at the **Packet core installation state** field. Once the process is complete, you'll receive a notification with information on whether the reinstall was successful.
-    
+
     If the packet core reinstall failed, you can find more details about the reason for the failure by selecting the notifications icon and then **More events in the activity log**.
 
     :::image type="content" source="media/reinstall-packet-core/reinstall-packet-core-status.png" alt-text="Screenshot of the Azure portal showing the reinstall packet core status in the Notifications screen.":::
@@ -76,8 +76,8 @@ To reinstall your packet core instance:
 Reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
-    
-    - If you use Microsoft Entra ID, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
+
+    - If you use Microsoft Entra ID, check that you can access distributed tracing and packet core dashboards using Microsoft Entra ID. If you cannot access either of these, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
     - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
 
 1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.

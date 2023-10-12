@@ -79,7 +79,7 @@ The following table provides a comparison between Microsoft Entra Connect and Mi
 | Support for device writeback|● |Customers should use [Cloud Kerberos trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust?tabs=intune) for this moving forward|
 | Support for group writeback|● | |
 | Support for merging user attributes from multiple domains|● | |
-| Active Directory Domain Services support|● | |
+| Microsoft Entra Domain Services support|● | |
 | [Exchange hybrid writeback](exchange-hybrid.md) |● |● |
 | Unlimited number of objects per AD domain |● | |
 | Support for up to 150,000 objects per AD domain |● |● |

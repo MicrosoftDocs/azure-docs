@@ -33,9 +33,9 @@ node communication model will be
 
 ### Batch account authentication
 
-Batch account access supports two methods of authentication: Shared Key and [Azure Active Directory (Azure AD)](batch-aad-auth.md).
+Batch account access supports two methods of authentication: Shared Key and [Microsoft Entra ID](batch-aad-auth.md).
 
-We strongly recommend using Azure AD for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Azure AD using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
+We strongly recommend using Microsoft Entra ID for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Microsoft Entra ID using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
 
 ### Batch account pool allocation mode
 
@@ -54,13 +54,13 @@ By default, endpoints with public IP addresses are used to communicate with Batc
 
 ### Batch account API
 
- When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Azure Active Directory (Azure AD) authentication.
+ When a Batch account is created, a public endpoint is created that is used to invoke most operations for the account using a [REST API](/rest/api/batchservice/). The account endpoint has a base URL using the  format `https://{account-name}.{region-id}.batch.azure.com`. Access to the Batch account is secured, with communication to the account endpoint being encrypted using HTTPS, and each request authenticated using either shared key or Microsoft Entra authentication.
 
 ### Azure Resource Manager
 
 In addition to operations specific to a Batch account, [management operations](/rest/api/batchmanagement/) apply to single and multiple Batch accounts. These management operations are accessed via Azure Resource Manager.
 
-Batch management operations via Azure Resource Manager are encrypted using HTTPS, and each request is authenticated using Azure AD authentication.
+Batch management operations via Azure Resource Manager are encrypted using HTTPS, and each request is authenticated using Microsoft Entra authentication.
 
 ### Batch pool compute nodes
 
