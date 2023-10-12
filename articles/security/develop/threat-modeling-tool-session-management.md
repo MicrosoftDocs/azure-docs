@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp
 # Security Frame: Session Management
 | Product/Service | Article |
 | --------------- | ------- |
-| **Azure AD**    | <ul><li>[Implement proper logout using MSAL methods when using Azure AD](#logout-msal)</li></ul> |
+| **Microsoft Entra ID**    | <ul><li>[Implement proper logout using MSAL methods when using Microsoft Entra ID](#logout-msal)</li></ul> |
 | **IoT Device** | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
@@ -29,15 +29,15 @@ ms.custom: devx-track-csharp
 | **Web Application** | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logout)</li></ul> |
 | **Web API** | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
 
-## <a id="logout-msal"></a>Implement proper sign-out using MSAL methods when using Azure AD
+## <a id="logout-msal"></a>Implement proper sign-out using MSAL methods when using Microsoft Entra ID
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
+| **Component**               | Microsoft Entra ID | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Enable your Web app to sign-in users using the Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) |
+| **References**              | [Enable your Web app to sign-in users using the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) |
 | **Steps** | The ASP.NET Core OpenIdConnect middleware enables your app to intercept the call to the Microsoft identity platform logout endpoint by providing an OpenIdConnect event named `OnRedirectToIdentityProviderForSignOut` |
 
 ### Example
@@ -538,7 +538,7 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 | **Component**               | Web API | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC5, MVC6 |
-| **Attributes**              | Identity Provider - ADFS, Identity Provider - Azure AD |
+| **Attributes**              | Identity Provider - ADFS, Identity Provider - Microsoft Entra ID |
 | **References**              | [Secure a Web API with Individual Accounts and Local Login in ASP.NET Web API 2.2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Steps** | If the Web API is secured using OAuth 2.0, then it expects a bearer token in Authorization request header and grants access to the request only if the token is valid. Unlike cookie based authentication, browsers do not attach the bearer tokens to requests. The requesting client needs to explicitly attach the bearer token in the request header. Therefore, for ASP.NET Web APIs protected using OAuth 2.0, bearer tokens are considered as a defense against CSRF attacks. Please note that if the MVC portion of the application uses forms authentication (i.e., uses cookies), anti-forgery tokens have to be used by the MVC web app. |
 

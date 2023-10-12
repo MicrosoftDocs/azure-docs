@@ -135,9 +135,9 @@ items:
       - name: Authorize data operations
         href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
-        - name: Authorize with Azure AD
+        - name: Authorize with Microsoft Entra ID
           items:
-          - name: Authorize with Azure AD and Azure RBAC
+          - name: Authorize with Microsoft Entra ID and Azure RBAC
             href: authorize-access-azure-active-directory.md
           - name: Configure role assignment conditions with Azure ABAC
             href: storage-auth-abac.md
@@ -533,7 +533,7 @@ items:
         items:
         - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Authorize with Azure AD
+        - name: Authorize with Microsoft Entra ID
           href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Optimize performance
           href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -591,7 +591,7 @@ items:
           href: storage-blob-dotnet-get-started.md
         - name: Authorize access from your application
           items:
-          - name: Azure Active Directory
+          - name: Microsoft Entra ID
             items:
             - name: Overview
               href: /dotnet/azure/sdk/authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -683,7 +683,7 @@ items:
           href: storage-blob-java-get-started.md
         - name: Authorize access from your application
           items:
-          - name: Azure Active Directory
+          - name: Microsoft Entra ID
             items:
             - name: Overview
               href: /azure/developer/java/sdk/identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -761,7 +761,7 @@ items:
           href: storage-blob-javascript-get-started.md
         - name: Authorize access from your application
           items:
-          - name: Azure Active Directory
+          - name: Microsoft Entra ID
             items:
             - name: Overview
               href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -829,7 +829,7 @@ items:
           href: storage-blob-typescript-get-started.md
         - name: Authorize access from your application
           items:
-          - name: Azure Active Directory
+          - name: Microsoft Entra ID
             items:
             - name: Overview
               href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -897,7 +897,7 @@ items:
           href: storage-blob-python-get-started.md
         - name: Authorize access from your application
           items:
-          - name: Azure Active Directory
+          - name: Microsoft Entra ID
             items:
             - name: Overview
               href: /azure/developer/python/sdk/authentication-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -1282,9 +1282,9 @@ items:
       - name: Authorize data operations
         href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
-        - name: Authorize with Azure AD
+        - name: Authorize with Microsoft Entra ID
           items:
-          - name: Authorize with Azure AD and Azure RBAC
+          - name: Authorize with Microsoft Entra ID and Azure RBAC
             href: authorize-access-azure-active-directory.md
           - name: Configure role assignment conditions with Azure ABAC
             href: storage-auth-abac.md
@@ -1365,7 +1365,7 @@ items:
         items:
         - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Authorize with Azure AD
+        - name: Authorize with Microsoft Entra ID
           href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Optimize performance
           href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

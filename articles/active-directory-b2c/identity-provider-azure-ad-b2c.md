@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 10/11/2023
 ms.author: godonnell
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Overview
 
-This article describes how to set up a federation with another Azure AD B2C tenant. When your applications are protected with your Azure AD B2C, this allows users from other Azure AD B2C’s to login with their existing accounts. In the following diagram, users are able to sign-in to an Application protected by *Contoso*’s Azure AD B2C, with an account managed by *Fabrikam*’s Azure AD B2C tenant 
+This article describes how to set up a federation with another Azure AD B2C tenant. When your applications are protected with your Azure AD B2C, this allows users from other Azure AD B2C’s to login with their existing accounts. In the following diagram, users are able to sign in to an application protected by *Contoso*’s Azure AD B2C, with an account managed by *Fabrikam*’s Azure AD B2C tenant. In this case, user account must be present in *Fabrikam*’s tenant before an application protected by *Contoso*’s Azure AD B2C can attempt to sign in. 
 
 ![Azure AD B2C federation with another Azure AD B2C tenant](./media/identity-provider-azure-ad-b2c/azure-ad-b2c-federation.png)
 

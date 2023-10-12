@@ -64,7 +64,7 @@ For example, if you provide resource prefix as “demo” then, following resour
 
 #### [Create user-assigned  managed identity (MSI)](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
 
-   A managed identity is an identity registered in Microsoft Entra ID [(Azure Active Directory)](https://www.microsoft.com/security/business/identity-access/azure-active-directory) whose credentials managed by Azure. With managed identities, you need not register service principals in Azure AD to maintain credentials such as certificates. 
+   A managed identity is an identity registered in Microsoft Entra ID [(Microsoft Entra ID)](https://www.microsoft.com/security/business/identity-access/azure-active-directory) whose credentials managed by Azure. With managed identities, you need not register service principals in Microsoft Entra ID to maintain credentials such as certificates. 
 
    HDInsight on AKS relies on user-assigned MSI for communication among different components.
 
