@@ -122,6 +122,8 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 |     `state`     | A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | `admin_consent` | Set to **True**. |
 
+NOTE: Don't use tenant ID value of tenant parameter to authenticate or authorize users as the value can be updated and sent by anyone. It can occuer security incident for your application. 
+
 ##### Error response
 
 If the admin does not approve the permissions for your application, the failed response looks like this:
