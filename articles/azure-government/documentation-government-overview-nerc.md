@@ -219,7 +219,7 @@ A multi-tenant cloud platform implies that multiple customer applications and da
 
 ### Identity and access
 
-Azure Active Directory (Azure AD) is an identity repository and cloud service that provides authentication, authorization, and access control for an organization’s users, groups, and objects. Azure AD can be used as a standalone cloud directory or as an integrated solution with existing on-premises Active Directory to enable key enterprise features such as directory synchronization and single sign-on. The separation of the accounts used to administer cloud applications is critical to achieving logical isolation. Account isolation in Azure is achieved using Azure AD and its capabilities to support granular Azure role-based access control (RBAC). Azure AD implements extensive data protection features, including tenant isolation and access control, data operational considerations for insider access, and more.
+Microsoft Entra ID is an identity repository and cloud service that provides authentication, authorization, and access control for an organization’s users, groups, and objects. Microsoft Entra ID can be used as a standalone cloud directory or as an integrated solution with existing on-premises Active Directory to enable key enterprise features such as directory synchronization and single sign-on. The separation of the accounts used to administer cloud applications is critical to achieving logical isolation. Account isolation in Azure is achieved using Microsoft Entra ID and its capabilities to support granular Azure role-based access control (RBAC). Microsoft Entra ID implements extensive data protection features, including tenant isolation and access control, data operational considerations for insider access, and more.
 
 For more information, see [Identity-based isolation](./azure-secure-isolation-guidance.md#identity-based-isolation).
 
@@ -249,7 +249,7 @@ For more information, see [Networking isolation](./azure-secure-isolation-guidan
 
 Microsoft Azure separates your VM-based computation resources from storage as part of its fundamental design. The separation allows computation and storage to scale independently, making it easier to provide multi-tenancy and isolation. Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically.
 
-Azure provides extensive options for data encryption at rest to help you safeguard your data and meet your NERC CIP standards compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management.
+Azure provides extensive options for data encryption at rest to help you safeguard your data and meet your NERC CIP standards compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Microsoft Entra ID to ensure secure key access and centralized key management.
 
 For more information, see [Storage isolation](./azure-secure-isolation-guidance.md#storage-isolation).
 
