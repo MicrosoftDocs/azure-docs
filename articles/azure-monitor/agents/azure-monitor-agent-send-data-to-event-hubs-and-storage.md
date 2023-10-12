@@ -64,7 +64,7 @@ This section describes what's [supported](#whats-supported) and [not supported](
 A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
 
 - [Storage account](../../storage/common/storage-account-create.md)
-- [Event Hubs namespace and event hub]((../../event-hubs/event-hubs-create.md))
+- [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
 - [Virtual machine](../../virtual-machines/overview.md)
 
 ## Required permissions
@@ -687,6 +687,7 @@ Create a data collection rule for collecting events and sending to storage and e
    **Storage blob**
 
    | Value | Description |
+   |:---|:---|
    | `dataSources` | Define it per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`. |
    | `destinations` | Use `storageBlobsDirect` for direct upload to blob storage. | 
    | `storageAccountResourceId` | The resource ID of the storage account. | 
