@@ -110,7 +110,7 @@ To access logs in the Azure portal, follow these steps:
 
 ## Use Azure Monitor logs  
 
-You can use Azure Monitor logs to review activity in Azure Attestation resources. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, see [Monitoring Azure Attestation](monitor-azure-attestation.md) 
+You can use Azure Monitor logs to review activity in Azure Attestation resources. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, see [Monitoring Azure Attestation](monitor-logs.md) 
 
 ## Next steps 
 
