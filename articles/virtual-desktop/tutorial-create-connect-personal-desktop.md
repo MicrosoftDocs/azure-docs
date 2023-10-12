@@ -54,7 +54,7 @@ To create a personal host pool, workspace, application group, and session host V
    | **Project details** |  |
    | Subscription | Select the subscription you want to deploy your host pool, session hosts, workspace, and application group in from the drop-down list. |
    | Resource group | Select an existing resource group or select **Create new** and enter a name. |
-   | Host pool name | Enter a name for the host pool, for example *Microsoft Entra ID-hp01*. |
+   | Host pool name | Enter a name for the host pool, for example *me-id-hp01*. |
    | Location | Select the Azure region from the list where the host pool, workspace, and application group will be deployed. |
    | Validation environment | Select **No**. This setting enables your host pool to receive service updates before all other production host pools, but isn't needed for this tutorial.|
    | Preferred app group type | Select **Desktop**. With this personal host pool, you'll publish a desktop, but you won't also be able to add a RemoteApp application group to publish applications separately. See [Next steps](#next-steps) for more advanced scenarios. |
