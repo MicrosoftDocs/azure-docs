@@ -34,11 +34,11 @@ The contact resource contains the start time and end time of the pass and other 
 | Start Elevation           | Starting elevation position of the spacecraft measured from the horizon up in degrees.                                         |
 | End Elevation             | Starting elevation position of the spacecraft measured from the horizon up in degrees.                                         |
 
-The RX and TX start/end times may differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
+The RX and TX start/end times might differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
 
-## Creating a contact
+## Create a contact
 
-In order to create a contact, you must have the following pre-requisites:
+In order to create a contact, you must have the following prerequisites:
 
 * An [authorized](register-spacecraft.md) spacecraft resource.
 * A [contact profile](contact-profile.md) with links in accordance with the spacecraft resource above.
