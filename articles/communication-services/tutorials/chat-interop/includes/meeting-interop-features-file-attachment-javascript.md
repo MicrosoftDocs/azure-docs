@@ -21,7 +21,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Goal
 
-1. Be able to render file attachment in the message thread. Each file attachment card has two buttons - "Open" and "Download" respectively.
+1. Be able to render file attachment in the message thread. Each file attachment card has an "Open" button.
 2. Be able to render image attachments as inline images.
 
 ## Handle file attachments
@@ -52,9 +52,9 @@ export interface ChatAttachment {
   contentType?: string;
   /** The name of the attachment content. */
   name?: string;
-  /** The URL where the attachment can be downloaded */
+  /** The URL that is used to provide original size of the inline images */
   url: string;
-  /** The URL where the preview of attachment can be downloaded */
+  /** The URL that provides the preview of attachment */
   previewUrl?: string;
 }
 
@@ -71,7 +71,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
         "attachmentType": "file",
         "contentType": "pdf",
         "name": "business report.pdf",
-        "url": "https://contoso.sharepoint.com/user/_layouts/download.aspx?share=h8jTwB0Zl1AY",
+        "url": "",
         "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
     },
     {
@@ -79,7 +79,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
         "attachmentType": "teamsImage",
         "contentType": "png",
         "name": "Screenshot.png",
-        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
+        "url": "",
         "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
       }
 ]
@@ -121,7 +121,6 @@ function renderFileAttachments(attachment) {
         '<div>' +
         '<p>' + attachment.name + '</p>' +
         '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
-        '<a href=' + attachment.url + ' target="_blank" rel="noreferrer">Download</a>' +
         '</div>' +
         '</div>';
 }

@@ -90,6 +90,6 @@ To learn more about alerts, see [Azure Monitor Log Alerts](../../../azure-monito
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
 - [Known limitations](how-to-prerequisites.md#known-limitations)
 - [Error codes](reference-error-codes.md)
