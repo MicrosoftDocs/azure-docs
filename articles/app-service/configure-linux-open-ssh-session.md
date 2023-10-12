@@ -1,16 +1,31 @@
 ---
 title: SSH access for Linux containers
-description: You can open an SSH session to a Linux container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.
-keywords: azure app service, web app, linux, oss
+description: You can open an SSH session to a Linux or a Windows container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.  Custom Windows containers require no modifications to your custom image.
+keywords: azure app service, web app, linux, windows, oss
 author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 11/18/2022
+ms.date: 10/12/2023
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
+zone_pivot_groups: app-service-containers-windows-linux
 
 ---
+::: zone pivot="container-windows"
+
+# Open a SSH session to a Windows container in Azure App Service
+
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can beused to execute administrative commands remotely to a Windows Container.  App Service provides SSH support direct into a app hosted in a Windows Container.
+
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
+
+::: zone-end
+
+::: zone pivot="container-linux"
+
 # Open an SSH session to a Linux container in Azure App Service
 
 [Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
@@ -113,6 +128,8 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45737     1 root     Z        0   0%   0   0% [init]
 45738     1 root     Z        0   0%   0   0% [init]
 </pre>
+
+::: zone-end
 
 ## Next steps
 
