@@ -100,7 +100,7 @@ To access logs in the Azure portal, follow these steps:
 1. Open your storage account and click on **Containers** from resource pane menu
 2. Select **insights-logs-operational** and follow the navigation shown in the below screenshot to locate a json file and view the logs
 
-
+![View logs](./media/view-logs.png)
 
 ## Use Azure Monitor logs  
 
