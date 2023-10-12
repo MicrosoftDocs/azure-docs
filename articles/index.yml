@@ -504,7 +504,7 @@ productDirectory:
       url: container-instances/index.yml
     # Card
     - title: Virtual Machines
-      summary: Provision virtual machines for Ubuntu, Red Hat, Windows and more
+      summary: Provision virtual machines for Ubuntu, Red Hat, Windows, and more
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - featured
