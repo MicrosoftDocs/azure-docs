@@ -98,9 +98,9 @@ After your workflow finishes a run and a few minutes pass, open your Application
 
 1. On the Application Insights resource menu, under **Monitoring**, select **Logs**.
 
-<a name="view-enhanced-telemetry"></a>
+<a name="view-enhanced-logs"></a>
 
-## View enhanced telemetry in Application Insights
+## View enhanced logs in Application Insights
 
 The following sections describe the tables in Application Insights where you can find and view the enhanced telemetry generated from your workflow run.
 
@@ -668,6 +668,26 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
       }
    }
    ```
+
+<a name="view-enhanced-metrics"></a>
+
+## View enhanced metrics in Application Insights
+
+With the telemetry enhancements in Application Insights, you also get an enhanced Metrics dashboard.
+
+1. On your Application Insights resource menu, under **Monitoring**, select **Metrics**.
+
+1. From the **Scope** list, select your Application Insights instance.
+
+1. From the **Metric Namespace** list, select **workflow.operations**.
+
+1. From the **Metric** list, select a metric, for example, **Runs Completed**.
+
+1. From the **Aggregation** list, select a type, for example, **Count** or **Avg**.
+
+   When you're done, the Metrics dashboard shows a chart with your finished workflow executions.
+
+   ![Screenshot shows Application Insights with Metrics dashboard and chart that shows number of finished workflow executions over time.](media/enable-enhanced-telemetry-standard-workflows/metrics-dashboard.png)
 
 ## Next steps
 
