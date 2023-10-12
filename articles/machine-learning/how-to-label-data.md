@@ -23,7 +23,7 @@ After your project administrator creates an Azure Machine Learning [image data l
 
 ## Prerequisites
 
-* A [Microsoft account](https://account.microsoft.com/account), or an Azure Active Directory account, for the organization and project.
+* A [Microsoft account](https://account.microsoft.com/account), or a Microsoft Entra account, for the organization and project.
 * Contributor-level access to the workspace that contains the labeling project.
 
 ## Sign in to the studio

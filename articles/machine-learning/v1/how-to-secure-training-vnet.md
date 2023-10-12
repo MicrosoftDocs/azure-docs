@@ -22,7 +22,7 @@ In this article, you learn how to secure training environments with a virtual ne
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in a virtual network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 
-* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Azure Active Directory, Azure Resource Manager, etc.).
+* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Microsoft Entra ID, Azure Resource Manager, etc.).
 * **Public IP**: Works by default, but costs more due to additional Azure networking resources. Requires inbound communication from the Azure Machine Learning service over the public internet.
 
 The following table contains the differences between these configurations:
@@ -133,7 +133,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
 
 
-+ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Azure Active Directory or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
++ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Microsoft Entra ID or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](../how-to-access-azureml-behind-firewall.md).

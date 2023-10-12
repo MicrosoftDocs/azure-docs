@@ -62,9 +62,9 @@ The following section contains a more in-depth look at the full schemas of each 
 | UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: contoso.com |
 | Host | Entity | The host which contains the account, if it's a local account. |
 | Sid | String | The account security identifier, such as S-1-5-18. |
-| AadTenantId | Guid? | The Azure AD tenant ID, if known. |
-| AadUserId | Guid? | The Azure AD account object ID, if known. |
-| PUID | Guid? | The Azure AD Passport User ID, if known. |
+| AadTenantId | Guid? | The Microsoft Entra tenant ID, if known. |
+| AadUserId | Guid? | The Microsoft Entra account object ID, if known. |
+| PUID | Guid? | The Microsoft Entra Passport User ID, if known. |
 | IsDomainJoined | Bool? | Determines whether this is a domain account. |
 | DisplayName | String | The display name of the account. |
 | ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
@@ -508,7 +508,7 @@ The following list defines identifiers for known cloud applications. The App ID 
 | 26069  | Google Drive                      |
 | 26206  | Workiva                           |
 | 26311  | Microsoft Dynamics                |
-| 26318  | Microsoft Azure AD                |
+| 26318  | Microsoft Entra ID                |
 | 26320  | Microsoft Office Sway             |
 | 26321  | Microsoft Delve                   |
 | 26324  | Microsoft Power BI                |
