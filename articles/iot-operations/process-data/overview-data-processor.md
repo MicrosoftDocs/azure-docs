@@ -42,6 +42,19 @@ image that provides a high-level view of how the feature works.
 [Overview]
 TODO: Add your overview
 
+A pipeline in data processor has an input source where data is read from, a destination where processed data is written to, and a variable number of intermediate stages to process the data.
+
+:::image type="content" source="media/pipeline-stages.png" alt-text="Diagram that shows how a pipeline is made up from stages." border="false":::
+
+The various intermediate stages represent the different data processing capabilities. More capabilities will be added in the future.
+
+- You can add as many intermediate stages as you need to a pipeline.
+- You can order the intermediate stages of a pipeline as you need. You can reorder stages after they're set.
+- Each stage adheres to a defined implementation interface and input/output schema contract​.
+- Each stage is completely independent of the other stages in the pipeline.
+- All stages operate within the scope of a [partition](concept-partitioning.md), data isn't shared between different partitions.
+- Data flows from one stage to the next only.
+
 <!-- 3. Use cases -----------------------------------------------------------------------
 
 Optional: List a few key scenarios that you can use the feature in.

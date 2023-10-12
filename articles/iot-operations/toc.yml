@@ -40,22 +40,47 @@ items:
         href: process-data/concept-message-structure.md
       - name: Supported message formats
         href: process-data/concept-supported-formats.md
-      - name: Pipeline contextualization
-        href: process-data/concept-contextualization.md
       - name: Pipeline partitioning
         href: process-data/concept-partitioning.md
-      - name: What is jq?
-        href: process-data/concept-jq.md
-      - name: jq paths
-        href: process-data/concept-jq-path.md
-      - name: jq expressions
-        href: process-data/concept-jq-expression.md
       - name: Configuration patterns
         href: process-data/concept-configuration-patterns.md
-      - name: Configure data source
+      - name: Configure a pipeline data source stage
         href: process-data/howto-configure-datasource.md
-      - name: Configure reference data store
-        href: process-data/howto-configure-reference.md
+      - name: Aggregate data in a pipeline
+        href: process-data/howto-configure-aggregate-stage.md
+      - name: Filter data in a pipeline
+        href: process-data/howto-configure-filter-stage.md
+      - name: Call out to a gRPC endpoint from a pipeline
+        href: process-data/howto-configure-grpc-callout-stage.md
+      - name: Call out to an HTTP endpoint from a pipeline
+        href: process-data/howto-configure-http-callout-stage.md
+      - name: Use last known values in a pipeline
+        href: process-data/howto-configure-lkv-stage.md
+      - name: Transform data in a pipeline
+        href: process-data/howto-configure-transform-stage.md
+      - name: Send data to a gRPC endpoint
+        href: process-data/howto-configure-destination-grpc.md
+      - name: Publish data to an MQTT broker
+        href: process-data/howto-configure-destination-mq-broker.md
+      - name: Enrich messages
+        items:
+        - name: Pipeline contextualization
+          href: process-data/concept-contextualization.md
+        - name: Configure reference data store
+          href: process-data/howto-configure-reference.md
+        - name: Send data to the reference data store
+          href: process-data/howto-configure-destination-reference-store.md
+        - name: Configure enrich stage
+          href: process-data/howto-configure-enrich-stage.md
+      - name: jq
+        items:
+        - name: What is jq?
+          href: process-data/concept-jq.md
+        - name: jq paths
+          href: process-data/concept-jq-path.md
+        - name: jq expressions
+          href: process-data/concept-jq-expression.md
+
     - name: Connect to the cloud
       items:
       - name: Overview
@@ -66,6 +91,11 @@ items:
         href: connect-to-cloud/howto-use-mqtt-bridge-event-grid.md
       - name: Connect to Messaging services
         href: connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md
+      - name: Send data to Azure Data Explorer from a pipeline
+        href: connect-to-cloud/howto-configure-destination-data-explorer.md
+      - name: Send data to Microsoft Fabric from a pipeline
+        href: connect-to-cloud/howto-configure-destination-fabric.md
+
     - name: Visualize and analyze telemetry
       items:
       - name: Overview

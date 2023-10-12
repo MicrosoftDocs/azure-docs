@@ -2013,7 +2013,7 @@ Use the following jq expression to filter out messages with a temperature less t
 .payload.sensorData.temperature > 10 and .payload.sensorData.humidity < 80
 ```
 
-In the previous example, the expression itself is a simple compound boolean expression. The expression is designed to work with the structure of the first of the input messages shown previously. When the expression receives the second message, the array structure of `.payload` is incompatible with the object access in the expression and results in an error. If you want filter out based on temperature/humidity values and remove messages with incompatible structure, this expression works. Another approach that results in no error is to add `(.payload | type) == "object" and ` to the start of the expression.
+In the previous example, the expression itself is a simple compound boolean expression. The expression is designed to work with the structure of the first of the input messages shown previously. When the expression receives the second message, the array structure of `.payload` is incompatible with the object access in the expression and results in an error. If you want filter out based on temperature/humidity values and remove messages with incompatible structure, this expression works. Another approach that results in no error is to add `(.payload | type) == "object" and` to the start of the expression.
 
 #### Output 1
 

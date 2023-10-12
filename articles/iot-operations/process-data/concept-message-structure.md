@@ -119,5 +119,6 @@ All metadata that's not part of the primary data becomes top-level properties wi
 
 ## Related content
 
-- [Serialization and deserialization formats overview](concept-supported-formats.md)
-- [Configuration patterns](concept-configuration-patterns.md)
+- [Supported formats](concept-supported-formats.md)
+- [What is partitioning?](concept-partitioning.md)
+- [What are configuration patterns?](concept-configuration-patterns.md)
