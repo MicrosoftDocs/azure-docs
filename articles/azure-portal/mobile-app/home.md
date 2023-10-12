@@ -25,13 +25,42 @@ Current card options include:
 - **Recent resources**: A list of your 4 most recent resources viewed with the option to see all.
 - **Favorites**: A list of the resources you have favorited and the option to see all.
 
-:::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home with several display cards.":::
+:::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards."::: 
 
 ## Customize Azure mobile app Home screen
 
 You can customize the cards displayed on your Azure mobile app **Home** screen by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: in the top right of the **Home**  screen. From there you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home** screen.
 
-:::image type="content" source="media/azure-mobile-app-home-edit.png" alt-text="Screenshot showing the customization screen for Azure mobile app Home.":::
+For instance, you could rearrange the default order as follows:
+
+:::image type="content" source="media/azure-mobile-app-home-edit.png" alt-text="Screenshot showing the customization screen for the Azure mobile app Home screen.":::
+
+This would result in a **Home** screen similar to the following image:
+
+:::image type="content" source="media/azure-mobile-app-updated-home.png" alt-text="Screenshot of the Azure mobile app Home screen with display cards in a new order.":::
+
+## Global search
+
+The global search button appears the top left of the **Home** screen. Select this button to search for anything specific you may be looking for on your Azure account. This includes:
+
+- Resources
+- Services
+- Resource groups
+- Subscriptions
+
+You can filter these results by subscription using the **Home** filtering option.
+
+## Filtering
+
+In the top right of the **Home** screen, you'll see a filter option. When selecting the filter icon, the app gives you the option to filter the results shown on the **Home** screen by specific subscriptions. This includes results for:
+
+- Resource groups
+- Azure services
+- Latest alerts
+- Service health
+- Global search
+
+This filtering option is specific to the **Home** screen, and does not filter for the other bottom navigation sections.
 
 ## Next steps
 
