@@ -17,7 +17,7 @@ ms.reviewer: almars
 
 When users authenticate into your corporate intranet or web-based applications, Microsoft Entra ID provides the identity and access management (IAM) service. You can add company branding that applies to all these experiences to create a consistent sign-in experience for your users.
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS.
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS file.
 
 > [!NOTE]
 > Instructions for how to manage the **'Stay signed in prompt?'** can be found in the **[Manage the 'Stay signed in?' prompt](how-to-manage-stay-signed-in-prompt.md)** article.
@@ -32,7 +32,7 @@ Adding custom branding requires one of the following licenses:
 
 For more information about licensing and editions, see the [Sign up for Microsoft Entra ID P1 or P2](./get-started-premium.md) article.
 
-Microsoft Entra ID P1 or P2 editions are available for customers in China using the worldwide instance of Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions aren't currently supported in the Azure service operated by 21Vianet in China
+Microsoft Entra ID P1 or P2 editions are available for customers in China using the worldwide instance of Microsoft Entra ID. Microsoft Entra ID P1 or P2 editions aren't currently supported in the Azure service operated by 21Vianet in China.
 
 The **Global Administrator** role is required to customize company branding.
 
@@ -102,7 +102,7 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 !['Review + create' and 'Next: Layout' buttons from the bottom of the configure custom branding page](media/how-to-customize-branding/customize-branding-buttons.png)
 
-## Basics
+### Basics
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
@@ -112,26 +112,26 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
 
-## Layout
+### Layout
 
-- **Visual Templates**: Customize the layout of your sign-in page using templates or custom CSS.
+- **Visual Templates**: Customize the layout of your sign-in page using templates or a custom CSS file.
 
     - Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important.
     - The details of the **Header** and **Footer** options are set on the next two sections of the process.
     
     ![Screenshot of the Layout tab.](media/how-to-customize-branding/layout-visual-templates.png)
 
-- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page.
+- **Custom CSS**: Upload a custom CSS file to replace the Microsoft default style of the page.
     - [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
     - View the [CSS template reference guide](reference-company-branding-css-template.md).
 
-## Header
+### Header
 
 If you haven't enabled the header, go to the **Layout** section and select **Show header**. Once enabled, select a PNG or JPG to display in the header of the sign-in page.
 
 ![Screenshot of the message indicating that the header needs to be enabled.](media/how-to-customize-branding/disabled-header-message.png)
 
-## Footer
+### Footer
 
 If you haven't enabled the footer, go to the **Layout** section and select **Show footer**. Once enabled, adjust the following settings.
 
@@ -148,7 +148,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
     ![Customize branding on the Footer section](media/how-to-customize-branding/customize-branding-footer.png)
 
-## Sign-in form
+### Sign-in form
 
 - **Banner logo**: Select a PNG or JPG image file of a banner-sized logo (short and wide) to appear on the sign-in pages.
 
@@ -176,13 +176,13 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
     - Username collection display text: Replace the default text with your own custom username collection text.
     - Password collection display text: Replace the default text with your own customer password collection text.
 
-## Review
+### Review
 
 All of the available options appear in one list so you can review everything you've customized or left at the default setting. When you're done, select the **Create** button. 
 
 Once your default sign-in experience is created, select the **Edit** button to make any changes. You can't delete a default sign-in experience after it's created, but you can remove all custom settings.
 
-## Customize the sign-in experience by browser language
+### Customize the sign-in experience by browser language
 
 You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
@@ -200,6 +200,6 @@ Microsoft Entra ID supports right-to-left functionality for languages such as Ar
 
 ## Next steps
 
-- [View the CSS template reference guide](reference-company-branding-css-template.md).
+- [View the CSS template reference guide](reference-company-branding-css-template.md)
 - [Learn more about default user permissions in Microsoft Entra ID](../fundamentals/users-default-permissions.md)
 - [Manage the 'stay signed in' prompt](how-to-manage-stay-signed-in-prompt.md)
