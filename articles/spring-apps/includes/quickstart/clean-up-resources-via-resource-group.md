@@ -13,8 +13,6 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 -->
 
-Use the following steps to delete the resource group by using the Azure portal:
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
 
-1. Locate your resource group in the Azure portal. On the home page, select **Resource groups**, and then select the name of your resource group.
-
-1. On your **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, and then select **Delete**.
+1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.

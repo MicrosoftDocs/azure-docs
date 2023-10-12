@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal)
 
-This section isn't required to prepare the JAR package for deployment. The **Deploy to azure** button process downloads the JAR package from [GitHub release](https://github.com/Azure/spring-cloud-azure-tools/releases).
+The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
