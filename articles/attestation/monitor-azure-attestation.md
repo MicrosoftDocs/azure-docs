@@ -43,4 +43,4 @@ Here are some queries that you can enter into the Log search bar to help you
 
 ## Next steps 
 
-- [Attestation Monitoring data reference](../azure/attestation/monitor-azure-attestation-reference.md)
+- For information on how to interpret logs, see [Azure Attestation logging](../azure/attestation/view-logs.md) 
