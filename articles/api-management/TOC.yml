@@ -7,7 +7,7 @@
         items:
         - name: About API Management
           displayName: Overview
-          href: api-management-key-concepts.md
+          href: api-management-key-concepts.md  
         - name: API Management features availability
           href: api-management-features.md
         - name: v2 service tiers
@@ -292,7 +292,7 @@
       href: how-to-configure-local-metrics-logs.md
     - name: Enable Dapr support on self-hosted gateway
       href: self-hosted-gateway-enable-dapr.md  
-    - name: Use Azure AD authentication on self-hosted gateway
+    - name: Use Microsoft Entra authentication on self-hosted gateway
       href: self-hosted-gateway-enable-azure-ad.md
     - name: Guidance for running on Kubernetes
       href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
@@ -306,7 +306,7 @@
     items:
     - name: API authentication and authorization options
       href: authentication-authorization-overview.md
-    - name: Protect your API with Azure AD
+    - name: Protect your API with Microsoft Entra ID
       href: api-management-howto-protect-backend-with-aad.md
     - name: Protect your API with Azure AD B2C
       href: howto-protect-backend-frontend-azure-ad-b2c.md
@@ -328,7 +328,7 @@
       displayName: OAuth
     - name: Configure common authorization providers
       href: authorizations-configure-common-providers.md
-    - name: Configure and use authorization - Azure AD
+    - name: Configure and use authorization - Microsoft Entra ID
       href: authorizations-how-to-azure-ad.md
     - name: Configure and use authorization - GitHub
       href: authorizations-how-to-github.md
@@ -392,7 +392,7 @@
                 href: secure-developer-portal-access.md
               - name: Authenticate with username and password
                 href: developer-portal-basic-authentication.md
-              - name: Authenticate with Azure AD
+              - name: Authenticate with Microsoft Entra ID
                 href: api-management-howto-aad.md
               - name: Authenticate with Azure AD B2C
                 href: api-management-howto-aad-b2c.md

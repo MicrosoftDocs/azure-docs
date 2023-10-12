@@ -17,6 +17,7 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ---
 
 # Quickstart: Use the Face service
+
 [!INCLUDE [GDPR-related guidance](../includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
@@ -44,8 +45,3 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone-end
 
-::: zone pivot="vision-studio"
-
-[!INCLUDE [Vision Studio quickstart](../includes/identity-studio-quickstart.md)]
-
-::: zone-end

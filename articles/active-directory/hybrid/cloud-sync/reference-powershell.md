@@ -1,5 +1,5 @@
 ---
-title: 'AADCloudSyncTools PowerShell module for Microsoft Entra Connect cloud sync'
+title: 'AADCloudSyncTools PowerShell module for Microsoft Entra Cloud Sync'
 description: This article describes how to install the Microsoft Entra Connect cloud provisioning agent.
 services: active-directory
 author: billmath
@@ -14,9 +14,9 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# AADCloudSyncTools PowerShell module for Microsoft Entra Connect cloud sync
+# AADCloudSyncTools PowerShell module for Microsoft Entra Cloud Sync
 
-The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Microsoft Entra Connect cloud sync.
+The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Microsoft Entra Cloud Sync.
 
 ## Prerequisites
 
@@ -160,4 +160,4 @@ Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId "340ab039
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
