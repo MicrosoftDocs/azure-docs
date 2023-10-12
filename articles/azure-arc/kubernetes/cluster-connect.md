@@ -243,45 +243,21 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
 ## Access your cluster from a client device
 
-Now you can access the cluster from a different client. Run the following steps on another client device, such as with PowerShell.
+Now you can access the cluster from a different client. Run the following steps on another client device.
 
-1. Set up the cluster connect `kubeconfig` needed to access your cluster based on the authentication option used:
+1. Sign in using either Microsoft Entra authentication or service account token authentication.
 
-   - If using Microsoft Entra authentication, after logging into Azure CLI using the Microsoft Entra entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+1. Get the cluster connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster), based on the authentication option used:
 
-     ```azurecli
-     az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
-     ```
-
-   - If using service account authentication, get the cluster connect `kubeconfig` needed to communicate with the cluster from anywhere:
+   - If using Microsoft Entra authentication:
 
      ```azurecli
-     az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
-     ```
-
-1. Sign in to Azure using the Microsoft Entra ID entity of interest:
-  
-    ```powershell
-    set SUBSCRIPTION_ID <subscription-id>
-    set CLUSTER_NAME <cluster-name>
-    set RESOURCE_GROUP <resource-group-name>
-    
-    az login
-    az account set --subscription $SUBSCRIPTION_ID
-    ```
-
-1. Get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster), based on the authentication option used:
-
-   - If using Microsoft Entra ID authentication:
-  
-     ```powershell
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
      ```
 
    - If using service account authentication:
 
-     ```powershell
-     set TOKEN <token-from-previous-step>
+     ```azurecli
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
      ```
 
