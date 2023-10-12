@@ -319,7 +319,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with-package=True`:
+    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
 
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -613,7 +613,7 @@ Let's imagine that there is a new version of the model created by the developmen
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `with-package=True`:
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with_package=True`:
 
     ```python
     green_deployment = ManagedOnlineDeployment(
