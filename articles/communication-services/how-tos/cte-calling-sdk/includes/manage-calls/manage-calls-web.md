@@ -52,6 +52,34 @@ Join Teams meeting with meeting code and passcode:
 const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>', passcode: '<PASSCODE>'});
 ```
 
+### Key things to note about joining Teams meeting with MeetingId and Passcode:
+- Format of the meetingId  and passcode 
+  * Meeting ID: 12 digits.
+  * Passcode: 6 characters
+     
+- How often do we need to refresh passcode & ID?
+   * There is single pair for meeting. Developers don't need to refresh it.
+   * Organizer can't regenerate the coordinates.
+       
+- Is there any difference in Teams meeting experience if the user joins through URL or meeting ID & passcode?
+  * It is the same experience, the only difference is how the user connects to the meeting.
+
+- How should developers store and manage passcode?
+  * Meeting ID and passcode are coordinates to join the meeting. Developers should treat it as secret, which should be encrypted and if stored then behind access control.
+  * If the coordinates are exposed, anyone can join the meeting and ruin the experience for everyone in the meeting.
+    
+- Meeting ID & passcode are not printed to the console. Hence they cannot be found in verbose client logs.
+
+- How to get meeting ID & passcode ?
+     1. Graph API - onlineMeeting resource and property "joinMeetingIdSettings"
+     1. Teams app -> Calendar -> Meeting info
+     1. Outlook -> Email -> Teams meeting footer]
+
+- Passcode is always required to join the Teams meeting. Passcode is case sensitive
+
+- How can I verify the meeting ID & passcode is correct?
+  * MeetingId and passcode verification can be done via : https://www.microsoft.com/en-us/microsoft-teams/join-a-meeting
+
 ## Receive a Teams incoming call
 
 You can subscribe to `incomingCall` event on `teamsCallAgent` instance to register incoming calls to the Teams user. The event has a ` teamsIncomingCall ` property with `TeamsIncomingCall` instance that allows you to `accept` or `reject` the incoming call.
