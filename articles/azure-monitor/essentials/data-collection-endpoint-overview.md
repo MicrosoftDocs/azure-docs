@@ -31,7 +31,7 @@ A data collection endpoint includes the following components:
 
 Set up one data collection endpoint to send configuration files and receive collected data.
 
-:::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality.png" alt-text="A diagram that shows resources in a single region sending data and receiving configuration files using a data collection endpoint.":::
+:::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-one-region.png" alt-text="A diagram that shows resources in a single region sending data and receiving configuration files using a data collection endpoint.":::
 
 **Scenario: Monitored resources in multiple regions sending data to one or more Log Analytics workspaces in a single region**
 
