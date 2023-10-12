@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure routing preference to influence route selection using PowerShell
 
-Learn how to use [routing preference (preview)](hub-routing-preference.md) setting in Azure Route Server to influence its route selection. 
+Learn how to use routing preference setting in Azure Route Server to influence its route learning and selection. For more information, see [Routing preference (preview)](hub-routing-preference.md).
 
 > [!IMPORTANT]
 > Routing preference is currently in PREVIEW.
@@ -42,6 +42,8 @@ ResourceGroupName Name          Location RouteServerAsn RouteServerIps       Pro
 ----------------- ----          -------- -------------- --------------       ----------------- --------------------
 myResourceGroup   myRouteServer eastus   65515          {10.1.1.5, 10.1.1.4} Succeeded         ExpressRoute
 ```
+
+The default routing preference setting is **ExpressRoute**.
 
 ## Configure routing preference
 
