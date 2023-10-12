@@ -48,7 +48,7 @@ AKS configures the required supporting services for dual-stack networking. This 
 * Load balancer setup for IPv4 and IPv6 services.
 
 > [!NOTE]
-> When using Dualstack with an [outbound type][outbound-type] user-defined routing, you should have a default route for both IPv4 and IPv6. If you only have a default route for IPv4, a warning will surface when creating a cluster. 
+> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.  
 
 ## Deploying a dual-stack cluster
 
