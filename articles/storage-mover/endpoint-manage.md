@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 10/12/2023
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
@@ -115,7 +115,12 @@ The following steps describe the process of creating a source endpoint.
 
       :::image type="content" source="media/endpoint-manage/endpoint-source-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint link." lightbox="media/endpoint-manage/endpoint-source-create-lrg.png":::
 
-   1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully qualified domain or host name. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
+   1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully qualified domain or host name.
+
+      > [!IMPORTANT]
+      > Depending on your DNS configuration, you may need to use your fully qualified domain name (FQDN) instead of your hostname.
+
+       You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
 
       Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide both the name of the Key Vault containing the secrets and the names of the secrets themselves.
 
