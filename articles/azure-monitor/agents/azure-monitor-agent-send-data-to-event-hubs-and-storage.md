@@ -779,21 +779,9 @@ Use custom template deployment to create the DCR association and AMA deployment.
 
 Use the following section to troubleshoot sending data to Event Hubs and Storage.
 
-### Data not found in storage account blob storage
+### Data not found in blob storage or table storage or not flowing to event hub
 
-- Check that the built-in role `Storage Blob Data Contributor` is assigned with managed identity on the storage account.
-- Check that the managed identity is assigned to the VM.
-- Check that the AMA settings have managed identity parameter.
-
-### Data not found in storage account table storage
-
-- Check that the built-in role `Storage Table Data Contributor` is assigned with managed identity on storage account.
-- Check that the managed identity is assigned to the VM.
-- Check that the AMA settings have managed identity parameter.
-
-### Data not flowing to event hub
-
-- Check that the built-in role `Azure Event Hubs Data Sender` is assigned with managed identity on storage account.
+- Check that the applicable required permissions are assigned with managed identity on the storage account.
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
