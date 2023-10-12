@@ -46,11 +46,11 @@ Select **Download as CSV** to download the events in the current view.
 
 ### View change history
 
-For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history (Preview)** tab to view any associated changes with that event.
+For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history** tab to view any changes on the resource up to 30 minutes before and after the time of the operation.
 
 ![Screenshot that shows the Change history list for an event.](media/activity-log/change-history-event.png)
 
-If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history (Preview)** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
+If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ![Screenshot that shows the Change history page showing differences.](media/activity-log/change-history-event-details.png)
 
@@ -95,6 +95,9 @@ To retrieve all records in the administrative category, use the following query:
 AzureActivity
 | where CategoryValue == "Administrative"
 ```
+
+> [!Important]
+> In some scenarios, it's possible that values in fields of AzureActivity might have different casings from otherwise equivalent values. Take care when querying data in AzureActivity to use case-insensitive operators for string comparisons, or use a scalar function to force a field to a uniform casing before any comparisons. For example, use the [tolower()](/azure/kusto/query/tolowerfunction) function on a field to force it to always be lowercase or the [=~ operator](/azure/kusto/query/datatypes-string-operators) when performing a string comparison.
 
 ## Send to Azure Event Hubs
 

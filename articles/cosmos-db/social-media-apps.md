@@ -102,7 +102,7 @@ Creating feeds is just a matter of creating documents that can hold a list of po
 
 You could have a "latest" stream with posts ordered by creation date. Or you could have a "hottest" stream with those posts with more likes in the last 24 hours. You could even implement a custom stream for each user based on logic like followers and interests. It would still be a list of posts. It’s a matter of how to build these lists, but the reading performance stays unhindered. Once you acquire one of these lists, you issue a single query to Azure Cosmos DB using the [IN keyword](sql-query-keywords.md#in) to get pages of posts at a time.
 
-The feed streams could be built using [Azure App Services’](https://azure.microsoft.com/services/app-service/) background processes: [Webjobs](../app-service/webjobs-create.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) and Webjobs triggered using the [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementing the post propagation inside streams based on your own custom logic.
+The feed streams could be built using [Azure App Services’](https://azure.microsoft.com/services/app-service/) background processes: [Webjobs](../app-service/webjobs-create.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) and Webjobs triggered using the [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementing the post propagation inside streams based on your own custom logic.
 
 Points and likes over a post can be processed in a deferred manner using this same technique to create an eventually consistent environment.
 
@@ -230,7 +230,7 @@ Now that I got you hooked, you’ll probably think you need some PhD in math sci
 
 To achieve any of these Machine Learning scenarios, you can use [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) to ingest the information from different sources. You can also use [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) to process the information and generate an output that can be processed by Azure Machine Learning.
 
-Another available option is to use [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
+Another available option is to use [Azure AI services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). Azure AI services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
 
 ## A planet-scale social experience
 
@@ -240,13 +240,13 @@ Azure Cosmos DB supports dynamic partitioning out-of-the-box. It automatically c
 
 For a social experience, you must align your partitioning strategy with the way you query and write. (For example, reads within the same partition are desirable, and avoid "hot spots" by spreading writes on multiple partitions.) Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, or by user. It all really depends on how you'll query the data and show the data in your social experience.
 
-Azure Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, so you don't need to add any logic as your data grows.
+Azure Cosmos DB will run your queries (including [aggregates](/azure/cosmos-db/nosql/query/aggregate-functions)) across all your partitions transparently, so you don't need to add any logic as your data grows.
 
 With time, you'll eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your user base grows. The user base will start creating and reading more content. So the ability of **scaling your throughput** is vital. Increasing your RUs is easy. You can do it with a few clicks on the Azure portal or by [issuing commands through the API](/rest/api/cosmos-db/replace-an-offer).
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Scaling up and defining a partition key":::
 
-What happens if things keep getting better? Suppose users from another region, country, or continent notice your platform and start using it. What a great surprise!
+What happens if things keep getting better? Suppose users from another country/region or continent notice your platform and start using it. What a great surprise!
 
 But wait! You soon realize their experience with your platform isn't optimal. They're so far away from your operational region that the latency is terrible. You obviously don't want them to quit. If only there was an easy way of **extending your global reach**? There is!
 

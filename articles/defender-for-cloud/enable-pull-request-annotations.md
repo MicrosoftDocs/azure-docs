@@ -3,7 +3,7 @@ title: Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 06/06/2023
 ---
 
 # Enable pull request annotations in GitHub and Azure DevOps
@@ -14,6 +14,12 @@ With Microsoft Defender for Cloud, you can configure PR annotations in Azure Dev
 
 > [!NOTE]
 > GitHub Advanced Security for Azure DevOps (GHAzDO) is providing a free trial of PR annotations during the Defender for DevOps preview. 
+
+## What are pull request annotations
+
+Pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made and identified security issues in the pull request and help reviewers understand the changes that are made.
+
+Annotations can be added by a user with access to the repository, and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch. Defender for DevOps uses annotations to surface security findings. 
 
 ## Prerequisites
 
@@ -27,7 +33,7 @@ With Microsoft Defender for Cloud, you can configure PR annotations in Azure Dev
 **For Azure DevOps**:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
-- [Have write access (owner/contributer) to the Azure subscription](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
+- [Have write access (owner/contributer) to the Azure subscription](../active-directory/privileged-identity-management/pim-how-to-activate-role.md). 
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
 - [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
 - [Setup secret scanning in Azure DevOps](detect-exposed-secrets.md#setup-secret-scanning-in-azure-devops).
@@ -143,7 +149,7 @@ Once you've completed these steps, you can select the build pipeline you created
 1. (Optional) Select a category from the drop-down menu. 
 
     > [!NOTE]
-    > Only secret scan results and Infrastructure-as-Code misconfigurations for ARM/Bicep templates are currently supported.
+    > Only Infrastructure-as-Code misconfigurations (ARM, Bicep, Terraform, CloudFormation, Dockerfiles, Helm Charts, and more) results are currently supported.
 
 1. (Optional) Select a severity level from the drop-down menu.
 
@@ -153,7 +159,7 @@ All annotations on your pull requests will be displayed from now on based on you
 
 ### Resolve security issues in Azure DevOps
 
-Once you've configured the scanner, you'll be able to view all issues that were detected.
+Once you've configured the scanner, you're able to view all issues that were detected.
 
 **To resolve security issues in Azure DevOps**:
 
@@ -177,7 +183,7 @@ Once you've configured the scanner, you'll be able to view all issues that were 
     - **Won't fix** - The finding is noted but won't be fixed.
     - **Closed** - The discussion in this annotation is closed.
 
-Defender for DevOps will reactivate an annotation if the security issue isn't fixed in a new iteration.
+Defender for DevOps reactivates an annotation if the security issue isn't fixed in a new iteration.
 
 ## Learn more
 

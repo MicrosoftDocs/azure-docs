@@ -29,8 +29,7 @@ To complete this how-to guide, you need:
 
 > [!NOTE]
 > Once the server is stopped, other management operations are not available for the flexible server.
-
-Database Instance can be stopped for maximum of 7 days. While the database is stopped no operations are possible, except the planned maintenance activity that will be done on the schedule. This is done to ensure that the instances receive any necessary security updates and patches on time.
+> While the database instance is in stopped state, it could be briefly restarted for our scheduled monthly maintenance, and then returned to its stopped state. This ensures that even instances in a stopped state stay up to date with all necessary patches and updates.
 
 ## Start a stopped server
 

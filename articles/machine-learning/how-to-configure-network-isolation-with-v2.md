@@ -10,20 +10,12 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/07/2022
+ms.date: 09/13/2023
 ---
 
 # Network Isolation Change with Our New API Platform on Azure Resource Manager
 
 In this article, you'll learn about network isolation changes with our new v2 API platform on Azure Resource Manager (ARM) and its effect on network isolation.
-
-
-## Prerequisites
-
-* The [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](./v1/reference-azure-machine-learning-cli.md).
-
-    > [!IMPORTANT]
-    > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
  
 ## What is the new API platform on Azure Resource Manager (ARM)
 
@@ -92,6 +84,10 @@ To update v1_legacy_mode, use the following steps:
 
 # [Python SDK](#tab/python)
 
+
+> [!IMPORTANT]
+> If you want to disable the v2 API, use the [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install).
+
 To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=false`.
 
 ```python
@@ -109,13 +105,13 @@ The Azure CLI [extension v1 for machine learning](./v1/reference-azure-machine-l
 > The `v1-legacy-mode` parameter is only available in version 1.41.0 or newer of the Azure CLI extension for machine learning v1 (`azure-cli-ml`). Use the `az version` command to view version information.
 
 ```azurecli
-az ml workspace update -g <myresourcegroup> -w <myworkspace> --v1-legacy-mode False
+az ml workspace update -g <myresourcegroup> -n <myworkspace> --v1-legacy-mode False
 ```
 
 The return value of the `az ml workspace update` command may not show the updated value. To view the current state of the parameter, use the following command:
  
 ```azurecli
-az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
+az ml workspace show -g <myresourcegroup> -n <myworkspace> --query v1LegacyMode
 ```
 
 ---

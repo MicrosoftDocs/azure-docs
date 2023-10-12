@@ -21,7 +21,7 @@ Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential conta
 
 An [open sourced GitHub project "confidential side-cars"](https://github.com/microsoft/confidential-sidecar-containers) details how to build this container and what parameters/environment variables are required for you to prepare and run this side-car container. The current side car implementation provides various HTTP REST APIs that your primary application container can use to fetch the key from AKV. The integration through Microsoft Azure Attestation(MAA) is already built in. The preparation steps to run the side-car SKR container can be found in details [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main/examples/skr).
 
-Your main application container application can call the side-car WEB API end points as defined in the example blow. Side-cars runs within the same container group and is a local endpoint to your application container. Full details of the API can be found [here](https://github.com/microsoft/confidential-sidecar-containers/blob/main/cmd/skr/README.md)
+Your main application container application can call the side-car WEB API end points as defined in the example below. Side-cars runs within the same container group and is a local endpoint to your application container. Full details of the API can be found [here](https://github.com/microsoft/confidential-sidecar-containers/blob/main/cmd/skr/README.md)
  
 The `key/release` POST method expects a JSON of the following format:
 
@@ -57,7 +57,7 @@ To perform a custom container application that extends the capability of Azure K
 ![Image of the aforementioned operations, which you should be performing.](media/skr-flow-azure-container-instance-sev-snp-attestation/skr-flow-custom-container.png)
 
 1. **Step 1:** Set up AKV with Exportable Key and attach the release policy. More [here](concept-skr-attestation.md)
-1. **Step 2:** Set up a managed identity with Azure Active Directory and attach that to AKV. More [here](../container-instances/container-instances-managed-identity.md)
+1. **Step 2:** Set up a managed identity with Microsoft Entra ID and attach that to AKV. More [here](../container-instances/container-instances-managed-identity.md)
 1. **Step 3:** Deploy your container application with required parameters within ACI by setting up a confidential computing enforcement policy. More [here](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
 1. **Step 4:** In this step, your application shall fetch a RAW AMD SEV-SNP hardware report by doing a IOCTL Linux Socket call. You don't need any guest attestation library to perform this action. More on existing side-car [implementation](https://github.com/microsoft/confidential-sidecar-containers/blob/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/attest/snp.go)
 1. **Step 5:** Fetch the AMD SEV-SNP cert chain for the container group. These certs are delivered from Azure host IMDS endpoint. More [here](https://github.com/microsoft/confidential-sidecar-containers/blob/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/common/info.go)

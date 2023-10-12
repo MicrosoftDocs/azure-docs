@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/24/2021
-ms.custom: "mqtt, devx-track-csharp"
+ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
 # Upload files from your device to the cloud with Azure IoT Hub (.NET)
@@ -40,7 +40,7 @@ At the end of this article, you run two .NET console apps:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
@@ -212,7 +212,7 @@ Now you're ready to run the applications.
 
 
 
-1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\FileUploadSample** under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you saw when you registered a device in the IoT Hub.
+1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\FileUploadSample** under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you saw when you registered a device in the IoT hub.
 
     ```cmd/sh
     dotnet restore

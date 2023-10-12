@@ -8,8 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 01/04/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) for Linux VMs
 
@@ -376,10 +375,7 @@ If you would like to use certificate authentication and wrap the encryption key 
 > [!IMPORTANT]
 > Azure AD certificate-based authentication is currently not supported on Linux VMs.
 
-
-
-
- ```powershell
+```powershell
 # Fill in 'MyKeyVaultResourceGroup', 'MySecureVault', and 'MyLocation' (if needed)
 
    $KVRGname = 'MyKeyVaultResourceGroup'
@@ -460,7 +456,6 @@ If you would like to use certificate authentication and wrap the encryption key 
 
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
 ```
-
 
 ## Next steps
 

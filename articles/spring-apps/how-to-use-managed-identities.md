@@ -2,12 +2,12 @@
 title: Managed identities for applications in Azure Spring Apps
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Home page for managed identities for applications.
-author: karlerickson
+author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/15/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
@@ -20,7 +20,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 This article shows you how to use system-assigned and user-assigned managed identities for applications in Azure Spring Apps.
 
-Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory (Azure AD) to an Azure resource such as your application in Azure Spring Apps. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+Managed identities for Azure resources provide an automatically managed identity in Microsoft Entra ID to an Azure resource such as your application in Azure Spring Apps. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
 ## Feature status
 
@@ -36,9 +36,9 @@ For user-assigned managed identities, see [How to assign and remove user-assigne
 
 ## Obtain tokens for Azure resources
 
-An application can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
+An application can use its managed identity to get tokens to access other resources protected by Microsoft Entra ID, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
 
-You may need to configure the target resource to allow access from your application. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, be sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md).
+You may need to configure the target resource to allow access from your application. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, be sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md).
 
 Azure Spring Apps shares the same endpoint for token acquisition with Azure Virtual Machines. We recommend using Java SDK or Spring Boot starters to acquire a token. For various code and script examples and guidance on important topics such as handling token expiration and HTTP errors, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
@@ -78,9 +78,9 @@ The following services do not currently support managed identity-based access:
 
 ## Concept mapping
 
-The following table shows the mappings between concepts in Managed Identity scope and Azure AD scope:
+The following table shows the mappings between concepts in Managed Identity scope and Microsoft Entra scope:
 
-| Managed Identity scope | Azure AD scope |
+| Managed Identity scope | Microsoft Entra scope |
 |------------------------|----------------|
 | Principal ID           | Object ID      |
 | Client ID              | Application ID |

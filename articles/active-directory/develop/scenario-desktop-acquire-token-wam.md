@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/14/2022
 ms.author: dmwendia
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -24,7 +24,7 @@ The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a W
 Using an authentication broker such as WAM has numerous benefits:
 
 - Enhanced security. See [Token protection](/azure/active-directory/conditional-access/concept-token-protection).
-- Support for Windows Hello, conditional access, and FIDO keys.
+- Support for Windows Hello, Conditional Access, and FIDO keys.
 - Integration with the Windows **Email & accounts** view.
 - Fast single sign-on.
 - Ability to sign in silently with the current Windows account.

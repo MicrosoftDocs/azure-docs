@@ -3,13 +3,13 @@ title: List of Azure regions that support zone-redundant storage (ZRS)
 titleSuffix: Azure Storage
 description: List of Azure regions that support zone-redundant storage (ZRS)
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 04/28/2023
-ms.author: jammart
-ms.subservice: common 
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to quickly create an Azure Linux Container Host for AKS c
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 04/18/2023
 ---

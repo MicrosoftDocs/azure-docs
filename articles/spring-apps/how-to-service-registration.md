@@ -1,12 +1,12 @@
 ---
 title:  Discover and register your Spring Boot applications in Azure Spring Apps
 description: Discover and register your Spring Boot applications with managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 05/09/2022
-ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -83,4 +83,4 @@ The Spring Cloud Service Registry server endpoint is injected as an environment 
 
 ## Next steps
 
-In this article, you learned how to register your application using Spring Cloud Service Registry. To learn how to access the Spring Cloud Service Registry using Azure Active Directory (Azure AD) role-based access control (RBAC), see [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md).
+In this article, you learned how to register your application using Spring Cloud Service Registry. To learn how to access the Spring Cloud Service Registry using Microsoft Entra role-based access control (RBAC), see [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md).

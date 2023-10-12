@@ -32,7 +32,7 @@ When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
 #### Option 1: Call Microsoft Graph with the SDK
 
-In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
+In this scenario, you've added the **Microsoft.Identity.Web.GraphServiceClient** NuGet package and added `.AddMicrosoftGraph()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
 ```csharp
  [Authorize]
@@ -48,10 +48,10 @@ In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specifi
 
      public async Task OnGet()
      {
-         var user = await _graphServiceClient.Me.Request().GetAsync();
+         var user = await _graphServiceClient.Me.GetAsync();
          try
          {
-             using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+             using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
              {
                  byte[] photoByte = ((MemoryStream)photoStream).ToArray();
                  ViewData["photo"] = Convert.ToBase64String(photoByte);
@@ -68,7 +68,7 @@ In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specifi
 
 #### Option 2: Call a downstream web API with the helper class
 
-In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
+In this scenario, you've added `.AddDownstreamApi()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
 ```csharp
  [Authorize]
@@ -153,10 +153,10 @@ public class HomeController : Controller
  public async Task GetIndex()
  {
   var graphServiceClient = this.GetGraphServiceClient();
-  var user = await graphServiceClient.Me.Request().GetAsync();
+  var user = await graphServiceClient.Me.GetAsync();
   try
   {
-   using (var photoStream = await graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   using (var photoStream = await graphServiceClient.Me.Photo.Content.GetAsync())
    {
     byte[] photoByte = ((MemoryStream)photoStream).ToArray();
     ViewData["photo"] = Convert.ToBase64String(photoByte);

@@ -7,7 +7,7 @@ manager: carmonm
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 09/25/2023
 ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
@@ -411,6 +411,20 @@ This field represents the node name used for billing purposes. Use it to overrid
 
 **Maximum length:** 256
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How would I measure the impact of a monitoring campaign?
+
+PageView Telemetry includes URL and you could parse the UTM parameter using a regex function in Kusto.
+          
+Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+
+### Why would a custom measurement succeed without error but the log doesn't show up?
+
+This can occur if you're using string values. Only numeric values work with custom measurements.
+
 ## Next steps
 
 Learn how to use the [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:
@@ -429,7 +443,7 @@ To learn more:
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
-- Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
+- Explore [Java trace logs in Application Insights](./opentelemetry-add-modify.md?tabs=java#logs).
 - Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).

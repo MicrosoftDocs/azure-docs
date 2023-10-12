@@ -4,14 +4,13 @@ titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library for JavaScript.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/19/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: javascript
-ms.custom: devx-track-javascript, engagement-fy23
+ms.custom: devx-track-javascript, engagement-fy23, devx-track-js
 ---
 
 # Create a service SAS for a container or blob with JavaScript

@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 09/20/2023
 ms.author: duau
 ---
 
@@ -50,7 +50,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 3. List all locations where ExpressRoute Direct is supported.
   
    ```powershell
-   Get-AzExpressRoutePortsLocation
+   Get-AzExpressRoutePortsLocation | format-list
    ```
 
    **Example output**
@@ -83,7 +83,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 4. Determine if a location listed above has available bandwidth
 
    ```powershell
-   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1" | format-list
    ```
 
    **Example output**
@@ -277,7 +277,10 @@ There are more circuit bandwidths that can be utilized on ExpressRoute Direct to
 
 **SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** can only be MeteredData. Unlimited isn't supported on ExpressRoute Direct.
+**SkuFamily** can only be **MeteredData** at creation. To use **Unlimited** data, you'll need to update the *SkuFamily* after creation.
+
+> [!NOTE]
+> Once you change to **Unlimited** data, you won't be able to change it back without recreating the ExpressRoute circuit.
 
 Create a circuit on the ExpressRoute Direct resource.
 
@@ -329,7 +332,7 @@ You can delete the ExpressRoute Direct resource by running the following command
 
 The following scenario is in public preview:
 
-ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Azure Active Directory tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Azure Active Directory tenant.
+ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
 
 ### Enable ExpressRoute Direct and circuits in different subscriptions
 
@@ -388,12 +391,12 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
         CircuitResourceUri     :on  
     ```
 
-1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Azure Active Directory tenant with the following command:
+1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Microsoft Entra tenant with the following command:
 
     ```powershell
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     
-    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -ExpressRoutePort $ERPort -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 ## Next steps
 

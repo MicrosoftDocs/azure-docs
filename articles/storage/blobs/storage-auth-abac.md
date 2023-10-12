@@ -2,14 +2,13 @@
 title: Authorize access to Azure Blob Storage using Azure role assignment conditions
 titleSuffix: Azure Storage
 description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 04/21/2023
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: blobs
 ---
 
 # Authorize access to Azure Blob Storage using Azure role assignment conditions
@@ -22,7 +21,7 @@ Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [con
 
 ## Overview of conditions in Azure Storage
 
-You can [use Azure Active Directory](../common/authorize-data-access.md) (Azure AD) to authorize requests to Azure storage resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access Azure storage data. You can also define custom roles with select sets of permissions. Azure Storage supports role assignments for both storage accounts and blob containers.
+You can [use Microsoft Entra ID](../common/authorize-data-access.md) (Microsoft Entra ID) to authorize requests to Azure storage resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access Azure storage data. You can also define custom roles with select sets of permissions. Azure Storage supports role assignments for both storage accounts and blob containers.
 
 Azure ABAC builds on Azure RBAC by adding [role assignment conditions](../../role-based-access-control/conditions-overview.md) in the context of specific actions. A *role assignment condition* is an additional check that is evaluated when the action on the storage resource is being authorized. This condition is expressed as a predicate using attributes associated with any of the following:
 
@@ -60,7 +59,7 @@ If you're working with conditions based on [blob index tags](storage-manage-find
 
 The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows the use of `@Principal`, `@Resource`, `@Request` or `@Environment` attributes in the conditions. A `@Principal` attribute is a custom security attribute on a principal, such as a user, enterprise application (service principal), or managed identity. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute or parameter included in a storage operation request. An `@Environment` attribute refers to the network environment or the date and time of a request.
 
-[Azure RBAC supports a limited number of role assignments per subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Azure AD custom security attributes]() for principals.
+[Azure RBAC supports a limited number of role assignments per subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Microsoft Entra custom security attributes]() for principals.
 
 ## Status of condition features in Azure Storage
 

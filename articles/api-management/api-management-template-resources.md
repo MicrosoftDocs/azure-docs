@@ -476,7 +476,7 @@ The following localization options are supported:
 |ValidationErrorCredentialsInvalid|Email or password is invalid. Please correct the errors and try again.|  
 |WebAuthenticationRequestIsNotValid|Request is not valid|  
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in.|  
-|WebAuthenticationInvalidEmailFormated|Email is invalid: {0}|  
+|WebAuthenticationInvalidEmailFormatted|Email is invalid: {0}|  
 |WebAuthenticationUserNotFound|User not found|  
 |WebAuthenticationTenantNotRegistered|Your account belongs to an Azure Active Directory tenant which is not authorized to access this portal.|  
 |WebAuthenticationAuthenticationFailed|Authentication has failed.|  

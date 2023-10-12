@@ -151,7 +151,7 @@
       items:
       - name: Authentication with Shared Access Signatures
         href: service-bus-sas.md
-      - name: Use Azure Active Directory
+      - name: Use Microsoft Entra ID
         items:
         - name: Authenticate with managed identities for Azure resources
           href: service-bus-managed-service-identity.md
@@ -256,6 +256,8 @@
       href: entity-suspend.md
     - name: Use Service Bus Explorer
       href: explorer.md
+    - name: Prepare for planned maintenance
+      href: prepare-for-planned-maintenance.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
@@ -287,8 +289,8 @@
     items:
     - name: Troubleshooting guide
       href: service-bus-troubleshooting-guide.md
-    - name: Messaging exceptions
-      href: service-bus-messaging-exceptions.md
+    - name: SDK troubleshooting guide
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md
 - name: Reference
@@ -299,6 +301,8 @@
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
       href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
+    - name: Migrate from WindowsAzure.ServiceBus to Azure.Messaging.ServiceBus
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
       href: /dotnet/api/azure.messaging.servicebus
     - name: Microsoft.Azure.ServiceBus (.NET Standard)

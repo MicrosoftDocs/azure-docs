@@ -17,6 +17,7 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---
 
 # Overview of the Microsoft Authentication Library (MSAL)
+
 The Microsoft Authentication Library (MSAL) enables developers to acquire [security tokens](developer-glossary.md#security-token) from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
 MSAL gives you many ways to get tokens, with a consistent API for many platforms. Using MSAL provides the following benefits:
@@ -61,6 +62,6 @@ MSAL can be used in many application scenarios, including the following:
 
 ## Migrate apps that use ADAL to MSAL
 
-Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
+Active Directory Authentication Library (ADAL) integrates with the Azure Active Directory (Azure AD) for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
 
 For more information about how to migrate to MSAL, see [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md).

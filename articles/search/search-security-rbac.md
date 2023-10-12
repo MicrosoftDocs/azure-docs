@@ -55,7 +55,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 
 1. Select **Keys** in the left navigation pane.
 
@@ -79,7 +79,7 @@ When you enable role-based access control in the portal, the failure mode is "ht
 
 Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
 
-All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help with setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help with setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
@@ -121,7 +121,7 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
 
 Role assignments in the portal are service-wide. If you want to [grant permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI instead.
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -140,7 +140,7 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
    + Search Index Data Contributor
    + Search Index Data Reader
 
-1. On the **Members** tab, select the Azure AD user or group identity.
+1. On the **Members** tab, select the Microsoft Entra user or group identity.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
@@ -180,11 +180,11 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group can't be deleted or denied at the resource (search service) level. 
 
-Make sure that you [register your client application with Azure Active Directory](search-howto-aad.md) and have role assignments in place before testing access. 
+Make sure that you [register your client application with Microsoft Entra ID](search-howto-aad.md) and have role assignments in place before testing access. 
 
 ### [**Azure portal**](#tab/test-portal)
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -230,7 +230,7 @@ This approach assumes Postman as the REST client and uses a Postman collection a
 
     | Variable | Description |
     |----------|-------------|
-    | clientId | Provide the previously generated "appID" that you created in Azure AD. |
+    | clientId | Provide the previously generated "appID" that you created in Microsoft Entra ID. |
     | clientSecret | Provide the "password" that was created for your client. |
     | tenantId | Provide the "tenant" that was returned in the previous step. |
     | subscriptionId | Provide the subscription ID for your subscription. |
@@ -302,7 +302,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
-   + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
+   + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is a Microsoft Entra convention.
 
    + The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for "https://search.azure.com/.default".
 
@@ -349,7 +349,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use [Azure.Identity for JavaScript](/javascript/api/overview/azure/identity-readme) for token authentication.
 
-1. If you're using React, use `InteractiveBrowserCredential` for Azure AD authentication to Search. See [When to use `@azure/identity`](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#when-to-use&preserve-view=true) for details.
+1. If you're using React, use `InteractiveBrowserCredential` for Microsoft Entra authentication to Search. See [When to use `@azure/identity`](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#when-to-use&preserve-view=true) for details.
 
 ### [**Java**](#tab/test-java)
 
@@ -544,7 +544,7 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 ## Disable API key authentication
 
-API keys can't be deleted, but they can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+API keys can't be deleted, but they can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
 
 Owner or Contributor permissions are required to disable features.
 
@@ -589,13 +589,13 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 ## Conditional Access
 
-[Conditional Access](../active-directory/conditional-access/overview.md) is a tool in Azure Active Directory used to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
+[Conditional Access](../active-directory/conditional-access/overview.md) is a tool in Microsoft Entra ID used to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
 
 To enable a Conditional Access policy for Azure Cognitive Search, follow the below steps:
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
-1. Search for **Azure AD Conditional Access**.
+1. Search for **Microsoft Entra Conditional Access**.
 
 1. Select **Policies**.
 

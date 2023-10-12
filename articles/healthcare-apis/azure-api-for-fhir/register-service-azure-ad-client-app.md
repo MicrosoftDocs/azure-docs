@@ -5,11 +5,13 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
 # Register a service client application in Azure Active Directory for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this article, you'll learn how to register a service client application in Azure Active Directory (Azure AD). Client application registrations are Azure AD representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
 

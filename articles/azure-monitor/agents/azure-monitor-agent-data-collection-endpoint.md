@@ -15,7 +15,7 @@ Azure Monitor Agent supports connecting by using direct proxies, Log Analytics g
 
 Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureResourceManager* tags are required. 
 
-Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags can not be used, the Firewall requirements are given below.
+Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
 ## Firewall requirements
 
@@ -27,11 +27,11 @@ Azure Virtual network service tags can be used to define network access controls
 | Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
 | Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
 | Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
-| Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
+| Microsoft Azure operated by 21Vianet | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 >[!NOTE]
 > If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
-> The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure China clouds.
+> The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure operated by 21Vianet clouds.
 
 ## Proxy configuration
 
@@ -44,17 +44,17 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 
 1. Use this flowchart to determine the values of the `Settings` and `ProtectedSettings` parameters first.
 
-    ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
+    :::image type="content" source="media/azure-monitor-agent-overview/proxy-flowchart.png" lightbox="media/azure-monitor-agent-overview/proxy-flowchart.png" alt-text="Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.":::
 
     > [!NOTE]
-    > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above.
+    > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above. For the ARM template, if you have proxy configuration please follow the ARM template example below declaring the proxy setting inside the ARM template. Additionally, a user can set "global" environment variables that get picked up by all systemd services [via the DefaultEnvironment variable in /etc/systemd/system.conf](https://www.man7.org/linux/man-pages/man5/systemd-system.conf.5.html).
 
 1. After you determine the `Settings` and `ProtectedSettings` parameter values, provide these other parameters when you deploy Azure Monitor Agent. Use PowerShell commands, as shown in the following examples:
 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "true"}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
@@ -62,7 +62,7 @@ Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMo
 # [Linux VM](#tab/PowerShellLinux)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "true"}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
@@ -83,6 +83,173 @@ $settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[por
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
+```
+
+# [ARM Policy Template example](#tab/ArmPolicy)
+
+```powershell
+{
+  "properties": {
+    "displayName": "Configure Windows Arc-enabled machines to run Azure Monitor Agent",
+    "policyType": "BuiltIn",
+    "mode": "Indexed",
+    "description": "Automate the deployment of Azure Monitor Agent extension on your Windows Arc-enabled machines for collecting telemetry data from the guest OS. This policy will install the extension if the OS and region are supported and system-assigned managed identity is enabled, and skip install otherwise. Learn more: https://aka.ms/AMAOverview.",
+    "metadata": {
+      "version": "2.3.0",
+      "category": "Monitoring"
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy."
+        },
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.HybridCompute/machines"
+          },
+          {
+            "field": "Microsoft.HybridCompute/machines/osName",
+            "equals": "Windows"
+          },
+          {
+            "field": "location",
+            "in": [
+              "australiacentral",
+              "australiaeast",
+              "australiasoutheast",
+              "brazilsouth",
+              "canadacentral",
+              "canadaeast",
+              "centralindia",
+              "centralus",
+              "eastasia",
+              "eastus",
+              "eastus2",
+              "eastus2euap",
+              "francecentral",
+              "germanywestcentral",
+              "japaneast",
+              "japanwest",
+              "jioindiawest",
+              "koreacentral",
+              "koreasouth",
+              "northcentralus",
+              "northeurope",
+              "norwayeast",
+              "southafricanorth",
+              "southcentralus",
+              "southeastasia",
+              "southindia",
+              "swedencentral",
+              "switzerlandnorth",
+              "uaenorth",
+              "uksouth",
+              "ukwest",
+              "westcentralus",
+              "westeurope",
+              "westindia",
+              "westus",
+              "westus2",
+              "westus3"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/cd570a14-e51a-42ad-bac8-bafd67325302"
+          ],
+          "existenceCondition": {
+            "allOf": [
+              {
+                "field": "Microsoft.HybridCompute/machines/extensions/type",
+                "equals": "AzureMonitorWindowsAgent"
+              },
+              {
+                "field": "Microsoft.HybridCompute/machines/extensions/publisher",
+                "equals": "Microsoft.Azure.Monitor"
+              },
+              {
+                "field": "Microsoft.HybridCompute/machines/extensions/provisioningState",
+                "equals": "Succeeded"
+              }
+            ]
+          },
+          "deployment": {
+            "properties": {
+              "mode": "incremental",
+              "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {
+                  "vmName": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  }
+                },
+                "variables": {
+                  "extensionName": "AzureMonitorWindowsAgent",
+                  "extensionPublisher": "Microsoft.Azure.Monitor",
+                  "extensionType": "AzureMonitorWindowsAgent"
+                },
+                "resources": [
+                  {
+                    "name": "[concat(parameters('vmName'), '/', variables('extensionName'))]",
+                    "type": "Microsoft.HybridCompute/machines/extensions",
+                    "location": "[parameters('location')]",
+                    "apiVersion": "2021-05-20",
+                    "properties": {
+                      "publisher": "[variables('extensionPublisher')]",
+                      "type": "[variables('extensionType')]",
+                      "autoUpgradeMinorVersion": true,
+                      "enableAutomaticUpgrade": true,
+                      "settings": {
+                      "proxy": {
+                        "auth": "false",
+                        "mode": "application",
+                        "address": "http://XXX.XXX.XXX.XXX"
+                        }
+                      },
+					            "protectedsettings": { }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "vmName": {
+                  "value": "[field('name')]"
+                },
+                "location": {
+                  "value": "[field('location')]"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/94f686d6-9a24-4e19-91f1-de937dc171a4",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "94f686d6-9a24-4e19-91f1-de937dc171a4"
+}
 ```
 
 ---

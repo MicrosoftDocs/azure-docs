@@ -4,8 +4,8 @@ description: This article provides the information about the known issues and wo
 ms.topic: conceptual
 ms.date: 04/20/2023
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Release notes for Microsoft Azure Backup Server

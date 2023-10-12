@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Networking for Azure Virtual Machine Scale Sets
@@ -40,8 +40,76 @@ Azure Accelerated Networking improves network performance by enabling single roo
 ## Azure Virtual Machine Scale Sets with Azure Load Balancer
 See [Azure Load Balancer and Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) to learn more about how to configure your Standard Load Balancer with Virtual Machine Scale Sets based on your scenario.
 
-## Create a scale set that references an Application Gateway
-To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
+## Add a Virtual Machine Scale Set to an Application Gateway
+
+To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale set's network profile. This can be done either when creating the scale set (see ARM Template below) or on an existing scale set.  
+
+### Adding Uniform Orchestration Virtual Machine Scale Sets to an Application Gateway
+
+When adding Uniform Virtual Machine Scale Sets to an Application Gateway's backend pool, the process will differ for new or existing scale sets:
+
+- For new scale sets, reference the Application Gateway's backend pool ID in your scale set model's network profile, under one or more network interface IP configurations. When deployed, instances added to your scale set will be placed in the Application Gateway's backend pool. 
+- For existing scale sets, first add the Application Gateway's backend pool ID in your scale set model's network profile, then apply the model your existing instances by an upgrade. If the scale set's upgrade policy is `Automatic` or `Rolling`, instances will be updated for you. If it is `Manual`, you need to upgrade the instances manually. 
+
+#### [Portal](#tab/portal1)
+
+1. Create an Application Gateway and backend pool in the same region as your scale set, if you do not already have one
+1. Navigate to the Virtual Machine Scale Set in the Portal
+1. Under **Settings**, open the **Networking** pane
+1. In the Networking pane, select the **Load balancing** tab and click **Add Load Balancing**
+1. Select **Application Gateway** from the Load Balancing Options dropdown, and choose an existing Application Gateway
+1. Select the target backend pool and click **Save**
+1. If your scale set Upgrade Policy is 'Manual', navigate to the **Settings** > **Instances** pane to select and upgrade each of your instances
+
+#### [PowerShell](#tab/powershell1)
+
+```azurepowershell
+    $appGW = Get-AzApplicationGateway -Name <appGWName> -ResourceGroup <AppGWResourceGroupName>
+    $backendPool = Get-AzApplicationGatewayBackendAddressPool -Name <backendAddressPoolName> -ApplicationGateway $appGW
+    $vmss = Get-AzVMSS -Name <VMSSName> -ResourceGroup <VMSSResourceGroupName>
+
+    $backendPoolMembership = New-Object System.Collections.Generic.List[Microsoft.Azure.Management.Compute.Models.SubResource]
+
+    # add existing backend pool membership to new pool membership of first NIC and ip config
+    If ($vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].ApplicationGatewayBackendAddressPools) {
+        $backendPoolMembership.AddRange($vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].ApplicationGatewayBackendAddressPools)
+    }
+
+    # add new backend pool to pool membership
+    $backendPoolMembership.Add($backendPool.id)
+
+    # set VMSS model to use to backend pool membership 
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].ApplicationGatewayBackendAddressPools = $backendPoolMembership
+
+    # update the VMSS model
+    $vmss | Update-AzVMSS
+
+    # update VMSS instances, if necessary
+    If ($vmss.UpgradePolicy.Mode -eq 'Manual') {
+        $vmss | Get-AzVmssVM | Foreach-Object { $_ | Update-AzVMSSInstance -InstanceId $_.instanceId}
+    }
+
+```
+
+#### [CLI](#tab/cli1)
+
+```azurecli-interactive
+appGWName=<appGwName>
+appGWResourceGroup=<appGWRGName> 
+backendPoolName=<backendPoolName>
+backendPoolId=$(az network application-gateway address-pool show --gateway-name $appGWName -g $appGWResourceGroup -n $backendPoolName --query id -otsv)
+
+vmssName=<vmssName>
+vmssResourceGroup=<vmssRGName>
+
+# add app gw backend pool to first nic's first ip config
+az vmss update -n $vmssName -g $vmssResourceGroup --add "virtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].ipConfigurations[0].applicationGatewayBackendAddressPools" "id=$backendPoolId"
+
+# update instances
+az vmss update-instances --instance-ids * --name $vmssName --resource-group $vmssResourceGroup
+```
+
+#### [ARM template](#tab/arm1)
 
 ```json
 "ipConfigurations": [{
@@ -55,6 +123,13 @@ To create a scale set that uses an application gateway, reference the backend ad
   }]
 }]
 ```
+
+--- 
+<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
+
+### Adding Flexible Orchestration Virtual Machine Scale Sets to an Application Gateway
+
+When adding a Flexible scale set to an Application Gateway, the process is the same as adding standalone VMs to an Application Gateway's backend pool--you update the virtual machine's network interface IP configuration to be part of the backend pool. This can be done either [through the Application Gateway's configuration](/azure/application-gateway/create-multiple-sites-portal#add-backend-servers-to-backend-pools) or by configuring the virtual machine's network interface configuration. 
 
 >[!NOTE]
 > Note that the application gateway must be in the same virtual network as the scale set but must be in a different subnet from the scale set.

@@ -1,14 +1,13 @@
 ---
 title: End-user authentication - .NET with Data Lake Storage Gen1 - Azure
-description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with .NET SDK
+description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID with .NET SDK
 
 author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: normesta
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]
@@ -26,7 +25,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## Create a .NET application
 1. In Visual Studio, select the **File** menu, **New**, and then **Project**.
@@ -64,7 +63,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
     ```		
 
 ## End-user authentication
-Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Storage Gen1, which means you are prompted to enter your Azure credentials.
+Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from a Microsoft Entra native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Storage Gen1, which means you are prompted to enter your Azure credentials.
 
 For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
     
@@ -90,7 +89,7 @@ A couple of things to know about the preceding snippet:
 
 * The preceding snippet uses a helper functions `GetTokenCache` and `GetCreds_User_Popup`. The code for these helper functions is available [here on GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * To help you complete the tutorial faster, the snippet uses a native application client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
-* However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD tenant ID, client ID, and redirect URI for the application you created. See [Create an Active Directory Application for end-user authentication with Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
+* However, if you do want to use your own Microsoft Entra domain and application client ID, you must create a Microsoft Entra native application and then use the Microsoft Entra tenant ID, client ID, and redirect URI for the application you created. See [Create an Active Directory Application for end-user authentication with Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
 
   
 ## Next steps
@@ -98,4 +97,3 @@ In this article, you learned how to use end-user authentication to authenticate 
 
 * [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Data operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md)
-

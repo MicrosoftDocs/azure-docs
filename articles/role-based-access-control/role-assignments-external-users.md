@@ -10,14 +10,14 @@ ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 05/10/2023
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
 ---
 # Assign Azure roles to external guest users using the Azure portal
 
-[Azure role-based access control (Azure RBAC)](overview.md) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) to collaborate with external guest users and you can use Azure RBAC to grant just the permissions that guest users need in your environment.
+[Azure role-based access control (Azure RBAC)](overview.md) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md) to collaborate with external guest users and you can use Azure RBAC to grant just the permissions that guest users need in your environment.
 
 ## Prerequisites
 
@@ -35,21 +35,21 @@ Here are a couple example scenarios when you might invite guest users to your or
 
 ## Permission differences between member users and guest users
 
-Native members of a directory (member users) have different permissions than users invited from another directory as a B2B collaboration guest (guest users). For example, members user can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+Native members of a directory (member users) have different permissions than users invited from another directory as a B2B collaboration guest (guest users). For example, members user can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
 
 ## Add a guest user to your directory
 
-Follow these steps to add a guest user to your directory using the Azure Active Directory page.
+Follow these steps to add a guest user to your directory using the Microsoft Entra ID page.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Configure external collaboration settings](../active-directory/external-identities/external-collaboration-settings-configure.md).
 
-1. Click **Azure Active Directory** > **Users** > **New guest user**.
+1. Click **Microsoft Entra ID** > **Users** > **New guest user**.
 
     ![Screenshot of New guest user feature in Azure portal.](./media/role-assignments-external-users/invite-guest-user.png)
 
-1. Follow the steps to add a new guest user. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
+1. Follow the steps to add a new guest user. For more information, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the accept invitation link in the invitation email.
 
@@ -59,7 +59,7 @@ For the guest user to be able to access your directory, they must complete the i
 
 ![Screenshot of guest user invite review permissions.](./media/role-assignments-external-users/invite-review-permissions.png)
 
-For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
+For more information about the invitation process, see [Microsoft Entra B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
 ## Assign a role to a guest user
 
@@ -161,7 +161,7 @@ If the guest user is not yet in your directory, you can invite the user directly
 
 1. Send the invitation link to the guest user to complete the invitation process.
 
-    For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
+    For more information about the invitation process, see [Microsoft Entra B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
 ## Remove a guest user from your directory
 
@@ -181,7 +181,11 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 1. In the remove role assignment message that appears, click **Yes**.
 
-1. In the left navigation bar, click **Azure Active Directory** > **Users**.
+1. Click the **Classic administrators** tab.
+
+1. If the guest user has a Co-Administrator assignment, add a check mark next to the guest user and click **Remove**.
+
+1. In the left navigation bar, click **Microsoft Entra ID** > **Users**.
 
 1. Click the guest user you want to remove.
 
@@ -195,11 +199,11 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 ### Guest user cannot browse the directory
 
-Guest users have restricted directory permissions. For example, guest users cannot browse the directory and cannot search for groups or applications. For more information, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+Guest users have restricted directory permissions. For example, guest users cannot browse the directory and cannot search for groups or applications. For more information, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
 
 ![Screenshot of guest user cannot browse users in a directory.](./media/role-assignments-external-users/directory-no-users.png)
 
-If a guest user needs additional privileges in the directory, you can assign an Azure AD role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+If a guest user needs additional privileges in the directory, you can assign a Microsoft Entra role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Microsoft Entra ID. For more information, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 ![Screenshot of assigning Directory Readers role.](./media/role-assignments-external-users/directory-roles.png)
 
@@ -209,17 +213,17 @@ Guest users have restricted directory permissions. Even if a guest user is an [O
 
 ![Screenshot of guest user cannot browse security principals to assign roles.](./media/role-assignments-external-users/directory-no-browse.png)
 
-If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Microsoft Entra ID. For more information, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 ### Guest user cannot register applications or create service principals
 
-Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role in Microsoft Entra ID. For more information, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 ![Screenshot of guest user cannot register applications.](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### Guest user does not see the new directory
 
-If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directories** page, make sure the guest user has completed the invitation process. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
+If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directories** page, make sure the guest user has completed the invitation process. For more information about the invitation process, see [Microsoft Entra B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
 ### Guest user does not see resources
 
@@ -229,7 +233,6 @@ If a guest user has been granted access to a directory, but they do not see the 
 
 ## Next steps
 
-- [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md)
-- [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md)
-- [The elements of the B2B collaboration invitation email - Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
-- [Add a guest user as a Co-Administrator](classic-administrators.md#add-a-guest-user-as-a-co-administrator)
+- [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md)
+- [Properties of a Microsoft Entra B2B collaboration user](../active-directory/external-identities/user-properties.md)
+- [The elements of the B2B collaboration invitation email - Microsoft Entra ID](../active-directory/external-identities/invitation-email-elements.md)

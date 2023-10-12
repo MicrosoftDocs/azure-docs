@@ -1,28 +1,28 @@
-- name: Identity Protection Documentation
+- name: Microsoft Entra ID Protection Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Identity Protection?
+  - name: What is Microsoft Entra ID Protection?
     href: overview-identity-protection.md
 - name: Concepts
   expanded: false
   items:
-  - name: Security overview
-    href: concept-identity-protection-security-overview.md
+  - name: Microsoft Entra ID Protection dashboard
+    href: id-protection-dashboard.md
   - name: What are risks?
     href: concept-identity-protection-risks.md
-  - name: Risk-based access policies
+  - name: Risk-based access control policies
     href: concept-identity-protection-policies.md
-  - name: What is the sign-in experience?
+  - name: User sign-in experience
     href: concept-identity-protection-user-experience.md
   - name: Securing workload identities
     href: concept-workload-identity-risk.md
-  - name: Identity Protection and B2B users
+  - name: Microsoft Entra ID Protection and B2B users
     href: concept-identity-protection-b2b.md
 - name: How-to guides
   expanded: true
   items:
-  - name: Deploy Identity Protection
+  - name: Deploy Microsoft Entra ID Protection
     href: how-to-deploy-identity-protection.md
   - name: Configure notifications
     href: howto-identity-protection-configure-notifications.md
@@ -50,6 +50,8 @@
     href: troubleshooting-identity-protection-faq.yml
 - name: Reference
   items:
+  - name: Security overview
+    href: concept-identity-protection-security-overview.md
   - name: Microsoft Graph APIs
     items: 
     - name: riskDetection API

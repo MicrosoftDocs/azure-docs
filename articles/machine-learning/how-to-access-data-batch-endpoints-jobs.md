@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to access data from different sources in batch endpoints jobs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 5/01/2023
 ms.reviewer: larryfr
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 ---
 
 # Create jobs and input data for batch endpoints

@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/10/2022
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet
+ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Send and receive messages from an Azure Service Bus queue (.NET)
@@ -42,7 +42,7 @@ You can authorize access to the service bus namespace using the following steps:
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing a button to sign in to Azure using Visual Studio.":::
 
-1. Sign-in using the Azure AD account you assigned a role to previously.
+1. Sign-in using the Microsoft Entra account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 

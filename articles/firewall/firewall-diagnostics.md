@@ -6,11 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 06/07/2023
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
-# Monitor Azure Firewall logs and metrics
+# Monitor Azure Firewall logs (legacy) and metrics
+
+> [!TIP]
+> For an improved method to work with firewall logs, see [Azure Structured Firewall Logs](firewall-structured-logs.md).
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal.
 
@@ -24,30 +27,30 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 
 Before starting, you should read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
 
-Additionally, for an improved method to work with firewall logs, see [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md).
-
 ## Enable diagnostic logging through the Azure portal
 
-It can take a few minutes for the data to appear in your logs after you complete this procedure to turn on diagnostic logging. If you don't see anything at first, check again in  a few more minutes.
+It can take a few minutes for the data to appear in your logs after you complete this procedure to turn on diagnostic logging. If you don't see anything at first, check again in a few more minutes.
 
 1. In the Azure portal, open your firewall resource group and select the firewall.
 2. Under **Monitoring**, select **Diagnostic settings**.
 
-   For Azure Firewall, three service-specific logs are available:
+   For Azure Firewall, three service-specific legacy logs are available:
 
-   * AzureFirewallApplicationRule
-   * AzureFirewallNetworkRule
-   * AzureFirewallDnsProxy
+   * Azure Firewall Application Rule (Legacy Azure Diagnostics)
+   * Azure Firewall Network Rule (Legacy Azure Diagnostics)
+   * Azure Firewall Dns Proxy (Legacy Azure Diagnostics)
 
 
 3. Select **Add diagnostic setting**. The **Diagnostics settings** page provides the settings for the diagnostic logs.
-5. In this example, Azure Monitor logs stores the logs, so type **Firewall log analytics** for the name.
-6. Under **Log**, select **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, and **AzureFirewallDnsProxy** to collect  the logs.
+5. Type a name for the diagnostic setting.
+6. Under **Logs**, select **Azure Firewall Application Rule (Legacy Azure Diagnostics)**, **Azure Firewall Network Rule (Legacy Azure Diagnostics)**, and **Azure Firewall Dns Proxy (Legacy Azure Diagnostics)** to collect  the logs.
 7. Select **Send to Log Analytics** to configure your workspace.
 8. Select your subscription.
-9. Select **Save**.
+1. For the **Destination table**, select **Azure diagnostics**.
+1. Select **Save**.
 
-     :::image type="content" source=".\media\tutorial-diagnostics\firewall-diagnostic-settings.png" alt-text="Screenshot of Firewall Diagnostic setting.":::
+     :::image type="content" source=".\media\firewall-diagnostics\diagnostic-setting-legacy.png" alt-text="Screenshot of Firewall Diagnostic setting.":::
+
 ## Enable diagnostic logging by using PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.

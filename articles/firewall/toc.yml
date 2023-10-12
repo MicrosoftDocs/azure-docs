@@ -40,49 +40,61 @@ items:
     href: tutorial-protect-firewall.md
   - name: Integrate NAT gateway with Azure Firewall
     href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
-
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    href: sample-powershell.md
 - name: Concepts
   items:
-    - name: Azure Firewall Basic features
-      href: basic-features.md
-    - name: Azure Firewall Standard features
-      href: features.md
-    - name: Azure Firewall Premium features
-      href: premium-features.md
-    - name: Azure Firewall preview features
-      href: firewall-preview.md
-    - name: Choose an Azure Firewall SKU
-      href: choose-firewall-sku.md
-    - name: IDPS signature rule categories
-      href: idps-signature-categories.md
-    - name: Azure Firewall Premium in the portal
-      href: premium-portal.md
-    - name: Azure Firewall Premium certificates
-      href: premium-certificates.md
+    - name: SKU
+      items:
+      - name: Basic
+        items:
+        - name: Azure Firewall Basic features
+          href: basic-features.md
+      - name: Standard
+        items:
+        - name: Azure Firewall Standard features
+          href: features.md
+      - name: Premium
+        items:
+        - name: Azure Firewall Premium features
+          href: premium-features.md
+        - name: Azure Firewall Premium in the portal
+          href: premium-portal.md
+        - name: Azure Firewall Premium certificates
+          href: premium-certificates.md
+        - name: IDPS signature rule categories
+          href: idps-signature-categories.md
+
+      - name: Choose an Azure Firewall SKU
+        href: choose-firewall-sku.md
+    - name: Preview
+      items:
+      - name: Azure Firewall preview features
+        href: firewall-preview.md
+    - name: Tags
+      items:
+      - name: FQDN tags
+        href: fqdn-tags.md
+      - name: Service tags
+        href: service-tags.md
+    - name: Logs
+      items:
+      - name: Structured Firewall Logs
+        href: firewall-structured-logs.md
+      - name: Logs and metrics
+        href: logs-and-metrics.md
+    - name: Policy
+      items:
+      - name: Policy rule sets
+        href: policy-rule-sets.md
+      - name: Policy Analytics
+        href: policy-analytics.md
     - name: Azure Firewall web categories
       href: web-categories.md
-    - name: FQDN tags
-      href: fqdn-tags.md
     - name: Infrastructure FQDNs
       href: infrastructure-fqdns.md
-    - name: Logs and metrics
-      href: logs-and-metrics.md
-    - name: Structured Firewall Logs
-      href: firewall-structured-logs.md
     - name: Threat intelligence
       href: threat-intel.md
-    - name: Policy rule sets
-      href: policy-rule-sets.md
-    - name: Policy Analytics
-      href: policy-analytics.md
     - name: Rule processing logic
       href: rule-processing.md
-    - name: Service tags
-      href: service-tags.md
     - name: IP Groups
       href: ip-groups.md
     - name: Forced tunneling
@@ -111,44 +123,52 @@ items:
       href: explicit-proxy.md
     - name: Multi hub and spoke
       href: firewall-multi-hub-spoke.md
+    - name: Azure Firewall with Microsoft Sentinel
+      href: firewall-sentinel-overview.md
 - name: How-to guides
   items:
-    - name: Deploy and configure - classic
-      href: tutorial-firewall-deploy-portal.md
-    - name: Deploy in hybrid network - classic
-      href: tutorial-hybrid-portal.md
-    - name: Deploy Firewall Basic
-      href: deploy-firewall-basic-portal-policy.md
-    - name: Filter inbound traffic with DNAT - classic
-      href: tutorial-firewall-dnat.md
-    - name: Deploy using Azure PowerShell
-      href: deploy-ps.md
-    - name: Deploy policy using Azure PowerShell
-      href: deploy-ps-policy.md
-    - name: Deploy in hybrid network - PowerShell
-      href: tutorial-hybrid-ps.md
-    - name: Deploy using Azure CLI
-      href: deploy-cli.md
-    - name: Deploy with multiple public IP
-      href: deploy-multi-public-ip-powershell.md
-    - name: Deploy with Availability Zones
-      href: deploy-availability-zone-powershell.md
-    - name: Integrate with load balancer
-      href: integrate-lb.md
-    - name: Application rules with SQL FQDNs
-      href: sql-fqdn-filtering.md
-    - name: SNAT private ranges
-      href: snat-private-range.md
-    - name: Create IP Groups
-      href: create-ip-group.md
+  - name: Deploy
+    items:
+     - name: Deploy and configure - classic
+       href: tutorial-firewall-deploy-portal.md
+     - name: Deploy in hybrid network - classic
+       href: tutorial-hybrid-portal.md
+     - name: Filter inbound traffic with DNAT - classic
+       href: tutorial-firewall-dnat.md
+     - name: Deploy Firewall Basic
+       href: deploy-firewall-basic-portal-policy.md
+     - name: Deploy using Azure PowerShell
+       href: deploy-ps.md
+     - name: Deploy policy using Azure PowerShell
+       href: deploy-ps-policy.md
+     - name: Deploy in hybrid network - PowerShell
+       href: tutorial-hybrid-ps.md
+     - name: Deploy using Azure CLI
+       href: deploy-cli.md
+     - name: Deploy with multiple public IP
+       href: deploy-multi-public-ip-powershell.md
+     - name: Deploy with Availability Zones
+       href: deploy-availability-zone-powershell.md
+     - name: Deploy and configure Firewall Premium
+       href: premium-deploy.md
+     - name: Deploy Enterprise CA Certificates for Premium
+       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Protect
+    items:
     - name: Protect Azure Virtual Desktop
       href: protect-azure-virtual-desktop.md
     - name: Protect Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
     - name: Protect Office 365
       href: protect-office-365.md
-    - name: DNS settings
-      href: dns-settings.md
+  - name: Migrate
+    items:
+    - name: Migrate to Azure Firewall Premium
+      href: premium-migrate.md
+    - name: Migrate to Premium using Terraform
+      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Monitor
+    items:
     - name: Monitor diagnostic logs
       href: firewall-diagnostics.md
       displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
@@ -156,22 +176,24 @@ items:
       href: enable-top-ten-and-flow-trace.md
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
-    - name: Deploy and configure Firewall Premium
-      href: premium-deploy.md
-    - name: Deploy Enterprise CA Certificates for Premium
-      href: premium-deploy-certificates-enterprise-ca.md
-    - name: Migrate to Azure Firewall Premium
-      href: premium-migrate.md
-    - name: Migrate to Premium using Terraform
-      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-    - name: Scale Outbound SNAT Ports
-      href: integrate-with-nat-gateway.md
-    - name: Add or modify rules using PowerShell
-      href: deploy-rules-powershell.md
-    - name: Backup Azure Firewall
-      href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
-    - name: Connect to Azure Storage via SFTP
-      href: firewall-sftp.md
+  - name: Scale Outbound SNAT Ports
+    href: integrate-with-nat-gateway.md
+  - name: Add or modify rules using PowerShell
+    href: deploy-rules-powershell.md
+  - name: Backup Azure Firewall
+    href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928
+  - name: Connect to Azure Storage via SFTP
+    href: firewall-sftp.md
+  - name: Integrate with load balancer
+    href: integrate-lb.md
+  - name: Application rules with SQL FQDNs
+    href: sql-fqdn-filtering.md
+  - name: SNAT private ranges
+    href: snat-private-range.md
+  - name: Create IP Groups
+    href: create-ip-group.md
+  - name: DNS settings
+    href: dns-settings.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -194,6 +216,8 @@ items:
   items:
   - name: FAQ
     href: firewall-faq.yml
+  - name: Known issues
+    href: firewall-known-issues.md
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap

@@ -3,7 +3,7 @@ title: How to extend IoT Central
 description: How to use data exports, rules, or the REST API to extend IoT Central if it's missing something you need.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2022
+ms.date: 06/12/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

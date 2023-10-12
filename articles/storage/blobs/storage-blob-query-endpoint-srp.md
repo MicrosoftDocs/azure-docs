@@ -6,10 +6,9 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/24/2023
-ms.subservice: blobs
+ms.date: 06/07/2023
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
 
@@ -21,6 +20,11 @@ A Blob Storage endpoint forms the base address for all objects within a storage 
 - An [Azure DNS zone endpoint (preview)](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. The format of an Azure DNS Zone endpoint is `https://<storage-account>.z[00-99].blob.storage.azure.net`. 
 
 When your application creates a service client object that connects to Blob Storage data resources, you pass a URI referencing the endpoint to the service client constructor. You can construct the URI string manually, or you can query for the service endpoint at runtime using the Azure Storage management library.
+
+> [!IMPORTANT]
+> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
+>
+> Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
 
 The Azure Storage management library provides programmatic access to the [Azure Storage resource provider](/rest/api/storagerp). The resource provider is the Azure Storage implementation of the Azure Resource Manager. The management library enables developers to manage storage accounts and account configuration, as well as configure lifecycle management policies, object replication policies, and immutability policies.
 
@@ -135,7 +139,7 @@ using Azure.ResourceManager.Storage;
 
 Client library information:
 
-- [Azure.Identity](/dotnet/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [Azure.Identity](/dotnet/api/overview/azure/identity-readme): Provides Microsoft Entra token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
 - [Azure.ResourceManager.Storage](/dotnet/api/overview/azure/resourcemanager.storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
 - [Azure.Storage.Blobs](/dotnet/api/overview/azure/storage.blobs-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 
@@ -154,7 +158,7 @@ import com.azure.core.management.profile.*;
 
 Client library information:
 
-- [com.azure.identity](/java/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [com.azure.identity](/java/api/overview/azure/identity-readme): Provides Microsoft Entra token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
 - [com.azure.storage.blob](/java/api/com.azure.storage.blob): Contains the primary classes that you can use to work with Blob Storage data resources.
 - [com.azure.resourcemanager](/java/api/overview/azure/resourcemanager-readme): Supports management of Azure resources and resource groups.
 - [com.azure.resourcemanager.storage](/java/api/overview/azure/resourcemanager-storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
@@ -172,7 +176,7 @@ const { StorageManagementClient } = require("@azure/arm-storage");
 
 Client library information:
 
-- [@azure/identity](/javascript/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [@azure/identity](/javascript/api/overview/azure/identity-readme): Provides Microsoft Entra token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
 - [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 - [@azure/arm-resources](/javascript/api/overview/azure/arm-resources-readme): Supports management of Azure resources and resource groups.
 - [@azure/arm-storage](/javascript/api/overview/azure/arm-storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
@@ -190,7 +194,7 @@ from azure.mgmt.storage import StorageManagementClient
 
 Client library information:
 
-- [azure-identity](/python/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [azure-identity](/python/api/overview/azure/identity-readme): Provides Microsoft Entra token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
 - [azure-storage-blob](/python/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 - [azure-mgmt-resource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient): Supports management of Azure resources and resource groups.
 - [azure-mgmt-storage](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient): Supports management of Azure Storage resources, including resource groups and storage accounts.
@@ -303,6 +307,3 @@ View the full code samples (GitHub):
 - [Python](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py)
 
 To learn more about creating client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-
-
-

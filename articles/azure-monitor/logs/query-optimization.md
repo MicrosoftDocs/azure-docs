@@ -2,8 +2,8 @@
 title: Optimize log queries in Azure Monitor
 description: Best practices for optimizing log queries in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: MeirMen
 ms.date: 03/22/2022
 
@@ -455,7 +455,7 @@ A query that spans more than five workspaces is considered a query that consumes
 
 > [!IMPORTANT]
 > - In some multi-workspace scenarios, the CPU and data measurements won't be accurate and will represent the measurement of only a few of the workspaces.
-> - Cross workspace queries having an explicit identifier: workspace ID, or workspace Azure Resource ID, consume less resources and are more performant. See [Create a log query across multiple workspaces](./cross-workspace-query.md#identify-workspace-resources)
+> - Cross workspace queries having an explicit identifier: workspace ID, or workspace Azure Resource ID, consume less resources and are more performant. See [Gather identifiers for Log Analytics workspaces](./cross-workspace-query.md?tabs=workspace-identifier#gather-identifiers-for-log-analytics-workspaces-and-application-insights-resources)
 
 ## Parallelism
 Azure Monitor Logs uses large clusters of Azure Data Explorer to run queries. These clusters vary in scale and potentially get up to dozens of compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.

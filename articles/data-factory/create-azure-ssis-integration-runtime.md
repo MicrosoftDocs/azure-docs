@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Create an Azure-SSIS integration runtime
@@ -20,7 +20,7 @@ This article provides steps for provisioning an Azure-SQL Server Integration Ser
 - Running packages deployed into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
 
 > [!NOTE] 
-> Azure-SSIS IR in Azure Synapse Analytics is in public preview, please check [limitations](https://aka.ms/AAfq9i3) for preview.
+> There are certain features that are not available for Azure-SSIS IR in Azure Synapse Analytics, please check the [limitations](https://aka.ms/AAfq9i3).
 
 After an Azure-SSIS IR is provisioned, you can use familiar tools to deploy and run your packages in Azure. These tools are already Azure-enabled and include SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS), and command-line utilities like [dtutil](/sql/integration-services/dtutil-utility) and [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
@@ -28,7 +28,7 @@ The [Provisioning Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md) tutor
 
 - Use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB. As a prerequisite, you need to configure virtual network permissions and settings for your Azure-SSIS IR to join a virtual network.
 
-- Use Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your data factory to connect to an Azure SQL Database server or managed instance. As a prerequisite, you need to add the specified system/user-assigned managed identity for your data factory as a database user who can create an SSISDB instance.
+- Use Microsoft Entra authentication with the specified system/user-assigned managed identity for your data factory to connect to an Azure SQL Database server or managed instance. As a prerequisite, you need to add the specified system/user-assigned managed identity for your data factory as a database user who can create an SSISDB instance.
 
 - Join your Azure-SSIS IR to a virtual network, or configure a self-hosted IR as proxy for your Azure-SSIS IR to access data on-premises.
 
@@ -54,7 +54,7 @@ These articles shows how to provision an Azure-SSIS IR by using the [Azure porta
 
   - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of the client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](/azure/azure-sql/database/firewall-configure).
 
-  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Azure AD authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Enable Azure AD authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
+  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Microsoft Entra authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into a Microsoft Entra group with access permissions to the database server. For more information, see [Enable Microsoft Entra authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
 
   - Confirm that your database server does not have an SSISDB instance already. The provisioning of an Azure-SSIS IR does not support using an existing SSISDB instance.
 
@@ -77,7 +77,7 @@ The following table compares certain features of an Azure SQL Database server an
 | Feature | SQL Database| SQL Managed instance |
 |---------|--------------|------------------|
 | **Scheduling** | The SQL Server Agent is not available.<br/><br/>See [Schedule a package execution in a Data Factory pipeline](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity).| The Managed Instance Agent is available. |
-| **Authentication** | You can create an SSISDB instance with a contained database user who represents any Azure AD group with the managed identity of your data factory as a member in the **db_owner** role.<br/><br/>See [Enable Azure AD authentication to create an SSISDB in Azure SQL Database server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-authentication-on-azure-sql-database). | You can create an SSISDB instance with a contained database user who represents the managed identity of your data factory. <br/><br/>See [Enable Azure AD authentication to create an SSISDB in Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-authentication-on-azure-sql-managed-instance). |
+| **Authentication** | You can create an SSISDB instance with a contained database user who represents any Microsoft Entra group with the managed identity of your data factory as a member in the **db_owner** role.<br/><br/>See [Enable Microsoft Entra authentication to create an SSISDB in Azure SQL Database server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-authentication-on-azure-sql-database). | You can create an SSISDB instance with a contained database user who represents the managed identity of your data factory. <br/><br/>See [Enable Microsoft Entra authentication to create an SSISDB in Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-authentication-on-azure-sql-managed-instance). |
 | **Service tier** | When you create an Azure-SSIS IR with your Azure SQL Database server, you can select the service tier for SSISDB. There are multiple service tiers. | When you create an Azure-SSIS IR with your managed instance, you can't select the service tier for SSISDB. All databases in your managed instance share the same resource allocated to that instance. |
 | **Virtual network** | Your Azure-SSIS IR can join an Azure Resource Manager virtual network if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints. | Your Azure-SSIS IR can join an Azure Resource Manager virtual network if you use a managed instance with private endpoint. The virtual network is required when you don't enable a public endpoint for your managed instance.<br/><br/>If you join your Azure-SSIS IR to the same virtual network as your managed instance, make sure that your Azure-SSIS IR is in a different subnet from your managed instance. If you join your Azure-SSIS IR to a different virtual network from your managed instance, we recommend either a virtual network peering or a network-to-network connection. See [Connect your application to an Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance). |
 | **Distributed transactions** | This feature is supported through elastic transactions. Microsoft Distributed Transaction Coordinator (MSDTC) transactions are not supported. If your SSIS packages use MSDTC to coordinate distributed transactions, consider migrating to elastic transactions for Azure SQL Database. For more information, see [Distributed transactions across cloud databases](/azure/azure-sql/database/elastic-transactions-overview). | Not supported. |

@@ -1,12 +1,12 @@
 ---
 title: How to prepare an application for deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -149,24 +149,21 @@ Azure Spring Apps will support the latest Spring Boot or Spring Cloud major vers
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
-### [Basic/Standard plan](#tab/basic-standard-plan)
-
-| Spring Boot version | Spring Cloud version  |
-|---------------------|-----------------------|
-| 3.0.0               | 2022.0.0-RC2          |
-| 2.7.x               | 2021.0.3+ aka Jubilee |
-| 2.6.x               | 2021.0.0+ aka Jubilee |
-
 ### [Enterprise plan](#tab/enterprise-plan)
 
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
-| 3.0.0               | 2022.0.0-RC2               |
+| 3.0.x               | 2022.0.x               |
 | 2.7.x               | 2021.0.3+ aka Jubilee      |
 | 2.6.x               | 2021.0.0+ aka Jubilee      |
 | 2.5.x               | 2020.3+ aka Ilford+        |
-| 2.4.x               | 2020.0+ aka Ilford+        |
-| 2.3.x               | Hoxton (starting with SR5) |
+
+### [Basic/Standard plan](#tab/basic-standard-plan)
+
+| Spring Boot version | Spring Cloud version  |
+|---------------------|-----------------------|
+| 3.0.x               | 2022.0.x          |
+| 2.7.x               | 2021.0.3+ aka Jubilee |
 
 ---
 
@@ -175,15 +172,14 @@ For more information, see the following pages:
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
-* [Spring Cloud 2020.0.0 (aka Ilford) Is Available](https://spring.io/blog/2020/12/22/spring-cloud-2020-0-0-aka-ilford-is-available)
 * [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
 
 > [!NOTE]
 > - The support for Spring Boot 3.0 is still in preview, so you shouldn't use it in production.
 
-### Dependencies for Spring Boot version 2.4/2.5/2.6/2.7
+### Dependencies for Spring Boot version 2.5/2.6/2.7
 
-For Spring Boot version 2.4/2.5, add the following dependencies to the application POM file.
+For Spring Boot version 2.5, add the following dependencies to the application POM file.
 
 ```xml
 <!-- Spring Boot dependencies -->
@@ -199,7 +195,7 @@ For Spring Boot version 2.4/2.5, add the following dependencies to the applicati
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2020.0.2</version>
+            <version>2020.0.6</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -214,7 +210,7 @@ For Spring Boot version 2.6/2.7, add the following dependencies to the applicati
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
+    <version>2.7.8</version>
 </parent>
 
 <!-- Spring Cloud dependencies -->
@@ -223,7 +219,7 @@ For Spring Boot version 2.6/2.7, add the following dependencies to the applicati
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.3</version>
+            <version>2021.0.6</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -282,27 +278,9 @@ public class GatewayApplication {
 
 ### Distributed configuration
 
-#### [Basic/Standard plan](#tab/basic-standard-plan)
-
-To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-config-client</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-bootstrap</artifactId>
-</dependency>
-```
-
-> [!WARNING]
-> Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
-
 #### [Enterprise plan](#tab/enterprise-plan)
 
-To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu®](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 In the Enterprise plan, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 
@@ -323,6 +301,24 @@ To use Application Configuration Service for Tanzu, do the following steps for e
           --artifact-path <path-to-your-JAR-file> \
           --config-file-pattern <config-file-pattern>
    ```
+
+#### [Basic/Standard plan](#tab/basic-standard-plan)
+
+To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-config-client</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
+</dependency>
+```
+
+> [!WARNING]
+> Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
 
 ---
 

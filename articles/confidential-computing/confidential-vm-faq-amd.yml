@@ -157,7 +157,7 @@ sections:
         answer: |
           Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. Confidential VMs are available in dedicated sizes, so prices might differ from general-purpose VMs. 
           Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
-          Also, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible.
+          Also, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs.
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.

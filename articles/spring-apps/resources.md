@@ -1,7 +1,7 @@
 ---
 title: Resources for Azure Spring Apps | Microsoft Docs
 description: Azure Spring Apps resource list
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: reference
 ms.date: 09/08/2020
@@ -24,8 +24,8 @@ As a developer, you might find the following Azure Spring Apps resources useful:
 * [Frequently asked questions](./faq.md)
 * [Troubleshooting guide](./troubleshoot.md)
 * [Microsoft Q&A question page](/answers/topics/azure-spring-cloud.html)
-* [Spring Cloud Services for VMware Tanzu Documentation](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)
+* [Service Registry with Spring Cloud Services](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.1/spring-cloud-services/GUID-service-registry-index.html)
 * [Steeltoe](https://steeltoe.io/)
 * [Spring](https://spring.io/)
-* [Spring framework](https://spring.io/projects/spring-cloud-azure)
+* [Spring Cloud Azure](https://spring.io/projects/spring-cloud-azure)
 * [Spring on Azure](/azure/developer/java/spring-framework/)

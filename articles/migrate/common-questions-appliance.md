@@ -4,9 +4,10 @@ description: Get answers to common questions about the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: ignite-2022, engagement-fy23
-ms.date: 12/12/2022
+ms.custom: ignite-2022, engagement-fy24
+ms.date: 08/24/2022
 ---
 
 # Azure Migrate appliance: Common questions
@@ -37,7 +38,7 @@ The appliance can be deployed using a couple of methods:
 - The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
-- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
+- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 
 ## How does the appliance connect to Azure?
 

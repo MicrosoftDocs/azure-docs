@@ -1,6 +1,6 @@
 ---
-title: Create and view rule-based anomalies and anomaly triggers in Permissions Management
-description: How to create and view rule-based anomalies and anomaly triggers in Permissions Management.
+title: Create and view rule-based anomaly alerts and alert triggers in Permissions Management
+description: How to create and view rule-based anomaly alerts and alert triggers in Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -12,13 +12,20 @@ ms.date: 02/23/2022
 ms.author: jfields
 ---
 
-# Create and view rule-based anomaly alerts and anomaly triggers
+# Create and view rule-based anomaly alerts and alert triggers
 
-Rule-based anomalies identify recent activity in Permissions Management that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
+Rule-based anomalies identify recent activity in Permissions Management that is determined to be unusual based on explicit rules defined in the alert trigger. The goal of rule-based anomaly alerts is high-precision detection.
+
+You can configure rule-based anomaly alert triggers for the following conditions:
+- **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
+- **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
+- **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval.
+
+Alert triggers are based on data collected. All alerts, if triggered, are shown every hour under the Alerts subtab.
 
 ## View rule-based anomaly alerts
 
-1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Alerts** (the bell icon).
 1. Select **Rule-Based Anomaly**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
@@ -49,18 +56,18 @@ Rule-based anomalies identify recent activity in Permissions Management that is 
      - **Details**: Displays details about **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, **Identities**, and **Activity**
      - **Activity**: Displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date/Time**, **Inactive For**, and **IP Address**. Selecting the "eye" icon displays the **Raw Events Summary**
 
-## Create a rule-based anomaly trigger
+## Create a rule-based anomaly alert trigger
 
-1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Alerts** (the bell icon).
 1. Select **Rule-Based Anomaly**, and then select the **Alerts** subtab.
-1. Select **Create Anomaly Trigger**.
+1. Select **Create Alert Trigger**.
 
 1. In the **Alert Name** box, enter a name for the alert.
 1. Select the **Authorization System**, **AWS**, **Azure**, or **GCP**.
 1. Select one of the following conditions:
       - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
       - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
-       - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval
+      - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval.
 1. Select **Next**.
 1. On the **Authorization Systems** tab, select the available authorization systems and folders, or select **All**.
 
@@ -72,9 +79,9 @@ Rule-based anomalies identify recent activity in Permissions Management that is 
 1. On the **Configuration** tab, to update the **Time Interval**, select **90 Days**, **60 Days**, or **30 Days** from the **Time range** dropdown.
 1. Select **Save**.
 
-## View a rule-based anomaly trigger
+## View a rule-based anomaly alert trigger
 
-1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Alerts** (the bell icon).
 1. Select **Rule-Based Anomaly**, and then select the **Alert Triggers** subtab.
 
     The **Alert Triggers** subtab displays the following information:
@@ -113,7 +120,7 @@ Rule-based anomalies identify recent activity in Permissions Management that is 
 
 ## Next steps
 
-- For an overview on activity triggers, see [View information about activity triggers](ui-triggers.md).
+- For an overview on alerts and alert triggers, see [View information about alerts and alert triggers](ui-triggers.md).
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](how-to-create-alert-trigger.md).
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](product-statistical-anomalies.md).
-- For information on permission analytics triggers, see [Create and view permission analytics triggers](product-permission-analytics.md).
+- For information on finding outliers in identity's behavior, see [Create and view statistical anomaly alerts and alert triggers](product-statistical-anomalies.md).
+- For information on permission analytics alerts and alert triggers, see [Create and view permission analytics alerts and alert triggers](product-permission-analytics.md).

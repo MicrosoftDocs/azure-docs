@@ -12,9 +12,9 @@ ms.author: lwainstein
 > [!IMPORTANT]
 > Data ingestion using the Logstash output plugin with Data Collection Rules (DCRs) is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Microsoft Sentinel's new Logstash output plugin supports pipeline transformations and advanced configuration via Data Collection Rules (DCRs). The plugin forwards any type of logs from external data sources into custom or standard tables in Microsoft Sentinel. 
+Microsoft Sentinel's new Logstash output plugin supports pipeline transformations and advanced configuration via Data Collection Rules (DCRs). The plugin forwards any type of logs from external data sources into custom or standard tables in Log Analytics or Microsoft Sentinel. 
 
-In this article, you learn how to set up the new Logstash plugin to stream the data into Microsoft Sentinel using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-output-plugin-in-logstash)**.
+In this article, you learn how to set up the new Logstash plugin to stream the data into Log Analytics or Microsoft Sentinel using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-output-plugin-in-logstash)**.
 
 > [!NOTE]
 > A [previous version of the Logstash plugin](connect-logstash.md) allows you to connect data sources through Logstash via the Data Collection API. 
@@ -22,7 +22,7 @@ In this article, you learn how to set up the new Logstash plugin to stream the d
 With the new plugin, you can:
 - Control the configuration of the column names and types.
 - Perform ingestion-time transformations like filtering or enrichment. 
-- Ingest custom logs into a custom table, or ingest a Syslog input stream into the Microsoft Sentinel Syslog table.
+- Ingest custom logs into a custom table, or ingest a Syslog input stream into the Log Analytics Syslog table.
 
 Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
 
@@ -41,16 +41,15 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin)**, v1.0.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
 > - See the [prerequisites](#prerequisites) for the plugin’s Logstash version support.
 
-The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
+The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics Log Ingestion API. The data is ingested into custom logs or standard table.
 
-- Learn more about the [Log Analytics REST API](/rest/api/loganalytics/create-request).
-- Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md). 
+- Learn more about the [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md).
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 
@@ -62,14 +61,14 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
 1. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
 1. [Restart Logstash](#restart-logstash)
-1. [View inc    oming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
+1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
 1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
 
 ### Prerequisites
 
 - Install a supported version of Logstash. The plugin supports: 
-    - Logstash version 7.0 to 7.17.6.
-    - Logstash version 8.0 to 8.5.1. 
+    - Logstash version 7.0 to 7.17.10.
+    - Logstash version 8.0 to 8.8.1. 
     
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
@@ -81,7 +80,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 The Microsoft Sentinel output plugin is available in the Logstash collection.
 
-- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-sentinel-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin)** plugin.   
+- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)** plugin.   
 - If your Logstash system does not have Internet access, follow the instructions in the Logstash [Offline Plugin Management](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) document to prepare and use an offline plugin pack. (This will require you to build another Logstash system with Internet access.)
  
 ### Create a sample file
@@ -112,7 +111,7 @@ input {
 
     ```
     output {
-        microsoft-sentinel-logstash-output-plugin {
+        microsoft-sentinel-log-analytics-logstash-output-plugin {
           create_sample_file => true
           sample_file_path => "<enter the path to the file in which the sample data will be written>" #for example: "c:\\temp" (for windows) or "/tmp" for Linux. 
         }
@@ -123,7 +122,7 @@ input {
     The plugin writes ten records to a sample file named `sampleFile<epoch seconds>.json` in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
     Here is part of a sample file that the plugin creates:
     
-    ```
+    ```json
     [
             {
                 "host": "logstashMachine",
@@ -165,7 +164,7 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
 
     ```
     output {
-        microsoft-sentinel-logstash-output-plugin {
+        microsoft-sentinel-log-analytics-logstash-output-plugin {
           create_sample_file => true
           sample_file_path => "<enter the path to the file in which the sample data will be written>" #for example: "c:\\temp" (for windows) or "/tmp" for Linux. 
         }
@@ -175,7 +174,7 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
 
     The plugin writes ten records to a sample file named `sampleFile<epoch seconds>.json` in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
     Here is part of a sample file that the plugin creates:
-    ```
+    ```json
     [
         	{
         		"logsource": "logstashMachine",
@@ -191,7 +190,7 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
         		"ls_timestamp": "2022-04-07T08:26:04.000Z",
         		"ls_version": "1"
         	}
-        ]    
+    ]    
         
     ```
     The plugin automatically adds these properties to every record:  
@@ -253,7 +252,7 @@ Note that:
 - The `dataflows` property transforms the input to the Syslog table format, and sets the `outputStream` to `Microsoft-Syslog`.
 
 
-```
+```json
 {
 	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
@@ -377,7 +376,7 @@ To configure the Logstash configuration file to ingest the logs into a custom ta
 |---------|---------|
 |`client_app_Id` |The `Application (client) ID` value you create in step 3 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
 |`client_app_secret` |The `Application (client) ID` value you create in step 5 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
-|`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |
+|`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Microsoft Entra ID > Overview > Basic Information**.         |
 |`data_collection_endpoint`   |The value of the `logsIngestion` URI in step 3 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section.       |
 |`dcr_immutable_id` |The value of the DCR `immutableId` in step 6 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
 |`dcr_stream_name` |For custom tables, as explained in step 6 when you [create the DCR resources](#create-dcr-resources-for-ingestion-into-a-custom-table), go to the JSON view of the DCR, and copy the `dataFlows` > `streams` property. See the `dcr_stream_name` in the [example](#example-output-plugin-configuration-section) below.<br><br>For standard tables, the value is `Custom-SyslogStream`. |
@@ -397,12 +396,14 @@ After you retrieve the required values:
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
 |`compress_data` |When this field is `True`, the event data is compressed before using the API. Recommended for high throughput pipelines. |`False` |
 |`proxy` |Specify which proxy URL to use for all API calls. |None (field is empty) |
+|`proxy_aad` |Specify which proxy URL to use for API calls to Microsoft Entra ID. |Same value as 'proxy' (field is empty) |
+|`proxy_endpoint` |Specify which proxy URL to use for API calls to the Data Collection Endpoint. |Same value as 'proxy' (field is empty) |
 
 #### Example: Output plugin configuration section
 
 ```
 output {
-    microsoft-sentinel-logstash-output-plugin {
+    microsoft-sentinel-log-analytics-logstash-output-plugin {
       client_app_Id => "<enter your client_app_id value here>"
       client_app_secret => "<enter your client_app_secret value here>"
       tenant_id => "<enter your tenant id here> "

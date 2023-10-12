@@ -34,9 +34,11 @@ As part of your plan for an issuance solution, you must design a solution that e
 ![Components of an issuance solution](media/plan-issuance-solution/plan-for-issuance-solution-architecture.png)
 
 
-### Azure Active Directory tenant
+<a name='azure-active-directory-tenant'></a>
 
-A prerequisite for running the Microsoft Entra Verified ID service is that it's hosted in an Azure Active Directory (Azure AD) tenant. The Azure AD tenant provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution.
+### Microsoft Entra tenant
+
+A prerequisite for running the Microsoft Entra Verified ID service is that it's hosted in a Microsoft Entra tenant. The Microsoft Entra tenant provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution.
 
 Each tenant uses the multi-tenant Microsoft Entra Verified ID service, and has a decentralized identifier (DID). The DID provides proof that the issuer owns the domain incorporated into the DID. The DID is used by the subject and the verifier to validate the issuer. 
 
@@ -59,7 +61,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 ### Microsoft Entra Verified ID service
 
-![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
+![Diagram of Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-verifiable-credentials-vc-services.png)
 
 The Microsoft Entra Verified ID service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -93,13 +95,13 @@ A web front end serves issuance requests to the subject’s wallet by generating
 
 These services provide supporting roles that don't necessarily need to integrate with ION or Microsoft Entra Verified ID issuance service. This layer typically includes:
 
-* **Open ID Connect (OIDC)-compliant service or services** are used to obtain id_tokens needed to issue the VC. Existing identity systems such as Azure AD or Azure AD B2C can provide the OIDC-compliant service, as can custom solutions such as Identity Server.
+* **OpenID Connect (OIDC)-compliant service or services** are used to obtain id_tokens needed to issue the VC. Existing identity systems such as Microsoft Entra ID or Azure AD B2C can provide the OIDC-compliant service, as can custom solutions such as Identity Server.
 
 * **Attribute stores** – These might be outside of directory services and provide attributes needed to issue a VC. For example, a student information system might provide claims about degrees earned. 
 
 * **Additional middle-tier services** that contain business rules for lookups, validating, billing, and any other runtime checks and workflows needed to issue credentials.
 
-For more information on setting up your web front end, see the tutorial [Configure your Azure AD to issue verifiable credentials](../verifiable-credentials/enable-your-tenant-verifiable-credentials.md). 
+For more information on setting up your web front end, see the tutorial [Configure your Microsoft Entra ID to issue verifiable credentials](./verifiable-credentials-configure-tenant.md). 
 
 ## Credential Design Considerations
 
@@ -169,7 +171,7 @@ As with any solution, you must plan for performance. The key areas to focus on a
 
 The following provides areas to consider when planning for performance:
 
-* The Microsoft Entra Verified ID issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. If your Azure Active Directory tenant resides within EU, the Microsoft Entra Verified ID service will be in EU too. 
+* The Microsoft Entra Verified ID issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. If your Microsoft Entra tenant resides within EU, the Microsoft Entra Verified ID service will be in EU too. 
 
 * To limit latency, deploy your issuance frontend website and key vault in the region listed above that is closest to where requests are expected to originate.
 
@@ -183,8 +185,6 @@ Model based on throughput:
       * One for the VC created
 
       * One for the contract download
-
-* Maximum signing performance of a Key Vault is 2,000 signing/~10 seconds. This is about 12,000 signings per minute. This means your solution can support up to 4,000 VC issuances per minute.
 
 * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md). 
 
@@ -234,7 +234,7 @@ If the rare event that the Microsoft Entra Verified ID issuance service or Azure
 
 ### Plan for compliance
 
-Your organization may have specific compliance needs related to your industry, type of transactions, or country of operation. 
+Your organization may have specific compliance needs related to your industry, type of transactions, or country/region of operation. 
 
 **Data residency**: The Microsoft Entra Verified ID issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We don't store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service shouldn't impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
 
@@ -286,13 +286,13 @@ For security logging and monitoring, we recommend the following:
 
 * Mitigate distributed denial of service (DDOS) and Key Vault resource exhaustion risks. Every request that triggers a VC issuance request generates Key Vault signing operations that accrue towards service limits. We recommend protecting traffic by incorporating authentication or captcha before generating issuance requests.
 
-For guidance on managing your Azure environment, we recommend you review the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
+For guidance on managing your Azure environment, we recommend you review the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Securing Azure environments with Microsoft Entra ID](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
 
 ## Additional considerations
 
 When you complete your POC, gather all the information and documentation generated, and consider tearing down the issuer configuration. This will help avoid issuing verifiable credentials after your POC timeframe expires. 
 
-For more information on Key Vault implementation and operation, refer to [Best practices to use Key Vault](../../key-vault/general/best-practices.md). For more information on Securing Azure environments with Active Directory, refer to [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). 
+For more information on Key Vault implementation and operation, refer to [Best practices to use Key Vault](../../key-vault/general/best-practices.md). For more information on Securing Azure environments with Active Directory, refer to [Securing Azure environments with Microsoft Entra ID](https://aka.ms/AzureADSecuredAzure). 
 
 ## Next steps
 
@@ -300,4 +300,4 @@ For more information on Key Vault implementation and operation, refer to [Best p
 
 [Plan your verification solution](plan-verification-solution.md)
 
-[Get started with verifiable credentials](get-started-verifiable-credentials.md)
+[Get started with verifiable credentials](./verifiable-credentials-configure-tenant.md)

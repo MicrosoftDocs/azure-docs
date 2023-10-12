@@ -1,7 +1,7 @@
 ---
 title: Feature availability across cloud regions
 titleSuffix: Azure Machine Learning
-description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure China 21Vianet regions.
+description: This article lists feature availability differences between public cloud and the Azure Government, Azure Germany, and Azure operated by 21Vianet regions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,17 +16,17 @@ ms.custom: references_regions, event-tier1-build-2022
 
 # Azure Machine Learning feature availability across clouds regions
 
-Learn what Azure Machine Learning features are available in the Azure Government, Azure Germany, and Azure China 21Vianet regions. 
+Learn what Azure Machine Learning features are available in the Azure Government, Azure Germany, and Microsoft Azure operated by 21Vianet regions. 
 
-In the list of global Azure regions, there are several regions that serve specific markets in addition to the public cloud regions. For example, the Azure Government and the Azure China 21Vianet regions. Azure Machine Learning is deployed into the following regions, in addition to public cloud regions:
+In the list of global Azure regions, there are several regions that serve specific markets in addition to the public cloud regions. For example, the Azure Government and the Azure operated by 21Vianet regions. Azure Machine Learning is deployed into the following regions, in addition to public cloud regions:
 
 * Azure Government regions **US-Arizona** and **US-Virginia**.
-* Azure China 21Vianet region **China-East-2**.
+* Azure operated by 21Vianet region **China-East-2**.
 
 Azure Machine Learning is still in development in air-gap Regions. 
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
-## Azure Government	
+## Azure Government    
 
 | Feature | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
@@ -58,6 +58,7 @@ The information in the rest of this document provides information on what featur
 | **SDK support** |  |  | | 
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
+| Managed virtual network support                                            | Preview                   | Preview                | Preview         |
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
@@ -76,7 +77,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
-| [The Azure Machine Learning CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [The Azure Machine Learning CLI v1](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
@@ -102,7 +103,7 @@ The information in the rest of this document provides information on what featur
 | [Azure Stack Edge with FPGA (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
 | [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
-| [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
+| [Custom Cognitive Search (SDK v1)](./v1/how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
 
 
 ### Azure Government scenarios
@@ -110,14 +111,14 @@ The information in the rest of this document provides information on what featur
 | Scenario                                                    | US-Virginia | US-Arizona| Limitations  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **General security setup** |   | | |
-| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	|  | 
+| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL    |  | 
 | Placement for all associated resources/services  | YES | YES |  |
 | Encryption at-rest and in-transit.                                                 | YES | YES |  |
 | Root and SSH access to compute resources.                                          | YES | YES |  |
-| Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|	PARTIAL	|ACI behind VNet currently not available |                                  
-| Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet currently not available|
+| Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|    PARTIAL    |ACI behind VNet currently not available |                                  
+| Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|    PARTIAL    |ACI behind VNet currently not available|
 | Azure role-based access control (Azure RBAC) - Custom Role Creations                           | YES | YES |  |
-| Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	|  |
+| Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|    PARTIAL    |  |
 | **General Machine Learning Service Usage** |  | | |
 | Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp     | YES | YES |  |
 | Ability to pull data from ADLS (Data Lake Storage)                                 |YES | YES |  |
@@ -139,7 +140,7 @@ The information in the rest of this document provides information on what featur
     * For both: `graph.windows.net` 
 
 
-## Azure China 21Vianet	
+## Azure operated by 21Vianet    
 
 | Feature                                       | Public cloud status | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
@@ -166,6 +167,7 @@ The information in the rest of this document provides information on what featur
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
+| Managed virtual network support                                            | Preview               | Preview        | N/A        |
 | Virtual Network (VNet) support                                             | GA   | YES       | N/A        |
 | **SDK support** |    | | |
 | Python SDK support                                                         | GA               | YES       | N/A        |
@@ -219,19 +221,19 @@ The information in the rest of this document provides information on what featur
 
 
 
-### Other Azure China limitations
+### Other Azure operated by 21Vianet limitations
 
-* Azure China has limited VM SKU, especially for GPU SKU. It only has NCv3 family (V100).
-* REST API Endpoints are different from global Azure. Use the following table to find the REST API endpoint for Azure China regions:
+* Azure operated by 21Vianet has limited VM SKU, especially for GPU SKU. It only has NCv3 family (V100).
+* REST API Endpoints are different from global Azure. Use the following table to find the REST API endpoint for Azure operated by 21Vianet regions:
 
     | REST endpoint                 | Global Azure                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | Management plane | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Data plane       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
-    | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
+    | Microsoft Entra ID              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
-* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
+* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Microsoft Azure operated by 21Vianet](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all Azure Machine Learning regions.
 * Searching for assets in the web UI with Chinese characters will not work correctly.
 

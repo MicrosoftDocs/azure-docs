@@ -76,14 +76,14 @@ The following are best practices for managing the identity perimeter.
 **Best practice**: Protect your VM management interfaces on hybrid PaaS and IaaS services by using a management interface that enables you to remote manage these VMs directly.
 **Detail**: Remote management protocols such as [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), and [PowerShell remoting](/powershell/module/microsoft.powershell.core/enable-psremoting) can be used. In general, we recommend that you do not enable direct remote access to VMs from the internet.
 
-If possible, use alternate approaches like using virtual private networks in an Azure virtual network. If alternative approaches are not available, ensure that you use complex passphrases and two-factor authentication (such as [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
+If possible, use alternate approaches like using virtual private networks in an Azure virtual network. If alternative approaches are not available, ensure that you use complex passphrases and two-factor authentication (such as [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
 
 **Best practice**: Use strong authentication and authorization platforms.
-**Detail**: Use federated identities in Azure AD instead of custom user stores. When you use federated identities, you take advantage of a platform-based approach and you delegate the management of authorized identities to your partners. A federated identity approach is especially important when employees are terminated and that information needs to be reflected through multiple identity and authorization systems.
+**Detail**: Use federated identities in Microsoft Entra ID instead of custom user stores. When you use federated identities, you take advantage of a platform-based approach and you delegate the management of authorized identities to your partners. A federated identity approach is especially important when employees are terminated and that information needs to be reflected through multiple identity and authorization systems.
 
 Use platform-supplied authentication and authorization mechanisms instead of custom code. The reason is that developing custom authentication code can be error prone. Most of your developers are not security experts and are unlikely to be aware of the subtleties and the latest developments in authentication and authorization. Commercial code (for example, from Microsoft) is often extensively security reviewed.
 
-Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Azure AD Multi-Factor Authentication.
+Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Microsoft Entra multifactor authentication.
 
 Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
@@ -106,8 +106,8 @@ The following table lists the STRIDE threats and gives some example mitigations 
 
 Following are best practices for using App Service.
 
-**Best practice**: [Authenticate through Azure Active Directory](../../app-service/overview-authentication-authorization.md).
-**Detail**: App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Azure AD uses OAuth 2.0 to enable you to authorize access to mobile and web applications.
+**Best practice**: [Authenticate through Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).
+**Detail**: App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Microsoft Entra ID uses OAuth 2.0 to enable you to authorize access to mobile and web applications.
 
 **Best practice**: Restrict access based on the need to know and least privilege security principles.
 **Detail**: Restricting access is imperative for organizations that want to enforce security policies for data access. You can use Azure RBAC to assign permissions to users, groups, and applications at a certain scope. To learn more about granting users access to applications, see [Get started with access management](../../role-based-access-control/overview.md).
@@ -131,7 +131,7 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 
 ## DDoS protection
 
-[Azure DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](../../ddos-protection/ddos-protection-overview.md) on any perimeter virtual network. 
+[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](../../ddos-protection/ddos-protection-overview.md) on any perimeter virtual network. 
 
 ## Monitor the performance of your applications
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your application. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.

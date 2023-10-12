@@ -35,7 +35,7 @@ var sameUser = new CommunicationUserIdentifier(newUserId);
 
 ### Microsoft Teams user
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](../../../../active-directory/develop/id-tokens.md#payload-claims) or [Azure AD access token](../../../../active-directory/develop/access-token-claims-reference.md#payload-claims) after your user has signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](../../../../active-directory/develop/id-token-claims-reference.md#payload-claims) or [Azure AD access token](../../../../active-directory/develop/access-token-claims-reference.md#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
@@ -101,7 +101,7 @@ var gcchBotIdentifier = new MicrosoftBotIdentifier(bot.id, true, CommunicationCl
 
 #### API reference
 
-[MicrosoftBotIdentifier](/java/api/com.azure.communication.common.microsoftbotidentifier?view=azure-java-preview)
+[MicrosoftBotIdentifier](/java/api/com.azure.communication.common.microsoftbotidentifier?view=azure-java-preview&preserve-view=true)
 
 ### Unknown
 

@@ -2,7 +2,7 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 10/11/2023
 ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: cithomas
@@ -320,14 +320,17 @@ For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers)
 }
 ```
 ### JavaScript telemetry initializers
-*JavaScript*
 
-Insert a telemetry initializer by adding the onInit callback function in the [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration):
+Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the Application Insights JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
+
+#### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
+
+Insert a telemetry initializer by adding the onInit callback function in the [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration):
 
 ```html
 <script type="text/javascript">
-!function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
-src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
+src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
@@ -340,6 +343,25 @@ cfg: { // Application Insights Configuration
 }});
 </script>
 ```
+
+#### [npm package](#tab/npmpackage)
+
+   ```js
+   import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+   const appInsights = new ApplicationInsights({ config: {
+     connectionString: 'YOUR_CONNECTION_STRING'
+     /* ...Other Configuration Options... */
+   } });
+   appInsights.loadAppInsights();
+   // To insert a telemetry initializer, uncomment the following code.
+   /** var telemetryInitializer = (envelope) => {   envelope.data = envelope.data || {}; envelope.data.someField = 'This item passed through my telemetry initializer'; 
+   };
+   appInsights.addTelemetryInitializer(telemetryInitializer); **/ 
+   appInsights.trackPageView();
+   ```
+
+---
 
 For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
 
@@ -518,6 +540,15 @@ What's the difference between telemetry processors and telemetry initializers?
 * Confirm that the fully qualified type name and assembly name are correct.
 * Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
+## Azure Monitor Telemetry Data Types Reference
+
+ * [ASP.NET Core SDK](/dotnet/api/microsoft.applicationinsights.datacontracts)
+ * [ASP.NET SDK](/dotnet/api/microsoft.applicationinsights.datacontracts)
+ * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes)
+ * [Java SDK (via config)](/azure/azure-monitor/app/java-in-process-agent#modify-telemetry)
+ * [Python SDK](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py)
+ * [JavaScript SDK](https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCommon/src/Telemetry)
+
 ## Reference docs
 
 * [API overview](./api-custom-events-metrics.md)
@@ -532,5 +563,4 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 * [Search events and logs](./diagnostic-search.md)
 * [sampling](./sampling.md)
-* [Troubleshooting](../faq.yml)
 

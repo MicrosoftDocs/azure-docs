@@ -67,6 +67,10 @@ Once the deployment completes, find the Service Fabric Explorer value in the out
 > [!NOTE]
 > You can find the output of the deployment in Azure Portal under the resource group deployments tab.
 
+Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
+
+![Screenshot of Service Fabric Explorer certificate error.](media/how-to-managed-cluster-connect/sfx-your-connection-isnt-private.png)
+
 ## Clean up resources
 
 When no longer needed, delete the resource group for your Service Fabric managed cluster. To delete the resource group through the portal:

@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample .NET MAUI mobile application by using Azure AD for customers tenant
-description: Learn how to configure a sample .NET MAUI mobile to sign in and sign out users by using Azure AD for customers tenant.
+title: Sign in users in a sample .NET MAUI mobile application by using Microsoft Entra ID for customers tenant
+description: Learn how to configure a sample .NET MAUI mobile to sign in and sign out users by using Microsoft Entra ID for customers tenant.
 services: active-directory
 author: henrymbuguakiarie
 manager: mwongerapk
@@ -11,28 +11,29 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI mobile app to sign in and sign out users with Azure AD for customers tenant
+ms.custom: developer, devx-track-dotnet
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI mobile app to sign in and sign out users with Microsoft Entra ID for customers tenant
 ---
 
 # Sign in users in a sample .NET MAUI Android application
 
-This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to an Android application by using Azure Active Directory (Azure AD) for customers tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI Android application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
+This how-to guide uses a sample .NET Multi-platform App UI (.NET MAUI) to show how to add authentication to an Android application by using Microsoft Entra ID for customers tenant. The sample application enables users to sign in and sign out. The sample .NET MAUI Android application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
 
 In this article, you do the following tasks:
 
-- Register a .NET MAUI Android application in the Azure AD for customers tenant.
-- Create a sign-in and sign-out user flow in the Azure AD for customers tenant.
+- Register a .NET MAUI Android application in the Microsoft Entra ID for customers tenant.
+- Create a sign-in and sign-out user flow in the Microsoft Entra ID for customers tenant.
 - Associate your .NET MAUI Android application with the user flow.
-- Update a sample .NET MAUI Android application to use your own Azure AD for customers tenant details.
+- Update a sample .NET MAUI Android application to use your own Microsoft Entra ID for customers tenant details.
 - Run and test the sample .NET MAUI Android application.
 
 ## Prerequisites
 
-- [Visual Studio Code](https://code.visualstudio.com/download) with the MAUI workload installed:
+- [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
+- [Visual Studio 2022](https://aka.ms/vsdownloads) with the MAUI workload installed:
   - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
   - [Instructions for macOS](/dotnet/maui/get-started/installation?tabs=vsmac)
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- Microsoft Entra ID for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Register .NET MAUI Android application
 
@@ -71,9 +72,15 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 
 ## Run and test sample .NET MAUI Android application
 
-Select the Android platform to work on by setting the startup project in the **Solution Explorer**. Make sure that your platform of choice is marked for build and deploy in the configuration manager.
+.NET MAUI apps are designed to run on multiple operating systems and devices. You'll need to select which target you want to test and debug your app with.
 
-Clean the solution, rebuild the solution, and run it.
+Set the **Debug Target** in the Visual Studio toolbar to the device you want to debug and test with. The following steps demonstrate setting the **Debug Target** to _Android_:
+
+1. Select **Debug Target** drop-down.
+1. Select **Android Emulators**. 
+1. Select emulator device.
+
+Run the app by pressing _F5_ or select the _play button_ at the top of Visual Studio.
 
 1. You can now test the sample .NET MAUI Android app. After you run the app, the Android app window appears in an emulator:
 

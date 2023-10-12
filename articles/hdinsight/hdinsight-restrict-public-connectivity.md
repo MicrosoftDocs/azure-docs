@@ -26,6 +26,9 @@ By default, the HDInsight resource provider uses an *inbound* connection to the 
 
 In this configuration, without an inbound connection, there's no need to configure inbound service tags in the network security group. There's also no need to bypass the firewall or network virtual appliance via user-defined routes.
 
+> [!NOTE]
+> Implementations in Microsoft Azure Government may still require the inbound service tags in the network security group and user defined routes.
+
 After you create your cluster, set up proper DNS resolution by adding DNS records that are needed for your restricted HDInsight cluster. The following canonical name DNS record (CNAME) is created in the Azure-managed public DNS zone: `azurehdinsight.net`.
 
 ```dns
@@ -131,7 +134,7 @@ Configuring `resourceProviderConnection` to *outbound* also allows you to access
 - SQL metastores: Apache Ranger, Ambari, Oozie, and Hive
 - Azure Key Vault 
 
-It isn't mandatory to use private endpoints for these resources. But if you plan to use private endpoints for these resources, you must create the resources and configure the private endpoints and DNS entries before you create the HDInsight cluster. All these resources should be accessible from inside the cluster subnet, either through a private endpoint or otherwise.
+It isn't mandatory to use private endpoints for these resources. But if you plan to use private endpoints for these resources, you must create the resources and configure the private endpoints and DNS entries before you create the HDInsight cluster. All these resources should be accessible from inside the cluster subnet, either through a private endpoint or otherwise. If you're planning to use a private endpoint, it's recommended to leverage the cluster subnet.
 
 When you connect to Azure Data Lake Storage Gen2 over a private endpoint, make sure that the Gen2 storage account has an endpoint set for both `blob` and `dfs`. For more information, see [Create a private endpoint](../private-link/create-private-endpoint-portal.md).
 

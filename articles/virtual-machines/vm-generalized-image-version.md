@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/23/2023
+ms.date: 08/15/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -469,9 +469,9 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ---
 ## RBAC - Shared from another tenant
 
-If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you'll need to sign in to each tenant to verify you have access.
+If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you need to sign in to each tenant to verify you have access.
 
-you'll need to the `imageID` of the image you want to use and you need to make sure it's replicated to the region where you want to create the VM. You'll also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
+You also need the `imageID` of the image you want to use and you need to make sure it's replicated to the region where you want to create the VM. You'll also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
 ### [CLI](#tab/cli2)
 
 In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
@@ -488,7 +488,8 @@ az login --tenant $tenant1
 az account get-access-token 
 az login --tenant $tenant2
 az account get-access-token
-
+az login --tenant $tenant1
+az account get-access-token
 ```
  
 
@@ -501,7 +502,7 @@ location="<location where the image is replicated>"
 user='<username for the VM>'
 name='<name for the VM>'
 
-az group create --location --resource-group $resourcegroup
+az group create --location $location --resource-group $resourcegroup
 az vm create \
   --resource-group $resourcegroup \
   --name $name \
@@ -523,6 +524,7 @@ $tenant1 = "<Tenant 1 ID>"
 $tenant2 = "<Tenant 2 ID>"
 Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
+Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 ```
 
 
@@ -568,24 +570,25 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
 ---
+
+<a name="community-gallery"></a>
+
 ## Community gallery
 
 > [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users. 
->
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
-## Reporting issues with a public image 
-Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+## Reporting issues with a community image 
+Using community-submitted virtual machine images has several risks. Images could contain malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images when you see these issues.
 
+The easiest way to report issues with a community gallery is to use the portal, which will pre-fill information for the report:
+- For issues with links or other information in the fields of an image definition, select **Report community image**.
+- If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
 
-### Reporting images externally:
+You can also use the following links to report issues, but the forms won't be pre-filled:
+
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
-
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
-
 
 ### [CLI](#tab/cli3)
 
@@ -609,7 +612,7 @@ az sig image-version list-community --public-gallery-name <<galleryname>> --gall
 
 To get the public name of a community gallery from portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
-In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
+In this example, we're creating a VM from a Linux image and creating SSH keys for authentication.
 
 ```azurecli-interactive
 imgDef="/CommunityGalleries/ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/myLinuxImage/Versions/latest"
@@ -628,7 +631,7 @@ az vm create\
    --generate-ssh-keys
 ```
 
-When using a community image, you'll be prompted to accept the legal terms. The message will look like this: 
+When using a community image, you'll be prompted to accept the legal terms. The message looks like this: 
 
 ```output
 To create the VM from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
@@ -705,20 +708,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 ### [Portal](#tab/portal3)
 
-1. Type **virtual machines** in the search.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
-1. Under **Instance details**, type a name for the **Virtual machine name**.
-1. For **Security type**, make sure *Standard* is selected.
-1. For your **Image**, select **See all images**. The **Select an image** page will open.
-   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
-1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
-   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Type **Community images** in the search.
+1. Under **Services**, select **Community images**.
+2. Select the image from the list of available images. You can use the filter to narrow the list as needed.
+3. On the page for the image, select **Create VM**. The **Create a virtual machine** page opens with the **Image** value pre-selected.
+5. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+6. Under **Instance details**, type a name for the **Virtual machine name**.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
 1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
-
 
 ---
 
@@ -761,7 +758,7 @@ galleryName="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
 
 Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
 
-Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image` to create a VM. In this example, we are creating a VM from a Linux image that is directly shared to us, and creating SSH keys for authentication.
+Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image` to create a VM. In this example, we're creating a VM from a Linux image that is directly shared to us, and creating SSH keys for authentication.
 
 ```azurecli-interactive
 imgDef="/SharedGalleries/1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-MYDIRECTSHARED/Images/myDirectDefinition/Versions/latest"
@@ -861,12 +858,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
 1. Under **Instance details**, type a name for the **Virtual machine name**.
 1. For **Security type**, make sure *Standard* is selected.
-1. For your **Image**, select **See all images**. The **Select an image** page will open.
-1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page will open.
+1. For your **Image**, select **See all images**. The **Select an image** page opens.
+1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page opens.
+1. The scope in this section is set to 'Subscription' by default, change the scope to 'Tenant' if you don't see the images and click outside the box to see the list of images shared to the entire Tenant.
 1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
 1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
-
 
 ---
 

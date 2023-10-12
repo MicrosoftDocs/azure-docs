@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-js, devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Security Frame: Sensitive Data | Mitigations 
@@ -222,9 +222,9 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Component**               | Web API | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5, MVC 6 |
-| **Attributes**              | Identity Provider - ADFS, Identity Provider - Azure AD |
+| **Attributes**              | Identity Provider - ADFS, Identity Provider - Microsoft Entra ID |
 | **References**              | N/A  |
-| **Steps** | <p>In certain implementations, sensitive artifacts relevant to Web API's authentication are stored in browser's local storage. E.g., Azure AD authentication artifacts like adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>All these artifacts are available even after sign out or browser is closed. If an adversary gets access to these artifacts, he/she can reuse them to access the protected resources (APIs). Ensure that all sensitive artifacts related to Web API is not stored in browser's storage. In cases where client-side storage is unavoidable (e.g., Single Page Applications (SPA) that leverage Implicit OpenIdConnect/OAuth flows need to store access tokens locally), use storage choices with do not have persistence. e.g., prefer SessionStorage to LocalStorage.</p>| 
+| **Steps** | <p>In certain implementations, sensitive artifacts relevant to Web API's authentication are stored in browser's local storage. E.g., Microsoft Entra authentication artifacts like adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>All these artifacts are available even after sign out or browser is closed. If an adversary gets access to these artifacts, he/she can reuse them to access the protected resources (APIs). Ensure that all sensitive artifacts related to Web API is not stored in browser's storage. In cases where client-side storage is unavoidable (e.g., Single Page Applications (SPA) that leverage Implicit OpenIdConnect/OAuth flows need to store access tokens locally), use storage choices with do not have persistence. e.g., prefer SessionStorage to LocalStorage.</p>| 
 
 ### Example
 The below JavaScript snippet is from a custom authentication library which stores authentication artifacts in local storage. Such implementations should be avoided. 

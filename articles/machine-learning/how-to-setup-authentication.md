@@ -10,22 +10,19 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-setup-authentication.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-setup-authentication.md)
 
-Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Microsoft Entra ID__ for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
-* __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
+* __Interactive__: You use your account in Microsoft Entra ID to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
-* __Service principal__: You create a service principal account in Azure Active Directory, and use it to authenticate or get a token. A service principal is used when you need an _automated process to authenticate_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes.
+* __Service principal__: You create a service principal account in Microsoft Entra ID, and use it to authenticate or get a token. A service principal is used when you need an _automated process to authenticate_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes.
 
 * __Azure CLI session__: You use an active Azure CLI session to authenticate. The Azure CLI extension for Machine Learning (the `ml` extension or CLI v2) is a command line tool for working with Azure Machine Learning. You can sign in to Azure via the Azure CLI on your local workstation, without storing credentials in Python code or prompting the user to authenticate. Similarly, you can reuse the same scripts as part of continuous integration and deployment pipelines, while authenticating the Azure CLI with a service principal identity.
 
@@ -33,28 +30,30 @@ Learn how to set up authentication to your Azure Machine Learning workspace from
 
 Regardless of the authentication workflow used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it, while a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
-Azure AD Conditional Access can be used to further control or restrict access to the workspace for each authentication workflow. For example, an admin can allow workspace access from managed devices only.
+Microsoft Entra Conditional Access can be used to further control or restrict access to the workspace for each authentication workflow. For example, an admin can allow workspace access from managed devices only.
 
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
+* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-All the authentication workflows for your workspace rely on Azure Active Directory. If you want users to authenticate using individual accounts, they must have accounts in your Azure AD. If you want to use service principals, they must exist in your Azure AD. Managed identities are also a feature of Azure AD. 
+## Microsoft Entra ID
 
-For more on Azure AD, see [What is Azure Active Directory authentication](..//active-directory/authentication/overview-authentication.md).
+All the authentication workflows for your workspace rely on Microsoft Entra ID. If you want users to authenticate using individual accounts, they must have accounts in your Microsoft Entra ID. If you want to use service principals, they must exist in your Microsoft Entra ID. Managed identities are also a feature of Microsoft Entra ID. 
 
-Once you've created the Azure AD accounts, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md) for information on granting them access to the workspace and other operations in Azure Machine Learning.
+For more on Microsoft Entra ID, see [What is Microsoft Entra authentication](..//active-directory/authentication/overview-authentication.md).
+
+Once you've created the Microsoft Entra accounts, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md) for information on granting them access to the workspace and other operations in Azure Machine Learning.
 
 ## Use interactive authentication
 
 # [Python SDK v2](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
 
@@ -202,7 +201,7 @@ For more information, see [Set up managed identity for compute cluster](how-to-c
 
 ### Managed identity with compute instance
 
-For more information, see [Set up managed identity for compute instance](how-to-create-manage-compute-instance.md#assign-managed-identity).
+For more information, see [Set up managed identity for compute instance](how-to-create-compute-instance.md#assign-managed-identity).
 
 <a id="service-principal-authentication"></a>
 
@@ -210,7 +209,7 @@ For more information, see [Set up managed identity for compute instance](how-to-
 
 # [Python SDK v2](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authenticating with a service principal uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). The `DefaultAzureCredential` class looks for the following environment variables and uses the values when authenticating as the service principal:
 
@@ -269,7 +268,7 @@ You can use a service principal for Azure CLI commands. For more information, se
 
 ---
 
-The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
+The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Microsoft Entra ID [client credentials grant flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
 > [!IMPORTANT]
 > If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-migration.md). ADAL support ended June 30, 2022.
@@ -278,11 +277,11 @@ For information and samples on authenticating with MSAL, see the following artic
 
 * JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
 * Node.js - [How to migrate a Node.js app from Microsoft Authentication Library to MSAL](../active-directory/develop/msal-node-migration.md).
-* Python - [Microsoft Authentication Library to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
+* Python - [Microsoft Authentication Library to MSAL migration guide for Python](/entra/msal/python/advanced/migrate-python-adal-msal).
 
 ## Use managed identity authentication
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authenticating with a managed identity uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). To authenticate to the workspace from a VM or compute cluster that is configured with a managed identity, use the `DefaultAzureCredential` class. This class automatically detects if a managed identity is being used, and uses the managed identity to authenticate to Azure services.
 
@@ -320,7 +319,7 @@ print(ml_client)
 
 ## Use Conditional Access
 
-As an administrator, you can enforce [Azure AD Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
+As an administrator, you can enforce [Microsoft Entra Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
 can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Next steps

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 09/12/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for the [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols. With an OpenID Connect technical profile, you can federate with an OpenID Connect based identity provider, such as Azure AD. Federating with an identity provider allows users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the [OpenID Connect](https://openid.net/certification/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols. With an OpenID Connect technical profile, you can federate with an OpenID Connect based identity provider, such as Microsoft Entra ID. Federating with an identity provider allows users to sign in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -83,12 +83,12 @@ The technical profile also returns claims that aren't returned by the identity p
 | response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the request that is defined according to the OpenID Connect Core 1.0 specification. Such as `openid`, `profile`, and `email`. |
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
-| ValidTokenIssuerPrefixes | No | A key that can be used to sign in to each of the tenants when using a multi-tenant identity provider such as Azure Active Directory. |
+| ValidTokenIssuerPrefixes | No | A key that can be used to sign in to each of the tenants when using a multi-tenant identity provider such as Microsoft Entra ID. |
 | UsePolicyInRedirectUri | No | Indicates whether to use a policy when constructing the redirect URI. When you configure your application in the identity provider, you need to specify the redirect URI. The redirect URI points to Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  If you specify `true`, you need to add a redirect URI for each policy you use. For example: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | No | Indicates whether a request to an external service should be marked as a failure if the Http status code is in the 5xx range. The default is `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token.If you need to build the metadata endpoint URL based on Issuer, set this to `true`.|
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-|token_endpoint_auth_method| No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview), `private_key_jwt` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|token_endpoint_auth_method| No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic`, `private_key_jwt`. For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 |token_signing_algorithm| No | Specifies the signing algorithm to use when `token_endpoint_auth_method` is set to `private_key_jwt`. Possible values: `RS256` (default) or `RS512`.|
 | SingleLogoutEnabled | No | Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](./session-behavior.md#sign-out).  Possible values: `true` (default), or `false`. |
 |ReadBodyClaimsOnIdpRedirect| No| Set to `true` to read claims from response body on identity provider redirect. This metadata is used with [Apple ID](identity-provider-apple-id.md), where claims return in the response payload.|
@@ -132,5 +132,5 @@ When you configure the redirect URI of your identity provider, enter `https://{y
 Examples:
 
 - [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account.md)
-- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant.md)
-- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant.md)
+- [Sign in by using Microsoft Entra accounts](identity-provider-azure-ad-single-tenant.md)
+- [Allow users to sign in to a multi-tenant Microsoft Entra identity provider using custom policies](identity-provider-azure-ad-multi-tenant.md)

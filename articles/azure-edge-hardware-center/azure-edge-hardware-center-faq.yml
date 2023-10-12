@@ -39,7 +39,7 @@ sections:
       - question: |
           Can I ship different hardware units within a single order to different locations?
         answer: |
-          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries, you'll have to create separate orders.            
+          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries/regions, you'll have to create separate orders.            
 
       - question: |
           In which regions, can I create Azure Edge Hardware Center orders? 

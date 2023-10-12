@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 06/19/2023
 ms.author: banders
 ---
 
@@ -40,7 +40,7 @@ The following table describes the permission required to cancel a subscription.
 |---------|---------|
 |Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Service administrator and subscription owner  |
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Service administrator and subscription owner       |
-|[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Owners of the subscription      |
+|[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
 
 An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. However, an account administrator can make themself the service administrator and then they can cancel a subscription. For more information, see [Change the Service Administrator](../../role-based-access-control/classic-administrators.md#change-the-service-administrator).
 
@@ -51,8 +51,6 @@ Depending on your environment, the cancel subscription experience allows you to 
 If you have a support plan associated with the subscription, it's shown in the cancellation process. Otherwise, it isn't shown.
 
 If you have any Azure resources associated with the subscription, they're shown in the cancellation process. Otherwise, they're not shown.
-
-A billing account owner uses the following steps to cancel a subscription.
 
 A subscription owner can navigate in the Azure portal to **Subscriptions** and then start at step 3.
 
@@ -134,9 +132,9 @@ You may not have the permissions required to cancel a subscription. See [Who can
 
 *I need to remove my account including all my personal information. I already canceled my active (Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
 
-* If you have an Azure Active Directory account via your organization, the Azure AD administrator could delete the account. After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
+* If you have a Microsoft Entra account via your organization, the Microsoft Entra administrator could delete the account. After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
 
-* If you don't have an Azure AD account via your organization, you can cancel then delete your Azure subscriptions, and then remove your credit card from the account. While the action doesn't delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it's not being used for any other purpose.
+* If you don't have a Microsoft Entra account via your organization, you can cancel then delete your Azure subscriptions, and then remove your credit card from the account. While the action doesn't delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it's not being used for any other purpose.
 
 ## How do I cancel a Visual Studio Professional account?
 

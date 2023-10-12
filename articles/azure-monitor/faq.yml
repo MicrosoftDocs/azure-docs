@@ -419,9 +419,9 @@ sections:
           Yes, but you need to [onboard to Defender for Cloud](agents/azure-monitor-agent-overview.md#supported-services-and-features) (previously Azure Security Center). It's available as an extension to Azure Monitor Agent, which collects Linux auditd logs via AUOMS.	
       
       - question: |
-          Is Azure Arc required for Azure Active Directory-joined machines?
+          Is Azure Arc required for Microsoft Entra joined machines?
         answer: |
-          No. Azure Active Directory-joined (or hybrid Azure Active Directory-joined) machines running Windows 10 or 11 (client OS) **do not require Azure Arc** to be installed. Instead, you can use the Windows MSI installer for Azure Monitor Agent, which is [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
+          No. Microsoft Entra joined (or Microsoft Entra hybrid joined) machines running Windows 10 or 11 (client OS) **do not require Azure Arc** to be installed. Instead, you can use the Windows MSI installer for Azure Monitor Agent, which is [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use Azure Monitor Agent?
@@ -479,403 +479,6 @@ sections:
         answer: |
           View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
 
-  - name: Application Insights
-    questions:
-      - question: |
-          Configuration problems
-        answer: |
-          I'm having trouble setting up my:
-          
-          * [.NET app](app/asp-net-troubleshoot-no-data.md).
-          * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md).
-          * [Java web app](app/java-2x-troubleshoot.md).
-          
-          I get no data from my server:
-          
-          * [Set firewall exceptions](app/ip-addresses.md).
-          * [Set up an ASP.NET server](app/application-insights-asp-net-agent.md).
-          * [Set up a Java server](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps).
-          
-          How many Application Insights resources should I deploy:
-          
-          See [How many Application Insights resources should I deploy?](app/separate-resources.md).
-          
-      - question: |
-          Can I use Application Insights with the following apps and services?
-        answer: |
-          * [Web apps on an IIS server in Azure Virtual Machines or Azure Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)
-          * [Web apps on an IIS server: On-premises or in a VM](app/asp-net.md)
-          * [Java web apps](app/opentelemetry-enable.md?tabs=java)
-          * [Node.js apps](app/nodejs.md)
-          * [Web apps on Azure](app/azure-web-apps.md)
-          * [Cloud services on Azure](app/azure-web-apps-net-core.md)
-          * [Single-page web apps](app/javascript.md)
-          * [SharePoint](/previous-versions/azure/azure-monitor/app/sharepoint)
-          * [Windows desktop app](https://github.com/Microsoft/appcenter)
-          * [Other platforms](app/app-insights-overview.md#supported-languages)
-          
-      - question: |
-          Is it free?
-        answer: |
-          Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development and publishing an app for a few users. You can set a cap to prevent more than a specified amount of data from being processed.
-          
-          Larger volumes of telemetry are charged by the gigabyte. We provide some tips on how to [limit your charges](best-practices-cost.md#application-insights).
-          
-          The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It's suitable if you want to use Continuous Export on a large scale.
-          
-          Read the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
-          
-      - question: |
-          How much does it cost?
-        answer: |
-          * Open the **Usage and estimated costs** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
-          * To see your bills across all resources:
-            1. Open the [Azure portal](https://portal.azure.com).
-            1. Search for **Cost Management** and use the **Cost analysis** pane to see forecasted costs.
-            1. Search for **Cost Management and Billing** and open the **Billing scopes** pane to see current charges across subscriptions.
-          
-      - question: What does Application Insights modify in my project?
-        answer: |
-          The details depend on the type of project. For a web application:
-          
-          * Adds these files to your project:
-            * ApplicationInsights.config
-            * ai.js
-          * Installs these NuGet packages:
-            * Application Insights API: The core API
-            * Application Insights API for Web Applications: Used to send telemetry from the server
-            * Application Insights API for JavaScript Applications: Used to send telemetry from the client
-          * The packages include these assemblies:
-            * Microsoft.ApplicationInsights
-            * Microsoft.ApplicationInsights.Platform
-          * Inserts items into:
-            * Web.config
-            * packages.config
-          * (For new projects only, you [add Application Insights to an existing project manually](app/app-insights-overview.md).) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the main page *Views/Shared/\_Layout.cshtml*.
-          
-      - question: |
-          How do I upgrade from older SDK versions?
-        answer: |
-          See the [release notes](app/release-notes.md) for the SDK appropriate to your type of application.
-          
-      - question: How can I change which Azure resource my project sends data to?
-        answer: |
-          In Solution Explorer, right-click **ApplicationInsights.config** and select **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in **ApplicationInsights.config**, which determines where the server SDK sends your data. Unless you clear **Update all**, it also changes the key where it appears in your webpages.
-
-      - question: |
-          Do new Azure regions require the use of connection strings?
-        answer: |
-          New Azure regions *require* the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
-          
-      - question: |
-          Should I use connection strings or instrumentation keys?
-        answer: |
-          We recommend that you use [connection strings](./app/sdk-connection-string.md) instead of instrumentation keys.
-          
-      - question: |
-          Can I use providers('Microsoft.Insights', 'components').apiVersions[0] in my Azure Resource Manager deployments?
-        answer: |
-          We don't recommend using this method of populating the API version. The newest version can represent preview releases, which might contain breaking changes. Even with newer nonpreview releases, the API versions aren't always backward compatible with existing templates. In some cases, the API version might not be available to all subscriptions.
-
-      - question: |
-          What telemetry does Application Insights collect?
-        answer: |
-          From server web apps:
-          
-          * HTTP requests.
-          * [Dependencies](app/asp-net-dependencies.md). Calls to SQL databases, HTTP calls to external services, Azure Cosmos DB, Azure Table Storage, Azure Blob Storage, and Azure Queue Storage.
-          * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance counters](app/performance-counters.md): If you use the [Azure Monitor Application Insights agent](app/application-insights-asp-net-agent.md), [Azure monitoring for VMs or virtual machine scale sets](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
-          * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
-          * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
-          
-          From [client webpages](app/javascript.md):
-          
-          * [Page view counts](app/usage-overview.md)
-          * [AJAX calls](app/asp-net-dependencies.md): Requests made from a running script
-          * Page view load data
-          * Configurable page [visit time](./app/data-model-complete.md#pageview)
-          * User and session counts
-          * [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
-          
-          From other sources, if you configure them:
-          
-          * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md)
-          * [Import to Log Analytics](logs/data-collector-api.md)
-          * [Log Analytics](logs/data-collector-api.md)
-          * [Logstash](logs/data-collector-api.md)
-          
-      - question: |
-          Can I filter out or modify some telemetry?
-        answer: |
-          Yes. In the server, you can write:
-          
-          * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
-          * Telemetry Initializer to add properties to all items of telemetry.
-          
-          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
-          
-      - question: |
-          How is city, country/region, and other geolocation data calculated?
-        answer: |
-          We look up the IP address (IPv4 or IPv6) of the web client:
-          
-          * Browser telemetry: We collect the sender's IP address.
-          * Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
-          * To learn more about how IP address and geolocation data is collected in Application Insights, see [Geolocation and IP address handling](./app/ip-collection.md).
-          
-          You can configure `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
-          
-          You can [use Power BI](logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](app/convert-classic-resource.md).
-          
-      - question: How long is data retained in the portal? Is it secure?
-        answer: |
-          See [Data retention and privacy](app/data-retention-privacy.md).
-          
-      - question: |
-          What happens to Application Insight telemetry when a server or device loses connection with Azure?
-        answer: |
-          All of our SDKs, including the web SDK, include *reliable transport* or *robust transport*. When the server or device loses connection with Azure, telemetry is [stored locally on the file system](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK periodically retries to send this telemetry until our ingestion service considers it "stale" (48 hours for logs, 30 minutes for metrics). Stale telemetry is dropped. In some cases, such as when local storage is full, retry won't occur.
-          
-      - question: |
-          Is personal data sent in the telemetry?
-        answer: |
-          You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. Learn more about [data retention and privacy](app/data-retention-privacy.md).
-          
-          *All* octets of the client web address are always set to 0 after the geolocation attributes are looked up.
-          
-          The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
-          
-      - question: |
-          Why is my instrumentation key visible in my webpage source?
-        answer: |
-          * This visibility is common practice in monitoring solutions.
-          * It can't be used to steal your data.
-          * It could be used to skew your data or trigger alerts.
-          * We haven't heard that any customer has had such problems.
-          
-          You can:
-          
-          * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data.
-          * Write a proxy that runs in your server and have the web client send data through that proxy.
-          
-      - question: How do I see POST data in Diagnostic Search?
-        answer: |
-          We don't log POST data automatically, but you can use a `TrackTrace` call. To do so, put the data in the message parameter. Message parameters have a longer size limit than the limits on string properties, although you can't filter on it.
-          
-      - question: |
-          Should I use single or multiple Application Insights resources?
-        answer: |
-          Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
-          
-          * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
-          * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
-          
-      - question: |
-          How do I dynamically change the instrumentation key?
-        answer: |
-          * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
-          * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
-          
-      - question: |
-          What are the user and session counts?
-        answer: |
-          * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
-          * If there's no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
-          * If one real user uses your site in different browsers, or by using in-private/incognito browsing, or different machines, they're counted more than once.
-          * To identify a signed-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
-          
-      - question: |
-          How does Application Insights generate device information like browser, OS, language, and model?
-        answer: |
-          The browser passes the User Agent string in the HTTP header of the request. The Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
-          
-          Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
-      
-      - question: |
-          How would I measure the impact of a monitoring campaign?
-        answer: |
-          PageView Telemetry includes URL and you could parse the UTM parameter using a [regex function](/azure/data-explorer/kusto/query/re2.md) in Kusto.
-          
-          Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
-                    
-      - question:  Have I enabled everything in Application Insights?
-        answer: |
-          | What you should see | How to get it | Why you want it |
-          | --- | --- | --- |
-          | Availability charts |[Web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). |Know your web app is up. |
-          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [install Azure Monitor Application Insights Agent on server](app/application-insights-asp-net-agent.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)). |Detect perf issues. |
-          | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/application-insights-asp-net-agent.md). |Diagnose issues with databases or other external components. |
-          | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically). |Detect and diagnose exceptions. |
-          | Search log traces |[Add a logging adapter](app/asp-net-trace-logs.md). |Diagnose exceptions, perf issues. |
-          | Client usage basics: page views, sessions, ... |[JavaScript initializer in webpages](app/javascript.md). |Usage analytics. |
-          | Client custom metrics |[Tracking calls in webpages](app/api-custom-events-metrics.md). |Enhance user experience. |
-          | Server custom metrics |[Tracking calls in server](app/api-custom-events-metrics.md). |Business intelligence. |
-          
-      - question: |
-          Why are the counts in Search and Metrics charts unequal?
-        answer: |
-          [Sampling](app/sampling.md) reduces the number of telemetry items (like requests and custom events) that are sent from your app to the portal. In Search, you see the number of items received. In metric charts that display a count of events, you see the number of original events that occurred.
-          
-          Each item that's transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Log Analytics:
-          
-          ```
-              requests | summarize original_events = sum(itemCount), transmitted_events = count()
-          ```
-          
-      - question: |
-          How do I move an Application Insights resource to a new region?
-        answer: |
-          Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
-          
-          1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](./app/create-workspace-resource.md)) in the new region.
-          1. Re-create all unique customizations specific to the original resource in the new resource.
-          1. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
-          1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
-          1. At this point, you can either keep or delete the original Application Insights resource. If you delete a classic Application Insights resource, *all historical data is lost*. If the original resource was workspace based, its data remains in Log Analytics. Keeping the original Application Insights resource allows you to access its historical data until its data retention settings run out.
-          
-          Unique customizations that commonly need to be manually re-created or updated for the resource in the new region include but aren't limited to:
-          
-          - Re-create custom dashboards and workbooks.
-          - Re-create or update the scope of any custom log/metric alerts.
-          - Re-create availability alerts.
-          - Re-create any custom Azure role-based access control settings that are required for your users to access the new resource.
-          - Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
-          - Any integration that relies on API keys, such as [release annotations](./app/annotations.md) and [live metrics secure control channel](app/live-stream.md#secure-the-control-channel). You need to generate new API keys and update the associated integration.
-          - Continuous export in classic resources must be configured again.
-          - Diagnostic settings in workspace-based resources must be configured again.
-          
-          > [!NOTE]
-          > If the resource you're creating in a new region is replacing a classic resource, we recommend that you explore the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md). Alternatively, [migrate your existing resource to workspace based](app/convert-classic-resource.md).
-
-      - question: |
-          Automation
-        answer: |
-          ### Configure Application Insights
-          
-          You can [write PowerShell scripts](app/powershell.md) by using Azure Resource Monitor to:
-          
-          * Create and update Application Insights resources.
-          * Set the pricing plan.
-          * Get the instrumentation key.
-          * Add a metric alert.
-          * Add an availability test.
-          
-          You can't set up a metrics explorer report or set up continuous export.
-          
-          ### Query the telemetry
-          
-          Use the [REST API](/rest/api/application-insights/) to run [Log Analytics](./logs/log-query-overview.md) queries.
-          
-      - question: |
-          How can I set an alert on an event?
-        answer: |
-          Azure alerts are only on metrics. Create a custom metric that crosses a value threshold whenever your event occurs. Then set an alert on the metric. You get a notification whenever the metric crosses the threshold in either direction. You won't get a notification until the first crossing, no matter whether the initial value is high or low. There's always a latency of a few minutes.
-
-      - question: |
-          Are there data transfer charges between an Azure web app and Application Insights?
-        answer: |
-          * If your Azure web app is hosted in a datacenter where there's an Application Insights collection endpoint, there's no charge.
-          * If there's no collection endpoint in your host datacenter, your app's telemetry incurs [Azure outgoing charges](https://azure.microsoft.com/pricing/details/bandwidth/).
-          
-          This answer depends on the distribution of our endpoints, *not* on where your Application Insights resource is hosted.
-          
-      - question: |
-          Can I send telemetry to the Application Insights portal?
-        answer: |
-          We recommend that you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/app-insights-overview.md#supported-languages). These SDKs handle processes like buffering, compression, throttling, and retries. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
-          
-      - question: |
-          Can I monitor an intranet web server?
-        answer: |
-          Yes, but you need to allow traffic to our services by either firewall exceptions or proxy redirects:
-          - QuickPulse `https://rt.services.visualstudio.com:443`
-          - ApplicationIdProvider `https://dc.services.visualstudio.com:443`
-          - TelemetryChannel `https://dc.services.visualstudio.com:443`
-          
-          See [IP addresses used by Azure Monitor](app/ip-addresses.md) to review our full list of services and IP addresses.
-          
-          ### Firewall exception
-          
-          Allow your web server to send telemetry to our endpoints.
-          
-          ### Gateway redirect
-          
-          Route traffic from your server to a gateway on your intranet by overwriting endpoints in your configuration. If the `Endpoint` properties aren't present in your config, these classes use the default values shown in the following ApplicationInsights.config example.
-          
-          Your gateway should route traffic to our endpoint's base address. In your configuration, replace the default values with `http://<your.gateway.address>/<relative path>`.
-          
-          ### Example ApplicationInsights.config with default endpoints:
-          
-          ```xml
-          <ApplicationInsights>
-            ...
-            <TelemetryModules>
-              <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-                <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
-              </Add>
-            </TelemetryModules>
-              ...
-            <TelemetryChannel>
-              <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
-            </TelemetryChannel>
-            ...
-            <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-              <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
-            </ApplicationIdProvider>
-            ...
-          </ApplicationInsights>
-          ```
-          
-          > [!NOTE]
-          > `ApplicationIdProvider` is available starting in v2.6.0.
-          
-          ### Proxy passthrough
-          
-          To achieve proxy passthrough, configure a machine-level proxy or an application-level proxy.
-          See [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
-          
-          Example Web.config:
-          
-          ```xml
-          <system.net>
-              <defaultProxy>
-                <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
-              </defaultProxy>
-          </system.net>
-          ```
-          
-      - question: |
-          Can I run Availability web tests on an intranet server?
-        answer: |
-          Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
-          
-          * **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](app/ip-addresses.md).
-          * **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
-          
-      - question: |
-          How long does it take for telemetry to be collected?
-        answer: |
-          Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
-          
-          <!--Link references-->
-          
-          [data]: app/data-retention-privacy.md
-          [platforms]: app/app-insights-overview.md#supported-languages
-          [start]: app/app-insights-overview.md
-          [windows]: app/app-insights-windows-get-started.md
-          
-      - question: |
-          Are the HTTP 502 and 503 responses always captured by Application Insights?
-        answer: |
-          No. The "502 bad gateway" and "503 service unavailable" errors aren't always captured by Application Insights. If only client-side JavaScript is being used for monitoring, this behavior would be expected because the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered.
-          
-          If the 502 or 503 response was sent from a server with server-side monitoring enabled, the errors are collected by the Application Insights SDK.
-          
-          Even when server-side monitoring is enabled on an application's web server, sometimes a 502 or 503 error isn't captured by Application Insights. Many modern web servers don't allow a client to communicate directly. Instead, they employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
-          
-          In this scenario, a 502 or 503 response might be returned to a client because of an issue at the reverse proxy layer, so it isn't captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see [Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service](../app-service/troubleshoot-http-502-http-503.md).
-
   - name: OpenTelemetry
     questions:
       - question: |
@@ -909,11 +512,15 @@ sections:
         answer: |
           There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
           - Reduces enablement effort
+          - Supported by Microsoft
           - Brings in Azure Specific features such as:
-              - Azure Active Directory (Azure AD) Authentication
-              - Offline Storage and Automatic Retries
               - Preserves traces with service components using Application Insights SDKs
-              - Live Metrics (future)
+              - [Microsoft Entra authentication](app/azure-ad-authentication.md)
+              - [Offline Storage and Automatic Retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
+              - [Statsbeat](app/statsbeat.md)
+              - [Application Insights Standard Metrics](app/standard-metrics.md)
+              - Detect resource metadata to autopopulate [Cloud Role Name](app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
+              - [Live Metrics](app/live-stream.md) (future)
           
           In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
            - An OTLP exporter and send to a second destination simultaneously
@@ -934,23 +541,26 @@ sections:
         answer: |
           The following chart breaks out OpenTelemetry feature support for each language.
 
-          |Feature                                                                                                             | .NET      | Node.js   | Python    | Java               |
-          |--------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
-          | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Azure Active Directory authentication](app/azure-ad-authentication.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Autopopulate cloud role name/role instance on Azure](app/distributed-tracing-telemetry-correlation.md#role-names) | :x:       | :warning: | :warning: | :white_check_mark: |
-          | [Live metrics](app/live-stream.md)                                                                                 | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Autopopulation of user ID, authenticated user ID, and user IP                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Manually override/set operation name, user ID, or authenticated user ID                                            | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Adaptive sampling](app/sampling.md#adaptive-sampling)                                                             | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Profiler](profiler/profiler-overview.md)                                                                          | :x:       | :x:       | :x:       | :warning:          |
-          | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                                        | :x:       | :x:       | :x:       | :x:                |
+          |Feature                                                                                                             | .NET               | Node.js            | Python             | Java               |
+          |--------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
+          | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Custom Events](app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
+          | [Microsoft Entra authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Live metrics](app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
+          | Detect Resource Context for VM/VMSS and App Svc                                                                    | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
+          | Detect Resource Context for AKS and Functions                                                                      | :x:                | :x:                | :x:                | :white_check_mark: |           
+          | Availability Testing Span Filtering                                                                                | :x:                | :x:                | :x:                | :white_check_mark: |
+          | Autopopulation of user ID, authenticated user ID, and user IP                                                      | :x:                | :x:                | :x:                | :white_check_mark: |
+          | Manually override/set operation name, user ID, or authenticated user ID                                            | :x:                | :x:                | :x:                | :white_check_mark: |
+          | [Adaptive sampling](app/sampling.md#adaptive-sampling)                                                             | :x:                | :x:                | :x:                | :white_check_mark: |
+          | [Profiler](profiler/profiler-overview.md)                                                                          | :x:                | :x:                | :x:                | :warning:          |
+          | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                                        | :x:                | :x:                | :x:                | :x:                |
           
           **Key**
           - :white_check_mark: This feature is available to all customers with formal support.
@@ -990,7 +600,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrument-your-application).
+          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrumentation-options).
           
       - question: |
           Can I use the OpenTelemetry Collector?
@@ -1002,10 +612,25 @@ sections:
       - question: |
           What's the difference between OpenCensus and OpenTelemetry?
         answer: |
-          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](app/opencensus-python.md) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
+          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
 
   - name: Container insights
+  
     questions:
+      - question: |
+          Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
+        answer: |
+          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You may need your cluster admin to assign this permission.
+
+          For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
+
+          - AKS without Kubernetes role-based access control (RBAC) authorization enabled
+          - AKS enabled with Microsoft Entra SAML-based single sign-on
+          - AKS enabled with Kubernetes RBAC authorization
+          - AKS configured with the cluster role binding clusterMonitoringUser
+          - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
+
+          See [Assign role permissions to a user or group](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
@@ -1072,12 +697,7 @@ sections:
           Can I view metrics collected in Grafana?
         answer: |
           Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from the Grafana [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker). Use it to get started and as a reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
-          
-      - question: |
-          Can I monitor my AKS-engine cluster with Container insights?
-        answer: |
-          Container insights supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) clusters hosted on Azure. For more information and an overview of steps required to enable monitoring for this scenario, see [Using Container insights for Azure Kubernetes Service-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
-          
+
       - question: |
           Why don't I see data in my Log Analytics workspace?
         answer: |
@@ -1116,7 +736,7 @@ sections:
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
+          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
           
           As an alternative you can also configure all the services to write in JSON format, and then Docker/Moby writes them as a single line. For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application
           
@@ -1138,7 +758,7 @@ sections:
           For a detailed look at the issue, see this [GitHub page](https://github.com/moby/moby/issues/22920).
           
       - question: |
-          How do I resolve Azure Active Directory errors when I enable live logs?
+          How do I resolve Microsoft Entra errors when I enable live logs?
         answer: |
           You might see the following error: "The reply url specified in the request doesn't match the reply urls configured for the application: '<application ID\>'." For the solution, see [View container data in real time with Container insights](containers/container-insights-livedata-setup.md#configure-azure-ad-integrated-authentication).
           
@@ -1150,7 +770,7 @@ sections:
       - question: |
           Which ports and domains do I need to open or allow for the agent?
         answer: |
-          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
+          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Microsoft Azure operated by 21Vianet clouds.
           
       - question: |
           Is there support for collecting Kubernetes audit logs for ARO clusters?
@@ -1162,6 +782,11 @@ sections:
         answer:
           By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
 
+      - question: |
+          Does Container Insights support pod sandboxing?
+        answer: |
+          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](/azure/aks/use-pod-sandboxing).
+          
 
       
   - name: VM insights

@@ -26,7 +26,7 @@ In this tutorial, you'll learn:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account] before you begin.
+If you don't have an Azure subscription, create a [free Azure account] before you begin.
 
 * An [Azure Maps account]
 * A [subscription key]
@@ -61,13 +61,15 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Location Recognition                  | ✓                  |
 | Locations (forward/reverse geocoding) | ✓                  |
 | Optimized Itinerary Routes            | Planned            |
-| Snap to roads                         | ✓                  |
+| Snap to roads                         | <sup>1</sup>       |
 | Spatial Data Services (SDS)           | Partial            |
 | Time Zone                             | ✓                  |
 | Traffic Incidents                     | ✓                  |
 | Configuration driven maps             | N/A                |
 
-Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Azure Active Directory authentication.
+<sup>1</sup> While there's no direct replacement for the Bing Maps *Snap to road* service, this functionality can be implemented using the Azure Maps [Route - Get Route Directions] REST API. For a complete code sample demonstrating the snap to road functionality, see the [Basic snap to road logic] sample that demonstrates how to snap individual points to the rendered roads on the map. Also see the [Snap points to logical route path] sample that shows how to snap points to the road network to form a logical path.
+
+Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Microsoft Entra authentication.
 
 ## Licensing considerations
 
@@ -82,7 +84,6 @@ Here are some licensing-related resources for Azure Maps:
 * [Azure Maps pricing page]
 * [Azure pricing calculator]
 * [Azure Maps term of use] (Scroll down to the Azure Maps section)
-* [Choose the right pricing tier in Azure Maps]
 
 ## Suggested migration plan
 
@@ -91,7 +92,7 @@ Here's an example of a high-level migration plan.
 1. Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
 1. Create an Azure subscription (if you don’t already have one) at [azure.com]).
 1. Create an [Azure Maps account].
-1. Setup authentication using an Azure Maps [subscription key] or [Azure Active Directory authentication].
+1. Setup authentication using an Azure Maps [subscription key] or [Microsoft Entra authentication].
 1. Migrate your application code.
 1. Test your migrated application.
 1. Deploy your migrated application to production.
@@ -103,7 +104,7 @@ To create an Azure Maps account and get access to the Azure Maps platform, follo
 1. If you don't have an Azure subscription, create a [free Azure account] before you begin.
 2. Sign in to the [Azure portal].
 3. Create an [Azure Maps account].
-4. Get your Azure Maps [subscription key] or setup [Azure Active Directory authentication] for enhanced security.
+4. Get your Azure Maps [subscription key] or setup [Microsoft Entra authentication] for enhanced security.
 
 ## Azure Maps technical resources
 
@@ -151,27 +152,30 @@ There are no resources that require cleanup.
 Learn the details of how to migrate your Bing Maps application with these articles:
 
 > [!div class="nextstepaction"]
-> [Migrate a web app](migrate-from-bing-maps-web-app.md)
+> [Migrate a web app]
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[free Azure account]: https://azure.microsoft.com/free/
-[Azure portal]: https://portal.azure.com/
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Azure Maps is also available in Power BI]: power-bi-visual-get-started.md
-[Microsoft Azure terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-[Azure Maps pricing page]: https://azure.microsoft.com/pricing/details/azure-maps/
-[Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
-[Azure Maps term of use]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
-[azure.com]: https://azure.com
 [Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
-[Azure Maps Q&A]: /answers/topics/azure-maps.html
-[Azure support options]: https://azure.microsoft.com/support/options/
-[Azure Maps product page]: https://azure.com/maps
-[Azure Maps product documentation]: https://aka.ms/AzureMapsDocs
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps code samples]: https://aka.ms/AzureMapsSamples
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
-[Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
-[Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps Feedback (UserVoice)]: https://aka.ms/AzureMapsFeedback
+[Azure Maps is also available in Power BI]: power-bi-visual-get-started.md
+[Azure Maps pricing page]: https://azure.microsoft.com/pricing/details/azure-maps/
+[Azure Maps product documentation]: https://aka.ms/AzureMapsDocs
+[Azure Maps product page]: https://azure.com/maps
+[Azure Maps Q&A]: /answers/topics/azure-maps.html
+[Azure Maps term of use]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA
+[Azure portal]: https://portal.azure.com/
+[Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
+[Azure support options]: https://azure.microsoft.com/support/options/
+[azure.com]: https://azure.com
+[Basic snap to road logic]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=basic-snap-to-road-logic
+[free Azure account]: https://azure.microsoft.com/free/
+[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Microsoft Azure terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
+[Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
+[Migrate a web app]: migrate-from-bing-maps-web-app.md
+[Route - Get Route Directions]: /rest/api/maps/route/get-route-directions
+[Snap points to logical route path]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=snap-points-to-logical-route-path
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

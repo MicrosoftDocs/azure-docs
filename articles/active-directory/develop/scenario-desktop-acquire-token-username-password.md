@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/10/2022
 ms.author: dmwendia
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -33,7 +33,7 @@ Using a username and password is useful in some cases, such as DevOps scenarios.
 
 The following constraints also apply:
 
-- The username and password flow isn't compatible with conditional access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
+- The username and password flow isn't compatible with Conditional Access and multi-factor authentication. As a consequence, if your app runs in a Microsoft Entra tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - It works only for work and school accounts (not MSA).
 - The flow is available on .NET desktop and .NET Core, but not on UWP.
 

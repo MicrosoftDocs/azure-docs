@@ -16,7 +16,7 @@ The value of this setting depends on the operating system and plan on which your
 | **Linux** |Premium<br/>Dedicated |Set the value to the name of the desired time zone as shown in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
 
 > [!NOTE]
-> `WEBSITE_TIME_ZONE` is not currently supported on the Linux Consumption plan.
+> `WEBSITE_TIME_ZONE` and `TZ` are not currently supported on the Linux Consumption plan.
 
 For example, Eastern Time in the US (represented by `Eastern Standard Time` (Windows) or `America/New_York` (Linux)) currently uses UTC-05:00 during standard time and UTC-04:00 during daylight time. To have a timer trigger fire at 10:00 AM Eastern Time every day, create an app setting for your function app named `WEBSITE_TIME_ZONE`, set the value to `Eastern Standard Time` (Windows) or `America/New_York` (Linux), and then use the following NCRONTAB expression: 
 

@@ -1,7 +1,8 @@
 ---
 title: Move an app to another region
 description: Learn how to move App Service resources from one region to another.
-
+author: msangapu-msft
+ms.author: msangapu
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources

@@ -9,13 +9,13 @@ ms.author: zhanxia
 author: xiaoharper
 ms.date: 11/04/2022
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, troubleshooting, devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, troubleshooting, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.
 ---
 
 # Troubleshooting machine learning pipelines
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to troubleshoot when you get errors running a [machine learning pipeline](../concept-ml-pipelines.md) in the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) and [Azure Machine Learning designer](concept-designer.md). 
 
@@ -25,17 +25,17 @@ The following table contains common problems during pipeline development, with p
 
 | Problem | Possible solution |
 |--|--|
-| Unable to pass data to `PipelineData` directory | Ensure you have created a directory in the script that corresponds to where your pipeline expects the step output data. In most cases, an input argument will define the output directory, and then you create the directory explicitly. Use `os.makedirs(args.output_dir, exist_ok=True)` to create the output directory. See the [tutorial](../tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) for a scoring script example that shows this design pattern. |
-| Dependency bugs | If you see dependency errors in your remote pipeline that did not occur when locally testing, confirm your remote environment dependencies and versions match those in your test environment. (See [Environment building, caching, and reuse](../concept-environments.md#environment-building-caching-and-reuse)|
+| Unable to pass data to `PipelineData` directory | Ensure you have created a directory in the script that corresponds to where your pipeline expects the step output data. In most cases, an input argument defines the output directory, and then you create the directory explicitly. Use `os.makedirs(args.output_dir, exist_ok=True)` to create the output directory. See the [tutorial](../tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) for a scoring script example that shows this design pattern. |
+| Dependency bugs | If you see dependency errors in your remote pipeline that didn't occur when locally testing, confirm your remote environment dependencies and versions match those in your test environment. (See [Environment building, caching, and reuse](../concept-environments.md#environment-building-caching-and-reuse)|
 | Ambiguous errors with compute targets | Try deleting and re-creating compute targets. Re-creating compute targets is quick and can solve some transient issues. |
-| Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
+| Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step is set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your source-code directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
-| Step slowing down over training epochs or other looping behavior | Try switching any file writes, including logging, from `as_mount()` to `as_upload()`. The **mount** mode uses a remote virtualized filesystem and uploads the entire file each time it is appended to. |
+| Step slowing down over training epochs or other looping behavior | Try switching any file writes, including logging, from `as_mount()` to `as_upload()`. The **mount** mode uses a remote virtualized filesystem and uploads the entire file each time it's appended to. |
 | Compute target takes a long time to start | Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](../../container-registry/container-registry-skus.md). |
 
 ### Authentication errors
 
-If you perform a management operation on a compute target from a remote job, you will receive one of the following errors: 
+If you perform a management operation on a compute target from a remote job, you receive one of the following errors: 
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -45,14 +45,14 @@ If you perform a management operation on a compute target from a remote job, you
 {"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
 ```
 
-For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+For example, you receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
 ## Troubleshooting `ParallelRunStep` 
 
 The script for a `ParallelRunStep` *must contain* two functions:
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
--  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be a file path if input is a `FileDataset` or a pandas `DataFrame` if input is a `TabularDataset`.
-    -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
+- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function is called only once at beginning of process.
+-  `run(mini_batch)`: The function runs for each `mini_batch` instance.
+    -  `mini_batch`: `ParallelRunStep` invokes run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch is a file path if input is a `FileDataset` or a pandas `DataFrame` if input is a `TabularDataset`.
+    -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output is written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
 %%writefile digit_identification.py
@@ -110,14 +110,14 @@ file_path = os.path.join(script_dir, "<file_name>")
 ### Parameters for ParallelRunConfig
 
 `ParallelRunConfig` is the major configuration for `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following entries:
-- `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
+- `entry_script`: A user script as a local file path that is run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for `FileDataset` and `1MB` for `TabularDataset`.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
-    - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
-- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
-- `output_action`: One of the following values indicates how the output will be organized:
-    - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
-    - `append_row`: For all inputs, only one file will be created in the output folder to append all outputs separated by line.
+    - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB are treated as one mini-batch. Files with a size larger than 1 MB are split into multiple mini-batches.
+- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job is aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
+- `output_action`: One of the following values indicates how the output is organized:
+    - `summary_only`: The user script stores the output. `ParallelRunStep` uses the output only for the error threshold calculation.
+    - `append_row`: For all inputs, only one file is created in the output folder to append all outputs separated by line.
 - `append_row_file_name`: To customize the output file name for append_row output_action (optional; default value is `parallel_run_step.txt`).
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
@@ -128,7 +128,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when you resubmit a run later. 
+You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you change these values when you resubmit a run later. 
 
 ### Parameters for creating the ParallelRunStep
 
@@ -139,7 +139,7 @@ Create the ParallelRunStep by using the script, environment configuration, and p
 - `side_inputs`: One or more reference data or datasets used as side inputs without need to be partitioned.
 - `output`: An `OutputFileDatasetConfig` object that corresponds to the output directory.
 - `arguments`: A list of arguments passed to the user script. Use unknown_args to retrieve them in your entry script (optional).
-- `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
+- `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run is generated for this step during pipeline execution. (optional; the default value is `True`.)
 
 ```python
 from azureml.pipeline.steps import ParallelRunStep
@@ -163,15 +163,15 @@ There are three major techniques for debugging pipelines:
 
 ### Debug scripts locally
 
-One of the most common failures in a pipeline is that the domain script does not run as intended, or contains runtime errors in the remote compute context that are difficult to debug.
+One of the most common failures in a pipeline is that the domain script doesn't run as intended, or contains runtime errors in the remote compute context that are difficult to debug.
 
-Pipelines themselves cannot be run locally, but running the scripts in isolation on your local machine allows you to debug faster because you don't have to wait for the compute and environment build process. Some development work is required to do this:
+Pipelines themselves can't be run locally. But running the scripts in isolation on your local machine allows you to debug faster because you don't have to wait for the compute and environment build process. Some development work is required to do this:
 
-* If your data is in a cloud datastore, you will need to download data and make it available to your script. Using a small sample of your data is a good way to cut down on runtime and quickly get feedback on script behavior
-* If you are attempting to simulate an intermediate pipeline step, you may need to manually build the object types that the particular script is expecting from the prior step
-* You will also need to define your own environment, and replicate the dependencies defined in your remote compute environment
+* If your data is in a cloud datastore, you need to download data and make it available to your script. Using a small sample of your data is a good way to cut down on runtime and quickly get feedback on script behavior
+* If you're attempting to simulate an intermediate pipeline step, you may need to manually build the object types that the particular script is expecting from the prior step
+* You need to define your own environment, and replicate the dependencies defined in your remote compute environment
 
-Once you have a script setup to run on your local environment, it is much easier to do debugging tasks like:
+Once you have a script setup to run on your local environment, it's easier to do debugging tasks like:
 
 * Attaching a custom debug configuration
 * Pausing execution and inspecting object-state
@@ -183,11 +183,11 @@ Once you have a script setup to run on your local environment, it is much easier
 
 ## Configure, write to, and review pipeline logs
 
-Testing scripts locally is a great way to debug major code fragments and complex logic before you start building a pipeline, but at some point you will likely need to debug scripts during the actual pipeline run itself, especially when diagnosing behavior that occurs during the interaction between pipeline steps. We recommend liberal use of `print()` statements in your step scripts so that you can see object state and expected values during remote execution, similar to how you would debug JavaScript code.
+Testing scripts locally is a great way to debug major code fragments and complex logic before you start building a pipeline. At some point you need to debug scripts during the actual pipeline run itself, especially when diagnosing behavior that occurs during the interaction between pipeline steps. We recommend liberal use of `print()` statements in your step scripts so that you can see object state and expected values during remote execution, similar to how you would debug JavaScript code.
 
 ### Logging options and behavior
 
-The table below provides information for different debug options for pipelines. It isn't an exhaustive list, as other options exist besides just the Azure Machine Learning, Python, and OpenCensus ones shown here.
+The following table provides information for different debug options for pipelines. It isn't an exhaustive list, as other options exist besides just the Azure Machine Learning, Python, and OpenCensus ones shown here.
 
 | Library                    | Type   | Example                                                          | Destination                                  | Resources                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -265,15 +265,15 @@ For more information on using the OpenCensus Python library in this manner, see 
 
 ## Interactive debugging with Visual Studio Code
 
-In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and debugpy, you can attach to the code as it runs in the training environment. For more information, visit the [interactive debugging in VS Code guide](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
+In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and debugpy, you can attach to the code as it runs in the training environment. For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 
 ## HyperdriveStep and AutoMLStep fail with network isolation
 
-After using HyperdriveStep and AutoMLStep, when you attempt to register the model you may receive an error.
+After you use HyperdriveStep and AutoMLStep, when you attempt to register the model you may receive an error.
 
-* You are using Azure Machine Learning SDK v1.
+* You're using Azure Machine Learning SDK v1.
 * Your Azure Machine Learning workspace is configured for network isolation (VNet).
-* Your pipeline attempts to register the model generated by the previous step. For example, in the following code the `inputs` parameter is the saved_model from a HyperdriveStep:
+* Your pipeline attempts to register the model generated by the previous step. For example, in the following example, the `inputs` parameter is the saved_model from a HyperdriveStep:
 
     ```python
     register_model_step = PythonScriptStep(script_name='register_model.py',

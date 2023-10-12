@@ -1,6 +1,6 @@
 ---
 title: Add and manage customer accounts
-description: Learn how to add and manage customer accounts in Microsoft Entra for customers.
+description: Learn how to add and manage customer accounts in Microsoft Entra ID for customers.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -8,29 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 07/12/2023
 ms.author: mimart
 ms.custom: it-pro
 
 ---
-# Add and manage customer accounts
+# Add and manage customer accounts (preview)
 
-There might be scenarios in which you want to manually create customer accounts in your Azure Active Directory customer tenant. Although customer accounts are most commonly created when users sign up to use one of your applications, you can create them programmatically and by using the Microsoft Entra admin center. This article focuses on the Microsoft Entra admin center method of user creation and deletion.
+There might be scenarios in which you want to manually create customer accounts in your Microsoft Entra customer tenant. Although customer accounts are most commonly created when users sign up to use one of your applications, you can create them programmatically and by using the Microsoft Entra admin center. This article focuses on the Microsoft Entra admin center method of user creation and deletion.
 
 To add or delete users, your account must be assigned the *User administrator* or *Global administrator* role.
 
 ## Prerequisites
 
-- If you haven't already created your own Azure AD customer tenant, create one now.
-- Understand user accounts in Azure AD for customers.
+- If you haven't already created your own Microsoft Entra customer tenant, create one now.
+- Understand user accounts in Microsoft Entra ID for customers.
 - Understand user roles to control resource access.
+
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Create a customer account
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** > **Create new user**. 
 1. Select **Create a customer**.
 1. Under **Identity**, select a **Sign in method** and enter the **Value**:
@@ -49,21 +50,19 @@ As an administrator, you can reset a user's password, if the user forgets their 
 
 To reset a customer's password:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Search for and select the user that needs the reset, and then select **Reset Password**.
 1. In the **Reset password** page, select **Reset password**.
 1. Copy the password and give it to the user. The user will be required to change the password during the next sign-in process.
 
 ## Delete a customer account
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Search for and select the user to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../../fundamentals/active-directory-users-restore.md).
+For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Microsoft Entra ID](../../fundamentals/users-restore.md).

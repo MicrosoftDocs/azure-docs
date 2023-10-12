@@ -57,10 +57,16 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 * **Delegated subnet**. A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
   Your flexible server must be in a subnet that's *delegated*. That is, only Azure Database for PostgreSQL - Flexible Server instances can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as `Microsoft.DBforPostgreSQL/flexibleServers`.
- The smallest CIDR range you can specify for a subnet is /28, which provides fourteen IP addresses, however the first and last address in any network or subnet can't be assigned to any individual host. Azure reserves five IPs to be utilized internally by Azure networking, which include two IPs that cannot be assigned to host,  mentioned above. This leaves you eleven available IP addresses for /28 CIDR range,  whereas a single Flexible Server with High Availability features utilizes 4 addresses. 
+ The smallest CIDR range you can specify for the subnet is /28, which provides sixteen IP addresses, however the first and last address in any network or subnet can't be assigned to any individual host. Azure reserves five IPs to be utilized internally by Azure networking, which include two IPs that cannot be assigned to host, mentioned above. This leaves you eleven available IP addresses for /28 CIDR range, whereas a single Flexible Server with High Availability features utilizes 4 addresses. 
+ For Replication and Azure AD connections please make sure Route Tables do not affect traffic.A common pattern is route all outbound traffic via an Azure Firewall or a custom / on premise network filtering appliance.
+ If the subnet has a Route Table associated with the rule to route all traffic to a virtual appliance:
+    * Add a rule with Destination Service Tag “AzureActiveDirectory” and next hop “Internet”
+    * Add a rule with Destination IP range same as PostgreSQL subnet range and next hop “Virtual Network”
+
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.
+  > For Azure Storage connection please make sure PostgreSQL delegated subnet has Service Endpoints for Azure Storage in the region of the VNet. The endpoints are created by default, but please take care not to remove these manually.
 
 * **Network security group (NSG)**. Security rules in NSGs enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. For more information, see the [NSG overview](../../virtual-network/network-security-groups-overview.md).
 
@@ -74,23 +80,30 @@ Here are some concepts to be familiar with when you're using virtual networks wi
   At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview.md#security-rules) in an NSG. 
 
   > [!IMPORTANT]
-  > High availability and other Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to destination port 5432 within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to Azure storage for log archival. If you create [Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md) to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please make sure to allow traffic to  destination port 5432  within the subnet, and also to Azure storage by using [service tag](../../virtual-network/service-tags-overview.md) Azure Storage as a destination. Also, if you elect to use [Azure Active Directory authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL - Flexible Server please allow outbound traffic to Azure AD using Azure AD [service tag](../../virtual-network/service-tags-overview.md)
-
+  > High availability and other Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to **destination port 5432** within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to **Azure storage** for log archival. If you create **[Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md)** to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please **make sure to allow traffic to  destination port 5432** within the subnet, and also to Azure storage by using **[service tag](../../virtual-network/service-tags-overview.md) Azure Storage** as a destination. Also, if you elect to use [Azure Active Directory authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL - Flexible Server please allow outbound traffic to Azure AD using Azure AD [service tag](../../virtual-network/service-tags-overview.md).
+  > When setting up [Read Replicas across Azure regions](./concepts-read-replicas.md) , Azure Database for PostgreSQL - Flexible Server requires ability to send\receive traffic to **destination port 5432** for both primary and replica, as well as to **[Azure storage](../../virtual-network/service-tags-overview.md#available-service-tags)** in primary and replica regions from both primary and replica servers. 
 
 * **Private DNS zone integration**. Azure private DNS zone integration allows you to resolve the private DNS within the current virtual network or any in-region peered virtual network where the private DNS zone is linked. 
 ### Using a private DNS zone
 
-If you use the Azure portal or the Azure CLI to create flexible servers with a virtual network, a new private DNS zone is automatically provisioned for each server in your subscription by using the server name that you provided. 
+[Azure Private DNS](../../dns/private-dns-overview.md) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. 
+
+When using private network access with Azure virtual network, providing the private DNS zone information is mandatory in order to be able to do DNS resolution. For new Azure Database for PostgreSQL Flexible Server creation using private network access, private DNS zones will need to be used while configuring flexible servers with private access. 
+For new Azure Database for PostgreSQL Flexible Server creation using private network access with API, ARM, or Terraform, create private DNS zones and use them while configuring flexible servers with private access. See more information on [REST API specifications for Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2021-06-01/postgresql.json). If you use the [Azure portal](./how-to-manage-virtual-network-portal.md) or [Azure CLI](./how-to-manage-virtual-network-cli.md) for creating flexible servers, you can either provide a private DNS zone name that you had previously created in the same or a different subscription or a default private DNS zone is automatically created in your subscription.
 
 If you use an Azure API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `.postgres.database.azure.com`. Use those zones while configuring flexible servers with private access. For example, use the form `[name1].[name2].postgres.database.azure.com` or `[name].postgres.database.azure.com`. If you choose to use the form `[name].postgres.database.azure.com`, the name can't be the name you use for one of your flexible servers or an error message will be shown during provisioning. For more information, see the [private DNS zones overview](../../dns/private-dns-overview.md).
 
-When using private network access with Azure virtual network, providing the private DNS zone information is  mandatory across various interfaces, including API, ARM, and Terraform.  Therefore, for new Azure Database for PostgreSQL Flexible Server creation using private network access with API, ARM, or Terraform, create private DNS zones and use them while configuring flexible servers with private access. See more information on [REST API specifications for Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2021-06-01/postgresql.json). If you use the [Azure portal](./how-to-manage-virtual-network-portal.md) or [Azure CLI](./how-to-manage-virtual-network-cli.md) for creating flexible servers, you can either provide a private DNS zone name that you had previously created in the same or a different subscription or a default private DNS zone is automatically created in your subscription.
 
 Using Azure Portal, CLI or ARM,  you can also change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone that exists the same or different subscription. 
 
   > [!IMPORTANT]
   > Ability to change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone is currently disabled for servers with High Availability feature enabled. 
 
+After you create a private DNS zone in Azure, you'll need to [link](../../dns/private-dns-virtual-network-links.md) a virtual network to it. Once linked, resources hosted in that virtual network can access the private DNS zone. 
+  > [!IMPORTANT]
+  > We no longer validate virtual network link presence on server creation for Azure Database for PostgreSQL - Flexible Server with private networking. When creating server through the Portal we provide customer choice to create link on server creation via checkbox *"Link Private DNS Zone your virtual network"* in the Azure Portal. 
+
+[DNS private zones are resilient](../../dns/private-dns-overview.md) to regional outages because zone data is globally available. Resource records in a private zone are automatically replicated across regions. Azure Private DNS is an availability zone foundational, zone-reduntant service. For more information, see [Azure services with availability zone support](../../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
 ### Integration with a custom DNS server
 
@@ -121,10 +134,11 @@ The hub is a virtual network that acts as a central location for managing extern
 
 The spokes are also virtual networks in Azure, used to isolate individual workloads. The traffic flow between the on-premises headquarters and Azure is connected through ExpressRoute or Site to Site VPN, connected to the hub virtual network. The virtual networks from the spokes to the hub are peered, and enable communication to on-premises resources. You can implement the hub and each spoke in separate subscriptions or resource groups.
 
-There are two main patterns for connecting spoke virtual networks to each other:
+There are three main patterns for connecting spoke virtual networks to each other:
 
-* Spokes directly connected to each other. Virtual network peerings or VPN tunnels are created between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
-* Spokes communicate over a network appliance. Each spoke virtual network has a peering to Virtual WAN or to a hub virtual network. An appliance routes traffic from spoke to spoke. The appliance can be managed by Microsoft (as with Virtual WAN) or by you.
+* **Spokes directly connected to each other**. Virtual network peerings or VPN tunnels are created between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
+* **Spokes communicate over a network appliance**.  Each spoke virtual network has a peering to Virtual WAN or to a hub virtual network. An appliance routes traffic from spoke to spoke. The appliance can be managed by Microsoft (as with Virtual WAN) or by you.
+* **Virtual Network Gateway attached to the hub network and make use of User Defined Routes (UDR)**, to enable communication between the spokes.
 
 :::image type="content" source="./media/how-to-manage-virtual-network-portal/hub-spoke-architecture.png" alt-text="Diagram that shows basic hub and spoke architecture with hybrid connectivity via Express Hub.":::
 
@@ -141,6 +155,9 @@ Replication across Azure regions, with separate [virtual networks (VNETs)](../..
 By default DNS name resolution is scoped to a virtual network. This means that any client in one virtual network (VNET1) is unable to resolve the Flexible Server FQDN in another virtual network (VNET2)
 
 In order to resolve this issue, you must make sure clients in VNET1 can access the Flexible Server Private DNS Zone. This can be achieved by adding a [virtual network link](../../dns/private-dns-virtual-network-links.md) to the Private DNS Zone of your Flexible Server instance.
+
+
+
 
 ### Unsupported virtual network scenarios
 

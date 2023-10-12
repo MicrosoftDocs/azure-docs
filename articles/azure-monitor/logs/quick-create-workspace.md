@@ -4,7 +4,7 @@ description: Learn how to create a Log Analytics workspace to enable management 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 03/28/2022
+ms.date: 07/02/2023
 ms.reviewer: yossiy
 
 # Customer intent: As a DevOps engineer or IT expert, I want to set up a workspace to collect logs from multiple data sources from Azure, on-premises, and third-party cloud deployments.

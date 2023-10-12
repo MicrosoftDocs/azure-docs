@@ -9,9 +9,8 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/17/2023
+ms.date: 05/30/2023
 ms.author: robiro
-ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Plan and implement an SAP deployment on Azure
 
@@ -75,7 +74,7 @@ For general default and maximum limitations of Azure subscriptions and resources
 
 ## Scenarios
 
-SAP services often are considered among the most mission-critical applications in an enterprise. The applications' architecture and operations are usually complex, and it's important to ensure that all requirements for availability and performance are met. An enterprise typically thinks carefully about which cloud provider to choose to run such business-critical business processes.
+SAP services often are considered among the most mission-critical applications in an enterprise. The applications' architecture and operations are complex, and it's important to ensure that all requirements for availability and performance are met. An enterprise typically thinks carefully about which cloud provider to choose to run such business-critical business processes.
 
 Azure is the ideal public cloud platform for business-critical SAP applications and business processes. Most current SAP software, including SAP NetWeaver and SAP S/4HANA systems, can be hosted in the Azure infrastructure today. Azure offers more than 800 CPU types and VMs that have many terabytes of memory.
 
@@ -88,7 +87,7 @@ To gather data for planning your deployment to Azure, it's important to:
 - Determine what SAP products and versions are supported in Azure.
 - Evaluate whether the operating system releases you plan to use are supported with the Azure VMs you would choose for your SAP products.
 - Determine what DBMS releases on specific VMs are supported for your SAP products.
-- Evaluate whether the operating system releases and DBMS releases you need means upgrading or updating your SAP landscape to get the supported configuration.
+- Evaluate whether upgrading or updating your SAP landscape is necessary to align with the required operating system and DBMS releases for achieving a supported configuration.
 - Evaluate whether you need to move to different operating systems to deploy in Azure.
 
 Details about supported SAP components on Azure, Azure infrastructure units, and related operating system releases and DBMS releases are explained in [SAP software that is supported for Azure deployments](./supported-product-on-azure.md). The knowledge that you gain from evaluating support and dependencies between SAP releases, operating system releases, and DBMS releases has a substantial impact on your efforts to move your SAP systems to Azure. You learn whether significant preparation efforts are involved, for example, whether you need to upgrade your SAP release or switch to a different operating system.
@@ -111,9 +110,9 @@ For information about SAP-specific security concerns, like data encryption for d
 
 ### Organize Azure resources
 
-Together with the security and compliance review, if you haven't done this task yet, plan how you will organize your Azure resources. The process includes making decisions about:
+Together with the security and compliance review, if you haven't done this task yet, plan how you organize your Azure resources. The process includes making decisions about:
 
-- A naming convention that you'll use for each Azure resource, such as for VMs and resource groups.
+- A naming convention that you use for each Azure resource, such as for VMs and resource groups.
 - A subscription and management group design for your SAP workload, such as whether multiple subscriptions should be created per workload, per deployment tier, or for each business unit.
 - Enterprise-wide usage of Azure Policy for subscriptions and management groups.
 
@@ -180,8 +179,16 @@ For example, you create an availability set, and you deploy the first VM in the 
 
 The same problem can occur if you're resizing VMs. If you try to move a VM out of the Edsv5 family and into a VM type that's in the M family, the deployment fails. If you resize to a VM family that can't be hosted on the same host hardware, you must shut down all the VMs that are in your availability set and resize them all to be able to run on the other host machine type. For information about SLAs of VMs that are deployed in an availability set, see [Virtual Machines SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
+### Virtual machine scale sets with flexible orchestration
+
+[Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
+
+**For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To learn more about SAP workload deployment with scale set, see [flexible virtual machine scale deployment guide](sap-high-availability-architecture-scenarios.md).
+
+When deploying a high availability SAP workload on Azure, it's important to take into account the various deployment types available, and how they can be applied across different Azure regions (such as across zones, in a single zone, or in a region with no zones). For more information, see [High availability deployment options for SAP workload](sap-high-availability-architecture-scenarios.md#high-availability-deployment-options-for-sap-workload).
+
 > [!TIP]
-> You can't directly switch between an availability set and an availability zone in a deployed VM. To make the switch, you need to re-create the VM and disks with zone constraints from existing resources in place. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample to change a VM from an availability set to an availability zone. A [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-migrate-a-highly-available-sap-system-in-azure-from/ba-p/3216917) shows you how to modify a high-availability SAP system from availability set to availability zone.
+> Currently there is no direct way to migration SAP workload deployed in availability sets or Availability zones to flexible scale with FD=1. To make the switch, you need to re-create the VM and disk with zone constraints from existing resources in place. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample to change a VM deployed in availability set or availability zone to flexible scale set with FD=1. A [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set or availability zone to flexible scale set with FD=1.
 
 ### Proximity placement groups
 
@@ -219,7 +226,7 @@ Your network design should address several requirements for SAP deployment:
 - Network routing restrictions are enforced by [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) on the subnet level. Group IPs of VMs into [application security groups (ASGs)](/azure/virtual-network/application-security-groups) that are maintained in the NSG rules, and provide role, tier, and SID groupings of permissions.
 - SAP application and database VMs run in the same virtual network, within the same or different subnets of a single virtual network. Use different subnets for application and database VMs. Alternatively, use dedicated application and DBMS ASGs to group rules that are applicable to each workload type within the same subnet.
 - Accelerated networking is enabled on all network cards of all VMs for SAP workloads where technically possible.
-- Ensure secure access for dependency on central services, including for name resolution (DNS), identity management (Windows Server Active Directory domains/Azure Active Directory), and administrative access.
+- Ensure secure access for dependency on central services, including for name resolution (DNS), identity management (Windows Server Active Directory domains/Microsoft Entra ID), and administrative access.
 - Provide access to and by public endpoints, as needed. Examples include for Azure management for ClusterLabs Pacemaker operations in high availability or for Azure services like Azure Backup.
 - Use multiple NICs only if they're necessary to create designated subnets that have their own routes and NSG rules.
 
@@ -233,7 +240,7 @@ For examples of network architecture for SAP deployment, see the following artic
 
 Some virtual networking configurations have specific considerations to be aware of.
 
-- Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application layer and the DBMS layer of SAP components by using the SAP kernel, such as S/4HANA or SAP NetWeaver, *is not supported*.
+- The configuring of [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application layer and the DBMS layer of SAP components by using the SAP kernel, such as S/4HANA or SAP NetWeaver, *isn't supported*.
 
   Network virtual appliances in communication paths can easily double the network latency between two communication partners. They also can restrict throughput in critical paths between the SAP application layer and the DBMS layer. In some scenarios, network virtual appliances can cause Pacemaker Linux clusters to fail.
 
@@ -244,11 +251,11 @@ Some virtual networking configurations have specific considerations to be aware 
   - Communication paths between Azure VMs that represent Pacemaker Linux cluster nodes and SBD devices as described in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications](high-availability-guide-suse.md).
   - Communication paths between Azure VMs and a Windows Server scale-out file share that's set up as described in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](sap-high-availability-guide-wsfc-file-share.md).
 
-- Segregating the SAP application layer and the DBMS layer into different Azure virtual networks *is not supported*. We recommend that you segregate the SAP application layer and the DBMS layer by using subnets within the same Azure virtual network instead of by using different Azure virtual networks.
+- Segregating the SAP application layer and the DBMS layer into different Azure virtual networks *isn't supported*. We recommend that you segregate the SAP application layer and the DBMS layer by using subnets within the same Azure virtual network instead of by using different Azure virtual networks.
 
   If you set up an unsupported scenario that segregates two SAP system layers in different virtual networks, the two virtual networks *must be* [peered](../../virtual-network/virtual-network-peering-overview.md).
 
-  Be aware that network traffic between two [peered](../../virtual-network/virtual-network-peering-overview.md) Azure virtual networks is subject to transfer costs. Each day, a huge volume of data that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can *incur substantial cost* if the SAP application layer and the DBMS layer are segregated between two peered Azure virtual networks.  
+  Network traffic between two [peered](../../virtual-network/virtual-network-peering-overview.md) Azure virtual networks is subject to transfer costs. Each day, a huge volume of data that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can *incur substantial cost* if the SAP application layer and the DBMS layer are segregated between two peered Azure virtual networks.  
 
 #### Name resolution and domain services
 
@@ -302,7 +309,7 @@ To further reduce network latency between Azure VMs, we recommend that you confi
 
 ### On-premises connectivity
 
-SAP deployment in Azure assumes that a central, enterprise-wide network architecture and communication hub is in place to enable on-premises connectivity. On-premises network connectivity is essential to allow users and applications to access the SAP landscape in Azure to access other central organization services, such as the central DNS, domain, and security and patch management infrastructure.
+SAP deployment in Azure assumes that a central, enterprise-wide network architecture and communication hub are in place to enable on-premises connectivity. On-premises network connectivity is essential to allow users and applications to access the SAP landscape in Azure to access other central organization services, such as the central DNS, domain, and security and patch management infrastructure.
 
 You have many options to provide on-premises connectivity for your SAP on Azure deployment. The networking deployment most often is a [hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli), or an extension of the hub-spoke topology, a global [virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture).
 
@@ -567,7 +574,7 @@ For more information about high availability for SAP in Azure, see the following
 - [SAP workload configurations with Azure availability zones](high-availability-zones.md)  
 - [Public endpoint connectivity for virtual machines by using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md)  
 
-Pacemaker on Linux and Windows Server failover clustering are the only high-availability frameworks for SAP workloads that are directly supported by Microsoft on Azure. Any other high-availability framework isn't supported by Microsoft and will need design, implementation details, and operations support from the vendor. For more information, see [Supported scenarios for SAP in Azure](planning-supported-configurations.md).
+Pacemaker on Linux, and Windows Server failover clustering are the only high-availability frameworks for SAP workloads that are directly supported by Microsoft on Azure. Any other high-availability framework isn't supported by Microsoft and will need design, implementation details, and operations support from the vendor. For more information, see [Supported scenarios for SAP in Azure](planning-supported-configurations.md).
 
 ## Disaster recovery
 
@@ -606,11 +613,11 @@ It isn't possible to describe all migration approaches and options for the large
 
 - **Test performance during migration**. An important part of SAP migration planning is technical performance testing. The migration team needs to allow sufficient time and availability for key personnel to run application and technical testing of the migrated SAP system, including connected interfaces and applications. For a successful SAP migration, it's critical to compare the premigration and post-migration runtime and accuracy of key business processes in a test environment. Use the information to optimize the processes before you migrate the production environment.
 
-- **Use Azure services for SAP migration**. Some VM-based workloads are migrated without change to Azure by using services like [Azure Migrate](/azure/migrate/) or [Azure Site Recovery](/azure/site-recovery/physical-azure-disaster-recovery), or a third-party tool. Diligently confirm that the operating system version and the SAP workload it will run are supported by the service.
+- **Use Azure services for SAP migration**. Some VM-based workloads are migrated without change to Azure by using services like [Azure Migrate](/azure/migrate/) or [Azure Site Recovery](/azure/site-recovery/physical-azure-disaster-recovery), or a third-party tool. Diligently confirm that the operating system version and the SAP workload it runs are supported by the service.
 
   Often, any database workload is intentionally not supported because a service can't guarantee database consistency. If the DBMS type is supported by the migration service, the database change or churn rate often is too high. Most busy SAP systems won't meet the change rate that migration tools allow. Issues might not be seen or discovered until production migration. In many situations, some Azure services aren't suitable for migrating SAP systems. Azure Site Recovery and Azure Migrate don't have validation for a large-scale SAP migration. A proven SAP migration methodology is to rely on DBMS replication or SAP migration tools.
 
-  A deployment in Azure instead of a basic VM migration is preferable and easier to accomplish than an on-premises migration. Automated deployment frameworks like [Azure Center for SAP solutions](../center-sap-solutions/overview.md) and [Azure deployment automation framework](../automation/deployment-framework.md) allow quick execution of automated tasks. Migrating your SAP landscape to a new deployed infrastructure by using DBMS native replication technologies like HANA system replication, DBMS backup and restore, or SAP migration tools uses established technical knowledge of your SAP system.
+  A deployment in Azure instead of a basic VM migration is preferable and easier to accomplish than an on-premises migration. Automated deployment frameworks like [Azure Center for SAP solutions](../center-sap-solutions/overview.md) and [Azure deployment automation framework](../automation/deployment-framework.md) allow quick execution of automated tasks. To migrate your SAP landscape to a new deployed infrastructure by using DBMS native replication technologies like HANA system replication, DBMS backup and restore, or SAP migration tools uses established technical knowledge of your SAP system.
 
 - **Infrastructure scale-up**. During an SAP migration, having more infrastructure capacity can help you deploy more quickly. The project team should consider scaling up the [VM size](/azure/virtual-machines/sizes) to provide more CPU and memory. The team also should consider scaling up VM aggregate storage and network throughput. Similarly, on the VM level, consider storage elements like individual disks to increase throughput with [on-demand bursting](/azure/virtual-machines/disks-enable-bursting) and [performance tiers](/azure/virtual-machines/disks-performance-tiers-portal) for Premium SSD v1. Increase IOPS and throughput values if you use [Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli#adjust-disk-performance) above the configured values. Enlarge NFS and SMB file shares to increase performance limits. Keep in mind that Azure manage disks can't be reduced in size, and that reduction in size, performance tiers, and throughput KPIs can have various cool-down times.
 
@@ -643,3 +650,4 @@ Operating an SAP landscape in Azure requires connectivity to and from SAP for su
 - [Deploy an SAP workload on Azure](deployment-guide.md)
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](dbms-guide-general.md)
 - [SAP workloads on Azure: Planning and deployment checklist](deployment-checklist.md)
+- [Virtual machine scale sets for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md)

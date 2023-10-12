@@ -112,7 +112,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
     For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. Depending on the deployment region, when you select the VM size in the Azure portal, you may see that this VM size is supported only in zone 1 and 2. You can accept this resiliency configuration as a trade-off for high performance.  
 
-- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/use-multiple-node-pools.md#limitations). 
+- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/create-node-pools.md#limitations).
 
 ### Azure Database for MySQL Flexible Server 
 

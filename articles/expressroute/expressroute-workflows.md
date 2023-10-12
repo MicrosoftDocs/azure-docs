@@ -3,13 +3,10 @@ title: 'Azure ExpressRoute: Circuit configuration workflow'
 description: This page shows the workflow for configuring ExpressRoute circuits and peerings
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 06/30/2023
 ms.author: duau
-ms.custom: contperf-fy21q1
-
 ---
 # ExpressRoute workflows for circuit provisioning and circuit states
 
@@ -67,7 +64,7 @@ You can ensure that the circuit has been provisioned successfully by verifying t
 
 ### 5. Configure routing domains
 
-Configure routing domains. If your connectivity provider manages Layer 3 configuration, they will configure routing for your circuit. If your connectivity provider only offers Layer 2 services or if you are using ExpressRoute Direct, you must configure routing per the guidelines described in the [Routing requirements](expressroute-routing.md) and [Routing configuration](expressroute-howto-routing-classic.md) articles.
+Configure routing domains. If your connectivity provider manages Layer 3 configuration, they configure routing for your circuit. If your connectivity provider only offers Layer 2 services or if you're using ExpressRoute Direct, you must configure routing per the guidelines described in the [Routing requirements](expressroute-routing.md) and [Routing configuration](expressroute-howto-routing-classic.md) articles.
 
 #### For Azure private peering
 
@@ -86,7 +83,7 @@ Enable private peering to connect to VMs and cloud services deployed within the 
 
 #### For Microsoft peering
 
-Enable this to access Microsoft online services, such as Microsoft 365. Additionally, all Azure PaaS services are accessible through Microsoft peering. You must ensure that you use a separate proxy/edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
+Enable this peering to access Microsoft online services, such as Microsoft 365. Additionally, all Azure PaaS services are accessible through Microsoft peering. You must ensure that you use a separate proxy/edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet causes asymmetric routing and you experience connectivity issues for your network.
 
 * IPv4 subnets:
     * Peering subnet for path 1 (/30) - must be public IP
@@ -122,7 +119,7 @@ This section outlines the possible states of an ExpressRoute circuit created und
 
 **At creation time**
 
-The ExpressRoute circuit will report the following states at resource creation.
+The ExpressRoute circuit reports the following states at resource creation.
 
 ```output
 ServiceProviderProvisioningState : NotProvisioned
@@ -131,7 +128,7 @@ Status                           : Enabled
 
 **When the connectivity provider is in the process of provisioning the circuit**
 
-The ExpressRoute circuit will report the following states while the connectivity provider is working to provision the circuit.
+The ExpressRoute circuit reports the following states while the connectivity provider is working to provision the circuit.
 
 ```output
 ServiceProviderProvisioningState : Provisioning
@@ -140,7 +137,7 @@ Status                           : Enabled
 
 **When the connectivity provider has completed the provisioning process**
 
-The ExpressRoute circuit will report the following states once the connectivity provider has successfully provisioned the circuit.
+The ExpressRoute circuit reports the following states once the connectivity provider has successfully provisioned the circuit.
 
 ```output
 ServiceProviderProvisioningState : Provisioned
@@ -149,7 +146,7 @@ Status                           : Enabled
 
 **When the connectivity provider is deprovisioning the circuit**
 
-If the ExpressRoute circuit needs to be deprovisioned, the circuit will report the following states once the service provider has completed the deprovisioning process.
+If the ExpressRoute circuit needs to be deprovisioned, the circuit reports the following states once the service provider has completed the deprovisioning process.
 
 ```output
 ServiceProviderProvisioningState : NotProvisioned
@@ -166,13 +163,12 @@ You can choose to re-enable it if needed, or run PowerShell cmdlets to delete th
 
 The BGP provisioning state reports if the BGP session has been enabled on the Microsoft Edge. The state must be enabled to use private or Microsoft peering.
 
-It is important to check the BGP session state especially for Microsoft peering. In addition to the BGP provisioning state, there is another state called *advertised public prefixes state*. The advertised public prefixes state must be in the *configured* state, both for the BGP session to be up and for your routing to work end-to-end. 
+It's important to check the BGP session state especially for Microsoft peering. In addition to the BGP provisioning state, there's another state called *advertised public prefixes state*. The advertised public prefixes state must be in the *configured* state, both for the BGP session to be up and for your routing to work end-to-end. 
 
-If the advertised public prefix state is set to a *validation needed* state, the BGP session is not enabled, as the advertised prefixes did not match the AS number in any of the routing registries.
+If the advertised public prefix state is set to a *validation needed* state, the BGP session isn't enabled, as the advertised prefixes didn't match the AS number in any of the routing registries.
 
 > [!IMPORTANT]
 > If the advertised public prefixes state is in *manual validation* state, you need to open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and provide evidence that you own the IP addresses advertised along with the associated Autonomous System number.
-> 
 > 
 
 ## Next steps

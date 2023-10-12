@@ -11,13 +11,13 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
 # Identity Protection and B2B users
 
-Identity Protection detects compromised credentials for Azure AD users. If your credential is detected as compromised, it means that someone else may have your password and be using it illegitimately. To prevent further risk to your account, it's important to securely reset your password so that the bad actor can no longer use your compromised password. Identity Protection marks accounts that may be compromised as "at risk."
+Identity Protection detects compromised credentials for Microsoft Entra users. If your credential is detected as compromised, it means that someone else may have your password and be using it illegitimately. To prevent further risk to your account, it's important to securely reset your password so that the bad actor can no longer use your compromised password. Identity Protection marks accounts that may be compromised as "at risk."
 
 You can use your organizational credentials to sign-in to another organization as a guest. This process is referred to [business-to-business or B2B collaboration](../external-identities/what-is-b2b.md). Organizations can configure policies to block users from signing-in if their credentials are considered [at risk](concept-identity-protection-risks.md). If your account is at risk and you're blocked from signing-in to another organization as a guest, you may be able to self-remediate your account using the following steps. If your organization hasn't enabled self-service password reset, your administrator will need to manually remediate your account.
 
@@ -36,23 +36,23 @@ If after resetting your password you're still blocked as a guest due to risk, re
 
 ## How to remediate a user's risk as an administrator
 
-Identity Protection automatically detects risky users for Azure AD tenants. If you haven't previously checked the Identity Protection reports, there may be a large number of users with risk. Since resource tenants can apply user risk policies to guest users, your users can be blocked due to risk even if they were previously unaware of their risky state. If your user reports they've been blocked as a guest user in another tenant due to risk, it's important to remediate the user to protect their account and enable collaboration. 
+Identity Protection automatically detects risky users for Microsoft Entra tenants. If you haven't previously checked the Identity Protection reports, there may be a large number of users with risk. Since resource tenants can apply user risk policies to guest users, your users can be blocked due to risk even if they were previously unaware of their risky state. If your user reports they've been blocked as a guest user in another tenant due to risk, it's important to remediate the user to protect their account and enable collaboration. 
 
 ### Reset the user's password
 
-From the [Risky users report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/RiskyUsers) in the Azure AD Security menu, search for the impacted user using the 'User' filter. Select the impacted user in the report and select "Reset password" in the top toolbar. The user will be assigned a temporary password that must be changed on the next sign-in. This process will remediate their user risk and bring their credentials back to a safe state.
+From the [Risky users report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/RiskyUsers) in the Microsoft Entra Security menu, search for the impacted user using the 'User' filter. Select the impacted user in the report and select "Reset password" in the top toolbar. The user will be assigned a temporary password that must be changed on the next sign-in. This process will remediate their user risk and bring their credentials back to a safe state.
 
 ### Manually dismiss user's risk
 
-If password reset isn't an option for you from the Azure portal, you can choose to manually dismiss user risk. Dismissing user risk doesn't have any impact on the user's existing password, but this process will change the user's Risk State from At Risk to Dismissed. It's important that you change the user's password using whatever means are available to you in order to bring the identity back to a safe state. 
+If password reset isn't an option for you, you can choose to manually dismiss user risk. Dismissing user risk doesn't have any impact on the user's existing password, but this process will change the user's Risk State from At Risk to Dismissed. It's important that you change the user's password using whatever means are available to you in order to bring the identity back to a safe state. 
 
-To dismiss user risk, go to the [Risky users report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/RiskyUsers) in the Azure AD Security menu. Search for the impacted user using the 'User' filter and select the user. Select the "dismiss user risk" option from the top toolbar. This action may take a few minutes to complete and update the user risk state in the report.
+To dismiss user risk, go to the [Risky users report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/SecurityMenuBlade/RiskyUsers) in the Microsoft Entra Security menu. Search for the impacted user using the 'User' filter and select the user. Select the "dismiss user risk" option from the top toolbar. This action may take a few minutes to complete and update the user risk state in the report.
 
 To learn more about Identity Protection, see [What is Identity Protection](overview-identity-protection.md).
 
 ## How does Identity Protection work for B2B users?
 
-The user risk for B2B collaboration users is evaluated at their home directory. The real-time sign-in risk for these users is evaluated at the resource directory when they try to access the resource. With Azure AD B2B collaboration, organizations can enforce risk-based policies for B2B users using Identity Protection. These policies be configured in two ways:
+The user risk for B2B collaboration users is evaluated at their home directory. The real-time sign-in risk for these users is evaluated at the resource directory when they try to access the resource. With Microsoft Entra B2B collaboration, organizations can enforce risk-based policies for B2B users using Identity Protection. These policies be configured in two ways:
 
 - Administrators can configure the built-in Identity Protection risk-based policies, that apply to all apps, and include guest users.
 - Administrators can configure their Conditional Access policies, using sign-in risk as a condition, and includes guest users.
@@ -75,10 +75,10 @@ If a risky B2B user in your directory is blocked by your risk-based policy, the 
 
 ### How do I prevent B2B collaboration users from being impacted by risk-based policies?
 
-Excluding B2B users from your organization's risk-based Conditional Access policies will prevent B2B users from being impacted or blocked by their risk evaluation. To exclude these B2B users, create a group in Azure AD that contains all of your organization's guest users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, and any Conditional Access policies that use sign-in risk as a condition.
+Excluding B2B users from your organization's risk-based Conditional Access policies will prevent B2B users from being impacted or blocked by their risk evaluation. To exclude these B2B users, create a group in Microsoft Entra ID that contains all of your organization's guest users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, and any Conditional Access policies that use sign-in risk as a condition.
 
 ## Next steps
 
-See the following articles on Azure AD B2B collaboration:
+See the following articles on Microsoft Entra B2B collaboration:
 
-- [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md)
+- [What is Microsoft Entra B2B collaboration?](../external-identities/what-is-b2b.md)

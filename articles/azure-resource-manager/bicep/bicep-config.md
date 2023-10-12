@@ -3,7 +3,7 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/24/2023
+ms.date: 09/27/2023
 ---
 
 # Configure your Bicep environment
@@ -52,13 +52,14 @@ You can enable preview features by adding:
 
 The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
 
+- **assertions**: Should be enabled in tandem with `testFramework` experimental feature flag for expected functionality. Allows you to author boolean assertions using the `assert` keyword comparing the actual value of a parameter, variable, or resource name to an expected value. Assert statements can only be written directly within the Bicep file whose resources they reference. For more information, see [Bicep Experimental Test Framework](https://github.com/Azure/bicep/issues/11967).
+- **compileTimeImports**: Allows you to use symbols defined in another template. See [Import user-defined data types](./bicep-import.md#import-user-defined-data-types-preview).
 - **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider. See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- **paramsFiles**: Allows for the use of a Bicep-style parameters file with a terser syntax than the JSON equivalent parameters file. Currently, you also need a special build of Bicep to enable this feature, so is it inaccessible to most users. See [Parameters - first release](https://github.com/Azure/bicep/issues/9567).
 - **sourceMapping**: Enables basic source mapping to map an error location returned in the ARM template layer back to the relevant location in the Bicep file.
 - **resourceTypedParamsAndOutputs**: Enables the type for a parameter or output to be of type resource to make it easier to pass resource references between modules. This feature is only partially implemented. See [Simplifying resource referencing](https://github.com/azure/bicep/issues/2245).
 - **symbolicNameCodegen**: Allows the ARM template layer to use a new schema to represent resources as an object dictionary rather than an array of objects. This feature improves the semantic equivalent of the Bicep and ARM templates, resulting in more reliable code generation. Enabling this feature has no effect on the Bicep layer's functionality.
-- **userDefinedFunctions**: Allows you to define your own custom functions.
-- **userDefinedTypes**: Allows you to define your own custom types for parameters. See [User-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+- **testFramework**: Should be enabled in tandem with `assertions` experimental feature flag for expected functionality. Allows you to author client-side, offline unit-test test blocks that reference Bicep files and mock deployment parameters in a separate `test.bicep` file using the new `test` keyword. Test blocks can be run with the command *bicep test <filepath_to_file_with_test_blocks>* which runs all `assert` statements in the Bicep files referenced by the test blocks. For more information, see [Bicep Experimental Test Framework](https://github.com/Azure/bicep/issues/11967).
+- **userDefinedFunctions**: Allows you to define your own custom functions. See [User-defined functions in Bicep](./user-defined-functions.md).
 
 ## Next steps
 

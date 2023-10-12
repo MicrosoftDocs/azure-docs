@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 04/20/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
@@ -25,7 +25,7 @@ Learn how to configure the code for your web app that signs in users.
 <!-- This section can be in an include for web app and web APIs -->
 The following Microsoft libraries are used to protect a web app (and a web API):
 
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
+[!INCLUDE [develop-libraries-webapp](./includes/libraries/libraries-webapp.md)]
 
 Select the tab that corresponds to the platform you're interested in:
 
@@ -68,8 +68,8 @@ Web applications that sign in users by using the Microsoft identity platform are
 - The cloud **instance** if you want your app to run in national clouds, for example. The different options include;
   - `https://login.microsoftonline.com/` for Azure public cloud
   - `https://login.microsoftonline.us/` for Azure US government
-  - `https://login.microsoftonline.de/` for Azure AD Germany
-  - `https://login.partner.microsoftonline.cn/common` for Azure AD China operated by 21Vianet
+  - `https://login.microsoftonline.de/` for Microsoft Entra Germany
+  - `https://login.partner.microsoftonline.cn/common` for Microsoft Entra China operated by 21Vianet
 - The audience in the **tenant ID**. The options vary depending on whether your app is single tenant or multitenant.
   - The tenant GUID obtained from the Azure portal to sign in users in your organization. You can also use a domain name.
   - `organizations` to sign in users in any work or school account
@@ -81,7 +81,7 @@ You might also see references to the **authority**, a concatenation of the **ins
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core, these settings are located in the [appsettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) file, in the "AzureAd" section.
+In ASP.NET Core, these settings are located in the [appsettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) file, in the "Microsoft Entra ID" section.
 
 ```Json
 {
@@ -167,9 +167,9 @@ In the Azure portal, the reply URIs that you register on the **Authentication** 
 
 # [Node.js](#tab/nodejs)
 
-Here, the configuration parameters reside in *.env* as environment variables:
+Here, the configuration parameters reside in *.env.dev* as environment variables:
 
-:::code language="text" source="~/ms-identity-node/App/.env":::
+:::code language="text" source="~/ms-identity-node/App/.env.dev":::
 
 These parameters are used to create a configuration object in *authConfig.js* file, which will eventually be used to initialize MSAL Node:
 
@@ -199,7 +199,7 @@ The *.env* file should never be checked into source control, since it contains s
 
 ## Initialization code
 
-The initialization code differences are platform dependant. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Azure Active Directory (Azure AD) v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform. 
+The initialization code differences are platform dependant. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Azure AD v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform. 
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -215,7 +215,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 >          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 > ```
 >
-> This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure AD v1.0 application. This article explains how to create a Microsoft identity platform (Azure AD v2.0) application which replaces that code.
+> This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure Active Directory v1.0 application. This article explains how to create a Microsoft identity platform v2.0 application which replaces that code.
 
 1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it's present.
 
@@ -258,7 +258,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 
 In that code:
 - The `AddMicrosoftIdentityWebApp` extension method is defined in **Microsoft.Identity.Web**, which;
-  - Configures options to read the configuration file (here from the "AzureAD" section)
+  - Configures options to read the configuration file (here from the "Microsoft Entra ID" section)
   - Configures the OpenID Connect options so that the authority is the Microsoft identity platform.
   - Validates the issuer of the token.
   - Ensures that the claims corresponding to name are mapped from the `preferred_username` claim in the ID token.
@@ -292,7 +292,7 @@ The code related to authentication in an ASP.NET web app and web APIs is located
 
 The Java sample uses the Spring framework. The application is protected because you implement a filter, which intercepts each HTTP response. In the quickstart for Java web apps, this filter is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`.
 
-The filter processes the OAuth 2.0 authorization code flow and checks if the user is authenticated (`isAuthenticated()` method). If the user isn't authenticated, it computes the URL of the Azure AD authorization endpoints, and redirects the browser to this URI.
+The filter processes the OAuth 2.0 authorization code flow and checks if the user is authenticated (`isAuthenticated()` method). If the user isn't authenticated, it computes the URL of the Microsoft Entra authorization endpoints, and redirects the browser to this URI.
 
 When the response arrives, containing the authorization code, it acquires the token by using MSAL Java. When it finally receives the token from the token endpoint (on the redirect URI), the user is signed in.
 

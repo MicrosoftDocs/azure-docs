@@ -175,7 +175,7 @@ To give your application access to secrets, include the certificate by adding a 
 
 To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
-To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 
 To enable system assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set, declare the following `"Microsoft.Compute/virtualMachinesScaleSets"` property:
@@ -256,7 +256,7 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
             "AntimalwareEnabled": "true",
             "Exclusions": {
                 "Paths": "[concat(parameters('svcFabData'), ';', parameters('svcFabLogs'), ';', parameters('svcFabRuntime'))]",
-                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe;FabricBRS.exe;BackupCopier.exe"
             },
             "RealtimeProtectionEnabled": "true",
             "ScheduledScanSettings": {

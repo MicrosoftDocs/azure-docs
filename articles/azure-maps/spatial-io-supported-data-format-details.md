@@ -33,7 +33,7 @@ The spatial IO module supports XML tags from the following namespaces.
 
 ## Supported XML elements
 
-The spatial IO module supports the following XML elements. Any XML tags that aren't supported will be converted into a JSON object. Then, each tag will be added as a property in the `properties` field of the parent shape or layer.
+The spatial IO module supports the following XML elements. Any XML tags that aren't supported are converted into a JSON object. Then, each tag is added as a property in the `properties` field of the parent shape or layer.
 
 ### KML elements
 
@@ -59,7 +59,7 @@ The spatial IO module supports the following KML elements.
 | `east`               | yes     | yes     |                                                                                                                            |
 | `end`                | yes     | yes     |                                                                                                                            |
 | `ExtendedData`       | yes     | yes     | Supports untyped `Data`, `SimpleData` or `Schema`, and entity replacements of the form `$[dataName]`.                      |
-| `extrude`            | partial | partial | Only supported for polygons. MultiGeometry that have polygons of different heights will be broken out into individual features. Line styles aren't supported. Polygons with an altitude of 0 will be rendered as a flat polygon. When reading, the altitude of the first coordinate in the exterior ring will be added as a height property of the polygon. Then, the altitude of the first coordinate will be used to render the polygon on the map. |
+| `extrude`            | partial | partial | Only supported for polygons. MultiGeometry that have polygons of different heights are broken out into individual features. Line styles aren't supported. Polygons with an altitude of 0 is rendered as a flat polygon. When reading, the altitude of the first coordinate in the exterior ring is added as a height property of the polygon. Then, the altitude of the first coordinate is used to render the polygon on the map. |
 | `fill`               | yes     | yes     |                                                                                                                            |
 | `Folder`             | yes     | yes     |                                                                                                                            |
 | `GroundOverlay`      | yes     | yes     | `color` isn't supported                                                                                                   |
@@ -67,7 +67,7 @@ The spatial IO module supports the following KML elements.
 | `hotSpot`            | yes     | partial | Only writes if data is stored in the property of the shape. Units are outputted as "pixels" only.                         |
 | `href`               | yes     | yes     |                                                                                                                            |
 | `Icon`               | partial | partial | Parsed but not rendered by `SimpleDataLayer`. Only writes the icon property of the shape if it contains a URI data. Only `href` is supported. |
-| `IconStyle`          | partial | partial | `icon`, `heading`, `colorMode`, and `hotspots` values are parsed, but they aren't rendered by `SimpleDataLayer`         |
+| `IconStyle`          | partial | partial | `icon`, `heading`, `colorMode`, and `hotspots` values are parsed, but not rendered by `SimpleDataLayer`         |
 | `innerBoundaryIs`    | yes     | yes     |                                                                                                                            |
 | `kml`                | yes     | yes     |                                                                                                                            |
 | `LabelStyle`         | no      | no      |                                                                                                                            |
@@ -115,7 +115,7 @@ The spatial IO module supports the following KML elements.
 | `TimeSpan`           | yes     | yes     |                                                                                                                            |
 | `TimeStamp`          | yes     | yes     |                                                                                                                            |
 | `value`              | yes     | yes     |                                                                                                                            |
-| `viewRefreshMode`    | partial | no      |  If pointing to a WMS service, then only `onStop` is supported for ground overlays. Will append `BBOX={bboxWest},{bboxSouth},{bboxEast},{bboxNorth}` to the URL and update as the map moves.  |
+| `viewRefreshMode`    | partial | no      |  If pointing to a WMS service, then only `onStop` is supported for ground overlays. Appends `BBOX={bboxWest},{bboxSouth},{bboxEast},{bboxNorth}` to the URL and update as the map moves.  |
 | `visibility`         | yes     | yes     |                                                                                                                            |
 | `west`               | yes     | yes     |                                                                                                                            |
 | `when`               | yes     | yes     |                                                                                                                            |
@@ -164,7 +164,7 @@ The spatial IO module supports the following GeoRSS elements.
 | `georss:where`           | yes     | yes   |                                                                                                |
 | `geourl:latitude`        | yes     | no    | Written as a `georss:point`.                                                                   |
 | `geourl:longitude`       | yes     | no    | Written as a `georss:point`.                                                                   |
-| `position`               | yes     | no    | Some XML feeds will wrap GML with a position tag instead of wrapping it with a `georss:where` tag. Will read this tag, but will write using a `georss:where` tag. |
+| `position`               | yes     | no    | Some XML feeds wrap GML with a position tag instead of wrapping it with a `georss:where` tag. Read this tag, but writes using a `georss:where` tag. |
 | `rss`                    | yes     | no    | GeoRSS written in ATOM format.                                                                 |
 | `rss:author`             | yes     | partial | Written as an `atom:author`.                                                                 |
 | `rss:category`           | yes     | partial | Written as an `atom:category`.                                                               |
@@ -237,12 +237,12 @@ The spatial IO module supports the following GML elements.
 | `gml:posList`           | yes  | yes   |                                                                                        |
 | `gml:surfaceMember`     | yes  | yes   |                                                                                        |
 
-#### additional notes
+#### More notes
 
-- Member elements will be searched for a geometry that may be buried within child elements. This search operation is necessary as many XML formats that extend from GML may not place a geometry as a direct child of a member element.
-- `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326](https://epsg.io/4326)), and web Mercator ([EPSG:3857](https://epsg.io/3857) or one of its alternative codes. Any other coordinate system will be parsed as WGS84 as-is.
+- Member elements are searched for a geometry that may be buried within child elements. This search operation is necessary as many XML formats that extend from GML may not place a geometry as a direct child of a member element.
+- `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326]), and web Mercator ([EPSG:3857] or one of its alternative codes. Any other coordinate system is parsed as WGS84 as-is.
 - Unless specified when reading an XML feed, the axis order is determined based on hints in the XML feed. A preference is given for the "latitude, longitude" axis order.
-- Unless a custom GML namespace is specified for the properties when writing to a GML file, additional property information will not be added.
+- Unless a custom GML namespace is specified for the properties when writing to a GML file, other property information isn't added.
 
 ### GPX elements
 
@@ -258,7 +258,7 @@ The spatial IO module supports the following GPX elements.
 | `gpx:desc`               | yes     | yes     | Copied into a description property when read to align with other XML formats.               |
 | `gpx:dgpsid`             | yes     | yes     |                                                                                             |
 | `gpx:ele`                | yes     | yes     |                                                                                             |
-| `gpx:extensions`         | partial | partial | When read, style information is extracted. All other extensions will be flattened into a simple JSON object. Only shape style information is written. |
+| `gpx:extensions`         | partial | partial | When read, style information is extracted. All other extensions are flattened into a simple JSON object. Only shape style information is written. |
 | `gpx:geoidheight`        | yes     | yes     |                                                                                             |
 | `gpx:gpx`                | yes     | yes     |                                                                                             |
 | `gpx:hdop`               | yes     | yes     |                                                                                             |
@@ -284,19 +284,19 @@ The spatial IO module supports the following GPX elements.
 | `gpx_style:line`         | partial | partial | `color`, `opacity`, `width`, `lineCap` are supported.                                       |
 | `gpx_style:opacity`      | yes     | yes     |                                                                                             |
 | `gpx_style:width`        | yes     | yes     |                                                                                             |
-| `gpxx:DisplayColor`      | yes     | no      | Used to specify the color of a shape. When writing, `gpx_style:line` color will be used instead.|
+| `gpxx:DisplayColor`      | yes     | no      | Used to specify the color of a shape. If writing, `gpx_style:line` color is used instead.|
 | `gpxx:RouteExtension`    | partial | no      | All properties are read into `properties`. Only `DisplayColor` is used.                     |
 | `gpxx:TrackExtension`    | partial | no      | All properties are read into `properties`. Only `DisplayColor` is used.                     |
 | `gpxx:WaypointExtension` | partial | no      | All properties are read into `properties`. Only `DisplayColor` is used.                     |
 | `gpx:keywords`           | yes     | yes     |                                                                                             |
 | `gpx:fix`                | yes     | yes     |                                                                                             |
 
-#### additional notes
+#### More notes
 
 When writing;
 
-- MultiPoints will be broken up into individual waypoints.
-- Polygons and MultiPolygons will be written as tracks.
+- MultiPoints is broken up into individual waypoints.
+- Polygons and MultiPolygons are written as tracks.
   
 ## Supported Well-Known Text geometry types
 
@@ -341,7 +341,7 @@ Delimited spatial data, such as comma-separated value files (CSV), often have co
 
 ### Spatial data column detection
 
-When reading a delimited file that contains spatial data, the header will be analyzed to determine which columns contain location fields. If the header contains type information, it will be used to cast the cell values to the appropriate type. If no header is specified, the first row will be analyzed and used to generate a header. When analyzing the first row, a check is executed to match column names with the following names in a case-insensitive way. The order of the names is the priority, in case two or more names exist in a file.
+When reading a delimited file that contains spatial data, the header is analyzed to determine which columns contain location fields. If the header contains type information, it's used to cast the cell values to the appropriate type. If no header is specified, the first row is analyzed to generate a header. When analyzing the first row, a check is executed to match column names with the following names in a case-insensitive way. The order of the names is the priority, in case two or more names exist in a file.
 
 #### Latitude
 
@@ -379,11 +379,11 @@ When reading a delimited file that contains spatial data, the header will be ana
 
 #### Geography
 
-The first row of data will be scanned for strings that are in Well-Known Text format. 
+The first row of data is scanned for strings that are in Well-Known Text format.
 
 ### Delimited data column types
 
-When scanning the header row, any type information that is in the column name will be extracted and used to cast the cells in that column. Here is an example of a column name that has a type value: "ColumnName (typeName)". The following case-insensitive type names are supported:
+When scanning the header row, any type information that is in the column name is extracted and used to cast the cells in that column. Here's an example of a column name that has a type value: "ColumnName (typeName)". The following case-insensitive type names are supported:
 
 #### Numbers
 
@@ -419,10 +419,14 @@ When scanning the header row, any type information that is in the column name wi
 - text
 - string
 
-If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell will be individually analyzed to determine what data type it is best suited to be cast as.
+If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell is individually analyzed to determine what data type it's best suited to be cast as.
 
 ## Next steps
 
 See the following articles for more code samples to add to your maps:
 
-[Read and write spatial data](spatial-io-read-write-spatial-data.md)
+[Read and write spatial data]
+
+[EPSG:4326]: https://epsg.io/4326
+[EPSG:3857]: https://epsg.io/3857
+[Read and write spatial data]: spatial-io-read-write-spatial-data.md

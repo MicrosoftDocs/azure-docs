@@ -80,16 +80,20 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with.
 
+> [!WARNING]
+> Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
+
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> * Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> * We recommend using [**managed identity**](../managed-identity.md) to allow access to your Azure Key Vault certificates because App registration will be retired in the future.
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have *Global Administrator* permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
-> * The Application Id of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is predefined by Azure for Front Door Standard and Premium tier across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different Application Id.
+> * This action requires you to have *Global Administrator* permissions in Microsoft Entra ID. The registration only needs to be performed **once per Microsoft Entra tenant**.
+> * The application ID of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** is predefined by Azure for Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different application ID.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -97,8 +101,16 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. Use PowerShell, run the following command:
 
+    **Azure public cloud:**
+
      ```azurepowershell-interactive
      New-AzADServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
+     ```
+
+    **Azure government cloud:**
+
+    ```azurepowershell-interactive
+     New-AzADServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
      ```
 
 # [Azure CLI](#tab/cli)
@@ -107,10 +119,17 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. Use the Azure CLI to run the following command:
 
-     ```azurecli-interactive
-     az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
-     ```
+    **Azure public cloud:**
 
+    ```azurecli-interactive
+    az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
+    ```
+
+    **Azure government cloud:**
+
+    ```azurecli-interactive
+     az ad sp create --id d4631ece-daab-479b-be77-ccb713491fc0
+     ```
 ---
 
 #### Grant Azure Front Door access to your key vault

@@ -1,5 +1,5 @@
 ---
-title: Plan a passwordless authentication deployment in Azure Active Directory
+title: Plan a passwordless authentication deployment in Microsoft Entra ID
 description: Directions for deploying passwordless authentication
 
 services: active-directory
@@ -16,11 +16,11 @@ ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ---
 
-# Plan a passwordless authentication deployment in Azure Active Directory
+# Plan a passwordless authentication deployment in Microsoft Entra ID
 
 Passwords are a primary attack vector. Bad actors use social engineering, phishing, and spray attacks to compromise passwords. A passwordless authentication strategy mitigates the risk of these attacks.
 
-Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Azure Active Directory (Azure AD):
+Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Microsoft Entra ID:
 
 * [Microsoft Authenticator](./concept-authentication-passwordless.md#microsoft-authenticator) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
 
@@ -33,7 +33,7 @@ Microsoft offers the following [three passwordless authentication options](conce
 
 ## Use the passwordless methods wizard
 
-The [Azure portal](https://portal.azure.com/) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
+The [Microsoft Entra admin center](https://entra.microsoft.com) has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
 
 ## Passwordless authentication scenarios
 
@@ -60,7 +60,7 @@ Ensure you meet the prerequisites before starting your passwordless deployment.
 Here are the least privileged roles required for this deployment:
 <p>
 
-| Azure AD Role| Description |
+| Microsoft Entra role| Description |
 | - | -|
 | User Administrator or Global Administrator| To implement combined registration experience. |
 | Authentication Administrator| To implement and manage authentication methods. |
@@ -74,10 +74,10 @@ The prerequisites are determined by your selected passwordless authentication me
 
 | Prerequisite| Microsoft Authenticator| FIDO2 Security Keys|
 | - | -|-|
-| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|
-| [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|
-| [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|
-| [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |
+| [Combined registration for Microsoft Entra multifactor authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|
+| [Users can perform Microsoft Entra multifactor authentication](howto-mfa-getstarted.md)| √| √|
+| [Users have registered for Microsoft Entra multifactor authentication and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|
+| [Users have registered their mobile devices to Microsoft Entra ID](../devices/overview.md)| √| |
 | Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|
 | Compatible security keys. Ensure that you're using a [Microsoft-tested and verified FIDO2 security key](concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|
 
@@ -95,17 +95,17 @@ The wizard will use your inputs to craft a step-by-step plan for you to follow.
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../architecture/deployment-plans.md).
 
 ### Plan communications
 
 Your communications to end users should include the following information:
 
-* [Guidance on combined registration for both Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)
+* [Guidance on combined registration for both Microsoft Entra multifactor authentication and SSPR](howto-registration-mfa-sspr-combined.md)
 
 * [Downloading Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
@@ -117,7 +117,7 @@ Microsoft provides communication templates for end users. Download the [authenti
 
 ## Plan user registration
 
-Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Azure AD logs registration of security keys and the Authenticator app, and any other changes to the authentication methods. 
+Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Microsoft Entra logs registration of security keys and the Authenticator app, and any other changes to the authentication methods. 
 
 For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
 
@@ -132,14 +132,14 @@ This method can also be used for easy recovery when the user has lost or forgott
 
 ### Technical considerations
 
-**Active Directory Federation Services (AD FS) Integration** - When a user enables the Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential. For non-Microsoft 365 applications which use AD FS for authentication, Azure AD Conditional Access policies will not be applied and you will need to set up access control policies within AD FS.
+**Active Directory Federation Services (AD FS) Integration** - When a user enables the Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential. For non-Microsoft 365 applications which use AD FS for authentication, Microsoft Entra Conditional Access policies will not be applied and you will need to set up access control policies within AD FS.
 
-**MFA server** - End users enabled for multi-factor authentication through an organization's on-premises MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
+**MFA server** - End users enabled for multifactor authentication through an organization's on-premises MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users' authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users' authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
-**Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
+**Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Microsoft Entra tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
 ### Deploy phone sign-in with the Authenticator app
 
@@ -154,7 +154,7 @@ The following are sample test cases for passwordless authentication with the Aut
 | User can register the Authenticator app.| User can register app from https://aka.ms/mysecurityinfo. |
 | User can enable phone sign-in| Phone sign-in configured for work account. |
 | User can access an app with phone sign-in.| User goes through phone sign-in flow and reaches application. |
-| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
+| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the [Microsoft Entra admin center](https://entra.microsoft.com)| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
 | Removing phone sign-in from the Authenticator app| Work account no longer available on the Authenticator app. |
 
 
@@ -190,27 +190,27 @@ Prepare for and plan the key lifecycle.
 
 There are three types of passwordless sign-in deployments available with security keys:
 
-* Azure AD web apps on a supported browser
+* Microsoft Entra web apps on a supported browser
 
-* Azure AD joined Windows 10 devices
+* Microsoft Entra joined Windows 10 devices
 
-* Hybrid Azure AD joined Windows 10 devices 
+* Microsoft Entra hybrid joined Windows 10 devices 
 
   * Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](howto-authentication-passwordless-security-key-on-premises.md)
 
-**For Azure AD web apps and Azure AD joined Windows devices**, use:
+**For Microsoft Entra web apps and Microsoft Entra joined Windows devices**, use:
 
 * Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher).
 
 * Windows 10 version 1809 supports FIDO2 sign-in and may require software from the FIDO2 key manufacturer to be deployed. We recommend you use version 1903 or later.
 
-**For hybrid Azure AD domain joined devices**, use: 
+**For hybrid Microsoft Entra domain joined devices**, use: 
 
 * Windows 10 version 2004 or later. 
 
 * Fully patched domain servers running Windows Server 2016 or 2019. 
 
-* Latest version of Azure AD Connect.
+* Latest version of Microsoft Entra Connect.
 
 #### Enable Windows 10 support
 
@@ -228,14 +228,14 @@ Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the
 
 * [Enable credential provider with Group Policy](howto-authentication-passwordless-security-key-windows.md)
 
-   * Only supported for hybrid Azure AD joined devices.
+   * Only supported for Microsoft Entra hybrid joined devices.
 
 #### Enable on-premises integration
 
 Follow the steps in the article [Enable passwordless security key sign in to on-premises resources (preview)](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT] 
-> These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign-in.
+> These steps must also be completed for any Microsoft Entra hybrid joined devices to utilize FIDO2 security keys for Windows 10 sign-in.
 
 
 ### Key restrictions policy
@@ -265,7 +265,9 @@ Follow the steps in the article [Enable passwordless security key sign-in](howto
 
 Here are the sample test cases for passwordless authentication with security keys.
 
-#### Passwordless FIDO sign in to Azure Active Directory Joined Windows 10 devices
+<a name='passwordless-fido-sign-in-to-azure-active-directory-joined-windows-10-devices'></a>
+
+#### Passwordless FIDO sign in to Microsoft Entra joined Windows 10 devices
 
 
 | Scenario (Windows build)| Expected results |
@@ -278,7 +280,9 @@ Here are the sample test cases for passwordless authentication with security key
 | The user can sign in with FIDO2 device (1903)| User can select Security Key from the sign-in window, and successfully sign in. |
 
 
-#### Passwordless FIDO sign-in to Azure AD web apps
+<a name='passwordless-fido-sign-in-to-azure-ad-web-apps'></a>
+
+#### Passwordless FIDO sign-in to Microsoft Entra web apps
 
 
 | Scenario| Expected results |
@@ -287,7 +291,7 @@ Here are the sample test cases for passwordless authentication with security key
 | The user can register FIDO2 device at aka.ms/mysecurityinfo using Firefox| Registration should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Microsoft Edge| Sign-in should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Firefox| Sign-in should succeed |
-| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
+| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the [Microsoft Entra admin center](https://entra.microsoft.com)| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
 
 
 ### Troubleshoot security key sign-in
@@ -304,7 +308,7 @@ Here are the sample test cases for passwordless authentication with security key
 
 ## Manage passwordless authentication
 
-To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
+To manage your user's passwordless authentication methods in the [Microsoft Entra admin center](https://entra.microsoft.com), select your user account, and then select Authentication methods.
 
 ### Microsoft Graph APIs 
 
@@ -316,13 +320,15 @@ You can also manage the passwordless authentication methods using the authentica
 
 * Manage your authentication method policies for security keys and the Authenticator app.
 
-For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
+For more information on what authentication methods can be managed in Microsoft Graph, see [Microsoft Entra authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ### Rollback
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Though passwordless authentication is a lightweight feature with minimal impact on end users, it may be necessary to roll back.
 
-Rolling back requires the administrator to sign in to the Azure portal, select the desired strong authentication methods, and change the enable option to No. This process turns off the passwordless functionality for all users.
+Rolling back requires the administrator to sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), select the desired strong authentication methods, and change the enable option to No. This process turns off the passwordless functionality for all users.
 
 ![Passwordless rollback](media/howto-authentication-passwordless-deployment/passwordless-rollback.png)
 
@@ -332,7 +338,7 @@ Users who have already registered FIDO2 security devices are prompted to use the
 
 ### Reporting and monitoring
 
-Azure AD has reports that provide technical and business insights. Have your business and technical application owners assume ownership of and consume these reports based on your organization's requirements.
+Microsoft Entra ID has reports that provide technical and business insights. Have your business and technical application owners assume ownership of and consume these reports based on your organization's requirements.
 
 The following table provides some examples of typical reporting scenarios:
 
@@ -344,19 +350,19 @@ The following table provides some examples of typical reporting scenarios:
 
 #### Track usage and insights
 
-Azure AD adds entries to the audit logs when:
+Microsoft Entra ID adds entries to the audit logs when:
 
 * An admin makes changes in the Authentication methods section.
 
-* A user makes any kind of change to their credentials within Azure AD.
+* A user makes any kind of change to their credentials within Microsoft Entra ID.
 
 * A user enables or disables their account on a security key or resets the second factor for the security key on their Win 10 machine. See event IDs: 4670 and 5382.
 
-**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
+**Microsoft Entra ID keeps most auditing data for 30 days** and makes the data available by using the [Microsoft Entra admin center](https://entra.microsoft.com) or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
 
 There are two tabs in the Authentication methods activity dashboard - Registration and Usage.
 
-The [Registration tab](https://portal.azure.com/) shows the number of users capable of passwordless authentication as well as other authentication methods. This tab displays two graphs:
+The **Registration** tab shows the number of users capable of passwordless authentication as well as other authentication methods. This tab displays two graphs:
 
 * Users registered by authentication method.
 
@@ -364,11 +370,11 @@ The [Registration tab](https://portal.azure.com/) shows the number of users capa
 
 ![Registration tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-registration-tab.png)
 
-The [Usage tab](https://portal.azure.com/)shows the sign-ins by authentication method.
+The **Usage** tab shows the sign-ins by authentication method.
 
 ![Usage tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-usage-tab.png)
 
-For more information, see [track registered authentication methods and usage across the Azure AD organization](howto-authentication-methods-activity.md).
+For more information, see [track registered authentication methods and usage across the Microsoft Entra organization](howto-authentication-methods-activity.md).
 
 #### Sign-in activity reports
 
@@ -382,4 +388,4 @@ Select the user row, and then select the **Authentication Details** tab to view 
 
 * [Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
-* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+* [Deploy other identity features](../architecture/deployment-plans.md)

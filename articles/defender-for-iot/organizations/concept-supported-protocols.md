@@ -1,7 +1,7 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that Microsoft Defender for IoT supports.
-ms.date: 01/30/2023
+ms.date: 08/31/2023
 ms.topic: concept-article
 ms.custom: enterprise-iot
 ---
@@ -23,18 +23,19 @@ OT network sensors can detect the following protocols when identifying assets an
 |**DNP. org**     |   DNP3      |
 |**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
-|**GE**     | Bentley Nevada (System 1 / BN3500)<br>ClassicSDI (MarkVle) <br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br> InterSite<br> SDI (MarkVle) <br>  SRTP (GE)<br> GE_CMP        |
+|**GE**     | ADL (MarkVIe) <br>Bentley Nevada (System 1 / BN3500)<br>ClassicSDI (MarkVle) <br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br> InterSite<br> SDI (MarkVle) <br>  SRTP (GE)<br> GE_CMP        |
 |**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
 |**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |
-|**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
+|**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
 |**IEEE**     |     LLC<br> STP<br> VLAN    |
 |**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
 |**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
+| **Jenesys** |FOX <br>Niagara |
 |**Medical**     |ASTM<br> HL7         |
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
 |**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
-|**Omron**     |  FINS       |
-|**OPC**     |  UA       |
+|**Omron**     |  FINS <br>HTTP      |
+|**OPC**     |  AE <br>Common <br> DA <br>HDA <br> UA       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |  CSP2<br> ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
 |**Samsung** | Samsung TV |
@@ -42,6 +43,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
+| **SEL** | FTP <br> Telnet |
 |**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet I/O<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7 - Firmware and model extraction<br> Siemens S7 – key state<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
@@ -79,15 +81,6 @@ Horizon provides:
 - The security of allowing proprietary development without divulging sensitive information
 
 :::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="Infographic that describes features provided by the Horizon SDK." border="false":::
-
-### Collaborate with the Horizon community
-
-Join our community to help lead the way towards digital transformation and industry-wide collaboration for protocol support!
-
-The Horizon ICS community shares knowledge between domain experts in critical infrastructures, building management, production lines, transportation systems, and leading industries. For example, our community shares tutorials, discussion forums, instructor-led training, educational white papers, and more.
-
-To join the Horizon community, email us at: [horizon-community@microsoft.com](mailto:horizon-community@microsoft.com)
-
 
 ## Next steps
 

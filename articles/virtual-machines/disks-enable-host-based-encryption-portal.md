@@ -2,11 +2,10 @@
 title: Enable end-to-end encryption using encryption at host - Azure portal - managed disks
 description: Use encryption at host to enable end-to-end encryption on your Azure managed disks - Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: references_regions
 ---
 

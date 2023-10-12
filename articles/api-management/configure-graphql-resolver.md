@@ -1,23 +1,31 @@
 ---
 title: Configure GraphQL resolver in Azure API Management
-description: Configure a GraphQL resolver in Azure AI Management for a field in an object type specified in a GraphQL schema
+description: Configure a GraphQL resolver in Azure API Management for a field in an object type specified in a GraphQL schema
 services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 02/22/2023
+ms.topic: article
+ms.date: 06/08/2023
 ms.author: danlep
 ---
 
 # Configure a GraphQL resolver
 
-Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently, API Management supports resolvers that use HTTP-based data sources (REST or SOAP APIs). 
+Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
 
-* A resolver is a resource containing a policy definition that's invoked only when a matching object type and field is executed. 
+Currently, API Management supports resolvers that can access the following data sources:
+
+* [HTTP-based data source](http-data-source-policy.md) (REST or SOAP API)
+* [Cosmos DB database](cosmosdb-data-source-policy.md)
+* [Azure SQL database](sql-data-source-policy.md) 
+
+## Things to know
+
+* A resolver is a resource containing a policy definition that's invoked only when a matching object type and field in the schema is executed. 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
-
+* You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
 
 > [!IMPORTANT]
 > * If you use the preview `set-graphql-resolver` policy in policy definitions, you should migrate to the managed resolvers described in this article.
@@ -30,15 +38,20 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
 
 ## Create a resolver
 
+The following steps create a resolver using an HTTP-based data source. The general steps are similar for any resolver that uses a supported data source.
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 
 1. In the left menu, select **APIs** and then the name of your GraphQL API.
-1. On the **Design** tab, review the schema for a field in an object type where you want to configure a resolver. 
+1. On the **Schema** tab, review the schema for a field in an object type where you want to configure a resolver. 
     1. Select a field, and then in the left margin, hover the pointer. 
     1. Select **+ Add Resolver**.
 
         :::image type="content" source="media/configure-graphql-resolver/add-resolver.png" alt-text="Screenshot of adding a resolver from a field in GraphQL schema in the portal.":::
-1. On the **Create Resolver** page, update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
+
+1. On the **Create Resolver** page:
+    1.  Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
+    1. Select the resolver's **Data source**. For this example, select **HTTP API**. 
 1. In the **Resolver policy** editor, update the [`http-data-source`](http-data-source-policy.md) policy with child elements for your scenario. 
     1. Update the required `http-request` element with policies to transform the GraphQL operation to an HTTP request.
     1. Optionally add an `http-response` element, and add child policies to transform the HTTP response of the resolver. If the `http-response` element isn't specified, the response is returned as a raw string.
@@ -46,21 +59,43 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
     
         :::image type="content" source="media/configure-graphql-resolver/configure-resolver-policy.png" alt-text="Screenshot of resolver policy editor in the portal." lightbox="media/configure-graphql-resolver/configure-resolver-policy.png":::
 
-1. The resolver is attached to the field. Go to the **Resolvers** tab to list and manage the resolvers configured for the API.
+    The resolver is attached to the field and appears on the **Resolvers** tab. 
+
 
     :::image type="content" source="media/configure-graphql-resolver/list-resolvers.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/list-resolvers.png":::
 
-    > [!TIP]
-    > The **Linked** column indicates whether or not the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
+## Manage resolvers
 
+List and manage the resolvers for a GraphQL API on the API's **Resolvers** tab. 
 
+:::image type="content" source="media/configure-graphql-resolver/resolvers-tab.png" alt-text="Screenshot of managing resolvers for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/resolvers-tab.png":::
+
+On the **Resolvers** tab:
+
+* The **Linked** column indicates whether the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
+
+* In the context menu (**...**) for a resolver, find commands to **Clone**, **Edit**, or **Delete** a resolver.  Clone a listed resolver to quickly create a similar resolver that targets a different type and field. 
+
+* You can create a new resolver by selecting **+ Create**.
+
+## Edit and test a resolver
+
+When you edit a single resolver, the **Edit resolver** page opens. You can:
+
+* Update the resolver policy and optionally the data source. Changing the data source overwrites the current resolver policy.
+
+* Change the type and field that the resolver targets. 
+
+* Test and debug the resolver's configuration. As you edit the resolver policy, select **Run Test** to check the output from the data source, which you can validate against the schema. If errors occur, the response includes troubleshooting information. 
+
+    :::image type="content" source="media/configure-graphql-resolver/edit-resolver.png" alt-text="Screenshot of editing a resolver in the portal." lightbox="media/configure-graphql-resolver/edit-resolver.png":::
 
 ## GraphQL context
 
-* The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
+* The context for the resolver's request and response (if specified) differs from the context for the original gateway API request: 
   * `context.GraphQL` properties are set to the arguments (`Arguments`) and parent object (`Parent`) for the current resolver execution.
-  * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
-  * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
+  * The request context contains arguments that are passed in the GraphQL query as its body. 
+  * The response context is the response from the independent call made by the resolver, not the context for the complete response for the gateway request. 
 The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with a GraphQL resolver.
 
 ### context.GraphQL.parent
@@ -165,4 +200,4 @@ For more resolver examples, see:
 
 * [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
 
-* [Samples APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)
+* [Sample APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)

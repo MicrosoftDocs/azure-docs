@@ -16,7 +16,7 @@ Project environment types are a subset of the [environment types configured for 
 
 In Azure Deployment Environments, [environment types](concept-environments-key-concepts.md#project-environment-types) that you add to the project will be available to developers when they deploy environments. Environment types determine the subscription and identity that are used for those deployments.
 
-Project environment types enable development infrastructure teams to:
+Project environment types enable platform engineering teams to:
 
 - Configure the target subscription in which Azure resources will be created per environment type and per project. 
   
@@ -58,7 +58,7 @@ Add a new project environment type as follows:
     |**Deployment subscription**| Select the target subscription in which the environment will be created.|
     |**Deployment identity** | Select either a system-assigned identity or a user-assigned managed identity that will be used to perform deployments on behalf of the user.|
     |**Permissions on environment resources** > **Environment Creator Role(s)**|  Select the roles that will get access to the environment resources.|
-    |**Permissions on environment resources** > **Additional access** | Select the users or Azure Active Directory groups that will be granted specific roles on the environment resources.|
+    |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups that will be granted specific roles on the environment resources.|
     |**Tags** (optional) | Provide a name and value for tags that will be applied on all resources created as part of the environments.|
 
    :::image type="content" source="./media/configure-project-environment-types/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details on the page for adding a project environment type.":::

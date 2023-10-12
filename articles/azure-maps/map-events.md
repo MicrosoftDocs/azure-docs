@@ -1,44 +1,47 @@
 ---
-title: Handle map events | Microsoft Azure Maps
+title: Handle map events
+titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Web SDK to handle events.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 09/10/2019
-ms.topic: conceptual
+author: sinnypan
+ms.author: sipa
+ms.date: 06/12/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
 ---
 
-# Interact with the map
+# Handle map events
 
-This article shows you how to use [map events class](/javascript/api/azure-maps-control/atlas.map#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
+This article shows you how to use [map events class]. The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 
-Play with the map below, and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on **Edit on CodePen** to modify the code on CodePen.
+The [Map Events] sample highlights the name of the events that are firing as you interact with the map. For the source code for this sample, see [Map Events source code].
 
-<br/>
+:::image type="content" source="./media/map-events/map-events.png"alt-text="A screenshot showing a map with a list of map events that are highlighted anytime your actions on the map trigger that event.":::
 
-<iframe height='600' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!-----------------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+----------------------------------------------------------------------->
 
 ## Interact with map layers
 
-The following code highlights the fired event as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events.
+The [Layer Events] sample highlights the name of the events that are firing as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events. For the source code for this sample, see [Layer Events source code].
 
-<br/>
+:::image type="content" source="./media/map-events/layer-events.png"alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
 
-<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!-----------------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+----------------------------------------------------------------------->
 
 ## Interact with HTML Marker
 
-The following code adds JavaScript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
+The [HTML marker layer events] sample highlights the name of the events that are firing as you interact with the HTML marker layer. For the source code for this sample, see [HTML marker layer Events source code].
 
-<br/>
+:::image type="content" source="./media/map-events/html-marker-layer-events.png"alt-text="A screenshot showing a map with a list of HTML marker layer events that are highlighted anytime your actions on the map trigger that event.":::
 
-<iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!-----------------------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+----------------------------------------------------------------------->
 
 The following table lists all supported map class events.
 
@@ -47,7 +50,7 @@ The following table lists all supported map class events.
 | `boxzoomend`        | Fired when a "box zoom" interaction ends.|
 | `boxzoomstart`      | Fired when a "box zoom" interaction starts.|
 | `click`             | Fired when a pointing device is pressed and released at the same point on the map.|
-| `close`             | Fired when the popup is closed manually or programatically.|
+| `close`             | Fired when the popup is closed manually or programmatically.|
 | `contextmenu`       | Fired when the right button of the mouse is clicked.|
 | `data`              | Fired when any map data loads or changes. |
 | `dataadded`         | Fired when shapes are added to the `DataSource`.|
@@ -60,7 +63,7 @@ The following table lists all supported map class events.
 | `error`             | Fired when an error occurs.|
 | `idle`              | <p>Fired after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p>|
 | `keydown`           | Fired when a key is pressed down.|
-| `keypress`          | Fired when a key that produces a typable character (an ANSI key) is pressed.|
+| `keypress`          | Fired when a key that produces a typeable character (an ANSI key) is pressed.|
 | `keyup`             | Fired when a key is released.|
 | `layeradded`        | Fired when a layer is added to the map.|
 | `layerremoved`      | Fired when a layer is removed from the map.|
@@ -75,7 +78,7 @@ The following table lists all supported map class events.
 | `move`              | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods.|
 | `moveend`           | Fired just after the map completes a transition from one view to another, as the result of either user interaction or methods.|
 | `movestart`         | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods.|
-| `open`              | Fired when the popup is opened manually or programatically.|
+| `open`              | Fired when the popup is opened manually or programmatically.|
 | `pitch`             | Fired whenever the map's pitch (tilt) changes as the result of either user interaction or methods.|
 | `pitchend`          | Fired immediately after the map's pitch (tilt) finishes changing as the result of either user interaction or methods.|
 | `pitchstart`        | Fired whenever the map's pitch (tilt) begins a change as the result of either user interaction or methods.|
@@ -101,13 +104,23 @@ The following table lists all supported map class events.
 | `zoomend`           | Fired just after the map completes a transition from one zoom level to another, as the result of either user interaction or methods.|
 | `zoomstart`         | Fired just before the map begins a transition from one zoom level to another, as the result of either user interaction or methods.|
 
-
 ## Next steps
 
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Using the Azure Maps Services module](./how-to-use-services-module.md)
+> [Using the Azure Maps Services module]
 
 > [!div class="nextstepaction"]
-> [Code samples](/samples/browse/?products=azure-maps)
+> [Code samples]
+
+[map events class]: /javascript/api/azure-maps-control/atlas.map#events
+[Map Events]: https://samples.azuremaps.com/map/map-events
+[Layer Events]: https://samples.azuremaps.com/symbol-layer/symbol-layer-events
+[HTML marker layer events]: https://samples.azuremaps.com/html-markers/html-marker-layer-events
+
+[Map Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20Events/Map%20Events.html
+[Layer Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20layer%20events/Symbol%20layer%20events.html
+[HTML marker layer events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20marker%20layer%20events/HTML%20marker%20layer%20events.html
+[Using the Azure Maps Services module]: how-to-use-services-module.md
+[Code samples]: /samples/browse/?products=azure-maps

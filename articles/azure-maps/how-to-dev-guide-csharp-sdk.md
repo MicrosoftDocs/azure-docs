@@ -2,11 +2,12 @@
 title: How to create Azure Maps applications using the C# REST SDK
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-dotnet
 services: azure-maps
 ---
 
@@ -368,13 +369,13 @@ The [Azure.Maps Namespace] in the .NET documentation.
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure.Maps Namespace]: /dotnet/api/azure.maps
-[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential
+[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme#defaultazurecredential
 [FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
 [geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
 [Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[Identity library .NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
+[Identity library .NET]: /dotnet/api/overview/azure/identity-readme
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples

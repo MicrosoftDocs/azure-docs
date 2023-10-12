@@ -156,7 +156,7 @@ In this step, you'll assign a role to the function app's system-assigned managed
     echo $principal
     ```
 
-1. Create a new JSON object with the configuration of the new custom role.
+1. Create a new JSON file with the configuration of the new custom role.
 
     ```json
     {
@@ -170,6 +170,9 @@ In this step, you'll assign a role to the function app's system-assigned managed
         }]
     }
     ```
+
+    > [!TIP]
+    > You can create a file in the Azure Cloud Shell using either `touch <filename>` or the built-in editor (`code .`). For more information, see [Azure Cloud Shell editor](../cloud-shell/using-cloud-shell-editor.md)
 
 1. Use [``az cosmosdb sql role definition create``](/cli/azure/cosmosdb/sql/role/definition#az-cosmosdb-sql-role-definition-create) to create a new role definition named ``Read Azure Cosmos DB Metadata`` using the custom JSON object.
 
@@ -328,6 +331,5 @@ Once published, the ``DefaultAzureCredential`` class will use credentials from t
 
 ## Next steps
 
-- [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
 - [Secure Azure Cosmos DB keys using Azure Key Vault](store-credentials-key-vault.md)
 - [Security baseline for Azure Cosmos DB](security-baseline.md)

@@ -10,7 +10,7 @@ ms.author: lagayhar
 ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 05/25/2023
-ms.custom: designer, training
+ms.custom: UpdateFrequency5, designer, training
 ---
 
 # What is Azure Machine Learning designer (v1)? 

@@ -35,6 +35,9 @@ This article covers some of the options that Azure offers in the area of network
 * Traffic manager
 * Monitoring and threat detection
 
+> [!NOTE]
+> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../../frontdoor/front-door-ddos.md).
+
 ## Azure networking
 
 Azure requires virtual machines to be connected to an Azure Virtual Network. A virtual network is a logical construct built on top of the physical Azure network fabric. Each virtual network is isolated from all other virtual networks. This helps ensure that network traffic in your deployments is not accessible to other Azure customers.
@@ -129,7 +132,7 @@ You can access these enhanced network security features by using an Azure partne
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
+Azure Firewall is offered in three SKUs: Standard, Premium, and Basic. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns. [Azure Firewall Basic](../../firewall/basic-features.md) is a simplified SKU that provides the same level of security as the Standard SKU but without the advanced capabilities.
 
 Learn more:
 
@@ -331,6 +334,9 @@ Learn more:
 Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes TLS offloading and per-HTTP/HTTPS request, application-layer processing.
 
 Front Door platform itself is protected by an Azure infrastructure-level DDoS protection. For further protection, Azure DDoS Network Protection may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
+
+> [!NOTE]
+> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../../frontdoor/front-door-ddos.md).
 
 Learn more:
 

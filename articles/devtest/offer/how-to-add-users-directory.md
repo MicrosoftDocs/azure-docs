@@ -1,8 +1,8 @@
 ---
 title: Add users to your Azure Dev/Test developer directory tenant
 description: A how-to guide for adding users to your Azure credit subscription and managing their access with role-based controls.
-author: jamestramel
-ms.author: jametra
+author: jenp
+ms.author: jenp
 ms.prod: visual-studio-windows
 ms.topic: how-to 
 ms.date: 10/12/2021
@@ -11,7 +11,7 @@ ms.custom: devtestoffer
 
 # Add users to your Azure credit subscription  
 
-To manage and access subscription resources, you must be a user within the directory. In the subscriptions themselves, the hierarchy is controlled by the Azure Active Directory (Azure AD) tenancies. Azure AD is a lightweight directory protocol (LDAP) that stores account names and passwords.  
+To manage and access subscription resources, you must be a user within the directory. In the subscriptions themselves, the hierarchy is controlled by the Microsoft Entra tenancies. Microsoft Entra ID is a lightweight directory protocol (LDAP) that stores account names and passwords.  
 
 Before adding users, you need to determine your business hierarchy and what level of access they need within your subscription.  
 
@@ -29,7 +29,7 @@ Step 1 is determining whether you need to add a new user to your subscription. H
 
 ## Where do I add users and their roles within my subscription?
 
-Within Azure AD access management is a critical function. [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
+Within Microsoft Entra ID access management is a critical function. [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
 
 Once you’ve determined you need to add a user, you must understand where you're adding them and what resources they need access to. The set of resources that a user can access is referred to as scope.  
 
@@ -41,8 +41,8 @@ However, if you're collaborating with another developer or a colleague, they may
 
 Read through the [Azure RBAC overview](../../role-based-access-control/overview.md) to better understand how Azure RBAC works and the purpose it serves within your subscription.  
 
-How to Add Users or delete users using Azure Active Directory  
+How to Add Users or delete users using Microsoft Entra ID  
 
-- [Add or delete users - Azure Active Directory | Microsoft Docs](../../active-directory/fundamentals/add-users-azure-active-directory.md)  
+- [Add or delete users - Microsoft Entra ID | Microsoft Docs](../../active-directory/fundamentals/add-users-azure-active-directory.md)  
 
 - [Steps to assign an Azure role - Azure RBAC | Microsoft Docs](../../role-based-access-control/role-assignments-steps.md)  

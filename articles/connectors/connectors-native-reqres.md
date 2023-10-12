@@ -1,25 +1,29 @@
 ---
-title: Handle inbound or incoming HTTPS calls
-description: Receive and respond to HTTPS requests sent to workflows in Azure Logic Apps.
+title: Receive and respond to inbound HTTPS calls
+description: Receive and respond to inbound HTTPS requests received by workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 07/31/2023
 tags: connectors
 ---
 
-# Handle incoming or inbound HTTPS requests sent to workflows in Azure Logic Apps
+# Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To run your logic app workflow after receiving an HTTPS request from another service, you can start your workflow with the Request built-in trigger. Your workflow can then respond to the HTTPS request by using Response built-in action.
+This how-to guide shows create a logic app workflow that can receive and handle an inbound HTTPS request or call from another service using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
 
-The following list describes some example tasks that your workflow can perform when you use the Request trigger and Response action:
+> [!NOTE]
+>
+> The Response action works only when you use the Request trigger.
+
+For example, this list describes some tasks that your workflow can perform when you use the Request trigger and Response action:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 
-* Receive and respond to an HTTPS request from another logic app workflow.
+* Receive and respond to an HTTPS request sent from another logic app workflow.
 
 * Trigger a workflow run when an external webhook event happens.
 
@@ -31,39 +35,24 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 * The logic app workflow where you want to receive the inbound HTTPS request. To start your workflow with a Request trigger, you have to start with a blank workflow. To use the Response action, your workflow must start with the Request trigger.
 
-If you're new to Azure Logic Apps, see the following documentation:
-
-* [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-
-* [Quickstart: Create a Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
-
-* [Create a Standard logic app workflow in single-tenant Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
-
 <a name="add-request-trigger"></a>
 
 ## Add a Request trigger
 
-The Request trigger creates a manually callable endpoint that can handle *only* inbound requests over HTTPS. When the calling service sends a request to this endpoint, the Request trigger fires and runs the logic app workflow. For information about how to call this trigger, review [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+The Request trigger creates a manually callable endpoint that handles *only* inbound requests over HTTPS. When the caller sends a request to this endpoint, the Request trigger fires and runs the workflow. For information about how to call this trigger, review [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ## [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
-1. On the designer, under the search box, select **Built-in**. In the search box, enter **http request**. From the triggers list, select the trigger named **When a HTTP request is received**.
+1. On the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   ![Screenshot showing Azure portal, Consumption workflow designer, search box with "http request" entered, and "When a HTTP request" trigger selected.](./media/connectors-native-reqres/select-request-trigger-consumption.png)
-
-   The HTTP request trigger information box appears on the designer.
-
-   ![Screenshot showing Consumption workflow with Request trigger information box.](./media/connectors-native-reqres/request-trigger-consumption.png)
-
-1. In the trigger information box, provide the following values as necessary:
+1. After the trigger information box appears, provide the following information as required:
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save your workflow and is used for sending a request that triggers your workflow. |
    | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body. The designer uses this schema to generate tokens for the properties in the request. That way, your workflow can parse, consume, and pass along outputs from the Request trigger into your workflow. <br><br>If you don't have a JSON schema, you can generate the schema from a sample payload by using the **Use sample payload to generate schema** capability. |
-   |||||
 
    The following example shows a sample JSON schema:
 
@@ -157,7 +146,7 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
    1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`addtionalProperties`** property, and set the value to **`false`**.
-   
+
       For example, the following schema specifies that the inbound message must have the **`msg`** field and not any other fields:
 
       ```json
@@ -185,7 +174,6 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
    |---------------|--------------------|----------|-------------|
    | **Method** | `method` | No | The method that the incoming request must use to call the logic app |
    | **Relative path** | `relativePath` | No | The relative path for the parameter that the logic app's endpoint URL can accept |
-   |||||
 
    The following example adds the **Method** property:
 
@@ -210,25 +198,16 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
 
 ## [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
-1. On the designer, select **Choose an operation**. On the pane that appears, under the search box, select **Built-in**.
+1. On the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. In the search box, enter **http request**. From the triggers list, select the trigger named **When a HTTP request is received**.
-
-   ![Screenshot showing Azure portal, Standard workflow designer, search box with "http request" entered, and "When a HTTP request" trigger selected.](./media/connectors-native-reqres/select-request-trigger-standard.png)
-
-   The HTTP request trigger information box appears on the designer.
-
-   ![Screenshot showing Standard workflow with Request trigger information box.](./media/connectors-native-reqres/request-trigger-standard.png)
-
-1. In the trigger information box, provide the following values as necessary:
+1. After the trigger information box appears, provide the following information as required:
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save your workflow and is used for sending a request that triggers your workflow. |
    | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body. The designer uses this schema to generate tokens for the properties in the request. That way, your workflow can parse, consume, and pass along outputs from the Request trigger into your workflow. <br><br>If you don't have a JSON schema, you can generate the schema from a sample payload by using the **Use sample payload to generate schema** capability. |
-   |||||
 
    The following example shows a sample JSON schema:
 
@@ -322,7 +301,7 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
    1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`addtionalProperties`** property, and set the value to **`false`**.
-   
+
       For example, the following schema specifies that the inbound message must have the **`msg`** field and not any other fields:
 
       ```json
@@ -338,19 +317,18 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
       }
       ```
 
-   1. In the Request trigger's title bar, select the ellipses button (**...**).
+   1. On the designer, select the Request trigger. On the information pane that opens, select the **Settings** tab.
 
-   1. In the trigger's settings, turn on **Schema Validation**, and select **Done**.
+   1. Expand **Data Handling**, and set **Schema Validation** to **On**.
 
       If the inbound call's request body doesn't match your schema, the trigger returns an **HTTP 400 Bad Request** error.
 
-1. To add other properties or parameters to the trigger, open the **Add new parameter** list, and select the parameters that you want to add.
+1. To add other properties or parameters to the trigger, select the **Parameters** tab, open the **Add new parameter** list, and select the parameters that you want to add.
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **Method** | `method` | No | The method that the incoming request must use to call the logic app |
    | **Relative path** | `relativePath` | No | The relative path for the parameter that the logic app's endpoint URL can accept |
-   |||||
 
    The following example adds the **Method** property:
 
@@ -372,6 +350,11 @@ The Request trigger creates a manually callable endpoint that can handle *only* 
    >
    > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
+   >
+   > The URL for the Request trigger is associated with your workflow's storage account. This URL 
+   > changes if the storage account changes. For example, with Standard logic apps, if you manually 
+   > change your storage account and copy your workflow to the new storage account, the URL for 
+   > the Request trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
 ---
 
@@ -392,9 +375,8 @@ The following table lists the outputs from the Request trigger:
 
 | JSON property name | Data type | Description |
 |--------------------|-----------|-------------|
-| `headers` | Object | A JSON object that describes the headers from the request |
-| `body` | Object | A JSON object that describes the body content from the request |
-||||
+| **headers** | Object | A JSON object that describes the headers from the request |
+| **body** | Object | A JSON object that describes the body content from the request |
 
 <a name="add-response"></a>
 
@@ -424,28 +406,23 @@ When you use the Request trigger to receive inbound requests, you can model the 
 > * In a Standard logic app *stateless* workflow, the Response action must appear last in your workflow. If the action appears 
 > anywhere else, Azure Logic Apps still won't run the action until all other actions finish running.
 
-
 ## [Consumption](#tab/consumption)
 
-1. On the workflow designer, under the step where you want to add the Response action, select **New step**.
-
-   Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-   The following example adds the Response action after the Request trigger from the preceding section:
-
-   ![Screenshot showing Azure portal, Consumption workflow, and "New step" selected.](./media/connectors-native-reqres/add-response-consumption.png)
-
-1. On the designer, under the **Choose an operation** search box, select **Built-in**. In the search box, enter **response**. From the actions list, select the **Response** action.
+1. On the workflow designer, [follow these general steps to find and add the Response built-in action named **Response**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    For simplicity, the following examples show a collapsed Request trigger.
 
-   ![Screenshot showing Azure portal, Consumption workflow, "Choose an operation" search box with "response" entered, and and Response action selected](./media/connectors-native-reqres/select-response-action-consumption.png)
+1. In the action information box, add the required values for the response message.
 
-1. In the Response action information box, add the required values for the response message.
+   | Property name | JSON property name | Required | Description |
+   |---------------|--------------------|----------|-------------|
+   | **Status Code** | `statusCode` | Yes | The status code to return in the response |
+   | **Headers** | `headers` | No | A JSON object that describes one or more headers to include in the response |
+   | **Body** | `body` | No | The response body |
 
-   In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
+   When you select inside any text fields, the dynamic content list automatically opens. You can then select tokens that represent any available outputs from previous steps in the workflow. The properties from the schema that you specify also appear in this dynamic content list. You can select these properties to use in your workflow.
 
-   For example, for the **Headers** box, include **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
+   For example, in the **Headers** field, include **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
    ![Screenshot showing Azure portal, Consumption workflow, and Response action information.](./media/connectors-native-reqres/response-details-consumption.png)
 
@@ -453,53 +430,31 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
    ![Screenshot showing Azure portal, Consumption workflow, and Response action headers in "Switch to text" view.](./media/connectors-native-reqres/switch-to-text-view-consumption.png)
 
-   The following table has more information about the properties that you can set in the Response action.
+1. To add more properties for the action, such as a JSON schema for the response body, from the **Add new parameter** list, select the parameters that you want to add.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+## [Standard](#tab/standard)
+
+1. On the workflow designer, [follow these general steps to find and add the Response built-in action named **Response**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. In the action information box, add the required values for the response message:
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **Status Code** | `statusCode` | Yes | The status code to return in the response |
    | **Headers** | `headers` | No | A JSON object that describes one or more headers to include in the response |
    | **Body** | `body` | No | The response body |
-   |||||
 
-1. To add more properties for the action, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
+   When you select inside any text fields, you get the option to open the dynamic content list (lightning icon). You can then select tokens that represent any available outputs from previous steps in the workflow. The properties from the schema that you specify also appear in this dynamic content list. You can select these properties to use in your workflow.
 
-1. When you're done, save your workflow. On the designer toolbar, select **Save**.
-
-## [Standard](#tab/standard)
-
-1. On the workflow designer, under the step where you want to add the Response action, select plus sign (**+**), and then select **Add new action**.
-
-   Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-   The following example adds the Response action after the Request trigger from the preceding section:
-
-   ![Screenshot showing Azure portal, Standard workflow, and "Add an action" selected.](./media/connectors-native-reqres/add-response-standard.png)
-
-1. On the designer, under the **Choose an operation** search box, select **Built-in**. In the search box, enter **response**. From the actions list, select the **Response** action.
-
-   ![Screenshot showing Azure portal, Standard workflow, "Choose an operation" search box with "response" entered, and and Response action selected](./media/connectors-native-reqres/select-response-action-standard.png)
-
-1. In the Response action information box, add the required values for the response message.
-
-   In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
-
-   For example, for the **Headers** box, include **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
+   For example, for the **Headers** box, enter **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
    ![Screenshot showing Azure portal, Standard workflow, and Response action information.](./media/connectors-native-reqres/response-details-standard.png)
 
    To view the headers in JSON format, select **Switch to text view**.
 
    ![Screenshot showing Azure portal, Standard workflow, and Response action headers in "Switch to text" view.](./media/connectors-native-reqres/switch-to-text-view-standard.png)
-
-   The following table has more information about the properties that you can set in the Response action.
-
-   | Property name | JSON property name | Required | Description |
-   |---------------|--------------------|----------|-------------|
-   | **Status Code** | `statusCode` | Yes | The status code to return in the response |
-   | **Headers** | `headers` | No | A JSON object that describes one or more headers to include in the response |
-   | **Body** | `body` | No | The response body |
-   |||||
 
 1. To add more properties for the action, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 

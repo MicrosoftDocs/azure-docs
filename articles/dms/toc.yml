@@ -50,6 +50,14 @@
     items: 
     - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
       href: migrate-azure-mysql-consistent-backup.md
+    - name: Custom roles for MySQL to Azure Database for MySQL migrations using DMS 
+      href: resource-custom-roles-mysql-database-migration-service.md
+    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Schema Migration 
+      href: concepts-migrate-azure-mysql-schema-migration.md
+    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Login Migration 
+      href: concepts-migrate-azure-mysql-login-migration.md
+    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Replicate Changes
+      href: concepts-migrate-azure-mysql-replicate-changes.md
   - name: Security
     items: 
     - name: Security baseline
@@ -71,8 +79,8 @@
   - name: Migrate SQL Server
     expanded: true
     items:
-    - name: to Azure SQL Database (offline) in Azure Data Studio
-      href: tutorial-sql-server-azure-sql-database-offline-ads.md
+    - name: to Azure SQL Database (offline)
+      href: tutorial-sql-server-azure-sql-database-offline.md
     - name: to Azure SQL Managed Instance (online) in Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) in Azure Data Studio
@@ -98,7 +106,9 @@
   - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL (offline)
-      href: tutorial-mysql-azure-mysql-offline-portal.md  
+      href: tutorial-mysql-azure-mysql-offline-portal.md
+    - name: to Azure Database for MySQL (online)
+      href: tutorial-mysql-azure-external-to-flex-online-portal.md 
   - name: Migrate Azure DB for MySQL - Single Server
     items:
     - name: to Azure DB for MySQL Flexible Server (online)

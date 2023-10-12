@@ -3,14 +3,14 @@ title: Enable infrastructure encryption for double encryption of data
 titleSuffix: Azure Storage
 description: Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account or encryption scope is encrypted twice with two different encryption algorithms and two different keys.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 10/19/2022
 ms.topic: conceptual
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -63,6 +63,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
     -Location <location> `
     -SkuName "Standard_RAGRS" `
     -Kind StorageV2 `
+    -AllowBlobPublicAccess $false `
     -RequireInfrastructureEncryption
 ```
 
@@ -91,6 +92,7 @@ az storage account create \
     --location <location> \
     --sku Standard_RAGRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --require-infrastructure-encryption
 ```
 

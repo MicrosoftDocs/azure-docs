@@ -1,21 +1,22 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AD certificate-based authentication (CBA) FAQ
-  description: Frequently asked questions and answers related to Azure AD certificate-based authentication (CBA). 
+  title: Microsoft Entra certificate-based authentication (CBA) FAQ
+  description: Frequently asked questions and answers related to Microsoft Entra certificate-based authentication (CBA). 
   
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
-  ms.date: 02/21/2023
+  ms.date: 09/23/2023
   ms.author: justinha
   author: justinha
   manager: amycolannino
   ms.reviewer: vimrang
   ms.collection: M365-identity-device-management
-title: Frequently asked questions about Azure AD certificate-based authentication (CBA)
+title: Frequently asked questions about Microsoft Entra certificate-based authentication (CBA)
 summary: |
-  This article addresses frequently asked questions about how Azure AD certificate-based authentication (CBA) works. 
+  This article addresses frequently asked questions about how Microsoft Entra certificate-based authentication (CBA) works. 
   Keep checking back for updated content.
 
 
@@ -23,7 +24,7 @@ sections:
   - name: General
     questions:
       - question: |
-          Why don't I see an option to sign in to Azure Active Directory by using certificates after I enter my username?
+          Why don't I see an option to sign in to Microsoft Entra ID by using certificates after I enter my username?
         answer: |
           An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 3: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy).
 
@@ -34,22 +35,22 @@ sections:
           To get more diagnostic information, check the **Sign-ins report**.
 
       - question: |
-          How can an administrator enable Azure AD CBA?
-        answer: |
-          1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          2. Select **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**.
+          How can an administrator enable Microsoft Entra CBA?
+        answer: |        
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+          2. Browse to **Protection** > **Authentication methods** > **Policies**.
           3. Select policy: **Certificate-based Authentication**.
           4. On the **Enable and Target** tab, select the **Enable** toggle to enable certificate-based authentication.
 
       - question: |
-          Is Azure AD CBA a free feature?
+          Is Microsoft Entra CBA a free feature?
         answer: |
           Certificate-based authentication is a free feature. 
-          Every edition of Azure AD includes Azure AD CBA.
-          For more information about features in each Azure AD edition, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+          Every edition of Microsoft Entra ID includes Microsoft Entra CBA.
+          For more information about features in each Microsoft Entra edition, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
       - question: |
-          Does Azure AD CBA support Alternate ID as the username instead of userPrincipalName?
+          Does Microsoft Entra CBA support Alternate ID as the username instead of userPrincipalName?
         answer: |
           No, sign-in using a non-UPN value, such as an alternate email, isn't supported now.
           
@@ -87,7 +88,7 @@ sections:
 
             When a CRL download fails, the following message appears: 
             
-            "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators."
+            "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Microsoft Entra ID. Try again in few minutes. If the issue persists, contact your tenant administrators."
             
             Download remains in the background with higher limits.
 
@@ -103,7 +104,7 @@ sections:
       - question: |
           How do I instantly revoke a certificate?
         answer: |
-          Follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
+          Follow the steps to [manually revoke a certificate](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation). 
 
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
@@ -114,7 +115,7 @@ sections:
           Why do I see the certificate-based authentication option after it fails?
         answer: |
           The Authentication method policy always shows all available authentication methods to the user so they can retry sign-in using any method they prefer. 
-          Azure AD doesn't hide available methods based on success or failure of a sign-in.
+          Microsoft Entra ID doesn't hide available methods based on success or failure of a sign-in.
 
       - question: |
           Why does certificate-based auth (CBA) loops once it fails?
@@ -133,14 +134,9 @@ sections:
           [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
           
       - question: |
-          Will the changes to the Authentication methods policy take effect immediately?
-        answer: |
-          The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
-          
-      - question: |
           CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?
         answer: |
-          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#look-up-certificateuserids-using-microsoft-graph-queries)
+          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-microsoft-graph-queries)
           
           GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
 
@@ -163,12 +159,11 @@ additionalContent: |
   ## Next steps
     If your question isn't answered here, see the following related topics:
           
-    * [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-    * [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-    * [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
-    * [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
-    * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-    * [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+    * [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+    * [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+    * [Microsoft Entra CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+    * [Microsoft Entra CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
+    * [How to configure Microsoft Entra CBA](how-to-certificate-based-authentication.md)
+    * [Windows smart card logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
     * [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
     * [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-    

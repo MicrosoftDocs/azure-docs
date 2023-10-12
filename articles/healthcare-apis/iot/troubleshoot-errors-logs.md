@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 04/28/2023
+ms.date: 06/02/2023
 ms.author: jasteppe
 ---
 
@@ -103,7 +103,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 |[InvalidFhirServiceException](#invalidfhirserviceexception)|
 |[InvalidQuantityFhirValueException](#invalidquantityfhirvalueexception)|
 |[InvalidTemplateException](#invalidtemplateexception)|
-|[ManagedIdentityCredentialNotFound](#managedidentitycredentialnotfound)
+|[ManagedIdentityCredentialNotFound](#managedidentitycredentialnotfound)|
 |[MultipleResourceFoundException](#multipleresourcefoundexception)|
 |[NormalizationDataMappingException](#normalizationdatamappingexception)|
 |[PatientDeviceMismatchException](#patientdevicemismatchexception)|
@@ -277,7 +277,7 @@ If you'd like to use a user-assigned managed identity:
 
 * A required expression is missing.
 
-* An expression’s language (represented by the `language` property) isn't supported. All template types support expressions in JSONPath; only the [CalculatedContent](how-to-use-calculatedcontent-mappings.md) template type supports expressions in JMESPath.
+* An expression’s language (represented by the `language` property) isn't supported. All template types support expressions in JSONPath; only the [CalculatedContent](how-to-use-calculatedcontent-templates.md) template type supports expressions in JMESPath.
 
 * An expression’s value (represented by the `value` property) is incorrectly formatted as per the syntax of the expression’s language. 
 

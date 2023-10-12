@@ -10,15 +10,17 @@ ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
 ms.date: 11/04/2022
-ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 #Customer intent: As a data scientist, I want to know whether to use v1 or v2 of CLI, SDK.
 ---
 
 # What is Azure Machine Learning CLI & Python SDK v2?
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 introduce a consistency of features and terminology across the interfaces.  In order to create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
+
+There are no differences in functionality between SDK v2 and CLI v2. The command line based CLI may be more convenient in CI/CD MLOps type of scenarios, while the SDK may be more convenient for development.
 
 ## Azure Machine Learning CLI v2
 
@@ -108,7 +110,6 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 * You want to use new features like - reusable components, managed inferencing
 * You're starting a new workflow or pipeline - all new features and future investments will be introduced in v2
 * You want to take advantage of the improved usability of the Python SDK v2 - ability to compose jobs and pipelines using Python functions, easy evolution from simple to complex tasks etc.
-* You don't need Spark Jobs. This feature is currently available in preview in SDK v2.
 
 ## Next steps
 

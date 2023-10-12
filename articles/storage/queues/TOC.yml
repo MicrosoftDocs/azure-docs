@@ -51,7 +51,7 @@
     - name: Authorizing data operations
       href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
       items:
-      - name: Authorize with Azure AD
+      - name: Authorize with Microsoft Entra ID
         items:
         - name: Authorize with Azure roles
           href: authorize-access-azure-active-directory.md
@@ -59,7 +59,7 @@
           href: queues-auth-abac.md
         - name: Actions and attributes for conditions
           href: queues-auth-abac-attributes.md
-    - name: Authenticate and authorize with Azure AD
+    - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:
@@ -222,18 +222,6 @@
       href: ../common/storage-use-azurite.md?toc=/azure/storage/queues/toc.json
     - name: Use the Azure Storage emulator (deprecated)
       href: ../common/storage-use-emulator.md?toc=/azure/storage/queues/toc.json
-  - name: Develop with queues
-    items:
-    - name: .NET
-      href: storage-dotnet-how-to-use-queues.md
-    - name: Java
-      href: storage-java-how-to-use-queue-storage.md
-    - name: Python
-      href: storage-python-how-to-use-queue-storage.md
-    - name: Node.js
-      href: storage-nodejs-how-to-use-queues.md
-    - name: C++
-      href: storage-c-plus-plus-how-to-use-queues.md
   - name: Manage queues
     items:
     - name: PowerShell for Azure Queues
@@ -367,15 +355,15 @@
         href: https://github.com/Azure/azure-storage-python
   - name: Code samples using deprecated SDKs
     items:
-      - name: .NET
-        items:
-          - name: Version 11.x samples
-            href: queues-v11-samples-dotnet.md
-          - name: Design highly available applications (.NET version 11.x)
-            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
-      - name: Java version 8 samples
-        href: queues-v8-samples-java.md
-      - name: Python version 2 samples
-        href: queues-v2-samples-python.md
+    - name: .NET
+      items:
+      - name: Version 11.x samples
+        href: queues-v11-samples-dotnet.md
+      - name: Design highly available applications (.NET version 11.x)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
+    - name: Java version 8 samples
+      href: queues-v8-samples-java.md
+    - name: Python version 2 samples
+      href: queues-v2-samples-python.md
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md

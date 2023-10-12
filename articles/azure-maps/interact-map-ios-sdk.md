@@ -2,8 +2,8 @@
 title: Handle map events in iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps iOS SDK to handle events.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -66,7 +66,7 @@ class ShowSimpleEventsHandlingViewController: UIViewController, AzureMapDelegate
 }
 ```
 
-For more information, see the [Navigating the map](how-to-use-ios-map-control-library.md) article on how to interact with the map and trigger events.
+For more information, see the [Navigating the map] article on how to interact with the map and trigger events.
 
 ## Scope feature events to layer
 
@@ -110,8 +110,14 @@ class ShowScopedEventsHandlingViewController: UIViewController, AzureMapDelegate
 
 See the following articles for full code examples:
 
-- [Navigating the map](how-to-use-ios-map-control-library.md)
-- [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
-- [Add a line layer](add-line-layer-map-ios.md)
-- [Add a polygon layer](add-polygon-layer-map-ios.md)
+- [Navigating the map]
+- [Add a symbol layer]
+- [Add a bubble layer]
+- [Add a line layer]
+- [Add a polygon layer]
+
+[Navigating the map]: how-to-use-ios-map-control-library.md
+[Add a symbol layer]: add-symbol-layer-ios.md
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Add a line layer]: add-line-layer-map-ios.md
+[Add a polygon layer]: add-polygon-layer-map-ios.md

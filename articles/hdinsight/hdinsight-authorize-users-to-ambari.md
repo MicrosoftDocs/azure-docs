@@ -4,12 +4,12 @@ description: 'How to manage Ambari user and group permissions for HDInsight clus
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/27/2022
+ms.date: 06/08/2023
 ---
 
 # Authorize users for Apache Ambari Views
 
-[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
+[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Microsoft Entra ID-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Microsoft Entra groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
 
 Active Directory users can sign in to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
 
@@ -242,7 +242,7 @@ The List view provides quick editing capabilities in two categories: Users and G
 
     :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png" alt-text="Apache Ambari roles list view - users":::
 
-* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create a HDInsight cluster with ESP enabled](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
+* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Microsoft Entra groups specified in the **Access user group** property of the cluster's Domain settings. See [Create a HDInsight cluster with ESP enabled](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 
     :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png" alt-text="Apache Ambari roles list view - groups":::
 
@@ -250,13 +250,13 @@ The List view provides quick editing capabilities in two categories: Users and G
 
 ## Log in to Ambari as a view-only user
 
-We have assigned our Azure AD domain user "hiveuser1" permissions to Hive and Tez views. When we launch the Ambari Web UI and enter this user's domain credentials (Azure AD user name in e-mail format, and password), the user is redirected to the Ambari Views page. From here, the user can select any accessible view. The user cannot visit any other part of the site, including the dashboard, services, hosts, alerts, or admin pages.
+We have assigned our Microsoft Entra domain user "hiveuser1" permissions to Hive and Tez views. When we launch the Ambari Web UI and enter this user's domain credentials (Microsoft Entra user name in e-mail format, and password), the user is redirected to the Ambari Views page. From here, the user can select any accessible view. The user cannot visit any other part of the site, including the dashboard, services, hosts, alerts, or admin pages.
 
 :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png" alt-text="Apache Ambari user with views only":::
 
 ## Log in to Ambari as a cluster user
 
-We have assigned our Azure AD domain user "hiveuser2" to the *Cluster User* role. This role is able to access the dashboard and all of the menu items. A cluster user has fewer permitted options than an administrator. For example, hiveuser2 can view configurations for each of the services, but cannot edit them.
+We have assigned our Microsoft Entra domain user "hiveuser2" to the *Cluster User* role. This role is able to access the dashboard and all of the menu items. A cluster user has fewer permitted options than an administrator. For example, hiveuser2 can view configurations for each of the services, but cannot edit them.
 
 :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png" alt-text="Apache Ambari dashboard display":::
 
@@ -265,5 +265,5 @@ We have assigned our Azure AD domain user "hiveuser2" to the *Cluster User* role
 * [Configure Apache Hive policies in HDInsight with ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Manage ESP HDInsight clusters](./domain-joined/apache-domain-joined-manage.md)
 * [Use the Apache Hive View with Apache Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-* [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md)
+* [Synchronize Microsoft Entra users to the cluster](hdinsight-sync-aad-users-to-cluster.md)
 * [Manage HDInsight clusters by using the Apache Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -1,17 +1,18 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 05/24/2023
+ms.date: 06/14/2023
 ms.service: virtual-wan
 ms.topic: include
 
 #This include is used in multiple articles. Before modifying, verify that any changes apply to all articles that use this include.
 ---
 
-1. In the Azure portal, go to your **Virtual WAN -> Virtual network connections** page.
+1. In the Azure portal, go to your **Virtual WAN** In the left pane, select **Virtual network connections**.
+1. On the **Virtual network connections** page, select **+ Add connection**.
 1. On the **Add connection** page, configure the connection settings. For information about routing settings, see [About routing](../articles/virtual-wan/about-virtual-hub-routing.md).
 
-   :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add.png" alt-text="Screenshot of the Add connection page." lightbox="./media/virtual-wan-connect-vnet-hub/add.png":::
+   :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="Screenshot of the Add connection page." lightbox="./media/virtual-wan-connect-vnet-hub/connection.png":::
 
    * **Connection name**: Name your connection.
    * **Hubs**: Select the hub you want to associate with this connection.

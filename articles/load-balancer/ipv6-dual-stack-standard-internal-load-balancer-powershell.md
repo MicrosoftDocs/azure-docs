@@ -8,9 +8,9 @@ manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 6/27/2023
 ms.author: mbender
-ms.custom: devx-track-azurepowershell, template-how-to
+ms.custom: devx-track-azurepowershell, template-how-to, engagement-fy23
 ---
 
 # Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure using PowerShell
@@ -63,7 +63,7 @@ $RdpPublicIP_2 = New-AzPublicIpAddress `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -AllocationMethod Static `
-  -IpAddressVersion IPv4  `
+  -IpAddressVersion IPv6  `
   -sku Standard
 ```
 ## Create the virtual network and the subnet

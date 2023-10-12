@@ -30,7 +30,7 @@ For more information, see the [Microsoft Sentinel documentation](https://go.micr
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | ASimDnsActivityLogs<br/> |
-| **Data collection rules support** | Not currently supported |
+| **Data collection rules support** | [Azure Monitor Agent DCR](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 

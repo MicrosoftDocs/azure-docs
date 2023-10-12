@@ -3,8 +3,10 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 01/13/2022
+ms.date: 06/29/2023
 ms.custom: "devx-track-csharp, seodec18"
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Enable diagnostics logging for apps in Azure App Service
@@ -127,7 +129,7 @@ In your application code, you use the usual logging facilities to send log messa
     ```
 
     By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
-- Python applications can use the [OpenCensus package](../azure-monitor/app/opencensus-python.md) to send logs to the application diagnostics log.
+- Python applications can use the [OpenCensus package](/previous-versions/azure/azure-monitor/app/opencensus-python) to send logs to the application diagnostics log.
 
 
 ## Stream logs

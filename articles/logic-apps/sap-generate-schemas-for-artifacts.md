@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 07/10/2023
 ---
 
 # Generate schemas for SAP artifacts in Azure Logic Apps
@@ -383,11 +383,18 @@ The following example shows an RFC call with a table parameter that has an anony
 <RFC_XML_TEST_1 xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
    <IM_XML_TABLE>
       <RFC_XMLCNT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
-         <_x002F_AnonymousField>exampleFieldInput</_x002F_AnonymousField>
+         <_x002F_AnonymousField>AQIDBAU=</_x002F_AnonymousField>
       </RFC_XMLCNT>
    </IM_XML_TABLE>
 </RFC_XML_TEST_1>
 ```
+
+The previous example also shows how to encode binary arrays for the SAP data types `byte` and `XString`. The binary arrays are base64 encoded in XML (XSD binary data type `xs:base64Binary`). In the example, the sample base64 string value `AQIDBAU=` decodes as the binary array `[01][02][03][04]`. This encoding differs and is more space-efficient than the hex encoding of the underlying SAP .NET Connector. With hex encoding, the same value is encoded as the string `01020304`. 
+
+> [!NOTE]
+> Use caution when using binary array encoding because hex encoding uses a subset of the base64 range and 
+> appears as valid base64 values. For example, the string value `01020304` also decodes as a valid base64 
+> encoded value, but results in a different binary array `[d3][5d][36][d3][7d][38]`, not binary array `[01][02][03][04]`.
 
 The following example includes prefixes for the namespaces. You can declare all prefixes at once, or you can declare any number of prefixes as attributes of a node. The RFC namespace alias named `ns0` is used as the root and parameters for the basic type.
 
@@ -448,7 +455,7 @@ The following example creates a bank object using the `CREATE` method. This exam
       <STREET xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleStreetAddress</STREET>
       <CITY xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">Redmond</CITY>
    </BANK_ADDRESS>
-   <BANK_COUNTRY>US</BANK_COUNTRY>
+   <BANK_CTRY>US</BANK_CTRY>
    <BANK_KEY>123456789</BANK_KEY>
 </CREATE>
 ```
@@ -457,14 +464,14 @@ The following example gets details for a bank using the bank routing number, whi
 
 ```xml
 <GETDETAIL xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
-   <BANK_COUNTRY>US</BANK_COUNTRY>
-   <BANK_KEY>123456789</BANK_KEY>
+   <BANKCOUNTRY>US</BANKCOUNTRY>
+   <BANKKEY>123456789</BANKKEY>
 </GETDETAIL>
 ```
 
 ### XML samples for IDoc requests
 
-To generate a plain SAP IDoc XML schema, use the **SAP Logon** application and the `WE-60` T-Code. Access the SAP documentation through the user interface, and generate XML schemas in XSD format for your IDoc types and extensions. For more information about generic SAP formats and payloads, and their built-in dialogs, review the [SAP documentation](https://help.sap.com/viewer/index).
+To generate a plain SAP IDoc XML schema, use the **SAP Logon** application and the `WE60` T-Code. Access the SAP documentation through the user interface, and generate XML schemas in XSD format for your IDoc types and extensions. For more information about generic SAP formats and payloads, and their built-in dialogs, review the [SAP documentation](https://help.sap.com/viewer/index).
 
 This example declares the root node and namespaces. The URI in the sample code, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send`, declares the following configuration:
 

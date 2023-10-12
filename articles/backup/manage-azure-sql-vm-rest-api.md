@@ -4,8 +4,9 @@ description: Learn how to use REST API to manage and monitor SQL server database
 ms.topic: conceptual
 ms.date: 08/11/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+
 ---
 
 # Manage SQL server databases in Azure VMs with REST API

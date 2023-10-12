@@ -4,6 +4,8 @@ description: In this quickstart, you'll learn how to use the helper script to co
 ms.topic: quickstart 
 ms.custom: references_regions
 ms.date: 09/05/2022
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
 ---
@@ -31,7 +33,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### vCenter Server
 
-- vCenter Server version 6.7 or 7.
+- vCenter Server version 6.7, 7 or 8.
 
 - A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
 

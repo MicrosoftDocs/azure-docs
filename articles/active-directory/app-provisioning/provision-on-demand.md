@@ -1,6 +1,6 @@
 ---
-title: Provision a user or group on demand using the Azure Active Directory provisioning service
-description: Learn how to provision users on demand in Azure Active Directory.
+title: Provision a user or group on demand using the Microsoft Entra provisioning service
+description: Learn how to provision users on demand in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
-# On-demand provisioning in Azure Active Directory
+# On-demand provisioning in Microsoft Entra ID
 
 Use on-demand provisioning to provision a user or group in seconds. Among other things, you can use this capability to:
 
@@ -24,18 +24,22 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 ## How to use on-demand provisioning
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 ::: zone pivot="app-provisioning"
-2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications**.
 
-3. Select your application, and then go to the provisioning configuration page.
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > select your application.
+3. Select **Provisioning**.
+
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2. Go to **Azure Active Directory** > **Cross-tenant Synchronization** > **Configurations**
 
+2. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
 3. Select your configuration, and then go to the **Provisioning** configuration page.
+
 ::: zone-end
 
 4. Configure provisioning by providing your admin credentials.
@@ -43,14 +47,15 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 5. Select **Provision on demand**.
 
 6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
+
    > [!NOTE]
-   > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
+   > For Cloud HR provisioning app (Workday / SuccessFactors to Active Directory / Microsoft Entra ID), the input value is different. 
    > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
 7. Select **Provision** at the bottom of the page.
 
-    :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
+    :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Microsoft Entra admin center UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
 
 
 ## Understand the provisioning steps
@@ -65,7 +70,7 @@ The provisioning service attempts to authorize access to the target system by ma
 
 * Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target system. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](../saas-apps/tutorial-list.md). 
 * Make sure that the target system supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
-* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure Active Directory (Azure AD) provisioning service expects. Have a look at an [example request](./use-scim-to-provision-users-and-groups.md#request-3).
+* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Microsoft Entra provisioning service expects. Have a look at an [example request](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### Step 2: Import user
 
@@ -78,7 +83,7 @@ Next, the provisioning service retrieves the user from the source system. The us
 #### View details
 
 
-The **View details** section shows the properties of the user that were imported from the source system (for example, Azure AD).
+The **View details** section shows the properties of the user that were imported from the source system (for example, Microsoft Entra ID).
 
 #### Troubleshooting tips
 
@@ -102,8 +107,8 @@ Next, the provisioning service determines whether the user is in [scope](./how-p
 
 The **View details** section shows the scoping conditions that were evaluated. You might see one or more of the following properties:
 
-* **Active in source system** indicates that the user has the property `IsActive` set to **true** in Azure AD.
-* **Assigned to application** indicates that the user is assigned to the application in Azure AD.
+* **Active in source system** indicates that the user has the property `IsActive` set to **true** in Microsoft Entra ID.
+* **Assigned to application** indicates that the user is assigned to the application in Microsoft Entra ID.
 * **Scope sync all** indicates that the scope setting allows all users and groups in the tenant.
 * **User has required role** indicates that the user has the necessary roles to be provisioned into the application. 
 * **Scoping filters** are also shown if you have defined scoping filters for your application. The filter is displayed with the following format: {scoping filter title} {scoping filter attribute} {scoping filter operator} {scoping filter value}.
@@ -145,7 +150,7 @@ The **View details** section displays the attributes that were modified in the t
 
 #### Troubleshooting tips
 
-* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
+* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/howto-analyze-provisioning-logs.md#error-codes) for common failures.
 * On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. There's a replication delay of up to a few minutes between when an object is assigned to an application and when that assignment is honored in on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
@@ -161,13 +166,17 @@ There are currently a few known limitations to on-demand provisioning. Post your
 ::: zone pivot="app-provisioning"
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
-
-* On-demand provisioning of groups supports updating up to five members at a time
+* On-demand provisioning of groups supports updating up to five members at a time. Connectors for cross-tenant synchronization, Workday, etc. do not support group provisioning and as a result do not support on-demand provisioning of groups.  
 ::: zone-end
+::: zone pivot="cross-tenant-synchronization"
+* On-demand provisioning of groups is not supported for cross-tenant synchronization. 
+::: zone-end
+* On-demand provisioning supports provisioning one user at a time through the Microsoft Entra admin center.
 * Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 * On-demand provisioning of roles isn't supported.
-* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users don't appear when you search for a user.
+* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Microsoft Entra ID. Those users don't appear when you search for a user.
 * On-demand provisioning doesn't support nested groups that aren't directly assigned to the application.
+* The on-demand provisioning request API can only accept a single group with up to 5 members at a time.
 
 ## Next steps
 

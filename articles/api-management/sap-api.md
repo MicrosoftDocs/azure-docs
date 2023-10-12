@@ -1,25 +1,28 @@
 ---
 title: Import an SAP API using the Azure portal | Microsoft Docs
 titleSuffix: 
-description: Learn how to import OData metadata from SAP as an API to Azure API Management
+description: Learn how to import OData metadata from SAP as an API to Azure API Management, either directly or by converting the metadata to an OpenAPI specification.
 ms.service: api-management
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 07/21/2023
 ms.custom: 
 ---
 
 # Import SAP OData metadata as an API
 
-This article shows how to import an OData service using its metadata description. In this article, [SAP Gateway](https://help.sap.com/viewer/product/SAP_GATEWAY) serves as an example. However, you can apply the approach to any OData-compliant service.
+This article shows how to import an OData service using its metadata description. In this article, [SAP Gateway Foundation](https://help.sap.com/viewer/product/SAP_GATEWAY) serves as an example. 
 
 In this article, you'll: 
 > [!div class="checklist"]
-> * Convert OData metadata to an OpenAPI specification
-> * Import the OpenAPI specification to API Management
+> * Retrieve OData metadata from your SAP service
+> * Import OData metadata to API Management, either directly or after conversion to an OpenAPI specification
 > * Complete API configuration
 > * Test the API in the Azure portal
+
+> [!NOTE]
+> Importing an OData API to API Management from its metadata description is in preview. [Learn more](import-api-from-odata.md).
 
 ## Prerequisites
 
@@ -32,14 +35,28 @@ In this article, you'll:
 
     > [!NOTE]
     > For production scenarios, use proper certificates for end-to-end SSL verification.
+## Retrieve OData metadata from your SAP service
+
+Retrieve metadata XML from your SAP service, using one of the following methods. If you plan to convert the metadata XML to an OpenAPI specification, save the file locally. 
+
+* Use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`), or 
+* Make a direct HTTP call to retrieve the XML:
+`http://<OData server URL>:<port>/<path>/$metadata`
+
+
+[!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
+
+## Import API to API Management
+
+Choose one of the following methods to import your API to API Management: import the metadata XML as an OData API directly, or convert the metadata XML to an OpenAPI specification.
+
+#### [OData metadata](#tab/odata)
+
+[!INCLUDE [api-management-import-odata-metadata](../../includes/api-management-import-odata-metadata.md)]
+
+#### [OpenAPI specification](#tab/openapi)
 
 ## Convert OData metadata to OpenAPI JSON
-
-1. Retrieve metadata XML from your SAP service. Use one of these methods: 
-
-   * Use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`), or 
-   * Make a direct HTTP call to retrieve the XML:
-   `http://<OData server URL>:<port>/<path>/$metadata`.
 
 1. Convert the OData XML to OpenAPI JSON format. Use an OASIS open-source tool for [OData v2](https://github.com/oasis-tcs/odata-openapi/tree/main/tools) or [OData v4](https://github.com/oasis-tcs/odata-openapi/tree/main/lib), depending on your metadata XML. 
 
@@ -56,14 +73,12 @@ In this article, you'll:
 
 1. Save the `openapi-spec.json` file locally for import to API Management.
 
-[!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
-
 ## Import and publish backend API 
 
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Create a new definition**, select **OpenAPI specification**.
 
-    :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specifiction":::
+    :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specification":::
 
 1. Click **Select a file**, and select the `openapi-spec.json` file that you saved locally in a previous step.
 
@@ -120,16 +135,15 @@ Also, configure authentication to your backend using an appropriate method for y
 1. View the response. To troubleshoot, [trace](api-management-howto-api-inspector.md) the call.
 1. When testing is complete, exit the test console.
 
+---
+
 ## Production considerations
 
 * See an [example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
-* Control access to an SAP backend using API Management policies. See policy snippets for [SAP principal propagation](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
+* Control access to an SAP backend using API Management policies. For example, if the API is imported as an OData API, use the [validate OData request](validate-odata-request-policy.md) policy. See also policy snippets for [SAP principal propagation](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
 * For guidance to deploy, manage, and migrate APIs at scale, see:
     * [Automated API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops)
     * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## Next steps
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

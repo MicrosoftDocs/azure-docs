@@ -2,13 +2,13 @@
 title: Track and log Azure Data Box, Azure Data Box Heavy events for export order| Microsoft Docs
 description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy export order.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Tracking and event logging for your Azure Data Box and Azure Data Box Heavy export orders

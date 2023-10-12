@@ -7,6 +7,8 @@
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
+      - name: v2 service tiers
+        href: v2-service-tiers-overview.md
       - name: Service limits
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
 - name: Quickstarts
@@ -56,10 +58,10 @@
         href: visual-studio-code-tutorial.md
 - name: Samples
   items:
-      - name: Policies
-        href: ./policies/index.md
+      - name: Policy snippets
+        href: https://github.com/Azure/api-management-policy-snippets
       - name: Azure PowerShell
-        href: powershell-samples.md
+        href: https://github.com/Azure/azure-docs-powershell-samples
 - name: Concepts
   items:
       - name: Terminology
@@ -83,15 +85,15 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
-            - name: Authentication and authorization options
-              href: authentication-authorization-overview.md
-            - name: API security
-              items:
-              - name: Defender for APIs (preview)
-                href: protect-with-defender-for-apis.md              
-              - name: Mitigate OWASP API threats
-                href: mitigate-owasp-api-threats.md
-                displayName: OWASP top 10, vulnerability, vulnerabilities
+      - name: API security
+        items:
+        - name: Authentication and authorization options
+          href: authentication-authorization-overview.md
+        - name: Defender for APIs (preview)
+          href: protect-with-defender-for-apis.md              
+        - name: Mitigate OWASP API threats
+          href: mitigate-owasp-api-threats.md
+          displayName: OWASP top 10, vulnerability, vulnerabilities
       - name: API authorizations
         href: authorizations-overview.md
         displayName: OAuth
@@ -163,19 +165,23 @@
               displayName: soft delete
               href: soft-delete.md
             - name: Migrate to stv2 platform
-              href: migrate-stv1-to-stv2.md
+              href: migrate-stv1-to-stv2.md 
             - name: Configure networking
               items:
-                - name: Connect to a virtual network
+                - name: Deploy to a VNet - external
                   href: api-management-using-with-vnet.md
-                - name: Connect to an internal virtual network
+                - name: Deploy to a VNet - internal
                   href: api-management-using-with-internal-vnet.md
-                - name: Integrate Application Gateway in an internal virtual network
+                - name: Integrate Application Gateway in an internal VNet
                   href: api-management-howto-integrate-internal-vnet-appgateway.md
                 - name: Connect privately using private endpoint
                   href: private-endpoint.md
+                - name: Integrate with VNet for outbound requests
+                  href: integrate-vnet-outbound.md
                 - name: Retrieve IP addresses
                   href: api-management-howto-ip-addresses.md
+                - name: Defend against DDoS attacks
+                  href: protect-with-ddos-protection.md
             - name: Configuration management
               items:
               - name: Landing zone accelerator
@@ -245,9 +251,11 @@
                   href: import-logic-app-as-api.md
                 - name: Configure Service Fabric backend
                   href: how-to-configure-service-fabric-backend.md
+                - name: Import OData API
+                  href: import-api-from-odata.md
                 - name: Import SAP OData metadata
                   href: sap-api.md
-                - name: Configure API for SSE
+                - name: Configure API for SSE 
                   href: how-to-server-sent-events.md
                 - name: API import restrictions
                   href: api-management-api-import-restrictions.md
@@ -309,8 +317,6 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
-            - name: Defend against DDoS attacks
-              href: protect-with-ddos-protection.md
           - name: Manage API authorizations
             items:
             - name: Configure common authorization providers
@@ -339,14 +345,18 @@
                     href: api-management-howto-create-or-invite-developers.md
                   - name: Manage groups
                     href: api-management-howto-create-groups.md
-                  - name: Authenticate with username and password
-                    href: developer-portal-basic-authentication.md
-                  - name: Authenticate with Azure AD
-                    href: api-management-howto-aad.md
-                  - name: Authenticate with Azure AD B2C
-                    href: api-management-howto-aad-b2c.md
-                  - name: Delegate authentication
-                    href: api-management-howto-setup-delegation.md
+                  - name: Secure access to developer portal
+                    items:
+                      - name: Options to secure developer portal access
+                        href: secure-developer-portal-access.md
+                      - name: Authenticate with username and password
+                        href: developer-portal-basic-authentication.md
+                      - name: Authenticate with Azure AD
+                        href: api-management-howto-aad.md
+                      - name: Authenticate with Azure AD B2C
+                        href: api-management-howto-aad-b2c.md
+                      - name: Delegate authentication
+                        href: api-management-howto-setup-delegation.md
                   - name: Email notifications and templates
                     href: api-management-howto-configure-notifications.md
             - name: Monetize APIs
@@ -464,6 +474,8 @@
               href: choose-policy.md
             - name: cors
               href: cors-policy.md
+            - name: cosmosdb-data-source
+              href: cosmosdb-data-source-policy.md
             - name: cross-domain
               href: cross-domain-policy.md
             - name: emit-metric
@@ -536,6 +548,8 @@
               href: set-status-policy.md
             - name: set-variable
               href: set-variable-policy.md
+            - name: sql-data-source
+              href: sql-data-source-policy.md
             - name: trace
               href: trace-policy.md
             - name: validate-azure-ad-token
@@ -550,6 +564,8 @@
               href: validate-headers-policy.md
             - name: validate-jwt
               href: validate-jwt-policy.md
+            - name: validate-odata-request
+              href: validate-odata-request-policy.md
             - name: validate-parameters
               href: validate-parameters-policy.md
             - name: validate-status-code
@@ -569,8 +585,10 @@
         href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json
       - name: Virtual network configuration
         href: virtual-network-reference.md
-      - name: Self-hosted gateway configuration
+      - name: Self-hosted gateway container configuration
         href: self-hosted-gateway-settings-reference.md  
+      - name: Self-hosted gateway Azure Arc configuration
+        href: self-hosted-gateway-arc-reference.md  
       - name: Diagnostic logs settings
         href: diagnostic-logs-reference.md
 - name: Resources

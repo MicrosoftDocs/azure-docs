@@ -5,7 +5,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 07/12/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: ignite-2022
@@ -40,6 +40,7 @@ The Azure Cosmos DB data plane role-based access control is built on concepts th
 
 > [!IMPORTANT]
 > This permission model covers only database operations that involve reading and writing data. It **does not** cover any kind of management operations on management resources, including:
+>
 > - Create/Replace/Delete Database
 > - Create/Replace/Delete Container
 > - Read/Replace Container Throughput
@@ -102,7 +103,7 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 | Database | &bull; Reading database metadata <br /> &bull; Listing the containers under the database <br /> &bull; For each container under the database, the allowed actions at the container scope |
 | Container | &bull; Reading container metadata <br /> &bull; Listing physical partitions under the container <br /> &bull; Resolving the address of each physical partition |
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Throughput is not included in the metadata for this action.
 
 ## Built-in role definitions
@@ -348,13 +349,27 @@ Assign a role to an identity:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
+readOnlyRoleDefinitionId='<roleDefinitionId>' # as fetched above
 # For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
-principalId = '<aadPrincipalId>'
+principalId='<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
-### Using Azure Resource Manager templates
+### Using Bicep/Azure Resource Manager templates
+
+For a built-in assignment using a Bicep template:
+
+```
+resource sqlRoleAssignment 'Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments@2023-04-15' = {
+  name: guid(<roleDefinitionId>, <aadPrincipalId>, <databaseAccountResourceId>)
+  parent: databaseAccount
+  properties:{
+    principalId: <aadPrincipalId>
+    roleDefinitionId: '/${subscription().id}/resourceGroups/<databaseAccountResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>'
+    scope: <databaseAccountResourceId>
+  }
+}
+```
 
 For a reference and examples of using Azure Resource Manager templates to create role assignments, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleAssignments``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments).
 
@@ -487,7 +502,7 @@ This section includes frequently asked questions about role-based access control
 
 ### Which Azure Cosmos DB APIs support role-based access control?
 
-Only the API for NoSQL is currently supported.
+The API for NoSQL is supported. Support for the API for MongoDB is in preview.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 

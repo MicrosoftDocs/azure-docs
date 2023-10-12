@@ -34,10 +34,10 @@ CREATE TABLE tblvector(
     );
 ```
 
-Once you have generated an embedding using a service like the OpenAI API, you can store the resulting vector in your database. Defining a vector as `vector(3)` designates `[x,y,z] coordinates` in three-dimension plane. The command inserts two new rows into the tblvector table with the provided embeddings.
+Once you have generated an embedding using a service like the OpenAI API, you can store the resulting vector in your database. Defining a vector as `vector(3)` designates `[x,y,z] coordinates` in three-dimension plane. The command inserts five new rows into the tblvector table with the provided embeddings.
 
 ```postgresql
-INSERT INTO tblvector (embedding) VALUES ('[1,2,3]'), ('[4,5,6]'), (3, '[5,4,6]'), (4, '[3,5,7]'), (5, '[7,8,9]');
+INSERT INTO tblvector (id, embedding) VALUES (1, '[1,2,3]'), (2, '[4,5,6]'), (3, '[5,4,6]'), (4, '[3,5,7]'), (5, '[7,8,9]');
 ```
 
 By using the `Insert into ... ON CONFLICT` statement, you can specify an alternative action, such as updating records that match the criteria. It allows you to handle potential conflicts in a more efficient and effective manner.
@@ -61,10 +61,10 @@ ORDER BY embedding <-> '[3,1,2]'
 LIMIT 5;
 ```
 
-The query uses the "<->" operator, which is the "distance operator" used to calculate the distance between two vectors in a multi-dimensional space. The query returns all rows with the distance of less than 5 from the vector [3,1,2].
+The query uses the "<->" operator, which is the "distance operator" used to calculate the distance between two vectors in a multi-dimensional space. The query returns all rows with the distance of less than 6 from the vector [3,1,2].
 
 ```postgresql
-SELECT * FROM tblvector WHERE embedding <-> '[3,1,2]' < 5;
+SELECT * FROM tblvector WHERE embedding <-> '[3,1,2]' < 6;
 ```
 
 The command retrieves the average value of the "embedding" column from the "tblvector" table. For example, if the "embedding" column contains word embeddings for a language model, then the average value of these embeddings could be used to represent the entire sentence or document.

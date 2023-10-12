@@ -4,6 +4,7 @@ description: This tutorial describes how to use DICOMweb Standard APIs with Pyth
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022
 ms.author: mmitrik
@@ -37,7 +38,7 @@ To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM
 
 After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service. 
 2. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
@@ -419,7 +420,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as PatientName.
 
-Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) document for supported DICOM attributes.
+Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) document for supported DICOM attributes.
 
 ### Search for studies
 

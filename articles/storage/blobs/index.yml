@@ -8,7 +8,6 @@ metadata:
   description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
   services: storage
   ms.service: storage
-  ms.subservice: blobs
   ms.topic: landing-page
   ms.collection: collection
   author: normesta
@@ -134,7 +133,7 @@ landingContent:
             url: data-lake-storage-access-control.md
       - linkListType: how-to-guide
         links:
-          - text: Access blob data with an Azure AD account
+          - text: Access blob data with a Microsoft Entra account
             url: authorize-data-operations-portal.md
           - text: Manage access rights with Azure RBAC
             url: assign-azure-role-data-access.md

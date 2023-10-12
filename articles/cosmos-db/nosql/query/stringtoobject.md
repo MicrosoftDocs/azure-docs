@@ -1,114 +1,57 @@
 ---
-title: StringToObject in Azure Cosmos DB query language
-description: Learn about SQL system function StringToObject in Azure Cosmos DB.
-author: ginamr
+title: StringToObject
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a string expression converted to an object.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# StringToObject (Azure Cosmos DB)
+
+# StringToObject (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns expression translated to an Object. If expression can't be translated, returns undefined.  
-  
+Converts a string expression to an object.
+
 ## Syntax
-  
+
 ```sql
-StringToObject(<str_expr>)  
-```  
-  
+StringToObject(<string_expr>)  
+```
+
 ## Arguments
-  
-*str_expr*  
-   Is a string expression to be parsed as a JSON object expression. Nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
-  
+
+| | Description |
+| --- | --- |
+| **`string_expr`** | A string expression. |
+
 ## Return types
-  
-  Returns an object expression or undefined.  
-  
+
+Returns an object.
+
 ## Examples
   
-  The following example shows how `StringToObject` behaves across different types. 
-  
- The following are examples with valid input.
+The following example illustrates how this function works with various inputs.
 
-```sql
-SELECT 
-    StringToObject("{}") AS obj1, 
-    StringToObject('{"A":[1,2,3]}') AS obj2,
-    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
-    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
-``` 
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/stringtoobject/query.sql" highlight="2-7":::
 
-Here's the result set.
-
-```json
-[{"obj1": {}, 
-  "obj2": {"A": [1,2,3]}, 
-  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
-  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
-```
-
- The following are examples with invalid input.
-Even though they're valid within a query, they won't parse to valid objects. 
- Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
- '{"a": "str"}'.
-
-Single quotes surrounding property names aren't valid JSON.
-
-```sql
-SELECT 
-    StringToObject("{'a':[1,2,3]}")
-```
-
-Here's the result set.
-
-```json
-[{}]
-```  
-
-Property names without surrounding quotes aren't valid JSON.
-
-```sql
-SELECT 
-    StringToObject("{a:[1,2,3]}")
-```
-
-Here's the result set.
-
-```json
-[{}]
-``` 
-
-The following are examples with invalid input.
-
- The expression passed will be parsed as a JSON object; these inputs don't evaluate to type object and thus return undefined.
-
-```sql
-SELECT 
-    StringToObject("}"),
-    StringToObject("{"),
-    StringToObject("1"),
-    StringToObject(NaN), 
-    StringToObject(false), 
-    StringToObject(undefined)
-``` 
- 
- Here's the result set.
-
-```json
-[{}]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/stringtoobject/result.json":::
 
 ## Remarks
 
-This system function won't utilize the index.
+- This function doesn't use the index.
+- If the expression can't be converted, the function returns `undefined`.
+- Nested string values must be written with double quotes to be valid.
 
-## Next steps
+> [!NOTE]
+> For more information on the JSON format, see [https://json.org](https://json.org/).
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+## Related content
+
+- [System functions](system-functions.yml)
+- [`StringToArray`](stringtoarray.md)

@@ -5,11 +5,11 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 10/05/2023
 ms.custom: template-concept, references_regions
 ---
 
-# What's new in Azure Communication Services
+# What's new in Azure Communication Services, September 2023
 
 We've created this page to keep you updated on new features, blog posts, and other useful information related to Azure Communication Services. Be sure to check back monthly for all the newest and latest information!
 
@@ -17,159 +17,125 @@ We've created this page to keep you updated on new features, blog posts, and oth
 <br>
 <br>
 
-## From the community
-See examples and get inspired by what's being done in the community of Azure Communication Services users.
-
-
-### Extend Azure Communication Services with Power Platform Connectors
-:::image type="content" source="./media/whats-new-images/04-23/azure-communication-services-powerplatform.png" alt-text="Screenshot of power platform flow." lightbox="./media/whats-new-images/04-23/azure-communication-services-powerplatform-lightbox.png":::
-
-Listen to Azure Communication Services PMs Tomas Chladek and David de Matheu talk about how to connect your Azure Communication Services app to Microsoft Teams, and extend it with the Microsoft Power Platform.
-
-[Watch the video](https://www.youtube.com/watch?v=-TPI293h0mY&t=3s&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
-
-[Read the Power Pages documentation](https://learn.microsoft.com/power-pages/configure/component-framework)
-
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-
-<br>
-<br>
-
-### Integrate Azure Communication Services calling into a React App 
-:::image type="content" source="./media/whats-new-images/04-23/create-react-app.png" alt-text="Screenshot of code needed to build a react app.":::
-
-Learn how to create an app using Azure Communication services front-end components in React.
-
-[Watch the video](https://www.youtube.com/watch?v=ZyBNYblzISs&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
-
-[View the Microsoft Cloud Integrations repo](https://github.com/microsoft/microsoftcloud)
-
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-[Read more about the UI Library](https://aka.ms/acs-ui-library)
-
-
-<br>
-<br>
-
-### Dynamically create an Azure Communication Services identity and token 
-:::image type="content" source="./media/whats-new-images/04-23/token.png" alt-text="Screenshot of a step in the token creation process." lightbox="./media/whats-new-images/04-23/token-lightbox.png":::
-
-Learn how an external developer can get a token that allows your app to join a teams meeting through Azure Communication Services.
-
-[Watch the video](https://www.youtube.com/watch?v=OgE72PGq6TM&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
-
-[Read more about Microsoft Cloud Integrations](https://aka.ms/microsoft-cloud)
-
-[View the Microsoft Cloud Integrations repo](https://github.com/microsoft/microsoftcloud)
-
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-[Read more about the UI Library](https://aka.ms/acs-ui-library)
-
-[Read the documentation on Azure Functions](https://aka.ms/msazure--functions)
-
-[View the Graph Explorer](https://aka.ms/ge)
-
-
-<br>
-<br>
-
-### Deploy an Azure Communication Services app to Azure 
-:::image type="content" source="./media/whats-new-images/04-23/deploy-to-azure.png" alt-text="Screenshot of a step in the deployment process."  lightbox="./media/whats-new-images/04-23/deploy-to-azure-lightbox.png":::
-
-Learn how to quickly and easily deploy your Azure Communication Services app to Azure. 
-
-[Watch the video](https://www.youtube.com/watch?v=JYs5CPyu2Io&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
-
-[Read more about Microsoft Cloud Integrations](https://aka.ms/microsoft-cloud)
-
-[View the Microsoft Cloud Integrations repo](https://github.com/microsoft/microsoftcloud)
-
-[Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
-
-[Read more about the UI Library](https://aka.ms/acs-ui-library)
-
-[Read the documentation on Azure Functions](https://aka.ms/msazure--functions)
-
-[View the Graph Explorer](https://aka.ms/ge)
-
-<br>
-<br>
-
-<br>
-
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
-### Email service now generally available
-:::image type="content" source="./media/whats-new-images/04-23/email.png" alt-text="Screenshot of Azure communication services email logo.":::
+### Number Lookup Public Preview
+:::image type="content" source="./media/whats-new-images/10-23/number-lookup.png" alt-text="A diagram of the number lookup architecture."lightbox="./media/whats-new-images/10-23/number-lookup-large.png":::
+The Number Lookup API offers number type details that help developers to determine whether a particular number can receive SMS messages. 
 
-Azure Communication Services announces the general availability of our Email service. Email is powered by Exchange Online and meets the security and privacy requirements of enterprises.
+[Read more in the customer documentation](./concepts/numbers/number-lookup-concept.md)
+[Check out the SDK overview](./concepts/numbers/number-lookup-sdk.md)
+[Try the quickstart](./quickstarts/telephony/number-lookup.md)
 
-[Read about ACS Email](https://techcommunity.microsoft.com/t5/azure-communication-services/simpler-faster-azure-communication-services-email-now-generally/ba-p/3788541)
 
 <br>
 <br>
 
 
-### View of April's new features
-:::image type="content" source="./media/whats-new-images/04-23/features.png" alt-text="Screenshot of SMS insights dashboard data graphic." lightbox="./media/whats-new-images/04-23/features-lightbox.png":::
+### Call Automation Extensibility into Microsoft Teams
+:::image type="content" source="./media/whats-new-images/10-23/teams-extensibility.png" alt-text="A diagram of the Teams extensibility architecture."  lightbox="./media/whats-new-images/10-23/teams-extensibility-large.png":::
 
-In April, we launched a host of new features, including:
-* Troubleshooting capability in UI library for native
-* Toll-free verification
-* SMS insights dashboard
-* and others...
+The public preview of Azure Communication Services call automation extensibility into Microsoft Teams, enabling businesses to optimize customer service operations by bringing Microsoft Teams users into their B2C calling workflows is now available. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. 
 
-[View the complete list](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-april-2023-feature-updates/ba-p/3786509) of all new features added to Azure Communication Services in April.
+[Read more in the customer documentation](./concepts/call-automation/call-automation-teams-interop.md)
+
+[Try the quickstart](./how-tos/call-automation/teams-interop-call-automation.md)
+
+
+<br>
+<br>
+
+ 
+### Advanced Actions with Azure Cognitive Services
+:::image type="content" source="./media/whats-new-images/10-23/cognitive-services.png" alt-text="A diagram of the architecture of an app using Azure communication services and Azure Cognitive Services." lightbox="./media/whats-new-images/10-23/cognitive-services-large.png":::
+
+Azure Communication Services has released two new advanced actions with Azure Cognitive Services:
+
+- Enhance play action with support for Text-to-Speech and SSML
+- Recognize voice input using Azure Speech-to-Text
+ 
+We’ve also updated the process to connect your Azure Communication Services to Azure Cognitive Services.
+
+[Read more in the customer documentation](./concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md)
+[Try the Text-To-Speech Quickstart](./how-tos/call-automation/play-action.md)
+[Try the voice input Quickstart](./how-tos/call-automation/recognize-action.md)
 
 <br>
 <br>
 
+
+### Call Automation Dual Tone Multi-Frequency (DTMF) Features 
+:::image type="content" source="./media/whats-new-images/10-23/dual-tone-multi-frequency.png" alt-text="A photograph of a multiple computer screens with code.":::
+
+The enhanced Dual Tone Multi-Frequency (DTMF) features, Continuous DTMF Recognition and Send DTMF are now available in public preview through Azure Communication Services Call Automation SDKs, with added support for NodeJS and Python.
+
+- Continuous DTMF Recognition: With Continuous DTMF Recognition, developers will be notified in real-time when a call participant presses keys on a dialpad/numpad.
+- Send DTMF: The Send DTMF action can be used in scenarios where a contact center agent needs to invite an external consultant/specialist into the call to assist the customer.
+
+[Read more in the customer documentation](./how-tos/call-automation/control-mid-call-media-actions.md)
 <br>
+<br>
+
+### PSTN direct offers in new regions
+:::image type="content" source="./media/whats-new-images/10-23/geo-expansion.png" alt-text="A photograph of a man pointing to a map of the world showing multiple countries.":::
+
+Customers can acquire telephone numbers from 15 new regions, including Australia, China, Finland, Hong Kong, Israel, South Korea, Malaysia, New Zealand, Philippines, Poland, Saudi Arabia, Singapore, Taiwan, Thailand, and the United Arab Emirates.
+
+[Read more about our new availability](./concepts/numbers/sub-eligibility-number-capability.md)
 
 ## Blog posts and case studies 
 Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
 Services features.
 
+### Capgemini and Microsoft are transforming customer experiences with intelligent communications
+:::image type="content" source="./media/whats-new-images/09-23/capgemini.png" alt-text="A banner showing the logos of Capgemini and Microsoft Azure.":::
 
-### ABN AMRO case study 
-:::image type="content" source="./media/whats-new-images/04-23/abn-amro.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom Azure Communication Services app.":::
+Customer experience strategy leader Capgemini partners with Azure Communication Services to provide intelligent communication capabilities for enterprises.
 
-ABN AMRO used Azure Communication Services to make it easier for customers to get financial advice from anywhere. And they boosted their NPS in the process!
-
-[Read the full story](https://customers.microsoft.com/story/1607768338625418317-abnamro-bankingandcapitalmarkets-microsofteams)
-
-<br>
-<br>
-
-
-### Get insights from customer interactions with Azure Communication Services and OpenAI  
-:::image type="content" source="./media/whats-new-images/04-23/openai.png" alt-text="Graphic with Azure Communication Services and openAI logos.":::
-
-Use the gold mine of customer conversations to automatically generate customer insights and create better customer experiences. 
-
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/get-insights-from-customer-interactions-with-azure-communication/ba-p/3783858)
-
-[Read about the Azure OpenAI service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
-
-<br>
-<br>
-
-
-### Latest updates to the UI library 
-:::image type="content" source="./media/whats-new-images/04-23/ui-library.png" alt-text="Screenshot of the UI library chat composite." lightbox="./media/whats-new-images/04-23/ui-library-lightbox.png":::
-
-Get up-to-date on the latest additions to the Azure Communication Services UI library. UI library makes it easier to create custom applications with only a few lines of code. 
-
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-communication-apps-for-microsoft-teams-users-with-azure/ba-p/3775688)
-
-[View the UI Library documentation](https://azure.github.io/communication-ui-library/)
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/capgemini-and-microsoft-are-transforming-customer-experiences/ba-p/3907619)
 
 
 <br>
 <br>
 
 
-Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub.
+
+
+
+## From the community
+See examples and get inspired by what's being done in the community of Azure Communication Services users.
+
+
+### Build GPT-automated customer support with Azure Communication Services
+:::image type="content" source="./media/whats-new-images/10-23/mechanics-video.png" alt-text="A screenshot of the demo app." lightbox="./media/whats-new-images/10-23/mechanics-video-large.png":::
+
+Watch Bob Serr, Azure Communication Services VP, join Jeremy Chapman and Microsoft Mechanics to share how to build GPT-automated customer support with Azure Communication Services
+
+[Watch the video](https://www.youtube.com/watch?v=N0Cay8md9s4)
+
+[Read the blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/accelerate-customer-outcomes-with-azure-ai-services-and-azure/ba-p/3937262)
+
+[View the sample code](https://github.com/Azure-Samples/communication-services-AI-customer-service-sample#readme)
+
+
+<br>
+<br>
+
+
+
+
+### View of new features from September 2023
+:::image type="content" source="./media/whats-new-images/10-23/blog.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
+
+We haven't slowed down at all and continue to add new features. Check out the blog page for September to see the complete list
+
+[View the complete list from September](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-september-2023-feature-updates/ba-p/3925569) of all new features added to Azure Communication Services in September.
+
+
+<br>
+<br>
+
+<br>
+
+
+Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub. For more blog posts, as they're released, visit the [Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog)

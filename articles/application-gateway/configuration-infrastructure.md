@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 07/05/2023
 ms.author: greglin
 ---
 
@@ -48,6 +48,9 @@ Subnet Size /24 = 256 IP addresses - 5 reserved from the platform = 251 availabl
 > [!IMPORTANT]
 > Although a /24 subnet isn't required per Application Gateway v2 SKU deployment, it is highly recommended. This is to ensure that Application Gateway v2 has sufficient space for autoscaling expansion and maintenance upgrades. You should ensure that the Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic. If you specify the maximum instance count, then the subnet should have capacity for at least that many addresses. For capacity planning around instance count, see [instance count details](understanding-pricing.md#instance-count).
 
+> [!IMPORTANT]
+> The subnet named "GatewaySubnet" is reserved for VPN gateways. The Application Gateway V1 resources using the "GatewaySubnet" subnet need to be moved to a different subnet  or migrated to V2 SKU before September 30, 2023 to avoid control plane failures and platform inconsistencies. For changing the subnet of an existing Application gateway, see [steps here](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
+
 > [!TIP]
 > IP addresses are allocated from the beginning of the defined subnet space for gateway instances. As instances are created and removed due to creation of gateways or scaling events, it can become difficult to understand what the next available address is in the subnet. To be able to determine the next address to use for a future gateway and have a contiguous addressing theme for frontend IPs, consider assigning frontend IP addresses from the upper half of the defined subset space. For example, if my subnet address space is 10.5.5.0/24, consider setting the private frontend IP configuration of your gateways starting with 10.5.5.254 and then following with 10.5.5.253, 10.5.5.252, 10.5.5.251, and so forth for future gateways.
 
@@ -55,10 +58,15 @@ Subnet Size /24 = 256 IP addresses - 5 reserved from the platform = 251 availabl
 > It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
 
 ### DNS Servers for name resolution
+
 The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.md#view-virtual-networks-and-settings-using-the-azure-portal) configuration, allowing you to choose between Azure-provided default or Custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. Thus, after you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
 
+> [!NOTE]
+> If you use custom DNS servers in the Application Gateway VNet, the DNS server must be able to resolve public Internet names. This is required by Application Gateway.
+
 ### Virtual network permission 
-Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users or service principals that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet.
+
+Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users (and service principals) that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet. This validation also applies to the [Managed Identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
 You may use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support this permission. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions). 
 
@@ -82,37 +90,57 @@ As a temporary extension, we have introduced a subscription-level [Azure Feature
 **EnrollmentType**: AutoApprove </br>
 
 > [!NOTE]
-> The provision to circumvent this virtual network permission check by using this feature control (AFEC) is available only for a limited period, **until 30th June 2023**. Ensure all the roles and permissions managing Application Gateways are updated by then, as there will be no further extensions.
+> We suggest using this feature control (AFEC) provision only as interim mitigation until you assign the correct permission. You must prioritize fixing the permissions for all the applicable Users (and Service Principals) and then unregister this AFEC flag to reintroduce the permission verification on the Virtual Network resource. It is recommended not to permanently depend on this AFEC method, as it will be removed in the future.
 
 ## Network security groups
 
-Network security groups (NSGs) are supported on Application Gateway.
+You can use Network security groups (NSGs) for your Application Gateway's subnet, but you should note some key points and restrictions.
 
-Fine grain control over the Application Gateway subnet via NSG rules is possible in public preview. More details can be found [here](application-gateway-private-deployment.md#network-security-group-control).
+> [!IMPORTANT]
+> These NSG limitations are relaxed when using [Private Application Gateway deployment (Preview)](application-gateway-private-deployment.md#network-security-group-control).
 
-With current functionality there are some restrictions:
+### Required security rules
 
-- You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't communicate on these endpoints.
+To use NSG with your application gateway, you will need to create or retain some essential security rules. You may set their priority in the same order.
 
-- Outbound Internet connectivity can't be blocked. Default outbound rules in the NSG allow Internet connectivity. We recommend that you:
+**Inbound rules**
 
-  - Don't remove the default outbound rules.
-  - Don't create other outbound rules that deny any outbound connectivity.
+1. **Client traffic** - Allow incoming traffic from the expected clients (as source IP or IP range), and for the destination as your application gateway's entire subnet IP prefix and inbound access ports. (Example: If you have listeners configured for ports 80 & 443, you must allow these ports. You can also set this to Any).
 
-- Traffic from the **AzureLoadBalancer** tag with the destination subnet as **Any** must be allowed.
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|`<as per need>`|Any|`<Subnet IP Prefix>`|`<listener ports>`|TCP|Allow|
 
-- To use public and private listeners with a common port number (Preview feature), you must have an inbound rule with the **destination IP address** as your gateway's **frontend IPs (public and private)**. When using this feature, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. [Learn more](./configuration-listeners.md#frontend-port).
+Upon configuring **active public and private listeners** (with Rules) **with the same port number** (in Preview), your application gateway changes the "Destination" of all inbound flows to the frontend IPs of your gateway. This is true even for the listeners not sharing any port. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using the same port configuration.
 
-### Allow access to a few source IPs
 
-For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|`<as per need>`|Any|`<Public and Private<br/>frontend IPs>`|`<listener ports>`|TCP|Allow|
 
-1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
-2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [backend health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
-3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
-4. Allow expected inbound traffic to match your listener configuration (i.e. if you have listeners configured for port 80, you will want an allow inbound rule for port 80)
-5. Block all other incoming traffic by using a deny-all rule.
-6. Allow outbound traffic to the Internet for all destinations.
+2. **Infrastructure ports** - Allow incoming requests from the source as GatewayManager service tag and any destination. The destination port range differs based on SKU and is required for communicating the status of the Backend Health. (These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place).
+	- V2: Ports 65200-65535
+	- V1: Ports 65503-65534 
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|GatewayManager|Any|Any|`<as per SKU given above>`|TCP|Allow|
+
+3. **Azure Load Balancer probes** - Allow incoming traffic from the source as AzureLoadBalancer service tag. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|AzureLoadBalancer|Any|Any|Any|Any|Allow|
+
+You may block all other incoming traffic by using a deny-all rule.
+
+**Outbound rules**
+
+1. **Outbound to the Internet** - Allow outbound traffic to the Internet for all destinations. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway. Outbound NSG rules that deny any outbound connectivity must not be created.
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|Any|Any|Internet|Any|Any|Allow|
 
 ## Supported user-defined routes 
 
@@ -121,7 +149,7 @@ Fine grain control over the Application Gateway subnet via Route Table rules is 
 With current functionality there are some restrictions: 
 
 > [!IMPORTANT]
-> Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](./application-gateway-diagnostics.md#backend-health) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
+> Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](application-gateway-backend-health.md) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
 
 - **v1**
 

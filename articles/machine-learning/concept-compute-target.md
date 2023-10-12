@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: conceptual
 ms.author: vijetaj
 author: vijetajo
@@ -31,14 +31,14 @@ The compute resources you use for your compute targets are attached to a [worksp
 
 Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
 
-[!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
+[!INCLUDE [aml-compute-target-train](includes/aml-compute-target-train.md)]
 
 
 ## Compute targets for inference
 
 When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in a compute target.
 
-[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
+[!INCLUDE [aml-deploy-target](includes/aml-compute-target-deploy.md)]
 
 :::moniker range="azureml-api-2"
 Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
@@ -49,13 +49,13 @@ Learn [where and how to deploy your model to a compute target](./v1/how-to-deplo
 
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes.
+A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute (preview)](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
 
-You can create Azure Machine Learning compute instances or compute clusters from:
+There is no need to create serverless compute. You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
 * The Python SDK and the Azure CLI:
-    * [Compute instance](how-to-create-manage-compute-instance.md).
+    * [Compute instance](how-to-create-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 
@@ -75,12 +75,12 @@ When created, these compute resources are automatically part of your workspace, 
 > [!NOTE]
 > To avoid charges when the compute is idle:
 > * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md) (preview).
-> * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown).
+> * For a compute *instance*, [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown).
 
 ### Supported VM series and sizes
 
-> [!NOTE] 
-> H-series virtual machine series will be retired on August 31, 2022. Create compute instance and compute clusters with alternate VM sizes. Existing compute instances and clusters with H-series virtual machines will not work after August 31, 2022.
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 
 When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 

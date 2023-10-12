@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 03/30/2023
+  ms.date: 06/07/2023
   ms.author: banders
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
@@ -82,10 +82,10 @@ sections:
           See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).
       - question: How do I create a budget?
         answer: |
-          See the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md) tutorial.
+          See the [Create and manage budgets](costs/tutorial-acm-create-budgets.md) tutorial.
       - question: How do I create a budget for a specific filter or tag?
         answer: |
-          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
+          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
       - question: How do I export cost management data?
         answer: |
           See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
@@ -158,9 +158,9 @@ sections:
       - question: Where can I see tax information in Usage Details?
         answer: |
           Usage details data is all pre tax. Tax related charges are only available on your invoice.
-      - question: Why is PAYGPrice zero in my usage details file?
+      - question: Why is PAYGPrice zero for some of the records in my usage details file?
         answer: |
-          If you’re an EA customer, we don’t currently support showing pay-as-you-go prices directly in the usage details data. To see the pricing, use the [Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) API.
+          If you’re an EA customer, `PAYGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. `PAYGprice` isn't populated when `PricingModel = Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
       - question: Does Usage Details have Reservation charges?
         answer: |
           Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
@@ -362,7 +362,7 @@ sections:
 
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |
-          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
+          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, and more. You will lose monthly credit when converting such subscriptions.
       - question: How many Azure account owners can you have per subscription?
         answer: |
           Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
@@ -381,7 +381,7 @@ sections:
           No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department it's aligned with under the EA enrollment in the Azure EA Portal.
       - question: Can an Azure account owner be listed as a security group?
         answer: |
-          No, a subscription owner must be a unique Microsoft account (MSA) or Azure Active Directory (Azure AD) authentication. To account for succession within your organization, you may consider creating generic accounts and using Azure AD to manage subscription access.
+          No, a subscription owner must be a unique Microsoft account (MSA) or Microsoft Entra authentication. To account for succession within your organization, you may consider creating generic accounts and using Microsoft Entra ID to manage subscription access.
       - question: Can an individual user own multiple subscriptions?
         answer: |
           An Azure account owner can create and manage an unlimited number of subscriptions.

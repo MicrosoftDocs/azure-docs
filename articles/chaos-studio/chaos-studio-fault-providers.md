@@ -27,3 +27,4 @@ The following table lists the supported resource types for faults, the target ty
 | Microsoft.Insights/autoscalesettings (service-direct)            | Microsoft-AutoScaleSettings               | Web Plan Contributor                        |
 | Microsoft.KeyVault/vaults (service-direct)                       | Microsoft-KeyVault                        | Azure Key Vault Contributor                       |
 | Microsoft.Network/networkSecurityGroups (service-direct)         | Microsoft-NetworkSecurityGroup            | Network Contributor                         |
+| Microsoft.Web/sites (service-direct)                             | Microsoft-AppService                      | Website Contributor                         |

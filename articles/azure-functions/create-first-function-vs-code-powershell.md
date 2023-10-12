@@ -4,7 +4,7 @@ description: Learn how to create a PowerShell function, then publish the local p
 ms.topic: quickstart
 ms.date: 06/22/2022
 ms.devlang: powershell
-ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-azurepowershell
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a PowerShell function in Azure using Visual Studio Code
@@ -22,6 +22,8 @@ There's also a [CLI-based version](create-first-function-cli-powershell.md) of t
 Before you get started, make sure you have the following requirements in place:
 
 [!INCLUDE [functions-requirements-visual-studio-code-powershell](../../includes/functions-requirements-visual-studio-code-powershell.md)]
+
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

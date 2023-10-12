@@ -46,10 +46,10 @@ Customers that have DPS deployed in Southeast Asia and Brazil South can opt out 
 
 ## Disable disaster recovery
 
-By default, DPS provides automatic failover by replicating data to a [secondary region](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
+By default, DPS provides automatic failover by replicating data to a [secondary region](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
 
 * **Brazil South**: paired region, South Central US.
-* **Southeast Asia (Singapore)**: paired region, East Asia (Hong Kong).
+* **Southeast Asia (Singapore)**: paired region, East Asia (Hong Kong Special Administrative Region).
 
 To disable disaster recovery in supported regions, make sure that **Disaster recovery enabled** is unselected when you create your DPS instance:
 

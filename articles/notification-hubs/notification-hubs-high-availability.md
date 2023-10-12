@@ -1,25 +1,26 @@
 ---
-title: Azure Notification Hubs high availability and cross-region disaster recovery (preview)
+title: Azure Notification Hubs high availability and cross-region disaster recovery
 description: Learn about high availability and cross-region disaster recovery options in Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/04/2023
+ms.date: 10/02/2023
 
 ---
 
-# High availability for Azure Notification Hubs (preview)
+# High availability for Azure Notification Hubs
 
 [Azure Notification Hubs][] provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS,
 Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the configuration options to achieve the availability characteristics required by your solution. For more information about our SLA, see the [Notification Hubs SLA][].
 
 > [!NOTE]
-> The following features are available in preview. If you are interested in using these features, contact your customer success manager at Microsoft, or create an Azure ticket, which will be triaged by the support team:
+> The following feature is now available in general availability (GA):
 >
-> - Ability to edit your cross region disaster recovery options
 > - Availability zones
+>
+> Availability zones support incurs an additional cost on top of existing tier pricing. Starting October 27th 2023, you will be automatically billed.
 
 Notification Hubs offers two availability configurations:
 
@@ -27,7 +28,7 @@ Notification Hubs offers two availability configurations:
 
    | Region type               | Options                                                                                                                  |
    |---------------------------|-------------------------------------------------------------------------------------------------------------------|
-   | Paired recovery regions   | See [Azure cross-region replication pairings](/azure/reliability/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies). |
+   | Paired recovery regions   | See [Azure cross-region replication pairings](/azure/reliability/cross-region-replication-azure#azure-paired-regions). |
    | Flexible recovery regions (new feature) | - West Us 2 <br />  - North Europe <br />  - Australia East <br />  - Brazil South <br />  - South East Asia <br />  - South Africa North                   |
 
 - **Zone redundant resiliency** uses Azure [availability zones][]. These zones are physically separate locations within each Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. During a zone-wide outage, no action is required during zone recovery; the offering self-heals and rebalances itself to automatically take advantage of the healthy zone. This feature is available for an extra cost for all tiers. You can only configure availability zones for new namespaces at this time.
@@ -42,11 +43,11 @@ Notification Hubs provides metadata disaster recovery coverage through cross-reg
 
 Cross-region disaster recovery options can be modified at any time.
 
-Use the [Azure portal][] to edit an existing namespace.
+Use the [Azure portal] to edit an existing namespace.
 
 #### Existing namespaces
 
-1. Sign in to the [Azure portal][].
+1. Sign in to the [Azure portal].
 1. Select **All services** on the left menu.
 1. Select **Notification Hub Namespaces** in the **Internet of Things** section.
 1. On the **Notification Hub Namespaces** page, select the namespace for which you want to modify the disaster recovery settings.
@@ -90,14 +91,16 @@ metadata are replicated across data centers in the availability zone. In the eve
 
 New availability zones are being added regularly. The following regions currently support availability zones:
 
-| Americas      | Europe            | Africa               | Asia Pacific       |
-|---------------|-------------------|----------------------|--------------------|
-| West US 3     | West Europe       | South Africa North   | Australia East     |
-| East US 2     | France Central    |                      | East Asia          |
-| West US 2     | Poland Central    |                      | Qatar              |
-| Canada Central| UK South          |                      | India Central      |
-|               | North Europe      |                      |                    |
-|               | Sweden Central    |                      |                    |
+| Americas      | Europe               | Africa               | Asia Pacific       |
+|---------------|----------------------|----------------------|--------------------|
+| West US 3     | West Europe          | South Africa North   | Australia East     |
+| East US 2     | France Central       |                      | East Asia          |
+| West US 2     | Poland Central       |                      | Qatar              |
+| Canada Central| UK South             |                      | India Central      |
+|               | North Europe         |                      | Japan East         |
+|               | Sweden Central       |                      | Korea Central      |
+|               | Norway East          |                      |                    |
+|               | Germany West Central |                      |                    |
 
 ### Enable availability zones
 
@@ -115,11 +118,11 @@ Use the [Azure portal quickstart][] procedure to set up a new namespace with ava
 - [Azure availability zones](/azure/availability-zones/az-overview)
 - [Azure services that support availability zones](/azure/availability-zones/az-region)
 
-  [Azure Notification Hubs]: notification-hubs-push-notification-overview.md
-  [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/notification-hubs/
-  [Azure paired regions]: /azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies
-  [availability zones]: /azure/availability-zones/az-overview
-  [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
-  [Azure portal]: https://portal.azure.com/
-  [Azure portal quickstart]: create-notification-hub-portal.md
-  [sample code]: https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample
+[Azure Notification Hubs]: notification-hubs-push-notification-overview.md
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/notification-hubs/
+[Azure paired regions]: /azure/availability-zones/cross-region-replication-azure#azure-paired-regions
+[availability zones]: /azure/availability-zones/az-overview
+[Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Azure portal]: https://portal.azure.com/
+[Azure portal quickstart]: create-notification-hub-portal.md
+[sample code]: https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample

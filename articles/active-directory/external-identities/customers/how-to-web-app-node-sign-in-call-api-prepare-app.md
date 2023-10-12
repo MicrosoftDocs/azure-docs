@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
+ms.custom: developer, devx-track-js
 ---
 
 # Sign in users and call an API a Node.js web application - prepare client app and API
@@ -24,7 +24,7 @@ In this article, you create app projects for both the client web app and web API
 
 ##  Build ASP.NET web API
 
-You must first create a protected web API, which the client web calls by presenting a valid token. To do so, complete the steps in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) article. In this article, you learn how to create and protect ASP.NET API endpoints, and run and test the API. 
+You must first create a protected web API, which the client web calls by presenting a valid token. To do so, complete the steps in [Secure an ASP.NET web API](./tutorial-protect-web-api-dotnet-core-build-app.md) article. In this article, you learn how to create and protect ASP.NET API endpoints, and run and test the API. 
 
 Before you proceed to this article, make sure you've [registered a web API app in Microsoft Entra admin center](how-to-web-app-node-sign-in-call-api-prepare-tenant.md#register-a-web-application-and-a-web-api).  
 
@@ -114,7 +114,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
         </table>
         <a href="/">Go back</a>
     ```
-    We use this view to display ID token claims that Azure AD for customers returns to this app after a user successfully signs in.  
+    We use this view to display ID token claims that Microsoft Entra ID for customers returns to this app after a user successfully signs in.  
 
 1. In your code editor, open *views/error.hbs* file, then add the following code:
 

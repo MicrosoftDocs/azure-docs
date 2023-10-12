@@ -4,7 +4,8 @@
         "source_path_from_root": "/articles/communication-services/concepts/client-and-server-architecture.md",
         "redirect_url": "https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture",
         "redirect_document_id": false
-      },{
+      },
+      {
         "source_path_from_root": "/articles/communication-services/concepts/ui-library/teams-embed.md",
         "redirect_url": "/azure/communication-services/concepts/ui-library/mobile-ui-library",
         "redirect_document_id": false
@@ -135,6 +136,16 @@
         "redirect_document_id": false
       },
       {
+        "source_path_from_root": "/articles/communication-services/quickstarts/call-automation/redirect-inbound-telephony-calls.md",
+        "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/call-automation/callflows-for-customer-interactions.md",
+        "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/communication-services/quickstarts/identity/quick-create-identity.md",
         "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
         "redirect_document_id": false
@@ -203,6 +214,21 @@
         "source_path_from_root": "/articles/communication-services/concepts/logging-and-diagnostics.md",
         "redirect_url": "/azure/communication-services/concepts/analytics/enable-logging",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/samples/call-automation-appointment-reminder.md",
+        "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/how-tos/call-automation/play-ai-action.md",
+        "redirect_url": "/azure/communication-services/how-tos/call-automation/play-action",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/how-tos/call-automation/recognize-ai-action.md",
+        "redirect_url": "/azure/communication-services/how-tos/call-automation/recognize-action",
+        "redirect_document_id": false
       }
     ]
 }

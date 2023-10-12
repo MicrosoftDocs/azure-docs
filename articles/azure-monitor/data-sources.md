@@ -31,16 +31,15 @@ Some of these data sources use the [new data ingestion pipeline](essentials/data
 
 Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
 
-
-:::image type="content" source="media/overview/overview_2023_02.png" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview_2023_02.png":::
-
+:::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
 ### Azure
+
 The following table briefly describes the application tiers that are specific to Azure. Following the link for further details on each in the sections below.
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View Azure Active Directory data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Microsoft Entra ID. | View Microsoft Entra data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
 | [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
@@ -54,19 +53,21 @@ The following table briefly describes the application tiers that may be in Azure
 | [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
 ## Azure tenant
-Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
+Telemetry related to your Azure tenant is collected from tenant-wide services such as Microsoft Entra ID.
 
 :::image type="content" source="media/data-sources/tenant.png" lightbox="media/data-sources/tenant.png" alt-text="Diagram that shows Azure tenant collection." border="false":::
 
 
-### Azure Active Directory Audit Logs
-[Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
+<a name='azure-active-directory-audit-logs'></a>
+
+### Microsoft Entra audit logs
+[Microsoft Entra ID reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hubs | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Azure Monitor Logs | Configure Microsoft Entra logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Microsoft Entra logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Export Microsoft Entra logs to Azure Storage for archiving. | [Tutorial: Archive Microsoft Entra logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hubs | Stream Microsoft Entra logs to other locations using Event Hubs. | [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 ## Azure subscription
 Telemetry related to the health and operation of your Azure subscription.
@@ -216,7 +217,7 @@ In addition to the standard tiers of an application, you may need to monitor oth
 
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|
-| Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor (preview)](logs/logs-ingestion-api-overview.md) |
+| Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md) |
 |                    | Data Collector API | Collect log data from any REST client and store in Log Analytics workspace. | [Send log data to Azure Monitor with the HTTP Data Collector API (preview)](logs/data-collector-api.md) |
 | Azure Monitor Metrics | Custom Metrics API | Collect metric data from any REST client and store in Azure Monitor metrics database. | [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) |
 

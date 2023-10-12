@@ -2,22 +2,22 @@
 title: Gather remote diagnostics
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to gather remote diagnostics for a site using the Azure portal. 
-author: James-Green-Microsoft
-ms.author: jamesgreen
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 01/09/2022
+ms.date: 05/31/2023
 ms.custom: template-how-to
 ---
 
 # Gather diagnostics using the Azure portal
 
 > [!IMPORTANT]
-> Diagnostics packages may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. During this procedure, when providing the diagnostics package's *shared access signature* (SAS) URL to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
+> Diagnostics packages may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. When providing the diagnostics package to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
 
-In this how-to guide, you'll learn how to gather a remote diagnostics package for an Azure Private 5G Core (AP5GC) site using the Azure portal. The diagnostics package can be provided, as a shared access signature (SAS) URL, to AP5GC support to assist you with issues.
+In this how-to guide, you'll learn how to gather a remote diagnostics package for an Azure Private 5G Core (AP5GC) site using the Azure portal. The diagnostics package can then be provided to Azure support to assist you with issues.
 
-You should always collect diagnostics as soon as possible after encountering an issue and submit them with any support request. [How to open a support request for Azure Private 5G Core](open-support-request.md).
+You should always collect diagnostics as soon as possible after encountering an issue and submit them with your support request. See [How to open a support request for Azure Private 5G Core](open-support-request.md).
 
 ## Prerequisites
 
@@ -26,7 +26,6 @@ You must already have an AP5GC site deployed to collect diagnostics.
 ## Collect values for diagnostics package gathering
 
 1. [Create a storage account](../storage/common/storage-account-create.md) for diagnostics with the following additional configuration:
-    1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
     1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
     1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
@@ -38,14 +37,11 @@ You must already have an AP5GC site deployed to collect diagnostics.
         1. Copy the contents of the **URL** field in the **Container properties** view.
 1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) and assign it to the storage account created above with the **Storage Blob Data Contributor** role.  
     > [!TIP]
-    > Make sure the same User-assigned identity is used during site creation.
+    > You may have already created and associated a user-assigned identity when creating the site.
 1. Navigate to the **Packet core control plane** resource for the site.
-1. Select **Identity** under **Settings** on the left side menu.
-1. Toggle **Modify user assigned managed identity?** to **Yes** and select **+ Add**.
-1. In the **Add user assigned managed identity** select the user-signed managed identity you created.
+1. Select **Identity** under **Settings** in the left side menu.
 1. Select **Add**.
-1. Select **Next**.
-1. Select **Create**.
+1. Select the user-signed managed identity you created and select **Add**.
 
 ## Gather diagnostics for a site
 
@@ -63,10 +59,9 @@ You must already have an AP5GC site deployed to collect diagnostics.
     >    1. Copy the contents of the **URL** field in the **Container properties** view.
 
 1. Select **Diagnostics collection**.
-1. AP5GC online service will generate a package and upload it to the provided storage account URL. Once AP5GC reports that the upload has succeeded, report the SAS URL to Azure support.
-    1. Generate a SAS URL by selecting **Generate SAS** on the blob details blade.
-    1. Copy the contents of the **Blob SAS URL** field and share the URL with your support representative. See [How to open a support request for Azure Private 5G Core](open-support-request.md).
-1. Azure support will access the diagnostics using the provided SAS URL and provide support based on the information.
+1. The AP5GC online service will generate a package at the provided storage account URL. Once the portal reports that this has succeeded, you'll be able to download the diagnostics package ready to share with Azure support.
+    1. To download the diagnostics package, see [Download a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#download-a-block-blob).
+    1. To open a support request and share the diagnostics package with Azure support, see [How to open a support request for Azure Private 5G Core](open-support-request.md).
 
 ## Troubleshooting
 

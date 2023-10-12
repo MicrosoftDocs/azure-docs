@@ -45,9 +45,13 @@ sections:
         answer: |
           You can use the new Azure Monitor metric **PhysicalPartitionThroughput** and split by the dimension **PhysicalPartitionId** to see how many RU/s you have per physical partition.
       - question: |
+          Does burst capacity consume Azure Cosmos DB reserved capacity?
+        answer: |
+          No.          
+      - question: |
           How can I enable burst capacity on an account programatically?
         answer: |
-          You can use the [Azure Cosmos DB Resource Provider REST API version 2022-11-15-preview](https://learn.microsoft.com/rest/api/cosmos-db-resource-provider/2022-11-15-preview/database-accounts/update?tabs=HTTP) or a [Resource Manager template](manage-with-templates.md) with API version 2022-11-15-preview to set the property **enableBurstCapacity** to true.
+          You can use the [Azure Cosmos DB Resource Provider REST API version `2023-03-15-preview`](/rest/api/cosmos-db-resource-provider/2023-03-15-preview/database-accounts/create-or-update) or a [Resource Manager template with API version `2023-03-01-preview`](/azure/templates/microsoft.documentdb/2023-03-01-preview/databaseaccounts) to set the property `enableBurstCapacity` to true.
           You can also use the Azure CLI or PowerShell.
 
           #### [PowerShell](#tab/azure-powershell)

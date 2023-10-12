@@ -7,7 +7,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.date: 11/16/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
@@ -15,14 +15,14 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Configure authentication for models deployed as web services
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Azure Machine Learning allows you to deploy your trained machine learning models as web services. In this article, learn how to configure authentication for these deployments.
 
 The model deployments created by Azure Machine Learning can be configured to use one of two authentication methods:
 
 * **key-based**: A static key is used to authenticate to the web service.
-* **token-based**: A temporary token must be obtained from the Azure Machine Learning workspace (using Azure Active Directory) and used to authenticate to the web service. This token expires after a period of time, and must be refreshed to continue working with the web service.
+* **token-based**: A temporary token must be obtained from the Azure Machine Learning workspace (using Microsoft Entra ID) and used to authenticate to the web service. This token expires after a period of time, and must be refreshed to continue working with the web service.
 
     > [!NOTE]
     > Token-based authentication is only available when deploying to Azure Kubernetes Service.
@@ -113,7 +113,7 @@ print(token)
 >
 > We strongly recommend that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster.
 >
-> To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace region is unavailable, you won't be able to fetch a token for your web service, even if your cluster is in a different region from your workspace. The result is that Azure AD Authentication is unavailable until your workspace region is available again.
+> To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace region is unavailable, you won't be able to fetch a token for your web service, even if your cluster is in a different region from your workspace. The result is that Microsoft Entra authentication is unavailable until your workspace region is available again.
 >
 > Also, the greater the distance between your cluster's region and your workspace region, the longer it will take to fetch a token.
 

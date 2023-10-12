@@ -789,6 +789,16 @@
         "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
         "redirect_url": "/azure/mysql/how-to-troubleshoot-replication-latency",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-archive-laravel.md",
+        "redirect_url": "/azure/mysql/flexible-server/tutorial-php-database-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/videos.md",
+        "redirect_url": "https://aka.ms/mysql-intro-vid",
+        "redirect_document_id": false
     }
   ]
 }

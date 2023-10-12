@@ -67,8 +67,8 @@ To resolve this problem, delete the resource bridge, register the providers, the
 1. Register the providers:
 
    ```azurecli
-   az provider register --namespace Microsoft.ExtendedLocation –wait
-   az provider register --namespace Microsoft.ResourceConnector –wait
+   az provider register --namespace Microsoft.ExtendedLocation –-wait
+   az provider register --namespace Microsoft.ResourceConnector –-wait
    ```
 
 1. Redeploy the resource bridge.
@@ -78,19 +78,37 @@ To resolve this problem, delete the resource bridge, register the providers, the
 
 ### Expired credentials in the appliance VM
 
-Arc resource bridge consists of an appliance VM that is deployed to the on-premise infrastructure. The appliance VM maintains a connection to the control center of the fabric using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the control center. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the management endpoint. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
 
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
-### Back-off pulling image error
 
-When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM is unable to reach the URL specified in the error. To resolve this issue, make sure the appliance VM [meets all requirements](system-requirements.md#appliance-vm-requirements), including internet access, and is able to reach the [required allowlist URLs](network-requirements.md).
+
+
+
+
+
+
+
+
 
 ## Networking issues
 
-### Restricted outbound connectivity
+### Back-off pulling image error
 
-If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
+
+### Not able to connect to URL
+
+If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md). 
+
+### .local not supported
+
+When trying to set the configuration for Arc resource bridge, you may receive an error message similar to: 
+
+`"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
+
+This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
 
 ### Azure Arc resource bridge is unreachable
 
@@ -137,15 +155,18 @@ To resolve the error, one or more network misconfigurations may need to be addre
 
 1. Appliance VM IP and Control Plane IP must be able to communicate with the management machine and vCenter endpoint (for VMware) or MOC cloud agent endpoint (for HCI). Work with your network administrator to ensure the network is configured to permit this. This may require adding a firewall rule to open port 443 from the Appliance VM IP and Control Plane IP to vCenter or port 65000 and 55000 for Azure Stack HCI MOC cloud agent. Review [network requirements for Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites#network-port-requirements) and [VMware](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) for Arc resource bridge.
 
-1. Appliance VM IP and Control Plane IP need internet access to [these required URLs](#restricted-outbound-connectivity). Azure Stack HCI requires [additional URLs](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites). Work with your network administrator to ensure that the IPs can access the required URLs.
+1. Appliance VM IP and Control Plane IP need internet access to [these required URLs](#not-able-to-connect-to-url). Azure Stack HCI requires [additional URLs](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites). Work with your network administrator to ensure that the IPs can access the required URLs.
 
-1. In a non-proxy environment, the management machine must have external and internal DNS resolution. The management machine must be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to [resolve external addresses](#restricted-outbound-connectivity), such as Azure URLs and OS image download URLs. Work with your system administrator to ensure that the management machine has internal and external DNS resolution. In a proxy environment, the DNS resolution on the proxy server should resolve internal endpoints and [required external addresses](#restricted-outbound-connectivity).
+1. In a non-proxy environment, the management machine must have external and internal DNS resolution. The management machine must be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to [resolve external addresses](#not-able-to-connect-to-url), such as Azure URLs and OS image download URLs. Work with your system administrator to ensure that the management machine has internal and external DNS resolution. In a proxy environment, the DNS resolution on the proxy server should resolve internal endpoints and [required external addresses](#not-able-to-connect-to-url).
 
    To test DNS resolution to an internal address from the management machine in a non-proxy scenario, open command prompt and run `nslookup <vCenter endpoint or HCI MOC cloud agent IP>`. You should receive an answer if the management machine has internal DNS resolution in a non-proxy scenario.  
 
 1. Appliance VM needs to be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to resolve external/internal addresses, such as Azure service addresses and container registry names for download of the Arc resource bridge container images from the cloud.
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
+
+## Move Arc resource bridge location 
+Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
 
 ## Azure Arc-enabled VMs on Azure Stack HCI issues
 
@@ -172,21 +193,7 @@ Error: Error in reading OVA file: failed to parse ovf: strconv.ParseInt: parsing
 value out of range.
 ```
 
-This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. When you install the Azure CLI, it's a 32-bit Windows Installer package. However, the Azure CLI `az arcappliance` extension needs to run in a 64-bit context.
-
-To resolve this issue, perform the following steps to configure your management machine with the Azure CLI 64-bit version:
-
-1. Uninstall the current version of the Azure CLI on Windows following these [steps](/cli/azure/install-azure-cli-windows#uninstall).
-1. Install version 3.6 or higher of [Python](https://www.python.org/downloads/windows/) (64-bit).
-
-   > [!IMPORTANT]
-   > After you install Python, make sure to confirm that its path is added to the PATH environmental variable.
-
-1. Install the [pip](https://pypi.org/project/pip/) package installer for Python.
-1. Verify Python is installed correctly by running `py` in a Command Prompt.
-1. From an elevated PowerShell console, run `pip install azure-cli` to install the Azure CLI from PyPI.
-
-After you complete these steps, you can get started using the Azure Arc appliance CLI extension in a new PowerShell console.
+This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. To resolve the error, install and use Azure CLI 64-bit. 
 
 ### Error during host configuration
 
@@ -203,120 +210,164 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 ### Insufficient permissions
 
-When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
+When deploying the resource bridge on VMware vCenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that the user account being used to deploy the resource bridge has all of the following privileges in VMware vCenter and then try again.
 
-```
-"Datastore.AllocateSpace"
-"Datastore.Browse"
-"Datastore.DeleteFile"
-"Datastore.FileManagement"
-"Folder.Create"
-"Folder.Delete"
-"Folder.Move"
-"Folder.Rename"
-"InventoryService.Tagging.CreateTag"
-"Sessions.ValidateSession"
-"Network.Assign"
-"Resource.ApplyRecommendation"
-"Resource.AssignVMToPool"
-"Resource.HotMigrate"
-"Resource.ColdMigrate"
-"StorageViews.View"
-"System.Anonymous"
-"System.Read"
-"System.View"
-"VirtualMachine.Config.AddExistingDisk"
-"VirtualMachine.Config.AddNewDisk"
-"VirtualMachine.Config.AddRemoveDevice"
-"VirtualMachine.Config.AdvancedConfig"
-"VirtualMachine.Config.Annotation"
-"VirtualMachine.Config.CPUCount"
-"VirtualMachine.Config.ChangeTracking"
-"VirtualMachine.Config.DiskExtend"
-"VirtualMachine.Config.DiskLease"
-"VirtualMachine.Config.EditDevice"
-"VirtualMachine.Config.HostUSBDevice"
-"VirtualMachine.Config.ManagedBy"
-"VirtualMachine.Config.Memory"
-"VirtualMachine.Config.MksControl"
-"VirtualMachine.Config.QueryFTCompatibility"
-"VirtualMachine.Config.QueryUnownedFiles"
-"VirtualMachine.Config.RawDevice"
-"VirtualMachine.Config.ReloadFromPath"
-"VirtualMachine.Config.RemoveDisk"
-"VirtualMachine.Config.Rename"
-"VirtualMachine.Config.ResetGuestInfo"
-"VirtualMachine.Config.Resource"
-"VirtualMachine.Config.Settings"
-"VirtualMachine.Config.SwapPlacement"
-"VirtualMachine.Config.ToggleForkParent"
-"VirtualMachine.Config.UpgradeVirtualHardware"
-"VirtualMachine.GuestOperations.Execute"
-"VirtualMachine.GuestOperations.Modify"
-"VirtualMachine.GuestOperations.ModifyAliases"
-"VirtualMachine.GuestOperations.Query"
-"VirtualMachine.GuestOperations.QueryAliases"
-"VirtualMachine.Hbr.ConfigureReplication"
-"VirtualMachine.Hbr.MonitorReplication"
-"VirtualMachine.Hbr.ReplicaManagement"
-"VirtualMachine.Interact.AnswerQuestion"
-"VirtualMachine.Interact.Backup"
-"VirtualMachine.Interact.ConsoleInteract"
-"VirtualMachine.Interact.CreateScreenshot"
-"VirtualMachine.Interact.CreateSecondary"
-"VirtualMachine.Interact.DefragmentAllDisks"
-"VirtualMachine.Interact.DeviceConnection"
-"VirtualMachine.Interact.DisableSecondary"
-"VirtualMachine.Interact.DnD"
-"VirtualMachine.Interact.EnableSecondary"
-"VirtualMachine.Interact.GuestControl"
-"VirtualMachine.Interact.MakePrimary"
-"VirtualMachine.Interact.Pause"
-"VirtualMachine.Interact.PowerOff"
-"VirtualMachine.Interact.PowerOn"
-"VirtualMachine.Interact.PutUsbScanCodes"
-"VirtualMachine.Interact.Record"
-"VirtualMachine.Interact.Replay"
-"VirtualMachine.Interact.Reset"
-"VirtualMachine.Interact.SESparseMaintenance"
-"VirtualMachine.Interact.SetCDMedia"
-"VirtualMachine.Interact.SetFloppyMedia"
-"VirtualMachine.Interact.Suspend"
-"VirtualMachine.Interact.TerminateFaultTolerantVM"
-"VirtualMachine.Interact.ToolsInstall"
-"VirtualMachine.Interact.TurnOffFaultTolerance"
-"VirtualMachine.Inventory.Create"
-"VirtualMachine.Inventory.CreateFromExisting"
-"VirtualMachine.Inventory.Delete"
-"VirtualMachine.Inventory.Move"
-"VirtualMachine.Inventory.Register"
-"VirtualMachine.Inventory.Unregister"
-"VirtualMachine.Namespace.Event"
-"VirtualMachine.Namespace.EventNotify"
-"VirtualMachine.Namespace.Management"
-"VirtualMachine.Namespace.ModifyContent"
-"VirtualMachine.Namespace.Query"
-"VirtualMachine.Namespace.ReadContent"
-"VirtualMachine.Provisioning.Clone"
-"VirtualMachine.Provisioning.CloneTemplate"
-"VirtualMachine.Provisioning.CreateTemplateFromVM"
-"VirtualMachine.Provisioning.Customize"
-"VirtualMachine.Provisioning.DeployTemplate"
-"VirtualMachine.Provisioning.DiskRandomAccess"
-"VirtualMachine.Provisioning.DiskRandomRead"
-"VirtualMachine.Provisioning.FileRandomAccess"
-"VirtualMachine.Provisioning.GetVmFiles"
-"VirtualMachine.Provisioning.MarkAsTemplate"
-"VirtualMachine.Provisioning.MarkAsVM"
-"VirtualMachine.Provisioning.ModifyCustSpecs"
-"VirtualMachine.Provisioning.PromoteDisks"
-"VirtualMachine.Provisioning.PutVmFiles"
-"VirtualMachine.Provisioning.ReadCustSpecs"
-"VirtualMachine.State.CreateSnapshot"
-"VirtualMachine.State.RemoveSnapshot"
-"VirtualMachine.State.RenameSnapshot"
-"VirtualMachine.State.RevertToSnapshot"
-```
+
+**Datastore** 
+
+- Allocate space 
+
+- Browse datastore 
+
+- Low level file operations 
+
+**Folder** 
+
+- Create folder 
+
+**vSphere Tagging** 
+
+- Assign or Unassign vSphere Tag
+
+**Network** 
+
+- Assign network 
+
+**Resource** 
+
+- Assign virtual machine to resource pool 
+
+- Migrate powered off virtual machine 
+
+- Migrate powered on virtual machine 
+
+**Sessions** 
+
+- Validate session 
+
+**vApp** 
+
+- Assign resource pool 
+
+- Import 
+
+**Virtual machine** 
+
+- Change Configuration 
+
+  - Acquire disk lease 
+
+  - Add existing disk 
+
+  - Add new disk 
+
+  - Add or remove device 
+
+  - Advanced configuration 
+
+  - Change CPU count 
+
+  - Change Memory 
+
+  - Change Settings 
+
+  - Change resource 
+
+  - Configure managedBy 
+
+  - Display connection settings 
+
+  - Extend virtual disk 
+
+  - Modify device settings 
+
+  - Query Fault Tolerance compatibility 
+
+  - Query unowned files 
+
+  - Reload from path 
+
+  - Remove disk 
+
+  - Rename 
+
+  - Reset guest information 
+
+  - Set annotation 
+
+  - Toggle disk change tracking 
+
+  - Toggle fork parent 
+
+  - Upgrade virtual machine compatibility 
+
+- Edit Inventory 
+
+  - Create from existing 
+
+  - Create new 
+
+  - Register 
+
+  - Remove 
+
+  - Unregister 
+
+- Guest operations 
+
+  - Guest operation alias modification 
+
+  - Guest operation modifications 
+
+  - Guest operation program execution 
+
+  - Guest operation queries 
+
+- Interaction 
+
+  - Connect devices 
+
+  - Console interaction 
+
+  - Guest operating system management by VIX API 
+
+  - Install VMware Tools 
+
+  - Power off 
+
+  - Power on 
+
+  - Reset 
+
+  - Suspend 
+
+- Provisioning 
+
+  - Allow disk access 
+
+  - Allow file access 
+
+  - Allow read-only disk access 
+
+  - Allow virtual machine download 
+
+  - Allow virtual machine files upload 
+
+  - Clone virtual machine 
+
+  - Deploy template 
+  
+  - Mark as template 
+
+  - Mark as virtual machine 
+
+- Snapshot management 
+
+  - Create snapshot 
+
+  - Remove snapshot 
+
+  - Revert to snapshot 
 
 ## Next steps
 
@@ -329,3 +380,5 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+

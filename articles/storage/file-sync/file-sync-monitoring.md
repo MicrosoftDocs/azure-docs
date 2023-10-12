@@ -2,11 +2,10 @@
 title: Monitor Azure File Sync
 description: Review how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/3/2022
+ms.date: 10/09/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Monitor Azure File Sync
@@ -90,10 +89,11 @@ To view the health of your Azure File Sync deployment in the **Azure portal**, n
 
 - Registered server health
 - Server endpoint health
-    - Files not syncing
-    - Sync activity
-    - Cloud tiering efficiency
-    - Files not tiering
+    - Persistent sync errors
+    - Transient sync errors
+    - Sync activity (Upload to cloud, Download to server)
+    - Cloud tiering space savings
+    - Tiering errors
     - Recall errors
 - Metrics
 
@@ -104,18 +104,18 @@ To view the **registered server health** in the portal, navigate to the **Regist
 ![Screenshot of registered servers health](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
-- If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service. See the [troubleshooting documentation](file-sync-troubleshoot-sync-group-management.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) for guidance.
+- If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service. See the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity) for guidance.
 
 ### Server endpoint health
 
 To view the health of a **server endpoint** in the portal, navigate to the **Sync groups** section of the **Storage Sync Service** and select a **sync group**.
 
-![Screenshot of server endpoint health](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
+:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png" alt-text="Screenshot that shows the server endpoint health in the Azure portal." border="true":::
 
-- The **server endpoint health** and **sync activity** in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, the server endpoint will still show as **healthy** in the portal as long as the current sync session is making progress (files are applied). Event ID 9302 is the sync progress event and Event ID 9102 is logged once a sync session completes.  For more information, see [sync health](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#broken-sync) and [sync progress](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). If the server endpoint health shows an **Error** or **No Activity**, see the [troubleshooting documentation](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cazure-portal#common-sync-errors) for guidance.
-- The **files not syncing** count in the portal is based on the Event ID 9121 that is logged in the Telemetry event log on the server. This event is logged for each per-item error once the sync session completes. To resolve per-item errors, see [How do I see if there are specific files or folders that are not syncing?](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
-- To view the **cloud tiering efficiency** in the portal, go to the **Server Endpoint Properties** and navigate to the **Cloud Tiering** section. The data provided for cloud tiering efficiency is based on Event ID 9071 that is logged in the Telemetry event log on the server. To learn more, see [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md).
-- To view **files not tiering** and **recall errors** in the portal, go to the **Server Endpoint Properties** and navigate to the **Cloud Tiering** section. **Files not tiering** is based on Event ID 9003 that is logged in the Telemetry event log on the server and **recall errors** is based on Event ID 9006. To investigate files that are failing to tier or recall, see [How to troubleshoot files that fail to tier](file-sync-troubleshoot-cloud-tiering.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) and [How to troubleshoot files that fail to be recalled](file-sync-troubleshoot-cloud-tiering.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
+- The **server endpoint health** and **sync activity** (Upload to cloud, Download to server) in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, the server endpoint will still show as **Healthy** in the portal as long as the current sync session is making progress (files are applied). Event ID 9302 is the sync progress event and Event ID 9102 is logged once a sync session completes.  For more information, see [sync health](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) and [sync progress](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-monitor-the-progress-of-a-current-sync-session). If the server endpoint health shows a status other than **Healthy**, see the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) for guidance.
+- The **Persistent sync errors** and **Transient sync errors** count in the portal is based on the Event ID 9121 that is logged in the Telemetry event log on the server. This event is logged for each per-item error once the sync session completes. To view the errors in the portal, go to the **Server Endpoint Properties** and navigate to the **Errors + troubleshooting** section. To resolve per-item errors, see [How do I see if there are specific files or folders that are not syncing?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- The **Cloud tiering space savings** provides the amount of disk space saved by cloud tiering. The data provided for **Cloud tiering space savings** is based on Event ID 9071 that is logged in the Telemetry event log on the server. To view additional cloud tiering information and metrics, go to the **Server Endpoint Properties** and navigate to the **Cloud tiering status** section. To learn more, see [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md).
+- To view **Tiering errors** and **Recall errors** in the portal, go to the **Server Endpoint Properties** and navigate to the **Errors + troubleshooting** section. **Tiering errors** is based on Event ID 9003 that is logged in the Telemetry event log on the server and **Recall errors** is based on Event ID 9006. To investigate files that are failing to tier or recall, see [How to troubleshoot files that fail to tier](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#how-to-troubleshoot-files-that-fail-to-tier) and [How to troubleshoot files that fail to be recalled](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### Metric charts
 
@@ -123,11 +123,15 @@ To view the health of a **server endpoint** in the portal, navigate to the **Syn
 
   | Metric name | Description | Blade name |
   |-|-|-|
-  | Bytes synced | Size of data transferred (upload and download) | Sync group, Server endpoint |
-  | Cloud tiering recall | Size of data recalled | Registered servers |
-  | Files not syncing | Count of files that are failing to sync | Server endpoint |
-  | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
-  | Server online status | Count of heartbeats received from the server | Registered servers |
+  | Bytes synced | Size of data transferred (upload and download). | Server endpoint - Sync status |
+  | Files not syncing | Count of files that are failing to sync. | Server endpoint - Sync status |
+  | Files synced | Count of files transferred (upload and download). | Server endpoint - Sync status |
+  | Cloud tiering cache hit rate | Percentage of bytes, not whole files, that have been served from the cache vs. recalled from the cloud. | Server endpoint - Cloud tiering status |
+  | Cache data size by last access time | Size of data by last access time. | Server endpoint - Cloud tiering status |
+  | Cloud tiering size of data tiered by last maintenance job | Size of data tiered during last maintenance job. | Server endpoint - Cloud tiering status |
+  | Cloud tiering recall size by application | Size of data recalled by application. | Server endpoint - Cloud tiering status |  
+  | Cloud tiering recall | Size of data recalled. | Server endpoint - Cloud tiering status, Registered servers |
+  | Server online status | Count of heartbeats received from the server. | Registered servers |
 
 - To learn more, see [Azure Monitor](#azure-monitor).
 
@@ -142,22 +146,22 @@ On the **Windows Server** that has the Azure File Sync agent installed, you can 
 
 Use the Telemetry event log on the server to monitor registered server, sync, and cloud tiering health. The Telemetry event log is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
 
-Sync health
+#### Sync health
 
-- Event ID 9102 is logged once a sync session completes. Use this event to determine if sync sessions are successful (**HResult = 0**) and if there are per-item sync errors (**PerItemErrorCount**). For more information, see the [sync health](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#broken-sync) and  [per-item errors](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) documentation.
+- Event ID 9102 is logged once a sync session completes. Use this event to determine if sync sessions are successful (**HResult = 0**) and if there are per-item sync errors (**PerItemErrorCount**). For more information, see the [sync health](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) and  [per-item errors](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) documentation.
 
   > [!Note]  
   > Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount. However, they still make forward progress, and some files sync successfully. You can see this in the Applied fields such as AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes. These fields tell you how much of the session succeeded. If you see multiple sync sessions fail in a row, and they have an increasing Applied count, give sync time to try again before you open a support ticket.
 
-- Event ID 9121 is logged for each per-item error once the sync session completes. Use this event to determine the number of files that are failing to sync with this error (**PersistentCount** and **TransientCount**). Persistent per-item errors should be investigated, see [How do I see if there are specific files or folders that are not syncing?](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Event ID 9121 is logged for each per-item error once the sync session completes. Use this event to determine the number of files that are failing to sync with this error (**PersistentCount** and **TransientCount**). Persistent per-item errors should be investigated, see [How do I see if there are specific files or folders that are not syncing?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- Event ID 9302 is logged every 5 to 10 minutes if there's an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that have synced so far (**AppliedItemCount**) and number of items that have failed to sync due to a per-item error (**PerItemErrorCount**). If sync is not making progress (**AppliedItemCount=0**), the sync session will eventually fail and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](file-sync-troubleshoot-sync-errors.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Event ID 9302 is logged every 5 to 10 minutes if there's an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that have synced so far (**AppliedItemCount**) and number of items that have failed to sync due to a per-item error (**PerItemErrorCount**). If sync is not making progress (**AppliedItemCount=0**), the sync session will eventually fail and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Registered server health
+#### Registered server health
 
-- Event ID 9301 is logged every 30 seconds when a server queries the service for jobs. If GetNextJob finishes with **status = 0**, the server is able to communicate with the service. If GetNextJob finishes with an error, check the [troubleshooting documentation](file-sync-troubleshoot-sync-group-management.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) for guidance.
+- Event ID 9301 is logged every 30 seconds when a server queries the service for jobs. If GetNextJob finishes with **status = 0**, the server is able to communicate with the service. If GetNextJob finishes with an error, check the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity) for guidance.
 
-Cloud tiering health
+#### Cloud tiering health
 
 - To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log, which is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
 
@@ -289,4 +293,4 @@ This section provides some example alerts for Azure File Sync.
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)
 - [Consider firewall and proxy settings](file-sync-firewall-and-proxy.md)
 - [Deploy Azure File Sync](file-sync-deployment-guide.md)
-- [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
+- [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

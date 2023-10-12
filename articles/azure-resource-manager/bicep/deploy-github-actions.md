@@ -111,7 +111,7 @@ Create secrets for your Azure credentials, resource group, and subscriptions.
 
 1. In [GitHub](https://github.com/), navigate to your repository.
 
-1. Select **Security > Secrets and variables > Actions > New repository secret**. 
+1. Select **Settings > Secrets and variables > Actions > New repository secret**. 
 
 1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
 

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/17/2023
+ms.date: 06/01/2023
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
@@ -55,7 +55,7 @@ You can enable managed system identity at the VM level after a VM is manually de
 
 ### How can I migrate my current Availability set or Availability zone deployment of SAP workload to flexible scale set with zonal deployment (FD=1)?
 
-For SAP systems that aren't currently deployed using the flexible scale set, you need to migrate SAP VMs to a flexible scale set.
+To migrate SAP VMs to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if required) from existing resources. There is no direct way to migrate SAP workloads deployed in availability sets or availability zones to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set or availability zone to flexible scale set with FD=1.
 
 ### How can an existing deployment of SAP HANA, which is [pinned](../../azure-netapp-files/application-volume-group-considerations.md#best-practices-about-proximity-placement-groups) to Azure NetApp Files, be migrated to flexible scale set with FD=1?
 

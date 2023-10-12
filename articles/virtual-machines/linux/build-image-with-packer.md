@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
+ms.custom: devx-track-linux
 ms.date: 04/11/2023
 ms.author: cynthn
 ms.collection: linux

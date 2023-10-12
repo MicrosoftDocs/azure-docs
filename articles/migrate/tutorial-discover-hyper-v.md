@@ -5,8 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/13/2023
-ms.custom: mvc, subject-rbac-steps, engagement-fy23
+ms.service: azure-migrate
+ms.date: 09/15/2023
+ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
@@ -45,7 +46,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 To create a project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -69,15 +70,11 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
+1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
-1. In the Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
-
-    ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-hyper-v/register-apps.png)
-
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare Hyper-V hosts
 
@@ -103,7 +100,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     Example usage:
 
     ```powershell
-    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
 3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command with elevated permissions:
 
@@ -114,7 +111,7 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+SHA256 | 0DD9D0E2774BB8B33EB7EF7D97D44A90A7928A4B1A30686C5B01EBD867F3BD68
 
 ### Create an account to access servers
 
@@ -132,7 +129,7 @@ Set up a new project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Create project**.
+3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
@@ -199,7 +196,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141 
 
 ### 3. Create an appliance
 
@@ -362,6 +359,19 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
 2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+
+#### View support status
+
+You can gain deeper insights into the support posture of your environment from the **Discovered servers** and **Discovered database instances** sections.
+
+The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+
+The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Configure application volume groups for SAP HANA REST API | Microsoft Docs
+title: Configure application volume groups for SAP HANA using REST API 
 description: Setting up your application volume groups for the SAP HANA API requires special configurations. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 04/09/2023
 ms.author: b-ahibbard
 ---
-# Configure application volume groups for the SAP HANA REST API
+# Configure application volume groups for SAP HANA using REST API
 
 Application volume groups (AVG) enable you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented prechecks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
 
@@ -103,7 +103,6 @@ The following table describes the request body parameters and group level proper
 | `groupDescription` | Description for the group | Free-form string | 
 | `applicationType` | Application type | Must be "SAP-HANA" |
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
-| `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: “20542149-bfca-5618-1879-9863dc6767f1” |
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br /> **Required**: _data_, _log_ and _shared_ <br /> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br /> **Required**: _data_ and _log_ </li></ul> |
 
 This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
@@ -181,8 +180,7 @@ This example pertains to data, log, shared, data-backup, and log-backup volumes 
             "groupMetaData": {
                 "groupDescription": "Test group for SH9",
                 "applicationType": "SAP-HANA",
-                "applicationIdentifier": "SH9",
-                "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+                "applicationIdentifier": "SH9"
             },
             "volumes": [
                 {
@@ -398,7 +396,6 @@ This example pertains to data, log, shared, data-backup, and log-backup volumes 
       "groupDescription": "Test group for SH9",
       "applicationType": "SAP-HANA",
       "applicationIdentifier": "SH9",
-      "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1",
       "volumesCount": 0
     },
     "volumes": [
@@ -605,8 +602,7 @@ This example is similar to the single-host system request in the earlier example
         "groupMetaData": {
             "groupDescription": "Test group for SH9, host #2",
             "applicationType": "SAP-HANA",
-            "applicationIdentifier": "SH9",
-            "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            "applicationIdentifier": "SH9"
         },
         "volumes": [
             {
@@ -706,8 +702,7 @@ This example encompasses the creation of data, log, shared, data-backup, and log
         "groupMetaData": {
             "groupDescription": "HSR Secondary: Test group for SH9",
             "applicationType": "SAP-HANA",
-            "applicationIdentifier": "SH9",
-            "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            "applicationIdentifier": "SH9"
         },
         "volumes": [
             {
@@ -917,8 +912,7 @@ In this example, the following placeholders are specified and should be replaced
         "groupMetaData": {
             "groupDescription": "Data Protection: Test group for SH9",
             "applicationType": "SAP-HANA",
-            "applicationIdentifier": "SH9",
-            "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            "applicationIdentifier": "SH9"
         },
         "volumes": [
             {

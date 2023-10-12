@@ -10,6 +10,8 @@
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
+    - name: Quotas
+      href: event-hubs-quotas.md
     - name: Compare messaging services
       href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
@@ -66,12 +68,12 @@
           href: event-hubs-capture-python.md
     - name: Use Schema Registry
       items:
-        - name: Create a schema registry - Azure portal
-          href: create-schema-registry.md  
-        - name: Validate events using an Avro schema (.NET + AMQP)
-          href: schema-registry-dotnet-send-receive-quickstart.md
-        - name: Validate events using an Avro schema (Java + Apache Kafka)
+        - name: Create a schema - Azure portal
+          href: create-schema-registry.md
+        - name: Validate schemas for Kafka applications 
           href: schema-registry-kafka-java-send-receive-quickstart.md
+        - name: Validate schemas for Event Hubs SDK based applications 
+          href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
@@ -162,13 +164,13 @@
               href: authenticate-shared-access-signature.md
             - name: Authorize access with a shared access signature
               href: authorize-access-shared-access-signature.md
-          - name: Use Azure Active Directory
+          - name: Use Microsoft Entra ID
             items:
             - name: Authenticate with a managed identity
               href: authenticate-managed-identity.md
             - name: Authenticate from an application
               href: authenticate-application.md
-            - name: Authorize access with Azure Active Directory
+            - name: Authorize access with Microsoft Entra ID
               href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md
@@ -204,8 +206,6 @@
           href: add-custom-data-event.md
         - name: Dynamically add partitions
           href: dynamically-add-partitions.md
-        - name: Use Blob Storage as checkpoint store on Azure Stack Hub
-          href: use-blob-storage-checkpoint-store-azure-stack-hub.md
         - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
           href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
@@ -220,55 +220,6 @@
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
             - name: JavaScript in GitHub (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
-    - name: Use log compaction
-      href: use-log-compaction.md
-    - name: Create and manage application groups
-      href: resource-governance-with-app-groups.md
-
-    - name: Process data
-      items:
-        - name: Build real-time dashboard with Power BI dataset
-          href: ../stream-analytics/no-code-build-power-bi-dashboard.md?toc=/azure/event-hubs/toc.json
-        - name: Capture Event Hubs data in Delta Lake format
-          href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json
-        - name: Capture Event Hubs data in Parquet format
-          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
-        - name: Materialize data to Azure Cosmos DB
-          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=/azure/event-hubs/toc.json
-        - name: Filter and ingest Synapse SQL data
-          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=/azure/event-hubs/toc.json
-        - name: Filter and ingest to Data Lake Storage Gen2
-          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=/azure/event-hubs/toc.json
-        - name: Enrich data and ingest to event hub
-          href: ../stream-analytics/no-code-enrich-event-hub-data.md?toc=/azure/event-hubs/toc.json
-        - name: Transform and ingest to SQL database
-          href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
-        - name: Filter and ingest to Azure Data Explorer
-          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
-        - name: Process data using Azure Stream Analytics
-          href: process-data-azure-stream-analytics.md
-    
-    - name: Use Schema Registry 
-      items:
-        - name: Client-side schema enforcement 
-          items:
-          - name: Using Avro schema 
-            items: 
-            - name: Avro schema with Event Hubs SDK(AMQP)
-              href: schema-registry-dotnet-send-receive-quickstart.md
-          - name: Using JSON Schema  
-            items: 
-            - name: JSON Schema with Apache Kafka applications
-              href: schema-registry-json-schema-kafka.md
-
-    - name: Integrate with Spring framework
-      items:
-        - name: Create a Spring Cloud Stream Binder app
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-          maintainContext: true
-        - name: Use the Spring Boot Starter for Apache Kafka
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-          maintainContext: true
     - name: Use Kafka on Azure Event Hubs
       items:
         - name: Kafka developer guide for Event Hubs
@@ -297,16 +248,66 @@
             href: event-hubs-kafka-akka-streams-tutorial.md
         - name: FAQ - Event Hubs for Kafka
           href: apache-kafka-frequently-asked-questions.yml
-    - name: Manage and monitor
+    - name: Use log compaction
+      href: use-log-compaction.md
+    - name: Use Schema Registry 
       items:
-        - name: Monitor Azure Event Hubs
-          href: monitor-event-hubs.md
-        - name: Stream Azure Diagnostics data using Event Hubs
-          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
+        - name: Client-side schema enforcement 
+          items:
+          - name: Using Avro schema 
+            items: 
+            - name: Avro schema with Event Hubs SDK(AMQP)
+              href: schema-registry-dotnet-send-receive-quickstart.md
+          - name: Using JSON Schema  
+            items: 
+            - name: JSON Schema with Apache Kafka applications
+              href: schema-registry-json-schema-kafka.md
+    - name: Process data
+      items:
+        - name: Build real-time dashboard with Power BI dataset
+          href: ../stream-analytics/no-code-build-power-bi-dashboard.md?toc=/azure/event-hubs/toc.json
+        - name: Capture Event Hubs data in Delta Lake format
+          href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json
+        - name: Capture Event Hubs data in Parquet format
+          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
+        - name: Materialize data to Azure Cosmos DB
+          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest Synapse SQL data
+          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Data Lake Storage Gen2
+          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=/azure/event-hubs/toc.json
+        - name: Enrich data and ingest to event hub
+          href: ../stream-analytics/no-code-enrich-event-hub-data.md?toc=/azure/event-hubs/toc.json
+        - name: Transform and ingest to SQL database
+          href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Azure Data Explorer
+          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
+        - name: Process data using Azure Stream Analytics
+          href: process-data-azure-stream-analytics.md
+    - name: Integrate with Spring framework
+      items:
+        - name: Create a Spring Cloud Stream Binder app
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+          maintainContext: true
+        - name: Use the Spring Boot Starter for Apache Kafka
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+          maintainContext: true
+    - name: Manage
+      items:
+        - name: Manage Application Groups
+          href: resource-governance-with-app-groups.md
+        - name: Configure properties for an event hub
+          href: configure-event-hub-properties.md
         - name: Automatically scale throughput units
           href: event-hubs-auto-inflate.md
         - name: Event Hubs management libraries
           href: event-hubs-management-libraries.md
+    - name: Monitor
+      items:
+        - name: Monitor Azure Event Hubs
+          href: monitor-event-hubs.md
+        - name: Stream Azure Diagnostics data using Event Hubs
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
     - name: Secure
       items:
         - name: Allow access from specific IP addresses
@@ -323,12 +324,16 @@
           href: transport-layer-security-audit-minimum-version.md
         - name: Configure TLS version for client
           href: transport-layer-security-configure-client-version.md
+        - name: Migrate to passwordless connections
+          href: passwordless-migration-event-hubs.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues
           href: troubleshooting-guide.md
         - name: Troubleshoot authentication and authorization issues
           href: troubleshoot-authentication-authorization.md
+        - name: Troubleshoot checkpoint store issues
+          href: troubleshoot-checkpoint-store-issues.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
         - name: EventHubsException 
@@ -396,17 +401,15 @@
     - name: Go
       items:
         - name: Client library
-          href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs?tab=doc
         - name: Management library
-          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/eventhub/armeventhub?tab=doc
     - name: Azure CLI
       href: /cli/azure/eventhubs
     - name: REST
       href: /rest/api/eventhub
     - name: Resource Manager template
       href: /azure/templates/microsoft.eventhub/allversions
-    - name: Quotas
-      href: event-hubs-quotas.md
     - name: Apache Kafka configurations
       href: apache-kafka-configurations.md
     - name: Azure Policy built-ins

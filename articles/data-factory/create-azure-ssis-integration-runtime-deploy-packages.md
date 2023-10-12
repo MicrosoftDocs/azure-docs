@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 01/20/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Deploy SSIS packages
 

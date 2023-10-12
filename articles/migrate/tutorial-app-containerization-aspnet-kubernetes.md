@@ -5,8 +5,9 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.custom: subject-rbac-steps
+ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 04/24/2023
+ms.date: 07/14/2023
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
@@ -55,8 +56,8 @@ Before you begin this tutorial, you should:
 **Requirement** | **Details**
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the ASP.NET applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
-**Application servers** | Enable PowerShell remoting on the application servers: Sign in to the application server and follow [these](/powershell/module/microsoft.powershell.core/enable-psremoting) instructions to turn on PowerShell remoting. <br/><br/> If the application server is running Windows Server 2008 R2, ensure that PowerShell 5.1 is installed on the application server. Follow the instruction [here](/powershell/scripting/windows-powershell/wmf/setup/install-configure) to download and install PowerShell 5.1 on the application server. <br/><br/> Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
-**ASP.NET application** | The tool currently supports:<br/> - ASP.NET applications using Microsoft .NET framework 3.5 or later. <br/>- Application servers running Windows Server 2008 R2 or later (application servers should be running PowerShell version 5.1). <br/>- Applications running on Internet Information Services (IIS) 7.5 or later. <br/><br/> The tool currently doesn't support: <br/>- Applications requiring Windows authentication (The App Containerization tool currently doesn't support gMSA). <br/>- Applications that depend on other Windows services hosted outside IIS.
+**Application servers** | Enable PowerShell remoting on the application servers: Sign in to the application server and follow [these](/powershell/module/microsoft.powershell.core/enable-psremoting) instructions to turn on PowerShell remoting. <br/><br/> Ensure that PowerShell 5.1 is installed on the application server. Follow the instruction [here](/powershell/scripting/windows-powershell/wmf/setup/install-configure) to download and install PowerShell 5.1 on the application server. <br/><br/> Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
+**ASP.NET application** | The tool currently supports:<br/> - ASP.NET applications using Microsoft .NET framework 3.5 or later. <br/>- Application servers running Windows Server 2012 R2 or later (application servers should be running PowerShell version 5.1). <br/>- Applications running on Internet Information Services (IIS) 7.5 or later. <br/><br/> The tool currently doesn't support: <br/>- Applications requiring Windows authentication (The App Containerization tool currently doesn't support gMSA). <br/>- Applications that depend on other Windows services hosted outside IIS.
 
 
 ## Prepare an Azure user account
@@ -65,7 +66,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Once your subscription is set up, you need an Azure user account with:
 - Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -89,15 +90,15 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-1. Your Azure account also needs **permissions to register Azure Active Directory apps.**
+1. Your Azure account also needs **permissions to register Microsoft Entra apps.**
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
       ![Screenshot of verification in User Settings if users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 

@@ -2,6 +2,7 @@
 title: Monitor applications on AKS with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor integrates seamlessly with your application running on Azure Kubernetes Service and allows you to spot the problems with your apps quickly.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java
 ms.date: 11/15/2022
 ms.reviewer: abinetabate
 ---
@@ -10,12 +11,12 @@ ms.reviewer: abinetabate
 
 > [!IMPORTANT]
 > Currently, you can enable monitoring for your Java apps running on Azure Kubernetes Service (AKS) without instrumenting your code by using the [Java standalone agent](./opentelemetry-enable.md?tabs=java).
-> While the solution to seamlessly enable application monitoring is in process for other languages, use the SDKs to monitor your apps running on AKS. Use [ASP.NET Core](./asp-net-core.md), [ASP.NET](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md), and [Python](./opencensus-python.md).
+> While the solution to seamlessly enable application monitoring is in process for other languages, use the SDKs to monitor your apps running on AKS. Use [ASP.NET Core](./asp-net-core.md), [ASP.NET](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md), and [Python](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 ## Application monitoring without instrumenting the code
 Currently, only Java lets you enable application monitoring without instrumenting the code. To monitor applications in other languages, use the SDKs.
 
-For a list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 ## Java
 After the Java agent is enabled, it automatically collects a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
@@ -29,7 +30,7 @@ For the applications in other languages, we currently recommend using the SDKs:
 * [ASP.NET](./asp-net.md)
 * [Node.js](./nodejs.md) 
 * [JavaScript](./javascript.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
 ## Troubleshooting
 

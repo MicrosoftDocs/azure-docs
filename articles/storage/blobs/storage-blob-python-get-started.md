@@ -6,14 +6,15 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 01/04/2023
-ms.subservice: blobs
+ms.date: 07/12/2023
 ms.custom: devx-track-python, devguide-python
 ---
 
 # Get started with Azure Blob Storage and Python
+
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Python. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
@@ -23,7 +24,7 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.7+
 
 ## Set up your project
 
@@ -51,16 +52,18 @@ To connect an application to Blob Storage, create an instance of the [BlobServic
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
+You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
 
-## [Azure AD](#tab/azure-ad)
+<a name='azure-ad'></a>
 
-To authorize with Azure AD, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
+## [Microsoft Entra ID](#tab/azure-ad)
+
+To authorize with Microsoft Entra ID, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
 | --- | --- | --- |
-| Local machine (developing and testing) | Service principal | To learn how to register the app, set up an Azure AD group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
-| Local machine (developing and testing) | User identity | To learn how to set up an Azure AD group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
+| Local machine (developing and testing) | Service principal | To learn how to register the app, set up a Microsoft Entra group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
+| Local machine (developing and testing) | User identity | To learn how to set up a Microsoft Entra group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
 | Hosted in Azure | Managed identity | To learn how to enable managed identity and assign roles, see [Authorize access from Azure-hosted apps using a managed identity](/azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 | Hosted outside of Azure (for example, on-premises apps) | Service principal | To learn how to register the app, assign roles, and configure environment variables, see [Authorize access from on-premises apps using an application service principal](/azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 
@@ -78,9 +81,14 @@ To use a shared access signature (SAS) token, provide the token as a string and 
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_SAS":::
 
-To learn more about generating and managing SAS tokens, see the following article:
+To learn more about generating and managing SAS tokens, see the following articles:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+- [Create an account SAS with Python](../common/storage-account-sas-create-python.md)
+- [Create a service SAS for a container with Python](sas-service-create-python-container.md)
+- [Create a service SAS for a blob with Python](sas-service-create-python.md)
+- [Create a user delegation SAS for a container with Python](storage-blob-container-user-delegation-sas-create-python.md)
+- [Create a user delegation SAS for a blob with Python](storage-blob-user-delegation-sas-create-python.md)
 
 ## [Account key](#tab/account-key)
 
@@ -101,25 +109,9 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ## Build your application
 
-As you build your application, your code will primarily interact with three types of resources:
+As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-- The storage account, which is the unique top-level namespace for your Azure Storage data.
-- Containers, which organize the blob data in your storage account.
-- Blobs, which store unstructured data like text and binary data.
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture.](./media/storage-blobs-introduction/blob1.png)
-
-Each type of resource is represented by one or more associated Python classes. These are the basic classes:
-
-| Class | Description |
-|---|---|
-| [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) | Allows you to manipulate Azure Storage blobs.|
-
-The following guides show you how to use each of these classes to build your application.
+The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for Python:
 
 | Guide | Description |
 |--|---|
@@ -136,3 +128,4 @@ The following guides show you how to use each of these classes to build your app
 | [Delete and restore](storage-blob-delete-python.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags as well as use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
+| [Set or change a blob's access tier](storage-blob-use-access-tier-python.md) | Set or change the access tier for a block blob. |

@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 06/01/2023
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -15,7 +15,7 @@ ms.custom: references_regions
 > [!div class="op_single_selector"]
 > * [POP locations by region](cdn-pop-locations.md)
 > * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
-> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
+> * [Edgio POP locations by abbreviation](cdn-pop-abbreviations.md)
 
 This article lists Microsoft POP locations, sorted by POP abbreviation, for **Azure CDN**.
 

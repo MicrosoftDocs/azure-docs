@@ -2,6 +2,7 @@
 title: Connect to an Azure event hub - .NET
 description: This article shows different ways of connecting to an event hub in Azure Event Hubs. 
 ms.topic: how-to
+ms.custom: devx-track-dotnet
 ms.date: 10/10/2022 
 ---
 
@@ -59,10 +60,12 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## Connect using Azure AD application
+<a name='connect-using-azure-ad-application'></a>
 
-1. Create an Azure AD application.
-1. Assign application's service principal to the appropriate [role-based access control (RBAC) role](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) (owner, sender, or receiver). For more information, see [Authorize access with Azure Active Directory](authorize-access-azure-active-directory.md).
+## Connect using Microsoft Entra application
+
+1. Create a Microsoft Entra application.
+1. Assign application's service principal to the appropriate [role-based access control (RBAC) role](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) (owner, sender, or receiver). For more information, see [Authorize access with Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 ```csharp
 var clientSecretCredential = new ClientSecretCredential("TENANTID", "CLIENTID", "CLIENTSECRET");

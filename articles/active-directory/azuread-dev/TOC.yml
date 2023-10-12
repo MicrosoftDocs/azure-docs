@@ -49,28 +49,28 @@
         href: ../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Sign-out
         href: ../develop/single-sign-out-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-      - name: How Azure AD uses the SAML protocol
-        href: ../develop/active-directory-saml-protocol-reference.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      - name: How Microsoft Entra ID uses the SAML protocol
+        href: ../develop/saml-protocol-reference.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: WS-Federation
       items:
       - name: Federation metadata
         href: azure-ad-federation-metadata.md
     - name: Signing key rollover
-      href: ../develop/active-directory-signing-key-rollover.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: ../develop/signing-key-rollover.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: ID tokens
       href: ../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Access tokens
       href: ../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Certificate credentials
-      href: ../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: ../develop/certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: SAML tokens
       href: ../develop/reference-saml-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Application configuration
     items:
     - name: Applications and service principals
       href: ../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: How and why apps are added to Azure AD
-      href: ../develop/active-directory-how-applications-are-added.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    - name: How and why apps are added to Microsoft Entra ID
+      href: ../develop/how-applications-are-added.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Single tenant and multi-tenant apps
       href: ../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Permissions and consent
@@ -79,7 +79,7 @@
     - name: Types of permissions and consent
       href: v1-permissions-consent.md
     - name: Consent framework
-      href: ../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: ../develop/application-consent-experience.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Application consent experiences
       href: ../develop/application-consent-experience.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Conditional Access
@@ -100,13 +100,13 @@
     - name: Configure claims
       items:
       - name: Configure role claims
-        href: ../develop/active-directory-enterprise-app-role-management.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+        href: ../develop/enterprise-app-role-management.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Customize claims - Portal
-        href: ../develop/active-directory-saml-claims-customization.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+        href: ../develop/saml-claims-customization.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Customize claims - PowerShell
-        href: ../develop/active-directory-claims-mapping.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+        href: ../develop/saml-claims-customization.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Configure optional claims
-        href: ../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+        href: ../develop/optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Configure token lifetimes
         href: ../develop/configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: ADAL error handling best practices
@@ -124,9 +124,9 @@
     - name: Restrict your app to a set of users
       href: ../develop/howto-restrict-your-app-to-a-set-of-users.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Add app roles in your application
-      href: ../develop/howto-add-app-roles-in-azure-ad-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: ../develop/howto-add-app-roles-in-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Branding guidelines
-      href: ../develop/howto-add-branding-in-azure-ad-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: /azure/active-directory/develop/howto-add-branding-in-apps
     - name: Terms of Service and Privacy Statement
       href: ../develop/howto-add-terms-of-service-privacy-statement.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Bring an app to market
@@ -167,7 +167,7 @@
     href: videos.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Azure AD blog
+  - name: Microsoft Entra blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: Microsoft identity platform developer blog
     href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/

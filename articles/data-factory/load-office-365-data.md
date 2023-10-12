@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
 ---
 

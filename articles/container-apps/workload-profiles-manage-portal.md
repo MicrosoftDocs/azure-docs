@@ -1,29 +1,18 @@
 ---
-title: Create a Consumption + Dedicated workload profiles environment (preview) in the Azure portal
+title: Create a workload profiles environment in the Azure portal
 description: Learn to create an environment with a specialized hardware profile in the Azure portal. 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 04/11/2023
+ms.date: 08/29/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
-# Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview) in the Azure portal
+# Manage a workload profiles in the Azure portal
 
-Learn to manage Container Apps environments with workload profile support.
-
-## Supported regions
-
-The following regions support workload profiles during preview:
-
-- North Central US
-- North Europe
-- West Europe
-- East US
-
-<a id="create"></a>
+Learn to manage a [workload profiles](./workload-profiles-overview.md) environment in the Azure portal.
 
 ## Create a container app in a workload profile
 
@@ -49,14 +38,14 @@ The following regions support workload profiles during preview:
 
 1. Configure the new environment.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Screenshot of create an Azure Container Apps Consumption + Dedicated plan environment window.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profiles-environment.png" alt-text="Screenshot of create an Azure Container Apps workload profiles environment window.":::
 
     Enter the following values to create your environment.
 
     | Property | Value |
     | --- | --- |
     | Environment name | Enter an environment name. |
-    | Plan | Select **(Preview) Consumption and Dedicated workload profiles** |
+    | Environment type| Select **Workload profiles** |
   
     Select the new **Workload profiles** tab at the top of this section.
 
@@ -126,7 +115,7 @@ From this window, you can:
 
 - Adjust the minimum and maximum number of instances available to a profile
 - Add new profiles
-- Delete existing profiles (except for the Consumption profile)
+- Delete existing profiles (except for the consumption profile)
 
 ## Delete a profile
 

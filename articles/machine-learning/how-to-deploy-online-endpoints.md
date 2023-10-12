@@ -1,25 +1,24 @@
 ---
-title: Deploy machine learning models to online endpoints
+title: Deploy machine learning models to online endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as an online endpoint in Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 02/23/2023
+ms.date: 09/18/2023
+reviewer: msakande
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
 
 # Deploy and score a machine learning model by using an online endpoint
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
-
-You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for real-time scoring. 
+In this article, you'll learn to deploy your model to an online endpoint for use in real-time inferencing. You'll begin by deploying a model on your local machine to debug any errors. Then, you'll deploy and test the model in Azure. You'll also learn to view the deployment logs and monitor the service-level agreement (SLA). By the end of this article, you'll have a scalable HTTPS/REST endpoint that you can use for real-time inference.
 
 Online endpoints are endpoints that are used for real-time inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
@@ -31,19 +30,19 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic prereqs cli](includes/machine-learning-cli-prereqs.md)]
 
-* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [basic prereqs sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -64,7 +63,7 @@ Before following the steps in this article, make sure you have the following pre
 > [!NOTE]
 > While the Azure CLI and CLI extension for machine learning are used in these steps, they're not the main focus. they're used more as utilities, passing templates to Azure and checking the status of template deployments.
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic prereqs cli](includes/machine-learning-cli-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -72,10 +71,12 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Virtual machine quota allocation for deployment
 
-For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 4 cores) in a deployment, you should have a quota for 48 cores (`12 instances * 4 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs. If you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 4 cores) in a deployment, you should have a quota for 48 cores (`12 instances * 4 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
-<!-- In this tutorial, you'll request one instance of a Standard_DS2_v2 VM SKU (that comes with 2 cores) in your deployment; therefore, you should have a minimum quota for 4 cores (`2 instances*2 cores`) available.  -->
----
+
+Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama models (from the model catalog) to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
+
+To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
 
 ## Prepare your system
 
@@ -279,7 +280,7 @@ endpoint_name = "endpt-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 # create an online endpoint
 endpoint = ManagedOnlineEndpoint(
     name = endpoint_name, 
-    description="this is a sample endpoint"
+    description="this is a sample endpoint",
     auth_mode="key"
 )
 ```
@@ -331,7 +332,8 @@ The following table describes the key attributes of a deployment:
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
 
 > [!NOTE]
-> The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
+> - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
+> - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -366,7 +368,7 @@ To configure a deployment:
 ```python
 model = Model(path="../model-1/model/sklearn_regression_model.pkl")
 env = Environment(
-    conda_file="../model-1/environment/conda.yml",
+    conda_file="../model-1/environment/conda.yaml",
     image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
 )
 
@@ -488,7 +490,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 # [ARM template](#tab/arm)
 
-The preceding registration of the environment specifies a non-GPU docker image `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1` by passing the value to the `environment-version.json` template using the `dockerImage` parameter. For a GPU compute, provide a value for a GPU docker image to the template (using the `dockerImage` parameter) and provide a GPU compute type SKU to the `online-endpoint-deployment.json` template (using the `skuName` parameter).
+The preceding registration of the environment specifies a non-GPU docker image `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` by passing the value to the `environment-version.json` template using the `dockerImage` parameter. For a GPU compute, provide a value for a GPU docker image to the template (using the `dockerImage` parameter) and provide a GPU compute type SKU to the `online-endpoint-deployment.json` template (using the `skuName` parameter).
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
@@ -816,7 +818,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
+1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you to view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
@@ -980,7 +982,7 @@ You can use either the `invoke` command or a REST client of your choice to invok
 The following example shows how to get the key used to authenticate to the endpoint:
 
 > [!TIP]
-> You can control which Azure Active Directory security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+> You can control which Microsoft Entra security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
@@ -1061,7 +1063,8 @@ To understand how `update` works:
     > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML.
 
     > [!TIP]
-    > You can use [generic update parameters](/cli/azure/use-cli-effectively#generic-update-parameters), such as the `--set` parameter, with the CLI `update` command to override attributes in your YAML *or* to set specific attributes without passing them in the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+    > * You can use [generic update parameters](/cli/azure/use-cli-effectively#generic-update-parameters), such as the `--set` parameter, with the CLI `update` command to override attributes in your YAML *or* to set specific attributes without passing them in the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+    > * Specifying the YAML file is NOT mandatory. For example, if you wanted to test different concurrency setting for a given deployment, you can try something like `az ml online-deployment update -n blue -e my-endpoint --set request_settings.max_concurrent_requests_per_instance=4 environment_variables.WORKER_COUNT=4`. This will keep all existing configuration but update only the specified parameters.
 
 1. Because you modified the `init()` function, which runs when the endpoint is created or updated, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
@@ -1133,7 +1136,7 @@ To view metrics and set alerts based on your SLA, complete the steps that are de
 
 The `get-logs` command for CLI or the `get_logs` method for SDK provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs).
 
-<!-- [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)] -->
+<!-- [!INCLUDE [Email Notification Include](includes/machine-learning-email-notifications.md)] -->
 
 ## Delete the endpoint and the deployment
 

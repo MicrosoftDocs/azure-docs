@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
 ms.author: dmwendia
-ms.custom: aaddev, devx-track-python, has-adal-ref
+ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -130,7 +130,7 @@ MSAL provides web UI implementations for most platforms, but you might want to h
 - You want to UI test your application and use an automated browser that can be used with Selenium.
 - The browser and the app that run MSAL are in separate processes.
 
-To achieve this, you give to MSAL `start Url`, which needs to be displayed in a browser so that users can enter items such as their username. After authentication finishes, your app needs to pass back to MSAL `end Url`, which contains a code that Azure AD provides. The host of `end Url` is always `redirectUri`. To intercept `end Url`, do one of the following things:
+To achieve this, you give to MSAL `start Url`, which needs to be displayed in a browser so that users can enter items such as their username. After authentication finishes, your app needs to pass back to MSAL `end Url`, which contains a code that Microsoft Entra ID provides. The host of `end Url` is always `redirectUri`. To intercept `end Url`, do one of the following things:
 
 - Monitor browser redirects until `redirect Url` is hit.
 - Have the browser redirect to a URL that you monitor.

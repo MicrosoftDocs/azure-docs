@@ -2,11 +2,11 @@
 title: Synchronize with Azure Blob storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you synchronize with Azure Blob storage. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/02/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -26,7 +26,7 @@ To see examples for other types of tasks such as uploading files, downloading bl
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
@@ -74,7 +74,7 @@ azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myD
 
 The first container that appears in this command is the source. The second one is the destination. Make sure to append a SAS token to each source URL.
 
-If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
+If you provide authorization credentials by using Microsoft Entra ID, you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Microsoft Entra ID](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -93,7 +93,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 
 The first directory that appears in this command is the source. The second one is the destination. Make sure to append a SAS token to each source URL.
 
-If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
+If you provide authorization credentials by using Microsoft Entra ID, you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Microsoft Entra ID](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').

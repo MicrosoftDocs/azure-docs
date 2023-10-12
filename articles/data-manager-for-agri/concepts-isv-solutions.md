@@ -11,11 +11,9 @@ ms.custom: template-concept
 
 # What is our Solution Framework?
 
-In this article, you learn how Azure Data Manager for Agriculture provides a framework for customer to use solutions built by ISV Partners.
+In this article, you learn how Azure Data Manager for Agriculture provides a framework for customer to use solutions built by Bayer and other ISV Partners.
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 ## Overview
 
@@ -35,11 +33,20 @@ The solution framework is built on top of Data Manager for Agriculture that prov
 
  Following are some of the examples of use cases on how an ISV partner could use the solution framework to build an industry specific solution.
 
-* Yield Prediction Model: An ISV partner can build a yield model using historical data for a specific boundary and track periodic progress. The ISV can then enable forecast of estimated yield for the upcoming season.
+* Yield Prediction Model: An ISV partner can build a yield model using historical data for a specific geometry and track periodic progress. The ISV can then enable forecast of estimated yield for the upcoming season.
 * Carbon Emission Model: An ISV partner can estimate the amount of carbon emitted from the field based upon the imagery, sensors data for a particular farm.
 * Crop Identification: Use imagery data to identify crop growing in an area of interest.
 
-The above list has only a few examples but an ISV partner can come with their own specific scenario and build a solution.  
+The above list has only a few examples but an ISV partner can come with their own specific scenario and build a solution. 
+
+## Bayer AgPowered Services
+
+Additionally, Bayer has built the below Solutions in partnership with Microsoft and can be installed on top of customer's ADMA instance.
+* Growing Degree Days
+* Crop Water Usage Maps
+* Biomass Variability
+
+To install the above Solutions, please refer to [this](./how-to-set-up-isv-solution.md) article.
 
 ## Next steps
 

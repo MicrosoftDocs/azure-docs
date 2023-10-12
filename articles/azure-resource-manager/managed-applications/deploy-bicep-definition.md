@@ -2,6 +2,7 @@
 title: Use Bicep to deploy an Azure Managed Application definition
 description: Describes how to use Bicep to deploy an Azure Managed Application definition from your service catalog.
 ms.topic: quickstart
+ms.custom: devx-track-azurepowershell, devx-track-bicep, devx-track-azurecli
 ms.date: 05/12/2023
 ---
 

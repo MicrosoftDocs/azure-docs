@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/18/2022
+ms.date: 08/02/2023
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -408,6 +408,14 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | databaseAccounts | global | 3-44 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
+## Microsoft.ElasticSan (preview)
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | elasticSans | global | 3-24 | Lowercase letters, numbers, hyphens and underscores.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen and underscore must be preceded and followed by an alphanumeric character. |
+> | elasticSans / volumeGroups | elastic san | 3-63 | Lowercase letters, numbers and hyphens.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen must be preceded and followed by an alphanumeric character. |
+
 ## Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
@@ -416,7 +424,7 @@ In the following tables, the term alphanumeric refers to:
 > | domains | resource group | 3-50 | Alphanumerics and hyphens. |
 > | domains / topics | domain | 3-50 | Alphanumerics and hyphens. |
 > | eventSubscriptions | resource group | 3-64 | Alphanumerics and hyphens. |
-> | topics | resource group | 3-50 | Alphanumerics and hyphens. |
+> | topics | region | 3-50 | Alphanumerics and hyphens. |
 
 ## Microsoft.EventHub
 
@@ -554,6 +562,23 @@ In the following tables, the term alphanumeric refers to:
 > | mediaservices / liveEvents | Media service | 1-32 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+
+## Microsoft.MobileNetwork
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | mobileNetworks | Resource Group | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | mobileNetworks / sites | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | mobileNetworks / slices | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | mobileNetworks / services | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. <br><br> The following words cannot be used on their own as the name: `default`, `requested`, `service`.|
+> | mobileNetworks / dataNetworks | Mobile Network | 1-64 | Alphanumeric, hyphens and a period/dot (`.`) <br><br> Start and end with alphanumeric. <br><br> Note: A period/dot (`.`) must be followed by an alphanumeric character. |
+> | mobileNetworks / simPolicies | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | packetCoreControlPlanes | Resource Group | 1-64 | Alphanumeric, underscores and hyphens. <br><br> Start with alphanumeric. |
+> | packetCoreControlPlanes / packetCoreDataPlanes | Packet Core Control Plane | 1-64 | Alphanumeric, underscores and hyphens. <br><br> Start with alphanumeric. |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | Mobile Network | 1-64 | Alphanumeric, hyphens and a period/dot (`.`) <br><br> Start and end with alphanumeric. <br><br> Note: A period/dot (`.`) must be followed by an alphanumeric character. |
+> | simGroups | Resource Group | 1-64 | Alphanumeric, underscores and hyphens <br><br> Start with alphanumeric |
+> | simGroups / sims | Sim Group | 1-64 | Alphanumeric, underscores and hyphens <br><br> Start with alphanumeric |
 
 ## Microsoft.NetApp
 
@@ -831,7 +856,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
-> | serverfarms | resource group | 1-40 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
+> | serverfarms | resource group | 1-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 > | sites | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 

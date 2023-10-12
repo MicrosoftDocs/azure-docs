@@ -28,6 +28,10 @@ An upload indicators API call has five components:
 
 In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Azure AD access token. For more information on application registration, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
+## Permissions
+
+This API requires the calling Azure AD application to be granted the Microsoft Sentinel contributor role at the workspace level.
+
 ## Create the request
 
 This section covers the first three of the five components discussed earlier. You first need to acquire the access token from Azure AD, which you use to assemble your request message header.
@@ -44,7 +48,7 @@ To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory
 - client_secret: {Client secret of Azure AD App}
 - resource: `"https://management.azure.com/"`
 
-To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or can send requests to the REST API in the following format:
+To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
 - Headers for using Azure AD App:
 - grant_type: "client_credentials"
@@ -78,13 +82,15 @@ The JSON object for the body contains the following fields:
 |SourceSystem (required)| string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
 |Value (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
-Create the array of indicators using the STIX 2.1 indicator format specification.  which has been condensed here for your convenience with links to important sections.
+Create the array of indicators using the STIX 2.1 indicator format specification, which has been condensed here for your convenience with links to important sections. Also note some properties, while valid for STIX 2.1, don't have corresponding indicator properties in Microsoft Sentinel.
 
 |Property Name	|Type |	Description |
 |----|----|----|
 |`id` (required)| string | An ID used to identify the indicator. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
 |`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API will default to `2.1`|
 |`type` (required)|	string | The value of this property *must* be `indicator`.|
+|`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
+|`modified` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
 |`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does. |
 |`indicator_types` (optional) | list of strings | A set of categorizations for this indicator.<br><br>The values for this property *should* come from the [indicator-type-ov](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_cvhfwe3t9vuo) |
@@ -99,10 +105,9 @@ Create the array of indicators using the STIX 2.1 indicator format specification
 |`labels` (optional) | list of strings | The `labels` property specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined. These labels will display as **Tags** in Microsoft Sentinel.|
 |`confidence` (optional) | integer | The `confidence` property identifies the confidence that the creator has in the correctness of their data. The confidence value *must* be a number in the range of 0-100.<br><br>[Appendix A](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_1v6elyto0uqg) contains a table of normative mappings to other confidence scales that *must* be used when presenting the confidence value in one of those scales.<br><br>If the confidence property is not present, then the confidence of the content is unspecified.|
 |`lang` (optional) | string | The `lang` property identifies the language of the text content in this object. When present, it *must* be a language code conformant to [RFC5646](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#kix.yoz409d7eis1). If the property isn't present, then the language of the content is `en` (English).<br><br>This property *should* be present if the object type contains translatable text properties (for example, name, description).<br><br>The language of individual fields in this object *may* override the `lang` property in granular markings (see section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr)).|
-|`object_marking_refs` (optional) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
-|`external_references` (optional) | list of object | The `external_references` property specifies a list of external references which refers to non-STIX information. This property is used to provide one or more URLs, descriptions, or IDs to records in
-other systems.|
-|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is `en` but the description is `de`.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
+|`object_marking_refs` (optional, including TLP) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object. For example, use the Traffic Light Protocol (TLP) marking definition ID to designate the sensitivity of the indicator source. For details of what marking-definition IDs to use for TLP content, see section [7.2.1.4](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_yd3ar14ekwrs)<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
+|`external_references` (optional) | list of object | The `external_references` property specifies a list of external references which refers to non-STIX information. This property is used to provide one or more URLs, descriptions, or IDs to records in other systems.|
+|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is English, `en` but the description is German, `de`.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
 
 
 ### Process the response message
@@ -190,7 +195,7 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
                 }
             ],
             "object_marking_refs": [
-                "marking-definition--8f2de1f8-4cbf-4413-8a05-cad5b3caaaeb"
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
             ],
             "granular_markings": [
                 {
@@ -200,14 +205,14 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
                 }
             ],
             "name": "Test Indicator 2",
-            "description": "This is a test indicator with all valid fields", 
+            "description": "This is a test indicator to demo valid fields", 
             "indicator_types": [
                 "threatstream-severity-low", "threatstream-confidence-80"
             ],
             "pattern": "[ipv4-addr:value = '192.168.1.1']", 
             "pattern_type": "stix",
             "pattern_version": "2.1",
-            "valid_from": "2023-021-01T18:29:07.778Z", 
+            "valid_from": "2023-01-01T18:29:07.778Z", 
             "valid_until": "2025-02-26T18:29:07.778Z",
             "kill_chain_phases": [
                 {

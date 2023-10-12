@@ -2,11 +2,11 @@
 title: Download blobs from Azure Blob Storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you download blobs from Azure Blob Storage. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -21,7 +21,7 @@ To see examples for other types of tasks such as uploading files, synchronizing 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 

@@ -50,7 +50,7 @@ Entitlement management can help address these challenges.  To learn more about h
 Here are some of capabilities of entitlement management:
 
 - Control who can get access to applications, groups, Teams and SharePoint sites, with multi-stage approval, and ensure users don't retain access indefinitely through time-limited assignments and recurring access reviews.
-- Give users access automatically to those resources, based on the user's properties like department or cost center, and remove a user's access when those properties change (preview).
+- Give users access automatically to those resources, based on the user's properties like department or cost center, and remove a user's access when those properties change.
 - Delegate to non-administrators the ability to create access packages. These access packages contain resources that users can request, and the delegated access package managers can define policies with rules for which users can request, who must approve their access, and when access expires.
 - Select connected organizations whose users can request access.  When a user who isn't yet in your directory requests access, and is approved, they're automatically invited into your directory and assigned access.  When their access expires, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
 
@@ -69,16 +69,16 @@ Entitlement management introduces the concept of an *access package*. An access 
 
  Here are the types of resources you can manage user's access to, with entitlement management:
 
-- Membership of Azure AD security groups
+- Membership of Microsoft Entra security groups
 - Membership of Microsoft 365 Groups and Teams
-- Assignment to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign-on and/or provisioning
+- Assignment to Microsoft Entra enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign-on and/or provisioning
 - Membership of SharePoint Online sites
 
-You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
+You can also control access to other resources that rely upon Microsoft Entra security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
-- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
-- You can give users access to manage Azure AD roles by using groups assignable to Azure AD roles in an access package and [assigning an Azure AD role to that group](../roles/groups-assign-role.md).
+- You can give users licenses for Microsoft 365 by using a Microsoft Entra security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
+- You can give users access to manage Azure resources by using a Microsoft Entra security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
+- You can give users access to manage Microsoft Entra roles by using groups assignable to Microsoft Entra roles in an access package and [assigning a Microsoft Entra role to that group](../roles/groups-assign-role.md).
 
 ## How do I control who gets access?
 
@@ -94,7 +94,7 @@ You can have policies for users to request access. In these kinds of policies, a
 - The approval process and the users that can approve or deny access
 - The duration of a user's access assignment, once approved, before the assignment expires
 
-You can also have policies for users to be assigned access, either by an administrator or [automatically](entitlement-management-access-package-auto-assignment-policy.md).
+You can also have policies for users to be assigned access, either [by an administrator](entitlement-management-access-package-assignments.md#directly-assign-a-user), [automatically based on rules](entitlement-management-access-package-auto-assignment-policy.md), or through lifecycle workflows.
 
 The following diagram shows an example of the different elements in entitlement management. It shows one catalog with two example access packages.
 
@@ -107,12 +107,12 @@ The following diagram shows an example of the different elements in entitlement 
 
 Access packages don't replace other mechanisms for access assignment.  They're most appropriate in situations such as:
 
-- Migrating access policy definitions from a third party [enterprise role management](identity-governance-organizational-roles.md) to Azure AD.
+- Migrating access policy definitions from a third party [enterprise role management](identity-governance-organizational-roles.md) to Microsoft Entra ID.
 - Employees need time-limited access for a particular task.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages for situations in which employees need more access rights. For example, rights to read departmental resources from another department.
 - Access that requires the approval of an employee's manager or other designated individuals.
 - Access that should be assigned automatically to people in a particular part of an organization during their time in that job role, but also available for people elsewhere in the organization, or in a business partner organization, to request.
 - Departments wish to manage their own access policies for their resources without IT involvement.
-- Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Azure AD B2B to access another organization's resources.
+- Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Microsoft Entra B2B to access another organization's resources.
 
 ## How do I delegate access?
 
@@ -129,7 +129,7 @@ To better understand entitlement management and its documentation, you can refer
 | assignment | An assignment of an access package to a user ensures the user has all the resource roles of that access package. Access package assignments typically have a time limit before they expire. |
 | catalog | A container of related resources and access packages. Catalogs are used for delegation, so that non-administrators can create their own access packages. Catalog owners can add resources they own to a catalog. |
 | catalog creator | A collection of users who are authorized to create new catalogs. When a non-administrator user who is authorized to be a catalog creator creates a new catalog, they automatically become the owner of that catalog. |
-| connected organization | An external Azure AD directory or domain that you have a relationship with. The users from a connected organization can be specified in a policy as being allowed to request access. |
+| connected organization | An external Microsoft Entra directory or domain that you have a relationship with. The users from a connected organization can be specified in a policy as being allowed to request access. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access through an assignment. A policy is linked to an access package. For example, an access package could have two policies - one for employees to request access and a second for external users to request access. |
 | resource | An asset, such as an Office group, a security group, an application, or a SharePoint Online site, with a role that a user can be granted permissions to. |
 | resource directory | A directory that has one or more resources to share. |
@@ -138,46 +138,11 @@ To better understand entitlement management and its documentation, you can refer
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
-
-### How many licenses must you have?
-
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
-
-- Member users who *can* request an access package.
-- Member users who *request* an access package.
-- Member users who *approve requests* for an access package.
-- Member users who *review assignments* for an access package.
-- Member users who have a *direct assignment* or an *automatic assignment* to an access package.
-
-For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
-- Guest users who *request* an access package.
-- Guest users who *approve requests* for an access package.
-- Guest users who *review assignments* for an access package.
-- Guest users who have a *direct assignment* to an access package.
-
-Azure AD Premium P2 licenses are **not** required for the following tasks:
-
-- No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
-- No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
-- No licenses are required for guests who have **a privilege to request access packages** but they **do not choose** to request them.
-
-For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
-
-### Example license scenarios
-
-Here are some example license scenarios to help you determine the number of licenses you must have.
-
-| Scenario | Calculation | Number of licenses |
-| --- | --- | --- |
-| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to six other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
-| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to six other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner Contoso** (guests) can request the same access packages subject to approval. Contoso has 30,000 users. 150 employees request the access packages and 10,500 users from Contoso request access. | 2,000 employees need licenses, guest users are billed on a monthly active user basis and no additional licenses are required for them. * | 2,000 |
-
-\* Azure AD External Identities (guest user) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model. For more information, see [Billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md).
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 
 ## Next steps
 
-- If you're interested in using the Azure portal to manage access to resources, see [Tutorial: Manage access to resources - Azure portal](entitlement-management-access-package-first.md).
+- If you're interested in using the Microsoft Entra admin center to manage access to resources, see [Tutorial: Manage access to resources - Microsoft Entra](entitlement-management-access-package-first.md).
 - if you're interested in using Microsoft Graph to manage access to resources, see [Tutorial: manage access to resources - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Common scenarios](entitlement-management-scenarios.md)

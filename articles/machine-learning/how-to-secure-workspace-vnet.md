@@ -8,22 +8,18 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/19/2023
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
 
-[!INCLUDE [sdk/cli v2](../../includes/machine-learning-dev-v2.md)]
-
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
-> * [v2 (current version)](how-to-secure-workspace-vnet.md)
-> * [v1](v1/how-to-secure-workspace-vnet.md?view=azureml-api-1&preserve-view=true)
-
-In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
 [!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
+In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
@@ -55,12 +51,7 @@ In this article you learn how to enable the following workspaces resources in a 
     > [!IMPORTANT]
     > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Azure Container Registry
 
@@ -74,14 +65,14 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ### Azure storage account
 
-* If you plan to use Azure Machine Learning studio and the storage account is also in the VNet, there are extra validation requirements:
+* If you plan to use Azure Machine Learning studio and the storage account is also in the virtual network, there are extra validation requirements:
 
-    * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
+    * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the virtual network.
+    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same virtual network. In this case, they can be in different subnets.
 
 ### Azure Container Instances
 
-When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet isn't supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a virtual network isn't supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
 
 ### Azure Container Registry
 
@@ -100,7 +91,7 @@ When ACR is behind a virtual network, Azure Machine Learning can't use it to dir
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Configure required input and output communication](how-to-access-azureml-behind-firewall.md).
 
@@ -143,7 +134,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a private endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 # [Service endpoint](#tab/se)
 
@@ -166,7 +157,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 ---
 
@@ -215,7 +206,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension doesn't return this information.
 
@@ -227,7 +218,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme):
 
@@ -263,7 +254,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Configure the ACR for the workspace to [Allow access by trusted services](../container-registry/allow-access-trusted-services.md).
 
-1. Create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a VNet. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
+1. Create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a virtual network. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
 
 1. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
@@ -284,7 +275,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
     # import required libraries
@@ -325,32 +316,34 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
 
-1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](../azure-monitor/app/convert-classic-resource.md).
+1. Open your Application Insights resource in the Azure portal. The __Overview__ tab may or may not have a Workspace property. If it _doesn't_ have the property, perform step 2. If it _does_, then you can proceed directly to step 3.
 
     > [!TIP]
-    > New workspaces create a workspace-based Application Insights resource by default.
+    > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
+   
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
 
-1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For steps on how to do this, see [Configure your Azure Monitor private link](../azure-monitor/logs/private-link-configure.md).
+1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For more information, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](includes/machine-learning-workspace-diagnostics.md)]
 
 ## Public access to workspace
 
 > [!IMPORTANT]
 > While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend it. You should verify this configuration with your security team before using it in production.
 
-In some cases, you may need to allow access to the workspace from the public network (without connecting through the VNet using the methods detailed the [Securely connect to your workspace](#securely-connect-to-your-workspace) section). Access over the public internet is secured using TLS.
+In some cases, you may need to allow access to the workspace from the public network (without connecting through the virtual network using the methods detailed the [Securely connect to your workspace](#securely-connect-to-your-workspace) section). Access over the public internet is secured using TLS.
 
 To enable public network access to the workspace, use the following steps:
 
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace after configuring the workspace's private endpoint.
-1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet. You may need to change the allowed IP address if the clients don't have a static IP. For example, if one of your Data Scientists is working from home and can't establish a VPN connection to the VNet.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet. You may need to change the allowed IP address if the clients don't have a static IP. For example, if one of your Data Scientists is working from home and can't establish a VPN connection to the virtual network.
 
 ## Next steps
 

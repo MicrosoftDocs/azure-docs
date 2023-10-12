@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference'
+title: 'Microsoft Entra Connect: ADConnectivityTools PowerShell Reference'
 description: This document provides reference information for the ADConnectivityTools.psm1 PowerShell module.
 author: billmath
 manager: amycolannino
@@ -10,11 +10,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
-# Azure AD Connect:  ADConnectivityTools PowerShell Reference
+# Microsoft Entra Connect:  ADConnectivityTools PowerShell Reference
 
-The following documentation provides reference information for the ADConnectivityTools PowerShell Module that is included with Azure AD Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
+The following documentation provides reference information for the `ADConnectivityTools` PowerShell module included with Microsoft Entra Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
 
 ## Confirm-DnsConnectivity
 
@@ -272,7 +272,7 @@ Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObje
 
 Runs local network connectivity tests.
 
-For the local networking tests, AAD Connect must be able to communicate with the named
+For the local networking tests, Microsoft Entra Connect must be able to communicate with the named
 domain controllers on ports 53 (DNS), 88 (Kerberos) and 389 (LDAP) Most organizations run DNS
 on their DCs, which is why this test is currently integrated.
 Port 53 should be skipped
@@ -882,7 +882,7 @@ Accept wildcard characters: False
 #### -Credentials
 
 The user name and password of the user that is running the test.
-It requires the same level of permissions that is required to run the Azure AD Connect Wizard.
+It requires the same level of permissions that is required to run the Microsoft Entra Connect Wizard.
 
 ```yml
 Type: PSCredential

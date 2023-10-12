@@ -2,6 +2,7 @@
 title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
 ms.topic: how-to
+ms.custom: devx-track-linux
 ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
@@ -297,4 +298,4 @@ After resizing a node pool by cordoning and draining, learn more about [using mu
 [empty-dir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
 [specify-disruption-budget]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 [disruptions]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md

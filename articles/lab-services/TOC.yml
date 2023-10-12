@@ -18,13 +18,21 @@
       href: quick-create-connect-lab.md
 - name: Tutorials
   items:
-  - name: Set up a lab for classroom training
-    displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
-    href: tutorial-setup-lab.md
+  - name: Use labs for classroom training
+    items:
+    - name: 1. Create and configure a lab
+      displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
+      href: tutorial-setup-lab.md
+    - name: 2. Register & access a lab
+      href: tutorial-connect-lab-virtual-machine.md
+  - name: Use labs from Teams & Canvas
+    items:
+      - name: 1. Create a lab in Teams & Canvas
+        href: tutorial-setup-lab-teams-canvas.md
+      - name: 2. Access a lab from Teams & Canvas
+        href: tutorial-access-lab-virtual-machine-teams-canvas.md
   - name: Set up lab to lab communication
     href: tutorial-create-lab-with-advanced-networking.md
-  - name: Access a lab
-    href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
   - name: Set up a lab account
@@ -42,9 +50,12 @@
   - name: Migrate lab account role assignments
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
     href: concept-migrate-from-lab-accounts-roles.md
+  - name: Supported networking topologies
+    displayName: advanced, networking, vnet, subnet, hybrid, connectivity, VPN, ExpressRoute, peering, NAT, gateway, firewall, proxy, load balancer, Azure Bastion, Azure Firewall, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer, Azure Bastion, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer
+    href: concept-lab-services-supported-networking-scenarios.md
   - name: Migrate from physical labs
     href: concept-migrating-physical-labs.md
-  - name: Nested virtualization on a template VM
+  - name: Nested virtualization
     href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
@@ -119,29 +130,27 @@
     href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
-    - name: Request core limit increase
-      href: how-to-request-capacity-increase.md?tabs=Labplans
-    - name: Determine Usage and Quota
-      href: how-to-determine-your-quota-usage.md
     - name: Create and manage lab plans
       items:
       - name: Create & manage lab plans (Azure portal)
         href: how-to-manage-lab-plans.md
-      - name: Create a lab plan (ARM template)
-        href: how-to-create-lab-plan-template.md
       - name: Create a lab plan (PowerShell)
         href: how-to-create-lab-plan-powershell.md
-      - name: Create a lab plan (Bicep)
+      - name: Create a lab plan (Bicep/ARM template)
         href: how-to-create-lab-plan-bicep.md
       - name: Create a lab plan (Python)
         href: how-to-create-lab-plan-python.md
     - name: Add a lab creator
       href: add-lab-creator.md
-    - name: Configure auto-shutdown settings
-      href: how-to-configure-auto-shutdown-lab-plans.md
-    - name: Connect to a virtual network
+    - name: Connect a lab plan to a virtual network
       displayName: VNET, injection, advanced, networking, hybrid, on-premise
       href: how-to-connect-vnet-injection.md
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md?tabs=Labplans
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md
+    - name: Configure auto-shutdown settings
+      href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
     - name: Specify Marketplace images for labs 
@@ -166,7 +175,7 @@
             href: how-to-bring-custom-linux-image-vhd.md
     - name: Specify support information
       href: lab-account-owner-support-information.md
-    - name: Manage labs
+    - name: Manage labs in the Azure portal
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
@@ -175,19 +184,23 @@
     - name: Restrict VM sizes allowed for labs
       href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
-    items:        
-    - name: Create and manage labs
+    items:
+    - name: Create labs (ARM/PowerShell/Bicep/Python)
       items:
-      - name: Create and manage labs (website)
-        href: how-to-manage-labs.md
-      - name: Create a lab (ARM template)
-        href: how-to-create-lab-template.md
       - name: Create a lab (PowerShell)
         href: how-to-create-lab-powershell.md
-      - name: Create a lab (Bicep)
+      - name: Create a lab (Bicep/ARM template)
         href: how-to-create-lab-bicep.md
       - name: Create a lab (Python)
         href: how-to-create-lab-python.md
+    - name: Manage labs
+      href: how-to-manage-labs.md
+    - name: Add and manage lab users
+      href: how-to-manage-lab-users.md
+    - name: Create and manage schedules
+      href: how-to-create-schedules.md
+    - name: Manage virtual machine pool
+      href: how-to-manage-vm-pool.md
     - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux
@@ -198,8 +211,6 @@
       href: how-to-create-manage-template.md
     - name: Use lab dashboard
       href: use-dashboard.md
-    - name: Add and manage lab users
-      href: how-to-configure-student-usage.md      
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
     - name: Control Windows shutdown behavior
@@ -208,23 +219,17 @@
       href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
-    - name: Create and manage schedules
-      href: how-to-create-schedules.md
-    - name: Manage virtual machine pool
-      href: how-to-manage-vm-pool.md
     - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md
     - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
       href: how-to-enable-shutdown-disconnect.md      
-    - name: View support information
-      href: lab-creator-support-information.md
-  - name: Connect to VMs in labs (student)
-    items:        
-    - name: Access labs
-      href: how-to-use-lab.md
-    - name: Connect to VM
+  - name: Connect to lab VMs (student)
+    items:
+    - name: Access a lab VM
+      href: how-to-access-lab-virtual-machine.md
+    - name: Connect to a lab VM
       href: connect-virtual-machine.md
     - name: Connect to a VM from Windows using RDP
       href: connect-virtual-machine-windows-rdp.md              
@@ -234,28 +239,16 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: Troubleshoot a lab VM
+    - name: Redeploy or reimage a lab VM
       href: how-to-reset-and-redeploy-vm.md  
-    - name: Set or reset passwords for VMs 
+    - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
-    - name: View support information (student)
-      href: lab-user-support-information.md
-  - name: Use labs within Canvas
+  - name: Use labs within Teams & Canvas
     items:
       - name: Configure Canvas to use the service
         href: how-to-configure-canvas-for-lab-plans.md
-      - name: Create & manage labs
-        href: how-to-manage-labs-within-canvas.md
-      - name: Access a lab VM
-        href: how-to-access-vm-for-students-within-canvas.md     
-  - name: Use labs within Teams
-    items:
       - name: Configure Teams to use the service
         href: how-to-configure-teams-for-lab-plans.md
-      - name: Create & manage labs
-        href: how-to-manage-labs-within-teams.md
-      - name: Access a lab VM
-        href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
     items:
     - name: Labs architecture fundamentals

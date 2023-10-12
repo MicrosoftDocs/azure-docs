@@ -4,8 +4,9 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 02/28/2023
-ms.custom: engagement-fy23
+ms.date: 08/24/2023
+ms.service: azure-migrate
+ms.custom: engagement-fy24
 ---
 
 
@@ -14,7 +15,7 @@ ms.custom: engagement-fy23
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn how to: 
 
 > [!div class="checklist"]
 > * Run an assessment based on web apps configuration data.
@@ -26,14 +27,14 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md)
+- Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Migrate appliance for [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [Physical servers](tutorial-discover-physical.md).
 - If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Run an assessment
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
 
@@ -53,7 +54,7 @@ Run an assessment as follows:
     --- | ---
     **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
     **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans.
-    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
         - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.

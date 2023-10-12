@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AD Connect cloud sync FAQ
+  title: Microsoft Entra Connect cloud sync FAQ
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
@@ -8,13 +8,13 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 02/08/2023
+  ms.date: 06/21/2023
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-title: Azure Active Directory Connect cloud sync FAQ
+title: Microsoft Entra Connect cloud sync FAQ
 summary: |
-  Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud sync.
+  Read about frequently asked questions for Microsoft Entra Connect cloud sync.
 
 sections:
   - name: General installation
@@ -22,22 +22,22 @@ sections:
       - question: |
           How often does cloud sync run?
         answer: |
-          Cloud provisioning is scheduled to run every 2 mins. Every 2 mins, any user, group and password hash changes will be provisioned to Azure AD.
+          Cloud provisioning is scheduled to run every 2 mins. Every 2 mins, any user, group and password hash changes will be provisioned to Microsoft Entra ID.
 
       - question: |
           Seeing password hash sync failures on the first run. Why?
         answer: |
-          This behavior is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned, wait for a couple of runs and confirm that password hash sync no longer has the errors.
+          This behavior is expected. The failures are due to the user object not present in Microsoft Entra ID. Once the user is provisioned, wait for a couple of runs and confirm that password hash sync no longer has the errors.
 
       - question: |
           What happens if the Active Directory instance has attributes that aren't supported by cloud sync (for instance, directory extensions)?
         answer: |
-          Cloud provisioning will run and provision the supported attributes. The unsupported attributes won't be provisioned to Azure AD. Review the directory extensions in Active Directory and ensure that you don't need those attributes to flow to Azure AD. If one or more attributes are required, consider using Azure AD Connect sync or moving the required information to one of the supported attributes (for instance, extension attributes 1-15).
+          Cloud provisioning will run and provision the supported attributes. The unsupported attributes won't be provisioned to Microsoft Entra ID. Review the directory extensions in Active Directory and ensure that you don't need those attributes to flow to Microsoft Entra ID. If one or more attributes are required, consider using Microsoft Entra Connect Sync or moving the required information to one of the supported attributes (for instance, extension attributes 1-15).
 
       - question: |
-          What's the difference between Azure AD Connect sync and cloud sync?
+          What's the difference between Microsoft Entra Connect Sync and cloud sync?
         answer: |
-          With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. 
+          With Microsoft Entra Connect Sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Microsoft Entra Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Microsoft Entra provisioning service. See the detailed article [What is Microsoft Entra Connect cloud sync](what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) for a detailed comparison.
 
       - question: |
           Can I use cloud sync to sync from multiple Active Directory forests?
@@ -67,7 +67,7 @@ sections:
       - question: |
           What happens when a synced user is required to change password on next logon?
         answer: |
-          If password hash sync is enabled in cloud sync and the synced user is required to change password on next logon in on-premises AD, cloud sync doesn't provision the "to-be-changed" password hash to Azure AD. Once the user changes the password, the user password hash is provisioned from AD to Azure AD.
+          If password hash sync is enabled in cloud sync and the synced user is required to change password on next logon in on-premises AD, cloud sync doesn't provision the "to-be-changed" password hash to Microsoft Entra ID. Once the user changes the password, the user password hash is provisioned from AD to Microsoft Entra ID.
 
       - question: |
           Does cloud sync support writeback of ms-ds-consistencyGUID for any object?
@@ -75,19 +75,24 @@ sections:
           No, cloud sync doesn't support writeback of ms-ds-consistencyGUID for any object (including user objects). 
 
       - question: |
-          I'm provisioning users using cloud sync. I deleted the configuration. Why do I still see the old synced objects in Azure AD? 
+          I'm provisioning users using cloud sync. I deleted the configuration. Why do I still see the old synced objects in Microsoft Entra ID? 
         answer: |
-          When you delete the configuration, cloud sync doesn't automatically remove the synced objects in Azure AD. To ensure you Don't have the old objects, change the scope of the configuration to an empty group or Organizational Units. Once the provisioning runs and cleans up the objects, disable and delete the  configuration. 
+          When you delete the configuration, cloud sync doesn't automatically remove the synced objects in Microsoft Entra ID. To ensure you Don't have the old objects, change the scope of the configuration to an empty group or Organizational Units. Once the provisioning runs and cleans up the objects, disable and delete the  configuration. 
 
       - question: |
-          What does it mean that Exchange hybrid isn't supported?
+          Does cloud sync support Exchange hybrid?
         answer: |
-          The Exchange Hybrid Deployment feature allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently doesn't synchronize these attributes back into your on-premises directory and thus it'sn't supported as a replacement for Azure AD Connect.
+          Yes.  Cloud sync now supports Exchange hybrid scenarios.  For more information see [Exchange hybrid with cloud sync](exchange-hybrid.md)
 
       - question: |
           Can I install the cloud provisioning agent on Windows Server Core?
         answer: |
           No, installing the agent on server core isn't supported.
+
+      - question: |
+          Can I install the cloud provisioning agent on the same server as Microsoft Entra Connect Sync?
+        answer: |
+          Yes, installing the agent on the same server is supported.
 
       - question: |
           Can I use a staging server with the cloud provisioning agent?
@@ -100,21 +105,21 @@ sections:
           No, synchronizing a guest user account isn't supported.
 
       - question: |
-          If I move a user from an OU that is scoped for cloud sync to an OU that is scoped for Azure AD Connect, what happens?
+          If I move a user from an OU that is scoped for cloud sync to an OU that is scoped for Microsoft Entra Connect, what happens?
         answer: |
-          The user will be deleted and recreated.  Moving a user from an OU that is scoped for cloud sync will be viewed as a delete operation.  If the user is moved to an OU that is managed by Azure AD Connect, it will be reprovisioned to Azure AD and a new user created.
+          The user will be deleted and recreated.  Moving a user from an OU that is scoped for cloud sync will be viewed as a delete operation.  If the user is moved to an OU that is managed by Microsoft Entra Connect, it will be reprovisioned to Microsoft Entra ID and a new user created.
 
       - question: |
-          If I rename or move the OU that is in scope for the cloud sync filter, what happens to the user that were created in Azure AD?
+          If I rename or move the OU that is in scope for the cloud sync filter, what happens to the user that were created in Microsoft Entra ID?
         answer: |
           Nothing.  The users won't be deleted if the OU is renamed or moved.
 
       - question: |
-          Does Azure AD Connect cloud sync support large groups?
+          Does Microsoft Entra Connect cloud sync support large groups?
         answer: |
           Yes. Today we support up to 50,000 group members synchronized using the OU scope filtering. 
       - question: |
-          Does Azure AD Connect cloud sync support nested groups with group scoping?
+          Does Microsoft Entra Connect cloud sync support nested groups with group scoping?
         answer: |
           No. Nested objects beyond the first level won't be included when scoping using security groups. Only use group scope filtering for pilot scenarios, there are limitations to syncing large groups. 
       - question: |
@@ -130,5 +135,5 @@ additionalContent: |
   ## Next steps 
   
   - [What is provisioning?](../what-is-provisioning.md)
-  - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+  - [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
           

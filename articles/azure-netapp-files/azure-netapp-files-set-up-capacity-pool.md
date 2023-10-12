@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 09/19/2023
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -21,7 +21,11 @@ Creating a capacity pool enables you to create volumes within it.
 
 ## Before you begin 
 
-You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).   
+* You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).
+* If you are using Azure CLI, ensure that you are using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* If you are using PowerShell, ensure that you are using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module?view=powershellget-2.x).
+* If you are using the Azure REST API, ensure that you are specifying the latest version.
+
 
 ## Steps 
 
@@ -44,7 +48,7 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
      The minimum capacity pool size is 2 TiB. You can change the size of a capacity pool in 1-TiB increments.
-
+    
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
@@ -56,10 +60,30 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
      > [!IMPORTANT] 
      > Setting **QoS type** to **Manual** is permanent. You cannot convert a manual QoS capacity pool to use auto QoS. However, you can convert an auto QoS capacity pool to use manual QoS. See [Change a capacity pool to use manual QoS](manage-manual-qos-capacity-pool.md#change-to-qos).   
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot of new capacity pool options.":::
+   * **Encryption type** <a name="encryption_type"></a>      
+        Specify whether you want the volumes in this capacity pool to use **single** or **double** encryption. See [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) for details.   
+        > [!IMPORTANT] 
+        > Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. See [considerations](double-encryption-at-rest.md#considerations) for using Azure NetApp Files double encryption at rest.  
+        >
+        > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
+
+        Azure NetApp Files double encryption at rest is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
+        1. Register the feature: 
+            ```azurepowershell-interactive
+            Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
+            ```
+        2. Check the status of the feature registration. `RegistrationState` may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing. 
+            ```azurepowershell-interactive
+            Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
+            ```   
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
+
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
 
 4. Select **Create**.
 
+    The **Capacity pools** page shows the configurations for the capacity pool.  
+    
 ## Next steps 
 
 - [Storage Hierarchy](azure-netapp-files-understand-storage-hierarchy.md) 
@@ -67,3 +91,4 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
 - [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)
 - [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md)
 - [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+- [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md)

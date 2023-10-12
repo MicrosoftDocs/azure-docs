@@ -1,6 +1,6 @@
 ---
-title: 'How to fix modified default rules - Azure AD Connect'
-description: Learn how to fix modified default rules that come with Azure AD Connect.
+title: 'How to fix modified default rules - Microsoft Entra Connect'
+description: Learn how to fix modified default rules that come with Microsoft Entra Connect.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,17 +14,17 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Fix modified default rules in Azure AD Connect
+# Fix modified default rules in Microsoft Entra Connect
 
-Azure Active Directory (Azure AD) Connect uses default rules for synchronization.  Unfortunately, these rules don't apply universally to all organizations. Based on your requirements, you might need to modify them. This article discusses two examples of the most common customizations, and explains the correct way to achieve these customizations.
+Microsoft Entra Connect uses default rules for synchronization.  Unfortunately, these rules don't apply universally to all organizations. Based on your requirements, you might need to modify them. This article discusses two examples of the most common customizations, and explains the correct way to achieve these customizations.
 
 >[!NOTE] 
 > Modifying existing default rules to achieve a needed customization isn't supported. If you do so, it prevents updating these rules to the latest version in future releases. You won't get the bug fixes you need, or new features. This document explains how to achieve the same result without modifying the existing default rules. 
 
 ## How to identify modified default rules
-Starting with version 1.3.7.0 of Azure AD Connect, it's easy to identify the modified default rule. Go to **Apps on Desktop**, and select **Synchronization Rules Editor**.
+Starting with version 1.3.7.0 of Microsoft Entra Connect, it's easy to identify the modified default rule. Go to **Apps on Desktop**, and select **Synchronization Rules Editor**.
 
-![Azure AD Connect, with Synchronization Rules Editor highlighted](media/how-to-connect-fix-default-rules/default1.png)
+![Microsoft Entra Connect, with Synchronization Rules Editor highlighted](media/how-to-connect-fix-default-rules/default1.png)
 
 In the Editor, any modified default rules are shown with a warning icon in front of the name.
 
@@ -59,13 +59,13 @@ There are three different scenarios for changing the attribute flow:
 You can do these without altering standard default rules.
 
 ### Add a new attribute
-If you find that an attribute is not flowing from your source directory to the target directory, use the [Azure AD Connect sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md) to fix this.
+If you find that an attribute is not flowing from your source directory to the target directory, use the [Microsoft Entra Connect Sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md) to fix this.
 
 If the extensions don't work for you, try adding two new sync rules, described in the following sections.
 
 
 #### Add an inbound sync rule
-An inbound sync rule means the source for the attribute is a connector space, and the target is the metaverse. For example, to have a new attribute flow from on-premises Active Directory to Azure Active Directory, create a new inbound sync rule. Launch the **Synchronization Rules Editor**, select **Inbound** as the direction, and select **Add new rule**. 
+An inbound sync rule means the source for the attribute is a connector space, and the target is the metaverse. For example, to have a new attribute flow from on-premises Active Directory to Microsoft Entra ID, create a new inbound sync rule. Launch the **Synchronization Rules Editor**, select **Inbound** as the direction, and select **Add new rule**. 
 
  ![Screenshot that shows the "Synchronization Rules Editor" with "Inbound" and "Add new rule" selected.](media/how-to-connect-fix-default-rules/default3a.png)
 
@@ -90,32 +90,32 @@ To link the attribute to the target directory, you need to create an outbound ru
 
 ![Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3c.png)
 
-As with the inbound rule, you can use your own naming convention to name the rule. Select the **Connected System** as the Azure AD tenant, and select the connected system object to which you want to set the attribute value. Set the precedence from 0 through 99. 
+As with the inbound rule, you can use your own naming convention to name the rule. Select the **Connected System** as the Microsoft Entra tenant, and select the connected system object to which you want to set the attribute value. Set the precedence from 0 through 99. 
 
 ![Create outbound synchronization rule](media/how-to-connect-fix-default-rules/default3d.png)
 
 Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as constant, direct, or expression. 
 
-You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/office365/enterprise/prepare-for-directory-synchronization).
+You now know how to make a new attribute for a user object flow from Active Directory to Microsoft Entra ID. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### Override the value of an existing attribute
-You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Azure AD, simply create an inbound rule only. Make the expression value, `AuthoritativeNull`, flow to the target attribute. 
+You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Microsoft Entra ID, simply create an inbound rule only. Make the expression value, `AuthoritativeNull`, flow to the target attribute. 
 
 >[!NOTE] 
 > Use `AuthoritativeNull` instead of `Null` in this case. This is because the non-null value replaces the null value, even if it has lower precedence (a higher number value in the rule). `AuthoritativeNull`, on the other hand, isn't replaced with a non-null value by other rules. 
 
 ### Don’t sync existing attribute
-If you want to exclude an attribute from syncing, use the attribute filtering feature provided in Azure AD Connect. Launch **Azure AD Connect** from the desktop icon, and then select **Customize synchronization options**.
+If you want to exclude an attribute from syncing, use the attribute filtering feature provided in Microsoft Entra Connect. Launch **Microsoft Entra Connect** from the desktop icon, and then select **Customize synchronization options**.
 
-![Azure AD Connect additional tasks options](media/how-to-connect-fix-default-rules/default4.png)
+![Microsoft Entra Connect additional tasks options](media/how-to-connect-fix-default-rules/default4.png)
 
- Make sure **Azure AD app and attribute filtering** is selected, and select **Next**.
+ Make sure **Microsoft Entra app and attribute filtering** is selected, and select **Next**.
 
-![Azure AD Connect optional features](media/how-to-connect-fix-default-rules/default5.png)
+![Microsoft Entra Connect optional features](media/how-to-connect-fix-default-rules/default5.png)
 
 Clear the attributes that you want to exclude from syncing.
 
-![Azure AD Connect attributes](media/how-to-connect-fix-default-rules/default6a.png)
+![Microsoft Entra Connect attributes](media/how-to-connect-fix-default-rules/default6a.png)
 
 ## Change scoping filter
 Azure AD Sync takes care of most of the objects. You can reduce the scope of objects, and reduce the number of objects to be exported, without changing the standard default sync rules. 
@@ -128,7 +128,7 @@ Use one of the following methods to reduce the scope of the objects you're synci
 If you reduce the scope of the users being synced, the password hash syncing also stops for the filtered-out users. If the objects are already syncing, after you reduce scope, the filtered-out objects are deleted from the target directory. For this reason, ensure that you scope very carefully.
 
 >[!IMPORTANT] 
-> Increasing the scope of objects configured by Azure AD Connect isn't recommended. Doing so makes it difficult for the Microsoft support team to understand the customizations. If you must increase the scope of objects, edit the existing rule, clone it, and disable the original rule. 
+> Increasing the scope of objects configured by Microsoft Entra Connect isn't recommended. Doing so makes it difficult for the Microsoft support team to understand the customizations. If you must increase the scope of objects, edit the existing rule, clone it, and disable the original rule. 
 
 ### cloudFiltered attribute
 You can't set this attribute in Active Directory. Set the value of this attribute by adding a new inbound rule. You can then use **Transformation** and **Expression** to set this attribute in the metaverse. The following example shows that you don’t want to sync all the users whose department name starts with **HRD** (case-insensitive):
@@ -140,23 +140,23 @@ We first converted the department from source (Active Directory) to lowercase. T
 ![Create inbound synchronization rule options](media/how-to-connect-fix-default-rules/default7a.png)
 
 ### Organizational unit filtering
-You can create one or more organizational units (OUs), and move the objects you don’t want to sync to these OUs. Then, configure the OU filtering in Azure AD Connect. Launch **Azure AD Connect** from the desktop icon, and select the following options. You can also configure the OU filtering at the time of installation of Azure AD Connect. 
+You can create one or more organizational units (OUs), and move the objects you don’t want to sync to these OUs. Then, configure the OU filtering in Microsoft Entra Connect. Launch **Microsoft Entra Connect** from the desktop icon, and select the following options. You can also configure the OU filtering at the time of installation of Microsoft Entra Connect. 
 
-![Azure AD Connect additional tasks](media/how-to-connect-fix-default-rules/default8.png)
+![Microsoft Entra Connect additional tasks](media/how-to-connect-fix-default-rules/default8.png)
 
 Follow the wizard, and clear the OUs you don’t want to sync.
 
-![Azure AD Connect Domain and OU filtering options](media/how-to-connect-fix-default-rules/default9.png)
+![Microsoft Entra Connect Domain and OU filtering options](media/how-to-connect-fix-default-rules/default9.png)
 
 ## Change join condition
-Use the default join conditions configured by Azure AD Connect. Changing default join conditions makes it difficult for Microsoft support to understand the customizations and support the product.
+Use the default join conditions configured by Microsoft Entra Connect. Changing default join conditions makes it difficult for Microsoft support to understand the customizations and support the product.
 
 ## Validate sync rule
-You can validate the newly added sync rule by using the preview feature, without running the full sync cycle. In Azure AD Connect, select **Synchronization Service**.
+You can validate the newly added sync rule by using the preview feature, without running the full sync cycle. In Microsoft Entra Connect, select **Synchronization Service**.
 
-![Azure AD Connect, with Synchronization Service highlighted](media/how-to-connect-fix-default-rules/default10.png)
+![Microsoft Entra Connect, with Synchronization Service highlighted](media/how-to-connect-fix-default-rules/default10.png)
 
-Select **Metaverse Search**. Select the scope object as **person**, select **Add Clause**, and mention your search criteria. Next, select **Search**, and double-click the object in the search results. Make sure that your data in Azure AD Connect is up-to-date for that object, by running import and sync on the forest before you run this step.
+Select **Metaverse Search**. Select the scope object as **person**, select **Add Clause**, and mention your search criteria. Next, select **Search**, and double-click the object in the search results. Make sure that your data in Microsoft Entra Connect is up-to-date for that object, by running import and sync on the forest before you run this step.
 
 ![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 

@@ -5,6 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
+ms.service: azure-migrate
 ms.date: 09/23/2021
 ms.custom: engagement-fy23
 ---
@@ -110,13 +111,15 @@ You have two options:
 - To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal.
 - You can also assign the required roles and [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration.
 
-## "Azure Active Directory (AAD) operation failed with status Forbidden" error occurs during appliance registration
+<a name='azure-active-directory-aad-operation-failed-with-status-forbidden-error-occurs-during-appliance-registration'></a>
 
-You're unable to complete registration because of insufficient Azure Active Directory privileges and get the error "Azure Active Directory (AAD) operation failed with status Forbidden."
+## "Microsoft Entra operation failed with status Forbidden" error occurs during appliance registration
+
+You're unable to complete registration because of insufficient Microsoft Entra ID privileges and get the error "Microsoft Entra operation failed with status Forbidden."
 
 ### Remediation
 
-Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Azure Active Directory applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
+Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Microsoft Entra applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" error occurs during appliance registration
 

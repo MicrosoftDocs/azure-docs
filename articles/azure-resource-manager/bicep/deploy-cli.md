@@ -1,10 +1,8 @@
 ---
 title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/08/2022
+ms.date: 06/13/2023
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -73,7 +71,7 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 az group create --name ExampleGroup --location "Central US"
 ```
 
-To deploy a local Bicep file, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value.
+To deploy a local Bicep file, use the `--template-file` switch in the deployment command. The following example also shows how to set a parameter value.
 
 ```azurecli-interactive
 az deployment group create \
@@ -95,7 +93,7 @@ Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameter file.
+To pass parameter values, you can use either inline parameters or a parameters file.
 
 ### Inline parameters
 
@@ -105,7 +103,7 @@ To pass inline parameters, provide the values in `parameters`. For example, to p
 az deployment group create \
   --resource-group testgroup \
   --template-file <path-to-bicep> \
-  --parameters exampleString='inline string' exampleArray='("value1", "value2")'
+  --parameters exampleString='inline string' exampleArray='["value1", "value2"]'
 ```
 
 If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the array in the format: `exampleArray="['value1','value2']"`.
@@ -174,13 +172,25 @@ az deployment group create \
 
 However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
-### Parameter files
+The evaluation of parameters follows a sequential order, meaning that if a value is assigned multiple times, only the last assigned value is used. To ensure proper parameter assignment, it is advised to provide your parameters file initially and selectively override specific parameters using the _KEY=VALUE_ syntax. It's important to mention that if you are supplying a `bicepparam` parameters file, you can use this argument only once.
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Bicep file uses JSON parameter files.
+### Parameters files
 
-For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
+Rather than passing parameters as inline values in your script, you may find it easier to use a `.bicepparam` file or a JSON file that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
-To pass a local parameter file, specify the path and file name. The following example shows a parameter file named _storage.parameters.json_. The file is in the same directory where the command is run.
+For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+
+To pass a local Bicep parameters file, specify the path and file name. The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.bicep \
+  --parameters storage.bicepparam
+```
+
+The following example shows a parameters file named _storage.parameters.json_. The file is in the same directory where the command is run.
 
 ```azurecli-interactive
 az deployment group create \

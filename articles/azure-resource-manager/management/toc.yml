@@ -202,6 +202,8 @@
     href: async-operations.md
   - name: Control plane metrics in Azure Monitor 
     href: control-plane-metrics.md
+  - name: Resource group insights
+    href: ../../azure-monitor/insights/resource-group-insights.md
 - name: Reference
   items:
   - name: REST

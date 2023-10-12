@@ -1,6 +1,6 @@
 ---
-title: What's new in Sovereign Clouds? Release notes
-description: Learn what is new with Azure Active Directory Sovereign Cloud.
+title: What's new in Azure Sovereign Clouds? Release notes
+description: Learn what is new with Azure Sovereign Clouds.
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
@@ -12,14 +12,138 @@ ms.custom: template-concept
 
 
 
-# What's new in Azure Active Directory Sovereign Clouds?
-
+# What's new in Azure Sovereign Clouds?
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - [Azure Government](../../azure-government/documentation-government-welcome.md)
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Sovereign Clouds](whats-new-archive.md).
+
+## June 2023 
+
+### General Availability - Apply RegEx Replace to groups claim content 
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                  
+**Product capability:** SSO             
+
+Today, when group claims are added to tokens Azure Active Directory attempts to include all of the groups the user is a member of.  In larger organizations where users are members of hundreds of groups this can often exceed the limits of what can go in the token.  This feature enables more customers to connect their apps to Azure Active Directory by making connections easier and more robust through automation of the application’s creation process. This specifically allows the set of groups included in the token to be limited to only those that are assigned to the application. For more information, see: [Regex-based claims transformation](../develop/saml-claims-customization.md#regex-based-claims-transformation).
+
+---
+
+### General Availability - Azure Active Directory SSO integration with Cisco Unified Communications Manager
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                  
+**Product capability:** Platform              
+
+Cisco Unified Communications Manager (Unified CM) provides reliable, secure, scalable, and manageable call control and session management. When you integrate Cisco Unified Communications Manager with Azure Active Directory, you can:
+
+- Control in Azure Active Directory who has access to Cisco Unified Communications Manager.
+- Enable your users to be automatically signed-in to Cisco Unified Communications Manager with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
+
+
+For more information, see: [Azure Active Directory SSO integration with Cisco Unified Communications Manager](../saas-apps/cisco-unified-communications-manager-tutorial.md).
+
+---
+
+### General Availability - Number Matching for Microsoft Authenticator notifications
+
+**Type:** Plan for Change  
+**Service category:** Microsoft Authenticator App                      
+**Product capability:** User Authentication             
+
+Microsoft Authenticator app’s number matching feature has been Generally Available since Nov 2022! If you haven't already used the rollout controls (via Azure portal Admin UX and MSGraph APIs) to smoothly deploy number matching for users of Microsoft Authenticator push notifications, we highly encourage you to do so. We previously announced that we'll remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we'll extend the availability of the rollout controls for a few more weeks. Organizations can continue to use the existing rollout controls until May 8, 2023, to deploy number matching in their organizations. Microsoft services will start enforcing the number matching experience for all users of Microsoft Authenticator push notifications after May 8, 2023. We'll also remove the rollout controls for number matching after that date.
+
+If customers don’t enable number match for all Microsoft Authenticator push notifications prior to May 8, 2023, Authenticator users may experience inconsistent sign-ins while the services are rolling out this change. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance.
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md)
+
+---
+
+## May 2023
+
+### General Availability - Admins can now restrict users from self-service accessing their BitLocker keys
+
+
+
+**Type:** New feature   
+**Service category:** Device Access Management                
+**Product capability:** User Management            
+
+Admins can now restrict their users from self-service accessing their BitLocker keys through the Devices Settings page. Turning on this capability hides the BitLocker key(s) of all non-admin users. This helps to control BitLocker access management at the admin level. For more information, see: [Restrict member users' default permissions](users-default-permissions.md#restrict-member-users-default-permissions).
+
+---
+
+### General Availability - Admins can restrict their users from creating tenants
+
+**Type:** New feature   
+**Service category:** User Access Management                           
+**Product capability:** User Management               
+
+The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal.  This new capability in the User Settings pane allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
+
+---
+
+### General Availability - My Apps new app discovery view
+
+**Type:** Changed feature   
+**Service category:** My Apps                              
+**Product capability:** End User Experiences                 
+
+My Apps has been updated to a new app discovery view that is more accessible and responsive. With the new app discovery view, users can:
+
+- Customize their view by choosing between different layouts
+- Launch apps faster
+- Drag and drop apps to reorder and move
+- Add sites directly from the home screen
+
+For more information, see [My Apps portal overview](../manage-apps/myapps-overview.md).
+
+---
+
+### General Availability - Number Matching for Microsoft Authenticator notifications
+
+**Type:** Plan for Change  
+**Service category:** Microsoft Authenticator App                      
+**Product capability:** User Authentication             
+
+Microsoft Authenticator app’s number matching feature has been Generally Available since Nov 2022! If you haven't already used the rollout controls (via Azure portal Admin UX and MSGraph APIs) to smoothly deploy number matching for users of Microsoft Authenticator push notifications, we highly encourage you to do so. We previously announced that we'll remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we'll extend the availability of the rollout controls for a few more weeks. Organizations can continue to use the existing rollout controls until May 8, 2023, to deploy number matching in their organizations. Microsoft services will start enforcing the number matching experience for all users of Microsoft Authenticator push notifications after May 8, 2023. We'll also remove the rollout controls for number matching after that date.
+
+If customers don’t enable number match for all Microsoft Authenticator push notifications prior to May 8, 2023, Authenticator users may experience inconsistent sign-ins while the services are rolling out this change. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance.
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md)
+
+---
+
+### General Availability - System preferred MFA method
+
+**Type:** Changed feature   
+**Service category:** Authentications (Logins)                       
+**Product capability:** Identity Security & Protection            
+
+Currently, organizations and users rely on a range of authentication methods, each offering varying degrees of security. While Multifactor Authentication (MFA) is crucial, some MFA methods are more secure than others. Despite having access to more secure MFA options, users frequently choose less secure methods for various reasons.
+
+To address this challenge, we're introducing a new system-preferred authentication method for MFA. When users sign in, the system will determine and display the most secure MFA method that the user has registered. This prompts users to switch from the default method to the most secure option. While users may still choose a different MFA method, they'll always be prompted to use the most secure method first for every session that requires MFA. For more information, see: [System-preferred multifactor authentication - Authentication methods policy](../authentication/concept-system-preferred-multifactor-authentication.md).
+
+---
+
+### General Availability - Azure Active Directory Identity Protection Leaked credentials detection B2C and AlternateLoginID support
+
+**Type:** Changed feature   
+**Service category:** Identity Protection                              
+**Product capability:** Identity Security & Protection                   
+
+Azure Active Directory Identity Protection "Leaked Credentials" detection is now enabled in Azure Active Directory B2C. In addition, the detection now fully supports leaked credential matching based on AlternateLoginID, providing customers with more robust and comprehensive protection.
+
+---
+
 
 ## April 2023
 
@@ -71,7 +195,7 @@ In the **All Devices** settings under the Registered column, you can now select 
 **Service category:** My Apps            
 **Product capability:** End User Experiences      
 
-We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Entra portals. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings option. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also have controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature turns on for your organization. This enabled feature reflects in the My Apps portal, and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
+We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Microsoft Entra admin centers. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings option. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also have controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature turns on for your organization. This enabled feature reflects in the My Apps portal, and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
 
 
 ---
@@ -164,7 +288,7 @@ For more information, see: [Protect user accounts from attacks with Azure Active
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 ---
 
@@ -178,7 +302,7 @@ Azure AD now has the capability to filter the groups included in the token using
 
 For more information, see: 
 - [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
-- [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+- [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 
 
@@ -200,7 +324,7 @@ Azure AD now supports claims transformations on multi-valued attributes and can 
 **Service category:** Access Reviews            
 **Product capability:** Identity Security & Protection       
 
-Post-authentication anomalous activity detection for workload identities. This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior is assessed for anomalies based on an action and/or sequence of actions occurring for the account. Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting blade. A new detection type identified as Anomalous service principal activity appears in filter options. For more information, see: [Securing workload identities](../identity-protection/concept-workload-identity-risk.md).
+Post-authentication anomalous activity detection for workload identities. This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior is assessed for anomalies based on an action and/or sequence of actions occurring for the account. Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting settings. A new detection type identified as Anomalous service principal activity appears in filter options. For more information, see: [Securing workload identities](../identity-protection/concept-workload-identity-risk.md).
 
 ---
 
@@ -213,7 +337,7 @@ Post-authentication anomalous activity detection for workload identities. This d
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial and Microsoft Azure Government
-- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial and Microsoft Azure operated by 21Vianet
 
 For more information about Microsoft cloud settings for B2B collaboration, see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
 
@@ -227,7 +351,7 @@ For more information about Microsoft cloud settings for B2B collaboration, see: 
 
 Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
 
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
+For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 
 ---
@@ -270,7 +394,7 @@ An IT admin can now add multiple domains to a single SAML/WS-Fed identity provid
 **Service category:** Conditional Access          
 **Product capability:** Identity Security & Protection     
 
-This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
+This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
@@ -294,141 +418,6 @@ Represents a tenant's customizable terms of use agreement that is created, and m
 
 ---
 
-## December 2022
-
-### General Availability - Risk-based Conditional Access for workload identities
-
-**Type:** New feature  
-**Service category:** Conditional Access          
-**Product capability:** Identity Security & Protection     
-
-Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
-
----
-
-### General Availability - API to recover accidentally deleted Service Principals
-
-**Type:** New feature  
-**Service category:** Enterprise Apps        
-**Product capability:** Identity Lifecycle Management     
-
-Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
-
----
-
-### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)     
-**Product capability:** Identity Security & Protection   
-
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
-
----
-
-## November 2022
-
-### General Availability - Windows Hello for Business, cloud Kerberos trust deployment
-
-
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)     
-**Product capability:** User Authentication   
-
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
-
----
-
-### General Availability - Expression builder with Application Provisioning
-
-**Type:** Changed feature  
-**Service category:** Provisioning  
-**Product capability:** Outbound to SaaS Applications  
- 
-
-Accidental deletion of users in your apps or in your on-premises directory could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability. When a provisioning job would cause a spike in deletions, it will first pause and provide you with visibility into the potential deletions. You can then accept or reject the deletions and have time to update the job’s scope if necessary. For more information, see [Understand how expression builder in Application Provisioning works](../app-provisioning/expression-builder.md).
- 
-
----
-
-### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
-
-
-
-**Type:** New feature  
-**Service category:** Azure AD Connect Cloud Sync   
-**Product capability:** Identity Lifecycle Management 
-
-Azure AD Connect Cloud Sync Password writeback now provides customers the ability to synchronize Azure AD password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Azure AD cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
-
----
-
-### General Availability - Prevent accidental deletions
-
-
-
-**Type:** New feature  
-**Service category:** Provisioning  
-**Product capability:** Outbound to SaaS Applications 
-
-
-
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
-
-For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
-
----
-
-### General Availability - Create group in administrative unit
-
-**Type:** New feature  
-**Service category:** RBAC       
-**Product capability:** AuthZ/Access Delegation    
- 
-
-Groups Administrators and other roles scoped to an administrative unit can now create groups within the administrative unit.  Previously, creating a new group in administrative unit required a two-step process to first create the group, then add the group to the administrative unit.  The second step required a Privileged Role Administrator or Global Administrator.  Now, groups can be directly created in an administrative unit by anyone with appropriate roles scoped to the administrative unit, and this no longer requires a higher privilege admin role. For more information, see: [Add users, groups, or devices to an administrative unit](../roles/admin-units-members-add.md).
- 
----
-
-### General Availability - Number matching for Microsoft Authenticator notifications
-
-
-
-**Type:** New feature  
-**Service category:** Microsoft Authenticator App      
-**Product capability:** User Authentication   
-
-To prevent accidental notification approvals, admins can now require users to enter the number displayed on the sign-in screen when approving an MFA notification in the Microsoft Authenticator app. We've also refreshed the Azure portal admin UX and Microsoft Graph APIs to make it easier for customers to manage Authenticator app feature roll-outs. As part of this update we have also added the highly requested ability for admins to exclude user groups from each feature. 
-
-The number matching feature greatly up-levels the security posture of the Microsoft Authenticator app and protects organizations from MFA fatigue attacks. We highly encourage our customers to adopt this feature applying the rollout controls we have built. Number Matching will begin to be enabled for all users of the Microsoft Authenticator app starting 27th of February 2023.
-
-
-For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md).
-
----
-
-### General Availability - Additional context in Microsoft Authenticator notifications
-
-
-
-**Type:** New feature  
-**Service category:** Microsoft Authenticator App      
-**Product capability:** User Authentication 
-
-Reduce accidental approvals by showing users additional context in Microsoft Authenticator app notifications. Customers can enhance notifications with the following:
-
-- Application Context: This feature will show users which application they're signing into.
-- Geographic Location Context: This feature will show users their sign-in location based on the IP address of the device they're signing into. 
-
-The feature is available for both MFA and Password-less Phone Sign-in notifications and greatly increases the security posture of the Microsoft Authenticator app. We've also refreshed the Azure portal Admin UX and Microsoft Graph APIs to make it easier for customers to manage Authenticator app feature roll-outs. As part of this update, we've also added the highly requested ability for admins to exclude user groups from certain features. 
-
-We highly encourage our customers to adopt these critical security features to reduce accidental approvals of Authenticator notifications by end users.
-
-
-For more information, see: [How to use additional context in Microsoft Authenticator notifications - Authentication methods policy](../authentication/how-to-mfa-additional-context.md).
-
----
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

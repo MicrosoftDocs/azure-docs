@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 06/23/2023
 ms.author: franlanglois
 
 ---
@@ -80,7 +80,7 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 ### Azure AD Client Workflow
 
-1. Configure your client application to acquire an Azure AD token for scope `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default` using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview). 
+1. Configure your client application to acquire an Azure AD token for scope `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default` using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
    <!-- (ADD code snippet) -->
 
@@ -106,20 +106,17 @@ The library [`Microsoft.Azure.StackExchangeRedis`](https://www.nuget.org/package
 
 This [code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis) demonstrates how to use the `Microsoft.Azure.StackExchangeRedis` NuGet package to connect to your Azure Cache for Redis instance using Azure Active Directory.
 
-<!-- 
 The following table includes links to code samples, which demonstrate how to connect to your Azure Cache for Redis instance using an Azure AD token. A wide variety of client libraries are included in multiple languages.
 
 | **Client library**  | **Language**   | **Link to sample code**|
 |----|----|----|
-| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package    |
-| Python              | Python         | [Python code Sample](https://aka.ms/redis/aad/sample-code/python)        |
+| StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
+| redis-py            | Python         | [redis-py code Sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
 | Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
 | ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-| Node-redis          | Node.js        | [noredis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  | 
-
--->
+| node-redis          | Node.js        | [node-redis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
 
 ### Best practices for Azure AD authentication
 

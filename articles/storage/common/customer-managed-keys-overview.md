@@ -3,14 +3,14 @@ title: Customer-managed keys for account encryption
 titleSuffix: Azure Storage
 description: You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 05/11/2023
 ms.topic: conceptual
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 
@@ -23,14 +23,14 @@ You must use one of the following Azure key stores to store your customer-manage
 - [Azure Key Vault](../../key-vault/general/overview.md)
 - [Azure Key Vault Managed Hardware Security Module (HSM)](../../key-vault/managed-hsm/overview.md)
 
-You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM can be in different Azure Active Directory (Azure AD) tenants, regions, and subscriptions.
+You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM can be in different Microsoft Entra tenants, regions, and subscriptions.
 
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
 
 ## About customer-managed keys
 
-The following diagram shows how Azure Storage uses Azure AD and a key vault or managed HSM to make requests using the customer-managed key:
+The following diagram shows how Azure Storage uses Microsoft Entra ID and a key vault or managed HSM to make requests using the customer-managed key:
 
 :::image type="content" source="media/customer-managed-keys-overview/encryption-customer-managed-keys-diagram.png" alt-text="Diagram showing how customer-managed keys work in Azure Storage":::
 
@@ -38,7 +38,7 @@ The following list explains the numbered steps in the diagram:
 
 1. An Azure Key Vault admin grants permissions to encryption keys to a managed identity. The managed identity may be either a user-assigned managed identity that you create and manage, or a system-assigned managed identity that is associated with the storage account.
 1. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
-1. Azure Storage uses the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Azure AD.
+1. Azure Storage uses the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Microsoft Entra ID.
 1. Azure Storage wraps the account encryption key with the customer-managed key in Azure Key Vault.
 1. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
@@ -74,7 +74,7 @@ Using a key vault or managed HSM has associated costs. For more information, see
 
 ### Customer-managed keys with a key vault in the same tenant
 
-You can configure customer-managed keys with the key vault and storage account in the same tenant or in different Azure AD tenants. To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in the same tenants, see one of the following articles:
+You can configure customer-managed keys with the key vault and storage account in the same tenant or in different Microsoft Entra tenants. To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in the same tenants, see one of the following articles:
 
 - [Configure customer-managed keys in an Azure key vault for a new storage account](customer-managed-keys-configure-new-account.md)
 - [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
@@ -88,7 +88,7 @@ To learn more about system-assigned versus user-assigned managed identities, see
 
 ### Customer-managed keys with a key vault in a different tenant
 
-To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in different Azure AD tenants, see one of the following articles:
+To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in different Microsoft Entra tenants, see one of the following articles:
 
 - [Configure cross-tenant customer-managed keys for a new storage account](customer-managed-keys-configure-cross-tenant-new-account.md)
 - [Configure cross-tenant customer-managed keys for an existing storage account](customer-managed-keys-configure-cross-tenant-existing-account.md)
@@ -141,7 +141,7 @@ To revoke access to customer-managed keys, use [PowerShell](./customer-managed-k
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
-- [Get Blob Metadata](/rest/api/storageservices/get-bl- ob-metadata)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob), when called with the `x-ms-meta-name` request header
 - [Copy Blob](/rest/api/storageservices/copy-blob)

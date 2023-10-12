@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
@@ -32,7 +31,7 @@ ACL inheritance is already available for new child items that are created under 
 
 - One of the following security permissions:
 
-  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription..
+  - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription..
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
 
@@ -60,10 +59,12 @@ ACL inheritance is already available for new child items that are created under 
 
 Choose how you want your commands to obtain authorization to the storage account.
 
-### Option 1: Obtain authorization by using Azure Active Directory (AD)
+<a name='option-1-obtain-authorization-by-using-azure-active-directory-ad'></a>
+
+### Option 1: Obtain authorization by using Microsoft Entra ID
 
 > [!NOTE]
-> If you're using Azure Active Directory (Azure AD) to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md).
+> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md).
 
 With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
 

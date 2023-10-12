@@ -2,7 +2,9 @@
 title: Enable your VMware vCenter resources in Azure
 description: Learn how to browse your vCenter inventory and represent a subset of your VMware vCenter resources in Azure to enable self-service.
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a VI admin, I want to represent a subset of my vCenter resources in Azure to enable self-service.
 ---
@@ -44,12 +46,12 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 
 1. (Optional) Select **Install guest agent** and then provide the Administrator username and password of the guest operating system.
 
-   The guest agent is the [Azure Arc connected machine agent](../servers/agent-overview.md). You can install this agent later by selecting the VM in the VM inventory view on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc-enabled VMware vSphere](manage-vmware-vms-in-azure.md).
+   The guest agent is the [Azure Arc connected machine agent](../servers/agent-overview.md). You can install this agent later by selecting the VM in the VM inventory view on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc-enabled VMware vSphere](perform-vm-ops-through-azure.md).
 
 1. Select **Enable** to start the deployment of the VM represented in Azure.
 
-For information on the capabilities enabled by a guest agent, see [Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md).
+For information on the capabilities enabled by a guest agent, see [Manage access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).
 
 ## Next steps
 
-- [Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md).
+- [Manage access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).

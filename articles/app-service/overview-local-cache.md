@@ -5,8 +5,10 @@ tags: optional
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
-ms.date: 03/04/2016
+ms.date: 06/29/2023
 ms.custom: UpdateFrequency3
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Azure App Service Local Cache overview
@@ -31,7 +33,7 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * They have fewer app restarts due to storage share changes.
 
 > [!NOTE]
-> If you are using Java (Java SE, Tomcat, or JBoss EAP), then by default the Java artifacts--.jar, .war, and .ear files--are copied locally to the worker. If your Java application depends on read-only access to other files as well, set `JAVA_COPY_ALL` to `true` for those files to also be copied. If Local Cache is enabled, it takes precendnce over this Java-specific enhancement.
+> If you are using Java (Java SE, Tomcat, or JBoss EAP), then by default the Java artifacts--.jar, .war, and .ear files--are copied locally to the worker. If your Java application depends on read-only access to other files as well, set `JAVA_COPY_ALL` to `true` for those files to also be copied. If Local Cache is enabled, it takes precedence over this Java-specific enhancement.
 
 ## How the local cache changes the behavior of App Service
 * _D:\home_ points to the local cache, which is created on the VM instance when the app starts up. _D:\local_ continues to point to the temporary VM-specific storage.
@@ -124,7 +126,7 @@ As part of the step that copies the storage content, any folder that is named re
 To flush the local cache logs, stop and restart the app. This action clears the old cache. 
 
 ### Why does App Service starts showing previously deployed files after a restart when Local Cache is enabled?
-In case App Service starts showing previously deployed files on a restart, check for the precense of the App Setting - '[WEBSITE_DISABLE_SCM_SEPARATION=true](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site)'.  After adding this setting any deployments via KUDU start writing to the local VM instead of the persistent storage. Best practices mentioned above in this article should be leveraged, wherein the deployments should always be done to the staging slot which does not have Local Cache enabled.
+In case App Service starts showing previously deployed files on a restart, check for the presence of the App Setting - '[WEBSITE_DISABLE_SCM_SEPARATION=true](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site)'.  After adding this setting any deployments via KUDU start writing to the local VM instead of the persistent storage. Best practices mentioned above in this article should be leveraged, wherein the deployments should always be done to the staging slot which does not have Local Cache enabled.
 
 ## More resources
 

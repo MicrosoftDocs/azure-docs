@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 01/26/2023
+ms.date: 09/15/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -16,16 +16,16 @@ ms.date: 01/26/2023
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in apps and services. In both cases, your Azure AD tenant needs to be configured to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials issued by a third party. In the event that you are both an issuer and a verifier, you can use a single Azure AD tenant to both issue your own verifiable credentials and verify those of others.
+Microsoft Entra Verified ID is a decentralized identity solution that helps you safeguard your organization. The service allows you to issue and verify credentials. Issuers can use the Verified ID service to issue their own customized verifiable credentials. Verifiers can use the service's free REST API to easily request and accept verifiable credentials in apps and services. In both cases, your Microsoft Entra tenant needs to be configured to either issue your own verifiable credentials, or verify the presentation of a user's verifiable credentials issued by a third party. In the event that you are both an issuer and a verifier, you can use a single Microsoft Entra tenant to both issue your own verifiable credentials and verify those of others.
 
-In this tutorial, you learn how to configure your Azure AD tenant to use the verifiable credentials service.
+In this tutorial, you learn how to configure your Microsoft Entra tenant to use the verifiable credentials service.
 
 Specifically, you learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure Key Vault instance.
 > - Set up the Verified ID service.
-> - Register an application in Azure AD.
+> - Register an application in Microsoft Entra ID.
 
 The following diagram illustrates the Verified ID architecture and the component you configure.
 
@@ -53,13 +53,13 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 ### Set access policies for the Verified ID Admin user
 
-1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
-
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrative account.
+1. Go to the key vault you use for this tutorial.
 1. Under **Settings**, select **Access policies**.
 
 1. In **Add access policies**, under **USER**, select the account you use to follow this tutorial.
 
-1. For **Key permissions**, verify that the following permissions are selected: **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
+1. For **Key permissions**, verify that the following permissions are selected: **Get**, **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
 
     :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
 
@@ -71,7 +71,9 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 To set up Verified ID, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), search for *Verified ID*. Then, select **Verified ID**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+
+1. Select **Verifiable Credentials**.
 
 1. From the left menu, select **Setup**.
 
@@ -109,17 +111,18 @@ If you ever are in need of manually resetting the permissions, the access policy
 
 :::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-admin-access-policy.png" alt-text="Screenshot of key vault access policies for security principals.":::
 
-## Register an application in Azure AD
+<a name='register-an-application-in-azure-ad'></a>
+
+## Register an application in Microsoft Entra ID
 
 Your application needs to get access tokens when it wants to call into Microsoft Entra Verified ID so it can issue or verify credentials. To get access tokens, you have to register an application and grant API permission for the Verified ID Request Service. For example, use the following steps for a web application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
 
-1. If you have access to multiple tenants, select the **Directory + subscription**. Then, search for and select your **Azure Active Directory**.
+1. Under **Applications**, select **App registrations** > **New registration**.  
 
-1. Under **Manage**, select **App registrations** > **New registration**.  
-
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-azure-ad-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
 
 1. Enter a display name for your application. For example: *verifiable-credentials-app*.
 
@@ -127,7 +130,7 @@ Your application needs to get access tokens when it wants to call into Microsoft
 
 1. Select **Register** to create the application.
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-azure-ad-app-properties.png" alt-text="Screenshot that shows how to register the verifiable credentials app.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app-properties.png" alt-text="Screenshot that shows how to register the verifiable credentials app.":::
 
 ### Grant permissions to get access tokens
 
@@ -163,7 +166,8 @@ After Azure Key Vault is setup, and the service have a signing key, you must com
 
 :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-step-2-3.png" alt-text="Screenshot that shows how to set up Verifiable Credentials step 2 and 3.":::
 
-1. Navigate to the Verified ID service in the Azure portal.  
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select **Verifiable credentials**
 1. From the left menu, select **Setup**.
 1. From the middle menu, select **Register decentralized ID** to register your DID document, as per instructions in article [How to register your decentralized ID for did:web](how-to-register-didwebsite.md). You must complete this step before you can continue to verify your domain. If you selected did:ion as your trust system, you should skip this step.
 1. From the middle menu, select **Verify domain ownership** to verify your domain, as per instructions in article [Verify domain ownership to your Decentralized Identifier (DID)](how-to-dnsbind.md)

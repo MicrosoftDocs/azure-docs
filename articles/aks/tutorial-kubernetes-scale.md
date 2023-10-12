@@ -92,7 +92,7 @@ Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the n
 * Check the version of your AKS cluster using the [`Get-AzAksCluster`][get-azakscluster] cmdlet.
 
     ```azurepowershell
-    Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).KubernetesVersion
+    (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).KubernetesVersion
     ```
 
 ---
@@ -103,7 +103,7 @@ Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the n
 > **Example installation**:
 >
 >    ```console
->    kubectl apply -f https://github.com/kubernetes-sigs metrics-server/releases/download/v0.3.6/components.yaml
+>    kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 >    ```
 
 To use the autoscaler, all containers and pods must have defined CPU requests and limits. In the `azure-vote-front` deployment, the *front-end* container requests 0.25 CPU with a limit of 0.5 CPU.

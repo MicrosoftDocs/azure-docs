@@ -2,6 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-python
 ms.date: 12/15/2022
 ---
 
@@ -287,7 +288,7 @@ Requires that [`FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED`](#function
 
 ## ENABLE\_ORYX\_BUILD
 
-Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build on Linux](functions-deployment-technologies.md#remote-build-on-linux).
+Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 |Key|Sample value|
 |---|------------|
@@ -317,6 +318,21 @@ The following major runtime version values are supported:
 | `~3` | 3.x | Support ends December 13, 2022 |
 | `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Supported |
+
+## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
+
+This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot on Node.js v18 or lower. It's highly recommended to use `true`, especially for programming model v4 apps, which always use entry point files. The behavior without the breaking change (`false`) ignores entry point errors and doesn't log them in Application Insights.
+
+Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
+
+For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+- If the error is thrown before (for example if you're using model v3 or your entry point file doesn't exist), the default behavior matches `false`.
+- If the error is thrown after (for example if you try to register duplicate model v4 functions), the default behavior matches `true`.
+
+|Key|Value|Description|
+|---|-----|-----------|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Block on entry point errors and log them in Application Insights.|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Ignore entry point errors and don't log them in Application Insights.|
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -506,7 +522,7 @@ Controls the timeout, in seconds, when connected to streaming logs. The default 
 |-|-|
 |SCM_LOGSTREAM_TIMEOUT|`1800`|
 
-The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
+The above sample value of `1800` sets a timeout of 30 minutes. For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -516,7 +532,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is required for Consumption plan apps on Windows and for Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption plan apps on Windows and for Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
@@ -690,12 +706,12 @@ The previous command requires you to upgrade to version 2.40 of the Azure CLI.
 
 #### Custom images
 
-When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is instead in the format `DOCKER|<IMAGE_URI>`, as in the following example:
 
 ```
 linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
 ```
-For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+This indicates the registry source of the deployed container. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md).
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 

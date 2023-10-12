@@ -30,7 +30,7 @@ To learn more about VU Security and its complete set of solutions, visit
 To get started with the VU Identity Card, ensure the following prerequisites are met:
 
 - A tenant [configured](./verifiable-credentials-configure-tenant.md)
-  for Entra Verified ID service.
+  for Microsoft Entra Verified ID service.
 
   - If you don\'t have an existing tenant, you can [create an Azure
         account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -63,7 +63,7 @@ Follow these steps to incorporate VU Identity Card solution into your Apps.
 
 As a developer you can share these steps with your tenant administrator to obtain the verification request URL, and body for your application or website to request Verified IDs from your users.
 
-1. Go to Microsoft Entra portal - [**Verified ID**](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade)
+1. Go to Microsoft Entra admin center - [**Verified ID**](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade)
 
    >[!NOTE]
    >Verify that the tenant configured for Verified ID meets the  prerequisites.
@@ -79,7 +79,7 @@ As a developer you can share these steps with your tenant administrator to obtai
    [ ![Screenshot of the portal section used to choose issuers.](./media/partner-vu/select-issuers.png)](./media/partner-vu/select-issuers.png#lightbox)
 
 5. Check the **VUIdentityCard** credential with the attributes
-   such as firstname, lastname, number, country, gender, birth-date, and nationality or any other credential type.
+   such as firstname, lastname, number, country/region, gender, birth-date, and nationality or any other credential type.
    >[!NOTE]
    >Number attribute refers to National ID. For example, DNI-National Identification Number in Argentina.
 

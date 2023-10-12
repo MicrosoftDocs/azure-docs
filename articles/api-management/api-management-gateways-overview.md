@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 06/27/2023
 ms.author: danlep
 ---
 
@@ -20,6 +20,8 @@ Related information:
 * For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md)
 
 * For more information about the API Management service tiers and features, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
+
+[!INCLUDE [api-management-v2-tier-preview](../../includes/api-management-v2-tier-preview.md)]
 
 ## Role of the gateway
 
@@ -125,9 +127,9 @@ For details about monitoring options, see [Observability in Azure API Management
 | [API analytics](howto-use-analytics.md) | ✔️ |  ❌ | ❌ |
 | [Application Insights](api-management-howto-app-insights.md) | ✔️ |  ✔️ | ✔️ |
 | [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ |  ✔️ | ✔️ |
-| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ❌ | ✔️ |
+| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ | ✔️ |
 | [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ |  ❌ | ✔️ |
-| [Request logs in Azure Monitor](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ |  ❌ | ❌<sup>1</sup> |
+| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ |  ❌ | ❌<sup>1</sup> |
 | [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ |  ❌ | ✔️ |
 | [Request tracing](api-management-howto-api-inspector.md) | ✔️ |  ✔️ | ✔️ |
 

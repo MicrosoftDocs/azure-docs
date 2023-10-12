@@ -30,27 +30,17 @@ To integrate Cloud Shell's launch button into markdown files by copying the foll
 Regular sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png)](https://shell.azure.com)
+[![Launch Cloud Shell](/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png)](https://shell.azure.com)
 ```
 
 Large sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png)](https://shell.azure.com)
+[![Launch Cloud Shell](/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png)](https://shell.azure.com)
 ```
 
 The location of these image files is subject to change. We recommend that you download the files for
 use in your applications.
-
-## Customize experience
-
-Set a specific shell experience by augmenting your URL.
-
-|        Experience        |                 URL                  |
-| ------------------------ | ------------------------------------ |
-| Most recently used shell | `https://shell.azure.com`            |
-| Bash                     | `https://shell.azure.com/bash`       |
-| PowerShell               | `https://shell.azure.com/powershell` |
 
 ## Next steps
 
@@ -58,6 +48,5 @@ Set a specific shell experience by augmenting your URL.
 - [PowerShell in Cloud Shell quickstart][06]
 
 <!-- updated link references -->
-[01]: https://shell.azure.com
 [06]: quickstart-powershell.md
 [07]: quickstart.md

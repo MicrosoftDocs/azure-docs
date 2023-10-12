@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 

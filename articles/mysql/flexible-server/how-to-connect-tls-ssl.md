@@ -1,8 +1,8 @@
 ---
 title: Encrypted connectivity using TLS/SSL in Azure Database for MySQL - Flexible Server
 description: Instructions and information on how to connect using TLS/SSL in Azure Database for MySQL - Flexible Server.
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -96,7 +96,7 @@ To set TLS versions on your flexible server, you need to set *tls_version- serve
 | Flexible Server version | Supported Values of tls_version | Default Setting |
 | --- | --- | --- |
 | MySQL 5.7 | TLS 1.0, TLS 1.1, TLS 1.2 | TLS 1.2 |
-| MySQL 8.0	 | TLS 1.2, TLS 1.0.3 | TLS 1.2 |
+| MySQL 8.0	 | TLS 1.2, TLS 1.3 | TLS 1.2 |
 
 ## Connect using mysql command-line client with TLS/SSL
 
@@ -108,6 +108,7 @@ To use encrypted connections with your client applications,you need to download 
 
 > [!NOTE]
 > You must download this [SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) for your servers in Azure Government cloud.
+
 
 
 Save the certificate file to your preferred location. For example, this tutorial uses `c:\ssl` or `\var\www\html\bin` on your local environment or the client environment where your application is hosted. This allows applications to connect securely to the database over SSL.
@@ -380,3 +381,4 @@ conn.connect(function(err) {
 - [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 - Learn more about [networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md)
 - Understand more about [Azure Database for MySQL - Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
+

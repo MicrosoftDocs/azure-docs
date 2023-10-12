@@ -2,11 +2,10 @@
 title: Replace or extend Windows file servers with Azure Files and Azure File Sync
 description: Azure Files and Azure File Sync can be useful when replacing your on-premises Windows file servers or extending them into the cloud. Learn how you can use Azure storage services to increase flexibility, improve data protection, and reduce TCO for file storage.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 03/17/2023
 ms.author: kendownie
-ms.subservice: files 
 ---
 
 # Replace or extend Windows file servers with Azure Files and Azure File Sync
@@ -74,7 +73,7 @@ Azure File Sync can synchronize and cache your Azure file share anywhere you can
 
 With Azure Files you benefit from multi-layered security provided by Microsoft across physical data centers, infrastructure, and operations in Azure. We provide several data redundancy options including local, regional, or global. Differential snapshots and snapshot management from Azure Backup simplify data protection, while Azure File Sync offers a variety of [disaster recovery options](../file-sync/file-sync-disaster-recovery-best-practices.md). You can even protect users from accidentally deleting a file or share via [soft delete](storage-files-enable-soft-delete.md).
 
-Access control works just like your Windows file servers. You can [use identity-based authentication](storage-files-active-directory-overview.md) and integrate SMB Azure file shares with your on-premises Active Directory environment or Azure AD, and control share-level and directory/file-level access as well as administrator privileges.
+Access control works just like your Windows file servers. You can [use identity-based authentication](storage-files-active-directory-overview.md) and integrate SMB Azure file shares with your on-premises Active Directory environment or Microsoft Entra ID, and control share-level and directory/file-level access as well as administrator privileges.
 
 ## See also
 - [Migrate to Azure Files](storage-files-migration-overview.md)

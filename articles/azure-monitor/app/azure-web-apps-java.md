@@ -2,9 +2,9 @@
 title: Monitor Azure app services performance Java | Microsoft Docs
 description: Application performance monitoring for Azure app services using Java. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 06/23/2023
 ms.devlang: java
-ms.custom: "devx-track-java"
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: abinetabate
 ---
 
@@ -16,13 +16,13 @@ Monitoring of your Java web applications running on [Azure App Services](../../a
 
 The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
-You can apply extra configurations, and then based on your specific scenario you [add your own custom telemetry](./opentelemetry-enable.md?tabs=java#modify-telemetry) if needed.
+You can apply extra configurations, and then based on your specific scenario you [add your own custom telemetry](./opentelemetry-add-modify.md?tabs=java#modify-telemetry) if needed.
 
-### Auto-instrumentation through Azure portal
+### Autoinstrumentation through Azure portal
 
 You can turn on monitoring for your Java apps running in Azure App Service just with one selection, no code change required. The integration adds [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java) and auto-collects telemetry.
 
-For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 

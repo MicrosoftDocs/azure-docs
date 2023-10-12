@@ -3,22 +3,26 @@ title: Run Jupyter notebooks in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how run a Jupyter notebook without leaving your workspace in Azure Machine Learning studio.
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-python
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 09/26/2023
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
 # Run Jupyter notebooks in your workspace
 
-Learn how to run your Jupyter notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
+This article shows how to run your Jupyter notebooks inside your workspace of Azure Machine Learning studio.  There are other ways to run the notebook as well: [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io), and [Visual Studio Code](./how-to-launch-vs-code-remote.md). VS Code Desktop can be configured to access your compute instance. Or use VS Code for the Web, directly from the browser, and without any required installations or dependencies.
 
-For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
+We recommend you try VS Code for the Web to take advantage of the easy integration and rich development environment it provides.  VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code Desktop and VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
+
+No matter which solution you use to run the notebook, you'll have access to all the files from your workspace. For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
+
+This rest of this article shows the experience for running the notebook directly in studio.
 
 > [!IMPORTANT]
 > Features marked as (preview) are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 

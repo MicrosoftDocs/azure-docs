@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/24/2023
+ms.date: 09/11/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -22,6 +22,10 @@ A Bicep file has the following elements.
 metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
+
+type <user-defined-data-type-name> = <type-expression>
+
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
@@ -45,9 +49,7 @@ output <output-name> <output-data-type> = <output-value>
 The following example shows an implementation of these elements.
 
 ```bicep
-metadata description = {
-  description: 'Creates a storage account and a web app'
-}
+metadata description = 'Creates a storage account and a web app'
 
 @description('The prefix to use for the storage account name.')
 @minLength(3)
@@ -96,6 +98,52 @@ The allowed values are:
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
+
+## Types
+
+You can use the `type` statement to define user-defined data types.
+
+```bicep
+param location string = resourceGroup().location
+
+type storageAccountSkuType = 'Standard_LRS' | 'Standard_GRS'
+
+type storageAccountConfigType = {
+  name: string
+  sku: storageAccountSkuType
+}
+
+param storageAccountConfig storageAccountConfigType = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  sku: 'Standard_LRS'
+}
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: storageAccountConfig.name
+  location: location
+  sku: {
+    name: storageAccountConfig.sku
+  }
+  kind: 'StorageV2'
+}
+```
+
+For more information, see [User-defined data types](./user-defined-data-types.md).
+
+## Functions (Preview)
+
+> [!NOTE]
+> To enable the preview feature, see [Enable experimental features](./bicep-config.md#enable-experimental-features).
+
+In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+
+```bicep
+func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
+
+output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
+```
+
+For more information, see [User-defined functions](./user-defined-functions.md).
 
 ## Parameters
 
@@ -204,7 +252,7 @@ For more information, see [Use Bicep modules](./modules.md).
 
 ## Resource and module decorators
 
-You can add a decorator to a resource or module definition. The only supported decorator is `batchSize(int)`. You can only apply it to a resource or module definition that uses a `for` expression.
+You can add a decorator to a resource or module definition. The supported decorators are `batchSize(int) and description. You can only apply it to a resource or module definition that uses a `for` expression.
 
 By default, resources are deployed in parallel. When you add the `batchSize` decorator, you deploy instances serially.
 

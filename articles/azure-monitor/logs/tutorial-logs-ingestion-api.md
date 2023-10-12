@@ -2,7 +2,7 @@
 title: 'Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Resource Manager templates)'
 description: Tutorial on how sending data to a Log Analytics workspace in Azure Monitor using the Logs ingestion API. Supporting components configured using Resource Manager templates.
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom:
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2023
@@ -12,11 +12,11 @@ ms.date: 03/20/2023
 The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
 
 > [!NOTE]
-> This tutorial uses ARM templates to configure the components required to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](tutorial-logs-ingestion-api.md) for a similar tutorial that uses Azure Resource Manager templates to configure these components.
+> This tutorial uses ARM templates to configure the components required to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md) for a similar tutorial that uses the Azure portal UI to configure these components.
 
 The steps required to configure the Logs ingestion API are as follows:
 
-1. [Create an Azure AD application](#create-azure-ad-application) to authenticate against the API.
+1. [Create a Microsoft Entra application](#create-azure-ad-application) to authenticate against the API.
 3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
 2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to.
 4. [Create a data collection rule (DCR)](#create-data-collection-rule) to direct the data to the target table. 
@@ -37,10 +37,12 @@ Go to your workspace in the **Log Analytics workspaces** menu in the Azure porta
 
 :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot that shows the workspace resource ID.":::
 
-## Create Azure AD application
-Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+<a name='create-azure-ad-application'></a>
 
-1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
+## Create Microsoft Entra application
+Start by registering a Microsoft Entra application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+
+1. On the **Microsoft Entra ID** menu in the Azure portal, select **App registrations** > **New registration**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-registration.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-registration.png" alt-text="Screenshot that shows the app registration screen.":::
 

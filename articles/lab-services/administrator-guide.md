@@ -1,8 +1,8 @@
 ---
-title: Administrator guide | Microsoft Docs
+title: Administrator guide
 description: This guide helps administrators who create and manage lab plans by using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 08/28/2023
 ms.custom: devdivchpfy22
 ---
 
@@ -31,7 +31,7 @@ Your university might have one or more Azure subscriptions. You use subscription
 The relationship between a lab plan and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab plan.
-- You can grant users in the subscription's Azure Active Directory (Azure AD) tenant the ability to manage Azure Lab Services lab plans and labs. You can add someone as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#rbac-roles).
+- You can grant users in the subscription's Microsoft Entra tenant the ability to manage Azure Lab Services lab plans and labs. You can add someone as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#rbac-roles).
 
 Labs virtual machines (VMs) are managed and hosted for you within a subscription that is owned by Azure Lab Services.
 
@@ -173,7 +173,7 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 
 ## RBAC roles
 
-Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
+Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Microsoft Entra ID can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
 
 Learn more about [Azure role-based access control in Azure Lab Services](./concept-lab-services-role-based-access-control.md).
 
@@ -188,6 +188,8 @@ There are a few key points to highlight as part of this solution:
 - If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you'll need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
 - You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  Adding a non-admin account must be done when creating the lab.
 
+Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md), such as content filtering.
+
 If your school needs to do content filtering, contact us via the [Azure Lab Services' Q&A](https://aka.ms/azlabs/questions) for more information.
 
 ## Endpoint management
@@ -199,6 +201,11 @@ With Lab Services, if you create a lab with a template, the lab VMs will have th
 To obtain lab VMs with unique SID, create a lab without a template VM.  You must use a *generalized* image from the Azure Marketplace or an attached Azure Compute Gallery.  To use your own Azure Compute Gallery, see [Attach or detach a compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
 
 If you plan to use an endpoint management tool or similar software, we recommend that you don't use template VMs for your labs.
+
+<a name='azure-ad-registerjoin-hybrid-azure-ad-join-or-ad-domain-join'></a>
+
+## Microsoft Entra register/join, Microsoft Entra hybrid join, or AD domain join
+To make labs easy to set up and manage, Azure Lab Services is designed with *no* requirement to register/join lab VMs to either Active Directory (AD) or Microsoft Entra ID.  As a result, Azure Lab Services *doesn’t* currently offer built-in support to register/join lab VMs.  Although it's possible to Microsoft Entra register/join, Microsoft Entra hybrid join, or AD domain join lab VMs using other mechanisms, we do *not* recommend that you attempt to register/join lab VMs to either Active Directory or Microsoft Entra ID due to product limitations.
 
 ## Pricing
 

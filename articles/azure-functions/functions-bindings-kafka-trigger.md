@@ -2,6 +2,7 @@
 title: Apache Kafka trigger for Azure Functions
 description: Use Azure Functions to run your code based on events from an Apache Kafka stream.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/14/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -18,14 +19,14 @@ You can use the Apache Kafka trigger in Azure Functions to run your function cod
 
 The usage of the trigger depends on the C# modality used in your function app, which can be one of the following modes:
 
-# [In-process](#tab/in-process)
-
-An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
 
+# [In-process model](#tab/in-process)
+
+An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 The attributes you use depend on the specific event provider.
@@ -438,14 +439,14 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
-
-Kafka events are passed to the function as `KafkaEventData<string>` objects or arrays. Strings and string arrays that are JSON payloads are also supported.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Kafka events are currently supported as strings and string arrays that are JSON payloads.
 
+# [In-process model](#tab/in-process)
+
+Kafka events are passed to the function as `KafkaEventData<string>` objects or arrays. Strings and string arrays that are JSON payloads are also supported.
+ 
 ---
 
 ::: zone-end 

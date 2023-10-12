@@ -20,19 +20,23 @@ azcmagent connect [authentication] --subscription-id [subscription] --resource-g
 Connect a server using the default login method (interactive browser or device code).
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "eastus"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus"
+```
+
+```
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus" --use-device-code
 ```
 
 Connect a server using a service principal.
 
 ```
-azcmagent connect --subscription "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
+azcmagent connect --subscription-id "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
 ```
 
 Connect a server using a private endpoint and device code login method.
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
 ```
 
 ## Authentication options
@@ -59,7 +63,7 @@ To authenticate with a service principal, provide the service principal's applic
 
 ### Access token
 
-Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions onboarding several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Azure Active Directory client.
+Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions onboarding several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Microsoft Entra client.
 
 To authenticate with an access token, use the `--access-token [token]` flag. If the account you're logging in with and the subscription where you're registering the server aren't in the same tenant, you must also provide the tenant ID for the subscription with `--tenant-id [tenant]`.
 
@@ -67,7 +71,7 @@ To authenticate with an access token, use the `--access-token [token]` flag. If 
 
 `--access-token`
 
-Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
+Specifies the Microsoft Entra access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
 
 `--automanage-profile`
 
@@ -83,7 +87,7 @@ Supported values:
 
 * AzureCloud (public regions)
 * AzureUSGovernment (Azure US Government regions)
-* AzureChinaCloud (Azure China regions)
+* AzureChinaCloud (Microsoft Azure operated by 21Vianet regions)
 
 `--correlation-id`
 
@@ -91,7 +95,7 @@ Identifies the mechanism being used to connect the server to Azure Arc. For exam
 
 `--ignore-network-check`
 
-Instructs the agent to continue onboarding even if the network check for required endpoints fails. You should only use this option if you're sure that the network check results are incorrect. In most cases, a failed network check indicates that the Arc agent won't function correctly on the server.
+Instructs the agent to continue onboarding even if the network check for required endpoints fails. You should only use this option if you're sure that the network check results are incorrect. In most cases, a failed network check indicates that the Azure Connected Machine agent won't function correctly on the server.
 
 `-l`, `--location`
 
@@ -148,6 +152,6 @@ The tenant ID for the subscription where you want to create the Azure Arc-enable
 
 `--use-device-code`
 
-Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
+Generate a Microsoft Entra device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

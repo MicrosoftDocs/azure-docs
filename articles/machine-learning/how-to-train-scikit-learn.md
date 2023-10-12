@@ -10,16 +10,13 @@ author: balapv
 ms.reviewer: mopeakande
 ms.date: 09/29/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
 # Train scikit-learn models at scale with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [v1](v1/how-to-train-scikit-learn.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-train-scikit-learn.md)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning Python SDK v2.
 
@@ -110,6 +107,11 @@ Next, use the YAML file to create and register this custom environment in your w
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
+##### [Optional] Create a custom environment with Intel® Extension for Scikit-Learn
+
+Want to speed up your scikit-learn scripts on Intel hardware? Try adding [Intel® Extension for Scikit-Learn](https://www.intel.com/content/www/us/en/developer/tools/oneapi/scikit-learn.html) into your conda yaml file and following the subsequent steps detailed above. We will show you how to enable these optimizations later in this example:
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=make_sklearnex_conda_file)]
+
 ## Configure and submit your training job
 
 In this section, we'll cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
@@ -134,6 +136,14 @@ To use the training script, first create a directory where you will store the fi
 Next, create the script file in the source directory.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_script_file)]
+
+#### [Optional] Enable Intel® Extension for Scikit-Learn optimizations for more performance on Intel hardware
+
+If you have installed Intel® Extension for Scikit-Learn (as demonstrated in the previous section), you can enable the performance optimizations by adding the two lines of code to the top of the script file, as shown below.
+
+To learn more about Intel® Extension for Scikit-Learn, visit the package's [documentation](https://intel.github.io/scikit-learn-intelex/).
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_sklearnex_script_file)]
 
 ### Build the training job
 

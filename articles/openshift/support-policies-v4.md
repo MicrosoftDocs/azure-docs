@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 09/11/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -18,24 +18,44 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 ## Cluster configuration requirements
 
-* All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
-* The cluster must have a minimum of three worker nodes and three manager nodes.
+### Compute
+
+* The cluster must have a minimum of three worker nodes and three master nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
+* If you are making use of infrastructure nodes, do not run any undesignated workloads on them as this may affect the Service Level Agreement and cluster stability. Also, it is strongly recommended to have at least 3 infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
+* Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
+* Don't attempt to remove or replace a master node. These are high risk operations that can cause issues with etcd, permanent network loss, as well as loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, please contact support before making any changes.
+
+### Operators
+
+* All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
+
+### Workload management
+
 * Don't add taints that would prevent any default OpenShift components from being scheduled.
+* To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
+* Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
+
+### Logging and monitoring
+
 * Don't remove or modify the default cluster Prometheus service, except to modify scheduling of the default Prometheus instance.
 * Don't remove or modify the default cluster Alertmanager svc, default receiver, or any default alerting rules, except to add additional receivers to notify external systems.
-* The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
-* Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
+
+### Network and security
+
+* The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
+* The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
+
+### Cluster management
+
+* Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
 * Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
-* The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
-* To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
-* Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
-* Do not run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
 * Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks that are normally prohibited by the deny assignment.
+* OpenShift relies on the ability to automatically tag Azure resources. If you have configured a tagging policy, do not apply more than 10 user-defined tags to resources in the managed resource group.
 
 ## Supported virtual machine sizes
 

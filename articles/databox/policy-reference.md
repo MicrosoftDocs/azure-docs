@@ -1,12 +1,12 @@
 ---
 title: Built-in policy definitions for Azure Data Box
 description: Lists Azure Policy built-in policy definitions for Azure Data Box. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/21/2023
+ms.date: 10/10/2023
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
-author: alkohli
-ms.author: alkohli
+author: stevenmatthew
+ms.author: shaas
 ---
 # Azure Policy built-in definitions for Azure Data Box
 

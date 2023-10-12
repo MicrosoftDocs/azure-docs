@@ -11,18 +11,17 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn Learn how to use client certificate instead of secrets for authentication in my Node.js web app
 ---
 
 # Use client certificate for authentication in your Node.js web app
 
-Azure Active Directory (Azure AD) for customers supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
+Microsoft Entra ID for customers supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
 
-In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it.
+In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it. 
 
-In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL or Windows PowerShell.  
+In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure portal, OpenSSL, or PowerShell. If you have a client secret already, you'll learn how to safely delete it.
 
 When needed, you can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
@@ -32,7 +31,7 @@ When needed, you can also create a self-signed certificate programmatically by u
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
+- External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 - [OpenSSL](https://wiki.openssl.org/index.php/Binaries) or you can easily install [OpenSSL](https://community.chocolatey.org/packages/openssl) in Windows via [Chocolatey](https://chocolatey.org/). 
 
@@ -89,11 +88,13 @@ After the command finishes execution, you should have a *.crt* and a *.key* file
 
 [!INCLUDE [active-directory-customers-app-integration-add-user-flow](./includes/register-app/add-client-app-certificate.md)]
 
+[!INCLUDE [remove-client-secret](./includes/remove-client-secret.md)]
+
 ## Configure your Node.js app to use certificate
 
 Once you associate your app registration with the certificate, you need to update your app code to start using the certificate:
 
-1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then update it to look similar to the following code:
+1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then update it to look similar to the following code. If you have a client secret present, make sure you remove it:
 
     ```javascript
     require('dotenv').config();
@@ -125,7 +126,6 @@ Once you associate your app registration with the certificate, you need to updat
             auth: {
                 clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
                 authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
-                //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
                 clientCertificate: {
                     thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
                     privateKey: privateKey
@@ -169,20 +169,19 @@ Once you associate your app registration with the certificate, you need to updat
     });
     //...
     ```
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Use a self-signed certificate directly from Azure Key Vault
 
 You can use your existing certificate directly from Azure Key Vault:
 
-1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then comment the `clientSecret` property:
+1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then remove the `clientSecret` property:
     
     ```java
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
             authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, 
-            //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         //...
     };
@@ -262,7 +261,7 @@ You can use your existing certificate directly from Azure Key Vault:
     }
     ``` 
 
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Next steps
 

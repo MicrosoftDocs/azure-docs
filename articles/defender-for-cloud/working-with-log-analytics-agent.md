@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 09/12/2022
+ms.date: 07/31/2023
 ---
 
 # Collect data from your workloads with the Log Analytics agent
@@ -103,7 +103,7 @@ Here's a complete breakdown of the Security and App Locker event IDs for each se
 
 > [!NOTE]
 >
-> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Defender for Cloud's [FAQ](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-). For more information about these audit policies, see [Audit Policy Recommendations](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Defender for Cloud's [common questions](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-). For more information about these audit policies, see [Audit Policy Recommendations](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > - To enable data collection for [Adaptive application controls](adaptive-application-controls.md), Defender for Cloud configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Defender for Cloud. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy.
 > - To collect Windows Filtering Platform [Event ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), you need to enable [Audit Filtering Platform Connection](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
@@ -115,7 +115,7 @@ You can define the level of security event data to store at the workspace level.
 1. From Defender for Cloud's menu in the Azure portal, select **Environment settings**.
 1. Select the relevant workspace. The only data collection events for a workspace are the Windows security events described on this page.
 
-    :::image type="content" source="media/enable-data-collection/event-collection-workspace.png" alt-text="Screenshot of setting the security event data to store in a workspace.":::
+    :::image type="content" source="media/enable-data-collection/event-collection-workspace.png" alt-text="Screenshot of setting the security event data to store in a workspace." lightbox="media/enable-data-collection/event-collection-workspace.png":::
 
 1. Select the amount of raw event data to store and select **Save**.
 
@@ -125,17 +125,22 @@ You can define the level of security event data to store at the workspace level.
 
 To manually install the Log Analytics agent:
 
-1. Turn off the Log Analytics agent in **Environment Settings** > Monitoring coverage > **Settings**.
+1. In the Azure portal, navigate to the Defender for Cloud's **Environment Settings** page.
+1. Select the relevant subscription and then select **Settings & monitoring**.
+1. Turn Log Analytics agent/Azure Monitor Agent **Off**.
+
+    :::image type="content" source="media/working-with-log-analytics-agent/manual-provision.png" alt-text="Screenshot of turning off the Log Analytics setting." lightbox="media/working-with-log-analytics-agent/manual-provision.png":::
 
 1. Optionally, create a workspace.
-
 1. Enable Microsoft Defender for Cloud on the workspace on which you're installing the Log Analytics agent:
 
     1. From Defender for Cloud's menu, open **Environment settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 
-    1. Select **Microsoft Defender for Cloud on**, and **Save**.
+    1. Select one or both "Servers" or "SQL servers on machines"(Foundational CSPM is the free default), and then select **Save**.
+    
+        :::image type="content" source="media/working-with-log-analytics-agent/apply-plan-to-workspace.png" alt-text="Screenshot that shows where to set the workspace on which you're installing the agent." lightbox="media/working-with-log-analytics-agent/apply-plan-to-workspace.png":::
 
        >[!NOTE]
        >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically.

@@ -4,8 +4,9 @@ description: Connect a service in development and then promote to production in 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 05/22/2023
+ms.date: 06/13/2023
 ms.author: cshoe
 ---
 
@@ -38,35 +39,6 @@ In this tutorial, you learn to:
 
 ## Set up
 
-1. Set up resource group and location variables.
-
-    ```azurecli
-    RESOURCE_GROUP="my-services-resource-group"
-    LOCATION="eastus"
-    ```
-
-1. Create a variable for the Azure Cache for Redis DNS name.
-
-    To display a list of the Azure Cache for Redis instances, run the following command.
-
-    ```azurecli
-    az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
-    ```
-
-    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
-
-    ```azurecli
-    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
-    ```
-
-1. Create a variable to hold your environment name.
-
-    Replace `<MY_ENVIRONMENT_NAME>` with the name of your container apps environment.
-
-    ```azurecli
-    ENVIRONMENT=<MY_ENVIRONMENT_NAME>
-    ```
-
 1. Sign in to the Azure CLI.
 
     ``` azurecli
@@ -88,7 +60,35 @@ In this tutorial, you learn to:
 1. Register the `Microsoft.ServiceLinker` namespace.
 
     ```azurecli
-    az provider register –namespace Microsoft.ServiceLinker
+    az provider register --namespace Microsoft.ServiceLinker
+    ```
+
+1. Set up the resource group variable.
+
+    ```azurecli
+    RESOURCE_GROUP="my-services-resource-group"
+    ```
+
+1. Create a variable for the Azure Cache for Redis DNS name.
+
+    To display a list of the Azure Cache for Redis instances, run the following command.
+
+    ```azurecli
+    az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
+    ```
+
+1. Create a variable to hold your environment name.
+
+    Replace `<MY_ENVIRONMENT_NAME>` with the name of your container apps environment.
+
+    ```azurecli
+    ENVIRONMENT=<MY_ENVIRONMENT_NAME>
+    ```
+
+1. Set up the location variable.
+
+    ```azurecli
+    LOCATION="eastus"
     ```
 
 1. Create a new environment.
@@ -190,6 +190,14 @@ When your application is ready to move to production, you can bind your applicat
 
 The following steps bind your application to an existing instance of Azure Cache for Redis.
 
+1. Create a variable for your DNS name.
+
+    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
+
+    ```azurecli
+    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
+    ```
+
 1. Bind to Azure Cache for Redis.
 
     ``` azurecli
@@ -215,7 +223,7 @@ The following steps bind your application to an existing instance of Azure Cache
     ```
 
     > [!NOTE]
-    > Environment variable names used for dev mode services and managed service vary slightly.
+    > Environment variable names used for [add-ons](services.md) and managed services vary slightly.
     >
     > If you'd like to see the sample code used for this tutorial please see https://github.com/Azure-Samples/sample-service-redis.
 

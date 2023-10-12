@@ -6,7 +6,7 @@ manager: rcole
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 03/11/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -15,9 +15,6 @@ ms.custom: kr2b-contr-experiment
 
 # Use direct routing to connect to existing telephony service
 Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
@@ -28,6 +25,34 @@ Follow [these instructions](../../how-tos/telephony/domain-validation.md) to val
 
 ## Configure outbound voice routing 
 Refer to [Voice routing quickstart](../../quickstarts/telephony/voice-routing-sdk-config.md) to add an SBC and configure outbound voice routing rules.
+
+## Session Border Controller connection status
+
+The health of an SBC connection now exposed in Azure portal. It takes in account Transport Layer Security (TLS) status and SIP OPTIONS. 
+
+   [![Screenshot of SBC connection properties.](../../quickstarts/telephony/media/voice-routing/session-border-controller-connection-properties.png)](../../quickstarts/telephony//media/voice-routing/session-border-controller-connection-properties.png#lightbox)
+
+### Possible values of each health indicator
+
+TLS Status - Status of the TLS connections of a Trunk: 
+- Unknown - Indicates an unknown status. 
+- Active - Indicates that TLS connection is established. 
+- CertExpiring - Indicates that SBC certificate is expiring. 
+- CertExpired - Indicates that SBC certificate is expired. 
+
+SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
+- Unknown - Indicates an unknown status. 
+- Active - Indicates that OPTIONS are being sent and received. 
+- Expired - Indicates that status is expired. 
+- Error - Indicates an error in OPTIONS exchange.  
+
+Status - The overall health status of a Trunk: 
+- Unknown - Indicates an unknown health status. 
+- Online - Indicates that SBC connection is healthy. 
+- Warning - Indicates TLS or Ping is expired. 
+
+> [!IMPORTANT]
+> Before placing or receiving calls, make sure that SBC status is *Online*
 
 ## Outbound voice routing considerations
 

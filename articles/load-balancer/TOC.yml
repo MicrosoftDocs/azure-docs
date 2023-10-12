@@ -70,6 +70,8 @@
       href: tutorial-gateway-powershell.md
     - name: Create gateway load balancer - Azure CLI
       href: tutorial-gateway-cli.md
+    - name: Deploy a dual-stack gateway load balancer
+      href: gateway-deploy-dual-stack-load-balancer.md
   - name: NAT gateway
     items:
     - name: Integrate NAT gateway public load balancer
@@ -82,24 +84,6 @@
       href: tutorial-load-balancer-ip-backend-portal.md
   - name: Deploy public load balancer with DDoS protection
     href: tutorial-protect-load-balancer.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Load balance traffic to VMs for high availability
-      href: ./scripts/load-balancer-linux-cli-sample-nlb.md
-    - name: Load balance VMs across availability zones
-      href: ./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md
-    - name: Load balance VMs within a specific availability zone
-      href: ./scripts/load-balancer-linux-cli-sample-zonal-frontend.md
-    - name: Load balance multiple websites on VMs
-      href: ./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Python
-    href: python-samples.md
 - name: Concepts
   items:
   - name: What's new?
@@ -162,12 +146,16 @@
       href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
 - name: How-to
   items:
-  - name: Manage health probes
-    href: manage-probes-how-to.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Health probes
+    items:
+    - name: Manage health probes
+      href: manage-probes-how-to.md
+    - name: Create a custom HTTP/HTTPS health probe
+      href: create-custom-http-health-probe-howto.md
   - name: Load Balancer metrics
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
@@ -208,14 +196,8 @@
     items:
     - name: Upgrade options and guidance
       href: load-balancer-basic-upgrade-guidance.md
-    - name: Upgrade a basic public load balancer
-      href: upgrade-basic-standard.md
-    - name: Upgrade an internal load balancer - Outbound connections not required
-      href: upgrade-basicinternal-standard.md
-    - name: Upgrade an internal load balancer - Outbound connections required
-      href: upgrade-internalbasic-to-publicstandard.md
-    - name: Upgrade from Basic to Standard for Virtual Machine Scale Sets
-      href: upgrade-basic-standard-virtual-machine-scale-sets.md
+    - name: Upgrade from Basic to Standard with PowerShell
+      href: upgrade-basic-standard-with-powershell.md
   - name: Using multiple IP configurations
     items:
     - name: Azure portal
@@ -291,7 +273,7 @@
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python
-    href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
+    href: /python/api/azure-mgmt-network/azure.mgmt.network.operations.loadbalancersoperations
   - name: REST
     href: /rest/api/load-balancer/loadbalancers
   - name: Resource Manager template

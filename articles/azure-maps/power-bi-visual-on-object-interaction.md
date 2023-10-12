@@ -19,7 +19,6 @@ Visual like you interact with other Microsoft products or web applications.
 
 ## Use on-object interaction in your Power BI Visual
 
-
 On-object interaction can be used to edit chart titles, legends, bubble
 layers, Map style and Map controls.
 

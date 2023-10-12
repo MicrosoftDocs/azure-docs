@@ -3,91 +3,97 @@ title: 'Azure ExpressRoute: Routing requirements'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 09/06/2023
 ms.author: duau
 ms.custom: references_regions, ignite-2022
 ---
+
 # ExpressRoute routing requirements
-To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:
+
+To connect to Microsoft cloud services using ExpressRoute, you need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:
 
 Refer to the [Circuits and routing domains](expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be set up in to facilitate connectivity.
 
 > [!NOTE]
-> Microsoft does not support any router redundancy protocols (for example, HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
-> 
+> Microsoft doesn't support any router redundancy protocols such as HSRP or VRRP for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
 > 
 
-## IP addresses used for peerings
+## IP addresses used for peering
+
 You need to reserve a few blocks of IP addresses to configure routing between your network and Microsoft's Enterprise edge (MSEEs) routers. This section provides a list of requirements and describes the rules regarding how these IP addresses must be acquired and used.
 
 ### IP addresses used for Azure private peering
-You can use either private IP addresses or public IP addresses to configure the peerings. The address range used for configuring routes must not overlap with address ranges used to create virtual networks in Azure. 
+
+You can use either private IP addresses or public IP addresses to configure the peering. The address range used for configuring routes can't overlap with address ranges used for virtual networks in Azure. 
 
 * IPv4:
     * You must reserve a `/29` subnet or two `/30` subnets for routing interfaces.
     * The subnets used for routing can be either private IP addresses or public IP addresses.
     * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
-    * If a `/29` subnet is used, it is split into two `/30` subnets. 
+    * If a `/29` subnet is used, it's split into two `/30` subnets. 
       * The first `/30` subnet is used for the primary link and the second `/30` subnet is used for the secondary link.
-      * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
-      * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+      * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet for your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
+      * You must set up both BGP sessions for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 * IPv6:
     * You must reserve a `/125` subnet or two `/126` subnets for routing interfaces.
     * The subnets used for routing can be either private IP addresses or public IP addresses.
     * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
-    * If a `/125` subnet is used, it is split into two `/126` subnets. 
+    * If a `/125` subnet is used, it's split into two `/126` subnets. 
       * The first `/126` subnet is used for the primary link and the second `/126` subnet is used for the secondary link.
-      * For each of the `/126` subnets, you must use the first IP address of the `/126` subnet on your router. Microsoft uses the second IP address of the `/126` subnet to set up a BGP session.
-      * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+      * For each of the `/126` subnets, you must use the first IP address of the `/126` subnet for your router. Microsoft uses the second IP address of the `/126` subnet to set up a BGP session.
+      * You must set up both BGP sessions for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 #### Example for private peering
-If you choose to use `a.b.c.d/29` to set up the peering, it is split into two `/30` subnets. In the following example, notice how the `a.b.c.d/29` subnet is used:
+
+If you choose to use `a.b.c.d/29` to set up the peering, it's split into two `/30` subnets. In the following example, notice how the `a.b.c.d/29` subnet is used:
 
 * `a.b.c.d/29` is split to `a.b.c.d/30` and `a.b.c.d+4/30` and passed down to Microsoft through the provisioning APIs.
-  * You use `a.b.c.d+1` as the VRF IP for the Primary PE and Microsoft will consume `a.b.c.d+2` as the VRF IP for the primary MSEE.
-  * You use `a.b.c.d+5` as the VRF IP for the secondary PE and Microsoft will use `a.b.c.d+6` as the VRF IP for the secondary MSEE.
+  * You use `a.b.c.d+1` as the VRF IP for the Primary PE and Microsoft uses `a.b.c.d+2` as the VRF IP for the primary MSEE.
+  * You use `a.b.c.d+5` as the VRF IP for the secondary PE and Microsoft uses `a.b.c.d+6` as the VRF IP for the secondary MSEE.
 
 Consider a case where you select `192.168.100.128/29` to set up private peering. `192.168.100.128/29` includes addresses from `192.168.100.128` to `192.168.100.135`, among which:
 
-* `192.168.100.128/30` will be assigned to `link1`, with provider using `192.168.100.129` and Microsoft using `192.168.100.130`.
-* `192.168.100.132/30` will be assigned to `link2`, with provider using `192.168.100.133` and Microsoft using `192.168.100.134`.
+* `192.168.100.128/30` is assigned to `link1`, with provider using `192.168.100.129` and Microsoft using `192.168.100.130`.
+* `192.168.100.132/30` is assigned to `link2`, with provider using `192.168.100.133` and Microsoft using `192.168.100.134`.
 
 ### IP addresses used for Microsoft peering
+
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries.
 
-* The IPs listed in the portal for Advertised Public Prefixes for Microsoft Peering will create ACLs for the Microsoft core routers to allow inbound traffic from these IPs. 
-* You must use a unique `/29` (IPv4) or `/125` (IPv6) subnet or two `/30` (IPv4) or `/126` (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
-* If a `/29` subnet is used, it is split into two `/30` subnets.
-* The first `/30` subnet is used for the primary link and the second `/30` subnet will be used for the secondary link.
+* The IPs listed in the portal for Advertised Public Prefixes for Microsoft Peering creates ACLs for the Microsoft core routers to allow inbound traffic from these IPs. 
+* You must use a unique `/29` (IPv4) or `/125` (IPv6) subnet or two `/30` (IPv4) or `/126` (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit, if you have more than one.
+* If a `/29` subnet is used, it's split into two `/30` subnets.
+* The first `/30` subnet is used for the primary link and the second `/30` subnet is used for the secondary link.
 * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
-* If a `/125` subnet is used, it is split into two `/126` subnets.
-* The first `/126` subnet is used for the primary link and the second `/126` subnet will be used for the secondary link.
+* If a `/125` subnet is used, it's split into two `/126` subnets.
+* The first `/126` subnet is used for the primary link and the second `/126` subnet is used for the secondary link.
 * For each of the `/126` subnets, you must use the first IP address of the `/126` subnet on your router. Microsoft uses the second IP address of the `/126` subnet to set up a BGP session.
 * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 ### IP addresses used for Azure public peering
 
 > [!NOTE]
-> Azure public peering is not available for new circuits.
+> Azure public peering isn't available for new ExpressRoute circuits.
 > 
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
 
 * You must use a unique `/29` subnet or two `/30` subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
-* If a `/29` subnet is used, it is split into two `/30` subnets. 
+* If a `/29` subnet is used, it's split into two `/30` subnets. 
   * The first `/30` subnet is used for the primary link and the second `/30` subnet is used for the secondary link.
   * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
-  * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+  * You must set up both BGP sessions for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 ## Public IP address requirement
 
 ### Private peering
-You can choose to use public or private IPv4 addresses for private peering. We provide end-to-end isolation of your traffic, so overlapping of addresses with other customers is not possible in case of private peering. These addresses are not advertised to Internet. 
+
+You can choose to use public or private IPv4 addresses for private peering. We provide end-to-end isolation of your traffic, so overlapping of addresses with other customers isn't possible for private peering. These addresses aren't advertised to Internet. 
 
 ### Microsoft peering
+
 The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Microsoft 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Microsoft Teams. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the following registries:
@@ -100,9 +106,9 @@ Make sure that your IP address and AS number are registered to you in one of the
 * [RADB](https://www.radb.net/)
 * [ALTDB](https://altdb.net/)
 
-If your prefixes and AS number are not assigned to you in the preceding registries, you need to open a support case for manual validation of your prefixes and ASN. Support requires documentation, such as a Letter of Authorization, that proves you are allowed to use the resources.
+If your prefixes and AS number aren't assigned to you in the preceding registries, you need to open a support case for manual validation of your prefixes and ASN. Support requires documentation, such as a Letter of Authorization that proves you're allowed to use that prefix.
 
-A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). Additionally, AS numbers 64496 - 64511 reserved by IANA for documentation purposes are not allowed in the path.
+A Private AS Number is allowed with Microsoft Peering, but requires manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). Additionally, AS numbers 64496 - 64511 reserved by IANA for documentation purposes aren't allowed in the path.
 
 > [!IMPORTANT]
 > Do not advertise the same public IP route to the public Internet and over ExpressRoute. To reduce the risk of incorrect configuration causing asymmetric routing, we strongly recommend that the [NAT IP addresses](expressroute-nat.md) advertised to Microsoft over ExpressRoute be from a range that is not advertised to the internet at all. If this is not possible to achieve, it is essential to ensure you advertise a more specific range over ExpressRoute than the one on the Internet connection. Besides the public route for NAT, you can also advertise over ExpressRoute the Public IP addresses used by the servers in your on-premises network that communicate with Microsoft 365 endpoints within Microsoft. 
@@ -110,6 +116,7 @@ A Private AS Number is allowed with Microsoft Peering, but will also require man
 > 
 
 ### Public peering (deprecated - not available for new circuits)
+
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpressRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. Connectivity to Microsoft Azure services on public peering is always initiated from your network into the Microsoft network. You must use Public IP addresses for the traffic destined to Microsoft network.
 
 > [!IMPORTANT]
@@ -119,46 +126,51 @@ The Azure public peering path enables you to connect to all services hosted in A
 A Private AS Number is allowed with public peering.
 
 ## Dynamic route exchange
-Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](how-to-routefilter-portal.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
+
+Routing exchange is over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions isn't a requirement. If necessary, an MD5 hash can be configured. See the [Configure routing](how-to-routefilter-portal.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
 
 ## Autonomous System numbers (ASN)
-Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
-There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging to you. Route metrics are not required to be identical.
+Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 bit and 32-bit AS numbers are supported.
+
+There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging to you. Route metrics aren't required to be identical.
 
 ## Route aggregation and prefix limits
-We support up to 4000 IPv4 prefixes and 100 IPv6 prefixes advertised to us through the Azure private peering. This can be increased up to 10,000 IPv4 prefixes if the ExpressRoute premium add-on is enabled. We accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
 
-The BGP session is dropped if the number of prefixes exceeds the limit. We will accept default routes on the private peering link only. Provider must filter out default route and private IP addresses (RFC 1918) from the Azure public and Microsoft peering paths. 
+ExpressRoute supports up to 4000 IPv4 prefixes and 100 IPv6 prefixes advertised to Microsoft through the Azure private peering. This limit can be increased up to 10,000 IPv4 prefixes if the ExpressRoute premium add-on is enabled. ExpressRoute accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
+
+The BGP session is dropped if the number of prefixes exceeds the limit. ExpressRoute accept default routes on the private peering link only. Provider must filter out default route and private IP addresses (RFC 1918) from the Azure public and Microsoft peering paths. 
 
 ## Transit routing and cross-region routing
-ExpressRoute cannot be configured as transit routers. You will have to rely on your connectivity provider for transit routing services.
+
+ExpressRoute can't be configured as transit routers. You have to rely on your connectivity provider for transit routing services.
 
 ## Advertising default routes
-Default routes are permitted only on Azure private peering sessions. In such a case, we will route all traffic from the associated virtual networks to your network. Advertising default routes into private peering will result in the internet path from Azure being blocked. You must rely on your corporate edge to route traffic from and to the internet for services hosted in Azure. 
 
- To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
+Default routes are permitted only on Azure private peering sessions. In such a case, ExpressRoute routes all traffic from the associated virtual networks to your network. Advertising default routes into private peering results in the internet path from Azure being blocked. You must rely on your corporate edge to route traffic from and to the internet for services hosted in Azure. 
+
+To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
 
 * Azure public peering is enabled to route traffic to public endpoints.
 * You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
 > [!NOTE]
-> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) to work around this.
-> 
+> Advertising default routes will break Windows and other VM license activation. For information about a work around, see [use user defined routes to enable KMS activation](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
 > 
 
 ## <a name="bgp"></a>Support for BGP communities
-This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the private, Microsoft and public (deprecated) peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
-For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you will see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
+This section provides an overview of how BGP communities get used with ExpressRoute. Microsoft advertises routes in the private, Microsoft and public (deprecated) peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are describe as followed. Microsoft, however, doesn't honor any community values tagged to routes advertised to Microsoft.
 
-For Microsoft peering, you are connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region, you will have access to all Microsoft cloud services across all regions within the geopolitical boundary.
+For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you'll see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
 
-For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in North Europe and West Europe. 
+For Microsoft peering, you're connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region. You also have access to all Microsoft cloud services across all regions within the geopolitical boundary.
+
+For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in North Europe and West Europe. 
 
 Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
-You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the Microsoft peering and public peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
+You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you receive the same set of prefixes advertised from Microsoft on the Microsoft peering and public peering paths. This configuration results in multiple paths from your network into Microsoft. This set up can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
 
 | **Microsoft Azure region** | **Regional BGP community (private peering)** | **Regional BGP community (Microsoft peering)** | **Storage BGP community** | **SQL BGP community** | **Azure Cosmos DB BGP community** | **Backup BGP community** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -215,35 +227,38 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | UAE Central | 12076:50037 | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 | 12076:55037 |
 
 
-All routes advertised from Microsoft will be tagged with the appropriate community value. 
+All routes advertised from Microsoft are tagged with the appropriate community value. 
 
 > [!IMPORTANT]
 > Global prefixes are tagged with an appropriate community value.
 > 
-> 
 
 ### Service to BGP community value
-In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value. You can run the 'Get-AzBgpServiceCommunity' cmdlet for a full list of the latest values.
+
+In addition to the BGP tag for each region, Microsoft also tags prefixes based on the service they belong to. This tagging only applies to the Microsoft peering. The following table provides a mapping of service to BGP community value. You can run the 'Get-AzBgpServiceCommunity' cmdlet for a full list of the latest values.
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| Exchange Online\*\* | 12076:5010 |
-| SharePoint Online\*\* | 12076:5020 |
-| Skype For Business Online\*\*/\*\*\* | 12076:5030 |
-| CRM Online\*\*\*\* |12076:5040 |
-| Azure Global Services\* | 12076:5050 |
-| Azure Active Directory |12076:5060 |
+| Exchange Online (2) | 12076:5010 |
+| SharePoint Online (2) | 12076:5020 |
+| Skype For Business Online (2) and (3) | 12076:5030 |
+| CRM Online (4) |12076:5040 |
+| Azure Global Services (1) | 12076:5050 |
+| Microsoft Entra ID |12076:5060 |
 | Azure Resource Manager |12076:5070 |
-| Other Office 365 Online services** | 12076:5100 |
-| Microsoft Defender for Identity | 12076:5520 |
+| Other Office 365 Online services (2) | 12076:5100 |
+| Microsoft Defender for Identity | 12076:5220 |
+| Microsoft PSTN services (5) | 12076:5250 |
 
-\* Azure Global Services includes only Azure DevOps at this time.
+(1) Azure Global Services includes only Azure DevOps at this time.
 
-\*\* Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)
+(2) Authorization required from Microsoft. See [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md).
 
-\*\*\* This community also publishes the needed routes for Microsoft Teams services.
+(3) This community also publishes the needed routes for Microsoft Teams services.
 
-\*\*\*\* CRM Online supports Dynamics v8.2 and below. For higher versions, select the regional community for your Dynamics deployments.
+(4) CRM Online supports Dynamics v8.2 and below. For higher versions, select the regional community for your Dynamics deployments.
+
+(5) Use of Microsoft Peering with PSTN services is restricted to specific use cases. See [Using ExpressRoute for Microsoft PSTN services](using-expressroute-for-microsoft-pstn.md).
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
@@ -273,10 +288,10 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| Azure Active Directory |12076:5160 |
+| Microsoft Entra ID |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
 
-* *Office 365 communities are not supported over Microsoft Peering for Azure China region.*
+* *Office 365 communities aren't supported over Microsoft Peering for Microsoft Azure operated by 21Vianet region.*
 
 ## Next steps
 * Configure your ExpressRoute connection.

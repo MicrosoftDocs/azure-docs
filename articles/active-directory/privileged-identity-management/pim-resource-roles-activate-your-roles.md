@@ -1,9 +1,9 @@
 ---
 title: Activate Azure resource roles in PIM
-description: Learn how to activate your Azure resource roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to activate your Azure resource roles in Microsoft Entra Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 4/14/2023
-ms.author: amsliu
+ms.author: barclayn
 ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Activate my Azure resource roles in Privileged Identity Management
 
-Use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
+Use Microsoft Entra Privileged Identity Management (PIM), to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
 
 This article is for members who need to activate their Azure resource role in Privileged Identity Management.
 
@@ -27,19 +27,19 @@ This article is for members who need to activate their Azure resource role in Pr
 >As of March 2023, you may now activate your assignments and view your access directly from blades outside of PIM in the Azure portal. Read more [here](pim-resource-roles-activate-your-roles.md#activate-with-azure-portal).
 
 >[!IMPORTANT]
->When a role is activated, Azure AD PIM temporarily adds active assignment for the role. Azure AD PIM creates active assignment (assigns user to a role) within seconds. When deactivation (manual or through activation time expiration) happens, Azure AD PIM removes the active assignment within seconds as well.
+>When a role is activated, Microsoft Entra PIM temporarily adds active assignment for the role. Microsoft Entra PIM creates active assignment (assigns user to a role) within seconds. When deactivation (manual or through activation time expiration) happens, Microsoft Entra PIM removes the active assignment within seconds as well.
 >
 >Application may provide access based on the role the user has. In some situations, application access may not immediately reflect the fact that user got role assigned or removed. If application previously cached the fact that user does not have a role – when user tries to access application again, access may not be provided. Similarly, if application previously cached the fact that user has a role – when role is deactivated, user may still get access. Specific situation depends on the application’s architecture. For some applications, signing out and signing back in may help get access added or removed.
 
 ## Activate a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you need to take on an Azure resource role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
-
-1. Select **My roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles**.
 
     ![My roles page showing roles you can activate](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
@@ -181,9 +181,9 @@ Status code: 201
 
 You can view the status of your pending requests to activate.
 
-1. Open Azure AD Privileged Identity Management.
+1. Open Microsoft Entra Privileged Identity Management.
 
-1. Select **My requests** to see a list of your Azure AD role and Azure resource role requests.
+1. Select **My requests** to see a list of your Microsoft Entra role and Azure resource role requests.
 
     ![My requests - Azure resource page showing your pending requests](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
@@ -193,7 +193,7 @@ You can view the status of your pending requests to activate.
 
 If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
 
-1. Open Azure AD Privileged Identity Management.
+1. Open Microsoft Entra Privileged Identity Management.
 
 1. Select **My requests**.
 
@@ -226,4 +226,4 @@ By integrating PIM capabilities into different Azure portal blades, this new fea
 ## Next steps
 
 - [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
-- [Activate my Azure AD roles in Privileged Identity Management](pim-how-to-activate-role.md)
+- [Activate my Microsoft Entra roles in Privileged Identity Management](pim-how-to-activate-role.md)

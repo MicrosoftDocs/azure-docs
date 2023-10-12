@@ -2,11 +2,13 @@
 title: 'Tutorial: Access Azure databases with managed identity'
 description: Secure database connectivity (Azure SQL Database, Database for MySQL, and Database for PostgreSQL) with managed identity from .NET, Node.js, Python, and Java apps.
 keywords: azure app service, web app, security, msi, managed service identity, managed identity, .net, dotnet, asp.net, c#, csharp, node.js, node, python, java, visual studio, visual studio code, visual studio for mac, azure cli, azure powershell, defaultazurecredential
+author: cephalin
+ms.author: cephalin
 
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022
+ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -17,7 +19,7 @@ ms.custom: mvc, devx-track-azurecli, ignite-2022
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -26,12 +28,12 @@ Managed identities in App Service make your app more secure by eliminating secre
 What you will learn:
 
 > [!div class="checklist"]
-> * Configure an Azure AD user as an administrator for your Azure database.
-> * Connect to your database as the Azure AD user.
+> * Configure a Microsoft Entra user as an administrator for your Azure database.
+> * Connect to your database as the Microsoft Entra user.
 > * Configure a system-assigned or user-assigned managed identity for an App Service app.
 > * Grant database access to the managed identity.
 > * Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
-> * Connect to the Azure database from your development environment using the Azure AD user.
+> * Connect to the Azure database from your development environment using the Microsoft Entra user.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,16 +47,18 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## 1. Grant database access to Azure AD user
+<a name='1-grant-database-access-to-azure-ad-user'></a>
 
-First, enable Azure Active Directory authentication to the Azure database by assigning an Azure AD user as the administrator of the server. For the scenario in the tutorial, you'll use this user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
+## 1. Grant database access to Microsoft Entra user
+
+First, enable Microsoft Entra authentication to the Azure database by assigning a Microsoft Entra user as the administrator of the server. For the scenario in the tutorial, you'll use this user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
 
 > [!NOTE]
-> This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
+> This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Microsoft Entra ID. For more information on allowed Microsoft Entra users, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
-1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+1. If your Microsoft Entra tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Microsoft Entra ID](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
+1. Find the object ID of the Microsoft Entra user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
     azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].id --output tsv)
@@ -62,17 +66,17 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 # [Azure SQL Database](#tab/sqldatabase)
 
-3. Add this Azure AD user as an Active Directory administrator using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Microsoft Entra user as an Active Directory administrator using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id $azureaduser
     ```
 
-    For more information on adding an Active Directory administrator, see [Provision an Azure Active Directory administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)
+    For more information on adding an Active Directory administrator, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)
 
 # [Azure Database for MySQL](#tab/mysql)
 
-3. Add this Azure AD user as an Active Directory administrator using [`az mysql server ad-admin create`](/cli/azure/mysql/server/ad-admin#az-mysql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Microsoft Entra user as an Active Directory administrator using [`az mysql server ad-admin create`](/cli/azure/mysql/server/ad-admin#az-mysql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az mysql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name <user-principal-name> --object-id $azureaduser
@@ -83,7 +87,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 # [Azure Database for PostgreSQL](#tab/postgresql)
 
-3. Add this Azure AD user as an Active Directory administrator using [`az postgres server ad-admin create`](/cli/azure/postgres/server/ad-admin#az-postgres-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Microsoft Entra user as an Active Directory administrator using [`az postgres server ad-admin create`](/cli/azure/postgres/server/ad-admin#az-postgres-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az postgres server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name <user-principal-name> --object-id $azureaduser
@@ -142,7 +146,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
     > [!NOTE]
     > To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in *\<slot-name>*.
     
-1. The identity needs to be granted permissions to access the database. In the Cloud Shell, sign in to your database with the following command. Replace _\<server-name>_ with your server name, _\<database-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials from [1. Grant database access to Azure AD user]().
+1. The identity needs to be granted permissions to access the database. In the Cloud Shell, sign in to your database with the following command. Replace _\<server-name>_ with your server name, _\<database-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Microsoft Entra user's credentials from [1. Grant database access to Microsoft Entra user]().
 
     # [Azure SQL Database](#tab/sqldatabase)
 
@@ -415,7 +419,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     connection.Open();
     ```
 
-    [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true) provides integrated support of Azure AD authentication. In this case, the [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true#using-active-directory-default-authentication) uses `DefaultAzureCredential` to retrieve the required token for you and adds it to the database connection directly.
+    [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true) provides integrated support of Microsoft Entra authentication. In this case, the [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true#using-active-directory-default-authentication) uses `DefaultAzureCredential` to retrieve the required token for you and adds it to the database connection directly.
 
     For a more detailed tutorial, see [Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md).
 
@@ -741,7 +745,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the MySQL username based on which identity the token applies to. The token is then passed in to the [standard MySQL connection](../mysql/connect-python.md) as the password of the Azure identity.
 
-    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/en/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
+    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/en/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Microsoft Entra ID for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -771,7 +775,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the PostgreSQL username based on which identity the token applies to. The token is then passed in to the [standard PostgreSQL connection](../postgresql/connect-python.md) as the password of the Azure identity.
 
-    Whatever database driver you use, make sure it can send the token as clear text (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
+    Whatever database driver you use, make sure it can send the token as clear text (see [Use Microsoft Entra ID for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
 
     -----
 
@@ -970,21 +974,21 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
 ## 4. Set up your dev environment
 
- This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Azure Active Directory and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Azure AD user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
+ This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Microsoft Entra user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
 
-Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Azure AD user. In this step, you configure your environment of choice by signing in [with your Azure AD user](#1-grant-database-access-to-azure-ad-user). 
+Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Microsoft Entra user. In this step, you configure your environment of choice by signing in [with your Microsoft Entra user](#1-grant-database-access-to-azure-ad-user). 
 
 # [Visual Studio Windows](#tab/windowsclient)
 
-1. Visual Studio for Windows is integrated with Azure AD authentication. To enable development and debugging in Visual Studio, add your Azure AD user in Visual Studio by selecting **File** > **Account Settings** from the menu, and select **Sign in** or **Add**.
+1. Visual Studio for Windows is integrated with Microsoft Entra authentication. To enable development and debugging in Visual Studio, add your Microsoft Entra user in Visual Studio by selecting **File** > **Account Settings** from the menu, and select **Sign in** or **Add**.
 
-1. To set the Azure AD user for Azure service authentication, select **Tools** > **Options** from the menu, then select **Azure Service Authentication** > **Account Selection**. Select the Azure AD user you added and select **OK**.
+1. To set the Microsoft Entra user for Azure service authentication, select **Tools** > **Options** from the menu, then select **Azure Service Authentication** > **Account Selection**. Select the Microsoft Entra user you added and select **OK**.
 
 # [Visual Studio for macOS](#tab/macosclient)
 
-1. Visual Studio for Mac is *not* integrated with Azure AD authentication. However, the Azure Identity client library that you'll use later can also retrieve tokens from Azure CLI. To enable development and debugging in Visual Studio, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+1. Visual Studio for Mac is *not* integrated with Microsoft Entra authentication. However, the Azure Identity client library that you'll use later can also retrieve tokens from Azure CLI. To enable development and debugging in Visual Studio, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 
-1. Sign in to Azure CLI with the following command using your Azure AD user:
+1. Sign in to Azure CLI with the following command using your Microsoft Entra user:
 
     ```azurecli
     az login --allow-no-subscriptions
@@ -992,7 +996,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 # [Visual Studio Code](#tab/vscode)
 
-1. Visual Studio Code is integrated with Azure AD authentication through the Azure extension. Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension in Visual Studio Code.
+1. Visual Studio Code is integrated with Microsoft Entra authentication through the Azure extension. Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension in Visual Studio Code.
 
 1. In Visual Studio Code, in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the **Azure** logo.
 
@@ -1002,7 +1006,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 1. The Azure Identity client library that you'll use later can use tokens from Azure CLI. To enable command-line based development, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 
-1. Sign in to Azure with the following command using your Azure AD user:
+1. Sign in to Azure with the following command using your Microsoft Entra user:
 
     ```azurecli
     az login --allow-no-subscriptions
@@ -1012,7 +1016,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
-1. Sign in to Azure CLI with the following cmdlet using your Azure AD user:
+1. Sign in to Azure CLI with the following cmdlet using your Microsoft Entra user:
 
     ```powershell-interactive
     Connect-AzAccount
@@ -1020,13 +1024,13 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 -----
 
-For more information about setting up your dev environment for Azure Active Directory authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
+For more information about setting up your dev environment for Microsoft Entra authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
 
-You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
+You're now ready to develop and debug your app with the SQL Database as the back end, using Microsoft Entra authentication.
 
 ## 5. Test and publish
 
-1. Run your code in your dev environment. Your code uses the [signed-in Azure AD user](#1-grant-database-access-to-azure-ad-user)) in your environment to connect to the back-end database. The user can access the database because it's configured as an Azure AD administrator for the database.
+1. Run your code in your dev environment. Your code uses the [signed-in Microsoft Entra user](#1-grant-database-access-to-azure-ad-user)) in your environment to connect to the back-end database. The user can access the database because it's configured as a Microsoft Entra administrator for the database.
 
 1. Publish your code to Azure using the preferred publishing method. In App Service, your code uses the app's managed identity to connect to the back-end database.
 
@@ -1035,13 +1039,13 @@ You're now ready to develop and debug your app with the SQL Database as the back
 - [Does managed identity support SQL Server?](#does-managed-identity-support-sql-server)
 - [I get the error `Login failed for user '<token-identified principal>'.`](#i-get-the-error-login-failed-for-user-token-identified-principal)
 - [I made changes to App Service authentication or the associated app registration. Why do I still get the old token?](#i-made-changes-to-app-service-authentication-or-the-associated-app-registration-why-do-i-still-get-the-old-token)
-- [How do I add the managed identity to an Azure AD group?](#how-do-i-add-the-managed-identity-to-an-azure-ad-group)
+- [How do I add the managed identity to a Microsoft Entra group?](#how-do-i-add-the-managed-identity-to-an-azure-ad-group)
 - [I get the error `mysql: unknown option '--enable-cleartext-plugin'`.](#i-get-the-error-mysql-unknown-option---enable-cleartext-plugin)
 - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
 
 #### Does managed identity support SQL Server?
 
-Azure Active Directory and managed identities aren't supported for on-premises SQL Server. 
+Microsoft Entra ID and managed identities aren't supported for on-premises SQL Server. 
 
 #### I get the error `Login failed for user '<token-identified principal>'.`
 
@@ -1052,9 +1056,11 @@ The managed identity you're attempting to request a token for is not authorized 
 The back-end services of managed identities also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you modify the configuration *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires. The best way to work around this is to test your changes with a new InPrivate (Edge)/private (Safari)/Incognito (Chrome) window. That way, you're sure to start from a new authenticated session.
 
 
-#### How do I add the managed identity to an Azure AD group?
+<a name='how-do-i-add-the-managed-identity-to-an-azure-ad-group'></a>
 
-If you want, you can add the identity to an [Azure AD group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant  access to the Azure AD group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
+#### How do I add the managed identity to a Microsoft Entra group?
+
+If you want, you can add the identity to an [Microsoft Entra group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant  access to the Microsoft Entra group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -1063,7 +1069,7 @@ az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 
-To grant database permissions for an Azure AD group, see documentation for the respective database type.
+To grant database permissions for a Microsoft Entra group, see documentation for the respective database type.
 
 #### I get the error `mysql: unknown option '--enable-cleartext-plugin'`.
 
@@ -1081,12 +1087,12 @@ Connecting to the Azure database requires additional settings and is beyond the 
 What you learned:
 
 > [!div class="checklist"]
-> * Configure an Azure AD user as an administrator for your Azure database.
-> * Connect to your database as the Azure AD user.
+> * Configure a Microsoft Entra user as an administrator for your Azure database.
+> * Connect to your database as the Microsoft Entra user.
 > * Configure a system-assigned or user-assigned managed identity for an App Service app.
 > * Grant database access to the managed identity.
 > * Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
-> * Connect to the Azure database from your development environment using the Azure AD user.
+> * Connect to the Azure database from your development environment using the Microsoft Entra user.
 
 > [!div class="nextstepaction"]
 > [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md)

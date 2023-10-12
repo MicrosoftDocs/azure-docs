@@ -5,7 +5,7 @@ services: automation
 ms.subservice:
 ms.date: 10/17/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Troubleshoot Azure Automation State Configuration issues

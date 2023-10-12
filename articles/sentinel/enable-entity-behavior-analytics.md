@@ -1,14 +1,17 @@
 ---
-title: Use entity behavior analytics to detect advanced threats | Microsoft Docs
+title: Enable entity behavior analytics to detect advanced threats
 description: Enable User and Entity Behavior Analytics in Microsoft Sentinel, and configure data sources
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 07/05/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel 
+
+In the previous deployment step, you enabled the Microsoft Sentinel security content you need to protect your systems. In this article, you learn how to enable and use the UEBA feature to streamline the analysis process. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
+
+As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -16,7 +19,7 @@ ms.custom: ignite-fall-2021
 
 To enable or disable this feature (these prerequisites are not required to use the feature):
 
-- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
+- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Microsoft Entra ID.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
     - **Microsoft Sentinel Contributor** at the workspace or resource group levels.
@@ -45,7 +48,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 1. Mark the check boxes next to the Active Directory source types from which you want to synchronize user entities with Microsoft Sentinel.
 
     - **Active Directory** on-premises (Preview)
-    - **Azure Active Directory**
+    - **Microsoft Entra ID**
 
     To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft 365 Defender) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
 
@@ -61,10 +64,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 ## Next steps
 
-In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
-- See the [list of anomalies](anomalies-reference.md#ueba-anomalies) detected using UEBA.
-- Learn more about [how UEBA works](identify-threats-with-entity-behavior-analytics.md) and how to use it.
+In this article, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
 
-To learn more about Microsoft Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+> [!div class="nextstepaction"]
+>>[Configure data retention and archive](configure-data-retention-archive.md)

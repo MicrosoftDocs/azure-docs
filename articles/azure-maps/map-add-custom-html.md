@@ -1,12 +1,12 @@
 ---
 title: Add an HTML Marker to map | Microsoft Azure Maps
 description: Learn how to add HTML markers to maps. See how to use the Azure Maps Web SDK to customize markers and add popups and mouse events to a marker.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Add HTML markers to the map
@@ -23,7 +23,7 @@ This article shows you how to add a custom HTML such as an image file to the map
 
 The [HtmlMarker] class has a default style. You can customize the marker by setting the color and text options of the marker. The default style of the HTML marker class is an SVG template that has a `{color}` and `{text}` placeholder. Set the color and text properties in the HTML marker options for a quick customization.
 
-The following code creates an HTML marker, and sets the color property to "DodgerBlue" and the text property to "10". A popup is attached to the marker and `click` event is used to toggle the visibility of the popup.
+The following code creates an HTML marker, and sets the color property to `DodgerBlue` and the text property to `10`. A popup is attached to the marker and `click` event is used to toggle the visibility of the popup.
 
 ```javascript
 //Create an HTML marker and add it to the map.
@@ -45,26 +45,24 @@ map.events.add('click',marker, () => {
 });
 ```
 
-For a complete working sample of how to add an HTML marker, see [Simple HTML Marker] in the [Azure Maps Samples].
+For a complete working sample of how to add an HTML marker, see [Simple HTML Marker] in the [Azure Maps Samples]. For the source code for this sample, see  [Simple HTML Marker source code].
 
 :::image type="content" source="./media/map-add-custom-html/simple-html-marker.png" alt-text="Screenshot showing a map of the world with a simple HtmlMarker.":::
 
 <!-------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='Add an HTML Marker to a map' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Add an HTML Marker to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------------------->
 
 ## Create SVG templated HTML marker
 
 The default `htmlContent` of an Html marker is an SVG template with place folders `{color}` and `{text}` in it. You can create custom SVG strings and add these same placeholders into your SVG such that setting the `color` and `text` options of the marker update these placeholders in your SVG.
 
-For a complete working sample of how to create a custom SVG template and use it with the HtmlMarker class, see [HTML Marker with Custom SVG Template] in the [Azure Maps Samples]. When running this sample, select the button in the upper left hand side of the window labeled **Update Marker Options** to change the `color` and `text` options from the SVG template used in the HtmlMarker.
+For a complete working sample of how to create a custom SVG template and use it with the HtmlMarker class, see [HTML Marker with Custom SVG Template] in the [Azure Maps Samples]. When running this sample, select the button in the upper left hand side of the window labeled **Update Marker Options** to change the `color` and `text` options from the SVG template used in the HtmlMarker. For the source code for this sample, see [HTML Marker with Custom SVG Template source code].
 
-:::image type="content" source="./media/map-add-custom-html/html-marker-with-custom-svg-template.png" alt-text="Screenshot showing a map of the world with a custom SVG template used with the HtmlMarker class and a button labeled update marker options, that when selected changes the color and text options from the SVG template used in the HtmlMarker. ":::
+:::image type="content" source="./media/map-add-custom-html/html-marker-with-custom-svg-template.png" alt-text="Screenshot showing a map of the world with a custom SVG template used with the HtmlMarker class. It includes a button labeled update marker options, that when selected changes the color and text options from the SVG template used in the HtmlMarker. ":::
 
 <!-------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='HTML Marker with Custom SVG Template' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>HTML Marker with Custom SVG Template</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------------------->
 
 > [!TIP]
@@ -183,39 +181,36 @@ The CSS:
     </style>
 ```
 
-For a complete working sample of how to use CSS and HTML to create a marker on the map, see [CSS Styled HTML Marker] in the [Azure Maps Samples].
+For a complete working sample of how to use CSS and HTML to create a marker on the map, see [CSS Styled HTML Marker] in the [Azure Maps Samples]. For the source code for this sample, see [CSS Styled HTML Marker source code].
 
 :::image type="content" source="./media/map-add-custom-html/css-styled-html-marker.gif" alt-text="Screenshot showing a CSS styled HTML marker. ":::
 
 <!-------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='HTML DataSource' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------------------->
 
 ## Draggable HTML markers
 
 This sample shows how to make an HTML marker draggable. HTML markers support `drag`, `dragstart`, and `dragend` events.
 
-For a complete working sample of how to use CSS and HTML to create a marker on the map, see [Draggable HTML Marker] in the [Azure Maps Samples].
+For a complete working sample of how to use CSS and HTML to create a marker on the map, see [Draggable HTML Marker] in the [Azure Maps Samples]. For the source code for this sample, see [Draggable HTML Marker source code].
 
 :::image type="content" source="./media/map-add-custom-html/draggable-html-marker.gif" alt-text="Screenshot showing a map of the United States with a yellow thumb tack being dragged to demonstrate a draggable HTML marker. ":::
 
 <!------------------------------------------------------------------U-
-<iframe height='500' scrolling='no' title='Draggable HTML Marker' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>Draggable HTML Marker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------------------->
 
 ## Add mouse events to HTML markers
 
-For a complete working sample of how to add mouse and drag events to an HTML marker, see [HTML Marker events] in the [Azure Maps Samples].
+For a complete working sample of how to add mouse and drag events to an HTML marker, see [HTML Marker events] in the [Azure Maps Samples]. For the source code for this sample, see [HTML Marker events source code].
 
 :::image type="content" source="./media/map-add-custom-html/html-marker-events.gif" alt-text="Screenshot showing a map of the world with an HtmlMarker and a list of HtmlMarker events that become highlighted in green when that event fires.":::
 
 <!-------------------------------------------------------------------
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding Mouse Events to HTML Markers' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Adding Mouse Events to HTML Markers</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------------------->
 
 ## Next steps
@@ -242,13 +237,19 @@ For more code examples to add to your maps, see the following articles:
 > [!div class="nextstepaction"]
 > [Add a bubble layer]
 
-[Simple HTML Marker]: https://samples.azuremaps.com/?search=HTML%20marker&sample=simple-html-marker
+[Simple HTML Marker]: https://samples.azuremaps.com/html-markers/simple-html-marker
 [Azure Maps Samples]: https://samples.azuremaps.com/
-[HTML Marker with Custom SVG Template]: https://samples.azuremaps.com/?search=HTML%20marker&sample=html-marker-with-custom-svg-template
+[HTML Marker with Custom SVG Template]: https://samples.azuremaps.com/html-markers/html-marker-with-custom-svg-template
 [How to use image templates]: how-to-use-image-templates-web-sdk.md
-[CSS Styled HTML Marker]: https://samples.azuremaps.com/?search=HTML%20marker&sample=css-styled-html-marker
-[Draggable HTML Marker]: https://samples.azuremaps.com/?search=HTML%20marker&sample=draggable-html-marker
-[HTML Marker events]: https://samples.azuremaps.com/?search=HTML%20marker&sample=html-marker-events
+[CSS Styled HTML Marker]: https://samples.azuremaps.com/html-markers/css-styled-html-marker
+[Draggable HTML Marker]: https://samples.azuremaps.com/html-markers/draggable-html-marker
+[HTML Marker events]: https://samples.azuremaps.com/html-markers/html-marker-events
+
+[Simple HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/Simple%20HTML%20Marker/Simple%20HTML%20Marker.html
+[HTML Marker with Custom SVG Template source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20Marker%20with%20Custom%20SVG%20Template/HTML%20Marker%20with%20Custom%20SVG%20Template.html
+[CSS Styled HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/CSS%20Styled%20HTML%20Marker/CSS%20Styled%20HTML%20Marker.html
+[Draggable HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/Draggable%20HTML%20Marker/Draggable%20HTML%20Marker.html
+[HTML Marker events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20Marker%20events/HTML%20Marker%20events.html
 
 [HtmlMarker]: /javascript/api/azure-maps-control/atlas.htmlmarker
 [HtmlMarkerOptions]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 10/10/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -47,7 +47,8 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. |
+| `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage) |
+| `FUNCTIONS_WORKER_RUNTIME` | `node` | Sets the language worker runtime to use with your logic app resource and workflows. However, this setting is no longer necessary due to automatically enabled multi-language support. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
 | `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. For more information, see the [ServerAliveInterval setting](https://man.openbsd.org/ssh_config.5#ServerAliveInterval). |
@@ -70,33 +71,31 @@ To add, update, or delete app settings, select and review the following sections
 
 ### [Azure portal](#tab/azure-portal)
 
-To review the app settings for your single-tenant based logic app in the Azure portal, follow these steps:
+##### View app settings in the portal
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Settings**, select **Configuration**.
+1. On your logic app menu, under **Settings**, select **Environment variables**.
 
-1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
+1. On the **Environment variables** page, on the **App settings** tab, review the app settings for your logic app.
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-1. To view all values, select **Show Values**. Or, to view a single value, select that value.
+1. To view all values, select **Show Values**. Or, to view a single value, in the **Value** column, next to the value, select the "eye".
 
-To add a setting, follow these steps:
+##### Add an app setting in the portal
 
-1. On the **Application settings** tab, under **Application settings**, select **New application setting**.
-
-1. For **Name**, enter the *key* or name for your new setting.
+1. On the **App settings** tab, at the bottom of the list, in the **Name** column, enter the *key* or name for your new setting.
 
 1. For **Value**, enter the value for your new setting.
 
-1. When you're ready to create your new *key-value* pair, select **OK**.
+1. When you're ready to create your new *key-value* pair, select **Apply**.
 
-:::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot showing the Azure portal and the configuration pane with the app settings and values for a single-tenant based logic app." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
+   :::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot shows Azure portal with app settings page and values for a Standard logic app resource." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-To review the app settings for your logic app in Visual Studio Code, follow these steps:
+##### View app settings in Visual Studio Code
 
 1. In your logic app project, at the root project level, find and open the **local.settings.json** file.
 
@@ -104,7 +103,7 @@ To review the app settings for your logic app in Visual Studio Code, follow thes
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-To add an app setting, follow these steps:
+##### Add an app setting in Visual Studio Code
 
 1. In the **local.settings.json** file, find the `Values` object.
 
@@ -170,6 +169,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 ### Trigger concurrency
 
+The following settings work only for workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/). For a workflow that starts with a function-based trigger, you might try to [set up batching where supported](logic-apps-batch-process-send-receive-messages.md). However, batching isn't always the correct solution. For example, with Azure Service Bus triggers, a batch might hold onto messages beyond the lock duration. As a result, any action, such as complete or abandon, fails on such messages.
+
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
@@ -181,7 +182,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <br><br>**Important**: Make sure this value is less than or equal to the value for the app setting named `Workflows.RuntimeConfiguration.RetentionInDays`. Otherwise, run histories can get deleted before the associated jobs are complete. |
+| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. The minimum value for this setting is 7 days. <br><br>**Important**: Make sure this value is less than or equal to the value for the app setting named `Workflows.RuntimeConfiguration.RetentionInDays`. Otherwise, run histories can get deleted before the associated jobs are complete. |
 | `Runtime.FlowMaintenanceJob.RetentionCooldownInterval` | `7.00:00:00` <br>(7 days) | Sets the amount of time in days as the interval between when to check for and delete run history that you no longer want to keep. |
 
 <a name="run-actions"></a>

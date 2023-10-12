@@ -9,7 +9,7 @@ author: mksuni
 ms.date: 9/21/2020
 ---
 
-# Manage an Azure Database for MySQL - Flexible server using Azure portal
+# Manage an Azure Database for MySQL - Flexible Server using Azure portal
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 

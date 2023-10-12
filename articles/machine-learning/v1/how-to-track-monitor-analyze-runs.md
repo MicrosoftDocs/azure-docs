@@ -15,8 +15,8 @@ ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1, even
 
 # Start, monitor, and track run history
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 The [Azure Machine Learning SDK for Python v1](/python/api/overview/azure/ml/intro) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
 
@@ -59,7 +59,7 @@ You'll need the following items:
 
 * The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Monitor run performance
 
@@ -67,7 +67,7 @@ You'll need the following items:
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
     
@@ -89,7 +89,7 @@ You'll need the following items:
         
     # [Azure CLI](#tab/azure-cli)
     
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]   
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]   
     
     To start a run of your experiment, use the following steps:
     
@@ -98,7 +98,7 @@ You'll need the following items:
         ```azurecli-interactive
         az login
         ```
-        [!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]     
+        [!INCLUDE [select-subscription](../includes/machine-learning-cli-subscription.md)]     
     
     1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
         
@@ -133,7 +133,7 @@ You'll need the following items:
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
     
@@ -166,7 +166,7 @@ You'll need the following items:
     
     # [Azure CLI](#tab/azure-cli)
     
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
     
     * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
     
@@ -198,7 +198,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
@@ -235,7 +235,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Azure CLI](#tab/azure-cli)
 
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
     
     > [!NOTE]
     > Using the CLI, you can only add or update tags.
@@ -256,7 +256,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -265,7 +265,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Azure CLI](#tab/azure-cli)
 
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
     
     The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
     
@@ -287,7 +287,7 @@ If you notice a mistake or if your run is taking too long to finish, you can can
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
@@ -310,7 +310,7 @@ print(local_run.get_status())
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
@@ -324,7 +324,7 @@ For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az-ml-run-can
 
 ## Create child runs
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
 

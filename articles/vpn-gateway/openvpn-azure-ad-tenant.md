@@ -5,11 +5,11 @@ description: Learn how to set up an Azure AD tenant for P2S Azure AD authenticat
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 09/07/2023
 ms.author: cherylmc
 
 ---
-# Configure an Azure AD tenant and P2S configuration for VPN Gateway P2S connections
+# Configure an Azure AD tenant and P2S settings for VPN Gateway connections
 
 This article helps you configure your AD tenant and P2S settings for Azure AD authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using the Azure AD authentication type, you must include the OpenVPN tunnel type in your point-to-site configuration.
 
@@ -30,7 +30,7 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
    * User account
 
    The global administrator account will be used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
-1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Azure Active Directory](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## Authorize the Azure VPN application
 
@@ -40,7 +40,7 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
 
 ## <a name="enable-authentication"></a>Configure authentication for the gateway
 
-1. Locate the tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+1. Locate the tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/how-to-find-tenant.md).
 
 1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway.
 
@@ -57,9 +57,9 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
    * **Tunnel type:** OpenVPN (SSL)
    * **Authentication type**: Azure Active Directory
 
-   For **Azure Active Directory** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID.
+   For **Azure Active Directory** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
 
-   * **Tenant:** TenantID for the Azure AD tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL does not have a `\` at the end.
+   * **Tenant:** TenantID for the Azure AD tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL does not have a `\` at the end. 
 
      * Azure Public AD: `https://login.microsoftonline.com/{AzureAD TenantID}`
      * Azure Government AD: `https://login.microsoftonline.us/{AzureAD TenantID}`
@@ -71,7 +71,7 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
      * Azure Public: `41b23e61-6c1e-4545-b367-cd054e0ed4b4`
      * Azure Government: `51bb15d4-3a4f-4ebf-9dca-40096fe32426`
      * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
-     * Azure China 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
+     * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 
    * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection may fail.
 

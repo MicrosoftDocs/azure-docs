@@ -2,11 +2,10 @@
 title: Introduction to Azure Elastic SAN Preview
 description: An overview of Azure Elastic SAN Preview, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: overview
-ms.date: 05/02/2023
+ms.date: 08/15/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022
 ---
 
@@ -71,7 +70,7 @@ The status of items in this table may change over time.
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](elastic-san-planning.md#redundancy)|	✔️ |
-| Private endpoints | ⛔  |
+| Private endpoints |	✔️ |
 | Grant network access to specific Azure virtual networks|  ✔️  |
 | Soft delete | ⛔  |
 | Snapshots | ⛔ |

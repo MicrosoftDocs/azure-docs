@@ -1,5 +1,4 @@
 ---
-
 title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
@@ -19,7 +18,6 @@ Container insights supports the following environments:
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
 - [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [AKS engine](https://github.com/Azure/aks-engine)
    - [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) version 4.x
 
 The versions of Kubernetes and support policy are the same as those versions [supported in AKS](../../aks/supported-kubernetes-versions.md).
@@ -53,7 +51,7 @@ Container insights stores its data in a [Log Analytics workspace](../logs/log-an
 
 You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
 
- You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Azure Active Directory tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
+ You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
 
 ### Azure Monitor workspace (preview)
 
@@ -61,14 +59,13 @@ If you're going to configure the cluster to [collect Prometheus metrics](contain
 
 ### Permissions
 
-To enable container monitoring, you require the following permissions:
+To enable Container insights, you require the following permissions:
 
-- You must be a member of the [Log Analytics contributor](../logs/manage-access.md#azure-rbac) role.
-- You must be a member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on any AKS cluster resources.
+- You must have at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the AKS cluster. 
 
 To view data after container monitoring is enabled, you require the following permissions:
 
-- You must be a member of the [Log Analytics reader](../logs/manage-access.md#azure-rbac) role if you aren't already a member of the [Log Analytics contributor](../logs/manage-access.md#azure-rbac) role.
+- You must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
 
 ### Kubelet secure port
 
@@ -78,10 +75,7 @@ If you have a Kubernetes cluster with Windows nodes, review and configure the ne
 
 ## Authentication
 
-Container insights now supports authentication by using managed identity (in preview). This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
-
-> [!NOTE]
-> Container insights preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available." They're excluded from the service-level agreements and limited warranty. Container insights previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see [Frequently asked questions about Azure Kubernetes Service](../../aks/faq.md).
+Container insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster. Read more in [Authentication for Container Insights](container-insights-authentication.md)
 
 ## Agent
 
@@ -124,9 +118,9 @@ The following table lists the extra firewall configuration required for managed 
 | `<cluster-region-name>.ingest.monitor.azure.com` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
-**Azure China 21Vianet cloud**
+**Microsoft Azure operated by 21Vianet cloud**
 
-The following table lists the proxy and firewall configuration information for Azure China 21Vianet.
+The following table lists the proxy and firewall configuration information for Azure operated by 21Vianet.
 
 |Agent resource| Purpose | Port | 
 |--------------|------|-------------|

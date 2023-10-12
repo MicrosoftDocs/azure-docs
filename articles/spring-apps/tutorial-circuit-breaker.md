@@ -1,12 +1,12 @@
 ---
 title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Apps"
 description: Learn how to use circuit Breaker Dashboard with Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Use Circuit Breaker Dashboard with Azure Spring Apps
@@ -51,7 +51,7 @@ mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 
 ## Provision your Azure Spring Apps instance
 
-Follow the steps in the [Provision an instance of Azure Spring Apps](./quickstart.md#provision-an-instance-of-azure-spring-apps) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
+Follow the steps in the [Provision an instance of Azure Spring Apps](./quickstart.md#32-create-an-azure-spring-apps-instance) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
 
 ## Deploy your applications to Azure Spring Apps
 
@@ -112,5 +112,5 @@ As a web app, Hystrix dashboard should be working on `test-endpoint`. If it isn'
 
 ## Next steps
 
-* [Provision an instance of Azure Spring Apps](./quickstart.md#provision-an-instance-of-azure-spring-apps) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
+* [Provision an instance of Azure Spring Apps](./quickstart.md#32-create-an-azure-spring-apps-instance) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
 * [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)

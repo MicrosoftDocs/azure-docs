@@ -1,4 +1,5 @@
 - name: App Spaces documentation
+  href: index.yml
 - name: Overview
   expanded: true
   items:

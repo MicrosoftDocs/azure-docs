@@ -3,8 +3,8 @@ title: How to set up authentication and permissions in Azure Managed Grafana
 description: Learn how to set up Azure Managed Grafana authentication permissions using a system-assigned Managed identity or a Service Principal
 ms.service: managed-grafana
 ms.topic: how-to
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 12/13/2022
 ms.custom: engagement-fy23
 --- 
@@ -192,4 +192,4 @@ After your workspace has been created, you can still turn on or turn off system-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources](./how-to-data-source-plugins-managed-identity.md)
+> [Sync Grafana teams with Microsoft Entra groups](./how-to-sync-teams-with-azure-ad-groups.md)

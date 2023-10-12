@@ -13,7 +13,9 @@ ms.date: 05/23/2023
 
 # Manage access control for managed feature store
 
-In this article, you learn how to manage access (authorization) to an Azure Machine Learning managed feature store. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Azure Active Directory (Azure AD) are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
+In this article, you learn how to manage access (authorization) to an Azure Machine Learning managed feature store. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
+
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Identities and user types
 
@@ -23,7 +25,7 @@ Azure Machine Learning supports role-based access control for the following mana
 - feature store entity
 - feature set
 
-To control access to these resources, consider the user types below. For each user type, the identity can be either an Azure Active Directory identity, a service principal, or an Azure managed identity (both system managed and user assigned).
+To control access to these resources, consider the user types below. For each user type, the identity can be either a Microsoft Entra identity, a service principal, or an Azure managed identity (both system managed and user assigned).
 
 - __Feature set developers__ (for example, data scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and responsible for:
     - Managing lifecycle of features: From creation ton archival

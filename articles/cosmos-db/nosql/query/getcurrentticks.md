@@ -1,55 +1,49 @@
 ---
-title: GetCurrentTicks in Azure Cosmos DB query language
-description: Learn about SQL system function GetCurrentTicks in Azure Cosmos DB.
-author: seesharprun
+title: GetCurrentTicks
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a nanosecond ticks value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 02/03/2021
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# GetCurrentTicks (Azure Cosmos DB)
+
+# GetCurrentTicks (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Returns the number of 100-nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
+Returns the number of 100-nanosecond ticks that have elapsed since `00:00:00 Thursday, 1 January 1970`.
   
 ## Syntax
   
 ```sql
-GetCurrentTicks ()
+GetCurrentTicks()
 ```
 
 ## Return types
 
-Returns a signed numeric value, the current number of 100-nanosecond ticks that have elapsed since the Unix epoch. In other words, GetCurrentTicks returns the number of 100 nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
-
-## Remarks
-
-GetCurrentTicks() is a nondeterministic function. The result returned is UTC (Coordinated Universal Time).
-
-> [!NOTE]
-> This system function will not utilize the index. If you need to compare values to the current time, obtain the current time before query execution and use that constant string value in the `WHERE` clause.
+Returns a signed numeric value that represents the current number of 100-nanosecond ticks that have elapsed since the Unix epoch (`00:00:00 Thursday, 1 January 1970`).
 
 ## Examples
 
-Here's an example that returns the current time, measured in ticks:
+The following example returns the current time measured in ticks:
 
-```sql
-SELECT GetCurrentTicks() AS CurrentTimeInTicks
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticks/query.novalidate.sql" highlight="2":::  
 
-```json
-[
-    {
-        "CurrentTimeInTicks": 15973607943002652
-    }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticks/result.novalidate.json":::
 
-## Next steps
+## Remarks
 
-- [Date and time functions Azure Cosmos DB](date-time-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- This function is nondeterministic.
+- The result returned is UTC (Coordinated Universal Time).
+- This function doesn't use the index.
+- If you need to compare values to the current time, obtain the current time before query execution and use that constant string value in the `WHERE` clause.
+
+## Related content
+
+- [System functions](system-functions.yml)
+- [`GetCurrentTicksStatic`](getcurrentticksstatic.md)

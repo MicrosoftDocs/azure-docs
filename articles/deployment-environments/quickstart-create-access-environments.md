@@ -44,7 +44,7 @@ You can create an environment from the developer portal.
    |Name     | Enter a descriptive name for your environment. |
    |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
    |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
-   |Catalog item | Select the catalog item you want to use to create the environment. You see a list of the catalog items available from the catalogs associated with your dev center. |
+   |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
 
    :::image type="content" source="media/quickstart-create-access-environments/add-environment.png" alt-text="Screenshot showing add environment pane.":::
 
@@ -69,4 +69,4 @@ You can access and manage your environments in the Microsoft Developer portal.
 ## Next steps
 
 - Learn how to [add and configure a catalog](how-to-configure-catalog.md).
-- Learn how to [add and configure a catalog item](configure-catalog-item.md).
+- Learn how to [add and configure an environment definition](configure-environment-definition.md).

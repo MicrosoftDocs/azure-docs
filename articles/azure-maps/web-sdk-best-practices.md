@@ -2,10 +2,10 @@
 title: Azure Maps Web SDK best practices
 titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
-author: dubiety
-ms.author: yuchungchen 
-ms.date: 04/13/2023
-ms.topic: conceptual
+author: sinnypan
+ms.author: sipa
+ms.date: 06/23/2023
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
@@ -30,7 +30,7 @@ If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the ca
 
 ```json
 "dependencies": {
-  "azure-maps-control": "^2.2.6"
+  "azure-maps-control": "^3.0.0"
 }
 ```
 
@@ -43,19 +43,19 @@ When a web page is loading, one of the first things you want to do is start rend
 
 ### Watch the maps ready event
 
-Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. The ready event fires when the minimal map resources needed to start interacting with the map. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
+Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. If you see a "Style is not done loading" error, you should use the `load` event and wait for the style to be fully loaded.
+
+The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
 
 ### Lazy load the Azure Maps Web SDK
 
 If the map isn't needed right away, lazy load the Azure Maps Web SDK until it's needed. This delays the loading of the JavaScript and CSS files used by the Azure Maps Web SDK until needed. A common scenario where this occurs is when the map is loaded in a tab or flyout panel that isn't displayed on page load.
-The following code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed.
 
-<br/>
+The [Lazy Load the Map] code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed. For the source code, see [Lazy Load the Map sample code].
 
-<iframe height="500" scrolling="no" title="Lazy load the map" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>Lazy load the map</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!------------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result]
+--------------------------------------------------------->
 
 ### Add a placeholder for the map
 
@@ -159,18 +159,21 @@ The bubble layer renders points as circles on the map and can easily have their 
 
 ### Use HTML markers and Popups sparingly
 
-Unlike most layers in the Azure Maps Web control that use WebGL for rendering, HTML Markers and Popups use traditional DOM elements for rendering. As such, the more HTML markers and Popups added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers or popups. For larger data sets, consider either clustering your data or using a symbol or bubble layer. For popups, a common strategy is to create a single popup and reuse it by updating its content and position as shown in the following example:
+Unlike most layers in the Azure Maps Web control that use WebGL for rendering, HTML Markers and Popups use traditional DOM elements for rendering. As such, the more HTML markers and Popups added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers or popups. For larger data sets, consider either clustering your data or using a symbol or bubble layer.
 
-<br/>
+The [Reusing Popup with Multiple Pins] code sample shows how to create a single popup and reuse it by updating its content and position. For the source code, see [Reusing Popup with Multiple Pins sample code].
 
-<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+:::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
+
+<!------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+-------------------------------------------------------->
 
 That said, if you only have a few points to render on the map, the simplicity of HTML markers may be preferred. Additionally, HTML markers can easily be made draggable if needed.
 
 ### Combine layers
 
-The map is capable of rendering hundreds of layers, however, the more layers there are, the more time it takes to render a scene. One strategy to reduce the number of layers is to combine layers that have similar styles or can be styled using a [data-driven styles].
+The map is capable of rendering hundreds of layers, however, the more layers there are, the more time it takes to render a scene. One strategy to reduce the number of layers is to combine layers that have similar styles or can be styled using [data-driven styles].
 
 For example, consider a data set where all features have a `isHealthy` property that can have a value of `true` or `false`. If creating a bubble layer that renders different colored bubbles based on this property, there are several ways to do this as shown in the following list, from least performant to most performant.
 
@@ -204,14 +207,13 @@ Symbol layers have collision detection enabled by default. This collision detect
 
 Both of these options are set to `false` by default. When animating a symbol, the collision detection calculations run on each frame of the animation, which can slow down the animation and make it look less fluid. To smooth out the animation, set these options to `true`.
 
-The following code sample a simple way to animate a symbol layer.
+The [Simple Symbol Animation] code sample demonstrates a simple way to animate a symbol layer. For the source code to this sample, see [Simple Symbol Animation sample code].
 
-<br/>
+:::image type="content" source="./media/web-sdk-best-practices/simple-symbol-animation.gif" alt-text="A screenshot of a map of the world with a symbol going in a circle, demonstrating how to animate the position of a symbol on the map by updating the coordinates.":::
 
-<iframe height="500" scrolling="no" title="Symbol layer animation" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/oNgGzRd'>Symbol layer animation</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!----------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result]
+------------------------------------------------------->
 
 ### Specify zoom level range
 
@@ -434,3 +436,10 @@ Learn more about the terminology used by Azure Maps and the geospatial industry.
 [supported browser]: supported-browsers.md
 [Tippecanoe]: https://github.com/mapbox/tippecanoe
 [useful tools for working with GeoJSON data]: https://github.com/tmcw/awesome-geojson
+
+[Lazy Load the Map]: https://samples.azuremaps.com/map/lazy-load-the-map
+[Lazy Load the Map sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Lazy%20Load%20the%20Map/Lazy%20Load%20the%20Map.html
+[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/popups/reusing-popup-with-multiple-pins
+[Reusing Popup with Multiple Pins sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Reusing%20Popup%20with%20Multiple%20Pins/Reusing%20Popup%20with%20Multiple%20Pins.html
+[Simple Symbol Animation]: https://samples.azuremaps.com/animations/simple-symbol-animation
+[Simple Symbol Animation sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Animations/Simple%20Symbol%20Animation/Simple%20Symbol%20Animation.html

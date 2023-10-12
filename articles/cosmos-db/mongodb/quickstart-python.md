@@ -9,12 +9,21 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/08/2022
-ms.custom: devx-track-js, ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-python
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
 
 Get started with the PyMongo package to create databases, collections, and documents within your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
 

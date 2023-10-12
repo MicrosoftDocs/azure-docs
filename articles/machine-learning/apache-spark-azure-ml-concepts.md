@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: conceptual
-ms.author: franksolomon
+ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 05/11/2023
+ms.date: 10/05/2023
 ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
 ---
@@ -33,11 +33,11 @@ Users can define resources, including instance type and the Apache Spark runtime
 
 ### Points to consider
 
-serverless Spark compute works well for most user scenarios that require quick access to distributed computing through Apache Spark. However, to make an informed decision, users should consider the advantages and disadvantages of this approach.
+Serverless Spark compute works well for most user scenarios that require quick access to distributed computing resources through Apache Spark. However, to make an informed decision, users should consider the advantages and disadvantages of this approach.
 
 Advantages:
   
-- No dependencies on other Azure resources to be created for Apache Spark (Azure Synapse infrastructure operates under the hood).
+- No dependencies on creation of other Azure resources for Apache Spark (Azure Synapse infrastructure operates under the hood).
 - No required subscription permissions to create Azure Synapse-related resources.
 - No need for SQL pool quotas.
 
@@ -60,19 +60,29 @@ To use network isolation with Azure Machine Learning and serverless Spark comput
 
 At first launch, a serverless Spark compute (*cold start*) resource might need three to five minutes to start the Spark session itself. The automated serverless Spark compute provisioning, backed by Azure Synapse, causes this delay. After the serverless Spark compute is provisioned, and an Apache Spark session starts, subsequent code executions (*warm start*) won't experience this delay.
 
-The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will end after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following ten minutes, resources provisioned for the serverless Spark compute will be torn down.
+The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will end after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following 10 minutes, resources provisioned for the serverless Spark compute will be torn down.
 
 After the serverless Spark compute resource tear-down happens, submission of the next job will require a *cold start*. The next visualization shows some session inactivity period and cluster teardown scenarios.
 
 :::image type="content" source="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" lightbox="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" alt-text="Expandable diagram that shows scenarios for Apache Spark session inactivity period and cluster teardown.":::
 
 > [!NOTE]
-> For a session-level conda package:
+> For a session-level Conda package:
 > - the *Cold start* will need about ten to fifteen minutes.
-> - the *Warm start*, using same conda package, will need about one minute.
-> - the *Warm start*, with a different conda package, will also need about ten to fifteen minutes.
-> - If the package that you're installing is large or takes a long time to install, it might affect the Spark instance's startup time.
+> - the *Warm start*, using same Conda package, will need about one minute.
+> - the *Warm start*, with a different Conda package, will also need about ten to fifteen minutes.
+> - If the package that you install is large or needs a long installation time, it might impact the Spark instance startup time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
+
+### Session-level Conda Packages
+A Conda dependency YAML file can define many session-level Conda packages in a session configuration. A session will time out if it needs more than 15 minutes to install the Conda packages defined in the YAML file. It becomes important to first check whether a required package is already available in the Azure Synapse base image. To do this, users should follow the link to determine *packages available in the base image for* the Apache Spark version in use:
+- [Azure Synapse Runtime for Apache Spark 3.3](../synapse-analytics/spark/apache-spark-33-runtime.md#python-libraries-normal-vms)
+- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
+
+### Improving session cold start time while using session-level Conda packages
+You can improve the Spark session *cold start* time by setting the `spark.hadoop.aml.enable_cache` configuration variable to `true`. The session *cold start* with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session *cold starts* take three to five minutes. Define the configuration variable in the **Configure session** user interface, under **Configuration settings**.
+
+:::image type="content" source="./media/apache-spark-azure-ml-concepts/spark-session-enable-cache.png" lightbox="./media/apache-spark-azure-ml-concepts/spark-session-enable-cache.png" alt-text="Expandable diagram that shows the Spark session configuration tag that enables cache.":::
 
 ## Attached Synapse Spark pool
 
@@ -90,17 +100,17 @@ The Spark session configuration for an attached Synapse Spark pool also offers a
 
 ## Defining Spark cluster size
 
-In Azure Machine Learning Spark jobs, you can define Spark cluster size with three parameter values:
+In Azure Machine Learning Spark jobs, you can define the Spark cluster size, with three parameter values:
 
 - Number of executors
 - Executor cores
 - Executor memory
 
-You should consider an Azure Machine Learning Apache Spark executor as equivalent to Azure Spark worker nodes. An example can explain these parameters. Let's say that you defined the number of executors as 6 (equivalent to six worker nodes), executor cores as 4, and executor memory as 28 GB. Your Spark job then has access to a cluster with 24 cores and 168 GB of memory.
+You should consider an Azure Machine Learning Apache Spark executor as equivalent to Azure Spark worker nodes. An example can explain these parameters. Let's say that you defined the number of executors as 6 (equivalent to six worker nodes), the number of executor cores as 4, and executor memory as 28 GB. Your Spark job then has access to a cluster with 24 cores in total, and 168 GB of memory.
 
 ## Ensuring resource access for Spark jobs
 
-To access data and other resources, a Spark job can use either a user identity passthrough or a managed identity. This table summarizes the mechanisms that Spark jobs use to access resources.
+To access data and other resources, a Spark job can use either a managed identity or a user identity passthrough. This table summarizes the mechanisms that Spark jobs use to access resources.
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
@@ -112,7 +122,6 @@ To access data and other resources, a Spark job can use either a user identity p
 > [!NOTE]
 > - To ensure successful Spark job execution, assign **Contributor** and **Storage Blob Data Contributor** roles (on the Azure storage account used for data input and output) to the identity that will be used for the Spark job submission.
 > - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace, and that workspace has an associated managed virtual network, [configure a managed private endpoint to a storage account](../synapse-analytics/security/connect-to-a-secure-storage-account.md). This configuration will help ensure data access.
-> - Both serverless Spark compute and attached Synapse Spark pool do not work in a notebook created in a private link enabled workspace.
 
 ## Next steps
 

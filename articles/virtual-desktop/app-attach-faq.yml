@@ -7,7 +7,7 @@ metadata:
   
   ms.service: virtual-desktop
   ms.topic: faq
-  ms.date: 08/17/2020
+  ms.date: 06/19/2023
   ms.author: helohr
   manager: femila
 title: MSIX app attach FAQ
@@ -30,7 +30,7 @@ sections:
       - question: |
           Can I use the MSIX app attach outside of Azure Virtual Desktop?
         answer: |
-          The APIs that power MSIX app attach are available for Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop. However, there's no management plane for MSIX app attach outside of Azure Virtual Desktop.
+          The APIs that power MSIX app attach are available for Windows 11 and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop. However, there's no management plane for MSIX app attach outside of Azure Virtual Desktop.
 
       - question: |
           How do I get an MSIX package?
@@ -40,22 +40,22 @@ sections:
       - question: |
           Which operating systems support MSIX app attach?
         answer: |
-          Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later.
+          Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 or later.
 
       - question: |
           Is MSIX app attach currently generally available?
         answer: |
-          MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
+          MSIX app attach is part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
 
       - question: |
           Can I use MSIX app attach outside of Azure Virtual Desktop?
         answer: |
-          MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
+          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
 
       - question: |
           Can I run two versions of the same application at the same time?
         answer: |
-          For two version of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
+          For two versions of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
 
       - question: |
           Should I disable auto-update when using MSIX app attach?
@@ -70,7 +70,7 @@ sections:
       - question: |
           How many users can use an MSIX image handle?
         answer: |
-          MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The amount of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
+          MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The number of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
 
       - question: |
           Can I use Azure Active Directory Domain Services (Azure AD DS) with MSIX app attach?
@@ -129,4 +129,4 @@ additionalContent: |
 
   ## Next steps
   
-  If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [glossary](app-attach-glossary.md). Otherwise, get started with [Set up app attach](app-attach.md).
+  If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md). Otherwise, get started with [Set up app attach](app-attach.md).

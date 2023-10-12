@@ -4,7 +4,7 @@ description: 'Quickstart: This article provides a walkthrough for creating a Go 
 ms.topic: quickstart
 ms.date: 11/16/2022
 ms.devlang: golang
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -49,47 +49,47 @@ Here's the code to send events to an event hub. The main steps in the code are:
 package main
 
 import (
-	"context"
+    "context"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
+    "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
 )
 
 func main() {
 
-	// create an Event Hubs producer client using a connection string to the namespace and the event hub
-	producerClient, err := azeventhubs.NewProducerClientFromConnectionString("NAMESPACE CONNECTION STRING", "EVENT HUB NAME", nil)
+    // create an Event Hubs producer client using a connection string to the namespace and the event hub
+    producerClient, err := azeventhubs.NewProducerClientFromConnectionString("NAMESPACE CONNECTION STRING", "EVENT HUB NAME", nil)
 
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 
-	defer producerClient.Close(context.TODO())
+    defer producerClient.Close(context.TODO())
 
-	// create sample events
-	events := createEventsForSample()
+    // create sample events
+    events := createEventsForSample()
 
-	// create a batch object and add sample events to the batch
-	newBatchOptions := &azeventhubs.EventDataBatchOptions{}
+    // create a batch object and add sample events to the batch
+    newBatchOptions := &azeventhubs.EventDataBatchOptions{}
 
-	batch, err := producerClient.NewEventDataBatch(context.TODO(), newBatchOptions)
+    batch, err := producerClient.NewEventDataBatch(context.TODO(), newBatchOptions)
 
-	for i := 0; i < len(events); i++ {
-		err = batch.AddEventData(events[i], nil)
-	}
+    for i := 0; i < len(events); i++ {
+        err = batch.AddEventData(events[i], nil)
+    }
 
-	// send the batch of events to the event hub
-	producerClient.SendEventDataBatch(context.TODO(), batch, nil)
+    // send the batch of events to the event hub
+    producerClient.SendEventDataBatch(context.TODO(), batch, nil)
 }
 
 func createEventsForSample() []*azeventhubs.EventData {
-	return []*azeventhubs.EventData{
-		{
-			Body: []byte("hello"),
-		},
-		{
-			Body: []byte("world"),
-		},
-	}
+    return []*azeventhubs.EventData{
+        {
+            Body: []byte("hello"),
+        },
+        {
+            Body: []byte("world"),
+        },
+    }
 }
 ```
 
@@ -101,6 +101,8 @@ Don't run the application yet. You first need to run the receiver app and then t
 ### Create a Storage account and container
 
 State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
+
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 ### Go packages
 
@@ -131,98 +133,98 @@ Here's the code to receive events from an event hub. The main steps in the code 
 package main
 
 import (
-	"context"
-	"errors"
-	"fmt"
-	"time"
+    "context"
+    "errors"
+    "fmt"
+    "time"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
-	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/checkpoints"
+    "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
+    "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/checkpoints"
 )
 
 func main() {
 
-	// create a container client using a connection string and container name
-	checkClient, err := container.NewClientFromConnectionString("AZURE STORAGE CONNECTION STRING", "CONTAINER NAME", nil)
-	
-	// create a checkpoint store that will be used by the event hub
-	checkpointStore, err := checkpoints.NewBlobStore(checkClient, nil)
+    // create a container client using a connection string and container name
+    checkClient, err := container.NewClientFromConnectionString("AZURE STORAGE CONNECTION STRING", "CONTAINER NAME", nil)
+    
+    // create a checkpoint store that will be used by the event hub
+    checkpointStore, err := checkpoints.NewBlobStore(checkClient, nil)
 
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 
-	// create a consumer client using a connection string to the namespace and the event hub
-	consumerClient, err := azeventhubs.NewConsumerClientFromConnectionString("NAMESPACE CONNECTION STRING", "EVENT HUB NAME", azeventhubs.DefaultConsumerGroup, nil)
+    // create a consumer client using a connection string to the namespace and the event hub
+    consumerClient, err := azeventhubs.NewConsumerClientFromConnectionString("NAMESPACE CONNECTION STRING", "EVENT HUB NAME", azeventhubs.DefaultConsumerGroup, nil)
 
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 
-	defer consumerClient.Close(context.TODO())
+    defer consumerClient.Close(context.TODO())
 
-	// create a processor to receive and process events
-	processor, err := azeventhubs.NewProcessor(consumerClient, checkpointStore, nil)
+    // create a processor to receive and process events
+    processor, err := azeventhubs.NewProcessor(consumerClient, checkpointStore, nil)
 
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 
-	//  for each partition in the event hub, create a partition client with processEvents as the function to process events
-	dispatchPartitionClients := func() {
-		for {
-			partitionClient := processor.NextPartitionClient(context.TODO())
+    //  for each partition in the event hub, create a partition client with processEvents as the function to process events
+    dispatchPartitionClients := func() {
+        for {
+            partitionClient := processor.NextPartitionClient(context.TODO())
 
-			if partitionClient == nil {
-				break
-			}
+            if partitionClient == nil {
+                break
+            }
 
-			go func() {
-				if err := processEvents(partitionClient); err != nil {
-					panic(err)
-				}
-			}()
-		}
-	}
+            go func() {
+                if err := processEvents(partitionClient); err != nil {
+                    panic(err)
+                }
+            }()
+        }
+    }
 
-	// run all partition clients
-	go dispatchPartitionClients()
+    // run all partition clients
+    go dispatchPartitionClients()
 
-	processorCtx, processorCancel := context.WithCancel(context.TODO())
-	defer processorCancel()
+    processorCtx, processorCancel := context.WithCancel(context.TODO())
+    defer processorCancel()
 
-	if err := processor.Run(processorCtx); err != nil {
-		panic(err)
-	}
+    if err := processor.Run(processorCtx); err != nil {
+        panic(err)
+    }
 }
 
 func processEvents(partitionClient *azeventhubs.ProcessorPartitionClient) error {
-	defer closePartitionResources(partitionClient)
-	for {
-		receiveCtx, receiveCtxCancel := context.WithTimeout(context.TODO(), time.Minute)
-		events, err := partitionClient.ReceiveEvents(receiveCtx, 100, nil)
-		receiveCtxCancel()
+    defer closePartitionResources(partitionClient)
+    for {
+        receiveCtx, receiveCtxCancel := context.WithTimeout(context.TODO(), time.Minute)
+        events, err := partitionClient.ReceiveEvents(receiveCtx, 100, nil)
+        receiveCtxCancel()
 
-		if err != nil && !errors.Is(err, context.DeadlineExceeded) {
-			return err
-		}
+        if err != nil && !errors.Is(err, context.DeadlineExceeded) {
+            return err
+        }
 
-		fmt.Printf("Processing %d event(s)\n", len(events))
+        fmt.Printf("Processing %d event(s)\n", len(events))
 
-		for _, event := range events {
-			fmt.Printf("Event received with body %v\n", string(event.Body))
-		}
+        for _, event := range events {
+            fmt.Printf("Event received with body %v\n", string(event.Body))
+        }
 
-		if len(events) != 0 {
-			if err := partitionClient.UpdateCheckpoint(context.TODO(), events[len(events)-1]); err != nil {
-				return err
-			}
-		}
-	}
+        if len(events) != 0 {
+            if err := partitionClient.UpdateCheckpoint(context.TODO(), events[len(events)-1]); err != nil {
+                return err
+            }
+        }
+    }
 }
 
 func closePartitionResources(partitionClient *azeventhubs.ProcessorPartitionClient) {
-	defer partitionClient.Close(context.TODO())
+    defer partitionClient.Close(context.TODO())
 }
 
 ```
@@ -234,10 +236,10 @@ func closePartitionResources(partitionClient *azeventhubs.ProcessorPartitionClie
 1. Wait for a minute to see the following output in the receiver window.
 
     ```bash
-	Processing 2 event(s)
+    Processing 2 event(s)
     Event received with body hello
     Event received with body world
-	```
+    ```
 
 ## Next steps
 See samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs).

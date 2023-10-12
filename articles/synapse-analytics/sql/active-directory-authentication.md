@@ -89,7 +89,7 @@ You can also disable local authentication after a workspace is created through t
 - The following members of Azure AD can be provisioned in Synapse SQL:
 
   - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
-  - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs).
   - Imported members from other Azure ADs who are native or federated domain members.
   - Active Directory groups created as security groups.
 

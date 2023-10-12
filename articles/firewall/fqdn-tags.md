@@ -19,7 +19,7 @@ You can't create your own FQDN tags, nor can you specify which FQDNs are include
 
 <!--- screenshot of application rule with a FQDN tag.-->
 
-The following table shows the current FQDN tags you can use. Microsoft maintains these tags and you can expect additional tags to be added periodically.
+The following table shows the current FQDN tags you can use. Microsoft maintains these tags and you can expect more tags to be added periodically.
 
 ## Current FQDN tags
 
@@ -35,9 +35,10 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 |AzureKubernetesService (AKS)|Allows outbound access to AKS. For more information, see [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](protect-azure-kubernetes-service.md).|
 |Office365<br><br>For example: Office365.Skype.Optimize|Several Office 365 tags are available to allow outbound access by Office 365 product and category. For more information, see [Use Azure Firewall to protect Office 365](protect-office-365.md).|
 |Windows365|Allows outbound communication to Windows 365, excluding network endpoints for Microsoft Intune. To allow outbound communication to port 5671, create a separated network rule. For more information, see Windows 365 [Network requirements](/windows-365/enterprise/requirements-network).|
+|MicrosoftIntune|Allow access to [Microsoft Intune](/mem/intune/fundamentals/intune-endpoints) for managed devices. 
 
 > [!NOTE]
-> When selecting FQDN Tag in an application rule, the protocol:port field must be set to **https**.
+> When you select **FQDN Tag** in an application rule, the protocol:port field must be set to **https**.
 
 ## Next steps
 

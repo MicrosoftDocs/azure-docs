@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 03/28/2023
 ms.reviewer: ju-shim
-ms.custom: maxsurge, upgradepolicy
-
+ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Manage Upgrade Policies for Virtual Machine Scale Sets
 
@@ -23,7 +22,7 @@ There are three different modes an Upgrade Policy can be set to. The modes are *
 Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
 
 ### Manual
-In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
+In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set will use the most update-to-date model available.
 
 ### Automatic 
 In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
@@ -40,19 +39,25 @@ In this mode, the scale set performs updates in batches with an optional pause t
 
 -  **Rolling Upgrades with MaxSurge disabled**
     
-    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date. 
+    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. 
 
 -  **Rolling Upgrades with MaxSurge enabled**
     
     With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the scale set and the old instances are removed. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
 
 
-When a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
  
 
 ## Setting the Upgrade Policy
 
 The Upgrade Policy can be set during deployment or updated post deployment.  
+
+### [Portal](#tab/portal)
+
+During the Virtual Machine Scale Set creation in the Azure portal, under the **Management** tab, set the Upgrade Policy to **Rolling**, **Automatic**, or **Manual**. 
+
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
 ### [CLI](#tab/cli)
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
@@ -74,7 +79,7 @@ az network lb rule create --resource-group MyResourceGroup --lb-name myLoadBalan
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --lb myLoadBalancer \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \
@@ -125,8 +130,15 @@ When using an ARM template, add the upgradePolicy to the properties section:
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
+### [Portal](#tab/portal2)
+
+Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop down menu, select the Upgrade Policy you want to enable. 
+
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-2.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
+
+
 ### [CLI](#tab/cli2)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you don't already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurecli-interactive
 az vmss update \
@@ -136,7 +148,7 @@ az vmss update \
 ```
 
 ### [PowerShell](#tab/powershell2)
-Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you don't already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -177,6 +189,13 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 > [!NOTE]
 > While performing upgrades, the instances may be restarted.
 
+### [Portal](#tab/portal3)
+
+Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to upgrade. Once selected, click the **Upgrade** option.
+
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/manual-upgrade-1.png" alt-text="Screenshot showing how to perform manual upgrades using the Azure portal.":::
+
+
 ### [CLI](#tab/cli3)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
@@ -204,6 +223,14 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 
 > [!NOTE]
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
+
+### [Portal](#tab/portal4)
+
+Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option.
+
+
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing reimaging scale set instances using the Azure portal.":::
+
 
 ### [CLI](#tab/cli4)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).

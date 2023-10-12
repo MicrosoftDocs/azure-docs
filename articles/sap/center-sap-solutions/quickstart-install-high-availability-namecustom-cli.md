@@ -3,6 +3,7 @@ title: Quickstart - Install software for a Distributed HA SAP system with Azure 
 description: Learn how to  Install software for a Distributed HA SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 05/05/2023
 ms.author: sagarkeswani
@@ -36,8 +37,8 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - You should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
 - The *json* configuration file that you used to create infrastructure in the [previous step](tutorial-create-high-availability-name-custom.md) for SAP system using PowerShell or Azure CLI. 
-- As you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create an Azure AD app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
-    - For an example, see the Red Hat documentation for [Creating an Azure Active Directory Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
+- As you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create a Microsoft Entra app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
+    - For an example, see the Red Hat documentation for [Creating a Microsoft Entra Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
     - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -48,12 +49,12 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - The software configuration section requires he following inputs
     - Software installation type: Keep this as "SAPInstallWithoutOSConfig"
     - BOM URL: This is the BOM file path. Example: `https://<your-storage-account>.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0010ms.yaml`
-    - Software version: Azure Center for SAP solutions supports three SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00**
+    - Software version: Azure Center for SAP solutions supports these SAP software versions viz. **SAP S/4HANA 1909 SPS03** or **SAP S/4HANA 2020 SPS 03** or **SAP S/4HANA 2021 ISS 00** or **SAP S/4HANA 2022 ISS 00**
     - Storage account ID: This is the resource ID for the storage account where the BOM file is created
     - As you are deploying an HA system, you need to provide the High Availability software configuration with the following two inputs:
         - Fencing Client ID: The client identifier for the STONITH Fencing Agent service principal
         - Fencing Client Password: The password for the Fencing Agent service principal
-- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json)
+- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/InstallPayload_withTransport_withHAAvSet_withCustomResourceName.json)
 
 ## Install SAP software 
 Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create&preserve-view=true) to install SAP software
@@ -68,4 +69,3 @@ az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> 
 In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system with Highly Available architecture type using Azure Center for SAP solutions. You also noted that the resource names were customized for the system while deploying infrastructure. Continue to the next article to learn how to Manage your SAP system on Azure using Virtual Instance for SAP solutions
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
-

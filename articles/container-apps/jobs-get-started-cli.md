@@ -1,17 +1,17 @@
 ---
-title: Create a job with Azure Container Apps (preview)
+title: Create a job with Azure Container Apps
 description: Learn to create an on-demand or scheduled job in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 05/08/2023
+ms.date: 08/17/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-job-types
 ---
 
-# Create a job with Azure Container Apps (preview)
+# Create a job with Azure Container Apps
 
 Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
 
@@ -33,7 +33,7 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
     az containerapp job create \
         --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
         --trigger-type "Manual" \
-        --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
+        --replica-timeout 1800 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
         --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
         --cpu "0.25" --memory "0.5Gi"
     ```
@@ -64,7 +64,7 @@ Create a job in the Container Apps environment that starts every minute using th
 az containerapp job create \
     --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
     --trigger-type "Schedule" \
-    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
+    --replica-timeout 1800 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --cron-expression "*/1 * * * *"

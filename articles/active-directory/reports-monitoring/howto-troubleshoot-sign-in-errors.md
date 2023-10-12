@@ -1,7 +1,7 @@
 ---
 
-title: How to troubleshoot sign-in errors reports
-description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
+title: How to troubleshoot sign-in errors
+description: Learn how to troubleshoot sign-in errors using Microsoft Entra reports in the Microsoft Entra admin center
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,54 +9,90 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/16/2023
+ms.date: 09/14/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
-
-ms.collection: M365-identity-device-management
 ---
 
-# How to: Troubleshoot sign-in errors using Azure Active Directory reports
+# How to: Troubleshoot sign-in errors using Microsoft Entra reports
 
-The [sign-ins report](concept-sign-ins.md) in Azure Active Directory (Azure AD) enables you to find answers to questions around managing access to the applications in your organization, including:
+The Microsoft Entra sign-in logs enable you to find answers to questions around managing access to the applications in your organization, including:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
 - What’s the status of these sign-ins?
 
-
-In addition, the sign-ins report can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure.
+In addition, the sign-in logs can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure. Some common sign-in errors are also described.
 
 ## Prerequisites
 
 You need:
 
-* An Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
-* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **reports reader** role for the tenant. In addition, any user can access their own sign-ins. 
+* A Microsoft Entra tenant with a P1 or P2 license.
+* A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
+* In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 
-## Troubleshoot sign-in errors using the sign-ins report
+## Gather sign-in details
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select your directory.
-2. Select **Azure Active Directory** and select **Sign-ins** from the **Monitoring** section. 
-3. Use the provided filters to narrow down the failure, either by the username or object identifier, application name or date. In addition, select **Failure** from the **Status** drop-down to display only the failed sign-ins. 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-    ![Filter results](./media/howto-troubleshoot-sign-in-errors/filters.png)
-        
-4. Identify the failed sign-in you want to investigate. Select it to open up the other details window with more information about the failed sign-in. Note down the **Sign-in error code** and **Failure reason**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**. 
+1. Use the filters to narrow down the results
+    - Search by username if you're troubleshooting a specific user.
+    - Search by application if you're troubleshooting issues with a specific app.
+    - Select **Failure** from the **Status** menu to display only failed sign-ins. 
+1. Select the failed sign-in you want to investigate to open the details window.
+1. Explore the details on each tab. You may want to save a few details for further troubleshooting. These details are highlighted in the screenshot following the list.
+    - Correlation ID
+    - Sign-in error code
+    - Failure reason
+    - Username, User ID, and Sign-in identifier
 
-    ![Select record](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
-        
-5. You can also find this information in the **Troubleshooting and support** tab in the details window.
+    ![Screenshot of the sign-in details, with several details highlighted.](media/howto-troubleshoot-sign-in-errors/sign-in-activity-details.png)
+    
+## Troubleshoot sign-in errors
 
-    ![Troubleshooting and support](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
+With sign-in details gathered, you should explore the results and troubleshoot the issue.
 
-6. The failure reason describes the error. For example, in the above scenario, the failure reason is **Invalid username or password or Invalid on-premises username or password**. The fix is to simply sign-in again with the correct username and password.
+### Failure reason and additional details
 
-7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](../develop/reference-error-codes.md). 
+The **Failure reason** and **Additional Details** may provide you with the details and next steps to resolve the issue. The Failure reason describes the error. The Additional Details provides more details and often tells you how to resolve the issue.
 
-8. If all else fails, or the issue persists despite taking the recommended course of action, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) following the steps in the **Troubleshooting and support** tab. 
+![Screenshot of the activity details, with the failure reason and details highlighted.](media/howto-troubleshoot-sign-in-errors/sign-in-activity-details-failure-reason.png)
+
+The following failure reasons and details are common:
+
+-  The failure reason **Authentication failed during the strong authentication request** doesn't provide much to troubleshoot, but the additional details field says the user didn't complete the MFA prompt. Have the user sign-in again and complete the MFA prompts.
+- The failure reason **The Federation Service failed to issue an OAuth Primary Refresh Token** provides a good starting point, but the additional details briefly explain how authentication works in this scenario and tell you to make sure that device sync is enabled. 
+- A common failure reason is **Error validating credentials due to invalid username or password**. The user entered something incorrectly and needs to try again.
+
+### Sign-in error codes
+
+If you need more specifics to research, you can use the **sign-in error code** for further research.
+
+- Enter the error code into the **[Error code lookup tool](https://login.microsoftonline.com/error)** to get the error code description and remediation information.
+- Search for an error code in the **[sign-ins error codes reference](../develop/reference-error-codes.md)**. 
+
+The following error codes are associated with sign-in events, but this list isn't exhaustive:
+
+- **50058**: User is authenticated but not yet signed in.
+    - This error code appears for sign-in attempts when the user didn't complete the sign-in process.
+    - Because the user didn't sign-in completely, the User field may display an Object ID or a globally unique identifier (GUID) instead of a username.
+    - In some of these situations, the User ID shows up like "00000000-0000-0000".
+
+- **90025**: An internal Microsoft Entra service hit its retry allowance to sign the user in.
+    - This error often happens without the user noticing and is usually resolved automatically. 
+    - If it persists, have the user sign in again.
+
+- **500121**: User didn't complete the MFA prompt.
+    - This error often appears if the user hasn't completed setting up MFA.
+    - Instruct the user to complete the setup process through to sign-in.
+
+If all else fails, or the issue persists despite taking the recommended course of action, open a support request. For more information, see [how to get support for Microsoft Entra ID](../fundamentals/how-to-get-support.md). 
 
 ## Next steps
 
 * [Sign-ins error codes reference](./concept-sign-ins.md)
 * [Sign-ins report overview](concept-sign-ins.md)
+* [How to use the Sign-in diagnostics](howto-use-sign-in-diagnostics.md)

@@ -138,7 +138,7 @@ Be sure to check the following items:
 
 - If you’re using a firewall in either cache, make sure that the firewall settings are similar so you have no connection issues.
 - Make sure both caches are using the same port and TLS/SSL settings
-- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary.
+- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary. Or, use [Azure Active Directory tokens for cache authentication](cache-azure-active-directory-for-authentication.md), which allow you to use the same authentication credential for both the geo-primary and the geo-secondary cache.   
 
 ### Failover with minimal data loss
 
@@ -148,6 +148,10 @@ Geo-failover events can introduce data inconsistencies during the transition, es
 - Run the `CLIENT PAUSE` command in the current geo-primary before initiating failover. Running `CLIENT PAUSE` blocks any new write requests and instead returns timeout failures to the Azure Cache for Redis client. The `CLIENT PAUSE` command requires providing a timeout period in milliseconds. Make sure a long enough timeout period is provided to allow the failover to occur. Setting this to around 30 minutes (1,800,000 milliseconds) is a good place to start. You can always lower this number as needed.
 
 There's no need to run the CLIENT UNPAUSE command as the new geo-primary does retain the client pause.
+
+>[!NOTE]
+>Using [Azure Active Directory based authentication](cache-azure-active-directory-for-authentication.md) for your cache is recommended in geo-failover scenarios because it removes the difficulty of managing different access keys for the geo-primary and the geo-secondary cache. 
+>
 
 ## Remove a geo-replication link
 

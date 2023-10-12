@@ -8,6 +8,9 @@ author: george-guirguis
 ms.author: geguirgu
 ---
 # Event Schema for MQTT Routed Messages
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 MQTT Messages are routed to an Event Grid topic as CloudEvents according to the following logic:
 
 For MQTT v3 messages or MQTT v5 messages of a payload format indicator=0, the payload will be forwarded in the data_base64 object and encoded as a base 64 string according to the following schema sample.

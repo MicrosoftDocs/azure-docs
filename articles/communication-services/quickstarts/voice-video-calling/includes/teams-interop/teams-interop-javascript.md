@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Join a Teams meeting from a web app
 description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript
-author: chpalm
+author: tophpalmer
 ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: include
@@ -17,11 +17,13 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling web app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- The Minimum Version supported for Teams meetingId and passcode join API : 1.17.1
 
 ## Add the Teams UI controls
 
 Replace code in index.html with following snippet.
-The text box is used to enter the Teams meeting context and the button is used to join the specified meeting:
+Join the Teams meeting via Teams Meeting link or Teams MeetingId and Passcode.
+The text boxes are used to enter the Teams meeting context and the button is used to join the specified meeting:
 
 ```html
 <!DOCTYPE html>
@@ -34,6 +36,10 @@ The text box is used to enter the Teams meeting context and the button is used t
     <h1>Teams meeting join quickstart</h1>
     <input id="teams-link-input" type="text" placeholder="Teams meeting link"
         style="margin-bottom:1em; width: 300px;" />
+    <p><input id="teams-meetingId-input" type="text" placeholder="Teams meetingId"
+        style="margin-bottom:1em; width: 300px;" /></p>
+    <p><input id="teams-passcode-input" type="text" placeholder="Teams meeting Passcode"
+        style="margin-bottom:1em; width: 300px;" /></p>
         <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
         <p><span style="font-weight: bold" id="recording-state"></span></p>
     <div>
@@ -62,6 +68,8 @@ import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 let call;
 let callAgent;
 const meetingLinkInput = document.getElementById('teams-link-input');
+const meetingIdInput = document.getElementById('teams-meetingId-input');
+const meetingPasscodeInput = document.getElementById('teams-passcode-input');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
@@ -88,6 +96,9 @@ hangUpButton.addEventListener("click", async () => {
 teamsMeetingJoinButton.addEventListener("click", () => {    
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+     (or)
+   // join with meetingId and passcode
+   call = callAgent.join({meetingId: meetingIdInput.value, passcode: meetingPasscodeInput.value}, {});
     
     call.on('stateChanged', () => {
         callStateElement.innerText = call.state;

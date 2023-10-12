@@ -3,7 +3,7 @@ title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
 ms.date: 05/16/2023
-ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
+ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
 
@@ -48,13 +48,7 @@ Since GitHub Actions uses your publish profile to access your function app durin
 
 ### Download your publish profile
 
-To download the publishing profile of your function app:
-
-1. Select the function app's **Overview** page, and then select **Get publish profile**.
-
-   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
-
-1. Save and copy the contents of the file.
+[!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
 
 ### Add the GitHub secret
 
@@ -235,7 +229,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 ## Update a workflow configuration
 
-If for some reason, you need to update or change an existing workflow configuration, just navigate to the `/.github/workflows/` location in your repository, open the specific XAML file, make any needed changes, and then commit the updates to the repository.
+If for some reason, you need to update or change an existing workflow configuration, just navigate to the `/.github/workflows/` location in your repository, open the specific YAML file, make any needed changes, and then commit the updates to the repository.
 
 ## Example: workflow configuration file
 

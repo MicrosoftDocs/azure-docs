@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 1/02/2023
+ms.date: 09/14/2023
 ---
 
 # OT monitoring software versions
@@ -37,7 +37,11 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **23.1** | | | |
+| 23.1.3 | 09/2023 | Patch | 08/2024 |
+| 23.1.2 | 07/2023 | Major | 06/2024 |
 | **22.3** | | | |
+|22.3.10|07/2023|Patch|06/2024|
 | 22.3.9 | 05/2023 | Patch | 04/2024 |
 | 22.3.8 | 04/2023 | Patch | 03/2024 |
 | 22.3.7 | 03/2023 | Patch | 02/2024 |
@@ -81,7 +85,7 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 
 The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control are allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
 
-Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
+Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and shouldn't be modified.
 
 Maintain your sensors and on-premises management consoles, for activities like backups, log exports, or health monitoring, via the web interface, or the Defender for IoT [CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
@@ -95,7 +99,46 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
+## Versions 23.1.x
+
+### Version 23.1.3
+
+**Release date**: 09/2023
+
+**Supported until**: 08/2024
+
+This version includes the following updates and enhancements:
+
+- [Connectivity troubleshooting enhancements from the OT sensor](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues)
+- [Read Only users can access the Event Timeline](roles-on-premises.md)
+
+### Version 23.1.2
+
+**Release date**: 07/2023
+
+**Supported until**: 06/2024
+
+This version includes the following updates and enhancements:
+
+- [Simplified installation process](ot-deploy/install-software-ot-sensor.md)
+- [A new sensor setup wizard from the UI](ot-deploy/activate-deploy-sensor.md)
+- [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
+- [UI enhancements for downloading PCAP files from the sensor](how-to-view-alerts.md#access-alert-pcap-data)
+- [*cyberx* and *cyberx_host* users aren't enabled by default](roles-on-premises.md#default-privileged-on-premises-users)
+
+> [!NOTE]
+> Due to internal improvements to the OT sensor's device inventory, column edits made to your device inventory aren't retained after updating to version 23.1.2. If you'd previously edited the columns shown in your device inventory, you'll need to make those same edits again after updating your sensor.
+>
+
 ## Versions 22.3.x
+
+### 22.3.10
+
+**Release date**: 07/2023
+
+**Supported until**: 06/2024
+
+This version includes bug fixes for stability improvements.
 
 ### 22.3.9
 
@@ -103,7 +146,10 @@ To understand whether a feature is supported in your sensor version, check the r
 
 **Supported until**: 04/2024
 
-This version includes bug fixes for stability improvements.
+This version includes:
+
+- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+- Bug fixes for stability improvements.
 
 ### 22.3.8
 
@@ -111,7 +157,7 @@ This version includes bug fixes for stability improvements.
 
 **Supported until**: 03/2024
 
-- [Download WMI script from OT sensor console](detect-windows-endpoints-script.md#download-and-run-the-script)
+- [Enrich Windows workstation and server data with a local script (Public preview)](detect-windows-endpoints-script.md)
 - [Automatically resolved notifications for operating system changes and device type changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [UI enhancements when uploading SSL/TLS certificates](how-to-deploy-certificates.md#deploy-a-certificate-on-an-ot-sensor)
 
@@ -126,15 +172,16 @@ This version includes bug fixes for stability improvements.
 Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 installed, we strongly recommend that you update to version 22.3.7, which also includes important bug fixes.
 
 - [Support for transient devices](device-inventory.md#supported-devices)
-- [Auto-resolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [Autoresolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [Device data retention updated to 90 days](references-data-retention.md#device-data-retention-periods)
 - [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages when the action has completed
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
-- [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate)
+- [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#define-ssltls-certificate-settings)
 - [Activation files for locally managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+- [Security recommendations for OT networks for insecure or missing passwords](recommendations.md#supported-security-recommendations)
 
 ### 22.3.5
 
@@ -235,7 +282,7 @@ This version includes the following new updates and fixes:
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
-- [Sensor connections restored after certificate rotation](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate)
+- [Sensor connections restored after certificate rotation](how-to-manage-individual-sensors.md#manage-ssltls-certificates)
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
@@ -395,3 +442,4 @@ This version includes the following new updates and fixes:
 ## Next steps
 
 For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT?](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+

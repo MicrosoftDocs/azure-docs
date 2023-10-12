@@ -4,8 +4,8 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 04/24/2023
-ms.reviewer: casocha
+ms.date: 10/10/2023
+ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications
 
@@ -23,7 +23,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 
 We use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions in [Application Insights for Worker Service applications](./worker-service.md).
 
-A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
+An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -48,7 +48,7 @@ You need:
 
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).
 - A reference to a supported version of the [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package.
-- A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
+- A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-workspace-resource.md).
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
@@ -197,7 +197,7 @@ HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) SDK Loader Script injection by configuration.
+The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) using JavaScript (Web) SDK Loader Script injection by configuration.
 
 1. In `_ViewImports.cshtml`, add injection:
 
@@ -220,9 +220,9 @@ As an alternative to using `FullScript`, `ScriptBody` is available starting in A
 </script>
 ```
 
-The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript SDK Loader Script must appear in the `<head>` section of each page of your application that you want to monitor. Add the JavaScript SDK Loader Script to `_Layout.cshtml` in an application template to enable client-side monitoring.
+The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript JavaScript (Web) SDK Loader Script must appear in the `<head>` section of each page of your application that you want to monitor. Add the JavaScript JavaScript (Web) SDK Loader Script to `_Layout.cshtml` in an application template to enable client-side monitoring.
 
-If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md) by adding the JavaScript SDK Loader Script to an equivalent file that controls the `<head>` of all pages within your app. Alternatively, you can add the SDK Loader Script to multiple pages, but we don't recommend it.
+If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md) by adding the JavaScript JavaScript (Web) SDK Loader Script to an equivalent file that controls the `<head>` of all pages within your app. Alternatively, you can add the JavaScript (Web) SDK Loader Script to multiple pages, but we don't recommend it.
 
 > [!NOTE]
 > JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you're required to remove auto-injection as described and manually add the [JavaScript SDK](./javascript.md#add-the-javascript-sdk).
@@ -658,7 +658,7 @@ For more information about custom data reporting in Application Insights, see [A
 
 The default setting for Application Insights is to only capture **Warning** and more severe logs.
 
-Capture **Information** and more severe logs by changing the logging configuration for the Application Insights provider as follows.
+Capture **Information** and less severe logs by changing the logging configuration for the Application Insights provider as follows.
 
 ```json
 {
@@ -768,6 +768,67 @@ This limitation isn't applicable from version [2.15.0](https://www.nuget.org/pac
 ### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
 
 This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications by using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+
+### How can I uninstall the SDK?
+
+To remove Application Insights, you need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the NuGet Package Manager in Visual Studio.
+
+> [!NOTE]
+> These instructions are for uninstalling the ASP.NET Core SDK. If you need to uninstall the ASP.NET SDK, see [How can I uninstall the ASP.NET SDK?](./asp-net.md#how-can-i-uninstall-the-sdk).
+
+1. Uninstall the Microsoft.ApplicationInsights.AspNetCore package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package).
+1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is created when you add the Application Insights SDK?](#what-is-created-when-you-add-the-application-insights-sdk).
+
+### What is created when you add the Application Insights SDK?
+
+When you add Application Insights to your project, it creates files and adds code to some of your files. Solely uninstalling the NuGet Packages won't always discard the files and code. To fully remove Application Insights, you should check and manually delete the added code or files along with any API calls you added in your project.
+
+When you add Application Insights Telemetry to a Visual Studio ASP.NET Core template project, it adds the following code:
+
+- [Your project's name].csproj
+
+    ```csharp
+      <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4core</ApplicationInsightsResourceId>
+      </PropertyGroup>
+    
+      <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
+      </ItemGroup>
+    
+      <ItemGroup>
+        <WCFMetadata Include="Connected Services" />
+      </ItemGroup>
+    ```
+
+- Appsettings.json:
+
+    ```json
+    "ApplicationInsights": {
+        "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
+    ```
+
+- ConnectedService.json
+    
+    ```json
+    {
+      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+      "Version": "16.0.0.0",
+      "GettingStartedDocument": {
+        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+      }
+    }
+    ```
+- Startup.cs
+
+    ```csharp
+       public void ConfigureServices(IServiceCollection services)
+            {
+                services.AddRazorPages();
+                services.AddApplicationInsightsTelemetry(); // This is added
+            }
+    ```
 
 ## Troubleshooting
 

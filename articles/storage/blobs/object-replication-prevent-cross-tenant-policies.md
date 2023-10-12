@@ -1,23 +1,22 @@
 ---
-title: Prevent object replication across Azure Active Directory tenants
+title: Prevent object replication across Microsoft Entra tenants
 titleSuffix: Azure Storage
 description: Prevent cross-tenant object replication
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 04/06/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Prevent object replication across Azure Active Directory tenants
+# Prevent object replication across Microsoft Entra tenants
 
 Object replication asynchronously copies block blobs from a container in one storage account to a container in another storage account. When you configure an object replication policy, you specify the source account and container and the destination account and container. After the policy is configured, Azure Storage automatically copies the results of create, update, and delete operations on a source object to the destination object. For more information about object replication in Azure Storage, see [Object replication for block blobs](object-replication-overview.md).
 
-By default, an authorized user is permitted to configure an object replication policy where the source account is in one Azure Active Directory (Azure AD) tenant and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
+By default, an authorized user is permitted to configure an object replication policy where the source account is in one Microsoft Entra tenant and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
 
 This article describes how to remediate cross-tenant object replication for your storage accounts. It also describes how to create policies to enforce a prohibition on cross-tenant object replication for new and existing storage accounts.
 
@@ -25,9 +24,9 @@ For more information on how to configure object replication policies, including 
 
 ## Remediate cross-tenant object replication
 
-To prevent object replication across Azure AD tenants, set the **AllowCrossTenantReplication** property for the storage account to **false**. If a storage account does not currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination. However, if a storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* is not permitted until you delete the existing cross-tenant policies.
+To prevent object replication across Microsoft Entra tenants, set the **AllowCrossTenantReplication** property for the storage account to **false**. If a storage account does not currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination. However, if a storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* is not permitted until you delete the existing cross-tenant policies.
 
-Cross-tenant policies are permitted by default for a storage account. However, the **AllowCrossTenantReplication** property is not set by default for a new or existing storage account and does not return a value until you explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true**.
+Cross-tenant policies are permitted by default for a storage account. However, the **AllowCrossTenantReplication** property is not set by default for a new or existing storage account and does not return a value until you explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true**. Setting the **AllowCrossTenantReplication** property does not incur any downtime on the storage account.
 
 ### Remediate cross-tenant replication for a new account
 
@@ -58,7 +57,8 @@ $location = "<location>"
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
-    -SkuName Standard_LRS
+    -SkuName Standard_LRS `
+    -AllowBlobPublicAccess $false `
     -AllowCrossTenantReplication $false
 
 # Read the property for the new storage account
@@ -75,7 +75,8 @@ az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS
+    --sku Standard_LRS \
+    --allow-blob-public-access false \
     --allow-cross-tenant-replication false
 
 # Read the property for the new storage account
@@ -157,14 +158,14 @@ To set the **AllowCrossTenantReplication** property for a storage account, a use
 - The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
 - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
 
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+These roles do not provide access to data in a storage account via Microsoft Entra ID. However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
 
 Role assignments must be scoped to the level of the storage account or higher to permit a user to allow or disallow cross-tenant object replication for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Use Azure Policy to audit for compliance
 

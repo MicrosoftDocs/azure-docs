@@ -2,12 +2,14 @@
 title: 'Tutorial: Authenticate users E2E' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps end-to-end, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
+author: cephalin
+ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 3/08/2023
-ms.custom: "devx-track-js, seodec18, devx-track-azurecli, engagement-fy23"
+ms.custom: seodec18, devx-track-azurecli, engagement-fy23, AppServiceIdentity
 zone_pivot_groups: app-service-platform-windows-linux
-# Requires non-internal subscription - internal subscriptons doesn't provide permission to correctly configure AAD apps
+# Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure AAD apps
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -316,7 +318,7 @@ if (bearerToken) {
 
 ## 8. Browse to the apps
 
-1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
+1. Use the frontend web site in a browser. The URL is in the format of `https://<front-end-app-name>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
 
     :::image type="content" source="./media/tutorial-auth-aad/browser-screenshot-authentication-permission-requested-pop-up.png" alt-text="Screenshot of browser authentication pop-up requesting permissions.":::

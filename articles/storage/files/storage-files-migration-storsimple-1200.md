@@ -2,11 +2,10 @@
 title: StorSimple 1200 migration to Azure File Sync
 description: Learn how to migrate a StorSimple 1200 series virtual appliance to Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 01/12/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # StorSimple 1200 migration to Azure File Sync
@@ -162,8 +161,7 @@ Let sync progress and cloud tiering free up disk space. You can observe that in 
 
 When your Windows Server has sufficient available capacity, rerunning the command will resolve the problem. Nothing breaks when you get into this situation and you can move forward with confidence. Inconvenience of running the command again is the only consequence.
 
-You can also run into other Azure File Sync issues.
-As unlikely as they may be, if that happens, take a look at the **LINK Azure File Sync troubleshooting guide**.
+You might also run into other Azure File Sync issues. If that happens, see [Azure File Sync troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
 
 [!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
 
@@ -183,4 +181,4 @@ Azure File Sync content:
 
 * [Azure File Sync overview](../file-sync/file-sync-planning.md)
 * [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md)
-* [Azure File Sync troubleshooting guide](../file-sync/file-sync-troubleshoot.md)
+* [Azure File Sync troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

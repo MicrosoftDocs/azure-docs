@@ -1,9 +1,9 @@
 ---
 title: Custom metrics in Azure Monitor (preview)
 description: Learn about custom metrics in Azure Monitor and how they're modeled.
-author: rboucher
-ms.author: robb
-services: azure-monitor
+author: EdB-MSFT
+ms.service: azure-monitor
+ms-author: edbaynash
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.reviewer: priyamishra
@@ -41,15 +41,15 @@ When you send custom metrics to Azure Monitor, each data point, or value, report
 
 ### Authentication
 
-To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. Supported ways to acquire a valid bearer token include:
+To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Microsoft Entra token in the **Bearer** header of the request. Supported ways to acquire a valid bearer token include:
 
 - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). You can use a managed identity to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its managed identity, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the managed identity can also emit metrics for other resources.
-- [Azure AD service principal](../../active-directory/develop/app-objects-and-service-principals.md). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource. To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal.
+- [Microsoft Entra service principal](../../active-directory/develop/app-objects-and-service-principals.md). In this scenario, a Microsoft Entra application, or service, can be assigned permissions to emit metrics about an Azure resource. To authenticate the request, Azure Monitor validates the application token by using Microsoft Entra public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal.
 
   The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!TIP]
-> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing slash.
+> When you request a Microsoft Entra token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing slash.
 
 ### Subject
 

@@ -1,6 +1,6 @@
 ---
-title: Create user accounts for remote app streaming - Azure Virtual Desktop
-description: How to create user accounts for remote app streaming for your customers in Azure Virtual Desktop with Azure AD, Azure AD DS, or AD DS.
+title: Create user accounts for RemoteApp streaming - Azure Virtual Desktop
+description: How to create user accounts for RemoteApp streaming for your customers in Azure Virtual Desktop with Azure AD, Azure AD DS, or AD DS.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/06/2021
@@ -8,9 +8,9 @@ ms.author: helohr
 manager: femila
 ---
 
-# Create user accounts for remote app streaming
+# Create user accounts for RemoteApp streaming
 
-Because Azure Virtual Desktop doesn't currently support external profiles, or "identities," your users won't be able to access the apps you host with their own corporate credentials. Instead, you'll need to create identities for them in the Active Directory Domain that you'll use for remote app streaming and sync user objects to the associated Azure Active Directory (Azure AD) tenant.
+Because Azure Virtual Desktop doesn't currently support external profiles, or "identities," your users won't be able to access the apps you host with their own corporate credentials. Instead, you'll need to create identities for them in the Active Directory Domain that you'll use for RemoteApp streaming and sync user objects to the associated Azure Active Directory (Azure AD) tenant.
 
 In this article, we'll explain how you can manage user identities to provide a secure environment for your customers. We'll also talk about the different parts that make up an identity.
 
@@ -40,7 +40,7 @@ To set up an identity in AD DS:
 
 3. Install and configure [Azure AD Connect](../../active-directory/hybrid/how-to-connect-install-roadmap.md) on a separate domain-joined VM to sync the user accounts from Active Directory to Azure Active Directory.
 
-4. If you plan to manage the VMs using Intune, enable [Hybrid Azure AD-joined devices](../../active-directory/devices/hybrid-azuread-join-plan.md) with Azure AD Connect.
+4. If you plan to manage the VMs using Intune, enable [Hybrid Azure AD-joined devices](../../active-directory/devices/hybrid-join-plan.md) with Azure AD Connect.
 
 5. Once you've configured the environment, [create new users](/previous-versions/windows/it-pro/windows-server-2003/cc755607(v=ws.10)) in the Active Directory. These users should automatically be synced with Azure AD.
 

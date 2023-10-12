@@ -3,7 +3,7 @@ title: Send Azure service health alerts with ServiceNow
 description: Get personalized notifications about service health events to your ServiceNow instance.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Send Azure service health alerts with ServiceNow using webhooks
 

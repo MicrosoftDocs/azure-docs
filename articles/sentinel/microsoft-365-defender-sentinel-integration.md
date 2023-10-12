@@ -21,7 +21,7 @@ This integration gives Microsoft 365 security incidents the visibility to be man
 Other services whose alerts are collected by Microsoft 365 Defender include:
 
 - **Microsoft Purview Data Loss Prevention (DLP)** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
-- **Azure Active Directory Identity Protection (AADIP)** ([Learn more](/defender-cloud-apps/aadip-integration))
+- **Microsoft Entra ID Protection (AADIP)** ([Learn more](/defender-cloud-apps/aadip-integration))
 
 In addition to collecting alerts from these components and other services, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
@@ -40,12 +40,12 @@ In addition to collecting alerts from these components and other services, Micro
 
 ## Connecting to Microsoft 365 Defender
 
-Once you have enabled the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md), Microsoft 365 Defender incidents will appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
+Install the Microsoft 365 Defender solution for Microsoft Sentinel and enable the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md). Microsoft 365 Defender incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
 - It can take up to 10 minutes from the time an incident is generated in Microsoft 365 Defender to the time it appears in Microsoft Sentinel.
 
 - Incidents will be ingested and synchronized at no extra cost.
 
-Once the Microsoft 365 Defender integration is connected, the connectors for all the integrated components and services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Azure Active Directory Identity Protection) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
+Once the Microsoft 365 Defender integration is connected, the connectors for all the integrated components and services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
 
 ## Microsoft 365 Defender incidents and Microsoft incident creation rules
 
@@ -55,7 +55,7 @@ Once the Microsoft 365 Defender integration is connected, the connectors for all
 
 - Using both mechanisms together is completely supported, and can be used to facilitate the transition to the new Microsoft 365 Defender incident creation logic. Doing so will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 Defender-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Azure Active Directory Identity Protection) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 Defender-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Microsoft Entra ID Protection) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
 
 ## Working with Microsoft 365 Defender incidents in Microsoft Sentinel and bi-directional sync
 

@@ -13,11 +13,13 @@ ms.custom: subject-rbac-steps
 
 # Tutorial: Create a lab for classroom training with Azure Lab Services
 
-Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM). Use Azure Active Directory (Azure AD) role-based access control (RBAC) to assign permissions that match your organization's roles and responsibilities.
+Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM).
+
+In this tutorial, you have the Lab Creator Azure RBAC role to let you create labs for a lab plan. Depending on your organization, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
 
 :::image type="content" source="./media/tutorial-setup-lab/lab-services-process-setup-lab.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services.":::
 
-After you complete this tutorial, lab users register for the lab and connect to their lab VM through remote desktop (RDP).
+After you complete this tutorial, lab users can register for the lab using their email, and connect to their lab virtual machine with remote desktop (RDP).
 
 In this tutorial, you learn how to:
 
@@ -176,7 +178,7 @@ Azure Lab Services supports multiple ways to add users to a lab:
 
 - Manually by entering an email address
 - Upload a CSV file with student information
-- Sync the lab with an Azure Active Directory group
+- Sync the lab with a Microsoft Entra group
 
 In this quickstart, you manually add the users by providing their email address. Follow these steps to add the users:
 
@@ -222,7 +224,5 @@ After you add users to the lab, they can register for the lab by using a registr
 
 You've successfully created a customized lab for a classroom training, created a recurring lab schedule, and invited users to register for the lab. Next, lab users can now connect to their lab virtual machine by using remote desktop.
 
-In this tutorial, you have the Lab Creator Azure RBAC role to let you create labs for a lab plan. Depending on your organization, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
-
 > [!div class="nextstepaction"]
-> [Connect to a lab virtual machine](./tutorial-connect-lab-virtual-machine.md)
+> [Register for the lab and access the lab in the Lab Services website](./tutorial-connect-lab-virtual-machine.md)

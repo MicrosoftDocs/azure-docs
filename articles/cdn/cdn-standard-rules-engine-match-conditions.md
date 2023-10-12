@@ -19,7 +19,7 @@ The first part of a rule is a match condition or set of match conditions. In the
 
 For example, you can use a match condition to:
 
-- Filter requests based on a specific IP address, country, or region.
+- Filter requests based on a specific IP address or country/region.
 - Filter requests by header information.
 - Filter requests from mobile devices or desktop devices.
 

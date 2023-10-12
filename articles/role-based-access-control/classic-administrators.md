@@ -11,12 +11,15 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/06/2023
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # Azure classic subscription administrators
+
+> [!IMPORTANT]
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -49,31 +52,30 @@ This article describes how to add or change the Co-Administrator and Service Adm
 
 ## Add a guest user as a Co-Administrator
 
-> [!NOTE]
-> Removing a guest user from your Azure Active Directory does not remove the guest user's classic Co-Administrator access to a subscription. You must follow the steps in the [Remove a Co-Administrator](#remove-a-co-administrator) section to remove the guest user's classic Co-Administrator access to a subscription.
-
 To add a guest user as a Co-Administrator, follow the same steps as in the previous [Add a Co-Administrator](#add-a-co-administrator) section. The guest user must meet the following criteria:
 
 - The guest user must have a presence in your directory. This means that the user was invited to your directory and accepted the invite.
 
-For more information, about how to add a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+For more information, about how to add a guest user to your directory, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+
+Before you remove a guest user from your directory, you should first remove any role assignments for that guest user. For more information, see [Remove a guest user from your directory](./role-assignments-external-users.md#remove-a-guest-user-from-your-directory).
 
 ### Differences for guest users
 
 Guest users that have been assigned the Co-Administrator role might see some differences as compared to member users with the Co-Administrator role. Consider the following scenario:
 
-- User A with an Azure AD account (work or school account) is the Service Administrator for an Azure subscription.
+- User A with a Microsoft Entra account (work or school account) is the Service Administrator for an Azure subscription.
 - User B has a Microsoft account.
 - User A assigns the Co-Administrator role to user B.
-- User B can do almost everything, but is unable to register applications or look up users in the Azure AD directory.
+- User B can do almost everything, but is unable to register applications or look up users in the Microsoft Entra directory.
 
-You would expect that user B could manage everything. The reason for this difference is that the Microsoft account is added to the subscription as a guest user instead of a member user. Guest users have different default permissions in Azure AD as compared to member users. For example, member users can read other users in Azure AD and guest users cannot. Member users can register new service principals in Azure AD and guest users cannot.
+You would expect that user B could manage everything. The reason for this difference is that the Microsoft account is added to the subscription as a guest user instead of a member user. Guest users have different default permissions in Microsoft Entra ID as compared to member users. For example, member users can read other users in Microsoft Entra ID and guest users cannot. Member users can register new service principals in Microsoft Entra ID and guest users cannot.
 
-If a guest user needs to be able to perform these tasks, a possible solution is to assign the specific Azure AD roles the guest user needs. For example, in the previous scenario, you could assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to read other users and assign the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role to be able to create service principals. For more information about member and guest users and their permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). For more information about granting access for guest users, see [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
+If a guest user needs to be able to perform these tasks, a possible solution is to assign the specific Microsoft Entra roles the guest user needs. For example, in the previous scenario, you could assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to read other users and assign the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role to be able to create service principals. For more information about member and guest users and their permissions, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md). For more information about granting access for guest users, see [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
 
-Note that the [Azure built-in roles](../role-based-access-control/built-in-roles.md) are different than the [Azure AD roles](../active-directory/roles/permissions-reference.md). The built-in roles don't grant any access to Azure AD. For more information, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Note that the [Azure built-in roles](../role-based-access-control/built-in-roles.md) are different than the [Microsoft Entra roles](../active-directory/roles/permissions-reference.md). The built-in roles don't grant any access to Microsoft Entra ID. For more information, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-For information that compares member users and guest users, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+For information that compares member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
 
 ## Remove a Co-Administrator
 
@@ -121,16 +123,16 @@ Follow these steps to change the Service Administrator in the Azure portal.
 
 ### Limitations for changing the Service Administrator
 
-There can only be one Service Administrator per Azure subscription. Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is an Azure AD account (work or school account).
+There can only be one Service Administrator per Azure subscription. Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is a Microsoft Entra account (work or school account).
 
-| Account Administrator account | Can change the Service Administrator to a different Microsoft account? | Can change the Service Administrator to an Azure AD account in the same directory? | Can change the Service Administrator to an Azure AD account in a different directory? |
+| Account Administrator account | Can change the Service Administrator to a different Microsoft account? | Can change the Service Administrator to a Microsoft Entra account in the same directory? | Can change the Service Administrator to a Microsoft Entra account in a different directory? |
 | --- | --- | --- | --- |
 | Microsoft account | Yes | No | No |
-| Azure AD account | Yes | Yes | No |
+| Microsoft Entra account | Yes | Yes | No |
 
-If the Account Administrator is an Azure AD account, you can change the Service Administrator to an Azure AD account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
+If the Account Administrator is a Microsoft Entra account, you can change the Service Administrator to a Microsoft Entra account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
 
-For more information about Microsoft accounts and Azure AD accounts, see [What is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
+For more information about Microsoft accounts and Microsoft Entra accounts, see [What is Microsoft Entra ID?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## Remove the Service Administrator
 

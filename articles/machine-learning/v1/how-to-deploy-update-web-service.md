@@ -4,7 +4,7 @@ title: Update deployed web services
 titleSuffix: Azure Machine Learning
 description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: how-to
 ms.author: bozhlin
 author: bozhong68
@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1, event-tier1-build-2022
 
 # Update a deployed web service (v1)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 In this article, you learn how to update a web service that was deployed with Azure Machine Learning.
 
@@ -24,7 +24,7 @@ In this article, you learn how to update a web service that was deployed with Az
 - This article assumes you have already deployed a web service with Azure Machine Learning. If you need to learn how to deploy a web service, [follow these steps](how-to-deploy-and-where.md).
 - The code snippets in this article assume that the `ws` variable has already been initialized to your workspace by using the [Workflow()](/python/api/azureml-core/azureml.core.workspace.workspace#constructor) constructor or loading a saved configuration with [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#azureml-core-workspace-workspace-from-config). The following snippet demonstrates how to use the constructor:
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -33,7 +33,7 @@ In this article, you learn how to update a web service that was deployed with Az
                    workspace_name="myworkspace")
     ```
 
-[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+[!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Update web service
 
@@ -60,7 +60,7 @@ See [ACI Service Update Method.](/python/api/azureml-core/azureml.core.webservic
 
 The following code shows how to use the SDK to update the model, environment, and entry script for a web service:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -96,7 +96,7 @@ print(service.get_logs())
 
 You can also update a web service by using the ML CLI. The following example demonstrates registering a new model and then updating a web service to use the new model:
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json

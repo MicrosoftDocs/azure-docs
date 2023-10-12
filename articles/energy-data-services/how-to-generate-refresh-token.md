@@ -1,5 +1,5 @@
 ---
-title: How to generate a refresh token for Microsoft Azure Data Manager for Energy Preview
+title: How to generate a refresh token for Microsoft Azure Data Manager for Energy
 description: This article describes how to generate a refresh token
 author: elizabethhalper
 ms.author: elhalper
@@ -14,26 +14,26 @@ ms.custom: template-how-to
 
 In this article, you will learn how to generate a refresh token. The following are the basic steps to use the OAuth 2.0 authorization code grant flow to get a refresh token from the Microsoft identity platform endpoint:
 
-  1. Register your app with Azure AD.
+  1. Register your app with Microsoft Entra ID.
   2. Get authorization.
   3. Get a refresh token.
- 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Register your app with Azure AD
-To use the Azure Data Manager for Energy Preview platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
+<a name='register-your-app-with-azure-ad'></a>
+
+## Register your app with Microsoft Entra ID
+To use the Azure Data Manager for Energy platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
 
 To configure an app to use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
 
 - The `Directory (tenant) ID` that will be used in place of `{Tenant ID}`
 - The `application (client) ID` assigned by the app registration portal, which will be used instead of `client_id`.
 - A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{AppReg Secret}` later.
-- A `redirect URI (or reply URL)` for your app to receive responses from Azure AD. If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
+- A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
 
 For steps on how to configure an app in the Azure portal, see [Register your app](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
 ## Get authorization
-The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Azure AD will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Azure AD will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
+The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 ### Authorization request
 
@@ -50,7 +50,7 @@ The following shows an example of an authorization request:
 
 | Parameter | Required? | Description |
 | --- | --- | --- |
-|`{Tenant ID}`|Required|Name of your Azure AD tenant|
+|`{Tenant ID}`|Required|Name of your Microsoft Entra tenant|
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
 | redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
@@ -117,7 +117,7 @@ Your app uses the authorization code received in the previous step to request an
 
 |Parameter  | Description  |
 |---------|---------|
-|token_type     |Indicates the token type value. The only type that Azure AD supports is Bearer.         |
+|token_type     |Indicates the token type value. The only type that Microsoft Entra ID supports is Bearer.         |
 |scope     |A space separated list of the Microsoft Graph permissions that the access_token is valid for.         |
 |expires_in     |How long the access token is valid (in seconds).         |
 |access_token     |The requested access token. Your app can use this token to call Microsoft Graph.         |

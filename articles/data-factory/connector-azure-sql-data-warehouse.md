@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 04/20/2023
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -39,7 +39,7 @@ This Azure Synapse Analytics connector is supported for the following capabiliti
 
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
-- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
+- Copy data by using SQL authentication and Microsoft Entra Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics) section for details.
 - As a sink, load data by using [COPY statement](#use-copy-statement) or [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or bulk insert. We recommend COPY statement or PolyBase for better copy performance. The connector also supports automatically creating destination table with DISTRIBUTION = ROUND_ROBIN if not exists based on the source schema.
 
@@ -87,7 +87,7 @@ These generic properties are supported for an Azure Synapse Analytics linked ser
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | The type property must be set to **AzureSqlDW**.             | Yes                                                          |
 | connectionString    | Specify the information needed to connect to the Azure Synapse Analytics instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes                                                          |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are `AzurePublic`, `AzureChina`, `AzureUsGovernment`, and `AzureGermany`. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are `AzurePublic`, `AzureChina`, `AzureUsGovernment`, and `AzureGermany`. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia          | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No                                                           |
 
 For different authentication types, refer to the following sections on specific properties, prerequisites and JSON samples, respectively:
@@ -166,15 +166,15 @@ To use service principal authentication, in addition to the generic properties t
 
 You also need to follow the steps below:
 
-1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. **[Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
    - Application ID
    - Application key
    - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server in the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+2. **[Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server in the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+3. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your_application_name] FROM EXTERNAL PROVIDER;
@@ -218,9 +218,9 @@ A data factory or Synapse workspace can be associated with a [system-assigned ma
 
 To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
 
-1. **[Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with system-assigned managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with system-assigned managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-2. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the system-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+2. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the system-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
     CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
@@ -263,9 +263,9 @@ To use user-assigned managed identity authentication, in addition to the generic
 
 You also need to follow the steps below:
 
-1. **[Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator will have full access to the database.
+1. **[Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator will have full access to the database.
 
-2. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the user-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+2. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the user-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
     CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
@@ -684,7 +684,7 @@ When your source data is not natively compatible with COPY statement, enable dat
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or system-managed identity authentication** that refers to the Azure storage account as the interim storage.
 
 >[!IMPORTANT]
->- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
+>- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. You also need to grant permissions to your Azure Synapse Analytics workspace managed identity in your staging Azure Blob Storage or Azure Data Lake Storage Gen2 account. To learn how to grant this permission, see [Grant permissions to workspace managed identity](/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions).
 >- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 >[!IMPORTANT]
@@ -824,7 +824,7 @@ When your source data is not natively compatible with PolyBase, enable data copy
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or managed identity authentication** that refers to the Azure storage account as the interim storage.
 
 >[!IMPORTANT]
->- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
+>- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. You also need to grant permissions to your Azure Synapse Analytics workspace managed identity in your staging Azure Blob Storage or Azure Data Lake Storage Gen2 account. To learn how to grant this permission, see [Grant permissions to workspace managed identity](/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions).
 >- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 >[!IMPORTANT]

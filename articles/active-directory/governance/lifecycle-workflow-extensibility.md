@@ -13,7 +13,7 @@ ms.custom: template-concept
 ---
 
 
-# Lifecycle Workflows Custom Task Extension (Preview)
+# Lifecycle Workflows custom task extension
 
 
 Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you're able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. For example, when a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
@@ -67,10 +67,10 @@ The response can be authorized in one of the following ways:
 The high-level steps for the Azure Logic Apps integration are as follows:
 
 > [!NOTE]
-> Creating a custom task extension and logic app through the Azure portal will automate most of these steps. For a guide on creating a custom task extension this way, see: [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md).
+> Creating a custom task extension and logic app through the Microsoft Entra admin center will automate most of these steps. For a guide on creating a custom task extension this way, see: [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md).
 
 - **Create a consumption-based Azure Logic App**: A consumption-based Azure Logic App that is used to be called to from the custom task extension.
-- **Configure the Azure Logic App so its compatible with Lifecycle workflows**: Configuring the consumption-based Azure Logic App so that it can be used with the custom task extension. For more information, see: [Configure a Logic App for Lifecycle Workflow use (Preview)](configure-logic-app-lifecycle-workflows.md)
+- **Configure the Azure Logic App so its compatible with Lifecycle workflows**: Configuring the consumption-based Azure Logic App so that it can be used with the custom task extension. For more information, see: [Configure a Logic App for Lifecycle Workflow use](configure-logic-app-lifecycle-workflows.md)
 - **Build your custom business logic within your Azure Logic App**: Set up your business logic within the Azure Logic App using Logic App designer.
 - **Create a lifecycle workflow customTaskExtension which holds necessary information about the Azure Logic App**: Creating a custom task extension that references the configured Azure Logic App.
 - **Update or create a Lifecycle workflow with the “Run a custom task extension” task, referencing your created customTaskExtension**: Adding the newly created custom task extension to a new workflow, or updating the information to an existing workflow.
@@ -79,5 +79,5 @@ The high-level steps for the Azure Logic Apps integration are as follows:
 ## Next steps
 
 - [customTaskExtension resource type](/graph/api/resources/identitygovernance-customtaskextension?view=graph-rest-beta&preserve-view=true)
-- [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md)
-- [Configure a Logic App for Lifecycle Workflow use (Preview)](configure-logic-app-lifecycle-workflows.md)
+- [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md)
+- [Configure a Logic App for Lifecycle Workflow use](configure-logic-app-lifecycle-workflows.md)

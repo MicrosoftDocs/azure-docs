@@ -6,6 +6,8 @@
     href: site-recovery-overview.md
   - name: What's new in Site Recovery
     href: site-recovery-whats-new.md
+  - name: Site Recovery - FAQ
+    href: site-recovery-faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -17,6 +19,8 @@
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
+  - name: Enable replication - Modernized
+    href: quickstart-enable-replication.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -29,15 +33,27 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
-  - name: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+  - name: VMware VM disaster recovery to Azure
     items:
-    - name: Set up disaster recovery to another region using PowerShell
+    - name: Prepare Azure
+      href: tutorial-prepare-azure.md
+    - name: Prepare on-premises VMware
+      href: vmware-azure-tutorial-prepare-on-premises.md
+    - name: Set up replication
+      href: vmware-azure-set-up-replication-tutorial-modernized.md
+    - name: Run a disaster recovery drill
+      href: tutorial-dr-drill-azure.md
+    - name: Run VMware VMs failover to Azure
+      href: vmware-azure-tutorial-failover-failback-modernized.md
+  - name: Set up disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+    items:
+    - name: Disaster recovery to another region using PowerShell
       href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-    - name: Set up disaster recovery to another Public MEC using PowerShell 
+    - name: Disaster recovery to another Public MEC using PowerShell 
       href: tutorial-replicate-vms-edge-zone-to-another-zone.md
-    - name: Set up disaster recovery using the Recovery Services vault
+    - name: Disaster recovery using the Recovery Services vault
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
-    - name: Set up disaster recovery when creating a VM
+    - name: Disaster recovery when creating a VM
       href: disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md
   - name: Move to modernized VMware VM disaster recovery
     items:
@@ -55,26 +71,14 @@
       href: region-move-cross-geos.md
     - name: Move a vault to a different region
       href: move-vaults-across-regions.md
-  - name: VMware VM disaster recovery to Azure
-    items:
-    - name: Prepare Azure
-      href: tutorial-prepare-azure.md
-    - name: Prepare on-premises VMware
-      href: vmware-azure-tutorial-prepare-on-premises.md
   - name: Set up replication
     items:
     - name: Classic
       href: vmware-azure-tutorial.md
-    - name: Modernized
-      href: vmware-azure-set-up-replication-tutorial-modernized.md
-    - name: Run a disaster recovery drill
-      href: tutorial-dr-drill-azure.md
   - name: Run VMware VMs failover to Azure
     items:
     - name: Classic
       href: vmware-azure-tutorial-failover-failback.md
-    - name: Preview
-      href: vmware-azure-tutorial-failover-failback-modernized.md
   - name: Azure VMware Solution disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -119,22 +123,40 @@
       href: migrate-tutorial-aws-azure.md
 - name: Concepts
   items:
-  - name: Common questions about Site Recovery
-    href: site-recovery-faq.yml
+  - name: Support matrices
+    items:
+    - name: Azure to Azure support
+      href: azure-to-azure-support-matrix.md
+    - name: VMware/physical to Azure
+      href: vmware-physical-azure-support-matrix.md
+    - name: On-premises Hyper-V VMs to Azure
+      href: hyper-v-azure-support-matrix.md
+    - name: Hyper-V VMs to a secondary site
+      href: hyper-v-vmm-secondary-support-matrix.md
+    - name: Backup center support matrix
+      href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Support requirements for Azure Site Recovery replication appliance
+      href: replication-appliance-support-matrix.md
+  - name: Frequently asked questions (FAQ)
+    items:
+    - name: Azure to Azure disaster recovery
+      href: azure-to-azure-common-questions.md
+    - name: VMware to Azure replication
+      href: vmware-azure-common-questions.md
+    - name: Hyper-V to Azure disaster recovery
+      href: hyper-v-azure-common-questions.md
+    - name: Monitoring
+      href: monitoring-common-questions.md
   - name: About Backup center
     items:
     - name: Backup center overview
       href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-    - name: Support requirements for Backup center
-      href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
     - name: Common questions about Azure to Azure disaster recovery
       href: azure-to-azure-common-questions.md
-    - name: Azure to Azure support matrix
-      href: azure-to-azure-support-matrix.md
     - name: Using Site Recovery with Azure Backup
       href: site-recovery-backup-interoperability.md
     - name: Configure Failover for Multiple IP addresses
@@ -143,7 +165,7 @@
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM Disaster Recovery - High Churn Support (Public Preview)
+    - name: Azure VM Disaster Recovery - High Churn Support
       href: concepts-azure-to-azure-high-churn-support.md
   - name: About moving Azure VMs to another region
     href: azure-to-azure-move-overview.md
@@ -155,10 +177,6 @@
       href: vmware-physical-azure-classic-deprecation.md
     - name: VMware disaster recovery overview
       href: vmware-azure-about-disaster-recovery.md
-    - name: Common questions
-      href: vmware-azure-common-questions.md
-    - name: VMware/physical to Azure support matrix
-      href: vmware-physical-azure-support-matrix.md
     - name: About Site Recovery components (configuration/process/master target server)
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
@@ -181,10 +199,6 @@
     href: vmware-azure-multi-tenant-overview.md
   - name: About Hyper-V VM disaster recovery
     items:
-    - name: Common questions
-      href: hyper-v-azure-common-questions.md
-    - name: Support matrix
-      href: hyper-v-azure-support-matrix.md
     - name: Hyper-V to Azure architecture
       href: hyper-v-azure-architecture.md
     - name: About excluding disks from replication
@@ -225,12 +239,9 @@
     href: site-recovery-role-based-linked-access-control.md
   - name: About disaster recovery to a secondary on-premises site
     items:
-    - name: Support matrix for VMware/physical server
-      href: vmware-physical-secondary-support-matrix.md
     - name: Architecture for VMware VM/physical server to a secondary site
       href: vmware-physical-secondary-architecture.md
-    - name: Support matrix for Hyper-V
-      href: hyper-v-vmm-secondary-support-matrix.md
+
     - name: Architecture for Hyper-V VM to a secondary site
       href: hyper-v-vmm-architecture.md
   - name: Security
@@ -525,28 +536,6 @@
       href: site-recovery-citrix-xenapp-and-xendesktop.md
     - name: Other workloads
       href: site-recovery-workload.md#workload-summary
-  - name: Disaster recovery to a secondary site
-    items:
-    - name: VMware VMs/physical servers
-      items:
-      - name: Walkthrough-Disaster recovery of VMware VMs and physical servers to a secondary site
-        href: vmware-physical-secondary-disaster-recovery.md
-    - name: Hyper-V VMs
-      items:
-      - name: Deprecation of site-to-site scenario for Hyper-V VMs
-        href: site-to-site-deprecation.md
-      - name: Walkthrough-Disaster recovery of Hyper-V VMs in VMM clouds to a secondary site
-        href: hyper-v-vmm-disaster-recovery.md
-      - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site
-        href: hyper-v-vmm-test-failover.md
-      - name: Set up IP addressing for failover
-        href: hyper-v-vmm-networking.md
-      - name: Add VMM scripts to recovery plans
-        href: hyper-v-vmm-recovery-script.md
-      - name: Run a failover and failback between on-premises sites
-        href: hyper-v-vmm-failover-failback.md
-      - name: Performance scale tests for disaster recovery to a secondary site
-        href: hyper-v-vmm-performance-results.md
 - name: Automation
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
@@ -565,8 +554,6 @@
     href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
-  - name: Common questions about monitoring
-    href: monitoring-common-questions.md
   - name: Monitor and operate backups and disaster recovery using Backup center
     href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Monitor Site Recovery
@@ -581,37 +568,37 @@
   items:
   - name: Troubleshoot Azure VMs
     items:
-    - name: Troubleshoot Azure VM replication
+    - name: Azure VM replication errors
       href: azure-to-azure-troubleshoot-errors.md
-    - name: Troubleshoot Azure VM connectivity issues
+    - name: Azure VM connectivity issues
       href: azure-to-azure-troubleshoot-network-connectivity.md
-    - name: Troubleshoot ongoing replication
+    - name: Azure VM disaster recovery replication errors
       href: azure-to-azure-troubleshoot-replication.md
-    - name: Troubleshoot Mobility service issues
+    - name: Azure VM extension issues
       href: site-recovery-extension-troubleshoot.md
   - name: Troubleshoot VMware VMs/physical servers
     items:
-    - name: Troubleshoot VMware VM/physical server replication
+    - name: VMware VM/physical server replication errors
       href: vmware-azure-troubleshoot-replication.md
-    - name: Troubleshoot configuration servers
+    - name: Configuration server errors
       href: vmware-azure-troubleshoot-configuration-server.md
-    - name: Troubleshoot process servers
+    - name: Process server errors
       href: vmware-physical-azure-troubleshoot-process-server.md
-    - name: Troubleshoot push installation of the Mobility service
+    - name: Mobility service - push installation errors
       href: vmware-azure-troubleshoot-push-install.md
-    - name: Troubleshoot failover to Azure
+    - name: Failover to Azure errors
       href: site-recovery-failover-to-azure-troubleshoot.md
-    - name: Troubleshoot reprotection and failback of VMware VMs
+    - name: Reprotection and failback of VMware VMs errors
       href: vmware-azure-troubleshoot-failback-reprotect.md
-    - name: Troubleshoot Provider upgrade failures
+    - name: Azure Site Recovery Provider upgrade failures
       href: vmware-azure-troubleshoot-upgrade-failures.md
-    - name: Troubleshoot vCenter discovery failures
+    - name: VMware vCenter discovery failures
       href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Troubleshoot Hyper-V
     items:
-    - name: Troubleshoot Hyper-V replication
+    - name: Hyper-V replication errors
       href: hyper-v-azure-troubleshoot.md
-    - name: Troubleshoot failover to Azure
+    - name: Failover VMware VM/ physical machine to Azure errors
       href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Reference
   items:
@@ -625,8 +612,14 @@
     href: /rest/api/site-recovery
 - name: Related
   items:
+  - name: Azure Backup
+    href: ../backup/index.yml
   - name: Azure Automation
     href: ../automation/index.yml
+  - name: Azure Resource Mover
+    href: ../resource-mover/index.yml
+  - name: Azure Migrate
+    href: ../migrate/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap

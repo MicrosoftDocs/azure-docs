@@ -5,15 +5,12 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-ms.author: ladolan
-author: lauradolan
+ms.author: kanamudu
+author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
 
 # Register existing SAP system
-
-
-
 In this how-to guide, you'll learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
@@ -24,18 +21,31 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 - Monitor the Azure infrastructure metrics for the SAP system resources.
 - View Cost Analysis for the SAP system.
 
+When you register a system with Azure Center for SAP solutions, the following resources are created in your Subscription:
+- Virtual Instance for SAP solutions, Central service instance for SAP solutions, App server instance for SAP solutions and Database for SAP solutions. These resource types are created to represent the SAP system on Azure. These resources do not have any billing or cost associated with them.
+- A managed resource group which is used by Azure Center for SAP solutions service.
+- A Storage account within the managed resource group which contains blobs that have scripts and logs necessary for the service to provide the various capabilities including discovering and registering all components of SAP system.
+
+> [!NOTE]
+> You can customize the names of the Managed resource group and the Storage account which get deployed as part of the registration process by using [Azure PowerShell](quickstart-register-system-powershell.md) or [Azure CLI](quickstart-register-system-cli.md) interfaces for registering your systems. 
+
 ## Prerequisites
 
+### Azure infrastructure level pre-requisites
+
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
-- Grant access to your Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
+- Grant access to Azure Storage accounts, Azure resource manager (ARM) and Microsoft Entra services from the virtual network where the SAP system exists. Use one of these options:
     - Allow outbound internet connectivity for the VMs.
-    - Use a [**Storage** service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.
-    - Use a [**Storage** service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
-    - Allowlist the region-specific IP addresses for Azure Storage.
+    - Use a [**Service tags**](../../virtual-network/service-tags-overview.md) to allow connectivity
+    - Use a [Service tags with regional scope](../../virtual-network/service-tags-overview.md) to allow connectivity to resources in the same region as the VMs.
+    - Allowlist the region-specific IP addresses for Azure Storage, ARM and Microsoft Entra ID.
 - Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
 - Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
+
+### SAP system level pre-requisites
+
 - sapcontrol and saphostctrl exe files must exist on ASCS, App server and Database.
     - File path on Linux VMs: /usr/sap/hostctrl/exe
     - File path on Windows VMs: C:\Program Files\SAP\hostctrl\exe\
@@ -53,6 +63,8 @@ You can register SAP systems with Azure Center for SAP solutions that run on the
 - SAP NetWeaver or ABAP stacks
 - Windows, SUSE and RHEL Linux operating systems
 - HANA, DB2, SQL Server, Oracle, Max DB, and SAP ASE databases
+- SAP system with multiple Application Server Instances on a single Virtual Machine
+- SAP system with [clustered Application Server architecture](../workloads/high-availability-guide-rhel-with-dialog-instance.md)
 
 The following SAP system configurations aren't supported in Azure Center for SAP solutions:
 
@@ -62,8 +74,6 @@ The following SAP system configurations aren't supported in Azure Center for SAP
 - Dual stack (ABAP and Java)
 - Systems distributed across peered virtual networks
 - Systems using IPv6 addresses
-- SAP system with multiple Application Server Instances on a single Virtual Machine
-- SAP system with [clustered Application Server architecture](../workloads/high-availability-guide-rhel-with-dialog-instance.md)
 - Multiple SIDs running on same set of Virtual Machines. For example, two or more SIDs sharing a single VM for ASCS instance. 
 
 ## Enable resource permissions

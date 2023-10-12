@@ -4,6 +4,7 @@ description: Use Azure ExpressRoute for replication with the Migration and moder
 author: vijain
 ms.author: vijain
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
@@ -184,7 +185,7 @@ Even with replication data going over the Microsoft peered circuit, you still ne
 
 - Regional BGP community for the source Azure region (Azure Migrate Project region)
 - Regional BGP community for the target Azure region (region for migration)
-- BGP community for Azure Active Directory (12076:5060)
+- BGP community for Microsoft Entra ID (12076:5060)
 
 Learn more about [route filters](../expressroute/how-to-routefilter-portal.md) and the list of [BGP communities for ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 

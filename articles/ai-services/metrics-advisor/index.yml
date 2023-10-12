@@ -1,0 +1,93 @@
+### YamlMime:Landing
+
+title: Azure AI Metrics Advisor documentation
+summary: Starting on the 20th of September, 2023 you won’t be able to create new Metrics Advisor resources. The Metrics Advisor service is being retired on the 1st of October, 2026.
+
+metadata:
+  title: Azure AI Metrics Advisor documentation - Tutorials, API reference - Azure AI services  | Microsoft Docs
+  titleSuffix: Azure AI services
+  description: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
+  author: mrbullwinkle
+  manager: nitinme
+  ms.service: azure-ai-metrics-advisor
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: mbullwin
+
+landingContent:
+- title: About Metrics Advisor
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Metrics Advisor?
+          url: overview.md
+        - text: What are Azure AI services?
+          url: ../../ai-services/what-are-ai-services.md
+    - linkListType: quickstart
+      links:  
+        - text: Monitor your first metric on web
+          url: quickstarts/web-portal.md
+        - text: Use the REST API or client libraries
+          url: quickstarts/rest-api-and-client-library.md
+    - linkListType: video
+      links:
+        - text: Introducing Metrics Advisor
+          url: https://www.youtube.com/watch?v=0Y26cJqZMIM
+        - text: New to Azure AI services
+          url: https://www.youtube.com/watch?v=7tCLJHdBZgM
+- title: How-to articles
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Onboard your data
+          url: how-tos/onboard-your-data.md
+        - text: Connect different data feed sources
+          url: data-feeds-from-different-sources.md
+        - text: Manage data feeds
+          url: how-tos/manage-data-feeds.md
+        - text: Configure metrics and fine tune detection configuration
+          url: how-tos/configure-metrics.md
+        - text: Configure alerts and get notifications using a hook
+          url: how-tos/alerts.md
+        - text: Diagnose an incident
+          url: how-tos/diagnose-an-incident.md
+        - text: Adjust anomaly detection using feedback
+          url: how-tos/anomaly-feedback.md
+        - text: Build a metrics graph
+          url: how-tos/metrics-graph.md
+
+
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Glossary
+          url: glossary.md
+        - text: Metrics Advisor API
+          url: https://go.microsoft.com/fwlink/?linkid=2141634
+        - text: Azure PowerShell 
+          url: /powershell/module/az.cognitiveservices
+        - text: Azure CLI 
+          url: /cli/azure/cognitiveservices
+
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/metrics-advisor/context/context
+
+- title: Blog posts
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Introducing Metrics Advisor - A new Azure AI service
+          url: https://techcommunity.microsoft.com/t5/azure-ai/introducing-metrics-advisor-a-new-cognitive-service/ba-p/1668025
+        - text: Protect your organization's growth by using Azure AI Metrics Advisor
+          url: https://techcommunity.microsoft.com/t5/azure-ai/protect-your-organization-s-growth-by-using-azure-metrics/ba-p/2564682
+        - text: Supply Chain Anomaly Detection and Root Cause Analysis with Azure Metric Advisor
+          url: https://techcommunity.microsoft.com/t5/azure-ai/supply-chain-anomaly-detection-and-root-cause-analysis-with/ba-p/2871920
+        - text: 'Customer support: How Azure AI Metrics Advisor can help improve customer satisfaction'
+          url: https://techcommunity.microsoft.com/t5/azure-ai-blog/customer-support-how-azure-metrics-advisor-can-help-improve/ba-p/3038907
+        - text: Detecting Methane Leaks using Azure AI Metrics Advisor
+          url: https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detecting-methane-leaks-using-azure-metrics-advisor/ba-p/3254005

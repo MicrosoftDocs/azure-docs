@@ -2,19 +2,19 @@
 title: Use managed identities to access App Configuration
 titleSuffix: Azure App Configuration
 description: Authenticate to Azure App Configuration using managed identities
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/23/2022
+ms.date: 07/11/2023
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
 
 Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
 
-Azure App Configuration and its .NET Core, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without exposing any secret.
+Azure App Configuration and its .NET, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without exposing any secret.
 
 :::zone target="docs" pivot="framework-dotnet"
 
@@ -45,7 +45,7 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-dotnet"
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download).
+* [.NET SDK](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
 
 :::zone-end
@@ -128,24 +128,17 @@ The following steps describe how to assign the App Configuration Data Reader rol
     using Azure.Identity;
     ```
 
-1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method (this method is found in the `Microsoft.Azure.AppConfiguration.AspNetCore` package).
+1. To access values stored in App Configuration, update the `Builder` configuration to use the `AddAzureAppConfiguration()` method.
 
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0. Select the correct syntax based on your environment.
-
-    ### [.NET Core 5.x](#tab/core5x)
+    ### [.NET 6.0+](#tab/core6x)
 
     ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Configuration.AddAzureAppConfiguration(options =>
+        options.Connect(
+            new Uri(builder.Configuration["AppConfig:Endpoint"]),
+            new ManagedIdentityCredential()));
     ```
 
     ### [.NET Core 3.x](#tab/core3x)
@@ -163,29 +156,12 @@ The following steps describe how to assign the App Configuration Data Reader rol
                 .UseStartup<Startup>());
     ```
 
-    ### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-               .ConfigureAppConfiguration((hostingContext, config) =>
-               {
-                   var settings = config.Build();
-                   config.AddAzureAppConfiguration(options =>
-                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-               })
-               .UseStartup<Startup>();
-    ```
-
     ---
 
     > [!NOTE]
     > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
     >```csharp
-    >config.AddAzureAppConfiguration(options =>
-    >       {
-    >           options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential("<your_clientId>"))
-    >        });
+    >new ManagedIdentityCredential("<your_clientId>")
     >```
     >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the `clientId` even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
@@ -195,14 +171,22 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Overview** tab for the store in the Azure portal.
 
-1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint:
+1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 ```
 
+for User Assigned Identity:
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.credential.managed-identity-enabled= true
+spring.cloud.azure.credential.client-id= <client_id>
+```
+
 > [!NOTE]
-> If you want to use **user-assigned managed identity** the property `spring.cloud.azure.appconfiguration.stores[0].managed-identity.client-id`, ensure that you specify the `clientId` when creating the [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential).
+> For more information see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication).
 
 :::zone-end
 

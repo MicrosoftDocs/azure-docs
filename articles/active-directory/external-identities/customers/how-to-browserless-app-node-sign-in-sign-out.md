@@ -11,9 +11,8 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/09/2023
-ms.custom: developer
-
-#Customer intent: As a dev, devops, I want to learn about how to build a Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
+ms.custom: developer, devx-track-js
+#Customer intent: As a dev, devops, I want to learn about how to build a Node.js browserless application to authenticate users with my Microsoft Entra ID for customers tenant
 ---
 
 # Add code to sign in users in a Node.js browserless application. 
@@ -144,7 +143,7 @@ Now that we're done building the app, we can test it by following these steps:
 
 1. In your terminal, ensure you're in project directory that contains the *package.json* file.  For example, *ciam-sign-in-node-browserless-app*. 
 
-1. Use the steps in [Run and test the browserless app](how-to-browserless-app-node-sample-sign-in.md?#run-and-test-sample-browserless-app) article to test your browserless app.
+1. Use the steps in [Run and test the browserless app](./sample-browserless-app-node-sign-in.md#run-and-test-sample-browserless-app) article to test your browserless app.
 
 
 ## Next steps 

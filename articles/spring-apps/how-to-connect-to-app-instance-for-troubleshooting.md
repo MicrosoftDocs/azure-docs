@@ -6,7 +6,7 @@ ms.author: xiangy
 ms.service: spring-apps
 ms.topic: article
 ms.date: 12/06/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Connect to an app instance for troubleshooting
@@ -72,6 +72,9 @@ az role assignment create \
     --scope '<service-instance-resource-id>' \
     --assignee '<your-identity>'
 ```
+
+> [!NOTE]
+> The role assignment may take several minutes.
 
 ---
 
@@ -188,14 +191,16 @@ The following list describes some of the pre-installed tools that you can use fo
 
 You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 
-The available tools depend on your service plan and type of app deployment. The following table describes the availability of troubleshooting tools:
+The following list shows the tools available, which depend on your service plan and type of app deployment:
 
-| Plan                  | Deployment type         | Common tools                                 | JDK tools                   | Notes                                    |
-|-----------------------|-------------------------|----------------------------------------------|-----------------------------|------------------------------------------|
-| Basic / Standard plan | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                          |
-| Basic / Standard plan | Custom image            | N                                            | N                           | Up to your installed tool set.           |
-| Enterprise plan       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the OS stack of your builder. |
-| Enterprise plan       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
+- Source Code, JAR, and artifacts deployment:
+  - Basic, Standard, and Standard Consumption & Dedicated Plan:
+    - Common tools - Yes
+    - JDK tools - Yes, for Java workloads only.
+  - Enterprise Plan:
+    - Common tools - Depends on which OS Stack you've chosen in your [builder](./how-to-enterprise-build-service.md#builders). Yes, for full OS Stack. No, for base OS Stack.
+    - JDK tools - Yes, for Java workloads only.
+- Custom image deployment: Depends on the installed tool set in your image.
 
 > [!NOTE]
 > JDK tools aren't included in the path for the *source code* deployment type. Run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.

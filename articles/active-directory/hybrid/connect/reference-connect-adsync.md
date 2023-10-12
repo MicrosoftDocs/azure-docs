@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSync PowerShell Reference'
+title: 'Microsoft Entra Connect: ADSync PowerShell Reference'
 description: This document provides reference information for the ADSync.psm1 PowerShell module.
 author: billmath
 manager: amycolannino
@@ -11,17 +11,17 @@ ms.author: billmath
 ms.topic: reference
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
-# Azure AD Connect:  ADSync PowerShell Reference
-The following documentation provides reference information for the ADSync.psm1 PowerShell Module that is included with Azure AD Connect.
+# Microsoft Entra Connect: ADSync PowerShell Reference
+The following documentation provides reference information for the `ADSync.psm1` PowerShell module that is included with Microsoft Entra Connect.
 
 
 ## Add-ADSyncADDSConnectorAccount
 
  ### SYNOPSIS
- This cmdlet resets the password for the service account and updates it both in Azure AD and in the sync engine.
+ This cmdlet resets the password for the service account and updates it both in Microsoft Entra ID and in the sync engine.
 
  ### SYNTAX
 
@@ -36,7 +36,7 @@ The following documentation provides reference information for the ADSync.psm1 P
  ```
 
  ### DESCRIPTION
- This cmdlet resets the password for the service account and updates it both in Azure AD and in the sync engine.
+ This cmdlet resets the password for the service account and updates it both in Microsoft Entra ID and in the sync engine.
 
  ### EXAMPLES
 
@@ -131,12 +131,12 @@ The following documentation provides reference information for the ADSync.psm1 P
      PS C:\> Disable-ADSyncExportDeletionThreshold -AADCredential $aadCreds
  ```
 
- Uses the provided AAD Credentials to disable the feature for export deletion threshold.
+ Uses the provided Microsoft Entra Credentials to disable the feature for export deletion threshold.
 
  ### PARAMETERS
 
   #### -AADCredential
-  The AAD credential.
+  The Microsoft Entra credential.
 
   ```yaml
      Type: PSCredential
@@ -219,7 +219,7 @@ The following documentation provides reference information for the ADSync.psm1 P
  ### PARAMETERS
 
  #### -AADCredential
- The AAD credential.
+ The Microsoft Entra credential.
 
  ```yaml
  Type: PSCredential
@@ -631,7 +631,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 ## Get-ADSyncExportDeletionThreshold
 
  ### SYNOPSIS
- Gets the export deletion threshold from AAD.
+ Gets the export deletion threshold from Microsoft Entra ID.
 
  ### SYNTAX
 
@@ -640,7 +640,7 @@ The following documentation provides reference information for the ADSync.psm1 P
  ```
 
  ### DESCRIPTION
- Gets the export deletion threshold from AAD.
+ Gets the export deletion threshold from Microsoft Entra ID.
 
  ### EXAMPLES
 
@@ -649,12 +649,12 @@ The following documentation provides reference information for the ADSync.psm1 P
  PS C:\> Get-ADSyncExportDeletionThreshold -AADCredential $aadCreds
  ```
 
- Gets the export deletion threshold from AAD using the specified AAD credentials.
+ Gets the export deletion threshold from Microsoft Entra ID using the specified Microsoft Entra credentials.
 
  ### PARAMETERS
 
  #### -AADCredential
- The AAD credential.
+ The Microsoft Entra credential.
 
  ```yaml
  Type: PSCredential
@@ -1395,7 +1395,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 ## Remove-ADSyncAADServiceAccount
 
  ### SYNOPSIS
- Deletes an/all existing AAD service account(s) in the AAD tenant (associated with the specified credentials).
+ Deletes an/all existing Microsoft Entra service account(s) in the Microsoft Entra tenant (associated with the specified credentials).
 
  ### SYNTAX
 
@@ -1411,7 +1411,7 @@ The following documentation provides reference information for the ADSync.psm1 P
  ```
 
  ### DESCRIPTION
- Deletes an/all existing AAD service account(s) in the AAD tenant (associated with the specified credentials).
+ Deletes an/all existing Microsoft Entra service account(s) in the Microsoft Entra tenant (associated with the specified credentials).
 
  ### EXAMPLES
 
@@ -1420,12 +1420,12 @@ The following documentation provides reference information for the ADSync.psm1 P
  PS C:\> Remove-ADSyncAADServiceAccount -AADCredential $aadcreds -Name contoso.com
  ```
 
- Deletes all existing AAD service accounts in contoso.com.
+ Deletes all existing Microsoft Entra service accounts in contoso.com.
 
  ### PARAMETERS
 
  #### -AADCredential
- The AAD credential.
+ The Microsoft Entra credential.
 
  ```yaml
  Type: PSCredential
@@ -2206,7 +2206,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 ## Test-AdSyncAzureServiceConnectivity
 
  ### SYNOPSIS
- Investigates and identifies connectivity issues to Azure AD.
+ Investigates and identifies connectivity issues to Microsoft Entra ID.
 
  ### SYNTAX
 
@@ -2223,7 +2223,7 @@ The following documentation provides reference information for the ADSync.psm1 P
  ```
 
  ### DESCRIPTION
- Investigates and identifies connectivity issues to Azure AD.
+ Investigates and identifies connectivity issues to Microsoft Entra ID.
 
  ### EXAMPLES
 
@@ -2481,4 +2481,4 @@ The following documentation provides reference information for the ADSync.psm1 P
 ## Next Steps
 
 - [What is hybrid identity?](./../whatis-hybrid-identity.md)
-- [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
+- [What is Microsoft Entra Connect and Connect Health?](whatis-azure-ad-connect.md)

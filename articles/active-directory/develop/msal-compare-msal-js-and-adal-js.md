@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
 ms.author: owenrichards
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-js
 #Customer intent: As an application developer, I want to learn how to change the code in my JavaScript application from using ADAL.js as its authentication library to MSAL.js.
 ---
 
 # How to migrate a JavaScript app from ADAL.js to MSAL.js
 
-[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, also known as *msal-browser*) 2.x is the authentication library we recommend using with JavaScript applications on the Microsoft identity platform. This article highlights the changes you need to make to migrate an app that uses the ADAL.js to use MSAL.js 2.x
+[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, also known as `msal-browser`) 2.x is the authentication library we recommend using with JavaScript applications on the Microsoft identity platform. This article highlights the changes you need to make to migrate an app that uses the ADAL.js to use MSAL.js 2.x
 
 > [!NOTE]
 > We strongly recommend MSAL.js 2.x over MSAL.js 1.x. The auth code grant flow is more secure and allows single-page applications to maintain a good user experience despite the privacy measures browsers like Safari have implemented to block 3rd party cookies, among other benefits.
@@ -26,7 +26,7 @@ ms.custom: has-adal-ref
 
 - You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs don't overlap. See: [Redirect URI restrictions](./reply-url.md))
 - You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js relies on (for example, promises) in order to run your apps on **Internet Explorer**
-- Migrate your Azure AD apps to [v2 endpoint](v2-overview.md) if you haven't already
+- Migrate your Microsoft Entra apps to [v2 endpoint](v2-overview.md) if you haven't already
 
 ## Install and import MSAL
 
@@ -73,7 +73,7 @@ window.config = {
 var authContext = new AuthenticationContext(config);
 ```
 
-In MSAL.js, you instantiate the [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) class instead. Like ADAL.js, the constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at minimum. See for more: [Initialize MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)
+In MSAL.js, you instantiate the [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html) class instead. Like ADAL.js, the constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at minimum. See for more: [Initialize MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)
 
 ```javascript
 const msalConfig = {
@@ -88,7 +88,7 @@ const msalInstance = new msal.PublicClientApplication(msalConfig);
 In both ADAL.js and MSAL.js, the authority URI defaults to `https://login.microsoftonline.com/common` if you don't specify it.
 
 > [!NOTE]
-> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Azure AD organization or a personal Microsoft account (MSA). In MSAL.js, if you want to restrict login to any Azure AD account (same behavior as with ADAL.js), use `https://login.microsoftonline.com/organizations` instead.
+> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Microsoft Entra organization or a personal Microsoft account (MSA). In MSAL.js, if you want to restrict login to any Microsoft Entra account (same behavior as with ADAL.js), use `https://login.microsoftonline.com/organizations` instead.
 
 ## Configure MSAL
 
@@ -173,7 +173,7 @@ In addition, as MSAL.js is implemented in TypeScript unlike ADAL.js, it exposes 
 
 ## Use scopes instead of resources
 
-An important difference between the Azure AD **v1.0** vs. **v2.0** endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
+An important difference between the Azure Active Directory v1.0 versus 2.0 endpoints is about how the resources are accessed. When using ADAL.js with the **v1.0** endpoint, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
 
 ```javascript
 authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error, token) {
@@ -243,7 +243,7 @@ With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh
 
 When using MSAL.js, the most common type of error you might face is the `interaction_in_progress` error. This error is thrown when an interactive API (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) is invoked while another interactive API is still in progress. The `login*` and `acquireToken*` APIs are *async* so you'll need to ensure that the resulting promises have resolved before invoking another one.
 
-Another common error is `interaction_required`. This error is often resolved by initiating an interactive token acquisition prompt. For instance, the web API you're trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
+Another common error is `interaction_required`. This error is often resolved by initiating an interactive token acquisition prompt. For instance, the web API you're trying to access might have a [Conditional Access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
 
 Yet another common error you might face is `consent_required`, which occurs when permissions required for obtaining an access token for a protected resource aren't consented by the user. As in `interaction_required`, the solution for `consent_required` error is often initiating an interactive token acquisition prompt, using either `acquireTokenPopup` or `acquireTokenRedirect`.
 

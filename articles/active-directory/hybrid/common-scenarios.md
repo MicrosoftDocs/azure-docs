@@ -1,6 +1,6 @@
 ---
-title: 'Common hybrid scenarios with Azure AD'
-description: This article describes the common scenarios for using Azure AD Connect cloud sync and Azure AD Connect.
+title: 'Common hybrid scenarios with Microsoft Entra ID'
+description: This article describes the common scenarios for using Microsoft Entra Connect cloud sync and Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -28,8 +28,8 @@ The following table outlines the most common and supported sync scenarios.
 |Mergers and acquisitions (disconnected forest)|●|N/A|●|N/A|
 |High availability - latency (I need high availability)|●|N/A|●|N/A|
 |Migration from connect sync to cloud sync|●|●|N/A|N/A|
-|Hybrid Azure AD Join|N/A|●|N/A|N/A|
-|Exchange hybrid|N/A|●|N/A|N/A|
+|Microsoft Entra hybrid join|N/A|●|N/A|N/A|
+|Exchange hybrid|●|●|N/A|N/A|
 |User accounts in one forest / mailboxes in resource forest|N/A|●|N/A|N/A|
 |Sync large domains with more than 250K objects|N/A|●|●|N/A|
 |Filter directory objects based on attribute values|N/A|●|●|N/A|
@@ -46,11 +46,11 @@ For additional information, see [Supported topologies for cloud sync](cloud-sync
     - Scoping filters in each sync is mutually exclusive
     - If inclusive, don’t have the same attributes values clashing (Precedence isn’t supported)
 - You can sync users & groups using Connect Sync while using Cloud Sync’s net new capabilities (*called out in Roadmap)
-- You can sync objects from a single AD to multiple Azure ADs if writeback capabilities are enabled only in a single Azure AD tenant.
+- You can sync objects from a single AD to multiple Azure ADs if writeback capabilities are enabled only in a single Microsoft Entra tenant.
 
 
 ## Cloud sync and connect sync in parallel
-You can run cloud sync and Azure AD Connect in the same forest.  You can use cloud sync to manage your users and groups and use Azure AD Connect for devices, for example.  You may decide to do allow cloud sync to handle 80% and use Azure AD Connect for some of your more obscure, 20% scenarios.  The tutorial, [Migrate to Azure AD Connect cloud sync for an existing synced AD forest](cloud-sync/tutorial-pilot-aadc-aadccp.md) shows an example of how you would run each.
+You can run cloud sync and Microsoft Entra Connect in the same forest.  You can use cloud sync to manage your users and groups and use Microsoft Entra Connect for devices, for example.  You may decide to do allow cloud sync to handle 80% and use Microsoft Entra Connect for some of your more obscure, 20% scenarios.  The tutorial, [Migrate to Microsoft Entra Connect cloud sync for an existing synced AD forest](cloud-sync/tutorial-pilot-aadc-aadccp.md) shows an example of how you would run each.
 
 ## Common authentication methods and scenarios
 
@@ -62,7 +62,7 @@ Hybrid identity scenarios use one of three authentication methods.   The three m
 
 These authentication methods also provide [single-sign on](connect/how-to-connect-sso.md) capabilities.  Single-sign on automatically signs your users in when they are on their corporate devices, connected to your corporate network.
 
-For additional information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](connect/choose-ad-authn.md). 
+For additional information, see [Choose the right authentication method for your Microsoft Entra hybrid identity solution](connect/choose-ad-authn.md). 
 
 |I need to:|PHS and SSO| PTA and SSO|Federation| 
 |-----|-----|-----|-----| 

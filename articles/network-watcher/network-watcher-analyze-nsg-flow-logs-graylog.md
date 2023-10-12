@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog

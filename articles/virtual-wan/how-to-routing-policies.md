@@ -4,14 +4,12 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN routing policies
 author: wtnlee
 ms.service: virtual-wan
+ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 09/21/2023
 ms.author: wellee
-
 ---
 # How to configure Virtual WAN Hub routing intent and routing policies
-
-
 
 Virtual WAN Hub routing intent allows you to set up simple and declarative routing policies to send traffic to bump-in-the-wire security solutions like Azure Firewall, Network Virtual Appliances or software-as-a-service (SaaS) solutions deployed within the Virtual WAN hub.
 
@@ -89,12 +87,12 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 ## <a name="knownlimitations"></a>  Known Limitations
 
-* Routing Intent is currently Generally Available in Azure public cloud. Azure China Cloud and Azure Government Cloud are currently in roadmap.
+* Routing Intent is currently available in Azure public. Microsoft Azure operated by 21Vianet and Azure Government are currently in roadmap.
 * Routing Intent simplifies routing by managing route table associations and propagations for all connections (Virtual Network, Site-to-site VPN, Point-to-site VPN and ExpressRoute). Virtual WANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
+* Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is supported in hubs where routing intent is configured if Azure Firewall is configured to allow traffic between VPN tunnel endpoints (Site-to-site VPN Gateway private IP and on-premises VPN device private IP). For more information on the required configurations, see [Encrypted ExpressRoute with routing intent](#encryptedER).
 * The following connectivity use cases are **not** supported with Routing Intent:
-  * Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is **not** supported in hubs where routing intent is configured. Connectivity between Encrypted ExpressRoute connected sites and Azure is impacted if routing intent is configured on a hub.
   * Static routes in the defaultRouteTable that point to a Virtual Network connection can't be used in conjunction with routing intent. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md).
-  * The ability to deploy both a SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
+  * The ability to deploy both an SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
   * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field.
   * Routing Intent users who want to connect multiple ExpressRoute circuits to Virtual WAN and want to send traffic between them via a security solution deployed in the hub can enable open up a support case to enable this use case. Reference [enabling connectivity across ExpressRoute circuits](#expressroute) for more information.
 
@@ -150,7 +148,7 @@ When routing intent is enabled on the hub, static routes corresponding to the co
 | Route Name | Prefixes | Next Hop Resource| 
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall | 
- _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
+ | _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 
 > [!NOTE]
 > Any static routes in the defaultRouteTable containing prefixes that aren't exact matches with 0.0.0.0/0 or the RFC1918 super-nets (10.0.0.0/8, 192.168.0.0/16 and 172.16.0.0/12) are automatically consolidated into a single static route, named **private_traffic**. Prefixes in the defaultRouteTable that match RFC1918 supernets or 0.0.0.0/0 are always automatically removed once routing intent is configured, regardless of the policy type.
@@ -168,7 +166,7 @@ Enabling routing intent on this hub would result in the following end state of t
 | Route Name | Prefixes | Next Hop Resource| 
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall | 
- _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
+ | _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 | private_traffic | 40.0.0.0/24, 10.0.0.0/24, 50.0.0.0/24| Azure Firewall | 
 
 #### Other methods (PowerShell, REST, CLI)
@@ -182,14 +180,14 @@ For example, consider the scenario where the defaultRouteTable has the following
 | firewall_route_ 1 | 10.0.0.0/8|Azure Firewall |
 | firewall_route_2 | 192.168.0.0/16, 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
- to_internet | 0.0.0.0/0| Azure Firewall |
+| to_internet | 0.0.0.0/0| Azure Firewall |
 
 The following table represents the final state of the defaultRouteTable after routing intent creation succeeds. Note that firewall_route_1 and to_internet was automatically removed as the only prefix in those routes were 10.0.0.0/8 and 0.0.0.0/0. firewall_route_2 was modified to remove 192.168.0.0/16 as that prefix is an RFC1918 aggregate prefix.
  
 | Route Name | Prefixes | Next Hop Resource|
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall |
-| _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
+| _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 | firewall_route_2 | 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
 
@@ -215,19 +213,26 @@ When a Virtual hub is configured with a Private Routing policy Virtual WAN adver
 
 ###  <a name="expressroute"></a> Transit connectivity between ExpressRoute circuits with routing intent
 
-Transit connectivity between ExpressRoute circuits within Virtual WAN is provided through ExpressRoute Global Reach capabilities. Traffic between Global Reach enabled ExpressRoute circuits is sent directly between the two circuits and doesn't transit the Virtual Hub.
+Transit connectivity between ExpressRoute circuits within Virtual WAN is provided through two different configurations. Because these two configurations are not compatible, customers should choose one configuration option to support transit connectivity between two ExpressRoute circuits.
 
->[!NOTE]
->However, you may raise a support case with Azure to one ExpressRoute circuit to send traffic to another ExpressRoute circuit via a security solution deployed in the hub with routing intent private routing policies. Note that this capability doesn't require Global Reach to be enabled on the circuit.
+> [!NOTE]
+> To enable ExpressRoute to ExpressRoute transit connectivity via a Firewall appliance in the hub with private routing policies, open a support case with Microsoft Support. Note that this option is not compatible with Global Reach and requires Global Reach to be disabled to ensure proper transit routing between all ExpressRoute circuits connected to Virtual WAN.
 
-Connectivity across ExpressRoute circuits via a Firewall appliance in the hub is available in the following configurations:
+*  **ExpressRoute Global Reach:**  ExpressRoute Global Reach allows two Global Reach-enabled circuits to send traffic between each other directly without transiting the Virtual Hub.  
+* **Routing Intent private routing policy:** Configuring private routing policies allows two ExpressRoute circuits to send traffic to each other via a security solution deployed in the hub.
+
+Connectivity across ExpressRoute circuits via a Firewall appliance in the hub with routing intent private routing policy is available in the following configurations:
 
 * Both ExpressRoute circuits are connected to the same hub and a private routing policy is configured on that hub.
-* ExpressRoute circuits are connected to different hubs and private routing policies are configured on both hubs. Therefore, both hubs must have a security solution deployed.
+* ExpressRoute circuits are connected to different hubs and a private routing policies are configured on both hubs. Therefore, both hubs must have a security solution deployed.
 
 #### Routing considerations with ExpressRoute
 
+> [!NOTE]
+> The routing considerations below apply to all Virtual hubs in the subscription(s) that are enabled by Microsoft Support to allow ExpressRoute to ExpressRoute connectivity via a security appliance in the hub.
+
 After transit connectivity across ExpressRoute circuits using a firewall appliance deployed in the Virtual Hub is enabled, you can expect the following changes in behavior in how routes are advertised to ExpressRoute on-premises:
+
 * Virtual WAN automatically advertises RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) to the ExpressRoute-connected on-premises. These aggregate routes are advertised in addition to the routes described in the previous section.
 * Virtual WAN automatically advertises all static routes in the defaultRouteTable to ExpressRoute circuit-connected on-premises. This means Virtual WAN advertises the routes specified in the private traffic prefix text box to on-premises.
 
@@ -235,9 +240,72 @@ After transit connectivity across ExpressRoute circuits using a firewall applian
 
 Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix to Azure, please make sure the address ranges that you put in the Private Traffic Prefixes text box are less specific than ExpressRoute advertised routes. For example, if the ExpressRoute Circuit is advertising 40.0.0.0/24 from on-premises, put a /23 CIDR range or larger in the Private Traffic Prefix text box (example: 40.0.0.0/23).
 
-## Configuring routing intent through Azure Portal
+Route advertisements to other on-premises (Site-to-site VPN, Point-so-site VPN, NVA) are not impacted by enabling ExpressRoute to ExpressRoute transit connectivity via a security appliance deployedi n the hub.
 
-Routing intent and routing policies can be configured through Azure Portal using [Azure Firewall Manager](#azurefirewall) or [Virtual WAN portal](#nva). Azure Firewall Manager portal allows you to configure routing policies with next hop resource  Azure Firewall. Virtual WAN portal allows you to configure routing policies with the next hop resource  Azure Firewall, Network Virtual Appliances deployed within the Virtual hub or SaaS solutions.
+### <a name="encryptedER"></a> Encrypted ExpressRoute
+
+To use Encrypted ExpressRoute (Site-to-site VPN tunnel running over an ExpressRoute circuit) with routing intent private routing policies, configure a firewall rule to **allow** traffic between the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway (source) and the on-premises VPN device (destination). For customers that are using deep-packet inspection on the Firewall device, it is recommended to exclude traffic between these private IP's from deep-packet inspection.
+
+You can obtain the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway by [downloading the VPN config](virtual-wan-site-to-site-portal.md) and viewing **vpnSiteConnections -> gatewayConfiguration -> IPAddresses**. The IP addresses listed in the IPAddresses field are the private IP addresses assigned to each instance of the Site-to-site VPN Gateway that is used  to terminate VPN tunnels over ExpressRoute. In the example below, the tunnel IPs on the Gateway are 192.168.1.4 and 192.168.1.5.
+
+```json
+ "vpnSiteConnections": [
+      {
+        "hubConfiguration": {
+          "AddressSpace": "192.168.1.0/24",
+          "Region": "South Central US",
+          "ConnectedSubnets": [
+            "172.16.1.0/24",
+            "172.16.2.0/24",
+            "172.16.3.0/24",
+            "192.168.50.0/24",
+            "192.168.0.0/24"
+          ]
+        },
+        "gatewayConfiguration": {
+          "IpAddresses": {
+            "Instance0": "192.168.1.4",
+            "Instance1": "192.168.1.5"
+          },
+          "BgpSetting": {
+            "Asn": 65515,
+            "BgpPeeringAddresses": {
+              "Instance0": "192.168.1.15",
+              "Instance1": "192.168.1.12"
+            },
+            "CustomBgpPeeringAddresses": {
+              "Instance0": [
+                "169.254.21.1"
+              ],
+              "Instance1": [
+                "169.254.21.2"
+              ]
+            },
+            "PeerWeight": 0
+          }
+        }
+```
+
+The private IP addresses the on-premises devices uses for VPN termination are the IP addresses that are specified as part of the VPN site link connection.
+
+:::image type="content" source="./media/routing-policies/on-premises-device.png"alt-text="Screenshot showing VPN site on-premises device tunnel IP address."lightbox="./media/routing-policies/on-premises-device.png":::
+
+Using the sample VPN configuration and VPN site from above, create firewall rules to allow the following traffic. Note that the VPN Gateway IP's must be the source IP and the on-premises VPN device must be the destination IP in the configured rules.
+
+| Rule Parameter| Value|
+|--|--|
+|Source IP|192.168.1.4 and 192.168.1.5|
+|Source Port|*|
+| Destination IP|10.100.0.4|
+|Destination Port| * |
+|Protocol| ANY|
+
+In addition, if your firewall device supports deep-packet inspection, it is recommended to exclude traffic between 192.168.1.4, 192.168.1.5 and 10.100.0.4 from deep-packet inspection. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
+
+
+## Configuring routing intent through Azure portal
+
+Routing intent and routing policies can be configured through Azure portal using [Azure Firewall Manager](#azurefirewall) or [Virtual WAN portal](#nva). Azure Firewall Manager portal allows you to configure routing policies with next hop resource  Azure Firewall. Virtual WAN portal allows you to configure routing policies with the next hop resource  Azure Firewall, Network Virtual Appliances deployed within the Virtual hub or SaaS solutions.
 
 Customers using Azure Firewall in Virtual WAN secured hub can either set Azure Firewall Manager's 'Enable inter-hub' setting to 'Enabled' to use routing intent or use Virtual WAN portal to directly configure Azure Firewall as the next hop resource for routing intent and policies. Configurations in either portal experience are equivalent and changes in Azure Firewall Manager are automatically reflected in Virtual WAN portal and vice versa.
 
@@ -277,9 +345,7 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
 
-4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
-
-
+4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Make sure you add the same prefix to the Private Traffic prefix text box in all Virtual Hubs configured with Private Routing Policies to ensure the correct routes are advertised to all hubs.
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
@@ -293,7 +359,11 @@ The following steps describe how to configure routing intent and routing policie
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
-8. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
+8. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations.
+
+## Configure routing intent using a BICEP template
+
+See the [BICEP template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent) for information about the template and steps.
 
 ## Troubleshooting
 
@@ -330,14 +400,15 @@ Assuming you have already reviewed  the [Known Limitations](#knownlimitations) s
   * **If Internet Traffic Routing Policies are configured**, you should see a default (0.0.0.0/0) route in the effective routes of the defaultRouteTable.
   * Once you have verified that the effective routes of the defaultRouteTable have the correct prefixes, **view the Effective Routes of the Network Virtual Appliance or Azure Firewall**. Effective routes on the Firewall show which routes Virtual WAN has selected and determines which destinations Firewall can forward packets to. Figuring out which prefixes are missing or in an incorrect state helps narrow down data-path issues and point to the right VPN, ExpressRoute, NVA or BGP connection to troubleshoot.
 * Scenario-specific troubleshooting:
-  * **If you have a nonsecured hub (hub without Azure Firewall or NVA) in your Virtual WAN**, make sure connections to the nonsecured hub are propagating to the defaultRouteTable of the hubs with routing intent configured. If propagations aren't set to the defaultRouteTable, connections to the secured hub won't be able to send packets to the nonsecured hub.
+  * **If you have a non-secured hub (hub without Azure Firewall or NVA) in your Virtual WAN**, make sure connections to the nonsecured hub are propagating to the defaultRouteTable of the hubs with routing intent configured. If propagations aren't set to the defaultRouteTable, connections to the secured hub won't be able to send packets to the nonsecured hub.
   * **If you have Internet Routing Policies configured**, make sure the 'Propagate Default Route' or 'Enable Internet Security' setting is set to 'true' for all connections that should learn the 0.0.0.0/0 default route. Connections where this setting is set to 'false' won't learn the 0.0.0.0/0 route, even if Internet Routing Policies are configured.
-  * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default bypasses the routing intent next hop Azure Firewall and NVA. To ensure Private Endpoint traffic is inspected by Azure Firewall or NVA, make sure you enable [User-Defined Routing network policies](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Alternatively, you may put a /32 route corresponding to all Private Endpoint private IP addresses in the Private Traffic text box.
+  * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring  /32 routes corresponding to  Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
+  * **If you're using Encrypted ExpressRoute with Private Routing Policies**, ensure that your Firewall device has a rule configured to allow traffic between the Virtual WAN Site-to-site VPN Gateway private IP tunnel endpoint and on-premises VPN device. ESP  (encrypted outer) packets should log in Azure Firewall logs. For more information on Encrypted ExpressRoute with routing intent, see [Encrypted ExpressRoute documentation](#encryptedER).
 
 ### Troubleshooting Azure Firewall routing issues
 
 * Make sure the provisioning state of the Azure Firewall is **succeeded** before trying to configure routing intent.
-* If you're using non-[IANA RFC1918](https://datatracker.ietf.org/doc/html/rfc1918) prefixes in your branches/Virtual Networks, make sure you have specified those prefixes in the "Private Prefixes" text box.
+* If you're using non-[IANA RFC1918](https://datatracker.ietf.org/doc/html/rfc1918) prefixes in your branches/Virtual Networks, make sure you have specified those prefixes in the "Private Prefixes" text box. Note that the configured "Private Prefixes" do not propagate automatically to other hubs in the Virtual WAN that was configured with routing intent. To ensure connectivity, add these prefixes to the "Private Prefixes" textbox in every single hub that has routing intent.
 * If you have specified non RFC1918 addresses as part of the **Private Traffic Prefixes** text box in Firewall Manager, you may need to configure SNAT policies on your Firewall to disable SNAT for non-RFC1918 private traffic. For more information,  reference [Azure Firewall SNAT ranges](../firewall/snat-private-range.md).
 * Configure and view Azure Firewall logs to help troubleshoot and analyze your network traffic. For more information on how to set-up monitoring for Azure Firewall,  reference [Azure Firewall diagnostics](../firewall/firewall-diagnostics.md). For an  overview of the different types of Firewall logs, see [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 * For more information on Azure Firewall, review [Azure Firewall Documentation](../firewall/overview.md).
@@ -345,7 +416,7 @@ Assuming you have already reviewed  the [Known Limitations](#knownlimitations) s
 ### Troubleshooting Network Virtual Appliances
 
 * Make sure the provisioning state of the Network Virtual Appliance is **succeeded** before trying to configure routing intent.
-* If you're using non [IANA RFC1918](https://datatracker.ietf.org/doc/html/rfc1918) prefixes in your connected on-premises or Virtual Networks, make sure you have specified those prefixes in the "Private Prefixes" text box.
+* If you're using non [IANA RFC1918](https://datatracker.ietf.org/doc/html/rfc1918) prefixes in your connected on-premises or Virtual Networks, make sure you have specified those prefixes in the "Private Prefixes" text box.  Note that the configured "Private Prefixes" do not propagate automatically to other hubs in the Virtual WAN that was configured with routing intent. To ensure connectivity, add these prefixes to the "Private Prefixes" textbox in every single hub that has routing intent.
 * If you have specified non RFC1918 addresses as part of the **Private Traffic Prefixes** text box, you may need to configure SNAT policies on your NVA to disable SNAT for certain non-RFC1918 private traffic.
 * Check NVA Firewall logs to see if traffic is being dropped or denied by your Firewall rules.
 * Reach out to your NVA provider for more support and guidance on troubleshooting.

@@ -166,6 +166,18 @@ You can check the following items to troubleshoot the issue:
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
+### Identity error
+
+#### ERROR: RefreshExtensionIdentityNotSet
+
+This error occurs when the extension is installed but the extension identity is not correctly assigned. You can try to re-install the extension to fix it.
+
+> Please notice this error is only for managed clusters
+
+
+
+
+
 ### How to check sslCertPemFile and sslKeyPemFile is correct?
 Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
 
@@ -300,6 +312,16 @@ curl https://{workspace_id}.workspace.westcentralus.api.azureml.ms/metric/v2.0/s
 ```
 
 If the proxy and workspace with private link is configured correctly, you can see it's trying to connect to an internal IP. This will return a response with http 401, which is expected when you don't provide token.
+
+## Other known issues
+
+### Kubernetes compute update does not take effect
+
+At this time, the CLI v2 and SDK v2 do not allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace will not take effect.
+
+### Workspace or resource group name end with '-' 
+
+A common cause of the "InternalServerError" failure when creating workloads such as deployments, endpoints, or jobs in a Kubernetes compute, is having the special characters like '-' at the end of your workspace or resource group name.
 
 ## Next steps
 

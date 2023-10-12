@@ -21,9 +21,9 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
-      - name: Cloud sync
-        tocHref: /azure/active-directory/cloud-sync/
-        topicHref: /azure/active-directory/cloud-sync/
+      - name: Architecture
+        tocHref: /azure/active-directory/architecture/
+        topicHref: /azure/active-directory/architecture/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -83,25 +83,9 @@
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/
     items:
-    - name: Policies
-      tocHref: /azure/api-management/policies/
-      topicHref: /azure/api-management/policy-samples/
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
-  - name: Applied AI Services
-    tocHref: /azure/applied-ai-services/
-    topicHref: /azure/applied-ai-services/
-    items:
-    - name: Immersive Reader
-      tocHref: /azure/applied-ai-services/immersive-reader/
-      topicHref: /azure/applied-ai-services/immersive-reader/
-    - name: Metrics Advisor
-      tocHref: /azure/applied-ai-services/metrics-advisor/
-      topicHref: /azure/applied-ai-services/metrics-advisor/
-    - name: Form Recognizer
-      tocHref: /azure/applied-ai-services/form-recognizer/
-      topicHref: /azure/applied-ai-services/form-recognizer/
   - name: Avere vFXT for Azure
     tocHref: /azure/avere-vfxt/
     topicHref: /azure/avere-vfxt/
@@ -152,6 +136,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Update Manager
+    tocHref: /azure/update-center/
+    topicHref: /azure/update-center/
   - name: Internet Peering
     tocHref: /azure/internet-peering/
     topicHref: /azure/internet-peering/
@@ -363,19 +350,19 @@
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
-  - name: Cognitive Search
-    tocHref: /azure/search/
-    topicHref: /azure/search/
-  - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
-    topicHref: /azure/cognitive-services/
+  - name: AI Services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/
     items:
+    - name: Cognitive Search
+      tocHref: /azure/search/
+      topicHref: /azure/search/
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: https://www.microsoft.com/research/project/academic-knowledge/
     - name: Anomaly Detector
-      tocHref: /azure/cognitive-services/anomaly-detector/
-      topicHref: /azure/cognitive-services/anomaly-detector/
+      tocHref: /azure/ai-services/anomaly-detector/
+      topicHref: /azure/ai-services/anomaly-detector/
     - name: Bing Search APIs
       tocHref: /azure/cognitive-services/bing-web-search
       topicHref: /azure/cognitive-services/bing-web-search
@@ -410,27 +397,21 @@
       - name: Bing Local Business Search
         tocHref: /azure/cognitive-services/bing-local-business-search
         topicHref: /azure/cognitive-services/bing-local-business-search/overview
-    - name: Computer Vision
-      tocHref: /azure/cognitive-services/computer-vision/
-      topicHref: /azure/cognitive-services/computer-vision/
+    - name: Vision
+      tocHref: /azure/ai-services/computer-vision/
+      topicHref: /azure/ai-services/computer-vision/
     - name: Content Moderator
-      tocHref: /azure/cognitive-services/content-moderator/
-      topicHref: /azure/cognitive-services/content-moderator/
+      tocHref: /azure/ai-services/content-moderator/
+      topicHref: /azure/ai-services/content-moderator/
     - name: Content Safety
-      tocHref: /azure/cognitive-services/content-safety/
-      topicHref: /azure/cognitive-services/content-safety/
+      tocHref: /azure/ai-services/content-safety/
+      topicHref: /azure/ai-services/content-safety/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-    - name: Speaker Recognition
-      tocHref: /azure/cognitive-services/speaker-recognition/
-      topicHref: /azure/cognitive-services/speaker-recognition/home
     - name: Custom Vision Service
-      tocHref: /azure/cognitive-services/custom-vision-service/
-      topicHref: /azure/cognitive-services/custom-vision-service/
-    - name: Entity Linking
-      tocHref: /azure/cognitive-services/entitylinking/
-      topicHref: /azure/cognitive-services/entitylinking/home
+      tocHref: /azure/ai-services/custom-vision-service/
+      topicHref: /azure/ai-services/custom-vision-service/
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/anomaly-detector/overview
@@ -443,42 +424,27 @@
     - name: Answer Search
       tocHref: /azure/cognitive-services/labs/answer-search/
       topicHref: /azure/cognitive-services/labs/answer-search/overview
-    - name: Face
-      tocHref: /azure/cognitive-services/face/
-      topicHref: /azure/cognitive-services/face/
     - name: Knowledge Exploration
       tocHref: /azure/cognitive-services/kes/
       topicHref: /azure/cognitive-services/kes/overview
     - name: Language Understanding (LUIS)
-      tocHref: /azure/cognitive-services/LUIS/
-      topicHref: /azure/cognitive-services/LUIS/
-    - name: Linguistic Analysis
-      tocHref: /azure/cognitive-services/linguisticanalysisapi/
-      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis
+      tocHref: /azure/ai-services/LUIS/
+      topicHref: /azure/ai-services/LUIS/
     - name: QnA Maker
-      tocHref: /azure/cognitive-services/qnamaker/
-      topicHref: /azure/cognitive-services/qnamaker/home
-    - name: Speech API
-      tocHref: /azure/cognitive-services/Speech/
-      topicHref: /azure/cognitive-services/Speech/home
+      tocHref: /azure/ai-services/qnamaker/
+      topicHref: /azure/ai-services/qnamaker/
     - name: Speech Service
-      tocHref: /azure/cognitive-services/Speech-Service/
-      topicHref: /azure/cognitive-services/Speech-Service/
+      tocHref: /azure/ai-services/speech-service/
+      topicHref: /azure/ai-services/speech-service/
     - name: Language Service
-      tocHref: /azure/cognitive-services/language-service/
-      topicHref: /azure/cognitive-services/language-service/
+      tocHref: /azure/ai-services/language-service/
+      topicHref: /azure/ai-services/language-service/
     - name: Translator
-      tocHref: /azure/cognitive-services/translator/
-      topicHref: /azure/cognitive-services/translator/
-#    - name: Translator Speech
-#      tocHref: /azure/cognitive-services/translator-speech/
-#      topicHref: /azure/cognitive-services/translator-speech/
+      tocHref: /azure/ai-services/translator/
+      topicHref: /azure/ai-services/translator/
     - name: Video Indexer
-      tocHref: /azure/cognitive-services/video-indexer/
+      tocHref: /azure/ai-services/video-indexer/
       topicHref: /azure/azure-video-indexer/video-indexer-overview
-    - name: Web Language Model
-      tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/qnamaker/overview/overview
@@ -489,8 +455,20 @@
       tocHref: /azure/cognitive-services/Ink-Recognizer/
       topicHref: /azure/cognitive-services/Ink-Recognizer/
     - name: Personalizer
-      tocHref: /azure/cognitive-services/personalizer/
-      topicHref: /azure/cognitive-services/personalizer/
+      tocHref: /azure/ai-services/personalizer/
+      topicHref: /azure/ai-services/personalizer/
+    - name: Immersive Reader
+      tocHref: /azure/ai-services/immersive-reader/
+      topicHref: /azure/ai-services/immersive-reader/
+    - name: Metrics Advisor
+      tocHref: /azure/ai-services/metrics-advisor/
+      topicHref: /azure/ai-services/metrics-advisor/
+    - name: Document Intelligence
+      tocHref: /azure/ai-services/document-intelligence/
+      topicHref: /azure/ai-services/document-intelligence/
+    - name: Azure AI Video Indexer
+      tocHref: /azure/azure-video-indexer/
+      topicHref: /azure/azure-video-indexer/
   - name: Communication Services
     tocHref: /azure/communication-services/
     topicHref: /azure/communication-services/
@@ -503,7 +481,7 @@
   - name: Container Instances
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
-  - name: AKS
+  - name: Azure Kubernetes Service
     tocHref: /azure/aks/
     topicHref: /azure/aks/
   - name: Kubernetes Fleet Manager
@@ -618,6 +596,9 @@
   - name: Genomics
     tocHref: /azure/genomics/
     topicHref: /azure/genomics/
+  - name: Global Secure Access
+    tocHref: /azure/global-secure-access
+    topicHref: /azure/global-secure-access
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -665,6 +646,22 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: HDInsight on AKS
+    tocHref: /azure/hdinsight-aks/
+    topicHref: ../articles/hdinsight-aks/index.yml
+    items:
+      - name: Flink
+        tocHref: /azure/hdinsight-aks/flink
+        topicHref: ../articles/hdinsight-aks/flink/flink-overview.md
+      - name: Release Notes
+        tocHref: /azure/hdinsight-aks/release-notes
+        topicHref: ../articles/hdinsight-aks/release-notes/hdinsight-aks-release-notes.md
+      - name: Spark
+        tocHref: /azure/hdinsight-aks/spark
+        topicHref: ../articles/hdinsight-aks/spark/hdinsight-on-aks-spark-overview.md
+      - name: Trino
+        tocHref: /azure/hdinsight-aks/trino
+        topicHref: ../articles/hdinsight-aks/trino/trino-overview.md
   - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
@@ -681,9 +678,9 @@
     - name: Events
       tocHref: /azure/healthcare-apis/events/
       topicHref: /azure/healthcare-apis/events/index
-  - name: Azure API for FHIR
-    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
-    topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
+    - name: Azure API for FHIR
+      tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+      topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
@@ -1062,7 +1059,7 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/workloads
+        topicHref: /azure/virtual-machines/workloads/workloads/
         items:
           - name: Azure VMs for SAP workloads
             tocHref: /azure/virtual-machines/workloads/sap/
@@ -1072,7 +1069,7 @@
             topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
-            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+            topicHref: /azure/virtual-machines/workloads/oracle/index
           - name: Mainframe rehosting
             tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
             topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
@@ -1099,44 +1096,40 @@
   - name: Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
-  - name: Cost Management and Billing
-    tocHref: /azure/cost-management-billing/
-    topicHref: /azure/cost-management-billing/
+  - name: CM+B
+    tocHref: /azure/cost-management-billing
+    topicHref: /azure/cost-management-billing
     items:
-    - name: Get started
-      tocHref: /azure/cost-management-billing/understand/
-      topicHref: /azure/cost-management-billing/understand/
-    - name: Manage costs and usage
-      tocHref: /azure/cost-management-billing/costs/
-      topicHref: /azure/cost-management-billing/costs/
-    - name: Manage accounts and subscriptions
-      tocHref: /azure/cost-management-billing/manage/
-      topicHref: /azure/cost-management-billing/manage/
+    - name: Cost Management
+      tocHref: /azure/cost-management-billing/costs
+      topicHref: /azure/cost-management-billing/costs
     - name: Reservations
-      tocHref: /azure/cost-management-billing/reservations/
-      topicHref: /azure/cost-management-billing/reservations/
+      tocHref: /azure/cost-management-billing/reservations
+      topicHref: /azure/cost-management-billing/reservations
     - name: Microsoft Customer Agreement
-      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
-      topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement
+      topicHref: /azure/cost-management-billing/microsoft-customer-agreement
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
     - name: Azure savings plans
       tocHref: /azure/cost-management-billing/savings-plan
       topicHref: /azure/cost-management-billing/savings-plan
+    - name: Billing and subscriptions
+      tocHref: /azure/cost-management-billing/manage
+      topicHref: /azure/cost-management-billing/manage/index
+    - name: Billing and subscriptions
+      tocHref: /azure/cost-management-billing/understand
+      topicHref: /azure/cost-management-billing/manage/index
+    - name: Cost Management
+      tocHref: /azure/cost-management-billing/automate
+      topicHref: /azure/cost-management-billing/costs/index
+    - name: FinOps
+      tocHref: /azure/cost-management-billing/finops
+      topicHref: /azure/cost-management-billing/finops/index
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
-  - name: Applied AI Services 
-    tocHref: /azure/applied-ai-services/
-    topicHref: /azure/applied-ai-services/
-    items:
-    - name: Video Analyzer
-      tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Azure Video Indexer
-      tocHref: /azure/azure-video-indexer/
-      topicHref: /azure/azure-video-indexer/
   - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
     tocHref: /azure/devtest/offer/
     topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
@@ -1149,6 +1142,9 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+  - name: Playwright Testing
+    tocHref: /azure/playwright-testing/
+    topicHref: /azure/playwright-testing/index
   - name: Azure Spring Apps
     tocHref: /azure/spring-apps/
     topicHref: /azure/spring-apps/index

@@ -25,8 +25,8 @@
 - name: Achieving FedRAMP High compliance
   expanded: true
   items:
-  - name: Configure Azure Active Directory for FedRAMP High impact
-    href: configure-azure-active-directory-for-fedramp-high-impact.md
+  - name: Configure Microsoft Entra ID for FedRAMP High impact
+    href: configure-for-fedramp-high-impact.md
   - name: Configure FedRAMP access controls
     href: fedramp-access-controls.md
   - name: Configure identification and authentication-controls
@@ -36,8 +36,8 @@
 - name: Achieving CMMC compliance
   expanded: true
   items:
-  - name: Configure Azure Active Directory for CMMC compliance 
-    href: configure-azure-active-directory-for-cmmc-compliance.md
+  - name: Configure Microsoft Entra ID for CMMC compliance 
+    href: configure-for-cmmc-compliance.md
   - name: Configure CMMC Level 1 controls
     href: configure-cmmc-level-1-controls.md
   - name: Configure CMMC Level 2 Access Control (AC)
@@ -59,22 +59,22 @@
     href: memo-22-09-authorization.md
   - name: Other areas of Zero Trust
     href: memo-22-09-other-areas-zero-trust.md
-- name: Configure Azure Active Directory for HIPAA
+- name: Configure Microsoft Entra ID for HIPAA
   expanded: true
   items:
   - name: Overview
-    href: hipaa-configure-azure-active-directory-for-compliance.md
+    href: hipaa-configure-for-compliance.md
   - name: Access Controls Safeguard compliance
     href: hipaa-access-controls.md
   - name: Audit Controls Safeguard compliance
     href: hipaa-audit-controls.md
   - name: Additional Controls Safeguard compliance
     href: hipaa-other-controls.md
-- name: Azure Active Directory and PCI-DSS compliance
+- name: Microsoft Entra ID and PCI-DSS compliance
   expanded: true
   items:
-  - name: Azure AD PCI-DSS guidance
-    href: azure-ad-pci-dss-guidance.md
+  - name: Microsoft Entra PCI-DSS guidance
+    href: pci-dss-guidance.md
   - name: PCI-DSS Requirement 1
     href: pci-requirement-1.md
   - name: PCI-DSS Requirement 2
@@ -91,5 +91,5 @@
     href: pci-requirement-10.md
   - name: PCI-DSS Requirement 11
     href: pci-requirement-11.md
-  - name: Azure Active Directory PCI-DSS MFA guidance
-    href: azure-ad-pci-dss-mfa.md
+  - name: Microsoft Entra PCI-DSS MFA guidance
+    href: pci-dss-mfa.md

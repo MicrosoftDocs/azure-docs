@@ -20,7 +20,7 @@ Role-based access control (RBAC) allows users or groups to have specific permiss
 
 As discussed in [Role-based access control for application developers](./custom-rbac-for-developers.md), there are three ways to implement RBAC using the Microsoft identity platform:
 
-- **App Roles** – using the [App Roles feature in an application](./howto-add-app-roles-in-azure-ad-apps.md#declare-roles-for-an-application) using logic within the application to interpret incoming app role assignments.
+- **App Roles** – using the [App Roles feature in an application](./howto-add-app-roles-in-apps.md#declare-roles-for-an-application) using logic within the application to interpret incoming app role assignments.
 - **Groups** – using group assignments of an incoming identity using logic within the application to interpret the group assignments.
 - **Custom Data Store** – retrieve and interpret role assignments using logic within the application.
 
@@ -28,7 +28,7 @@ The preferred approach is to use *App Roles* as it is the easiest to implement. 
 
 ## Define app roles
 
-The first step for implementing RBAC for an application is to define the app roles for it and assign users or groups to it. This process is outlined in [How to: Add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md). After defining the app roles and assigning users or groups to them, access the role assignments in the tokens coming into the application and act on them accordingly.
+The first step for implementing RBAC for an application is to define the app roles for it and assign users or groups to it. This process is outlined in [How to: Add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md). After defining the app roles and assigning users or groups to them, access the role assignments in the tokens coming into the application and act on them accordingly.
 
 ## Implement RBAC in ASP.NET Core
 
@@ -41,7 +41,7 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward. It 
 1. Create an application registration with app roles and assignments as outlined in *Define app roles* above.
 1. Do one of the following steps:
 
-    - Create a new ASP.NET Core MVC web application project using the **dotnet cli**. Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Azure AD tenant:
+    - Create a new ASP.NET Core MVC web application project using the **dotnet cli**. Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Microsoft Entra tenant:
 
         ```bash
         dotnet new mvc --auth SingleOrg --client-id <YOUR-APPLICATION-CLIENT-ID> --tenant-id <TENANT-ID>  
@@ -65,7 +65,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
 1. Create an application registration with app roles and assignments as outlined in *Define app roles* above.
 1. Do one of the following steps:
   
-    - Create a new ASP.NET Core MVC web API project using the **dotnet cli**.  Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Azure AD tenant:
+    - Create a new ASP.NET Core MVC web API project using the **dotnet cli**.  Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Microsoft Entra tenant:
   
         ```bash
         dotnet new webapi --auth SingleOrg --client-id <YOUR-APPLICATION-CLIENT-ID> --tenant-id <TENANT-ID> 
@@ -86,7 +86,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
 
 ### Angular SPA using MsalGuard
 
-Implementing RBAC in an Angular SPA involves the use of [msal-angular](https://www.npmjs.com/package/@azure/msal-angular) to authorize access to the Angular routes contained within the application. An example is shown in the [Enable your Angular single-page application to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial#chapter-5-control-access-to-your-protected-api-using-app-roles-and-security-groups) sample.
+Implementing RBAC in an Angular SPA involves the use of the [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular) to authorize access to the Angular routes contained within the application. An example is shown in the [Enable your Angular single-page application to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial#chapter-5-control-access-to-your-protected-api-using-app-roles-and-security-groups) sample.
 
 > [!NOTE]
 > Client-side RBAC implementations should be paired with server-side RBAC to prevent unauthorized applications from accessing sensitive resources.
@@ -97,5 +97,5 @@ Implementing RBAC in a Node.js with express application involves the use of MSAL
 
 ## Next steps
 
-- Read more on [permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md).
+- Read more on [permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md).
 - Read more on [role-based access control for application developers](./custom-rbac-for-developers.md).

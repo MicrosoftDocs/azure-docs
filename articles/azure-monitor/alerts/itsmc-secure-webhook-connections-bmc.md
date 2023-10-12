@@ -2,7 +2,7 @@
 title: 'IT Service Management Connector: Secure Webhook in Azure Monitor - Configuration with BMC'
 description: This article shows you how to connect your ITSM products or services with BMC on Secure Webhook in Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 06/19/2023
 ms.reviewer: nolavime
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -17,7 +17,7 @@ The following sections provide details about how to connect your BMC Helix produ
 
 Ensure that you've met the following prerequisites:
 
-* Azure Active Directory is registered.
+* Microsoft Entra ID is registered.
 * You have the supported version of BMC Helix Multi-Cloud Service Management (version 19.08 or later).
 
 ## Configure the BMC Helix connection

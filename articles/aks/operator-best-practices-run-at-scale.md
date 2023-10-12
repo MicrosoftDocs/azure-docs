@@ -3,7 +3,7 @@ title: Best practices for running Azure Kubernetes Service (AKS) at scale
 titleSuffix: Azure Kubernetes Service
 description: Learn the AKS cluster operator best practices and special considerations for running large clusters at 500 node scale and beyond 
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 07/14/2023
  
 ---
 
@@ -15,7 +15,7 @@ If your AKS clusters satisfy any of the following criteria, we recommend using t
 * Clusters running more than 10 nodes on average
 * Clusters that need to scale beyond 1000 nodes
 
-To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket in the [Azure portal][Azure portal] up to a maximum of 5000 nodes per cluster. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
+To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by [raising a support ticket in the Azure portal][support-ticket] up to a maximum of 5000 nodes per cluster. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 
@@ -33,7 +33,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or internal service below 750 node scale for optimal scaling performance and load balancer elasticity.
 
 > [!NOTE]
-> You can't use [Azure Network Policy Manager (Azure NPM)][azure-npm] with clusters that have more than 500 nodes.
+> [Azure Policy Network Manager (Azure NPM)][azure-npm] doesn't support clusters that have more than 250 nodes, and you can't update a cluster with more than 250 nodes managed by Cluster Autoscaler across all agent pools.
 
 ## Node pool scaling considerations and best practices
 
@@ -56,7 +56,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 [Managed NAT Gateway - Azure Kubernetes Service]: nat-gateway.md
 [Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)]: configure-azure-cni-dynamic-ip-allocation.md
 [max surge]: upgrade-cluster.md?tabs=azure-cli#customize-node-surge-upgrade
-[Azure portal]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
+[support-ticket]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 [standard-tier]: free-standard-pricing-tiers.md
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/
 

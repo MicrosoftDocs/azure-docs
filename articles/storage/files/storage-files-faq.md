@@ -2,10 +2,9 @@
 title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
-ms.service: storage
-ms.date: 05/16/2023
+ms.service: azure-file-storage
+ms.date: 07/12/2023
 ms.author: kendownie
-ms.subservice: files
 ms.topic: conceptual
 ---
 
@@ -63,8 +62,8 @@ ms.topic: conceptual
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
-   Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account. Follow these steps:
+  **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Microsoft Entra tenant?**  
+   Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Microsoft Entra tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account. Follow these steps:
    
    1. Sign in to the Azure portal and select **Access control (IAM)** from the left-hand navigation.
    1. Select the **Role assignments** tab to list the users and applications (*service principals*) that have access to your storage account.
@@ -77,7 +76,7 @@ ms.topic: conceptual
       - In the **Select** field, type **Microsoft.StorageSync**, select the role and then select **Save**.
     
       > [!Note]  
-      > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
+      > When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Microsoft Entra tenants.
     
 * <a id="afs-ntfs-acls"></a>
   **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
@@ -89,8 +88,8 @@ ms.topic: conceptual
     If you're using snapshots as part of the self-managed backup solution for file shares managed by Azure File Sync, your ACLs might not be restored properly to NTFS ACLs if the snapshots were taken before February 24, 2020. If this occurs, consider contacting Azure Support.
 
 * <a id="afs-lastwritetime"></a>
-  **Does Azure File Sync sync the LastWriteTime for directories?**  
-    No, Azure File Sync doesn't sync the LastWriteTime for directories.
+  **Does Azure File Sync sync the LastWriteTime for directories? Why isn't the *date modified* timestamp on a directory updated when files within it are changed?**  
+    No, Azure File Sync doesn't sync the LastWriteTime for directories. Furthermore, Azure Files doesn't update the **date modified** timestamp (LastWriteTime) for directories when files within the directory are changed. This is expected behavior.
     
 ## Security, authentication, and access control
 
@@ -106,26 +105,30 @@ ms.topic: conceptual
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
-### AD DS & Azure AD DS Authentication
+### Identity-based authentication
 * <a id="ad-support-devices"></a>
-**Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
+**Does Microsoft Entra Domain Services support SMB access using Microsoft Entra credentials from devices joined to or registered with Microsoft Entra ID?**
 
     No, this scenario isn't supported.
 
 * <a id="ad-file-mount-cname"></a>
-**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
+**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication?**
 
-    No, this scenario isn't currently supported in single-forest AD environments. As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
+    No, this scenario isn't currently supported in single-forest AD environments. This is because when receiving the mount request, Azure Files depends on the Kerberos ticket's server name field to determine what storage account the request is intended for. If `storageaccount.file.core.windows.net` isn't present in the Kerberos ticket as the server name, then the service can't decide which storage account the request is for and is therefore unable to set up an SMB session for the user.
+
+    As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
+
+    As a workaround for mounting the file share, see the instructions in [Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain](storage-files-identity-ad-ds-mount-file-share.md#mount-the-file-share-from-a-non-domain-joined-vm-or-a-vm-joined-to-a-different-ad-domain).
 
 * <a id="ad-vm-subscription"></a>
-**Can I access Azure file shares with Azure AD credentials from a VM under a different subscription?**
+**Can I access Azure file shares with Microsoft Entra credentials from a VM under a different subscription?**
 
-    If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD DS deployment to which the VM is domain-joined, you can then access Azure file shares using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.
+    If the subscription under which the file share is deployed is associated with the same Microsoft Entra tenant as the Microsoft Entra Domain Services deployment to which the VM is domain-joined, you can then access Azure file shares using the same Microsoft Entra credentials. The limitation is imposed not on the subscription but on the associated Microsoft Entra tenant.
     
 * <a id="ad-support-subscription"></a>
-**Can I enable either Azure AD DS or on-premises AD DS authentication for Azure file shares using an Azure AD tenant that's different from the Azure file share's primary tenant?**
+**Can I enable either Microsoft Entra Domain Services or on-premises AD DS authentication for Azure file shares using a Microsoft Entra tenant that's different from the Azure file share's primary tenant?**
 
-    No. Azure Files only supports Azure AD DS or on-premises AD DS integration with an Azure AD tenant that resides in the same subscription as the file share. A subscription can only be associated with one Azure AD tenant. When using on-premises AD DS for authentication, [the AD DS credential should be synced to the Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) that the storage account is associated with.
+    No. Azure Files only supports Microsoft Entra Domain Services or on-premises AD DS integration with a Microsoft Entra tenant that resides in the same subscription as the file share. A subscription can only be associated with one Microsoft Entra tenant. When using on-premises AD DS for authentication, [the AD DS credential should be synced to the Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) that the storage account is associated with.
 
 * <a id="ad-multiple-forest"></a>
 **Does on-premises AD DS authentication for Azure file shares support integration with an AD DS environment using multiple forests?**
@@ -142,7 +145,7 @@ ms.topic: conceptual
     Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon account and you need to take that into consideration for [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
 
 * <a id="ad-support-rest-apis"></a>
-**How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Azure AD or AD credentials?**
+**How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Microsoft Entra ID or AD credentials?**
 
     Follow the two step process below to remove the saved credential associated with the storage account key and remove the SMB connection:
 
@@ -221,5 +224,5 @@ ms.topic: conceptual
     This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
-* [Troubleshoot Azure Files](files-troubleshoot.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

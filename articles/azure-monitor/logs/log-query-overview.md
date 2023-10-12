@@ -27,6 +27,8 @@ Areas in Azure Monitor where you'll use queries include:
   - [Java](/java/api/overview/azure/monitor-query-readme)
   - [JavaScript](/javascript/api/overview/azure/monitor-query-readme)
   - [Python](/python/api/overview/azure/monitor-query-readme)
+  
+    For an example of how to implement the Azure Monitor Query client library for Python, see [Analyze data in Azure Monitor Logs using a notebook](../logs/notebooks-azure-monitor-logs.md). 
 
 ## Get started
 The best way to get started learning to write log queries by using KQL is to use available tutorials and samples:

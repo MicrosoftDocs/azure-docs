@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/08/2022
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet
+ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Get started with Azure Service Bus topics and subscriptions (.NET)
@@ -29,7 +29,7 @@ In this quickstart, you'll do the following steps:
 
 > [!NOTE]
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
-> - This quick start shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Azure Active Directory and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
+> - This quick start shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Microsoft Entra ID and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ You can authorize access to the service bus namespace using the following steps:
 1. Select the **Sign in** button in the top right of Visual Studio.
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
-1. Sign-in using the Azure AD account you assigned a role to previously.
+1. Sign-in using the Microsoft Entra account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 08/10/2023
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -41,7 +41,10 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Australia East
 *   Australia Southeast
 *   Brazil South
+*   Brazil Southeast 
 *   Canada Central
+*   Canada East
+*   Central India
 *   Central US
 *   East Asia
 *   East US
@@ -63,9 +66,13 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Southeast Asia
 *   Sweden Central
 *   Switzerland North
+*   Switzerland West
 *   UAE Central
 *   UAE North
 *   UK South
+*   UK West
+*   US Gov Texas (public preview)
+*	US Gov Virginia (public preview)
 *	West Europe
 *   West US
 *   West US 2
@@ -73,22 +80,45 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 <a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
-*  Australia Central
-*  Australia Central 2
-*  Australia East
-*  Brazil South
-*  Canada Central
-*  East Asia
-*  Germany North
-*  Japan West
-*  Korea Central
-*  North Central US
-*  Norway East
-*  South Africa North
-*  South India
-*  Sweden Central
-*  UAE Central
-*  UAE North
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast 
+* Brazil South
+* Brazil Southeast 
+* Canada Central
+* Canada East
+* Central India
+* Central US
+* East Asia
+* East US 
+* East US 2 
+* France Central 
+* Germany North
+* Germany West Central 
+* Japan East 
+* Japan West
+* Korea Central
+* North Central US
+* North Europe 
+* Norway East
+* Norway West 
+* Qatar Central 
+* South Africa North
+* South Central US 
+* South India
+* Southeast Asia 
+* Sweden Central
+* Switzerland North 
+* Switzerland West 
+* UAE Central
+* UAE North 
+* UK South
+* West Europe 
+* West US 
+* West US 2  
+* West US 3 
+
 
 ## Considerations
 
@@ -109,6 +139,7 @@ The following table describes what’s supported for each network features confi
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
+|    Traffic routed via NVA from peered VNet | Yes    | No |
 
 \* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
@@ -153,7 +184,10 @@ If you use a new VNet, you can create a subnet and delegate the subnet to Azure 
 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
 
-Ensure that the address space size of the Azure NetApp Files delegated subnet is smaller than the address space of the virtual network to avoid unforeseen issues.
+>[!IMPORTANT]
+>The address space size of the Azure NetApp Files VNet should be larger than its delegated subnet. If it is not, Azure NetApp Files volume creation will fail in some scenarios.
+>
+> It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 
 ### UDRs and NSGs
 
@@ -166,6 +200,9 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 
 > [!NOTE]
 > To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
+
+>[!NOTE]
+>If you want to configure a UDR route in the VM VNet, to control the routing of packets destined for a VNet-peered Azure NetApp Files standard volume, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is of size greater than the delegated subnet size, it will not be effective. 
 
 ## Azure native environments
 

@@ -1,40 +1,45 @@
 - name: Azure Container Apps documentation
   href: index.yml
-- name: Overview
+
+- name: Get started
+  expanded: true
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Overview
+      href: start.md
+    - name: Quickstarts
+      items: 
+      - name: Deploy from an existing container image
+        items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Command line
+          href: get-started.md
+      - name: Deploy from code
+        items:
+        - name: Command line
+          href: quickstart-code-to-cloud.md
+        - name: Visual Studio
+          href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
+      - name: Run a job
+        items:
+        - name: Azure portal
+          href: jobs-get-started-portal.md
+        - name: Command line
+          href: jobs-get-started-cli.md
+- name: Key concepts
+  items:
     - name: Compare container options in Azure
       href: compare-options.md
-- name: Quickstarts
-  expanded: true
-  items: 
-  - name: Deploy from an existing container image
-    expanded: true
-    items:
-    - name: Azure portal
-      href: quickstart-portal.md
-    - name: Command line
-      href: get-started.md
-  - name: Deploy an app from code
-    expanded: true
-    items:
-    - name: Command line
-      href: quickstart-code-to-cloud.md
-    - name: Visual Studio
-      href: deploy-visual-studio.md
-    - name: Visual Studio Code
-      href: deploy-visual-studio-code.md
-  - name: Run a job
-    href: jobs-get-started-cli.md
-- name: Concepts
-  items:
     - name: Plans
       href: plans.md
     - name: Environment
       href: environment.md
     - name: Containers
-      href: containers.md
+      href: containers.md 
     - name: Revisions
       href: revisions.md
     - name: Application lifecycle management
@@ -43,114 +48,43 @@
       href: jobs.md
     - name: Microservices
       href: microservices.md
-    - name: Networking and ingress
-      items: 
-      - name: Architecture overview
-        href: networking.md
-      - name: Ingress
-        href: ingress-overview.md
-      - name: Deploy with an external environment
-        href: vnet-custom.md
-      - name: Deploy with an internal environment
-        href: vnet-custom-internal.md
-      - name: Securing a custom VNET
-        href: firewall-integration.md
-      - name: Network proxying
-        href: network-proxy.md
-    - name: Observability
-      items:
-      - name: Overview
-        href: observability.md
-      - name: Application logging 
-        href: logging.md
-      - name: Logging options
-        href: log-options.md
-      - name: Log streaming
-        href: log-streaming.md
-      - name: Container console
-        href: container-console.md
-      - name: Metrics
-        href: metrics.md
-      - name: Log monitoring
-        href: log-monitoring.md
-      - name: Alerts
-        href: alerts.md
-    - name: Authentication
-      href: authentication.md
-    - name: Workload profiles
-      href: workload-profiles-overview.md
-    - name: Dapr
-      items:
-      - name: Dapr integration
-        href: dapr-overview.md
-      - name: Scale Dapr apps with KEDA using Bicep
-        href: dapr-keda-scaling.md
-    - name: Azure Arc-enabled Kubernetes clusters
-      href: azure-arc-overview.md
-    - name: Connect to services
-      href: services.md
-- name: How-to guides
+    - name: Build and deliver apps with Container Apps (video)
+      href: https://www.youtube.com/watch?v=b3dopSTnSRg
+- name: Develop & deploy
   items:
+    - name: Deployment options
+      href: code-to-cloud-options.md
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
-    - name: Scale an app
-      href: scale-app.md
-    - name: Manage secrets
-      href: manage-secrets.md
-    - name: Managed identities
+    - name: Create and deploy a container app using the CLI
+      href: tutorial-deploy-first-app-cli.md
+    - name: Connect to apps & services
       items:
-      - name: Use managed identities
-        href: managed-identity.md
-      - name: Azure Container Registry image pull with managed identity
-        href: managed-identity-image-pull.md
-    - name: Manage revisions
-      href: revisions-manage.md
-    - name: Manage workload profiles
+        - name: Connect to services
+          items:
+            - name: Connect to services
+              href: services.md
+            - name: Apache Kafka
+              href: tutorial-dev-services-kafka.md
+            - name: PostgreSQL
+              href: tutorial-dev-services-postgresql.md
+            - name: Redis
+              href: connect-services.md
+        - name: Connect multiple apps
+          href: connect-apps.md
+        - name: Connect to a cloud service using Service Connector
+          items:
+            - name: .NET app with Blob Storage
+              href: service-connector.md
+            - name: Java Quarkus app with Postgres DB
+              href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+    - name: Build a multiple app scenario
       items:
-        - name: CLI
-          href: workload-profiles-manage-cli.md
-        - name: Portal
-          href: workload-profiles-manage-portal.md
-    - name: Ingress
-      items:
-      - name: Configure ingress
-        href: ingress-how-to.md
-      - name: Configure IP restrictions
-        href: ip-restrictions.md
-      - name: Add client certificates
-        href: client-certificate-authorization.md
-      - name: Configure traffic-splitting
-        href: traffic-splitting.md
-      - name: Session affinity
-        href: sticky-sessions.md
-        displayName: Sticky sessions
-      - name: CORS
-        href: cors.md
-        displayName: Cross origin resource sharing
-    - name: Custom domains and certificates
-      items:
-      - name: Set up custom domain with a free certificate
-        href: custom-domains-managed-certificates.md
-        displayName: Set up custom domain with a managed certificate
-      - name: Set up custom domain with existing certificate
-        href: custom-domains-certificates.md
-      - name: Set up environment custom DNS suffix
-        href: environment-custom-dns-suffix.md
-    - name: Network security
-      items:
-        - name: Configure WAF Application Gateway
-          href: waf-app-gateway.md
-        - name: Enable User Defined Routes (UDR)
-          href: user-defined-routes.md
-    - name: Connect to a cloud service using Service Connector
-      items:
-        - name: .NET app with Blob Storage
-          href: service-connector.md
-        - name: Java Quarkus app with Postgres DB
-          href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
-    - name: Connect multiple apps
-      href: connect-apps.md
-    - name: Set up continuous deployment
+        - name: Deploy a backend microservice app
+          href: tutorial-code-to-cloud.md
+        - name: Deploy a frontend microservice app
+          href: communicate-between-microservices.md
+    - name: Continuous deployment
       items:
         - name: Azure Pipelines
           href: azure-pipelines.md
@@ -159,80 +93,179 @@
           href: github-actions.md
         - name: GitHub Actions with Azure CLI
           href: github-actions-cli.md
-    - name: Use a custom VNET
-      href: vnet-custom.md
+        - name: Deploy self-hosted CI/CD runners with jobs
+          href: tutorial-ci-cd-runners-jobs.md
+          displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
+    - name: Revision management
+      href: revisions-manage.md    
     - name: Use health probes
       href: health-probes.md
-    - name: Enable authentication
+    - name: Storage mounts
       items:
-      - name: Azure Active Directory
-        href: authentication-azure-active-directory.md
-      - name: Facebook
-        href: authentication-facebook.md
-      - name: GitHub
-        href: authentication-github.md
-      - name: Google
-        href: authentication-google.md
-      - name: Twitter
-        href: authentication-twitter.md
-      - name: Custom OpenID Connect
-        href: authentication-openid.md
-    - name: Dapr
-      items:
-        - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md
-        - name: Enable token authentication for Dapr requests 
-          href: dapr-authentication-token.md
-    - name: Use storage mounts
-      href: storage-mounts.md
-    - name: Plan for disaster recovery
-      href: disaster-recovery.md
-- name: Tutorials
-  expanded: true
-  items: 
-    - name: Create and deploy a container app using the CLI
-      href: tutorial-deploy-first-app-cli.md
-    - name: Build a multiple app scenario
-      expanded: true
-      items:
-        - name: 1. Deploy a backend microservice app
-          href: tutorial-code-to-cloud.md
-        - name: 2. Deploy a frontend microservice app
-          href: communicate-between-microservices.md
-    - name: Deploy microservices with Dapr
-      expanded: true
-      items:
-      - name: Microservices with Dapr using the CLI
-        href: microservices-dapr.md
-      - name: Microservices with Dapr using ARM or Bicep
-        href: microservices-dapr-azure-resource-manager.md
-      - name: Event-driven work using Dapr Bindings
-        href: microservices-dapr-bindings.md
-      - name: Microservices communication using Dapr Pub/Sub
-        href: microservices-dapr-pubsub.md
-      - name: Microservices communication using Dapr Service Invocation
-        href: microservices-dapr-service-invoke.md
-      - name: Deploy a Dapr application using GitHub Actions
-        href: dapr-github-actions.md
+        - name: Use storage mounts
+          href: storage-mounts.md
+        - name: Create an Azure Files storage mount
+          href: storage-mounts-azure-files.md
     - name: Event-driven processing
       items:
-      - name: With an app
-        href: background-processing.md
-      - name: With a job
-        href: tutorial-event-driven-jobs.md
-    - name: Create an Azure Files storage mount
-      href: storage-mounts-azure-files.md
-    - name: Connect development and production services
-      href: connect-services.md
-    - name: Azure Arc
-      items:
-      - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
-        href: azure-arc-enable-cluster.md
-      - name: 2 - Create container app
-        href: azure-arc-create-container-app.md
-- name: Reference
+        - name: With an app
+          href: background-processing.md
+        - name: With a job
+          href: tutorial-event-driven-jobs.md
+    - name: Reliability in Azure Container Apps
+      href: ../reliability/reliability-azure-container-apps.md
+- name: Logs & monitoring
   items:
-    - name: ARM and YAML specifications
+    - name: Overview
+      href: observability.md
+    - name: Application logging 
+      href: logging.md
+    - name: Logging options
+      href: log-options.md
+    - name: Log streaming
+      href: log-streaming.md
+    - name: Container console
+      href: container-console.md
+    - name: Metrics
+      href: metrics.md
+    - name: Log monitoring
+      href: log-monitoring.md
+    - name: Alerts
+      href: alerts.md
+- name: Scaling & performance
+  items:
+    - name: Overview
+      href: scale-app.md
+    - name: Scale a container app
+      href: tutorial-scaling.md
+- name: Domains & certificates
+  items:
+    - name: Custom domains & certificates
+      items:
+        - name: Set up custom domain with a free certificate
+          href: custom-domains-managed-certificates.md
+          displayName: Set up custom domain with a managed certificate
+        - name: Set up custom domain with existing certificate
+          href: custom-domains-certificates.md        
+        - name: Set up environment custom DNS suffix
+          href: environment-custom-dns-suffix.md
+- name: Authentication
+  items:
+    - name: Overview
+      href: authentication.md
+    - name: Enable authentication
+      items:
+        - name: Azure Active Directory
+          href: authentication-azure-active-directory.md
+        - name: Facebook
+          href: authentication-facebook.md
+        - name: GitHub
+          href: authentication-github.md
+        - name: Google
+          href: authentication-google.md
+        - name: Twitter
+          href: authentication-twitter.md
+        - name: Custom OpenID Connect
+          href: authentication-openid.md
+- name: Security
+  items:
+    - name: Manage secrets
+      href: manage-secrets.md
+    - name: Managed identities
+      items:
+        - name: Use managed identities
+          href: managed-identity.md
+        - name: Azure Container Registry image pull with managed identity
+          href: managed-identity-image-pull.md
+- name: Dedicated hardware
+  items:
+    - name: Workload profiles
+      href: workload-profiles-overview.md    
+    - name: Manage workload profiles
+      items:
+        - name: CLI
+          href: workload-profiles-manage-cli.md
+        - name: Portal
+          href: workload-profiles-manage-portal.md
+- name: Microservices architecture
+  items:
+    - name: Dapr integration
+      href: dapr-overview.md
+    - name: Microservices communication using Dapr Pub/Sub
+      href: microservices-dapr-pubsub.md
+    - name: Event-driven work using Dapr Bindings
+      href: microservices-dapr-bindings.md
+    - name: Microservices communication using Dapr Service Invocation
+      href: microservices-dapr-service-invoke.md
+    - name: Scale Dapr apps with KEDA using Bicep
+      href: dapr-keda-scaling.md
+    - name: Connect to Azure services via Dapr components
+      href: dapr-component-connection.md
+    - name: Enable token authentication for Dapr requests 
+      href: dapr-authentication-token.md
+    - name: Deploy microservices
+      items:
+        - name: Microservices with Dapr using the CLI
+          href: microservices-dapr.md
+        - name: Microservices with Dapr using ARM or Bicep
+          href: microservices-dapr-azure-resource-manager.md
+        - name: Deploy a Dapr application using GitHub Actions
+          href: dapr-github-actions.md
+- name: Networking, ingress, and network security
+  items:
+    - name: Architecture overview
+      href: networking.md
+    - name: Environments
+      items:
+        - name: Deploy with an external environment
+          href: vnet-custom.md
+        - name: Deploy with an internal environment
+          href: vnet-custom-internal.md
+    - name: Ingress
+      items: 
+        - name: Overview
+          href: ingress-overview.md
+        - name: Configure ingress
+          href: ingress-how-to.md
+        - name: Configure IP restrictions
+          href: ip-restrictions.md
+        - name: Add client certificates
+          href: client-certificate-authorization.md
+        - name: Configure traffic-splitting
+          href: traffic-splitting.md
+        - name: Blue/Green deployment
+          href: blue-green-deployment.md
+        - name: Session affinity
+          href: sticky-sessions.md
+          displayName: Sticky sessions
+        - name: CORS
+          href: cors.md
+          displayName: Cross origin resource sharing
+    - name: Security
+      items:
+        - name: Configure WAF Application Gateway
+          href: waf-app-gateway.md
+        - name: Enable User Defined Routes (UDR)
+          href: user-defined-routes.md
+        - name: Securing a custom VNET
+          href: firewall-integration.md
+    - name: Network proxying
+      href: network-proxy.md
+    - name: Use a custom VNET
+      href: vnet-custom.md
+- name: Billing & quotas
+  items:
+    - name: Billing
+      href: billing.md
+    - name: Quotas
+      href: quotas.md
+- name: Product updates
+  items:
+    - name: What's new
+      href: whats-new.md
+- name: API docs & reference
+  items:
+    - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
@@ -242,6 +275,10 @@
       href: policy-reference.md
     - name: REST API
       href: /rest/api/containerapps/
+    - name: Supported regions
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
+    - name: Hardware reference
+      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET
@@ -254,16 +291,24 @@
           href: /javascript/api/overview/azure/arm-appcontainers-readme
         - name: Python
           href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
-- name: Resources
+- name: Azure Arc
+  items:
+    - name: Azure Arc-enabled Kubernetes clusters
+      href: azure-arc-overview.md
+    - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
+      href: azure-arc-enable-cluster.md
+    - name: 2 - Create container app
+      href: azure-arc-create-container-app.md
+- name: Compliance
+  items:
+    - name: Microsoft Azure Compliance Offerings
+      href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+    - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
+      href: /azure/compliance/offerings/
+- name: Samples & FAQs
   items:
     - name: Samples
       href: samples.md
-    - name: Billing
-      href: billing.md
-    - name: Quotas
-      href: quotas.md
-    - name: "Video: Build and deliver apps with Container Apps"
-      href: https://www.youtube.com/watch?v=b3dopSTnSRg
     - name: Frequently asked questions
       href: faq.yml
       displayName: faq

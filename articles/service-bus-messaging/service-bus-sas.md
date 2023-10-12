@@ -14,13 +14,13 @@ This article discusses *Shared Access Signatures* (SAS), how they work, and how 
 SAS guards access to Service Bus based on authorization rules that are configured either on a namespace, or a messaging entity (queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
 
 > [!NOTE]
-> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities.
+> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there is no need to store the tokens in your code and risk potential security vulnerabilities.
 >
-> Microsoft recommends using Azure AD with your Azure Service Bus applications when possible. For more information, see the following articles:
-> - [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](authenticate-application.md).
-> - [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md)
+> Microsoft recommends using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
+> - [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](authenticate-application.md).
+> - [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md)
 > 
-> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure AD authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview of SAS
 
@@ -49,7 +49,7 @@ The 'Manage' right includes the 'Send' and 'Receive' rights.
 
 A namespace or entity policy can hold up to 12 Shared Access Authorization rules, providing room for three sets of rules, each covering the basic rights and the combination of Send and Listen. This limit is per entity, meaning the namespace and each entity can have up to 12 Shared Access Authorization rules. This limit underlines that the SAS policy store isn't intended to be a user or service account store. If your application needs to grant access to Service Bus based on user or service identities, it should implement a security token service that issues SAS tokens after an authentication and access check.
 
-An authorization rule is assigned a *Primary Key* and a *Secondary Key*. These keys are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal][Azure portal]. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens will continue to work until the token expires.
+An authorization rule is assigned a *Primary Key* and a *Secondary Key*. These keys are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal]. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens will continue to work until the token expires.
 
 When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create more policy rules in the **Configure** tab for the namespace in the portal, via PowerShell or Azure CLI. 
 

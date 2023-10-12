@@ -2,11 +2,12 @@
 title: Monitoring Azure App Configuration data reference
 description: Important Reference material needed when you monitor App Configuration
 services: azure-app-configuration
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 05/05/2021
+ms.custom: horz-monitor
 ---
 
 
@@ -23,6 +24,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](../azure-monito
 | Http Incoming Request Duration | Milliseconds | Server side duration of an Http Request |
 | Throttled Http Request Count | Count |	Throttled requests are Http requests that receive a response with a status code of 429 |
 | Daily Storage Usage | Percent |	Represents the amount of storage in use as a percentage of the maximum allowance. This metric is updated at least once daily. |
+| Replication Latency | Milliseconds |	Represents the average time it takes for a replica to be consistent with current state. |
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
@@ -36,6 +38,7 @@ App Configuration has the following dimensions associated with its metr
 | Http Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
 | Throttled Http Request Count | The **Endpoint** of each request is included as a dimension.  |
 | Daily Storage Usage | This metric does not have any dimensions.  |
+| Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension.  |
 
  For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 

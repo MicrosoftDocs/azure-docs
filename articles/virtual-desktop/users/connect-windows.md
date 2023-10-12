@@ -28,10 +28,10 @@ Before you can access your resources, you'll need to meet the prerequisites:
   - Windows 10 IoT Enterprise
   - Windows Server 2019
   - Windows Server 2016
-  - Windows Server 2012 R2
    
    > [!IMPORTANT]
-   > Support for Windows 7 ended on January 10, 2023.
+   > - Support for Windows 7 ended on January 10, 2023.
+   > - Support for Windows Server 2012 R2 ended on October 10, 2023. For more information, view [SQL Server 2012 and Windows Server 2012/2012 R2 end of support](/lifecycle/announcements/sql-server-2012-windows-server-2012-2012-r2-end-of-support).
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
   - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*
@@ -80,7 +80,7 @@ A workspace combines all the desktops and applications that have been made avail
 3. If you selected **Subscribe**, sign in with your user account when prompted, for example `user@contoso.com`. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
    
    > [!TIP]
-   > If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery. Try the steps in the **Subscribe with URL** tab instead.
+   > If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery, or you are using an Azure environment that is not Azure cloud, such as Azure US Gov. Try the steps in the **Subscribe with URL** tab instead.
 
 # [Subscribe with URL](#tab/subscribe-with-url)
    
@@ -90,7 +90,7 @@ A workspace combines all the desktops and applications that have been made avail
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
    | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
-   | Azure China 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
+   | Azure operated by 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 4. Select **Next**.
 
@@ -106,10 +106,12 @@ Once you've subscribed to a workspace, its content will update automatically reg
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
-## Windows Insider
+## Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Windows Insider releases](client-features-windows.md#enable-windows-insider-releases).
+If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
 
 ## Next steps
 
-To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows.md).
+- To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows.md).
+
+- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).

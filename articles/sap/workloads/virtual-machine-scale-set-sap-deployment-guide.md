@@ -8,7 +8,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/17/2023
+ms.custom: devx-track-azurepowershell
+ms.date: 09/25/2023
 ---
 
 # Virtual Machine Scale Sets for SAP workload
@@ -16,7 +17,7 @@ ms.date: 05/17/2023
 In Azure, [Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) provide a logical grouping of platform-managed virtual machines.
 
 - Virtual machine scale sets offer two [orchestration modes](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) that enable improved virtual machine management. **For SAP workloads, the Virtual Machines Scale Set with [flexible orchestration](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) is the recommended and only supported option**, as it offers the ability to use different virtual machine SKUs and operating systems within a single scale set.
-- The flexible orchestration of virtual machine scale set provides the option to create the scale set within a region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute the virtual machines across different zones and the scale set would also [distribute VMs across different fault domains within each zone on a best effort basis](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md). **For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner.
+- The flexible orchestration of virtual machine scale set provides the option to create the scale set within a region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute the virtual machines across specified zone and the scale set would also [distribute VMs across different fault domains within the zone on a best effort basis](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md). **For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner.
 - There are two ways to configure flexible virtual machine scale sets: with or without a scaling profile. **However, for SAP workload, we recommend creating a flexible virtual machine scale set without a scaling profile**. It is because the autoscaling feature of scale set with a scaling profile doesn't work out of the box for SAP workload. So, currently flexible virtual machine scale set is solely used as a deployment framework for SAP.
 
 ## Important consideration of Flexible Virtual Machine Scale Sets for SAP workload
@@ -74,7 +75,7 @@ az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexibl
 
 # Create flexible scale set for deployment of SAP workload in a single zone of a region with platform fault domain count set to 1
 # Make sure you include --zones in a region with availability zones, even if you want to deploy all component on a single zone
-az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexible --zones {1} --platform-fault-domain-count 1
+az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexible --zones 1 --platform-fault-domain-count 1
 
 # Create flexible scale set for deployment of SAP workload in a region with no zones with platform fault domain count set to 1
 az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexible --platform-fault-domain-count 1

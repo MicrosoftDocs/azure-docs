@@ -11,9 +11,9 @@ services: iot-central
 
 # Tutorial:  Deploy and walk through the water consumption monitoring application
 
-Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption.
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remote control of valves that control water flow. Water consumption monitoring coupled with digital feedback messages to citizens can increase awareness and reduce water consumption.
 
-The _water consumption monitoring_ application template helps you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption.
+The _water consumption monitoring_ application template helps you kickstart your IoT solution development to enable water utilities to remotely monitor and control water flow.
 
 :::image type="content" source="media/tutorial-waterconsumptionmonitoring/concepts-waterconsumptionmonitoring-architecture.png" alt-text="Diagram showing the architecture of the connected water consumption monitoring application." border="false":::
 
@@ -21,25 +21,31 @@ The _water consumption monitoring_ application template helps you kickstart your
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
-Devices in smart water solutions may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
+Devices in smart water solutions may connect through low-power wide area networks or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
 When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. You can brand, customize, and integrate your solution with third-party services.
 
-When you connect your smart water devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
+When you connect your smart water devices to IoT Central, the application provides:
+
+- Device command and control.
+- Monitoring and alerting.
+- A user interface with built-in role-based access controls.
+- Configurable dashboards.
+- Extensibility options.
 
 ### Extensibility and integrations (3)
 
 You can extend your IoT application in IoT Central and optionally:
 
-* Transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application.
-* Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
-* Programmatically access your IoT application in IoT Central through IoT Central APIs.
+- Transform and integrate your IoT data for advanced analytics through data export from your IoT Central application.
+- Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
+- Programmatically access your IoT Central application by using the IoT Central REST APIs.
 
 ### Business applications (4)
 
-You can use IoT data to power various business applications within a water utility. In your [IoT Central water consumption monitoring application](tutorial-water-consumption-monitoring.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
+You can use IoT data to power various business applications within a water utility. In your IoT Central water consumption monitoring application you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
 In this tutorial, you learn how to:
 
@@ -58,13 +64,25 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 ## Create water consumption monitoring application
 
-Create the application using following steps:
+To create your IoT Central application:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab.
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-1. Select **Create app** under **Water consumption monitoring**.
+1. Enter the following information:
 
-To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **Water Consumption Monitoring** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
+
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 
@@ -79,38 +97,36 @@ After you create the application, the sample **Wide World water consumption dash
 You can create and customize views on the dashboard for operators.
 
 > [!NOTE]
-> All data displayed on the dashboard is based on simulated device data, which you will explore in the next section.
+> All data displayed on the dashboard is based on simulated device data, which you explore in the next section.
   
 The dashboard consists of different kinds of tiles:
 
-* **Wide World Water Utility image tile**: The first tile in the dashboard is an image tile of the fictitious water utility Wide World Water. You can customize the tile by inserting your own image or removing it.
-* **Average water flow KPI tile**: The KPI tile is configured to display as an example *the average in the last 30 minutes*. You can customize the KPI tile and set it to a different type and time range.
-* **Device command tiles**: These tiles include the **Close valve**, **Open valve**, and **Set valve position** tiles. Selecting the commands takes you to the simulated device command page. In Azure IoT Central, a *command* is a *device capability* type. We'll explore this concept later in the [Device template](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) section of this tutorial.
+- **Wide World Water Utility image tile**: The first tile in the dashboard is an image tile of the fictitious water utility Wide World Water. You can customize the tile by inserting your own image or removing it.
+- **Average water flow KPI tile**: The KPI tile is configured to display as an example *the average in the last 30 minutes*. You can customize the KPI tile and set it to a different type and time range.
+- **Device command tiles**: These tiles include the **Close valve**, **Open valve**, and **Set valve position** tiles. Selecting the commands takes you to the simulated device command page. In Azure IoT Central, a *command* is a *device capability* type. You explore this concept later in the [Device template](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) section of this tutorial.
 
-* **Water distribution area map**: The map uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays the device [location](../core/howto-use-location-data.md). Hover over the map and try the controls over the map, like *zoom in*, *zoom out*, or *expand*.
+- **Water distribution area map**: The map uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays the device location. Hover over the map and try the controls over the map, like *zoom in*, *zoom out*, or *expand*.
 
-* **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.
-* **Average valve pressure heatmap chart**: You can choose the heatmap visualization type of device telemetry data you want to see distributed over a time range with a color index.
-* **Reset alert thresholds content tile**: You can include call-to-action content tiles and embed a link to an action page. In this case, the reset alert threshold takes you to the application **Jobs**, where you can run updates to device properties. You'll explore this option later in the [Configure jobs](../government/tutorial-water-consumption-monitoring.md#configure-jobs) section of this tutorial.
-* **Property tiles**: The dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** tiles.
+- **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.
+- **Average valve pressure heatmap chart**: You can choose the heatmap visualization type of device telemetry data you want to see distributed over a time range with a color index.
+- **Reset alert thresholds content tile**: You can include call-to-action content tiles and embed a link to an action page. In this case, the reset alert threshold takes you to the application **Jobs**, where you can run updates to device properties. You explore this option later in the [Configure jobs](../government/tutorial-water-consumption-monitoring.md#configure-jobs) section of this tutorial.
+- **Property tiles**: The dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** tiles.
 
 ### Customize the dashboard
 
-You can customize views in the dashboard for operators.
-
-1. Select **Edit** to customize the **Wide World water consumption dashboard**. You can customize the dashboard by selecting the **Edit** menu. After the dashboard is in **edit** mode, you can add new tiles or you can configure it.
+To customize views in the dashboard for operators, select **Edit** on the **Wide World water consumption dashboard**. You can customize the dashboard by selecting the **Edit** menu. After the dashboard is in **edit** mode, you can add new tiles or you can configure it.
 
 To learn more, see [Create and customize dashboards](../core/howto-manage-dashboards.md).
 
 ## Explore the device template
 
- In Azure IoT Central, a device template defines the capabilities of a device. Device capabilities include telemetry sent by device sensors, device properties, and commands the device can execute. You can define one or more device templates in Azure IoT Central that represent the capability of the devices that you'll connect.
+In Azure IoT Central, a device template defines the capabilities of a device. Device capabilities include telemetry sent by device sensors, device properties, and commands the device can execute. You can define one or more device templates in Azure IoT Central that represent the capability of the devices that you connect.
 
-The water consumption monitoring application comes with two reference device templates that represent a *flow meter* and a *smart valve* device.
+The water consumption monitoring application comes with two sample device templates that represent a *flow meter* and a *smart valve* device.
 
 To view the device template:
 
-1. Select **Device templates** on the left pane of your application in Azure IoT Central. In the **Device templates** list, you'll see two device templates, **Smart Valve** and **Flow meter**.
+1. Select **Device templates** on the left pane of your application in Azure IoT Central. In the **Device templates** list, you see two device templates, **Smart Valve** and **Flow meter**.
 
 1. Select the **Flow meter** device template, and familiarize yourself with the device capabilities.
 
@@ -131,15 +147,14 @@ To customize the device template:
 ### Add a cloud property
 
 1. Navigate to the **Flow Meter** device template, and select **+ Add capability**.
-1. Add a new cloud property by selecting **Cloud Property** as **Capability type**.
-    In Azure IoT Central, you can add a property that's relevant to the device. As an example, a cloud property could be an alerting threshold specific to an installation area, asset information, or other maintenance information.
+1. Add a new cloud property by selecting **Cloud Property** as **Capability type**.In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. For` example, a cloud property could be an alerting threshold specific to an installation area, asset information, or other maintenance information.
 1. Select **Save** to save any changes.
 
 To learn more, see [Cloud properties](../core/concepts-device-templates.md#cloud-properties).
 
 ### Views
 
-The water consumption monitor device template comes with predefined views. The views define how operators see the device data, and set the values of cloud properties.
+The water consumption monitor device template comes with predefined views. The views define how operators see the device data and set the values of cloud properties.
 
 To learn more, see [Views](../core/concepts-device-templates.md#views).
 
@@ -151,8 +166,7 @@ To learn more, see [How to publish templates](../core/howto-set-up-template.md#p
 
 ### Create a new device template
 
-Select **+ New** to create a new device template and follow the creation process.
-You can create a custom device template from scratch, or you can choose a device template from the Azure Device Catalog.
+Select **+ New** to create a new device template and follow the creation process. You can create a custom device template from scratch or you can choose a device template from the Azure Device Catalog.
 
 To learn more, see [How to add device templates](../core/howto-set-up-template.md).
 

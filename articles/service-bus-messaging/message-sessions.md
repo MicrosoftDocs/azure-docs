@@ -41,7 +41,7 @@ When multiple concurrent receivers pull from the queue, the messages belonging t
 
 The previous illustration shows three concurrent session receivers. One Session with `SessionId` = 4 has no active, owning client, which means that no messages are delivered from this specific session. A session acts in many ways like a sub queue.
 
-The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. Only one receiver can have a lock on a session. A receiver may have many in-flight messages, but the messages will be received in order. Abandoning a message causes the same message to be served again with the next receive operation.
+The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. Only one receiver can have a lock on a session. A receiver might have many in-flight messages, but the messages are received in order. Abandoning a message causes the same message to be served again with the next receive operation.
 
 ### Message session state
 
@@ -65,7 +65,7 @@ The definition of delivery count per message in the context of sessions varies s
 |----------|---------------------------------------------|
 | Session is accepted, but the session lock expires (due to timeout) | Yes |
 | Session is accepted, the messages within the session aren't completed (even if they're locked), and the session is closed | No |
-| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here messages are removed from the session) |
+| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here, messages are removed from the session) |
 
 ## Request-response pattern
 The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
@@ -76,7 +76,7 @@ Multiple applications can send their requests to a single request queue, with a 
 > The application that sends the initial requests should know about the session ID and use it to accept the session so that the session on which it is expecting the response is locked. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or a timeout specified on the session receiver for the queue to ensure that responses are available to be locked and processed by specific receivers.
 
 ## Sequencing vs. sessions
-[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires sessions. 
+[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extraction order of messages, but not the processing order, which requires sessions. 
  
 Say, there are three messages in the queue and two consumers. 
 1. Consumer 1 picks up message 1.
@@ -88,6 +88,9 @@ Say, there are three messages in the queue and two consumers.
 So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
 
 If messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
+
+## Message expiration
+For session-enabled queues or topics' subscriptions, messages are locked at the session level. If the TTL for any of the messages expires, all messages related to that session are either dropped or dead-lettered based on the dead-lettering enabled on messaging expiration setting on the entity. In other words, if there's a single message in the session that has passed the TTL, all the messages in the session are expired. The messages expire only if there's an active listener. For more information, see [Message expiration](message-expiration.md).
 
 ## Next steps
 You can enable message sessions while creating a queue using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md). 

@@ -1,12 +1,12 @@
 ---
 title: How to use Application Insights Java In-Process Agent in Azure Spring Apps
 description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/20/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
@@ -281,7 +281,7 @@ az spring app-insights update \
 
 This section applies to the Enterprise plan only, and provides instructions that that supplement the previous section.
 
-The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 

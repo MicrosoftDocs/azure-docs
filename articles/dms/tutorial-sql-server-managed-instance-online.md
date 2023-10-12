@@ -4,13 +4,14 @@ titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic)
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg
-ms.date: 02/08/2023
+ms.reviewer: randolphwest
+ms.date: 06/07/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
   - seo-lt-2019
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS (classic)
@@ -22,11 +23,11 @@ ms.custom:
 >
 > To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
-You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) with minimal downtime. For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) with minimal downtime. For extra methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 
 In this tutorial, you migrate the [AdventureWorks2016](/sql/samples/adventureworks-install-configure#download-backup-files) database from an on-premises instance of SQL Server to a SQL Managed Instance with minimal downtime by using Azure Database Migration Service.
 
-You will learn how to:
+You learn how to:
 > [!div class="checklist"]
 >
 > * Register the Azure DataMigration resource provider.
@@ -83,13 +84,13 @@ To complete this tutorial, you need to:
 * Configure your [Windows Firewall for source database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows Firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433. If your default instance is listening on some other port, add that to the firewall.
 * If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
-* If you're using a firewall appliance in front of your source databases, you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration, as well as files via SMB port 445.
+* If you're using a firewall appliance in front of your source databases, you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration, and files via SMB port 445.
 * Create a SQL Managed Instance by following the detail in the article [Create a SQL Managed Instance in the Azure portal](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * Ensure that the logins used to connect the source SQL Server and the target SQL Managed Instance are members of the sysadmin server role.
 * Provide an SMB network share that contains all your database full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
-* Create an Azure Active Directory Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure Database Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+* Create a Microsoft Entra Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!NOTE]
   > The Application ID used by the Azure Database Migration Service supports secret (password-based) authentication for service principals. It does not support certificate-based authentication.
@@ -150,7 +151,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Select target** screen, specify the **Application ID** and **Key** that the DMS instance can use to connect to the target instance of SQL Managed Instance and the Azure Storage Account.
 
-    For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+    For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 2. Select the **Subscription** containing the target instance of SQL Managed Instance, and then choose the target SQL Managed instance.
 
@@ -179,8 +180,8 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     | Parameter | Description |
     |--------|---------|
-    |**SMB Network location share** | The local SMB network share or Azure file share that contains the full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'. For improved performance, it's recommended to use separate folder for each database to be migrated. You can provide the database level file share path by using the **Advanced Settings** option. If you are running into issues connecting to the SMB share, see [SMB share](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
-    |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure Storage container for restore operation. If using Azure File share, use the storage account name pre-pended with AZURE\ as the username. |
+    |**SMB Network location share** | The local SMB network share or Azure file share that contains the full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'. For improved performance, it's recommended to use separate folder for each database to be migrated. You can provide the database level file share path by using the **Advanced Settings** option. If you're running into issues connecting to the SMB share, see [SMB share](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
+    |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation. If using Azure File share, use the storage account name prepended with AZURE\ as the username. |
     |**Password** | Password for the user. If using Azure file share, use a storage account key as the password. |
     |**Subscription of the Azure Storage Account** | Select the subscription that contains the Azure Storage Account. |
     |**Azure Storage Account** | Select the Azure Storage Account that DMS can upload the backup files from the SMB network share to and use for database migration.  We recommend selecting the Storage Account in the same region as the DMS service for optimal file upload performance. |
@@ -207,7 +208,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. Select **Start migration**.
 
-2. The migration activity window appears displaying the current databases migration status. Select **Refresh** to update the display.
+2. The migration activity window appears to display the current databases migration status. Select **Refresh** to update the display.
 
    ![Migration activity in progress](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration.png)
 
@@ -225,14 +226,14 @@ After the full database backup is restored on the target instance of SQL Managed
 
 3. Take the [tail-log backup], make the backup file available in the SMB network share, and then wait until this final transaction log backup is restored.
 
-    At that point, you'll see **Pending changes** set to 0.
+    At that point, you see **Pending changes** set to 0.
 
 4. Select **Confirm**, and then select **Apply**.
 
     ![Preparing to complete cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 5. When the database migration status shows **Completed**, connect your applications to the new target instance of SQL Managed Instance.
 

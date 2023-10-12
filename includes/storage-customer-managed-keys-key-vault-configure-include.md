@@ -3,9 +3,9 @@ title: "include file"
 description: "include file"
 services: storage
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: "include"
-ms.date: 09/22/2022
+ms.date: 06/07/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -89,7 +89,8 @@ kvResourceId=$(az keyvault show --resource-group $rgName \
 
 az role assignment create --assignee "<user-email>" \
     --role "Key Vault Crypto Officer" \
-    --scope $kvResourceId
+    --scope $kvResourceId \
+    --assignee-principal-type User
 ```
 
 For more information on how to assign an RBAC role with Azure CLI, see [Assign Azure roles using Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).

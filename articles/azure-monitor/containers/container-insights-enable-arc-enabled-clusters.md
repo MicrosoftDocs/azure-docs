@@ -1,7 +1,8 @@
 ---
 title: Monitor Azure Arc-enabled Kubernetes clusters
-ms.date: 05/24/2022
+ms.date: 08/02/2023
 ms.topic: article
+ms.custom: devx-track-azurecli
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
 ms.reviewer: aul
 ---
@@ -18,7 +19,7 @@ ms.reviewer: aul
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 >[!NOTE]
->If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-openshift-v4.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
+>If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-hybrid.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
 >
 
 
@@ -27,7 +28,7 @@ ms.reviewer: aul
 - Pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
 - Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
 - [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the resource group containing the Log Analytics Workspace
-- To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
+- To view the monitoring data, you need to have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
 - The following endpoints need to be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
 
     **Azure public cloud**
@@ -72,7 +73,7 @@ ms.reviewer: aul
 
 ### Identify workspace resource ID
 
-Run the following commands to locate the full Azure Resource Manager identifier of the Log Analytics workspace. 
+Run the following commands to locate the full Azure Resource Manager identifier of the Log Analytics workspace.
 
 1. List all the subscriptions that you have access to using the following command:
 
@@ -108,16 +109,37 @@ This option uses the following defaults:
 - Creates or uses existing default log analytics workspace corresponding to the region of the cluster
 - Auto-upgrade is enabled for the Azure Monitor cluster extension
 
+>[!NOTE]
+> Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
+
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
-To use [managed identity authentication (preview)](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
+To use [managed identity authentication](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
 ```
 
+>[!NOTE]
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
+>
+
+To use legacy/non-managed identity authentication to create an extension instance on **Arc K8S connected clusters with ARO**, use the commands below that don't use managed identity. Non-cli onboarding is not supported for Arc-enabled Kubernetes clusters with **ARO**. Currently, only k8s-extension version 1.3.7 or below is supported. 
+
+If you are using k8s-extension version above 1.3.7, downgrade the version.
+
+```azurecli
+Install the extension with **amalogs.useAADAuth=false**.
+az extension add --name k8s-extension --version 1.3.7
+```
+
+Install the extension with **amalogs.useAADAuth=false**.
+
+```azurecli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=false
+```
 
 ### Option 2 - With existing Azure Log Analytics workspace
 
@@ -171,7 +193,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. You can now choose the [Log Analytics workspace](../logs/quick-create-workspace.md) to send your metrics and logs data to.
 
-5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+5. To use managed identity authentication, select the *Use managed identity* checkbox.
 
 6. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
 
@@ -185,7 +207,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. Choose the Log Analytics workspace. 
 
-5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+5. To use managed identity authentication, select the *Use managed identity* checkbox.
 
 6. Select the 'Configure' button to continue.
 
@@ -208,6 +230,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
 
+
 ---
 
 ## Verify extension installation status
@@ -223,10 +246,14 @@ Run the following command to show the latest status of the `Microsoft.AzureMonit
 az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
 ```
 
+
 ---
 
-## Migrate to managed identity authentication (preview)
-Use the flowing guidance to migrate an existing extension instance to managed identity authentication (preview).
+## Migrate to managed identity authentication
+Use the flowing guidance to migrate an existing extension instance to managed identity authentication.
+
+>[!NOTE]
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
 
 ## [CLI](#tab/migrate-cli)
 First retrieve the Log Analytics workspace configured for Container insights extension.
@@ -242,6 +269,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name \<cluster-
 ```
 
 ## [Resource Manager](#tab/migrate-arm)
+
 
 
 1. Download the template at [https://aka.ms/arc-k8s-azmon-extension-msi-arm-template](https://aka.ms/arc-k8s-azmon-extension-msi-arm-template) and save it as **arc-k8s-azmon-extension-msi-arm-template.json**.
@@ -260,6 +288,7 @@ az login
 az account set --subscription "Subscription Name" 
 az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-msi-arm-template.json --parameters @./arc-k8s-azmon-extension-msi-arm-template-params.json 
 ```
+
 
 ---
 

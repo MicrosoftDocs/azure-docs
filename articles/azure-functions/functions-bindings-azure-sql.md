@@ -3,7 +3,7 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.custom: event-tier1-build-2022, build-2023
+ms.custom: event-tier1-build-2022, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 4/17/2023
 ms.author: drskwier
 ms.reviewer: glenga
@@ -26,23 +26,7 @@ This set of articles explains how to work with [Azure SQL](/azure/azure-sql/inde
 
 The extension NuGet package you install depends on the C# mode you're using in your function app:
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
-```
-
-To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package for [SQL trigger](functions-bindings-azure-sql-trigger.md) functionality, add the `--prerelease` flag to the command.
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
-```
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
@@ -58,35 +42,27 @@ To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql 
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
 ```
 
-# [C# script](#tab/csharp-script)
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
-Functions run as C# script, which is supported primarily for C# portal editing.  The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
+# [In-process model](#tab/in-process)
 
-This extension is available from the extension bundle v4, which is specified in your `host.json` file by:
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
 ```
 
+To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package for [SQL trigger](functions-bindings-azure-sql-trigger.md) functionality, add the `--prerelease` flag to the command.
 
-You can add the preview extension bundle to use the [SQL trigger](functions-bindings-azure-sql-trigger.md) by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ```
 
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
 ---
 
@@ -129,6 +105,8 @@ You can add the preview extension bundle by adding or replacing the following co
 }
 ```
 
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
 
 ---
 
@@ -176,6 +154,9 @@ You can add the preview extension bundle by adding or replacing the following co
 }
 ```
 
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
+
 ---
 
 ::: zone-end
@@ -216,6 +197,9 @@ You can add the preview extension bundle by adding or replacing the following co
   }
 }
 ```
+
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
 
 ---
 

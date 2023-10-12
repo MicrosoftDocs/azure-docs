@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: dmwendia
 ms.reviewer: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 ---
 
@@ -24,7 +24,7 @@ Learn how to configure the code for your daemon application that calls web APIs.
 
 The following Microsoft libraries support daemon apps:
 
-[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
+[!INCLUDE [develop-libraries-daemon](./includes/libraries/libraries-daemon.md)]
 
 ## Configure the authority
 
@@ -70,7 +70,7 @@ Here's an example of defining the configuration in an [*appsettings.json*](https
 
 ```
 
-You provide a certificate instead of the client secret, or [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation.md) credentials.
+You provide a certificate instead of the client secret, or [workload identity federation](../workload-identities/workload-identity-federation.md) credentials.
 
 # [Java](#tab/java)
 
@@ -130,7 +130,7 @@ When you build a confidential client with certificates, the [parameters.json](ht
 }
 ```
 
-# [.NET (low level) ](#tab/dotnet)
+# [.NET (low level)](#tab/dotnet)
 
 Here's an example of defining the configuration in an [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) file. This example is taken from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub.
 
@@ -161,7 +161,7 @@ Reference the MSAL package in your application code.
 # [.NET](#tab/idweb)
 
 Add the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) NuGet package to your application. 
-Alternatively, if you want to call Microsoft Graph, add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) package.
+Alternatively, if you want to call Microsoft Graph, add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) package.
 Your project could be as follows. The *appsettings.json* file needs to be copied to the output directory.
 
 ```xml
@@ -174,7 +174,7 @@ Your project could be as follows. The *appsettings.json* file needs to be copied
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="2.6.1" />
+    <PackageReference Include="Microsoft.Identity.Web.GraphServiceClient" Version="2.12.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -206,7 +206,7 @@ import com.microsoft.aad.msal4j.SilentParameters;
 
 # [Node.js](#tab/nodejs)
 
-Install the packages by running `npm install` in the folder where *package.json* file resides. Then, import **msal-node** package:
+Install the packages by running `npm install` in the folder where `package.json` file resides. Then, import the `msal-node` package:
 
 ```JavaScript 
 const msal = require('@azure/msal-node');
@@ -284,19 +284,19 @@ ConfidentialClientApplication cca =
 ```JavaScript
 
 const msalConfig = {
-	auth: {
-		clientId: process.env.CLIENT_ID,
-		authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
-		clientSecret: process.env.CLIENT_SECRET,
-	}
+  auth: {
+    clientId: process.env.CLIENT_ID,
+    authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+  }
 };
 
 const apiConfig = {
-	uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
+  uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
 };
 
 const tokenRequest = {
-	scopes: [process.env.GRAPH_ENDPOINT + '.default'],
+  scopes: [process.env.GRAPH_ENDPOINT + '.default'],
 };
 
 const cca = new msal.ConfidentialClientApplication(msalConfig);
@@ -452,7 +452,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 # [.NET](#tab/idweb)
 
 Instead of a client secret or a certificate, the confidential client application can also prove its identity by using client assertions. See
-[CredentialDescription](/dotnet/api/microsoft.identity.abstractions.credentialdescription?view=msal-model-dotnet-latest) for details.
+[CredentialDescription](/dotnet/api/microsoft.identity.abstractions.credentialdescription?view=msal-model-dotnet-latest&preserve-view=true) for details.
 
 # [Java](#tab/java)
 
@@ -520,7 +520,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Azure AD, plus additional client claims that you want to send.
+When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Microsoft Entra ID, plus additional client claims that you want to send.
 This code shows how to do that:
 
 ```csharp

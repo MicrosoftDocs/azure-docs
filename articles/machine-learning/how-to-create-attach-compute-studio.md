@@ -7,7 +7,7 @@ author: vijetajo
 ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.date: 08/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, event-tier1-build-2022, build-2023
@@ -39,11 +39,13 @@ To see all compute targets for your workspace, use the following steps:
 
     :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
 
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 ## Compute instance and clusters
 
 You can create compute instances and compute clusters in your workspace, using the Azure Machine Learning SDK, CLI, or studio:
 
-* [Compute instance](how-to-create-manage-compute-instance.md)
+* [Compute instance](how-to-create-compute-instance.md)
 * [Compute cluster](how-to-create-attach-compute-cluster.md)
 
 In addition, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
@@ -82,7 +84,7 @@ To detach your compute use the following steps:
 
 ## Connect with SSH access
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ## Next steps
 

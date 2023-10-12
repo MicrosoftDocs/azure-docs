@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 06/01/2023
 ---
 
 # Azure Data Explorer output from Azure Stream Analytics
@@ -20,7 +20,7 @@ For more information about Azure Data Explorer, see [What is Azure Data Explorer
 To learn more about how to create an Azure Data Explorer cluster by using the Azure portal, see [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/).
 
 > [!NOTE]
-> Azure Data Explorer from Azure Stream Analytics supports output to clusters in Azure Synapse Analytics. To write to your clusters in Azure Synapse Analytics, specify the URL of your cluster in the configuration pane for Azure Data Explorer output in your Azure Stream Analytics job.
+> Azure Data Explorer from Azure Stream Analytics supports output to Azure Synapse Data Explorer. To write to your clusters in Azure Synapse Data Explorer, specify the URL of your cluster in the configuration pane for Azure Data Explorer output in your Azure Stream Analytics job.
 
 ## Output configuration
 
@@ -67,7 +67,7 @@ You can significantly grow the scope of real-time analytics by using Azure Strea
 * The name of the columns and data type should match between the Azure Stream Analytics SQL query and the Azure Data Explorer table. The comparison is case-sensitive.
 * Columns that exist in your Azure Data Explorer clusters but are missing in Azure Stream Analytics are ignored. Columns that are missing in Azure Stream Analytics raise an error.
 * The order of your columns in your Azure Stream Analytics query doesn't matter. The schema of the Azure Data Explorer table determines the order.
-* Azure Data Explorer has an aggregation (batching) policy for data ingestion that's designed to optimize the ingestion process. The policy is configured to 5 minutes, 1,000 items, or 1 GB of data by default, so you might experience a latency. For aggregation options, see [IngestionBatching policy](/azure/data-explorer/kusto/management/batchingpolicy).
+* Azure Data Explorer has an aggregation (batching) policy for data ingestion that's designed to optimize the ingestion process. The policy is configured to 5 minutes, 1,000 items, or 1 GB of data by default, so you might experience a latency. To reduce latency, enable streaming ingestion on your cluster, and then table or database by following the steps in [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming). For aggregation options, see [IngestionBatching policy](/azure/data-explorer/kusto/management/batchingpolicy).
 
 ## Next steps
 

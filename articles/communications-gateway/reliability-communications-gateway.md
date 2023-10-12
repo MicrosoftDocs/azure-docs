@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom:
   - subject-reliability
   - references_regions
-ms.date: 05/11/2023
+ms.date: 10/09/2023
 ---
 
-# What is reliability in Azure Communications Gateway?
+# Reliability in Azure Communications Gateway
 
 Azure Communications Gateway ensures your service is reliable by using Azure redundancy mechanisms and SIP-specific retry behavior. Your network must  meet specific requirements to ensure service availability.
 
@@ -98,7 +98,7 @@ The SIP peers in Azure Communications Gateway provide OPTIONS polling to allow y
 
 ### Disaster recovery: cross-region failover for management regions
 
-Voice traffic and the API Bridge are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the API Bridge Number Management Portal might need to sign in again.
+Voice traffic and provisioning through the Number Management Portal are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the Number Management Portal might need to sign in again.
 
 Monitoring services might be temporarily unavailable until service has been restored. If the management region experiences extended downtime, we'll migrate the impacted resources to another available region.
 
@@ -108,7 +108,7 @@ A single deployment of Azure Communications Gateway is designed to handle your O
 
 - Select from the list of available Azure regions. You can see the Azure regions that can be selected as service regions on the [Products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page.
 - Choose regions near to your own premises and the peering locations between your network and Microsoft to reduce call latency.
-- Prefer [regional pairs](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to minimize the recovery time if a multi-region outage occurs.
+- Prefer [regional pairs](../reliability/cross-region-replication-azure.md#azure-paired-regions) to minimize the recovery time if a multi-region outage occurs.
 
 Choose a management region from the following list:
 
@@ -128,5 +128,6 @@ The reliability design described in this document is implemented by Microsoft an
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Prepare to deploy an Azure Communications Gateway resource](prepare-to-deploy.md)
+- Learn about [how Azure Communications Gateway keeps your network and data secure](security.md)
+- Learn more about [planning an Azure Communications Gateway deployment](get-started.md)
+

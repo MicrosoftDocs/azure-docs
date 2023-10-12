@@ -25,11 +25,11 @@ To complete this procedure, you need:
     - Do delineate the end of a record with an end of line. 
     - Do use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
     - Do create a new log file every day so that you can remove old files easily. 
-    - Do clean up all log files older than 2 days in the monitored directory. Azure Monitor Agent does not delete old log files and tracking them uses up Agent resources.
-    - Do Not overwrite an existing file with new data. You should only append new data to the file.
-    - Do Not rename a file and open a new file with the same name to log to. 
-    - Do Not rename or copy large log files in to the monitored directory. If you must, do not exceed 50MB per minute
-    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingestion behavior. 
+    - Do clean up all log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
+    - Do Not overwrite an existing file with new records. You should only append new records to the end of the file. Overwriting will cause data loss.
+    - Do Not rename a file to a new name and then open a new file with the same name. This could cause data loss.
+    - Do Not rename or copy large log files that match the file scan pattern in to the monitored directory. If you must, do not exceed 50MB per minute.
+    - Do Not rename a file that matches the file scan pattern to a new name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
 
 
 ## Create a custom table
@@ -43,7 +43,7 @@ The easiest way to make the REST call is from an Azure Cloud PowerShell command 
 
 Copy and paste the following script in to PowerShell to create the table in your workspace. Make sure to replace the {subscription}, {resource group}, {workspace name}, and {table name} in the script. Make sure that there are no extra blanks at the beginning or end of the parameters
 
- ```code
+```code
 $tableParams = @'
 {
     "properties": {
@@ -359,6 +359,9 @@ The column names used here are for example only. The column names for your log w
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
+## Troubleshooting Tool
+Use the [Azure monitor troubleshooter tool](use-azure-monitor-agent-troubleshooter.md) to look for common issues and share results with Microsoft.
+
 ### Check if any custom logs have been received
 Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If records aren't returned, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created won't be uploaded.
 
@@ -450,13 +453,6 @@ while ($true)
 
 ```
 
-### Share logs with Microsoft
-If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
-
-1. Open an elevated PowerShell window.
-2. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
-3. Execute the script: `.\CollectAMALogs.ps1`.
-4. Share the `AMAFiles.zip` file generated on the desktop.
 
 
 ## Next steps

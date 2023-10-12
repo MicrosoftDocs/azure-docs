@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/03/2023
+ms.date: 08/21/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,23 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.0.15.1207   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
-| Beta    | 10.0.15.1207   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+| Public  | 10.0.16.1237   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
+| Beta    | 10.0.16.1237   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+
+## Updates for version 10.0.16.1237 
+
+*Date published: August 14, 2023*
+
+In this release, we've made the following changes: 
+
+- Added support for pen redirection.
+- Azure Virtual Desktop desktop previews are now available.
+- Display now auto-locks during remote session when setting is enabled.
+- RDS connections now support Azure Active Directory authentication.
+- Private Link is now supported.
+- Reconnect dialog now available for RDS sessions when they're locked.
+- Search is now supported in PCs and Workspaces tabs.
+- Bug fixes and improvements.
 
 ## Updates for version 10.0.15.1207
 
@@ -56,7 +71,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- We've made an in-session UI that switches between remote apps and PCs.
+- We've made an in-session UI that switches between workspaces and PCs.
 - Updated language support for Input Method Editors (IME) and external keyboards.
 - Added support for Azure Virtual Desktop workspace subscriptions that use multiple identities for the same URL.
 - We added a warning message that says you shouldn't use the RD Gateway for local addresses.

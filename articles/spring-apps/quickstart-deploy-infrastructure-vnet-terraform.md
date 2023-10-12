@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Provision Azure Spring Apps using Terraform
 description: This quickstart shows you how to use Terraform to deploy an Azure Spring Apps cluster into an existing virtual network.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, event-tier1-build-2022, devx-track-terraform
@@ -47,15 +47,15 @@ For more customization including custom domain support, see the [Azure Spring Ap
 
 ## Review the Terraform plan
 
-The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
-
-### [Standard plan](#tab/azure-spring-apps-standard)
-
-:::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
+The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
 
 ---
 
@@ -128,6 +128,6 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
 * Deploy one of the following sample applications from the locations below:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI)
-* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.
+* Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
-* View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* View the secure end-to-end [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

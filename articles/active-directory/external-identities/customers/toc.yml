@@ -1,23 +1,241 @@
 items:  
-- name: Azure Active Directory for customers documentation  
+- name: Microsoft Entra ID for customers documentation  
   href: index.yml  
 - name: Overview  
   expanded: true  
   items:   
-    - name: What is Azure Active Directory for customers?  
+    - name: What is Microsoft Entra ID for customers?  
       href: overview-customers-ciam.md 
+    - name: Demo overview
+      href: overview-solutions-customers.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up a free trial
+    - name: Start a free trial without an Azure subscription
       href: quickstart-trial-setup.md 
+    - name: Create a tenant with an Azure subscription
+      href: quickstart-tenant-setup.md
+    - name: Get started guide walkthrough
+      href: quickstart-get-started-guide.md
 - name: Samples
   expanded: true
   items: 
-    - name: Samples by app type and language
+    - name: Overview of CIAM samples
       href: samples-ciam-all.md
-- name: Concepts
+    - name: Explore code samples
+      items: 
+        - name: Single-page app
+          items:
+            - name: JavaScript
+              items:
+                - name: Sign in users
+                  href: sample-single-page-app-vanillajs-sign-in.md
+            - name: Angular
+              items:
+                - name: Sign in users
+                  href: sample-single-page-app-angular-sign-in.md
+            - name: React
+              items:
+                - name: Sign in users
+                  href: sample-single-page-app-react-sign-in.md
+        - name: Web app
+          items:
+            - name: Node.js
+              items:
+                - name: Sign in users
+                  href: sample-web-app-node-sign-in.md
+                - name: Sign in users and call an API
+                  href: sample-web-app-node-sign-in-call-api.md
+            - name: ASP.NET
+              items:
+                - name: Sign in users
+                  href: sample-web-app-dotnet-sign-in.md
+        - name: Browserless app
+          items: 
+          - name: Node.js - sign in users
+            href: sample-browserless-app-node-sign-in.md
+          - name: .NET - sign in users
+            href: sample-browserless-app-dotnet-sign-in.md
+        - name: Daemon, service
+          items:
+            - name: Node.js - call an API
+              href: sample-daemon-node-call-api.md
+              displayName: client credentials grant
+            - name: .NET - call an API
+              href: sample-daemon-dotnet-call-api.md
+        - name: Desktop app
+          items:
+            - name: Electron - sign in users
+              href: how-to-desktop-app-electron-sample-sign-in.md
+            - name: .NET MAUI - sign in users
+              href: how-to-desktop-app-maui-sample-sign-in.md
+            - name: .NET WPF - sign in users
+              href: sample-desktop-wpf-dotnet-sign-in.md
+        - name: Mobile app
+          items:
+            - name: Android (.NET MAUI) - sign in users
+              href: how-to-mobile-app-maui-sample-sign-in.md
+        - name: Command-line interface (CLI) app
+          items:
+            - name: Node.js - sign in users
+              href: sample-cli-app-node-sign-in-users.md
+- name: Tutorials
   expanded: true
+  items: 
+  - name: Build and integrate your app
+    items: 
+      - name: Single-page app (SPA)
+        items: 
+          - name: JavaScript 
+            items:
+              - name: Sign in users
+                items:
+                  - name: Prepare tenant
+                    href: tutorial-single-page-app-vanillajs-prepare-tenant.md
+                  - name: Prepare app
+                    href: tutorial-single-page-app-vanillajs-prepare-app.md
+                  - name: Configure app for authentication
+                    href: tutorial-single-page-app-vanillajs-configure-authentication.md
+                  - name: Sign in and sign out
+                    href: tutorial-single-page-app-vanillajs-sign-in-sign-out.md
+          - name: React
+            items:
+              - name: Sign in users
+                items:
+                  - name: Prepare tenant
+                    href: tutorial-single-page-app-react-sign-in-prepare-tenant.md
+                  - name: Prepare app
+                    href: tutorial-single-page-app-react-sign-in-prepare-app.md
+                  - name: Configure app for authentication
+                    href: tutorial-single-page-app-react-sign-in-configure-authentication.md 
+                  - name: Sign in and sign out
+                    href: tutorial-single-page-app-react-sign-in-sign-out.md
+      - name: Web app
+        items: 
+          - name: Node/Express.js
+            items:
+              - name: Sign in users
+                items:
+                  - name: Prepare tenant 
+                    href: tutorial-web-app-node-sign-in-prepare-tenant.md
+                  - name: Prepare app 
+                    href: tutorial-web-app-node-sign-in-prepare-app.md
+                  - name: Add sign-in and sign-out
+                    href: tutorial-web-app-node-sign-in-sign-out.md
+                  - name: Use client certificate
+                    href: how-to-web-app-node-use-certificate.md 
+                  - name: Use role-based access control
+                    href: how-to-web-app-role-based-access-control.md 
+                    displayName: rbac, roles claim, groups claim
+              - name: Sign in users and call an API
+                items:
+                  - name: Overview
+                    href: how-to-web-app-node-sign-in-call-api-overview.md
+                  - name: Prepare tenant 
+                    href: how-to-web-app-node-sign-in-call-api-prepare-tenant.md
+                  - name: Prepare app and API 
+                    href: how-to-web-app-node-sign-in-call-api-prepare-app.md
+                  - name: Sign-in and acquire access token
+                    href: how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md
+                  - name: Call API 
+                    href: how-to-web-app-node-sign-in-call-api-call-api.md
+          - name: ASP.NET
+            items:
+              - name: Sign in users
+                items:
+                  - name: Prepare tenant
+                    href: tutorial-web-app-dotnet-sign-in-prepare-tenant.md
+                  - name: Prepare app
+                    href: tutorial-web-app-dotnet-sign-in-prepare-app.md
+                  - name: Sign in and sign out
+                    href: tutorial-web-app-dotnet-sign-in-sign-out.md
+      - name: Web API
+        items: 
+          - name: Protect ASP.NET API
+            items:
+              - name: Build a protected API 
+                href: tutorial-protect-web-api-dotnet-core-build-app.md
+              - name: Test protected API 
+                href: tutorial-protect-web-api-dotnet-core-test-api.md
+      - name: Browserless app
+        items: 
+          - name: Node.js
+            items:
+              - name: Sign in users
+                items:
+                  - name: Overview
+                    href: how-to-browserless-app-node-sign-in-overview.md
+                  - name: Prepare tenant 
+                    href: how-to-browserless-app-node-sign-in-prepare-tenant.md
+                  - name: Prepare app 
+                    href: how-to-browserless-app-node-sign-in-prepare-app.md
+                  - name: Add sign-in and sign-out
+                    href: how-to-browserless-app-node-sign-in-sign-out.md
+          - name: .NET​
+            items:
+              - name: Prepare tenant 
+                href: tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md
+              - name: Sign in user 
+                href: tutorial-browserless-app-dotnet-sign-in-build-app.md
+      - name: Daemon, service
+        items: 
+          - name: Node.js
+            items:                
+              - name: Prepare tenant
+                href: tutorial-daemon-node-call-api-prepare-tenant.md
+                displayName: client credentials flow 
+              - name: Acquire access token and call API
+                href: tutorial-daemon-node-call-api-build-app.md
+          - name: .NET
+            items:
+              - name: Prepare tenant
+                href: tutorial-daemon-dotnet-call-api-prepare-tenant.md
+              - name: Acquire access token and call API
+                href: tutorial-daemon-dotnet-call-api-build-app.md 
+      - name: Desktop app
+        items:
+          - name: .NET MAUI
+            items:
+              - name: Prepare tenant
+                href: tutorial-desktop-app-maui-sign-in-prepare-tenant.md
+              - name: Prepare app
+                href: tutorial-desktop-app-maui-sign-in-prepare-app.md
+              - name: Sign in and sign out
+                href: tutorial-desktop-app-maui-sign-in-sign-out.md
+              - name: Use role-based access control
+                href: tutorial-desktop-maui-role-based-access-control.md
+          - name: .NET WPF
+            items:
+              - name: Prepare tenant
+                href: tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md
+              - name: Sign in and sign out
+                href: tutorial-desktop-wpf-dotnet-sign-in-build-app.md
+                displayName: Windows Presentation Form
+      - name: Mobile
+        items: 
+        - name: .NET MAUI
+          items:
+          - name: Prepare tenant
+            href: tutorial-mobile-app-maui-sign-in-prepare-tenant.md
+          - name: Prepare app
+            href: tutorial-mobile-app-maui-sign-in-prepare-app.md
+          - name: Sign in and sign out
+            href: tutorial-mobile-app-maui-sign-in-sign-out.md
+          - name: Use role-based access control
+            href: tutorial-mobile-maui-role-based-access-control.md
+      - name: Command-line interface (CLI) app
+        items:
+          - name: Node.js - sign in users
+            items:
+             - name: Prepare tenant
+               href: tutorial-cli-app-node-sign-in-prepare-tenant.md
+             - name: Prepare app
+               href: tutorial-cli-app-node-sign-in-prepare-app.md
+             - name: Sign in users
+               href: tutorial-cli-app-node-sign-in-sign-out.md
+- name: Concepts
   items: 
     - name: Planning for customer identity and access
       href: concept-planning-your-solution.md
@@ -30,179 +248,11 @@ items:
     - name: Add your own business logic
       href: concept-custom-extensions.md
     - name: Security and governance
-      href: concept-security-customers.md  	   	  
+      href: concept-security-customers.md
 - name: How-to guides
   expanded: true
   items:
-    - name: Integrate apps
-      expanded: true
-      items: 
-        - name: Configure code samples
-          items: 
-            - name: Single-page app
-              items:
-                - name: JavaScript
-                  items:
-                    - name: Sign in users
-                      href: how-to-single-page-app-vanillajs-sample-sign-in.md
-                - name: Angular
-                  items:
-                    - name: Sign in users
-                      href: how-to-single-page-application-angular-sample.md
-                - name: React
-                  items:
-                    - name: Sign in users
-                      href: how-to-single-page-application-react-sample.md
-            - name: Web app
-              items:
-                - name: Node.js
-                  items:
-                    - name: Sign in users
-                      href: how-to-web-app-node-sample-sign-in.md
-                    - name: Sign in users and call an API
-                      href: how-to-web-app-node-sample-sign-in-call-api.md
-                - name: ASP.NET
-                  items:
-                    - name: Sign in users
-                      href: how-to-web-app-dotnet-sample-sign-in.md
-            - name: Browserless app
-              items: 
-              - name: Node.js - sign in users
-                href: how-to-browserless-app-node-sample-sign-in.md
-              - name: .NET - Sign in users
-                href: how-to-browserless-app-dotnet-sample-sign-in.md
-            - name: Daemon, service
-              items:
-                - name: Node.js - call an API
-                  href: how-to-daemon-node-sample-call-api.md
-                  displayName: client credentials grant
-            - name: Desktop app
-              items:
-                - name: Electron - sign in users
-                  href: how-to-desktop-app-electron-sample-sign-in.md
-                - name: .NET MAUI - sign in users
-                  href: how-to-desktop-app-maui-sample-sign-in.md
-            - name: Mobile app
-              items:
-                - name: Android (.NET MAUI) - sign in users
-                  href: how-to-mobile-app-maui-sample-sign-in.md
-        - name: Build and integrate apps
-          items: 
-            - name: Single-page app (SPA)
-              items: 
-                - name: JavaScript 
-                  items:
-                    - name: Sign in users
-                      items:
-                        - name: Prepare tenant
-                          href: how-to-single-page-app-vanillajs-prepare-tenant.md
-                        - name: Prepare app
-                          href: how-to-single-page-app-vanillajs-prepare-app.md
-                        - name: Configure app for authentication
-                          href: how-to-single-page-app-vanillajs-configure-authentication.md
-                        - name: Sign in and sign out
-                          href: how-to-single-page-app-vanillajs-sign-in-sign-out.md
-                - name: React
-                  items:
-                    - name: Sign in users
-                      items:
-                        - name: Prepare tenant
-                          href: how-to-single-page-application-react-prepare-tenant.md
-                        - name: Prepare app
-                          href: how-to-single-page-application-react-prepare-app.md
-                        - name: Sign in and sign out
-                          href: how-to-single-page-application-react-sign-in-out.md
-            - name: Web app
-              items: 
-                - name: Node/Express.js
-                  items:
-                    - name: Sign in users
-                      items:
-                        - name: Overview
-                          href: how-to-web-app-node-sign-in-overview.md
-                        - name: Prepare tenant 
-                          href: how-to-web-app-node-sign-in-prepare-tenant.md
-                        - name: Prepare app 
-                          href: how-to-web-app-node-sign-in-prepare-app.md
-                        - name: Add sign-in and sign-out
-                          href: how-to-web-app-node-sign-in-sign-in-out.md
-                        - name: Use client certificate
-                          href: how-to-web-app-node-use-certificate.md 
-                    - name: Sign in users and call an API
-                      items:
-                        - name: Overview
-                          href: how-to-web-app-node-sign-in-call-api-overview.md
-                        - name: Prepare tenant 
-                          href: how-to-web-app-node-sign-in-call-api-prepare-tenant.md
-                        - name: Prepare app and API 
-                          href: how-to-web-app-node-sign-in-call-api-prepare-app.md
-                        - name: Sign-in and acquire access token
-                          href: how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md
-                        - name: Call API 
-                          href: how-to-web-app-node-sign-in-call-api-call-api.md
-                - name: ASP.NET
-                  items:
-                    - name: Sign in users
-                      items:
-                        - name: Prepare tenant
-                          href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
-                        - name: Prepare app
-                          href: how-to-web-app-dotnet-sign-in-prepare-app.md
-                        - name: Sign in and sign out
-                          href: how-to-web-app-dotnet-sign-in-sign-out.md
-            - name: Web API
-              items: 
-                - name: Protect ASP.NET API
-                  items:
-                    - name: Overview
-                      href: how-to-protect-web-api-dotnet-core-overview.md
-                    - name: Prepare the API
-                      href: how-to-protect-web-api-dotnet-core-prepare-api.md
-                    - name: Protect API endpoints
-                      href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
-                    - name: Test the API
-                      href: how-to-protect-web-api-dotnet-core-test-api.md
-            - name: Browserless app
-              items: 
-                - name: Node.js
-                  items:
-                    - name: Sign in users
-                      items:
-                        - name: Overview
-                          href: how-to-browserless-app-node-sign-in-overview.md
-                        - name: Prepare tenant 
-                          href: how-to-browserless-app-node-sign-in-prepare-tenant.md
-                        - name: Prepare app 
-                          href: how-to-browserless-app-node-sign-in-prepare-app.md
-                        - name: Add sign-in and sign-out
-                          href: how-to-browserless-app-node-sign-in-sign-out.md
-                - name: .NET​ - sign in users
-                  items:
-                    - name: Overview
-                      href: how-to-browserless-app-dotnet-sign-in-overview.md
-                    - name: Prepare tenant 
-                      href: how-to-browserless-app-dotnet-sign-in-prepare-tenant.md
-                    - name: Prepare app 
-                      href: how-to-browserless-app-dotnet-sign-in-prepare-app.md
-                    - name: Add sign-in
-                      href: how-to-browserless-app-dotnet-sign-in-sign-in.md
-            - name: Daemon, service
-              items: 
-                - name: Node.js
-                  items:
-                    - name: Acquire token, call an API
-                      items:
-                        - name: Overview
-                          href: how-to-daemon-node-call-api-overview.md
-                          displayName: client credentials flow
-                        - name: Prepare tenant
-                          href: how-to-daemon-node-call-api-prepare-tenant.md
-                        - name: Prepare app
-                          href: how-to-daemon-node-call-api-prepare-app.md 
-                        - name: Acquire access token and call API
-                          href: how-to-daemon-node-call-api-call-api.md 
     - name: Authenticate and authorize
-      expanded: true
       items:
       - name: Create a customer tenant
         href: how-to-create-customer-tenant-portal.md
@@ -210,6 +260,7 @@ items:
         href: how-to-register-ciam-app.md
       - name: Add a sign-up and sign-in flow
         href: how-to-user-flow-sign-up-sign-in-customers.md
+        displayName: disable sign-up, disable sign up 
       - name: Add an application to the user flow
         href: how-to-user-flow-add-application.md
       - name: Enable password reset
@@ -222,8 +273,8 @@ items:
             href: how-to-facebook-federation-customers.md
       - name: Use application roles to manage access
         href: how-to-use-app-roles-customers.md
+        displayName: rbac, roles claim, groups claim
     - name: Customize
-      expanded: true
       items:
         - name: Customize branding
           items:
@@ -246,7 +297,6 @@ items:
            - name: Troubleshoot your custom claims provider API
              href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
     - name: Secure
-      expanded: true
       items:
       - name: Multifactor authentication
         href: how-to-multifactor-authentication-customers.md
@@ -264,14 +314,8 @@ items:
           href: troubleshooting-known-issues.md
     - name: Management APIs
       items:
-        - name: Overview
-          href: how-to-management-apis-overview.md
-        - name: User flows operations
-          href: microsoft-graph-operations-user-flow.md
-        - name: Company branding operations
-          href: microsoft-graph-operations-branding.md
-        - name: Custom extensions
-          href: microsoft-graph-operations-custom-extensions.md
+        - name: Microsoft Graph
+          href: microsoft-graph-operations.md
         - name: Tenant management operations
           href: azure-rest-api-operations-tenant-management.md 
 - name: Reference
@@ -280,6 +324,8 @@ items:
       href: reference-user-permissions.md
     - name: Group and application roles support
       href: reference-group-app-roles-support.md
+    - name: Company branding CSS template reference guide
+      href: /azure/active-directory/fundamentals/reference-company-branding-css-template
     - name: Help and support options
       href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context
     - name: MSAL references 
@@ -292,13 +338,13 @@ items:
           href: /dotnet/api/microsoft.identitymodel.abstractions
         - name: MSAL.js
           items:
-          - name: msal-angular
+          - name: MSAL-angular
             href: /javascript/api/@azure/msal-angular/
-          - name: msal-browser
+          - name: MSAL-browser
             href: /javascript/api/@azure/msal-browser/
-          - name: msal-react
+          - name: MSAL-react
             href: /javascript/api/@azure/msal-react/
-          - name: msal-node
+          - name: MSAL-node
             href: /javascript/api/@azure/msal-node/
 - name: Resources
   items:

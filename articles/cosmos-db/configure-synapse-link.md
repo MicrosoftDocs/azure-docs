@@ -40,7 +40,7 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 
 ### Azure portal
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
@@ -107,7 +107,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 ### Azure portal
 
 #### New container 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
@@ -123,7 +123,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 #### Existing container
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** tab.
 

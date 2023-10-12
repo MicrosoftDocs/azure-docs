@@ -30,7 +30,7 @@ Make sure that you have:
 
     |Identity management  |Roles required  |
     |---------|---------|
-    |**In Azure Active Directory**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
+    |**In Microsoft Entra ID**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
     |**In Azure RBAC**     | [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration        |
 
 ## Onboard a Defender for IoT plan
@@ -41,7 +41,7 @@ Make sure that you have:
 
     - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
-    - **Price plan**: For the sake of this tutorial, select a **Trial** pricing plan. Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+    - **Price plan**: For the sake of this tutorial, select a **Trial** pricing plan. Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes.
 
 1. Select the **I accept the terms and conditions** option and then select **Save**.
 
@@ -69,11 +69,13 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
 
+**To hunt for threats**:
+
+On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
+
+For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
+
 ## Next steps
 
-Learn how to set up an Enterprise IoT network sensor (Public preview) and gain more visibility into more IoT segments of your corporate network that aren't otherwise covered by Defender for Endpoint.
-
-Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Microsoft 365 Defender, or Defender for IoT in the Azure portal.
-
 > [!div class="nextstepaction"]
-> [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md)
+> [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)

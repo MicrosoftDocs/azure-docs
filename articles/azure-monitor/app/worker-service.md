@@ -3,8 +3,8 @@ title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-ms.date: 04/24/2023
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 09/12/2023
 ms.reviewer: cithomas
 ---
 
@@ -20,7 +20,7 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
 
 ## Prerequisites
 
-You must have a valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
+You must have a valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Connection Strings](./sdk-connection-string.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -494,8 +494,7 @@ The following auto-collection modules are enabled by default. These modules are 
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule` (There's currently an issue involving this telemetry module. For a temporary workaround, see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
-).)
+* `AppServicesHeartbeatTelemetryModule` (There's currently an issue involving this telemetry module. For a temporary workaround, see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689).)
 * `AzureInstanceMetadataTelemetryModule`
 
 To configure any default telemetry module, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example:

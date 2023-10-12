@@ -17,7 +17,7 @@ monikerRange: 'azureml-api-1'
 
 # How Azure Machine Learning works: Architecture and concepts (v1)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 This article applies to the first version (v1) of the Azure Machine Learning CLI & SDK. For version two (v2), see  [How Azure Machine Learning works (v2)](../concept-azure-machine-learning-v2.md).
 
@@ -125,7 +125,7 @@ There are multiple ways to view your logs: monitoring run status in real time, o
 
 
 > [!NOTE]
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 
 ### Git tracking and integration
 
@@ -267,7 +267,7 @@ Azure Machine Learning provides the following monitoring and logging capabilitie
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
 + [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
-+ Web experience for [automated machine learning](concept-automated-ml-v1.md)
++ Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](../how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + Data labeling projects to create, manage, and monitor projects for labeling [images](../how-to-create-image-labeling-projects.md) or [text](../how-to-create-text-labeling-projects.md).
 

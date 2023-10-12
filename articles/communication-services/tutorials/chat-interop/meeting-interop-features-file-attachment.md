@@ -8,12 +8,12 @@ ms.date: 05/15/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-js
 ---
 
 # Tutorial: Enable file attachment support in your Chat app
 
-The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive file attachment sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
+The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive file attachments sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. Please note that sending file attachments from ACS user to Teams user is not currently supported, see the current capabilities of [Teams Interop Chat](../../concepts/interop/guest/capabilities.md) for details.
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 

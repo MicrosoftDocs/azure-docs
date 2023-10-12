@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/09/2022
+ms.date: 06/22/2023
 ---
 
 # Resource functions for Bicep
@@ -68,7 +68,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -88,7 +88,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id
@@ -106,6 +106,9 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 Returns a secret from an Azure Key Vault. Use this function to pass a secret to a secure string parameter of a Bicep module.
 
+> [!NOTE]
+> `az.getSecret(subscriptionId, resourceGroupName, keyVaultName, secretName, secretVersion)` function can be used in `.bicepparam` files to retrieve key vault secrets. For more information, see [getSecret](./bicep-functions-parameters-file.md#getsecret).
+
 You can only use the `getSecret` function from within the `params` section of a module. You can only use it with a `Microsoft.KeyVault/vaults` resource.
 
 ```bicep
@@ -117,7 +120,7 @@ module sql './sql.bicep' = {
 }
 ```
 
-You'll get an error if you attempt to use this function in any other part of the Bicep file. You'll also get an error if you use this function with string interpolation, even when used in the params section.
+You get an error if you attempt to use this function in any other part of the Bicep file. You also get an error if you use this function with string interpolation, even when used in the params section.
 
 The function can be used only with a module parameter that has the `@secure()` decorator.
 
@@ -137,7 +140,7 @@ The secret value for the secret name.
 
 ### Example
 
-The following Bicep file is used as a module.  It has an `adminPassword` parameter defined with the `@secure()` decorator.
+The following Bicep file is used as a module. It has an `adminPassword` parameter defined with the `@secure()` decorator.
 
 ```bicep
 param sqlServerName string
@@ -146,7 +149,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2022-08-01-preview' = {
   ...
 }
 ```
@@ -161,7 +164,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource keyVault 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -234,7 +237,7 @@ Other `list` functions have different return formats. To see the format of a fun
 The following example deploys a storage account and then calls `listKeys` on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: 'dscript${uniqueString(resourceGroup().id)}'
   location: location
   kind: 'StorageV2'
@@ -243,7 +246,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 
-resource dScript 'Microsoft.Resources/deploymentScripts@2019-10-01-preview' = {
+resource dScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'scriptWithStorage'
   location: location
   ...
@@ -325,9 +328,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2022-05-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/database-accounts/list-keys?tabs=HTTP) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2023-03-15-preview/notebook-workspaces/list-connection-info?tabs=HTTP) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/domains/list-shared-access-keys) |
@@ -354,9 +356,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2022-10-01/compute/list-keys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2022-10-01/compute/list-nodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2022-10-01/workspaces/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2023-04-01/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2023-04-01/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2023-04-01/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -369,16 +371,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
-| Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
-| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
-| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/preview/queues-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listkeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -507,23 +502,27 @@ Returns an object representing a resource's runtime state.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-The reference function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource.
+The Bicep files provide access to the reference function, although it is typically unnecessary. Instead, it is recommended to use the symbolic name of the resource. The reference function can only be used within the `properties` object of a resource and cannot be employed for top-level properties like `name` or `location`. The same generally applies to references using the symbolic name. However, for properties such as `name`, it is possible to generate a template without utilizing the reference function. Sufficient information about the resource name is known to directly emit the name. It is referred to as compile-time properties. Bicep validation can identify any incorrect usage of the symbolic name.
 
-The following example deploys a storage account. It uses the symbolic name `storageAccount` for the storage account to return a property.
+The following example deploys a storage account. The first two outputs give you the same results.
 
 ```bicep
-param storageAccountName string
+param storageAccountName string = uniqueString(resourceGroup().id)
+param location string = resourceGroup().location
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
-  location: 'eastus'
+  location: location
   kind: 'Storage'
   sku: {
     name: 'Standard_LRS'
   }
 }
 
-output storageEndpoint object = storageAccount.properties.primaryEndpoints
+output storageObjectSymbolic object = storageAccount.properties
+output storageObjectReference object = reference('storageAccount')
+output storageName string = storageAccount.name
+output storageLocation string = storageAccount.location
 ```
 
 To get a property from an existing resource that isn't deployed in the template, use the `existing` keyword:
@@ -531,7 +530,7 @@ To get a property from an existing resource that isn't deployed in the template,
 ```bicep
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
   name: storageAccountName
 }
 
@@ -563,10 +562,11 @@ For example:
 
 ```bicep
 param storageAccountName string
+param location string = resourceGroup().location
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
-  location: 'eastus'
+  location: location
   kind: 'Storage'
   sku: {
     name: 'Standard_LRS'
@@ -581,7 +581,7 @@ To get the resource ID for a resource that isn't deployed in the Bicep file, use
 ```bicep
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
     name: storageAccountName
 }
 
@@ -638,7 +638,7 @@ var roleDefinitionId = {
   }
 }
 
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(resourceGroup().id, principalId, roleDefinitionId[builtInRoleType].id)
   properties: {
     roleDefinitionId: roleDefinitionId[builtInRoleType].id
@@ -687,7 +687,7 @@ param allowedLocations array = [
 var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
 var policyDefinitionName = 'LocationRestriction'
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-03-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   name: policyDefinitionName
   properties: {
     policyType: 'Custom'
@@ -707,7 +707,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-03-01'
   }
 }
 
-resource location_lock 'Microsoft.Authorization/policyAssignments@2020-03-01' = {
+resource location_lock 'Microsoft.Authorization/policyAssignments@2021-06-01' = {
   name: 'location-lock'
   properties: {
     scope: mgScope
@@ -744,7 +744,7 @@ param policyDefinitionID string = '0a914e76-4921-4c19-b460-a2d36003525a'
 @description('Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.')
 param policyAssignmentName string = guid(policyDefinitionID, resourceGroup().name)
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
   name: policyAssignmentName
   properties: {
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)

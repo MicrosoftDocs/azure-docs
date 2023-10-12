@@ -4,6 +4,7 @@ description: This document explains full backup/restore and selective restore
 services: key-vault
 author: mbaldwin
 tags: azure-key-vault
+ms.custom: devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -38,6 +39,10 @@ You must provide following information to execute a full backup:
 Backup is a long running operation but will immediately return a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes, and seconds of date/time in UTC when the backup command was received.
 
 While the backup is in progress, the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
+
+> [!IMPORTANT]
+> Public internet access must **not** be blocked from the storage accounts being used to backup or restore resources.
+
 
 ```azurecli-interactive
 # time for 500 minutes later for SAS token expiry

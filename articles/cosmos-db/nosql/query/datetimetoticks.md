@@ -1,73 +1,59 @@
 ---
-title: DateTimeToTicks in Azure Cosmos DB query language
-description: Learn about SQL system function DateTimeToTicks in Azure Cosmos DB.
-author: seesharprun
+title: DateTimeToTicks
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the number of ticks, or 100 nanoseconds, since the Unix epoch.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# DateTimeToTicks (Azure Cosmos DB)
+
+# DateTimeToTicks (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Converts the specified DateTime to ticks. A single tick represents one hundred nanoseconds or one ten-millionth of a second. 
+Converts the specified DateTime to ticks. A single tick represents `100` nanoseconds or `0.000000001`of a second.
 
 ## Syntax
-  
+
 ```sql
-DateTimeToTicks (<DateTime>)
+DateTimeToTicks(<date_time>)
 ```
 
 ## Arguments
-  
-*DateTime*  
-   UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ`
+
+| | Description |
+| --- | --- |
+| **`date_time`** | A Coordinated Universal Time (UTC) date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`. |
+
+> [!NOTE]
+> For more information on the ISO 8601 format, see [ISO 8601](https://wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
-Returns a signed numeric value, the current number of 100-nanosecond ticks that have elapsed since the Unix epoch. In other words, DateTimeToTicks returns the number of 100-nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
+Returns a signed numeric value, the current number of `100`-nanosecond ticks that have elapsed since the Unix epoch (January 1, 1970).
 
-## Remarks
-
-DateTimeDateTimeToTicks will return `undefined` if the DateTime is not a valid ISO 8601 DateTime
-
-This system function will not utilize the index.
+> [!NOTE]
+> For more information on the Unix epoch, see [Unix time](https://wikipedia.org/wiki/unix_time).
 
 ## Examples
 
-Here's an example that returns the number of ticks:
+The following example measures the ticks since the date and time **May 19, 2015 12:00 UTC**.
 
-```sql
-SELECT DateTimeToTicks("2020-01-02T03:04:05.6789123Z") AS Ticks
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/query.sql" highlight="2":::
 
-```json
-[
-    {
-        "Ticks": 15779342456789124
-    }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimetoticks/result.json":::
 
-Here's an example that returns the number of ticks without specifying the number of fractional seconds:
+## Remarks
 
-```sql
-SELECT DateTimeToTicks("2020-01-02T03:04:05Z") AS Ticks
-```
+- This function returns `undefined` if the date and time isn't a valid ISO 8601 date and time string.
+- This function doesn't use the index.
 
-```json
-[
-    {
-        "Ticks": 15779342450000000
-    }
-]
-```
+## Related content
 
-## Next steps
-
-- [Date and time functions Azure Cosmos DB](date-time-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`DateTimeToTimestamp`](datetimetotimestamp.md)

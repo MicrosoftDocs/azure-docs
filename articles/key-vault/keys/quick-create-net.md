@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Azure Key Vault key client library for .NET

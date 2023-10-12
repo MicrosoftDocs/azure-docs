@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Manage web traffic with an application gateway using the Azure CLI
@@ -81,7 +81,8 @@ Use [az network application-gateway create](/cli/azure/network/application-gatew
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
  ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you'll see these new features:
@@ -100,7 +101,7 @@ In this example, you create a Virtual Machine Scale Set that provides servers fo
  az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

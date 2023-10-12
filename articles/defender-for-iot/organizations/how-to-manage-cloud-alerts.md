@@ -33,7 +33,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
 ## View alerts on the Azure portal
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
 
     | Column | Description
     |--|--|
@@ -94,7 +94,7 @@ Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *
 
 ## Manage alert severity and status
 
-We recommend that you update alert severity In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
+We recommend that you update alert severity In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
 
 You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
@@ -137,7 +137,7 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
 
 1. Use the search box and filter options to show only the alerts you want to export.
 

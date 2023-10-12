@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On - Azure'
+title: 'Microsoft Entra Connect: Use a SAML 2.0 Identity Provider for Single Sign On - Azure'
 description: This document describes using a SAML 2.0 compliant Idp for single sign on.
 services: active-directory
 author: billmath
 manager: amycolannino
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.collection: M365-identity-device-management
 
 #  Use a SAML 2.0 Identity Provider (IdP) for Single Sign On
 
-This document contains information on using a SAML 2.0 compliant SP-Lite profile-based Identity Provider as the preferred Security Token Service (STS) / identity provider. This scenario is useful when you already have a user directory and password store on-premises that can be accessed using SAML 2.0. This existing user directory can be used for sign-on to Microsoft 365 and other Azure AD-secured resources. The SAML 2.0 SP-Lite profile is based on the widely used Security Assertion Markup Language (SAML) federated identity standard to provide a sign-on and attribute exchange framework.
+This document contains information on using a SAML 2.0 compliant SP-Lite profile-based Identity Provider as the preferred Security Token Service (STS) / identity provider. This scenario is useful when you already have a user directory and password store on-premises that can be accessed using SAML 2.0. This existing user directory can be used for sign-on to Microsoft 365 and other Microsoft Entra ID-secured resources. The SAML 2.0 SP-Lite profile is based on the widely used Security Assertion Markup Language (SAML) federated identity standard to provide a sign-on and attribute exchange framework.
 
 >[!NOTE]
->For a list of 3rd party Idps that have been tested for use with Azure AD see the [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md)
+>For a list of 3rd party Idps that have been tested for use with Microsoft Entra ID see the [Microsoft Entra federation compatibility list](how-to-connect-fed-compatibility.md)
 
 Microsoft supports this sign-on experience as the integration of a Microsoft cloud service, such as Microsoft 365, with your properly configured SAML 2.0 profile-based IdP. SAML 2.0 identity providers are third-party products and therefore Microsoft does not provide support for the deployment, configuration, troubleshooting best practices regarding them. Once properly configured, the integration with the SAML 2.0 identity provider can be tested for proper configuration by using the Microsoft Connectivity Analyzer Tool, which is described in more detail below. For more information about your SAML 2.0 SP-Lite profile-based identity provider, ask the organization that supplied it.
 
@@ -37,18 +37,20 @@ Microsoft supports this sign-on experience as the integration of a Microsoft clo
 
 All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to sign in to the service with your SAML 2.0 Identity Provider configured for single sign-on.
 
-## Azure AD SAML 2.0 protocol requirements
-This document contains detailed requirements on the protocol and message formatting that your SAML 2.0 identity provider must implement to federate with Azure AD to enable sign-on to one or more Microsoft cloud services (such as Microsoft 365). The SAML 2.0 relying party (SP-STS) for a Microsoft cloud service used in this scenario is Azure AD.
+<a name='azure-ad-saml-20-protocol-requirements'></a>
 
-It is recommended that you ensure your SAML 2.0 identity provider output messages be as similar to the provided sample traces as possible. Also, use specific attribute values from the supplied Azure AD metadata where possible. Once you are happy with your output messages, you can test with the Microsoft Connectivity Analyzer as described below.
+## Microsoft Entra SAML 2.0 protocol requirements
+This document contains detailed requirements on the protocol and message formatting that your SAML 2.0 identity provider must implement to federate with Microsoft Entra ID to enable sign-on to one or more Microsoft cloud services (such as Microsoft 365). The SAML 2.0 relying party (SP-STS) for a Microsoft cloud service used in this scenario is Microsoft Entra ID.
 
-The Azure AD metadata can be downloaded from this URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+It is recommended that you ensure your SAML 2.0 identity provider output messages be as similar to the provided sample traces as possible. Also, use specific attribute values from the supplied Microsoft Entra metadata where possible. Once you are happy with your output messages, you can test with the Microsoft Connectivity Analyzer as described below.
+
+The Microsoft Entra metadata can be downloaded from this URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
 For customers in China using the China-specific instance of Microsoft 365, the following federation endpoint should be used: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## SAML protocol requirements
 This section details how the request and response message pairs are put together in order to help you to format your messages correctly.
 
-Azure AD can be configured to work with identity providers that use the SAML 2.0 SP Lite profile with some specific requirements as listed below. Using the sample SAML request and response messages along with automated and manual testing, you can work to achieve interoperability with Azure AD.
+Microsoft Entra ID can be configured to work with identity providers that use the SAML 2.0 SP Lite profile with some specific requirements as listed below. Using the sample SAML request and response messages along with automated and manual testing, you can work to achieve interoperability with Microsoft Entra ID.
 
 ## Signature block requirements
 Within the SAML Response message, the Signature node contains information about the digital signature for the message itself. The signature block has the following requirements:
@@ -70,24 +72,24 @@ Within the SAML Response message, the Signature node contains information about 
 Bindings are the transport-related communications parameters that are required. The following requirements apply to the bindings
 
 1. HTTPS is the required transport.
-2. Azure AD will require HTTP POST for token submission during sign-in.
-3. Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the sign out message to the identity provider.
+2. Microsoft Entra ID will require HTTP POST for token submission during sign-in.
+3. Microsoft Entra ID will use HTTP POST for the authentication request to the identity provider and REDIRECT for the sign out message to the identity provider.
 
 ## Required attributes
 This table shows requirements for specific attributes in the SAML 2.0 message.
  
 |Attribute|Description|
 | ----- | ----- |
-|NameID|The value of this assertion must be the same as the Azure AD user’s ImmutableID. It can be up to 64 alpha numeric characters. Any non-html safe characters must be encoded, for example a “+” character is shown as “.2B”.|
-|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Azure AD/Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Azure Active Directory).|
-|Issuer|Required to be a URI of the identity provider. Do not reuse the Issuer from the sample messages. If you have multiple top-level domains in your Azure AD tenants the Issuer must match the specified URI setting configured per domain.|
+|NameID|The value of this assertion must be the same as the Microsoft Entra user’s ImmutableID. It can be up to 64 alpha numeric characters. Any non-html safe characters must be encoded, for example a “+” character is shown as “.2B”.|
+|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Microsoft Entra ID / Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Microsoft Entra ID).|
+|Issuer|Required to be a URI of the identity provider. Do not reuse the Issuer from the sample messages. If you have multiple top-level domains in your Microsoft Entra tenants the Issuer must match the specified URI setting configured per domain.|
 
 >[!IMPORTANT]
->Azure AD currently supports the following NameID Format URI for SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid-format:persistent.
+>Microsoft Entra ID currently supports the following NameID Format URI for SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid-format:persistent.
 
 ## Sample SAML request and response messages
 A request and response message pair is shown for the sign-on message exchange.
-The following is a sample request message that is sent from Azure AD to a sample SAML 2.0 identity provider. The sample SAML 2.0 identity provider is Active Directory Federation Services (AD FS) configured to use SAML-P protocol. Interoperability testing has also been completed with other SAML 2.0 identity providers.
+The following is a sample request message that is sent from Microsoft Entra ID to a sample SAML 2.0 identity provider. The sample SAML 2.0 identity provider is Active Directory Federation Services (AD FS) configured to use SAML-P protocol. Interoperability testing has also been completed with other SAML 2.0 identity providers.
 
 ```xml
   <samlp:AuthnRequest 
@@ -102,7 +104,7 @@ The following is a sample request message that is sent from Azure AD to a sample
   </samlp:AuthnRequest>
 ```
 
-The following is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Azure AD / Microsoft 365.
+The following is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Microsoft Entra ID / Microsoft 365.
 
 ```xml
     <samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -158,42 +160,52 @@ The following is a sample response message that is sent from the sample SAML 2.0
 ```
 
 ## Configure your SAML 2.0 compliant identity provider
-This section contains guidelines on how to configure your SAML 2.0 identity provider to federate with Azure AD to enable single sign-on access to one or more Microsoft cloud services (such as Microsoft 365) using the SAML 2.0 protocol. The SAML 2.0 relying party for a Microsoft cloud service used in this scenario is Azure AD.
+This section contains guidelines on how to configure your SAML 2.0 identity provider to federate with Microsoft Entra ID to enable single sign-on access to one or more Microsoft cloud services (such as Microsoft 365) using the SAML 2.0 protocol. The SAML 2.0 relying party for a Microsoft cloud service used in this scenario is Microsoft Entra ID.
 
-## Add Azure AD metadata
-Your SAML 2.0 identity provider needs to adhere to information about the Azure AD relying party. Azure AD publishes metadata at https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
+<a name='add-azure-ad-metadata'></a>
 
-It is recommended that you always import the latest Azure AD metadata when configuring your SAML 2.0 identity provider.
+## Add Microsoft Entra metadata
+Your SAML 2.0 identity provider needs to adhere to information about the Microsoft Entra ID relying party. Microsoft Entra ID publishes metadata at https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
+
+It is recommended that you always import the latest Microsoft Entra metadata when configuring your SAML 2.0 identity provider.
 
 >[!NOTE]
->Azure AD does not read metadata from the identity provider.
+>Microsoft Entra ID does not read metadata from the identity provider.
 
-## Add Azure AD as a relying party
-You must enable communication between your SAML 2.0 identity provider and Azure AD. This configuration will be dependent on your specific identity provider and you should refer to documentation for it. You would typically set the relying party ID to the same as the entityID from the Azure AD metadata.
+<a name='add-azure-ad-as-a-relying-party'></a>
+
+## Add Microsoft Entra ID as a relying party
+
+You must enable communication between your SAML 2.0 identity provider and Microsoft Entra ID. This configuration will be dependent on your specific identity provider and you should refer to documentation for it. You would typically set the relying party ID to the same as the entityID from the Microsoft Entra metadata.
 
 >[!NOTE]
 >Verify the clock on your SAML 2.0 identity provider server is synchronized to an accurate time source. An inaccurate clock time can cause federated logins to fail.
 
-## Install Windows PowerShell for sign-on with SAML 2.0 identity provider
-After you have configured your SAML 2.0 identity provider for use with Azure AD sign-on, the next step is to download and install the Azure Active Directory Module for Windows PowerShell. Once installed, you will use these cmdlets to configure your Azure AD domains as federated domains.
+## Install PowerShell for sign-on with SAML 2.0 identity provider
 
-The Azure Active Directory Module for Windows PowerShell is a download for managing your organizations data in Azure AD. This module installs a set of cmdlets to Windows PowerShell; you run those cmdlets to set up single sign-on access to Azure AD and in turn to all of the cloud services you are subscribed to. For instructions about how to download and install the cmdlets, see [/previous-versions/azure/jj151815(v=azure.100)](/previous-versions/azure/jj151815(v=azure.100))
+After you have configured your SAML 2.0 identity provider for use with Microsoft Entra sign-on, the next step is to download and install the Azure AD PowerShell module. Once installed, you will use these cmdlets to configure your Microsoft Entra domains as federated domains.
 
-## Set up a trust between your SAML identity provider and Azure AD
-Before configuring federation on an Azure AD domain, it must have a custom domain configured. You cannot federate the default domain that is provided by Microsoft. The default domain from Microsoft ends with “onmicrosoft.com”.
-You will run a series of cmdlets in the Windows PowerShell command-line interface to add or convert domains for single sign-on.
+The Azure AD PowerShell module is a download for managing your organizations data in Microsoft Entra ID. This module installs a set of cmdlets to PowerShell; you run those cmdlets to set up single sign-on access to Microsoft Entra ID and in turn to all of the cloud services you are subscribed to. For instructions about how to download and install the cmdlets, see [/previous-versions/azure/jj151815(v=azure.100)](/previous-versions/azure/jj151815(v=azure.100))
 
-Each Azure Active Directory domain that you want to federate using your SAML 2.0 identity provider must either be added as a single sign-on domain or converted to be a single sign-on domain from a standard domain. Adding or converting a domain sets up a trust between your SAML 2.0 identity provider and Azure AD.
+<a name='set-up-a-trust-between-your-saml-identity-provider-and-azure-ad'></a>
+
+## Set up a trust between your SAML identity provider and Microsoft Entra ID
+Before configuring federation on a Microsoft Entra domain, it must have a custom domain configured. You cannot federate the default domain that is provided by Microsoft. The default domain from Microsoft ends with `onmicrosoft.com`.
+You will run a series of PowerShell cmdlets to add or convert domains for single sign-on.
+
+Each Microsoft Entra domain that you want to federate using your SAML 2.0 identity provider must either be added as a single sign-on domain or converted to be a single sign-on domain from a standard domain. Adding or converting a domain sets up a trust between your SAML 2.0 identity provider and Microsoft Entra ID.
 
 The following procedure walks you through converting an existing standard domain to a federated domain using SAML 2.0 SP-Lite. 
 
 >[!NOTE]
 >Your domain may experience an outage that impacts users up to 2 hours after you take this step.
 
-## Configuring a domain in your Azure AD Directory for federation
+<a name='configuring-a-domain-in-your-azure-ad-directory-for-federation'></a>
+
+## Configuring a domain in your Microsoft Entra Directory for federation
 
 
-1. Connect to your Azure AD Directory as a tenant administrator:
+1. Connect to your Microsoft Entra Directory as a tenant administrator:
 
   ```powershell
   Connect-MsolService
@@ -244,17 +256,19 @@ For more information about “Set-MsolDomainAuthentication”, see: [/previous-v
 
 Once federation has been configured you can switch back to “non-federated” (or “managed”), however this change takes up to two hours to complete and it requires assigning new random passwords for cloud-based sign-in to each user. Switching back to “managed” may be required in some scenarios to reset an error in your settings. For more information on Domain conversion see: [/previous-versions/azure/dn194122(v=azure.100)](/previous-versions/azure/dn194122(v=azure.100)).
 
-## Provision user principals to Azure AD / Microsoft 365
-Before you can authenticate your users to Microsoft 365, you must provision Azure AD with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Azure AD in advance, then they cannot be used for federated sign-in. Either Azure AD Connect or Windows PowerShell can be used to provision user principals.
+<a name='provision-user-principals-to-azure-ad--microsoft-365'></a>
 
-Azure AD Connect can be used to provision principals to your domains in your Azure AD Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](../whatis-hybrid-identity.md).
+## Provision user principals to Microsoft Entra ID / Microsoft 365
+Before you can authenticate your users to Microsoft 365, you must provision Microsoft Entra ID with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Microsoft Entra ID in advance, then they cannot be used for federated sign-in. Either Microsoft Entra Connect or PowerShell can be used to provision user principals.
 
-Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure Active Directory Modules](/powershell/azure/active-directory/install-adv2).
+Microsoft Entra Connect can be used to provision principals to your domains in your Microsoft Entra Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Microsoft Entra ID](../whatis-hybrid-identity.md).
 
-This procedure shows how to add a single user to Azure AD.
+PowerShell can also be used to automate adding new users to Microsoft Entra ID and to synchronize changes from the on-premises directory. To use the PowerShell cmdlets, you must download the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2).
+
+This procedure shows how to add a single user to Microsoft Entra ID.
 
 
-1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
+1. Connect to your Microsoft Entra Directory as a tenant administrator: Connect-MsolService.
 2. Create a new user principal:
 
     ```powershell
@@ -276,12 +290,12 @@ For more information about “New-MsolUser” checkout, [/previous-versions/azur
 ## Verify single sign-on with your SAML 2.0 IDP
 As the administrator, before you verify and manage single sign-on (also called identity federation), review the information and perform the steps in the following articles to set up single sign-on with your SAML 2.0 SP-Lite based identity provider:
 
-1. You have reviewed the Azure AD SAML 2.0 Protocol Requirements
+1. You have reviewed the Microsoft Entra SAML 2.0 Protocol Requirements
 2. You have configured your SAML 2.0 identity provider
-3. Install Windows PowerShell for single sign-on with SAML 2.0 identity provider
-4. Set up a trust between SAML 2.0 identity provider and Azure AD
-5. Provisioned a known test user principal to Azure Active Directory (Microsoft 365) either through Windows PowerShell or Azure AD Connect.
-6. Configure directory synchronization using [Azure AD Connect](../whatis-hybrid-identity.md).
+3. Install PowerShell for single sign-on with SAML 2.0 identity provider
+4. Set up a trust between SAML 2.0 identity provider and Microsoft Entra ID
+5. Provisioned a known test user principal to Microsoft Entra ID (Microsoft 365) via either PowerShell or Microsoft Entra Connect.
+6. Configure directory synchronization using [Microsoft Entra Connect](../whatis-hybrid-identity.md).
 
 After setting up single sign-on with your SAML 2.0 SP-Lite based identity Provider, you should verify that it is working correctly.
 
@@ -292,7 +306,7 @@ Before you verify single sign-on, you should finish setting up Active Directory 
 ### Use the tool to verify that single sign-on has been set up correctly
 To verify that single sign-on has been set up correctly, you can perform the following procedure to confirm that you are able to sign-in to the cloud service with your corporate credentials.
 
-Microsoft has provided a tool that you can use to test your SAML 2.0 based identity provider. Before running the test tool, you must have configured an Azure AD tenant to federate with your identity provider.
+Microsoft has provided a tool that you can use to test your SAML 2.0 based identity provider. Before running the test tool, you must have configured a Microsoft Entra tenant to federate with your identity provider.
 
 >[!NOTE]
 >The Connectivity Analyzer requires Internet Explorer 10 or later.
@@ -301,13 +315,13 @@ Microsoft has provided a tool that you can use to test your SAML 2.0 based ident
 
 1. Download the [Connectivity Analyzer](https://testconnectivity.microsoft.com/?tabid=Client).
 2. Click Install Now to begin downloading and installing the tool.
-3. Select “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory”.
+3. Select “I can’t set up federation with Office 365, Azure, or other services that use Microsoft Entra ID”.
 4. Once the tool is downloaded and running, you will see the Connectivity Diagnostics window. The tool will step you through testing your federation connection.
 5. The Connectivity Analyzer will open your SAML 2.0 IDP for you to sign-in, enter the credentials for the user principal you are testing:
 
     ![Screenshot that shows the sign-in window for your SAML 2.0 IDP.](./media/how-to-connect-fed-saml-idp/saml1.png)
 
-6.  At the Federation test sign-in window, you should enter an account name and password for the Azure AD tenant that is configured to be federated with your SAML 2.0 identity provider. The tool will attempt to sign-in using those credentials and detailed results of tests performed during the sign-in attempt will be provided as output.
+6.  At the Federation test sign-in window, you should enter an account name and password for the Microsoft Entra tenant that is configured to be federated with your SAML 2.0 identity provider. The tool will attempt to sign-in using those credentials and detailed results of tests performed during the sign-in attempt will be provided as output.
 
     ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 
@@ -327,6 +341,6 @@ To verify that single sign-on has been set up correctly, complete the following 
 
 ## Next Steps
 
-- [Active Directory Federation Services management and customization with Azure AD Connect](how-to-connect-fed-management.md)
-- [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md)
-- [Azure AD Connect Custom Installation](how-to-connect-install-custom.md)
+- [Active Directory Federation Services management and customization with Microsoft Entra Connect](how-to-connect-fed-management.md)
+- [Microsoft Entra federation compatibility list](how-to-connect-fed-compatibility.md)
+- [Microsoft Entra Connect Custom Installation](how-to-connect-install-custom.md)

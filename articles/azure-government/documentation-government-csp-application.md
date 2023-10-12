@@ -36,7 +36,7 @@ The process begins with a request for an Azure Government tenant. For more infor
 
 ## Applying for government CSP
 
-Once you have the credentials described previously, navigate to [Partner Center for Microsoft US Government Cloud](/partner-center/partner-center-for-microsoft-us-govt-cloud) to apply for the CSP Government reseller program. It takes 5-6 days to process the application, and, once approved, you should receive an email to log in to [Partner Center](https://partner.microsoft.com/dashboard/home) to accept the Terms and Conditions. For more information, see [Partner Center documentation](/partner-center/overview).
+Once you have the credentials described previously, navigate to [Partner Center for Microsoft US Government Cloud](https://aka.ms/accounts/rncEnrollment) to apply for the CSP Government reseller program. It takes 5-6 days to process the application, and, once approved, you should receive an email to log in to [Partner Center](https://partner.microsoft.com/dashboard/home) to accept the Terms and Conditions. For more information, see [Partner Center documentation](/partner-center/overview).
 
 > [!NOTE]
 > Terms and Conditions aren't negotiable for the Cloud Solution Provider program. If you wish to discuss customer terms that you have in place for your Commercial agreement, contact your Microsoft account representative.

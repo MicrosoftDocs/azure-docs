@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Change the style of the map
@@ -21,7 +21,6 @@ Style options can be set during web control initialization. Or, you can update s
 //Set the style options when creating the map.
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
-    showBuildingModels: false,
     showLogo: true,
     showFeedbackLink: true,
     style: 'road'
@@ -32,20 +31,16 @@ var map = new atlas.Map('map', {
 //Update the style options at anytime using `setStyle` function.
 map.setStyle({
     renderWorldCopies: true,
-    showBuildingModels: true,
     showLogo: false,
     showFeedbackLink: false
 });
 ```
 
-For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples].
+For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For the source code for this sample, see [Map style options source code].
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
-<iframe height="700" scrolling="no" title="Map style options" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Map style options</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result]
 ----------------------------------------------------------------------------------------------->
 ## Set a base map style
 
@@ -68,8 +63,7 @@ var map = new atlas.Map('map', {
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Setting the style on map load' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Setting the style on map load</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ### Update the base map style
@@ -87,8 +81,7 @@ map.setStyle({ style: 'satellite' });
 <!-----------------------------------------------------------------------------------------------
 <br/>
 
-<iframe height='500' scrolling='no' title='Updating the style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Updating the style</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ## Add the style picker control
@@ -106,7 +99,11 @@ The following image shows the style picker control displayed in `list` layout.
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
-> By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen 1 (S1) or Gen 2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
+> By default the style picker control lists all the styles available under the Gen1 (S0) pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen1 (S1) or Gen2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list the base styles to display in the style picker control.
 
@@ -125,8 +122,7 @@ map.controls.add(new atlas.control.StyleControl({
 <!-----------------------------------------------------------------------------------------------
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ## Next steps
@@ -159,15 +155,17 @@ See the following articles for more code samples to add to your maps:
 [style options]: /javascript/api/azure-maps-control/atlas.styleoptions
 [base map styles]: supported-map-styles.md
 
+[Add a bubble layer]: map-add-bubble-layer.md
+[Add a symbol layer]: map-add-pin.md
+[Add map controls]: map-add-controls.md
+[Azure Maps Samples]: https://samples.azuremaps.com
 [grayscale_dark]: supported-map-styles.md#grayscale_dark
-[setStyle]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setstyle
-[Style Control Options]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
+[Map style options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20style%20options/Map%20style%20options.html
+[Map style options]: https://samples.azuremaps.com/map/map-style-options
 [Map]: /javascript/api/azure-maps-control/atlas.map
-[StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
+[setStyle]: /javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-setstyle
+[Style Control Options]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
 [StyleControl]: /javascript/api/azure-maps-control/atlas.control.stylecontrol
 [StyleControlOptions]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
-[Add map controls]: map-add-controls.md
-[Add a symbol layer]: map-add-pin.md
-[Add a bubble layer]: map-add-bubble-layer.md
-[Map style options]: https://samples.azuremaps.com/?search=style%20option&sample=map-style-options
-[Azure Maps Samples]: https://samples.azuremaps.com
+[StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions

@@ -14,11 +14,13 @@ ms.custom: it-pro
 
 ---
 
-# Planning for customer identity and access management
+# Planning for customer identity and access management (preview)
 
-Azure Active Directory (Azure AD) for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
+Microsoft Entra ID for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Microsoft Entra platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Microsoft Entra features that are available for your customer scenarios.
 
-This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
+
+This article provides a general framework for integrating your app and configuring Microsoft Entra ID for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
 
 Adding secure sign-in to your app and setting up a customer identity and access management involves four main steps:
 
@@ -40,7 +42,7 @@ This article describes each of these steps and outlines important planning consi
 
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-step-1.png" alt-text="Diagram showing step 1 in the setup flow." border="false":::
 
-A customer tenant is the first resource you need to create to get started with Azure AD for customers. Your customer tenant is where you register your customer-facing application. It also contains a directory where you manage customer identities and access, separate from your workforce tenant.
+A customer tenant is the first resource you need to create to get started with Microsoft Entra ID for customers. Your customer tenant is where you register your customer-facing application. It also contains a directory where you manage customer identities and access, separate from your workforce tenant.
 
 When you create a customer tenant, you can set your correct geographic location and your domain name. If you currently use Azure AD B2C, the new workforce and customer tenant model doesn't affect your existing Azure AD B2C tenants.
 
@@ -54,13 +56,15 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 
 - [Create a customer tenant](how-to-create-customer-tenant-portal.md) in the Microsoft Entra admin center.
 
-- If you don't already have an Azure AD tenant and want to try Azure AD for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) to start a free trial.
+- If you don't already have a Microsoft Entra tenant and want to try Microsoft Entra ID for customers, we recommend using the [get started experience](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) to start a free trial.
 
 ## Step 2: Register your application
 
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
 
-Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Azure AD performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
+Before your applications can interact with Microsoft Entra ID for customers, you need to register them in your customer tenant. Microsoft Entra ID performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Microsoft Entra ID for customers.
+
+Then, to complete the trust relationship between Microsoft Entra ID and your app, you update your application source code with the values assigned during app registration, such as the application (client) ID, directory (tenant) subdomain, and client secret.
 
 We provide code sample guides and in-depth integration guides for several app types and languages. Depending on the type of app you want to register, you can find guidance on our [Samples by app type and language page](samples-ciam-all.md).
 
@@ -84,7 +88,7 @@ When a customer attempts to sign in to your application, the application sends a
 
 If the user is signing in for the first time, they're presented with the sign-up experience. They enter information based on the built-in or custom user attributes you've chosen to collect. 
 
-When sign-up is complete, Azure AD generates a token and redirects the customer to your application. A customer account is created for the customer in the directory.
+When sign-up is complete, Microsoft Entra ID generates a token and redirects the customer to your application. A customer account is created for the customer in the directory.
 
 ### Sign-up and sign-in user flow
 
@@ -114,9 +118,9 @@ When planning your sign-up and sign-in experience, determine your requirements:
 
 When planning for configuring company branding, language customizations, and custom extensions, consider the following points:
 
-- **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Azure AD, the default Microsoft branding appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
+- **Company branding**. After creating a new customer tenant, you can customize the appearance of your web-based applications for customers who sign in or sign up, to personalize their end-user experience. In Microsoft Entra ID, the default Microsoft branding appear in your sign-in pages before you customize any settings. This branding represents the global look and feel that applies across all sign-ins to your tenant. Learn more about [customizing the sign-in look and feel](concept-branding-customers.md).
 
-- **Extending the authentication token claims**. Azure AD for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [adding your own business logic](concept-custom-extensions.md) with custom authentication extensions.
+- **Extending the authentication token claims**. Microsoft Entra ID for customers is designed for flexibility. You can use a custom authentication extension to add claims from external systems to the application token just before the token is issued to the application. Learn more about [adding your own business logic](concept-custom-extensions.md) with custom authentication extensions.
 
 - **Multifactor authentication (MFA)**. You can also enable application access security by enforcing MFA, which adds a critical second layer of security to user sign-ins by requiring verification via email one-time passcode. Learn more about [MFA for customers](concept-security-customers.md#multifactor-authentication).
 
@@ -133,4 +137,4 @@ When planning for configuring company branding, language customizations, and cus
 ## Next steps
 - [Start a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
 - [Find samples and guidance for integrating your app](samples-ciam-all.md).
-- See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.
+- See also the [Microsoft Entra ID for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

@@ -4,7 +4,7 @@ description: This article tells how to use Azure AD within Azure Automation as t
 services: automation
 ms.date: 05/26/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 
 # Use Azure AD to authenticate to Azure

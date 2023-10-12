@@ -160,7 +160,7 @@ Run the following PowerShell commands on the target device where you want to dep
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
    ```powershell
-   Provision-EflowVm -provisioningType ManualConnectionString -devConnString "<CONNECTION_STRING_HERE>"​
+   Provision-EflowVm -provisioningType ManualConnectionString -devConnString "<CONNECTION_STRING_HERE>"
    ```
 
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.

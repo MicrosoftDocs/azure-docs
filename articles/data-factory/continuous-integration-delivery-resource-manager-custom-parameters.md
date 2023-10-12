@@ -7,8 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/28/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 08/11/2023
 ---
 
 # Use custom parameters with the Resource Manager template
@@ -167,7 +166,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 
 ### Triggers
 
-* Under `typeProperties`, two properties are parameterized. The first one is `maxConcurrency`, which is specified to have a default value and is of type`string`. It has the default parameter name `<entityName>_properties_typeProperties_maxConcurrency`.
+* Under `typeProperties`, two properties are parameterized. The first one is `maxConcurrency`, which is specified to have a default value and is of type `string`. It has the default parameter name `<entityName>_properties_typeProperties_maxConcurrency`.
 * The `recurrence` property also is parameterized. Under it, all properties at that level are specified to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as type `int`. The parameter name is suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed. For example, `<entityName>_freq`.
 
 ### LinkedServices

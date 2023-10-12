@@ -10,7 +10,7 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Quickstart: Register and Authorize Spacecraft
+# Register and Authorize Spacecraft
 
 To contact a satellite, it must be registered and authorized as a spacecraft resource with Azure Orbital Ground Station using required identifying information.
 
@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
    > Be sure to update this TLE value before you schedule a contact. A TLE that is more than two weeks old might result in an unsuccessful downlink.
 
    > [!NOTE]
-   > Spacecraft resources can be created in any Azure region with a Microsoft ground station and schedule contacts on any ground station. Current eligible Azure regions are West US 2, Sweden Central, and Southeast Asia.
+   > Spacecraft resources can be created in any Azure region with a Microsoft ground station and schedule contacts on any ground station. Current eligible Azure regions are West US 2, Sweden Central, Southeast Asia, Brazil South, and South Africa North.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 

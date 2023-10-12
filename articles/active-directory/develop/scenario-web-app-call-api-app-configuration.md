@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/08/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -29,7 +29,7 @@ The [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenar
 
 The following Microsoft libraries support web apps:
 
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
+[!INCLUDE [active-directory-develop-libraries-webapp](./includes/libraries/libraries-webapp.md)]
 
 Select the tab for the platform you're interested in:
 
@@ -37,7 +37,7 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.cs
 
@@ -70,7 +70,7 @@ The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional, a
 
 If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
    ```csharp
@@ -139,7 +139,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.Auth.cs
 
@@ -149,7 +149,7 @@ Your web app needs to acquire a token for the downstream API, *Microsoft.Identit
 
 If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add the [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
   ```csharp
@@ -261,6 +261,14 @@ Code examples in this article and the following one are extracted from the [ASP.
 Code examples in this article and the following one are extracted from the [Java web application that calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp), a web-app sample that uses MSAL for Java.
 The sample currently lets MSAL for Java produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. It's also possible to use Sprint security to sign the user in. You might want to refer to the sample for full implementation details.
 
+# [Node.js](#tab/nodejs)
+
+Code examples in this article and the following one are extracted from the [Node.js & Express.js web application that calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-node), a web app sample that uses MSAL Node.
+
+The sample currently lets MSAL Node produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. This is shown below:
+
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="187-232":::
+
 # [Python](#tab/python)
 
 Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the [identity package](https://pypi.org/project/identity/) (a wrapper around MSAL Python).
@@ -278,6 +286,12 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 # [ASP.NET](#tab/aspnet)
 
 *Microsoft.Identity.Web.OWIN* simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/9fdcf15c66819b31b1049955eed5d3e5391656f5/src/Microsoft.Identity.Web.OWIN/AppBuilderExtension.cs#L95) for details on how this works.
+
+# [Node.js](#tab/nodejs)
+
+The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Microsoft Entra ID. This is shown below:
+
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="123-155":::
 
 # [Java](#tab/java)
 
@@ -468,6 +482,12 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
 
 The detail of the `SessionManagementHelper` class is provided in the [MSAL sample for Java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java).
 
+# [Node.js](#tab/nodejs)
+
+In the Node.js sample, the application session is used to store the token cache. Using MSAL Node cache methods, the token cache in session is read before a token request is made, and then updated once the token request is successfully completed. This is shown below:
+
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="79-121":::
+
 # [Python](#tab/python)
 
 In the Python sample, the identity package takes care of the token cache, using the global `session` object for storage. 
@@ -500,6 +520,11 @@ Move on to the next article in this scenario,
 
 Move on to the next article in this scenario,
 [Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=nodejs).
 
 # [Python](#tab/python)
 

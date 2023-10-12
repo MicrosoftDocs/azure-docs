@@ -36,11 +36,11 @@ After filtering this information, you're also able to see other information in t
 
 - **Status**: Whether or not the logged event was successful or not.
 - **Status Reason**: If the event failed, a reason is given why.
-- **Target(s)**: Who the logged event ran for. Information given as their Azure Active Directory object ID.
+- **Target(s)**: Who the logged event ran for. Information given as their Microsoft Entra object ID.
 - **Initiated by (actor)**: Who did the event being logged. Information given by the user name. 
 
 ## Next steps
 
 - [Lifecycle Workflow History](lifecycle-workflow-history.md)
-- [Check the status of a workflow (Preview)](check-status-workflow.md)
-- [Azure AD audit activity reference](../reports-monitoring/reference-audit-activities.md)
+- [Check the status of a workflow](check-status-workflow.md)
+- [Microsoft Entra audit activity reference](../reports-monitoring/reference-audit-activities.md)

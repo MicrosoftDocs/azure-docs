@@ -12,7 +12,7 @@ This article explains the difference between "traditional" Application Insights 
 
 ## Log-based metrics
 
-In the past, the application monitoring telemetry data model in Application Insights was solely based on a few predefined types of events, such as requests, exceptions, dependency calls, and page views. Developers can use the SDK to emit these events manually by writing code that explicitly invokes the SDK. Or they can rely on the automatic collection of events from auto-instrumentation. In either case, the Application Insights back end stores all collected events as logs. The Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
+In the past, the application monitoring telemetry data model in Application Insights was solely based on a few predefined types of events, such as requests, exceptions, dependency calls, and page views. Developers can use the SDK to emit these events manually by writing code that explicitly invokes the SDK. Or they can rely on the automatic collection of events from autoinstrumentation. In either case, the Application Insights back end stores all collected events as logs. The Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
 
 Using logs to retain a complete set of events can bring great analytical and diagnostic value. For example, you can get an exact count of requests to a particular URL with the number of distinct users who made these calls. Or you can get detailed diagnostic traces, including exceptions and dependency calls for any user session. Having this type of information can improve visibility into the application health and usage. It can also cut down the time necessary to diagnose issues with an app.
 
@@ -32,7 +32,7 @@ The newer SDKs ([Application Insights 2.7](https://www.nuget.org/packages/Micros
 
 For the SDKs that don't implement pre-aggregation (that is, older versions of Application Insights SDKs or for browser instrumentation), the Application Insights back end still populates the new metrics by aggregating the events received by the Application Insights event collection endpoint. Although you don't benefit from the reduced volume of data transmitted over the wire, you can still use the pre-aggregated metrics and experience better performance and support of the near real time dimensional alerting with SDKs that don't pre-aggregate metrics during collection.
 
-The collection endpoint pre-aggregates events before ingestion sampling. For this reason, [ingestion sampling](./sampling.md) will never affect the accuracy of pre-aggregated metrics, regardless of the SDK version you use with your application.
+The collection endpoint pre-aggregates events before ingestion sampling. For this reason, [ingestion sampling](./sampling.md) never affects the accuracy of pre-aggregated metrics, regardless of the SDK version you use with your application.
 
 ### SDK supported pre-aggregated metrics table
 
@@ -41,10 +41,10 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 | .NET Core and .NET Framework | Supported (V2.13.1+)| Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supported (V2.7.2+) via [GetMetric](get-metric.md) |
 | Java                         | Not supported       | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not supported                           |
 | Node.js                      | Supported (V2.0.0+) | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not supported                           |
-| Python                       | Not supported       | Supported                                 | Partially supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Python                       | Not supported       | Supported                                 | Partially supported via [OpenCensus.stats](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics) |  
 
 > [!NOTE]
-> The metrics implementation for Python by using OpenCensus.stats is different from GetMetric. For more information, see the [Python documentation on metrics](./opencensus-python.md#metrics).
+> The metrics implementation for Python by using OpenCensus.stats is different from GetMetric. For more information, see the [Python documentation on metrics](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics).
 
 ### Codeless supported pre-aggregated metrics table
 
@@ -52,7 +52,7 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 |-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
 | ASP.NET                 | Supported <sup>1<sup>    | Not supported                             | Not supported                           |
 | ASP.NET Core            | Supported <sup>2<sup>    | Not supported                             | Not supported                           |
-| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-enable.md?tabs=java#metrics) |
+| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-add-modify.md?tabs=java#metrics) |
 | Node.js                 | Not supported            | Not supported                             | Not supported                           |
 
 1. ASP.NET codeless attach on virtual machines/virtual machine scale sets and on-premises emits standard metrics without dimensions. The same is true for Azure App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.
@@ -60,9 +60,12 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 
 ## Use pre-aggregation with Application Insights custom metrics
 
-You can use pre-aggregation with custom metrics. The two main benefits are the ability to configure and alert on a dimension of a custom metric and reducing the volume of data sent from the SDK to the Application Insights collection endpoint.
+You can use pre-aggregation with custom metrics. The two main benefits are: 
 
-There are several [ways of sending custom metrics from the Application Insights SDK](./api-custom-events-metrics.md). If your version of the SDK offers [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric), these methods are the preferred way of sending custom metrics. In this case, pre-aggregation happens inside the SDK. This approach reduces the volume of data stored in Azure and also the volume of data transmitted from the SDK to Application Insights. Otherwise, use the [trackMetric](./api-custom-events-metrics.md#trackmetric) method, which will pre-aggregate metric events during data ingestion.
+- The ability to configure and alert on a dimension of a custom metric
+- Reduce the volume of data sent from the SDK to the Application Insights collection endpoint
+
+There are several [ways of sending custom metrics from the Application Insights SDK](./api-custom-events-metrics.md). If your version of the SDK offers [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric), these methods are the preferred way of sending custom metrics. In this case, pre-aggregation happens inside the SDK. This approach reduces the volume of data stored in Azure and also the volume of data transmitted from the SDK to Application Insights. Otherwise, use the [trackMetric](./api-custom-events-metrics.md#trackmetric) method, which pre-aggregates metric events during data ingestion.
 
 ## Custom metrics dimensions and pre-aggregation
 
@@ -95,7 +98,7 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Near real time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Send or receive events using .NET'
-description: A quickstart to create a .NET Core application that sends events to Azure Event Hubs and then receive those events by using the Azure.Messaging.EventHubs package.
+description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Send events to and receive events from Azure Event Hubs using .NET
@@ -118,6 +118,7 @@ This section shows you how to create a .NET Core console application to send eve
         // Use the producer client to send the batch of events to the event hub
         await producerClient.SendAsync(eventBatch);
         Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
     }
     finally
     {
@@ -169,6 +170,7 @@ This section shows you how to create a .NET Core console application to send eve
         // Use the producer client to send the batch of events to the event hub
         await producerClient.SendAsync(eventBatch);
         Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
     }
     finally
     {
@@ -193,19 +195,15 @@ This section shows you how to create a .NET Core console application to send eve
 ## Receive events from the event hub
 This section shows how to write a .NET Core console application that receives events from an event hub using an event processor. The event processor simplifies receiving events from event hubs. 
 
-> [!WARNING]
-> If you run this code on **Azure Stack Hub**, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
->
-> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
-
-
-
 ### Create an Azure Storage Account and a blob container
 In this quickstart, you use Azure Storage as the checkpoint store. Follow these steps to create an Azure Storage account. 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. Authenticate to the blob container using either Azure AD (passwordless) authentication or a connection string to the namespace.
+3. Authenticate to the blob container using either Microsoft Entra ID (passwordless) authentication or a connection string to the namespace.
+
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
+
     
 ## [Passwordless (Recommended)](#tab/passwordless)
 
@@ -306,6 +304,7 @@ Replace the contents of **Program.cs** with the following code:
     {
         // Write the body of the event to the console window
         Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     
@@ -314,6 +313,7 @@ Replace the contents of **Program.cs** with the following code:
         // Write details about the error to the console window
         Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
         Console.WriteLine(eventArgs.Exception.Message);
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     ```
@@ -365,6 +365,7 @@ Replace the contents of **Program.cs** with the following code:
     {
         // Write the body of the event to the console window
         Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     
@@ -373,6 +374,7 @@ Replace the contents of **Program.cs** with the following code:
         // Write details about the error to the console window
         Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
         Console.WriteLine(eventArgs.Exception.Message);
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     ```
@@ -396,6 +398,13 @@ Replace the contents of **Program.cs** with the following code:
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
 
+## Schema validation for Event Hubs SDK based applications
+
+You can use Azure Schema Registry to perform schema validation when you stream data with your Event Hubs SDK-based applications. 
+Azure Schema Registry of Event Hubs provides a centralized repository for managing schemas and you can seamlessly connect your new or existing applications with Schema Registry. 
+
+To learn more, see [Validate schemas with Event Hubs SDK](schema-registry-dotnet-send-receive-quickstart.md). 
+
 ## Clean up resources
 Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 
 
@@ -413,4 +422,3 @@ See the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=%2Fazure%2Fevent-hubs%2FTOC.json)
-

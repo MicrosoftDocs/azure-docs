@@ -41,7 +41,7 @@ You can enable Azure Synapse Link on your existing Azure Cosmos DB containers an
 
 To build a Power BI report/dashboard: 
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. From the **Integrations** section, open the **Power BI** pane and select **Get started**.
 

@@ -2,8 +2,9 @@
 title: Enable the Azure Monitor OpenTelemetry exporter for Node.js applications
 description: This article provides guidance on how to enable the Azure Monitor OpenTelemetry exporter for Node.js applications.
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 09/12/2023
 ms.devlang: javascript
+ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
@@ -129,7 +130,7 @@ function doWork(parent) {
 
 #### Set the Application Insights connection string
 
-You can set the connection string either programmatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. In the event that both have been set, the programmatic connection string will take precedence.
+You can set the connection string either programmatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. If both have been set, the programmatic connection string takes precedence.
 
 You can find your connection string in the Overview Pane of your Application Insights Resource.
 
@@ -152,9 +153,9 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
-You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node.
+You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They appear on the Application Map as the name underneath a node.
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md).
 
 ```javascript
 ...
@@ -265,7 +266,7 @@ The following table represents the currently supported custom telemetry types:
 
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
-The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
+The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
 The following table shows the recommended [aggregation types](../essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
 
@@ -478,7 +479,7 @@ class SpanEnrichingProcessor {
 
 #### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by using the guidance in this section. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
@@ -602,19 +603,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
     provider.register();
     ```
 
-## Support
-
-- For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
-- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
-
-## OpenTelemetry feedback
-
-To provide feedback:
-
-- Fill out the OpenTelemetry community's [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
-- Tell Microsoft about yourself by joining the [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
-- Engage with other Azure Monitor users in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
-- Make a feature request at the [Azure Feedback Forum](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 
 ## Next steps
 

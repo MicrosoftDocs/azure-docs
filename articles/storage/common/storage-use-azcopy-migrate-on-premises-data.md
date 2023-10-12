@@ -2,12 +2,12 @@
 title: 'Tutorial: Migrate on-premises data to Azure Storage with AzCopy'
 description: In this tutorial, you use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.subservice: common
+ms.subservice: storage-common-concepts
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
 ---
 
@@ -56,7 +56,9 @@ Download the AzCopy V10 executable file.
 
 Place the AzCopy file anywhere on your computer. Add the location of the file to your system path variable so that you can refer to this executable file from any folder on your computer.
 
-## Authenticate with Azure AD
+<a name='authenticate-with-azure-ad'></a>
+
+## Authenticate with Microsoft Entra ID
 
 First, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to your identity. See [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
@@ -115,7 +117,7 @@ Copy the AzCopy command to a text editor. Update the parameter values of the AzC
 These examples assume that your folder is named `myFolder`, your storage account name is `mystorageaccount` and your container name is `mycontainer`.
 
 > [!NOTE]
-> The Linux example appends a SAS token. You'll need to provide one in your command. The current version of AzCopy V10 doesn't support Azure AD authorization in cron jobs.
+> The Linux example appends a SAS token. You'll need to provide one in your command. The current version of AzCopy V10 doesn't support Microsoft Entra authorization in cron jobs.
 
 # [Linux](#tab/linux)
 

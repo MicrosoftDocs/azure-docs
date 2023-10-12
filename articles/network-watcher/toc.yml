@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Network Watcher
-    href: network-watcher-monitoring-overview.md
+    href: network-watcher-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -24,13 +24,13 @@
   - name: Diagnose a VM routing problem
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
-    href: connection-monitor.md
+    href: monitor-vm-communication.md
   - name: Monitor communication with virtual machine scale set
     href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
-    href: network-watcher-nsg-flow-logging-portal.md
+    href: nsg-flow-logs-tutorial.md
 - name: Concepts
   items:
   - name: Network Watcher FAQ
@@ -40,21 +40,23 @@
   - name: Connection monitor schema
     href: connection-monitor-schema.md
   - name: IP flow verify
-    href: network-watcher-ip-flow-verify-overview.md
+    href: ip-flow-verify-overview.md
   - name: NSG diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Next hop
     href: network-watcher-next-hop-overview.md
   - name: Connection troubleshoot
-    href: network-watcher-connectivity-overview.md
+    href: connection-troubleshoot-overview.md
   - name: VPN troubleshoot
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
     href: network-watcher-packet-capture-overview.md
   - name: Effective security rules
-    href: network-watcher-security-group-view-overview.md
+    href: effective-security-rules-overview.md
   - name: NSG flow logs
     href: network-watcher-nsg-flow-logging-overview.md
+  - name: VNet flow logs
+    href: vnet-flow-logs-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
@@ -73,20 +75,18 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
-  - name: Moving Network Watcher resources
-    href: resource-move.md
 - name: How-to guides
   items:
   - name: Enable Network Watcher
     href: network-watcher-create.md
-  - name: Connection monitor using Azure Monitor agent
-    items: 
-    - name: Monitor connectivity using Azure Monitor agent
-      href: azure-monitor-agent-with-connection-monitor.md
-    - name: Install Azure Connected Machine agent
-      href: connection-monitor-connected-machine-agent.md
-    - name: Install Azure Monitor agent
-      href: connection-monitor-install-azure-monitor-agent.md
+  - name: Network Watcher Agent
+    items:
+    - name: Windows
+      href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Linux
+      href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Update to latest version
+      href: ../virtual-machines/extensions/network-watcher-update.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
   - name: Create a connection monitor
     items:
     - name: Portal
@@ -95,18 +95,20 @@
       href: connection-monitor-create-using-powershell.md
     - name: ARMClient
       href: connection-monitor-create-using-template.md
-  - name: Migrate to connection monitor
+  - name: Migrate to Connection monitor
     items:
     - name: From Network performance monitor
       href: migrate-to-connection-monitor-from-network-performance-monitor.md
-    - name: From connection monitor (classic)
+    - name: From Connection monitor (classic)
       href: migrate-to-connection-monitor-from-connection-monitor-classic.md
-  - name: Install Network Watcher Agent
-    items:
-    - name: Windows
-      href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-    - name: Linux
-      href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+  - name: Connection monitor using Azure Monitor agent
+    items: 
+    - name: Monitor connectivity using Azure Monitor agent
+      href: azure-monitor-agent-with-connection-monitor.md
+    - name: Install Azure Connected Machine agent
+      href: connection-monitor-connected-machine-agent.md
+    - name: Install Azure Monitor agent
+      href: connection-monitor-install-azure-monitor-agent.md
   - name: Diagnose network security rules
     href: diagnose-network-security-rules.md
   - name: Diagnose a routing problem
@@ -125,6 +127,20 @@
       href: network-watcher-connectivity-cli.md
     - name: REST
       href: network-watcher-connectivity-rest.md
+  - name: Diagnose VPN gateway and connections
+    items:
+    - name: Troubleshoot
+      items:
+      - name: PowerShell
+        href: network-watcher-troubleshoot-manage-powershell.md
+      - name: Azure CLI
+        href: network-watcher-troubleshoot-manage-cli.md
+      - name: REST
+        href: network-watcher-troubleshoot-manage-rest.md
+    - name: Monitor VPN gateway with Azure Automation
+      href: network-watcher-monitor-with-azure-automation.md
+    - name: Diagnose on-premises connectivity via VPN gateway
+      href: network-watcher-diagnose-on-premises-connectivity.md
   - name: Capture and analyze packets
     items:
     - name: Manage a packet capture
@@ -153,7 +169,7 @@
         href: network-watcher-intrusion-detection-open-source-tools.md
       - name: Visualize network traffic patterns using open source tools
         href: network-watcher-using-open-source-tools.md
-  - name: Flow logging
+  - name: Log network traffic
     items:
     - name: Manage NSG flow logs
       items:
@@ -169,6 +185,12 @@
         href: network-watcher-nsg-flow-logging-azure-resource-manager.md
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
+    - name: Manage VNet flow logs
+      items:
+      - name: PowerShell
+        href: vnet-flow-logs-powershell.md
+      - name: Azure CLI
+        href: vnet-flow-logs-cli.md
     - name: Read NSG flow logs
       href: network-watcher-read-nsg-flow-logs.md
     - name: Analyze NSG flow logs
@@ -183,10 +205,10 @@
         href: network-watcher-analyze-nsg-flow-logs-graylog.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
-    - name: Enable traffic analytics
+    - name: Enable traffic analytics using Azure policy
+      href: traffic-analytics-policy-portal.md
+    - name: Traffic analytics schema
       items:
-      - name: Built-in policy
-        href: traffic-analytics-policy-portal.md
       - name: Schema and data aggregation
         href: traffic-analytics-schema.md
       - name: Schema update (March 2020)
@@ -197,24 +219,8 @@
         href: network-watcher-security-group-view-powershell.md
       - name: Azure CLI
         href: network-watcher-security-group-view-cli.md
-      - name: REST
-        href: network-watcher-security-group-view-rest.md
     - name: Perform compliance and audit your network
       href: network-watcher-nsg-auditing-powershell.md
-  - name: Diagnose VPN gateway and connections
-    items:
-    - name: Troubleshoot
-      items:
-      - name: PowerShell
-        href: network-watcher-troubleshoot-manage-powershell.md
-      - name: Azure CLI
-        href: network-watcher-troubleshoot-manage-cli.md
-      - name: REST
-        href: network-watcher-troubleshoot-manage-rest.md
-    - name: Monitor VPN gateway with Azure Automation
-      href: network-watcher-monitor-with-azure-automation.md
-    - name: Diagnose on-premises connectivity via VPN gateway
-      href: network-watcher-diagnose-on-premises-connectivity.md
   - name: View network topology
     href: view-network-topology.md
   - name: Determine relative latency between a location and Azure region

@@ -73,7 +73,7 @@ When working with dedicated and serverless SQL pools, data plane access is contr
 
 The creator of a workspace is assigned as the Active Directory Admin on the workspace. After creation, this role can be assigned to a different user or to a security group in the Azure portal.
 
-**Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
+**Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to the serverless SQL pool, Synapse administrators need to run SQL scripts on the serverless pool.  
 
 **Dedicated SQL pools**: Synapse Administrators have full access to data in dedicated SQL pools, and the ability to grant access to other users. Synapse Administrators can also perform configuration and maintenance activities on dedicated pools, except for dropping databases. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin or Synapse Administrator must run SQL scripts against each dedicated SQL pool.
 

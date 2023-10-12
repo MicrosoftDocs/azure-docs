@@ -1,0 +1,110 @@
+### YamlMime:Landing
+
+title: Oracle workloads on Azure Virtual Machines
+summary: Oracle on Azure virtual machines provides multiple options for running, managing and monitoring Oracle workloads on Azure.
+
+metadata:
+  title: Oracle on Azure VMs
+  description: Learn about solutions for Oracle workloads on Azure VMs
+  ms.service: virtual-machines
+  ms.subservice: oracle
+  ms.topic: landing-page
+  ms.author: jjaygbay1
+  author: jjaygbay1
+  ms.date: 05/11/2023
+  keywords: oracle workloads on azure vms, oracle, data migration to cloud, workloads on azure, azure data migration 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+  #card 1
+  - title: Overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Oracle applications and solutions on Azure
+            url: oracle-overview.md         
+          
+  #card 2  
+  - title: Get started
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Oracle database
+            url: oracle-database-quick-create.md
+          - text: WebLogic Server on Azure VMs
+            url: oracle-weblogic.md
+          - text: WebLogic Server on Azure Kubernetes Service
+            url: weblogic-aks.md
+
+  #card 3  
+  - title: Solution architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Architectures for Oracle applications with database on Azure Virtual Machines
+            url: deploy-application-oracle-database-azure.md
+          - text: Architectures for Oracle applications with Azure Virtual Machines and database on OCI
+            url: oracle-oci-applications.md
+          - text: Architectures for Oracle database on Azure Virtual Machines
+            url: oracle-reference-architecture.md
+          - text: Architectures for Oracle Database Enterprise Edition on Azure
+            url: oracle-design.md
+
+  #card 4  
+  - title: Configuration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Architectures to deploy Oracle applications with Oracle database on Azure IaaS
+            url: deploy-application-oracle-database-azure.md
+          - text: Configure Oracle ASM
+            url: configure-oracle-asm.md
+          - text: Configure Oracle Data Guard
+            url: configure-oracle-dataguard.md
+          - text: Configure Oracle GoldenGate
+            url: configure-oracle-golden-gate.md                  
+  
+  #card 5  
+  - title: Migration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate Oracle workload to Azure VMs
+            url: oracle-migration.md
+          - text: Storage options for oracle on Azure VMs
+            url: oracle-storage.md 
+  
+  #card 6
+  - title: Backup and disaster recovery
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Oracle Database backup strategies
+            url: oracle-database-backup-strategies.md
+          - text: Oracle Database backup using Azure Storage
+            url: oracle-database-backup-azure-storage.md
+          - text: Oracle Database backup using Azure backup 
+            url: oracle-database-backup-azure-backup.md 
+          - text: Disaster Recovery 12c of Oracle on Azure
+            url: oracle-disaster-recovery.md
+          - text: Oracle RMAN streaming backup to Azure storage
+            url: oracle-rman-streaming-backup.md
+
+  #card 7
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Oracle on Azure VMs landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
+          - text: Cloud Adoption Framework for Azure
+            url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+          - text: Azure Architecture Center
+            url: https://learn.microsoft.com/azure/architecture/
+          - text: Pricing calculator
+            url: https://azure.microsoft.com/pricing/calculator/
+          - text: Azure DevOps Roadmap
+            url: https://learn.microsoft.com/azure/devops/release-notes/features-timeline
+      
+   
