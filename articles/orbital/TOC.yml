@@ -5,8 +5,6 @@ items:
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
-  - name: About Microsoft and partner ground stations
-    href: about-ground-stations.md
     
 - name: Quickstart
   items:
