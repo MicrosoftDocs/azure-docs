@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption with Microsoft Entra ID (previous release)
+title: Azure Disk Encryption with Azure AD (previous release)
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
 author: msmbaldwin
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.date: 01/04/2023
 ms.custom: seodec18
 
 ---
-# Azure Disk Encryption with Microsoft Entra ID (previous release)
+# Azure Disk Encryption with Azure AD (previous release)
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
