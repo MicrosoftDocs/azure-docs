@@ -122,7 +122,7 @@ items:
           href: create-view-manage-event-subscriptions.md
         - name: Enable managed identity for namespace
           href: event-grid-namespace-managed-identity.md
-        - name: Authenticate publishing clients using Azure Active Directory      
+        - name: Authenticate publishing clients using Microsoft Entra ID
           href: authenticate-with-active-directory-namespaces.md
       - name: Monitor
         items:
@@ -251,9 +251,9 @@ items:
           href: scripts/powershell-resource-group.md
         - name: Subscribe and filter events for resource group
           href: scripts/powershell-resource-group-filter.md
-        - name: Secure WebHook delivery with Azure AD App in Azure Event Grid
+        - name: Secure WebHook delivery with Microsoft Entra App in Azure Event Grid
           href: scripts/powershell-webhook-secure-delivery-azure-ad-app.md
-        - name: Secure WebHook delivery with Azure AD User in Azure Event Grid
+        - name: Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
           href: scripts/powershell-webhook-secure-delivery-azure-ad-user.md
       - name: Resource Manager templates
         href: template-samples.md
@@ -299,6 +299,8 @@ items:
               href: communication-services-email-events.md
             - name: Job Router Events
               href: communication-services-router-events.md
+            - name: Advanced Messaging Events
+              href: communication-services-advanced-messaging-events.md
           - name: Azure Container Registry
             href: event-schema-container-registry.md
           - name: Azure Data Box
@@ -353,7 +355,7 @@ items:
             items:
             - name: Graph API event sources
               href: partner-events-graph-api.md
-            - name: Azure Active Directory
+            - name: Microsoft Entra ID
               href: azure-active-directory-events.md
             - name: Microsoft Outlook
               href: outlook-events.md
@@ -410,7 +412,7 @@ items:
           items:
           - name: Overview
             href: authentication-overview.md
-          - name: Publish events using Azure Active Directory authentication
+          - name: Publish events using Microsoft Entra authentication
             href: authenticate-with-active-directory.md
           - name: Publish events using access key or shared access signature
             href: authenticate-with-access-keys-shared-access-signatures.md
@@ -516,7 +518,7 @@ items:
           href: consume-private-endpoints.md
         - name: Configure IP firewall
           href: configure-firewall.md
-        - name: Deliver events to Azure Active Directory protected endpoints
+        - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
       - name: Monitor and troubleshoot
         items:

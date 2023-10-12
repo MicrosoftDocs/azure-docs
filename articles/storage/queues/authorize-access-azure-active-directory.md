@@ -64,14 +64,13 @@ When you provide a resource ID that is specific to a single storage account and 
 | --- | --- |
 | Azure Global | `https://<account-name>.queue.core.windows.net` |
 | Azure Government | `https://<account-name>.queue.core.usgovcloudapi.net` |
-| Azure Germany | `https://<account-name>.queue.core.cloudapi.de` |
 | Azure China 21Vianet | `https://<account-name>.queue.core.chinacloudapi.cn` |
 
 You can also provide a resource ID that applies to any storage account, as shown in the following table. This resource ID is the same for all public and sovereign clouds, and is used to acquire a token for authorizing requests to any storage account.
 
 | Cloud | Resource ID |
 | --- | --- |
-| Azure Global</br>Azure Government</br>Azure Germany</br>Azure China 21Vianet</br> | `https://storage.azure.com/` |
+| Azure Global<br />Azure Government<br />Azure China 21Vianet<br /> | `https://storage.azure.com/` |
 
 ## Assign Azure roles for access rights
 

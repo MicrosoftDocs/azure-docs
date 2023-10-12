@@ -19,9 +19,9 @@ To integrate KEDA into your Azure Kubernetes Service, you have to deploy and con
 This article walks you through the steps to integrate KEDA into your AKS cluster using a workload identity.
 
 > [!NOTE]
-> We recommend using Azure Active Directory workload identity. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
+> We recommend using Microsoft Entra Workload ID. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
 >
 > Azure Managed Prometheus support starts from KEDA v2.10. If you have an older version of KEDA installed, you must upgrade in order to work with Azure Managed Prometheus.
 
@@ -49,7 +49,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
     + `SERVICE_ACCOUNT_NAME` - KEDA must use the service account that was used to create federated credentials. This can be any user defined name.
     + `AKS_CLUSTER_NAME`- The name of the AKS cluster where you want to deploy KEDA.
     + `SERVICE_ACCOUNT_NAMESPACE` Both KEDA and service account must be in same namespace.
-    + `USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that's created for KEDA. 
+    + `USER_ASSIGNED_IDENTITY_NAME` is the name of the Microsoft Entra identity that's created for KEDA. 
     + `FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that's created for KEDA to use to authenticate with Azure.
 
 1. If your AKS cluster hasn't been created with workload-identity or oidc-issuer enabled, you'll need to enable it. If you aren't sure, you can run the following command to check if it's enabled.
