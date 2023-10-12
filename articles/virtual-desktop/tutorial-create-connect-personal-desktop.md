@@ -118,7 +118,7 @@ Once your host pool, workspace, application group, and session host VM(s) have b
 
 1. From the host pool overview, select **Application groups**.
 
-1. Select the application group from the list, for example **Microsoft Entra ID-hp01-DAG**.
+1. Select the application group from the list, for example **me-id-hp01-DAG**.
 
 1. From the application group overview, select **Assignments**.
 
