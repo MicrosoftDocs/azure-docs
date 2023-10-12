@@ -21,7 +21,7 @@ Expanded character support will allow users to create SMB file shares with file 
 
 Azure File Sync also supports most of the special case valid Unicode characters and control characters except for the trailing dot (.)
 
-For more information on unsupported characters in Azure File Sync, refer to the [documentation](file-sync-troubleshoot-sync-errors.md#handling-unsupported-characters).
+For more information on unsupported characters in Azure File Sync, refer to the [documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors#handling-unsupported-characters).
 
 ### 2023 quarter 3 (July, August, September)
 
