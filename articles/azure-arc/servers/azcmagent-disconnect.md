@@ -88,4 +88,8 @@ Specifies the service principal secret. Must be used with the `--service-princip
 
 Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
 
+`--user-tenant-id`
+
+The tenant ID for the account used to connect the server to Azure. This field is required when the tenant of the onboarding account isn't the same as the desired tenant for the Azure Arc-enabled server resource.
+
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

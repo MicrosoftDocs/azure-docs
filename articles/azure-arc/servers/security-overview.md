@@ -74,6 +74,12 @@ The table below describes the behavior when performing an extension operation ag
 > [!IMPORTANT]
 > If an extension is already installed on your server before you configure an allowlist or blocklist, it will not automatically be removed. It is your responsibility to delete the extension from Azure to fully remove it from the machine. Delete requests are always accepted to accommodate this scenario. Once deleted, the allowlist and blocklist will determine whether or not to allow future install attempts.
 
+Starting with agent version 1.35, there is a special allowlist value `Allow/None` which instructs the extension manager to run, but not allow any extensions to be installed. This is required when using Windows Server 2012 Extended Security Updates delivered via Azure Arc, but don't want to use any extensions, because the extension manager is responsible for handling the billing for extended security udpates.
+
+```bash
+azcmagent config set extensions.allowlist "Allow/None"
+```
+
 ### Enable or disable Guest Configuration
 
 Azure Policy's Guest Configuration feature enables you to audit and configure settings on your server from Azure. You can disable Guest Configuration from running on your server if you don't want to allow this functionality by running the following command:

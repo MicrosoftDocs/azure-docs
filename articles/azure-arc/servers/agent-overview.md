@@ -160,7 +160,7 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
   | AzureMonitorWindowsAgent | Windows | 100% |
   | AzureSecurityLinuxAgent | Linux | 30% |
   | LinuxOsUpdateExtension | Linux | 60% |
-  | MDE.Linux | Linux | 30% |
+  | MDE.Linux | Linux | 60% |
   | MicrosoftDnsAgent | Windows | 100% |
   | MicrosoftMonitoringAgent | Windows | 60% |
   | OmsAgentForLinux | Windows | 60%|

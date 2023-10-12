@@ -10,7 +10,6 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
-|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
 |`login.windows.net`|Azure Active Directory|Always| Public |
 |`login.microsoftonline.com`|Azure Active Directory|Always| Public |
 |`pas.windows.net`|Azure Active Directory|Always| Public |
