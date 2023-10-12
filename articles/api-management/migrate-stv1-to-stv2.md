@@ -1,12 +1,12 @@
 ---
 title: Migrate Azure API Management instance to stv2 platform  | Microsoft Docs
-description: Follow these steps to migrate your Azure API Management instance from the stv1 compute platform to the stv2 compute platform. Migration steps depend on whether the instance is deployed (injected) in a VNet.
+description: Migrate your Azure API Management instance from the stv1 compute platform to the stv2 platform. Migration steps depend on whether the instance is injected in a VNet.
 
 author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 10/12/2023
 ms.author: danlep
 ---
 
@@ -14,15 +14,21 @@ ms.author: danlep
 
 You can migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform. This article provides migration steps for two scenarios, depending on whether or not your API Management instance is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet.
 
-* **Non-VNet-injected API Management instance** - Use the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API
+* **Scenario 1: Non-VNet-injected API Management instance** - Use the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API
 
-* **VNet-injected API Management instance** - Manually update the VNet configuration settings
+    * You can optionally preserve the VIP address (or addresses) of your API Management instance during migration, otherwise the VIP changes automatically (recommended). 
+
+    * If you preserve the original VIP, your instance will have downtime for up to 15 minutes. If the VIP changes, your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+
+
+* **Scenario 2: VNet-injected API Management instance** - Manually update the VNet configuration settings
+
+    * The VIP address of your API Management instance changes automatically during migration. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
 For more information about the `stv1` and `stv2` platforms and the benefits of using the `stv2` platform, see [Compute platform for API Management](compute-infrastructure.md).
 
 > [!IMPORTANT]
-> * Migration is a long-running operation. Your instance will experience downtime during the last 10-15 minutes of migration. Plan your migration accordingly.
-> * The VIP address(es) of your API Management will change if you're using scenario 2 mentioned below (service injected in a VNet). For scenario 1 (not injected in a VNet), the VIP will temporarily change during migration for up to 15 minutes, but the original VIP of the service will be restored at the end of the migration operation. 
+> * Migration is a long-running operation that involves migrating your API Management instance to new infrastructure. Depending on your scenario, your instance may experience downtime during the last 10-15 minutes of migration, and you may need to update settings for connectivity to your API Management instance. Plan your migration accordingly.
 > * Migration to `stv2` is not reversible.
 
 > [!IMPORTANT]
@@ -38,7 +44,23 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 ## Scenario 1: Migrate API Management instance, not injected in a VNet
 
-For an API Management instance that's not deployed in a VNet, invoke the Migrate to `stv2` REST API. For example, run the following Azure CLI commands, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
+For an API Management instance that's not deployed in a VNet, go to the **Platform migration** blade in the portal, or invoke the Migrate to `stv2` REST API. 
+
+#### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Settings**, select **Platform migration**.
+1. On the **Platform migration** page, select one of the two migration options:
+
+    * **New virtual IP address** - Recommended. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets and to use the new VIP address.
+
+    * **Preserve IP address** - The VIP address of your API Management instance won't change. Your instance will have downtime for up to 15 minutes.
+
+1. Review guidance for the migration process, and perform any necessary preparation steps. After you've completed the preparation steps, select **I have read and understand the impact of the migration process.**. Select **Migrate**.
+
+#### [Azure CLI](#tab/cli)
+
+Run the following Azure CLI commands, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
 
 > [!NOTE]
 > The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
@@ -61,9 +83,14 @@ RG_NAME={name of your resource group}
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
 
-# Call REST API to migrate to stv2
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2022-08-01"
+# Call REST API to migrate to stv2 and change VIP address
+az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
+
+# Alternate call to migrate to stv2 and preserve VIP address
+# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
 ```
+
+---
 
 ## Scenario 2: Migrate a network-injected API Management instance
 
