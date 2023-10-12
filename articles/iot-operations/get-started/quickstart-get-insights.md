@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Deploy Azure IoT Operations"
-description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
+title: "Quickstart: get insights from your processed data"
+description: "Quickstart: Use a Power BI report to capture insights from your OPC UA data you sent to the Microsoft Fabric OneLake lakehouse."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
@@ -34,7 +34,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster
+# Quickstart: Get insights from Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -51,6 +51,8 @@ Example:
 You'll simulate a sophisticated attack that uses advanced techniques to hide from detection. The attack enumerates opened Server Message Block (SMB) sessions on domain controllers and retrieves recent IP addresses of users' devices. After the attack, you'll use the Microsoft 365 Defender portal to review the generated alerts and automated remediation.
 
 -->
+
+Use a Power BI report to capture insights from your OPC UA data you sent to the Microsoft Fabric OneLake lakehouse.
 
 TODO: Add your introductory paragraph
 
@@ -217,4 +219,21 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 ## Next step
 
-[Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+TODO: Add your next step link(s)
+
+<!-- 
+
+> [!div class="nextstepaction"]
+> [Write concepts](article-concept.md)
+
+OR -->
+
+## Related content
+
+TODO: Add your next step link(s)
+
+<!--
+- [Write concepts](article-concept.md)
+
+Remove all the comments in this template before you sign-off or merge to the main branch.
+-->
