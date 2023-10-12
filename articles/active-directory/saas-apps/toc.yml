@@ -3160,6 +3160,8 @@
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
         href: cofense-provision-tutorial.md
+      - name: Colloquial
+        href: colloquial-provisioning-tutorial.md
       - name: Connecter
         href: connecter-provisioning-tutorial.md
       - name: Contentful
