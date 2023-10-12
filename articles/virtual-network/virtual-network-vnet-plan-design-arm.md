@@ -84,7 +84,7 @@ You can connect a virtual network to other virtual networks using virtual networ
 
 ### Peering
 
-When using [virtual network peering](virtual-network-peering-overview.md), the virtual networks can be in the same, or different, supported Azure regions. The virtual networks can be in the same or different Azure subscriptions (even subscriptions belonging to different Azure Active Directory tenants). Before creating a peering, it's recommended that you familiarize yourself with all of the peering [requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). Bandwidth between resources in virtual networks peered in the same region is the same as if the resources were in the same virtual network.
+When using [virtual network peering](virtual-network-peering-overview.md), the virtual networks can be in the same, or different, supported Azure regions. The virtual networks can be in the same or different Azure subscriptions (even subscriptions belonging to different Microsoft Entra tenants). Before creating a peering, it's recommended that you familiarize yourself with all of the peering [requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). Bandwidth between resources in virtual networks peered in the same region is the same as if the resources were in the same virtual network.
 
 ### VPN gateway
 

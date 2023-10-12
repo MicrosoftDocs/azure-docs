@@ -39,10 +39,10 @@ Below is a reference architecture on how the replication workflow changes with p
   [private endpoints](https://azure.microsoft.com/pricing/details/private-link/).
 - When a private endpoint is created for a vault, the vault is locked down and **isn't accessible
   from networks other than those networks that have private endpoints**.
-- Azure Active Directory currently doesn't support private endpoints. As such, IPs and fully
-  qualified domain names required for Azure Active Directory to work in a region need to be allowed
+- Microsoft Entra ID currently doesn't support private endpoints. As such, IPs and fully
+  qualified domain names required for Microsoft Entra ID to work in a region need to be allowed
   outbound access from the secured network. You can also use network security group tag "Azure
-  Active Directory" and Azure Firewall tags for allowing access to Azure Active Directory, as
+  Active Directory" and Azure Firewall tags for allowing access to Microsoft Entra ID, as
   applicable.
 - **At least seven IP addresses are required** in the subnets of both your source machines and your
   recovery machines. When you create a private endpoint for the vault, Site Recovery creates five

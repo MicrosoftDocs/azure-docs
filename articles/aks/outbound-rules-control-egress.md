@@ -61,7 +61,7 @@ The following network and FQDN/application rules are required for an AKS cluster
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations.  |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
-| **`login.microsoftonline.com`**  | **`HTTPS:443`** | Required for Azure Active Directory authentication. |
+| **`login.microsoftonline.com`**  | **`HTTPS:443`** | Required for Microsoft Entra authentication. |
 | **`packages.microsoft.com`**     | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | **`acs-mirror.azureedge.net`**   | **`HTTPS:443`** | This address is for the repository required to download and install required binaries like kubenet and Azure CNI. |
 
@@ -86,7 +86,7 @@ The following network and FQDN/application rules are required for an AKS cluster
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
-| **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Required for Azure Active Directory authentication. |
+| **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Required for Microsoft Entra authentication. |
 | **`packages.microsoft.com`**                   | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | **`*.azk8s.cn`**                               | **`HTTPS:443`** | This address is for the repository required to download and install required binaries like kubenet and Azure CNI. |
 
@@ -108,7 +108,7 @@ The following network and FQDN/application rules are required for an AKS cluster
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
-| **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Required for Azure Active Directory authentication. |
+| **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Required for Microsoft Entra authentication. |
 | **`packages.microsoft.com`**                            | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | **`acs-mirror.azureedge.net`**                          | **`HTTPS:443`** | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
 
