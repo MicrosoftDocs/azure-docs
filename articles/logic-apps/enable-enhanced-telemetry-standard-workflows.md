@@ -669,6 +669,8 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
    }
    ```
 
+---
+
 <a name="view-enhanced-metrics"></a>
 
 ## View enhanced metrics in Application Insights
