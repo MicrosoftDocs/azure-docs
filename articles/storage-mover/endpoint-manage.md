@@ -163,7 +163,12 @@ The following steps describe the process of creating a source endpoint.
    > [!CAUTION]
    > Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you won't be able to change much of the endpoint name after it is provisioned. You may, however, choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
-   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings. Copy the sample code block and supply values for the required parameters. The `-Description` parameter is optional and is added in the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section.
+   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings. 
+
+      > [!IMPORTANT]
+      > Depending on your DNS configuration, you may need to use your fully qualified domain name (FQDN) instead of your hostname.
+
+      Copy the sample code block and supply values for the required parameters. The `-Description` parameter is optional and is added in the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section.
 
       ```powershell
       
