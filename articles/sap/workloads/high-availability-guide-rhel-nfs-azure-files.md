@@ -1,6 +1,6 @@
 ---
 title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| Microsoft Docs
-description: Establish high availability for SAP NetWeaver on Azure VMs Red Hat Enterprise Linux (RHEL) with NFS on Azure Files.
+description: Establish high availability for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with NFS on Azure Files.
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
@@ -12,7 +12,7 @@ ms.date: 08/23/2023
 ms.author: radeltch
 ---
 
-# High availability for SAP NetWeaver on Azure VMs on RHEL with NFS on Azure Files
+# High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files
 
 [dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
@@ -79,10 +79,10 @@ The example configurations and installation commands use the following instance 
 
 | Instance name | Instance number |
 | ---------------- | ------------------ |
-| ABAP SAP Central Services (ASCS) | 00 |
+| ABAP SAP central services (ASCS) | 00 |
 | ERS | 01 |
-| ABAP SAP Central Services (ASCS) | 02 |
-| Additional Application Server (AAS) | 03 |
+| ABAP SAP central services (ASCS) | 02 |
+| Additional application server (AAS) | 03 |
 | SAP system identifier | NW1 |
 
 :::image type="complex" source="./media/high-availability-guide-rhel/high-availability-guide-rhel-nfs-azure-files.png" alt-text="Diagram that shows SAP NetWeaver high availability with NFS on Azure Files.":::
@@ -95,16 +95,16 @@ This document assumes that you already deployed an [Azure virtual network](../..
 
 1. Deploy your VMs. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload). You can deploy VMs in availability zones, if the Azure region supports zones, or in availability sets. If you need more IP addresses for your VMs, deploy and attach a second NIC. Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).  
 
-1. For your virtual IPs, deploy and configure an Azure [load balancer](../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).
+1. For your virtual IPs, deploy and configure an instance of [Load Balancer](../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
     1. Configure two front-end IPs. One is for ASCS (`10.90.90.10`) and one is for ERS (`10.90.90.9`).
     1. Create a back-end pool and add both VMs, which will be part of the cluster.
     1. Create the health probe for ASCS. The probe port is `62000`. Create the probe port for ERS. The ERS probe port is `62101`. When you configure the Pacemaker resources later on, you must use matching probe ports.
-    1. Configure the load balancing rules for ASCS and ERS. Select the corresponding front IPs, health probes, and the back-end pool. Select HA ports, increase the idle timeout to 30 minutes, and enable floating IP.
+    1. Configure the load-balancing rules for ASCS and ERS. Select the corresponding front IPs, health probes, and the back-end pool. Select HA ports, increase the idle timeout to 30 minutes, and enable floating IP.
 
 ### Deploy Azure Files storage account and NFS shares
 
-NFS on Azure Files, runs on top of [Azure Files Premium storage][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files Premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 
@@ -113,47 +113,47 @@ There are two options for redundancy within an Azure region:
 
 Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS, [verify that Premium File shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
-We recommend that you access your Azure Storage account through an [Azure Private Endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure VNet or peered Azure VNets.
+We recommend that you access your Azure Storage account through an [Azure private endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure virtual network or peered Azure virtual networks.
 
-1. Deploy a File Storage account named `sapafsnfs`. In this example, we use ZRS. If you're not familiar with the process, see [Create a storage account](../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
+1. Deploy an Azure Files storage account named `sapafsnfs`. In this example, we use ZRS. If you're not familiar with the process, see [Create a storage account](../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
 
-2. In the **Basics** tab, use these settings:
+1. On the **Basics** tab, use these settings:
     1. For **Storage account name**, enter `sapafsnfs`.
-    2. For **Performance**, select **Premium**.
-    3. For **Premium account type**, select **FileStorage**.
-    4. For **Replication**, select zone redundancy (ZRS).
-3. Select **Next**.
-4. In the **Advanced** tab, clear **Require secure transfer for REST API Operations**. If you don't clear this option, you can't mount the NFS share to your VM. The mount operation will time out.
-5. Select **Next**.
-6. In the **Networking** section, configure these settings:
+    1. For **Performance**, select **Premium**.
+    1. For **Premium account type**, select **FileStorage**.
+    1. For **Replication**, select **zone redundancy (ZRS)**.
+1. Select **Next**.
+1. On the **Advanced** tab, clear **Require secure transfer for REST API Operations**. If you don't clear this option, you can't mount the NFS share to your VM. The mount operation will time out.
+1. Select **Next**.
+1. In the **Networking** section, configure these settings:
     1. Under **Networking connectivity**, for **Connectivity method**, select **Private endpoint**.
-    2. Under **Private endpoint**, select **Add private endpoint**.
-7. In the **Create private endpoint** pane, select your **Subscription**, **Resource group**, and **Location**.
+    1. Under **Private endpoint**, select **Add private endpoint**.
+1. On the **Create private endpoint** pane, select your **Subscription**, **Resource group**, and **Location**.
    For **Name**, enter `sapafsnfs_pe`.
    For **Storage sub-resource**, select **file**.
-   Under **Networking**, for **Virtual network**, select the VNet and subnet to use. Again, you can use the VNet where your SAP VMs are, or a peered VNet.
+   Under **Networking**, for **Virtual network**, select the virtual network and subnet to use. Again, you can use the virtual network where your SAP VMs are or a peered virtual network.
    Under **Private DNS integration**, accept the default option **Yes** for **Integrate with private DNS zone**. Make sure to select your **Private DNS Zone**.
    Select **OK**.
-8. On the **Networking** tab again, select **Next**.
-9. On the **Data protection** tab, keep all the default settings.
-10. Select **Review + create** to validate your configuration.
-11. Wait for the validation to finish. Fix any issues before continuing.
-12. On the **Review + create** tab, select **Create**.
+1. On the **Networking** tab again, select **Next**.
+1. On the **Data protection** tab, keep all the default settings.
+1. Select **Review + create** to validate your configuration.
+1. Wait for the validation to finish. Fix any issues before you continue.
+1. On the **Review + create** tab, select **Create**.
 
 Next, deploy the NFS shares in the storage account you created. In this example, there are two NFS shares, `sapnw1` and `saptrans`.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select or search for **Storage accounts**.
-3. On the **Storage accounts** page, select **sapafsnfs**.
-4. On the resource menu for **sapafsnfs**, select **File shares** under **Data storage**.
-5. On the **File shares** page, select **File share**.
+1. Select or search for **Storage accounts**.
+1. On the **Storage accounts** page, select **sapafsnfs**.
+1. On the resource menu for **sapafsnfs**, under **Data storage**, select **File shares**.
+1. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   2. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share, IOPs and throughput requirements.  For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
-   3. Select **NFS** as the protocol.
-   4. Select **No root Squash**.  Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
+   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPs and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+   1. Select **NFS** as the protocol.
+   1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
 > [!IMPORTANT]
-> The share size above is just an example. Make sure to size your shares appropriately. Size not only based on the size of the of data stored on the share, but also based on the requirements for IOPS and throughput. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
+> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
 
 The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
@@ -161,82 +161,82 @@ The SAP file systems that don't need to be mounted via NFS can also be deployed 
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-* The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model)
-* Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)
-* Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file shares performance](../../storage/files/files-troubleshoot-performance.md)
+* The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
+* Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+* Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, see [Troubleshoot Azure file shares performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
-* If your SAP system has a heavy batch jobs load, you may have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52 the default behavior for the batch job logs is to be stored in the database. For details see [Job log in the database][2360818].
-* Deploy a separate `sapmnt` share for each SAP system
-* Don't use the `sapmnt` share for any other activity, such as interfaces, or `saptrans`
-* Don't use the `saptrans` share for any other activity, such as interfaces, or `sapmnt`
-* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [Storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
-* In general,  don't consolidate the shares for more than 5 SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
-* In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
-* We recommend deploying on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
+* If your SAP system has a heavy batch jobs load, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For more information, see [Job log in the database][2360818].
+* Deploy a separate `sapmnt` share for each SAP system.
+* Don't use the `sapmnt` share for any other activity, such as interfaces, or `saptrans`.
+* Don't use the `saptrans` share for any other activity, such as interfaces, or `sapmnt`.
+* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful not to exceed the limits for the storage account, too.
+* In general,  don't consolidate the shares for more than five SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
+* In general, avoid mixing shares like `sapmnt` for nonproduction and production SAP systems in the same storage account.
+* We recommend that you deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
 * Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
-* If you're deploying your VMs across Availability Zones, use [Storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS.
+* If you're deploying your VMs across availability zones, use a [storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that support ZRS.
 * Azure Files doesn't currently support automatic cross-region replication for disaster recovery scenarios.
 
-## Setting up (A)SCS
+## Set up (A)SCS
 
 In this example, you deploy the resources manually through the [Azure portal](https://portal.azure.com/#home).
 
-### Deploy Azure Load Balancer via Azure portal
+### Deploy Azure Load Balancer via the Azure portal
 
-After you deploy the VMs for your SAP system, create a load balancer. Then, use the VMs in the backend pool.
+After you deploy the VMs for your SAP system, create a load balancer. Then, use the VMs in the back-end pool.
 
-1. Create an internal, standard load balancer.
-   1. Create the frontend IP addresses
-      1. IP address 10.90.90.10 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         2. Enter the name of the new frontend IP pool (for example **frontend.NW1.ASCS**)
-         3. Set the Assignment to Static and enter the IP address (for example **10.90.90.10**)
-         4. Click OK
-      2. IP address 10.90.90.9 for the ASCS ERS
-         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.90.90.9** and **frontend.NW1.ERS**)
-   2. Create a single back-end pool:
+1. Create an internal, Standard instance of Load Balancer.
+   1. Create the front-end IP addresses.
+      1. IP address 10.90.90.10 for the ASCS:
+         1. Open the load balancer, select the front-end IP pool, and select **Add**.
+         1. Enter the name of the new front-end IP pool (for example, **frontend.NW1.ASCS**).
+         1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.90.90.10**).
+         1. Select **OK**.
+      1. IP address 10.90.90.9 for the ASCS ERS:
+         * Repeat the preceding steps under "a" to create an IP address for the ERS (for example, **10.90.90.9** and **frontend.NW1.ERS**).
+   1. Create a single back-end pool:
       1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      2. Enter the name of the new back-end pool (for example, **backend.NW1**).
-      3. Select **NIC** for Backend Pool Configuration.
-      4. Select **Add a virtual machine**.
-      5. Select the virtual machines of the ASCS cluster.
-      6. Select **Add**.
-      7. Select **Save**.
-   3. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         2. Enter the name of the new health probe (for example **health.NW1.ASCS**)
-         3. Select TCP as protocol, port 620**00**, keep Interval 5  
-         4. Click OK
-      2. Port 621**01** for ASCS ERS
-         * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.NW1.ERS**)
-   4. Load-balancing rules
-      1. Create a backend pool for the ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
-         2. Enter the name of the new load balancer rule (for example **lb.NW1.ASCS**)
-         3. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**)
-         4. Select **HA ports**
-         5. Increase idle timeout to 30 minutes
-         6. **Make sure to enable Floating IP**
-         7. Click OK
-         * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
+      1. Enter the name of the new back-end pool (for example, **backend.NW1**).
+      1. Select **NIC** for **Backend Pool Configuration**.
+      1. Select **Add a virtual machine**.
+      1. Select the VMs of the ASCS cluster.
+      1. Select **Add**.
+      1. Select **Save**.
+   1. Create the health probes.
+      1. Port 620**00** for ASCS:
+         1. Open the load balancer, select **Health probes**, and select **Add**.
+         1. Enter the name of the new health probe (for example, **health.NW1.ASCS**).
+         1. Select **TCP** as the protocol and the port 620**00** and keep **Interval 5**.  
+         1. Select **OK**.
+      1. Port 621**01** for ASCS ERS:
+         * Repeat the preceding steps under "c" to create a health probe for the ERS (for example, 621**01** and **health.NW1.ERS**).
+   1. Create load-balancing rules.
+      1. Create a back-end pool for the ASCS:
+         1. Open the load balancer, select **Load-balancing rules**, and select **Add**.
+         1. Enter the name of the new load balancer rule (for example, **lb.NW1.ASCS**).
+         1. Select the front-end IP address for ASCS, the back-end pool, and the health probe you created earlier (for example, **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**).
+         1. Select **HA ports**.
+         1. Increase the idle timeout to **30 minutes**.
+         1. Make sure to enable **Floating IP**.
+         1. Select **OK**.
+         * Repeat the preceding steps to create load-balancing rules for ERS (for example, **lb.NW1.ERS**).
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+> When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard instance of Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> Don't enable TCP timestamps on Azure VMs placed behind Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
-### Create Pacemaker cluster
+### Create a Pacemaker cluster
 
-Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this (A)SCS server.
+Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this (A)SCS server.
 
-### Prepare for SAP NetWeaver installation
+### Prepare for an SAP NetWeaver installation
 
-The following items are prefixed with either:
+The following items are prefixed with:
 
 - **[A]**: Applicable to all nodes
 - **[1]**: Only applicable to node 1
@@ -270,7 +270,7 @@ The following items are prefixed with either:
     ```
 
 1. **[1]** Create the SAP directories on the NFS share.  
-    Temporarily mount the NFS share **sapnw1** on one of the VMs, and create the SAP directories that will be used as nested mount points.  
+    Mount the NFS share **sapnw1** temporarily on one of the VMs, and create the SAP directories that will be used as nested mount points.
 
     ```bash
     # mount temporarily the volume
@@ -400,7 +400,7 @@ The following items are prefixed with either:
 
 1. **[1]** Install SAP NetWeaver ASCS.
 
-   Install SAP NetWeaver ASCS as the root on the first node by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the ASCS, for example, **sapascs**, **10.90.90.10**, and the instance number that you used for the probe of the load balancer, for example, **00**.
+   Install SAP NetWeaver ASCS as the root on the first node by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the ASCS, for example, **sapascs** and **10.90.90.10**, and the instance number that you used for the probe of the load balancer, for example, **00**.
 
    You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to `sapinst`.
 
@@ -460,7 +460,7 @@ The following items are prefixed with either:
 
 1. **[2]** Install SAP NetWeaver ERS.
 
-   Install SAP NetWeaver ERS as the root on the second node by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the ERS, for example, **sapers** and **10.90.90.9** ,and the instance number that you used for the probe of the load balancer, for example, **01**.
+   Install SAP NetWeaver ERS as the root on the second node by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the ERS, for example, **sapers** and **10.90.90.9**, and the instance number that you used for the probe of the load balancer, for example, **01**.
 
    You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to `sapinst`.
 
@@ -480,7 +480,7 @@ The following items are prefixed with either:
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles.
 
-   * ASCS/SCS profile
+   * ASCS/SCS profile:
 
     ```bash
     sudo vi /sapmnt/NW1/profile/NW1_ASCS00_sapascs
@@ -495,7 +495,7 @@ The following items are prefixed with either:
 
    For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
-   * ERS profile
+   * ERS profile:
 
     ```bash
     sudo vi /sapmnt/NW1/profile/NW1_ERS01_sapers
@@ -510,7 +510,7 @@ The following items are prefixed with either:
 
 1. **[A]** Configure Keep Alive.
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this action, set a parameter in the SAP NetWeaver ASCS/SCS profile, if you're using ENSA1. Change the Linux system `keepalive` settings on all SAP servers for both ENSA1 and ENSA2. For more information, see [SAP Note 1410736][1410736].
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this action, set a parameter in the SAP NetWeaver ASCS/SCS profile, if you're using ENSA1. Change the Linux system `keepalive` settings on all SAP servers for both ENSA1 and ENSA2. For more information, see SAP Note [1410736][1410736].
 
     ```bash
     # Change the Linux system configuration
@@ -562,8 +562,8 @@ The following items are prefixed with either:
     sudo pcs property set maintenance-mode=false
     ```
 
-    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
-    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
+    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+    If you use enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as shown here:
 
     ```bash
     sudo pcs property set maintenance-mode=true
@@ -621,7 +621,7 @@ The following items are prefixed with either:
     #      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl1
     ```
 
-1. **[1]** Run the following step to configure `priority-fencing-delay (applicable only as of pacemaker-2.0.4-6.el8 or higher).
+1. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
 
     > [!NOTE]
     > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
@@ -676,14 +676,14 @@ The following items are prefixed with either:
 
    The following steps assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise, some of the steps (like configuring hostname resolution) aren't needed.  
 
-   The following items are prefixed with either:
+   The following items are prefixed with:
 
    - **[A]**: Applicable to both PAS and AAS
    - **[P]**: Only applicable to PAS
    - **[S]**: Only applicable to AAS
 
 1. **[A]** Set up hostname resolution.
-   You can either use a DNS server or modify the `/etc/hosts` on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the hostname in the following commands:  
+   You can either use a DNS server or modify the `/etc/hosts` file on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the hostname in the following commands:  
 
     ```bash
     sudo vi /etc/hosts
@@ -753,7 +753,7 @@ The following items are prefixed with either:
 
 ## Install the database
 
-In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see SAP Note [1928533][1928533].
 
 Install the SAP NetWeaver database instance as a root by using a virtual hostname that maps to the IP address of the load balancer front-end configuration for the database.
 
@@ -818,7 +818,7 @@ Thoroughly test your Pacemaker cluster. For more information, see [Execute the t
 
 ## Next steps
 
-* To deploy a cost-optimization scenario where the PAS and AAS instance is deployed with SAP NetWeaver HA cluster on RHEL, see [Install SAP dialog instance with SAP ASCS/SCS high availability VMs on RHEL](high-availability-guide-rhel-with-dialog-instance.md).
+* To deploy a cost-optimization scenario where the PAS and AAS instance is deployed with SAP NetWeaver HA cluster on RHEL, see [Install SAP dialog instance with SAP ASCS/SCS high-availability VMs on RHEL](high-availability-guide-rhel-with-dialog-instance.md).
 * See [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md).
 * See [Azure Virtual Machines planning and implementation for SAP][planning-guide].
 * See [Azure Virtual Machines deployment for SAP][deployment-guide].
