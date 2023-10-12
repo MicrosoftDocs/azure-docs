@@ -395,4 +395,4 @@ Look under the 'status' section of the return object for relevant details
 
 - [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [Microsoft Entra Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
+- [Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

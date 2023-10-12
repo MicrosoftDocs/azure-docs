@@ -19,7 +19,7 @@ This article provides guidance on how to choose and use Microsoft Entra Connect 
 ## Cloud provisioning agent requirements
 You need the following to use Microsoft Entra Connect cloud sync:
 
-- Domain Administrator or Enterprise Administrator credentials to create the Microsoft Entra Connect Cloud Sync gMSA (group Managed Service Account) to run the agent service.	
+- Domain Administrator or Enterprise Administrator credentials to create the Microsoft Entra Connect cloud sync gMSA (group managed service account) to run the agent service.
 - A hybrid identity administrator account for your Microsoft Entra tenant that is not a guest user.
 - An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).  Installing the agent on a domain controller is supported.
 - High availability refers to the Microsoft Entra Connect cloud sync's ability to operate continuously without failure for a long time.  By having multiple active agents installed and running, Microsoft Entra Connect cloud sync can continue to function even if one agent should fail.  Microsoft recommends having 3 active agents installed for high availability.

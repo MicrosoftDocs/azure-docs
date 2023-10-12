@@ -14,11 +14,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-
-
-# Cloud Sync directory extensions and custom attribute mapping
+# Cloud sync directory extensions and custom attribute mapping
 
 ## Directory extensions
+
 You can use directory extensions to extend the schema in Microsoft Entra ID with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. 
 
 For additional information on directory extensions see [Using directory extension attributes in claims](../../develop/schema-extensions.md)
@@ -124,7 +123,7 @@ You need to create an [application](/graph/api/resources/application?view=graph-
 |-----|-----|-----|
 |MS Graph|Create extensions using GRAPH|[Create extensionProperty](/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)|
 |PowerShell|Create extensions using PowerShell|[New-AzureADApplicationExtensionProperty](/powershell/module/azuread/new-azureadapplicationextensionproperty?view=azureadps-2.0&preserve-view=true)| 
-Using Cloud Sync and Microsoft Entra Connect|Create extensions using Microsoft Entra Connect|[Create an extension attribute using Microsoft Entra Connect](../../app-provisioning/user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-using-azure-ad-connect)|
+Using cloud sync and Microsoft Entra Connect|Create extensions using Microsoft Entra Connect|[Create an extension attribute using Microsoft Entra Connect](../../app-provisioning/user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-using-azure-ad-connect)|
 |Customizing attributes to sync|Information on customizing which attributes to synch|[Customize which attributes to synchronize with Microsoft Entra ID](../connect/how-to-connect-sync-feature-directory-extensions.md#customize-which-attributes-to-synchronize-with-azure-ad)
 
 ## Use attribute mapping to map Directory Extensions
