@@ -42,12 +42,12 @@ Automatic OS upgrade has the following characteristics:
 
 ### Automatic VM guest patching
 
-When you enable [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching) on your Azure VMs, it helps ease Azure Update Manager to safely and automatically patch virtual machines to maintain security compliance.
+When you enable [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) on your Azure VMs, it helps ease Azure Update Manager to safely and automatically patch virtual machines to maintain security compliance.
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
-- Patches are applied during all hours for [VMSS Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration).
+- Patches are applied during all hours for [VMSS Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration).
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 -  You can monitor application health through the [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
@@ -107,7 +107,7 @@ This mode of patching allows operating system to automatically install updates o
 
 Azure Update Manager provides the flexibility to either install updates immediately or schedule updates within a defined maintenance window. These settings allow you to orchestrate patching for your virtual machine.
 
-### Update Now/One-tme update
+### Update Now/One-time update
 
 Azure Update Manager allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-a-single-vm)
 
