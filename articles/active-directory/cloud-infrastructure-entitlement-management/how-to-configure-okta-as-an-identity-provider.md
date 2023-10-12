@@ -1,5 +1,5 @@
 ---
-title: Configure Okta as an identity provider (preview)
+title: Configure Okta as an identity provider
 description: How to configure Okta as an identity provider in Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
@@ -12,7 +12,7 @@ ms.date: 10/10/2023
 ms.author: jfields
 ---
 
-# Configure Okta as an identity provider
+# Configure Okta as an identity provider (preview)
 
 This article describes how to integrate Okta as an identity provider (IdP) for an Amazon Web Services (AWS) account in Microsoft Entra Permissions Management. 
 
