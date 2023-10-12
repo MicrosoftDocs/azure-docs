@@ -20,7 +20,7 @@ items:
   items:
   - name: Generate alt text for images
     href: use-case-alt-text.md
-  - name: Verify user identity
+  - name: Verify a user
     href: use-case-identity-verification.md
   - name: Monitor customer dwell time
     href: use-case-dwell-time.md
@@ -279,7 +279,7 @@ items:
   - name: Face quickstart
     href: quickstarts-sdk/identity-client-library.md
   - name: Samples
-    href: /samples/browse/?products=azure&term=face
+    href: /samples/browse/?products=azure-cognitive-services&term=face
   - name: Responsible use of AI
     items:
     - name: Transparency notes
