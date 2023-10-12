@@ -52,7 +52,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 
     Once the Excel file is generated, the report is automatically sent to your email.
 
-## Download the Permissions Analytics Report in PDF format (preview)
+## Download the Permissions Analytics Report in PDF format
 
 1. From the Permissions Management home page, select the **Reports** tab, then select the **Systems Reports** subtab.
     
@@ -60,7 +60,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 2. Locate the **Permissions Analytics Report** in the list, then select it.
 3. Select which Authorization System you want to generate the PDF download for (AWS, Azure, or GCP).
    >[!NOTE]
-   > You can download a PDF report for up to 10 authorization systems at one time. The authorization systems must be part of the same cloud environment (for example, 1- 10 authorization systems that are all on Amazon Web Service (AWS)). 
+   > (Preview) You can download a PDF report for up to 10 authorization systems at one time. The authorization systems must be part of the same cloud environment (for example, 1- 10 authorization systems that are all on Amazon Web Service (AWS)). 
     
     The following message displays: **Successfully started to generate PDF report**. 
     
