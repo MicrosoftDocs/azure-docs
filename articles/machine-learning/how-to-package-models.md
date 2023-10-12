@@ -1,7 +1,7 @@
 ---
 title: Package a model for online deployment (preview)
 titleSuffix: Azure Machine Learning
-description:  Learn how you can package a model for online serving using model packages
+description: Learn how you can package a model and deploy it for online inferencing.
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
@@ -686,7 +686,7 @@ The package is now created in the target workspace and ready to be deployed.
 
 ## Package models to deploy outside of Azure Machine Learning
 
-Model packages can be deployed outside of Azure Machine Learning if needed.  To guarantee portability, you only need to ensure that the **model configuration** in your package has the mode set to **copy** so that the model itself is copied inside the generated docker image instead of referenced from the model registry in Azure Machine Learning.
+Model packages can be deployed outside of Azure Machine Learning if needed.  To guarantee portability, you only need to ensure that the **model configuration** in your package has the mode set to `copy` so that the model itself is copied inside the generated docker image instead of referenced from the model registry in Azure Machine Learning.
 
 The following code shows how to configure `copy` in a model package:
 
