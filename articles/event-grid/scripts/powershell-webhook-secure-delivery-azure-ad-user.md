@@ -1,20 +1,20 @@
 ---
-title: Azure PowerShell - Secure WebHook delivery with Azure AD User in Azure Event Grid
-description: Describes how to deliver events to HTTPS endpoints protected by Azure AD User using Azure Event Grid
+title: Azure PowerShell - Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
+description: Describes how to deliver events to HTTPS endpoints protected by Microsoft Entra user using Azure Event Grid
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: sample
 ms.date: 09/29/2021
 ---
 
-# Secure WebHook delivery with Azure AD User in Azure Event Grid
+# Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
 
-This script provides the configuration to deliver events to HTTPS endpoints protected by Azure AD User using Azure Event Grid.
+This script provides the configuration to deliver events to HTTPS endpoints protected by Microsoft Entra user using Azure Event Grid.
 
 Here are the high level steps from the script:
 
 1. Create a service principal for **Microsoft.EventGrid** if it doesn't already exist.
-1. Create a role named **AzureEventGridSecureWebhookSubscriber** in the **Azure AD app for your Webhook**.
+1. Create a role named **AzureEventGridSecureWebhookSubscriber** in the **Microsoft Entra app for your Webhook**.
 1. Add service principal of user who will be creating the subscription to the AzureEventGridSecureWebhookSubscriber role.
 1. Add service principal of Microsoft.EventGrid to the AzureEventGridSecureWebhookSubscriber.
 
@@ -127,4 +127,4 @@ catch {
 
 ## Script explanation
 
-For more details refer to [Secure WebHook delivery with Azure AD in Azure Event Grid](../secure-webhook-delivery.md)
+For more details refer to [Secure WebHook delivery with Microsoft Entra ID in Azure Event Grid](../secure-webhook-delivery.md)
