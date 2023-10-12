@@ -255,14 +255,14 @@ Now you can access the cluster from a different client. Run the following steps 
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
      ```
 
-   - If using service account authentication:
+   - If using service account token authentication:
 
      ```azurecli
      az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
      ```
 
-    > [!NOTE]
-    > This command will open the proxy and block the current shell.
+     > [!NOTE]
+     > This command will open the proxy and block the current shell.
 
 1. In a different shell session, use `kubectl` to send requests to the cluster:
 
