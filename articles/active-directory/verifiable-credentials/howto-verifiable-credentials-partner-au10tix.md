@@ -25,7 +25,7 @@ Before you can continue with the steps below you need to meet the following requ
 - A tenant [configured](verifiable-credentials-configure-tenant.md) for Microsoft Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - You need to have completed the onboarding process with Au10tix.
-    - To create a AU10TIX account, submit the form on this [page](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/).
+    - To create a AU10TIX account, submit the form on this [page](https://www.au10tix.com/solutions/verifiable-credentials/).
 
 
 >[!IMPORTANT]
