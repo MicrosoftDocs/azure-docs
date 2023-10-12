@@ -91,7 +91,13 @@ $operationalBlob= Get-AzStorageBlob -Container " insights-logs-operational" -Con
 $operationalBlob.Name
 ```
 
-From the output of the Azure PowerShell cmdlet, you can see that the names of the blobs are in the following format: resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json. The date and time values use Coordinated Universal Time. 
+From the output of the Azure PowerShell cmdlet, you can see that the names of the blobs are in the following format: 
+
+```
+resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json. 
+```
+
+The date and time values use Coordinated Universal Time. 
 
 ### Using portal
 
