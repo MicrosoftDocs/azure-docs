@@ -83,7 +83,7 @@ You're now ready to send the requests to your search service. For each request, 
 
 Use the [Create or Update Index](/rest/api/searchservice/preview-api/create-or-update-index) REST API for this request.
 
-The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic ranking. 
+The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic search. 
 
 The following example is a subset of the full index. We trimmed the definition so that you can focus on field definitions, vector configuration, and optional semantic configuration.
 
