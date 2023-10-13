@@ -86,7 +86,7 @@ During the cluster upgrade process, Operator Nexus performs the following operat
 * This process repeats until all control plane nodes in the cluster have been upgraded.
 * For each agent pool in the cluster, add a new worker node (or as many nodes as configured in [max surge]a(#customize-node-surge-upgrade)) with the specified Kubernetes version. Multiple Agent pools are upgraded simultaneously.
 * [Cordon and drain][kubernetes-drain] one of the old worker nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many worker nodes at the same time as the number of buffer nodes specified.
-* After the old worker node has been drained, it's removed, and a new buffer worker node is added to the cluster (or as many nodes as configured in [max surge](#customize-node-surge-upgrade))
+* After the old worker node has been drained, it's removed, and a new worker node with the new Kubernetes version is added to the cluster (or as many nodes as configured in [max surge](#customize-node-surge-upgrade))
 * This process repeats until all worker nodes in the cluster have been upgraded.
 
 > [!IMPORTANT]
