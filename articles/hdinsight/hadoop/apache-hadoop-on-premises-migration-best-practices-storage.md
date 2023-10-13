@@ -73,7 +73,7 @@ For more information, see the following articles:
 
 ### Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Azure AD for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
+Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Microsoft Entra ID for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
 
 For more information, see the following articles:
 

@@ -22,7 +22,7 @@ These plugins provide extra functionality and integration with the specific fram
 
 ### [React](#tab/react)
 
-None.
+- Make sure the version of the React plugin that you want to install is compatible with your version of Application Insights. For more information, see [Compatibility Matrix for the React plugin](https://github.com/microsoft/applicationinsights-react-js#compatibility-matrix). 
 
 ### [React Native](#tab/reactnative)
 

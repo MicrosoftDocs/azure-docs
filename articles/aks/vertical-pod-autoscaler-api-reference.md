@@ -2,7 +2,7 @@
 title: Vertical Pod Autoscaler API reference in Azure Kubernetes Service (AKS)
 description: Learn about the Vertical Pod Autoscaler API reference for Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 09/26/2023
 ---
 
@@ -14,7 +14,7 @@ This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## VerticalPodAutoscaler
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |metadata |ObjectMeta | Standard [object metadata][object-metadata-ref].|
 |spec |VerticalPodAutoscalerSpec |The desired behavior of the Vertical Pod Autoscaler.|
@@ -22,7 +22,7 @@ This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## VerticalPodAutoscalerSpec
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |targetRef |CrossVersionObjectReference | Reference to the controller managing the set of pods for the autoscaler to control. For example, a Deployment or a StatefulSet. You can point a Vertical Pod Autoscaler at any controller that has a [Scale][scale-ref] subresource. Typically, the Vertical Pod Autoscaler retrieves the pod set from the controller's ScaleStatus. |
 |updatePolicy |PodUpdatePolicy |Specifies whether recommended updates are applied when a pod is started and whether recommended updates are applied during the life of a pod. |
@@ -31,27 +31,27 @@ This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## VerticalPodAutoscalerList
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |metadata |ObjectMeta |Standard [object metadata][object-metadata-ref]. |
 |items |VerticalPodAutoscaler (array) |A list of Vertical Pod Autoscaler objects. |
 
 ## PodUpdatePolicy
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |updateMode |string |A string that specifies whether recommended updates are applied when a pod is started and whether recommended updates are applied during the life of a pod. Possible values are `Off`, `Initial`, `Recreate`, and `Auto`. The default is `Auto` if you don't specify a value. |
 |minReplicas |int32 |A value representing the minimal number of replicas which need to be alive for Updater to attempt pod eviction (pending other checks like Pod Disruption Budget). Only positive values are allowed. Defaults to global `--min-replicas` flag, which is set to `2`. |
 
 ## PodResourcePolicy
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |conainerPolicies |ContainerResourcePolicy |An array of resource policies for individual containers. There can be at most one entry for every named container, and optionally a single wildcard entry with `containerName = '*'`, which handles all containers that do not have individual policies. |
 
 ## ContainerResourcePolicy
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |containerName |string |A string that specifies the name of the container that the policy applies to. If not specified, the policy serves as the default policy. |
 |mode |ContainerScalingMode |Specifies whether recommended updates are applied to the container when it is started and whether recommended updates are applied during the life of the container. Possible values are `Off` and `Auto`. The default is `Auto` if you don't specify a value. |
@@ -61,26 +61,26 @@ This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## VerticalPodAutoscalerRecommenderSelector
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |name |string |A string that specifies the name of the recommender responsible for generating recommendation for this object. |
 
 ## VerticalPodAutoscalerStatus
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |recommendation |RecommendedPodResources |The most recently recommended CPU and memory requests. |
 |conditions |VerticalPodAutoscalerCondition | An array that describes the current state of the Vertical Pod Autoscaler. |
 
 ## RecommendedPodResources
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |containerRecommendation |RecommendedContainerResources |An array of resources recommendations for individual containers. |
 
 ## RecommendedContainerResources
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |containerName |string| A string that specifies the name of the container that the recommendation applies to. |
 |target |ResourceList |The recommended CPU request and memory request for the container. |
@@ -90,7 +90,7 @@ This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## VerticalPodAutoscalerCondition
 
-|Name |Ojbect |Description |
+|Name |Object |Description |
 |-------|-------||-------|
 |type |VerticalPodAutoscalerConditionType |The type of condition being described. Possible values are `RecommendationProvided`, `LowConfidence`, `NoPodsMatched`, and `FetchingHistory`. |
 |status |ConditionStatus |The status of the condition. Possible values are `True`, `False`, and `Unknown`. |

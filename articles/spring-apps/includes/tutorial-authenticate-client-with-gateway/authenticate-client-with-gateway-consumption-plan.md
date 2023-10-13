@@ -102,7 +102,7 @@ This section provides the steps to register an application to add app roles in M
 
 1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="../../media/tutorial-authenticate-client-with-gateway/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -133,7 +133,7 @@ This section provides the steps to register an application to add app roles in M
 
 The Books RESTful API app acts as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `SPA`.
 
-1. Go back to your tenant in **Azure Active Directory**.
+1. Go back to your tenant in **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -253,4 +253,3 @@ node server.js
 
 > [!NOTE]
 > The SPA app is a static web application, which can be deployed to any web server.
-

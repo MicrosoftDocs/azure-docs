@@ -39,6 +39,11 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
+    - name: Advanced Messaging
+      expanded: true
+      items:
+      - name: WhatsApp
+        href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
     - name: Job Router
       href: concepts/router/concepts.md
   - name: Common scenarios
@@ -47,6 +52,8 @@ items:
       href: tutorials/virtual-visits.md
     - name: Virtual event
       href: tutorials/events-playbook.md
+    - name: Contact center
+      href: tutorials/contact-center.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -187,12 +194,26 @@ items:
   - name: Network Traversal
     items:
     - name: Access TURN relays
-      href: quickstarts/relay-token.md
+      href: quickstarts/relay-token.md  
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+        - name: Register WhatsApp Business Account
+          href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+        - name: WhatsApp Business Account FAQ
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
+        - name: Send WhatsApp Messages
+          href: quickstarts/advanced-messaging/whatsapp/get-started.md
+        - name: Handle Advanced Messaging Events
+          href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
+        - name: Try Advanced Messaging Sandbox
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
 - name: Tutorials
   items:
   - name: SMS
     items:
-    - name: Authenticate with Azure AD
+    - name: Authenticate with Microsoft Entra ID
       href: quickstarts/identity/service-principal.md
     - name: Use Postman to send SMS messages
       href: tutorials/postman-tutorial.md
@@ -652,7 +673,7 @@ items:
             href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
-          - name: Azure AD API permissions
+          - name: Microsoft Entra API permissions
             href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
@@ -923,6 +944,24 @@ items:
         href: concepts/analytics/turn-metrics.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+      - name: Overview
+        href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
+      - name: WhatsApp Terms of Service
+        href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
+      - name: Messaging policy
+        href: concepts/sms/messaging-policy.md
+      - name: Events
+        items:
+        - name: Overview
+          href: ../event-grid/event-schema-communication-services.md
+        - name: Advanced Messaging events
+          href: ../event-grid/communication-services-advanced-messaging-events.md
+      - name: Templates
+        href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
@@ -999,6 +1038,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: Advanced Messaging
+    items:
+    - name: Advanced Messaging (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
   - name: Common 
     items:
     - name: Common (JavaScript)
@@ -1033,6 +1076,8 @@ items:
       href: concepts/numbers/phone-number-management-for-canada.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Czech Republic
+      href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
       href: concepts/numbers/phone-number-management-for-denmark.md
     - name: Phone number management for Estonia
@@ -1045,6 +1090,8 @@ items:
       href: concepts/numbers/phone-number-management-for-germany.md
     - name: Phone number management for Hong Kong SAR
       href: concepts/numbers/phone-number-management-for-hong-kong.md
+    - name: Phone number management for Indonesia
+      href: concepts/numbers/phone-number-management-for-indonesia.md
     - name: Phone number management for Ireland
       href: concepts/numbers/phone-number-management-for-ireland.md
     - name: Phone number management for Israel
@@ -1079,6 +1126,8 @@ items:
       href: concepts/numbers/phone-number-management-for-singapore.md
     - name: Phone number management for Slovakia
       href: concepts/numbers/phone-number-management-for-slovakia.md
+    - name: Phone number management for Slovenia
+      href: concepts/numbers/phone-number-management-for-slovenia.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

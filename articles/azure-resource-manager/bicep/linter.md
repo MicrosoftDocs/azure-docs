@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/16/2023
+ms.date: 10/05/2023
 ---
 
 # Use Bicep linter
@@ -25,6 +25,8 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)
 - [max-variables](./linter-rule-max-variables.md)
+- [no-conflicting-metadata](./linter-rule-no-conflicting-metadata.md)
+- [no-deployments-resources](./linter-rule-no-deployments-resources.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
 - [no-hardcoded-location](./linter-rule-no-hardcoded-location.md)
 - [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)
@@ -78,7 +80,7 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Silencing false positives
 
-Sometimes a rule can have false positives. For example, you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+Sometimes a rule can have false positives. For example, you might need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
 In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
 
 ```bicep

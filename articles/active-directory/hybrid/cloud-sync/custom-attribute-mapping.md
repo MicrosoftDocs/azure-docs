@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Entra Connect cloud sync directory extensions and custom attribute mapping'
+title: 'Microsoft Entra Cloud Sync directory extensions and custom attribute mapping'
 description: This topic provides information on custom attribute mapping in cloud sync.
 services: active-directory
 author: billmath
@@ -30,12 +30,12 @@ For additional information on directory extensions see [Using directory extensio
  
 <a name='syncing-directory-extensions-for-azure-active-directory-connect-cloud-sync-'></a>
 
-## Syncing directory extensions for Microsoft Entra Connect cloud sync 
+## Syncing directory extensions for Microsoft Entra Cloud Sync 
 
 You can use [directory extensions](/graph/api/resources/extensionproperty?view=graph-rest-1.0&preserve-view=true) to extend the synchronization schema directory definition in Microsoft Entra ID with your own attributes. 
 
 >[!Important]
-> Directory extension for Microsoft Entra Connect cloud sync is only supported for applications with the identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp” and the [Tenant Schema Extension App](../connect/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard) created by Microsoft Entra Connect 
+> Directory extension for Microsoft Entra Cloud Sync is only supported for applications with the identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp” and the [Tenant Schema Extension App](../connect/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard) created by Microsoft Entra Connect 
 
 ### Create application and service principal for directory extension 
 
@@ -141,4 +141,4 @@ For more information on extension attributes, see [Syncing extension attributes 
 
 - [Understand the Microsoft Entra schema and custom expressions](concept-attributes.md)
 - [Microsoft Entra Connect Sync: Directory extensions](../connect/how-to-connect-sync-feature-directory-extensions.md)
-- [Attribute mapping in Microsoft Entra Connect cloud sync](how-to-attribute-mapping.md)
+- [Attribute mapping in Microsoft Entra Cloud Sync](how-to-attribute-mapping.md)

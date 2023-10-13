@@ -122,17 +122,19 @@ In this section, you prepare a development environment that's used to build the 
 
    When specifying the path used with `-Dhsm_custom_lib` in the following command, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
 
-   **Windows:**
+   # [Windows](#tab/windows)
 
    ```cmd
    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
    ```
 
-   **Linux:**
+   # [Linux](#tab/linux)
 
    ```bash
    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/home/<USER>/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/custom_hsm_example.a ..
    ```
+
+   ---
 
    >[!TIP]
    >If `cmake` doesn't find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).

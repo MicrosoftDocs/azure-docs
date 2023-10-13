@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 05/26/2023
+ms.date: 10/11/2023
 ms.author: allensu
 ms.custom: fasttrack-edit
 ---
@@ -27,7 +27,7 @@ You can use the following options to configure your DNS settings for private end
 > It is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below.
 
 > [!IMPORTANT]
-> Existing Private DNS Zones tied to a single service should not be associated with two different Private Endpoints as it will not be possible to properly resolve two different A-Records that point to the same service. However, Private DNS Zones tied to multiple services would not face this resolution constraint.
+> Existing Private DNS Zones linked to a single service should not be associated with two different Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. However, linking a Private DNS Zones with private endpoints associated with different services would not face this resolution constraint.
 
 ## Azure services DNS zone configuration
 
@@ -37,7 +37,7 @@ Your applications don't need to change the connection URL. When resolving to a p
 
 > [!IMPORTANT]
 > * Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence.
-> * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the table below.
+> * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the following table.
 
 For Azure services, use the recommended zone names as described in the following table:
 
@@ -231,7 +231,7 @@ Based on your preferences, the following scenarios are available with DNS resolu
 
 ## Virtual network workloads without custom DNS server
 
-This configuration is appropriate for virtual network workloads without a custom DNS server. In this scenario, the client queries for the private endpoint IP address to the Azure-provided DNS service [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS will be responsible for DNS resolution of the private DNS zones.
+This configuration is appropriate for virtual network workloads without a custom DNS server. In this scenario, the client queries for the private endpoint IP address to the Azure-provided DNS service [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS is responsible for DNS resolution of the private DNS zones.
 
 > [!NOTE]
 > This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
@@ -331,7 +331,7 @@ The following diagram shows the DNS resolution for both networks, on-prem
 
 ## Private DNS zone group
 
-If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group is a strong association between the private DNS zone and the private endpoint that helps auto-updating the private DNS zone when there is an update on the private endpoint.  For example, when you add or remove regions, the private DNS zone is automatically updated.
+If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group has a strong association between the private DNS zone and the private endpoint. It helps with managing the private DNS zone records when there's an update on the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated with the correct number of records.
 
 Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there is no need to write any additional CLI/PowerShell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group will be deleted as well.
 
@@ -342,6 +342,9 @@ A common scenario for DNS zone group is in a hub-and-spoke topology, where it al
 
 > [!NOTE]
 > Adding multiple DNS zone groups to a single Private Endpoint is not supported.
+
+> [!NOTE]
+> Delete and update operations for DNS records can be seen performed by "Azure Traffic Manager and DNS." This is a normal platform operation necessary for managing your DNS Records.
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)

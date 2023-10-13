@@ -1,7 +1,7 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/27/2023
+ms.date: 10/05/2023
 ms.topic: conceptual
 ---
 
@@ -17,7 +17,7 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 
 - **Pay-as-you-go:** Flexibility to sign up for a monthly subscription service with the ability to migrate mid-year.
 
-- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Azure Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
+- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Microsoft Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
 
 - **Built-in inventory:** The coverage and enrollment status of Windows Server 2012/2012 R2 ESUs on eligible Arc-enabled servers are identified in the Azure portal, highlighting gaps and status changes.
 
@@ -43,15 +43,28 @@ Other Azure services through Azure Arc-enabled servers are available as well, wi
 
 To prepare for this new offer, you need to plan and prepare to onboard your machines to Azure Arc-enabled servers through the installation of the [Azure Connected Machine agent](agent-overview.md) (version 1.34 or higher) and establishing a connection to Azure.
 
-- **Deployment options:** There are several at-scale onboarding options for Azure Arc-enabled servers, including running a [Custom Task Sequence](onboard-configuration-manager-custom-task.md) through Configuration Manager and deploying a [Scheduled Task through Group Policy](onboard-group-policy-powershell.md).
-
-- **Networking:** Connectivity options include public endpoint, proxy server, and private link or Azure Express Route. Review the [networking prerequisites](network-requirements.md) to prepare their non-Azure environment for deployment to Azure Arc.
-
 We recommend you deploy your machines to Azure Arc in preparation for when the related Azure services deliver supported functionality to manage ESU. Once these machines are onboarded to Azure Arc-enabled servers, you'll have visibility into their ESU coverage and enroll through the Azure portal or using Azure Policy one month before Windows Server 2012 end of support. Billing for this service starts from October 2023, after Windows Server 2012 end of support.
 
 > [!NOTE]
 > In order to purchase ESUs, you must have Software Assurance through Volume Licensing Programs such as an Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), Enrollment for Education Solutions (EES), or Server and Cloud Enrollment (SCE). Alternatively, if your Windows Server 2012/2012 R2 machines are licensed through SPLA or with a Server Subscription, Software Assurance is not required to purchase ESUs.
+
+### Deployment options
+
+There are several at-scale onboarding options for Azure Arc-enabled servers, including running a [Custom Task Sequence](onboard-configuration-manager-custom-task.md) through Configuration Manager and deploying a [Scheduled Task through Group Policy](onboard-group-policy-powershell.md).
+
+> [!NOTE]
+> Delivery of ESUs through Azure Arc to virtual machines running on Virtual Desktop Infrastructure (VDI) is not supported. VDI systems should use Multiple Activation Keys (MAK) to apply ESUs. See [Access your Multiple Activation Key from the Microsoft 365 Admin Center](/windows-server/get-started/extended-security-updates-deploy) to learn more.
 > 
+
+### Networking
+
+Connectivity options include public endpoint, proxy server, and private link or Azure Express Route. Review the [networking prerequisites](network-requirements.md) to prepare non-Azure environments for deployment to Azure Arc.
+
+[!INCLUDE [esu-network-requirements](./includes/esu-network-requirements.md)]
+
+> [!TIP]
+> To take advantage of the full range of offerings for Arc-enabled servers, such as extensions and remote connectivity, ensure that you allow the additional URLs that apply to your scenario. For more information, see [Connected machine agent networking requirements](network-requirements.md).
+
 ## Next steps
 
 * Find out more about [planning for Windows Server and SQL Server end of support](https://www.microsoft.com/en-us/windows-server/extended-security-updates) and [getting Extended Security Updates](/windows-server/get-started/extended-security-updates-deploy).

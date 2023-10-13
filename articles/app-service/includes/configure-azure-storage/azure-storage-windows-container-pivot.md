@@ -104,6 +104,21 @@ Now you're ready to use Key Vault to access your storage account.
 
 ## Mount storage to Windows container
 
+# [Azure portal](#tab/portal/basic)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to the app.
+1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
+1. Configure the storage mount according to the following table. When finished, click **OK**.
+
+    | Setting | Description |
+    |-|-|
+    | **Name** | Name of the mount configuration. Spaces are not allowed. |
+    | **Configuration options** | Select **Basic** |
+    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
+    | **Share name** | Files share to mount. |
+    | **Mount path** | Directory inside your Windows container that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`) as it's not supported.|
+    | **Deployment slot setting** | When checked, the storage mount settings also apply to deployment slots.|
+
 # [Azure portal](#tab/portal/access-key)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the app.

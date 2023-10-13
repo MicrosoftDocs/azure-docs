@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/08/2023
+ms.date: 10/04/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -47,6 +47,9 @@ Audit logs in Microsoft Entra ID provide access to system activity records, ofte
 - Has a service principal for an application changed?
 - Have the names of applications been changed?
  
+> [!NOTE]
+> Entries in the audit logs are system generated and can't be changed or deleted.
+
 ## What do the logs show?
 
 Audit logs have a default list view that shows:

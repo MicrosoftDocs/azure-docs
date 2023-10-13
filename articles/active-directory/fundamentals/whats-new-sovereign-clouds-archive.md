@@ -1,5 +1,5 @@
 ---
-title: Archive for What's new in Sovereign Clouds?
+title: Archive for What's new in Azure Sovereign Clouds?
 description: The What's new in sovereign cloud release notes in the Overview section of this content set contain six months of activity. After six months, the items are removed from the main article and put into this archive article for the next two years.
 services: active-directory
 author: owinfreyATL

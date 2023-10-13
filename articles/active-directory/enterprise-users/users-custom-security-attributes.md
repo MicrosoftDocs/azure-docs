@@ -5,7 +5,7 @@ services: active-directory
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/08/2023
+ms.date: 10/01/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -134,10 +134,9 @@ The following example assigns a custom security attribute with a string value to
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -149,10 +148,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -182,10 +181,9 @@ The following example assigns a custom security attribute with a multi-string va
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -198,10 +196,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -243,10 +241,9 @@ The following example assigns a custom security attribute with an integer value 
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -259,10 +256,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -293,10 +290,9 @@ The following example assigns a custom security attribute with a multi-integer v
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -309,10 +305,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -343,10 +339,9 @@ The following example assigns a custom security attribute with a Boolean value t
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -358,10 +353,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -391,10 +386,9 @@ The following example updates a custom security attribute assignment with an int
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -407,10 +401,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -441,10 +435,9 @@ The following example updates a custom security attribute assignment with a Bool
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -456,10 +449,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -489,10 +482,9 @@ The following example updates a custom security attribute assignment with a mult
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -505,10 +497,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -545,10 +537,9 @@ The following example gets the custom security attribute assignments for a user.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -UserId $userId -Property "customSecurityAttributes"
 $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
 $userAttributes.CustomSecurityAttributes.AdditionalProperties.Engineering
@@ -587,15 +578,15 @@ If there are no custom security attributes assigned to the user or if the callin
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true)
+[Get user](/graph/api/user-get)
 
 ```http
-GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
+GET https://graph.microsoft.com/v1.0/users/{id}?$select=customSecurityAttributes
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(customSecurityAttributes)/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(customSecurityAttributes)/$entity",
     "customSecurityAttributes": {
         "Engineering": {
             "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
@@ -650,10 +641,9 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Marketing/AppCountry eq 'Canada'" -ConsistencyLevel eventual
 $userAttributes | select Id,DisplayName,CustomSecurityAttributes
 $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
@@ -679,16 +669,16 @@ Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [AppCount
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
+[List users](/graph/api/user-list)
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
+GET https://graph.microsoft.com/v1.0/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
 ConsistencyLevel: eventual
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 2,
     "value": [
         {
@@ -748,10 +738,9 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')" -ConsistencyLevel eventual
 $userAttributes | select Id,DisplayName,CustomSecurityAttributes
 $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
@@ -781,16 +770,16 @@ Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Employee
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
+[List users](/graph/api/user-list)
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
+GET https://graph.microsoft.com/v1.0/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
 ConsistencyLevel: eventual
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 3,
     "value": [
         {
@@ -864,10 +853,9 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Marketing/AppCountry ne 'Canada'" -ConsistencyLevel eventual
 $userAttributes | select Id,DisplayName,CustomSecurityAttributes
 ```
@@ -884,16 +872,16 @@ d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8 Joe                      Microsoft.Graph.Po
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
+[List users](/graph/api/user-list)
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
+GET https://graph.microsoft.com/v1.0/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
 ConsistencyLevel: eventual
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 47,
     "value": [
         {
@@ -995,15 +983,15 @@ $params = @{
         }
     }
 }
-Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/beta/users/$userId" -Body $params
+Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/v1.0/users/$userId" -Body $params
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -1032,10 +1020,9 @@ The following example removes a multi-valued custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -1047,10 +1034,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
