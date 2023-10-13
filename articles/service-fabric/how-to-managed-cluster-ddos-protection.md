@@ -14,7 +14,7 @@ ms.date: 09/05/2023
 
 [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides enhanced DDoS mitigation features to defend against [Distributed denial of service (DDoS) attacks](https://www.microsoft.com/en-us/security/business/security-101/what-is-a-ddos-attack). It's automatically tuned to help protect your specific Azure resources in a virtual network. There are a [number of benefits to using Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md#azure-ddos-protection-key-features).
 
-Service Fabric managed cluster supports Azure DDoS Network Protection and allows you to associate your VMSS with [Azure DDoS Network Protection Plan](../ddos-protection/ddos-protection-sku-comparison.md#ddos-network-protection). The plan is created by the customer, and they pass the resource id of the plan in managed cluster arm template.
+Service Fabric managed cluster supports Azure DDoS Network Protection and allows you to associate your VMSS with [Azure DDoS Network Protection Plan](../ddos-protection/ddos-protection-sku-comparison.md). The plan is created by the customer, and they pass the resource id of the plan in managed cluster arm template.
 
 ## Use DDoS Protection in a Service Fabric managed cluster
 
