@@ -748,7 +748,7 @@ With Application Insights enhanced telemetry enabled, you can stream verbose deb
 
 1. On your logic app resource menu, under **Monitoring**, select **Log stream**.
 
-   The **Log stream** page connects to your Application Insights instance and shows the debugging output. The following example shows request and response calls among other otuput:
+   The **Log stream** page connects to your Application Insights instance and shows the debugging output. For example, the following output includes request and response calls among other information:
 
    ![Screenshot shows Azure portal and Standard logic app menu with selected item named Log stream.](media/enable-enhanced-telemetry-standard-workflows/log-stream.png)
 
