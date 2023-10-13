@@ -64,7 +64,7 @@ Developers can use multiple ways to join Teams meeting. One of them is meeting I
    * Teams meeting organizer can't regenerate the meeting ID and passcode.
        
 - Is there any difference in Teams meeting experience if the user joins through URL or meeting ID & passcode?
-  * It is the same experience, the only difference is how the user connects to the meeting.
+  * No. Users will have the same user experience if they join Teams meeting through Teams meeting URL or meeting ID & passcode. 
 
 - How should developers store and manage passcode?
   * Meeting ID and passcode are coordinates to join the meeting. Developers should treat it as secret, which should be encrypted and if stored then behind access control.
