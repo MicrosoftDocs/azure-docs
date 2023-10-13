@@ -13,7 +13,7 @@ ms.date: 09/19/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This document explains how to enhance security of your data stores and resources by restricting access solely to your Managed Airflow cluster. To achieve this, you'll walk through the process of retrieving and adding the unique IP address associated with your Managed Airflow cluster to your storage firewall's allow list. This enables you to access data stores or resources secured by the firewall through the list of permitted IP addresses on the allow list of the firewall, thus preventing access from all other IP addresses via the public endpoint.
+This document explains how to enhance security of your data stores and resources by restricting access solely to your Managed Airflow cluster. To achieve this, you'll walk through the process of retrieving and adding the unique IP address associated with your Managed Airflow cluster to your storage firewall's allowlist. This enables you to access data stores or resources through the list of permitted IP addresses on firewall's allowlist, thus preventing access from all other IP addresses via the public endpoint.
 
 > [!NOTE]
 > Importing DAGs is currently not supported using blob storage with IP allow listing or using private endpoints. We suggest using Git-sync instead.
