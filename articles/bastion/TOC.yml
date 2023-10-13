@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Bastion with default settings
+  - name: Deploy Bastion automatically - Basic SKU
     href: quickstart-host-portal.md
+  - name: Deploy Bastion automatically - Developer SKU
+    href: deploy-host-developer-sku.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
 - name: Tutorials
@@ -47,8 +49,8 @@
       href: bastion-create-host-powershell.md
     - name: Azure CLI
       href: create-host-cli.md
-  - name: Deploy Bastion - Developer SKU
-    href: deploy-host-developer-sku.md
+    - name: Developer SKU
+      href: deploy-host-developer-sku.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
