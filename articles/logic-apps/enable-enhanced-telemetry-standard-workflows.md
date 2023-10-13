@@ -677,7 +677,11 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
 
 With the telemetry enhancements in Application Insights, you also get an enhanced Metrics dashboard.
 
+<a name="open-metrics-dashboard"></a>
+
 ### Open the Metrics dashboard and set up basic filters
+
+1. In the Azure portal, open your Application Insights resource, if not opened already.
 
 1. On your Application Insights resource menu, under **Monitoring**, select **Metrics**.
 
@@ -693,11 +697,15 @@ With the telemetry enhancements in Application Insights, you also get an enhance
 
    ![Screenshot shows Application Insights with Metrics dashboard and chart that shows number of finished workflow executions over time.](media/enable-enhanced-telemetry-standard-workflows/metrics-dashboard.png)
 
+<a name="filter-by-workflow"></a>
+
 ### Filter based on a specific workflow
 
 When you enable multidimensional metrics in the Metrics dashboard, you can target a subset of the overall events captured in Application Insights and filter events based on a specific workflow.
 
 1. On your Application Insights resource, [enable multidimensional metrics](../azure-monitor/app/get-metric.md#enable-multidimensional-metrics).
+
+1. In Application Insights, [open the Metrics dashboard](#open-metrics-dashboard).
 
 1. On the chart toolbar, select **Add filter**.
 
@@ -708,6 +716,41 @@ When you enable multidimensional metrics in the Metrics dashboard, you can targe
 1. From the **Values** list, select the workflows you want.
 
    ![Screenshot shows Application Insights with Metrics dashboard and chart with multi-dimensional metrics.](media/enable-enhanced-telemetry-standard-workflows/multi-dimensional-metrics.png)
+
+<a name="view-live-metrics"></a>
+
+## View "live" log data and metrics
+
+With Application Insights enhanced telemetry enabled, you can view near real-time log data and other metrics from your Application Insights instance in the Azure portal. You can use this visualization to plot inbound requests, outbound requests, and overall health. You also get a table for trace level diagnostics.
+
+1. In the Azure portal, open your Application Insights resource, if not opened already.
+
+1. On your Application Insights resource menu, under **Investigate**, select **Live metrics**.
+
+   The **Live metrics** page shows the log data and other metrics, for example:
+
+   ![Screenshot shows Azure portal and Application Insights menu with selected item named Live metrics.](media/enable-enhanced-telemetry-standard-workflows/live-metrics.png)
+
+For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](../azure-monitor/app/live-stream.md).
+
+> [!NOTE]
+>
+> As Standard logic app workflows are based on Azure Functions, 
+> **Live Metrics** supports these logic app workflows.
+
+<a name="view-stream-application-logs"></a>
+
+## Stream and view debug output from application log files
+
+With Application Insights enhanced telemetry enabled, you can stream verbose debugging information in the Azure portal for your application's log files. This information is equivalent to the output generated from debugging your workflow in your local Visual Studio Code environment.
+
+1. In the Azure portal, open your Standard logic app resource.
+
+1. On your logic app resource menu, under **Monitoring**, select **Log stream**.
+
+   The **Log stream** page connects to your Application Insights instance and shows the debugging output. The following example shows request and response calls among other otuput:
+
+   ![Screenshot shows Azure portal and Standard logic app menu with selected item named Log stream.](media/enable-enhanced-telemetry-standard-workflows/log-stream.png)
 
 ## Next steps
 
