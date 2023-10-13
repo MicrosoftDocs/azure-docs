@@ -18,7 +18,7 @@ ms.custom:
 
 This tutorial walks you through fine-tuning a gpt-35-turbo model.
 
-In This tutorial you'll learn how to:
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > Create sample fine-tuning datasets.
@@ -33,11 +33,11 @@ In This tutorial you'll learn how to:
 - An Azure subscription - Create one for free
 - Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
 - Python 3.7.1 or later version
-- The following Python libraries: json, requests, os, tiktoken, time, openai.
-- The OpenAI Python library should be at least 0.28.1.
+- The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
+- The OpenAI Python library should be at least `0.28.1`.
 - Jupyter Notebooks
 - An Azure OpenAI resource in a region where `gpt-35-turbo-0613` fine-tuning is available. If you don't have a resource the process of creating one is documented in our resource deployment guide.
-- Necessary Role-based access control (RBAC) permissions. To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
+- Necessary Role-based access control permissions. To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
 
 ## Set up
 
@@ -105,9 +105,9 @@ For this example we'll modify this slightly by changing to:
 
 While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 100 high quality examples**.
 
-You will need to create two files `training_set.jsonl` and `validation_set.jsonl`.
+You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 
-Create the files in the same directory that you are running the Jupyter Notebook, and copy the contents of the following code blocks to the corresponding files:
+Create the files in the same directory that you're running the Jupyter Notebook, and copy the contents of the following code blocks to the corresponding files:
 
 **`training_set.jsonl`**
 
@@ -361,7 +361,7 @@ Fine-tuning model with job ID: ftjob-0f4191f0c59a4256b7a797a3d9eed219.
 
 ## Track training job status
 
-If you would like to poll the training job status until it's complete you can run:
+If you would like to poll the training job status until it's complete, you can run:
 
 ```python
 # Track training status
@@ -423,7 +423,7 @@ Checking other fine-tuning jobs for this resource.
 Found 2 fine-tune jobs.
 ```
 
-To get the full results run the following:
+To get the full results, run the following:
 
 ```python
 #Retrieve fine_tuned_model name
@@ -436,12 +436,12 @@ fine_tuned_model = response["fine_tuned_model"]
 
 ## Deploy fine-tuned model
 
-Unlike the previous REST API commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API which requires separate authorization, a different API path, and a different API version.
+Unlike the previous REST API commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API, which requires separate authorization, a different API path, and a different API version.
 
 |variable      | Definition|
 |--------------|-----------|
 | token        | There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run `az account get-access-token`. You can use this token as your temporary authorization token for API testing. We recommend storing this in a new environment variable|
-| subscription | The subscription id for the associated Azure OpenAI resource |
+| subscription | The subscription ID for the associated Azure OpenAI resource |
 | resource_group | The resource group name for your Azure OpenAI resource |
 | resource_name | The Azure OpenAI resource name |
 | model_deployment_name | The custom name for your new fine-tuned model deployment. This is the name that will be referenced in your code when making chat completion calls. |
@@ -489,7 +489,7 @@ You can check on your deployment progress in the Azure OpenAI Studio:
 
 :::image type="content" source="../media/tutorials/fine-tuning/status.png" alt-text="Screenshot of the initial DataFrame table results from the csv file." lightbox="../media/tutorials/fine-tuning/fine-tuning/status.png":::
 
-It is not uncommon for this process to take some time to complete when dealing with deploying fine-tuned models. 
+It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models. 
 
 ## Next steps
 
