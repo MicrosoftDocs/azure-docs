@@ -1,7 +1,7 @@
 ---
 title: embedding tool in Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: Prompt flow embedding tool use OpenAI's embedding models to convert text into dense vector representations for various NLP tasks.
+description: Prompt flow embedding tool uses OpenAI's embedding models to convert text into dense vector representations for various NLP tasks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
