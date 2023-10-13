@@ -1,13 +1,13 @@
 ---
 title: embedding tool in Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: Prompt flow LLM tool enables you to leverage widely used large language models like OpenAI or Azure OpenAI (AOAI) for natural language processing.
+description: Prompt flow embedding tool leverage OpenAI's embedding models convert text into dense vector representations for various NLP tasks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: likebupt
-ms.author: keli19
+author: wangchao1230
+ms.author: CLWAN
 ms.reviewer: lagayhar
 ms.date: 10/16/2023
 ---
@@ -31,7 +31,7 @@ Create OpenAI resources:
 
 - **Azure OpenAI (AOAI)**
 
-    Create Azure OpenAI resources with [instruction](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal)
+    Create Azure OpenAI resources with [instruction](../../../ai-services/openai/how-to/create-resource.md)
 
 ## **Connections**
 

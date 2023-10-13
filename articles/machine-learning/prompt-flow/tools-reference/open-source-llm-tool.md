@@ -1,14 +1,14 @@
 ---
 title: Open source LLM tool in Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in Prompt flow.
+description: The Prompt flow Open Source LLM tool enables you to utilize a variety of Open Source and Foundational Models, such as [Falcon](https://aka.ms/AAlc25c) or [Llama 2](https://aka.ms/AAlc258) for natural language processing, in PromptFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: devx-track-python
 ms.topic: reference
-author: likebupt
-ms.author: keli19
+author: gjwoods
+ms.author: GEWOODS
 ms.reviewer: lagayhar
 ms.date: 10/16/2023
 ---
