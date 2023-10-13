@@ -24,7 +24,7 @@
     href: tutorial-assessment-deployment-using-policy.md
 - name: Concepts
   items:
-  - name: Update and maintenance options
+  - name: Update options and orchestration
     href: updates-maintenance-schedules.md
   - name: Schedule patching configuration on Azure VMs for business continuity
     href: prerequsite-for-schedule-patching.md
