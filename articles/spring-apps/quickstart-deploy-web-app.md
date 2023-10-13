@@ -34,11 +34,11 @@ The following diagram shows the architecture of the system:
 
 ::: zone pivot="sc-consumption-plan,sc-standard"
 
-This article describes the following options for creating resources and deploying them to Azure Spring Apps:
+This article provides the following options for deploying to Azure Spring Apps:
 
-- Azure portal: Use the Azure portal to create resources and deploy applications with one-click. The Azure portal is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- Azure portal and Maven plugin: Use the Azure portal to create resources and deploy applications step by step. The Azure portal and Maven plugin are suitable for developers who are using Azure cloud services for the first time.
-- Azure Developer CLI: Use the Azure Developer CLI to create resources and deploy applications through simple commands, and to cover application code and infrastructure as code files needed to provision the Azure resources. The Azure Developer CLI is suitable for developers who are familiar with Azure cloud services.
+- The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The **Azure portal + Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+- The **Azure Developer CLI** option is a more efficient way to automatically create resources and deploy applications through simple commands. The Azure Developer CLI uses a template to provision the Azure resources needed and to deploy the application code. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -46,8 +46,8 @@ This article describes the following options for creating resources and deployin
 
 This article provides the following options for deploying to Azure Spring Apps:
 
-- Azure portal: Use the Azure portal to create resources and deploy applications with one-click. The Azure portal is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- Azure CLI: Use the command line tool Azure CLI to manage Azure resources and deployments. It is suitable for Spring developers who are familiar with Azure cloud services.
+- The **Azure portal** option is the easiest and fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The **Azure CLI** option is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -120,7 +120,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-1. After the deployment is complete, you can find the application URL from the deployment outputs:
+1. After the deployment finishes, you can find the application URL from the deployment outputs:
 
    :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-standard.png" alt-text="Diagram that shows the enterprise app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-standard.png":::
 
@@ -130,7 +130,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-1. After the deployment is complete, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
+1. After the deployment finishes, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
 
 1. To check the app's log to investigate any deployment issue, use the following command:
 
@@ -148,7 +148,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. After the deployment is complete, you can find the application URL from the deployment outputs:
+1. After the deployment finishes, you can find the application URL from the deployment outputs:
 
    :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-consumption.png" alt-text="Diagram that shows the consumption app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-consumption.png":::
 
@@ -172,7 +172,7 @@ Access the application with the output endpoint. The page should appear as you s
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. After the deployment is complete, find the application URL from the deployment outputs:
+1. After the deployment finishes, find the application URL from the deployment outputs:
 
    :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-standard.png" alt-text="Diagram that shows the standard app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-standard.png":::
 
@@ -230,30 +230,30 @@ az group delete --name ${RESOURCE_GROUP}
 > [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
 
 > [!div class="nextstepaction"]
 > [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
 
 > [!div class="nextstepaction"]
-> [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
+> [Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
 
 ::: zone pivot="sc-standard, sc-consumption-plan"
 
 > [!div class="nextstepaction"]
-> [Run the Pet Clinic microservice on Azure Spring Apps](./quickstart-sample-app-introduction.md)
+> [Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
 > [!div class="nextstepaction"]
-> [Run the polyglot ACME fitness store apps on Azure Spring Apps](./quickstart-sample-app-acme-fitness-store-introduction.md)
+> [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
 ::: zone-end
 
 For more information, see the following articles:
 
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
-- [Spring on Azure](/azure/developer/java/spring/)
-- [Spring Cloud Azure](/azure/developer/java/spring-framework/)
+- [Azure for Spring developers](/azure/developer/java/spring/)
+- [Spring Cloud Azure documentation](/azure/developer/java/spring-framework/)
