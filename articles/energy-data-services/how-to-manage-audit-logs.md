@@ -33,7 +33,7 @@ To enable audit logs in diagnostic logging, select your Azure Data Manager for E
 * Enter the Diagnostic settings name.
 * Select **Audit Events** as the Category. 
 
-[![Screenshot of audit events option in diagnostic settings](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs-categories.png)](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs-categories.png#lightbox)
+[![Screenshot of audit events option in diagnostic settings.](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs-categories.png)](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs-categories.png#lightbox)
 
 * Select appropriate Destination details for accessing the diagnostic logs. 
  
