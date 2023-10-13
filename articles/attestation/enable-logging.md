@@ -114,5 +114,5 @@ You can use Azure Monitor logs to review activity in Azure Attestation resourc
 
 ## Next steps 
 
-- For information on how to interpret logs, see [Azure Attestation logging](view-logs.md) .
+- For information on how to interpret logs, see [Azure Attestation logging](view-logs.md)
 - To learn more about using Azure Monitor for analyzing Azure Attestation logs, see [Monitoring Azure Attestation](monitor-logs.md) . 
