@@ -35,7 +35,7 @@ Customers can also deploy a specific version like GPT-4 0314 or GPT-4 0613 and c
 
 Azure works closely with OpenAI to release new model versions.  When a new version of a model is released, a customer can immediately test it in new deployments.  Azure publishes when new versions of models are released, and notifies customers at least two weeks before a new version becomes the default version of the model.   Azure also maintains the previous major version of the model until its retirement date, so customers can switch back to it if desired.
 
-## What you need to nnow about Azure OpenAI model version upgrades
+## What you need to know about Azure OpenAI model version upgrades
 
 As a customer of Azure OpenAI models, you might notice some changes in the model behavior and compatibility after a version upgrade.  These changes might affect your applications and workflows that rely on the models.  Here are some tips to help you prepare for version upgrades and minimize the impact:
 
