@@ -262,6 +262,8 @@ items:
           href: app/usage-heart.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
+      - name: Transaction Search and Diagnostics
+        href: app/search-and-transaction-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler
