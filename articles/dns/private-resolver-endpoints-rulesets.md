@@ -52,7 +52,7 @@ Outbound endpoints are also part of the private virtual network address space wh
 DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces. The individual [rules](#rules) in a ruleset determine how these DNS names are resolved. Rulesets can also be linked one or more virtual networks, enabling resources in the VNets to use the forwarding rules that you configure.
 
 Rulesets have the following associations: 
-- A single ruleset can be associated with multiple outbound endpoints. 
+- A single ruleset can be associated with up to 2 outbound endpoints belonging to the same DNS Private Resolver instance. It cannot be associated with 2 outbound endpoints in two different DNS Private Resolver instances.
 - A ruleset can have up to 1000 DNS forwarding rules. 
 - A ruleset can be linked to up to 500 virtual networks in the same region
 
