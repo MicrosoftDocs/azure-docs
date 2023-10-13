@@ -23,9 +23,10 @@ The first step is to register a Microsoft Entra application:
 1. In the [Azure portal](https://portal.azure.com/), search for and select **Microsoft Entra ID**.
 2. Under **Manage**, select **App registrations**.
 3. Select **New registration**. The **Register an application** pane opens.
+
    ![Screenshot of the pane for registering an application.](./media/signalr-howto-authorize-application/register-an-application.png)
-4. For **Name**, enter a display name for your application.
-5. Select **Register** to confirm the registration.
+5. For **Name**, enter a display name for your application.
+6. Select **Register** to confirm the registration.
 
 After you register your application, you can find the **Application (client) ID** and **Directory (tenant) ID** values on the application's overview page. These GUIDs can be useful in the following steps.
 
@@ -43,6 +44,7 @@ The application requires a client secret to prove its identity when it's request
 
 1. Under **Manage**, select **Certificates & secrets**.
 1. On the **Client secrets** tab, select **New client secret**.
+
    ![Screenshot of selections for creating a client secret.](./media/signalr-howto-authorize-application/new-client-secret.png)
 1. Enter a description for the client secret, and choose an expiration time.
 1. Copy the value of the client secret and then paste it in a secure location.
