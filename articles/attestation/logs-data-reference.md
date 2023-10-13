@@ -14,9 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 ## Resource logs 
 
-This section lists the types of resource logs you can collect for Azure Attestation. 
-
-For reference, see a list of Microsoft.AzureAttestation/attestationProviders. For full details, see Azure Attestation Logging. 
+This section lists the types of resource logs you can collect for Azure Attestation. For full details, see [Azure Attestation logging](view-logs.md). 
 
 ## Azure Monitor Logs tables 
 
