@@ -20,22 +20,22 @@ This tutorial walks you through fine-tuning a gpt-35-turbo model.
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> Create sample fine-tuning datasets.
-> Create environment variables for your resource endpoint and API key.
-> Prepare your sample training and validation datasets for fine-tuning
-> Upload your training file and validation file for fine-tuning
-> Create a fine-tuning job for `gpt-35-turbo-0613`
-> Deploy a custom fine-tuned model
+> * Create sample fine-tuning datasets.
+> * Create environment variables for your resource endpoint and API key.
+> * Prepare your sample training and validation datasets for fine-tuning.
+> * Upload your training file and validation file for fine-tuning.
+> * Create a fine-tuning job for `gpt-35-turbo-0613`.
+> * Deploy a custom fine-tuned model.
 
 ## Prerequisites
 
-- An Azure subscription - Create one for free
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
 - Python 3.7.1 or later version
 - The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
 - The OpenAI Python library should be at least `0.28.1`.
-- Jupyter Notebooks
-- An Azure OpenAI resource in a region where `gpt-35-turbo-0613` fine-tuning is available. If you don't have a resource the process of creating one is documented in our resource deployment guide.
+- [Jupyter Notebooks](https://jupyter.org/)
+- An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
 - Necessary Role-based access control permissions. To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
 
 ## Set up
@@ -486,7 +486,7 @@ print(r.json())
 
 You can check on your deployment progress in the Azure OpenAI Studio:
 
-:::image type="content" source="../media/tutorials/fine-tuning/status.png" alt-text="Screenshot of the initial DataFrame table results from the csv file." lightbox="../media/tutorials/fine-tuning/status.png":::
+:::image type="content" source="../media/tutorials/fine-tuning/status.png" alt-text="Screenshot of the initial DataFrame table results from the CSV file." lightbox="../media/tutorials/fine-tuning/status.png":::
 
 It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models. 
 
