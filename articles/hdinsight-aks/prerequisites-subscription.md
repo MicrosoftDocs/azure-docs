@@ -3,7 +3,7 @@ title: Subscription prerequisites for Azure HDInsight on AKS.
 description: Prerequisite steps to complete on your subscription before working with Azure HDInsight on AKS.
 ms.topic: how-to
 ms.service: hdinsight-aks
-ms.date: 08/29/2023
+ms.date: 10/13/2023
 ---
 
 # Subscription prerequisites
