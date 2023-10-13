@@ -4,7 +4,7 @@ description: Learn about using Managed Identity with Azure Communication Service
 author: hrazi
 manager: mharbut
 services: azure-communication-services
-ms.author: joelen
+ms.author: harazi
 ms.date: 07/24/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -67,7 +67,7 @@ First, you need to create a user-assigned managed identity resource.
 4. Select **User assigned** > **Add**.
 
 5. Search for the identity you created earlier, select it, and select **Add**.
- :::image type="content" source="../media/managed-identity/managed-identity-user-assigned.png" alt-text="Screenshot that shows how to enable user assigned managed identity." lightbox="../media/managed-identity/managed-identity-system-assigned.png" :::
+ :::image type="content" source="../media/managed-identity/managed-identity-user-assigned.png" alt-text="Screenshot that shows how to enable user assigned managed identity." lightbox="../media/managed-identity/managed-identity-user-assigned.png" :::
 
 # [Azure CLI](#tab/cli)
 
