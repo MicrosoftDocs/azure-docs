@@ -236,11 +236,7 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-      - name: Transaction search
-        href: app/diagnostic-search.md
         items:
-        - name: Transaction diagnostics
-          href: app/transaction-diagnostics.md
           displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
