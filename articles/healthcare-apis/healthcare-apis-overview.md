@@ -5,7 +5,7 @@ services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 09/01/2023
+ms.date: 10/13/2023
 ms.author: mikaelw
 ---
 
@@ -38,5 +38,4 @@ In addition, Azure Health Data Services has a business model and infrastructure 
 
 [Create a workspace](healthcare-apis-quickstart.md)
 
-
-[!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]
+[!INCLUDE [FHIR and DICOM trademark statements](./includes/healthcare-apis-fhir-dicom-trademark.md)]

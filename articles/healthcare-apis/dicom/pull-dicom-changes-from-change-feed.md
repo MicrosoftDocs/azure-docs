@@ -47,7 +47,6 @@ To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consu
 
 ## Next steps
 
-For information about the DICOM service, see the [DICOM service overview](dicom-services-overview.md).
-
+For information, see the [DICOM service overview](dicom-services-overview.md).
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

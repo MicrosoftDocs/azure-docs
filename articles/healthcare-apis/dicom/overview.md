@@ -70,4 +70,4 @@ Your organization needs an Azure subscription to configure and run the component
 
 [Use DICOMweb standard APIs](dicomweb-standard-apis-with-dicom-services.md)
 
-[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]
+[!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]
