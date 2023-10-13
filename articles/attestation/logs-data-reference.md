@@ -1,6 +1,6 @@
 ---
-title: Monitoring Azure Attestation 
-description: Monitoring Azure Attestation 
+title: Azure Attestation monitoring data reference
+description: Azure Attestation monitoring data reference
 services: attestation
 author: msmbaldwin
 ms.service: attestation
