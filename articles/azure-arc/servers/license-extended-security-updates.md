@@ -38,6 +38,10 @@ An additional scenario (scenario 1, below) is a candidate for VM/Virtual core li
 > Customers that choose virtual core licensing will always be charged at the Standard edition rate, even if the actual operating system used is Datacenter edition. Additionally, virtual core licensing is not available for physical servers.
 > 
 
+### License limits
+
+Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses.
+
 ### SA/SPLA conformance
 
 In all cases, you're required to attest to conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You will be able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
