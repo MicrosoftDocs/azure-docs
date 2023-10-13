@@ -48,6 +48,9 @@ The following example shows the rules that are available for configuration.
         "no-conflicting-metadata" : {
           "level": "warning"
         },
+        "no-deployments-resources" : {
+          "level": "warning"
+        }
         "no-hardcoded-env-urls": {
           "level": "warning"
         },

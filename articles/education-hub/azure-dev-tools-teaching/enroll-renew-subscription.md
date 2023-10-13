@@ -15,7 +15,7 @@ This article describes the process for enrolling in Azure Dev Tools for Teaching
 
 ## Enroll a new subscription
 
-1. Navigate to the [Azure Dev Tools for Teaching webpage](https://portal.azureforeducation.microsoft.com/).
+1. Navigate to the [Azure Dev Tools for Teaching webpage](https://azureforeducation.microsoft.com/Order).
 1. Select the **Sign up** button. 
 1. Select **Enroll or Renew** on the Azure Dev Tools for Teaching banner.
 1. Select the type of subscription you're enrolling:

@@ -1,5 +1,5 @@
 ---
-title: 'Use map UserType with Microsoft Entra Connect cloud sync'
+title: 'Use map UserType with Microsoft Entra Cloud Sync'
 description: This article describes how to map the UserType attribute with cloud sync.
 services: active-directory
 author: billmath

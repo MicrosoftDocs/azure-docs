@@ -60,7 +60,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Microsoft Entra Connect cloud sync?
+          - text: What is Microsoft Entra Cloud Sync?
             url: how-to-connect-install-express.md
 
 

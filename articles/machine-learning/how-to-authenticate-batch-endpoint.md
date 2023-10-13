@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Authorization on batch endpoints
 
-Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
+Batch endpoints support Microsoft Entra authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Microsoft Entra authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Batch endpoints support Azure Active Directory authentication, or `aad_token`. T
 
 ## How authorization works
 
-To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
+To invoke a batch endpoint, the user must present a valid Microsoft Entra token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
 
 > [!div class="checklist"]
 > * Read batch endpoints/deployments.
@@ -91,7 +91,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [REST](#tab/rest)
 
-When working with REST, we recommend invoking batch endpoints using a service principal. However, if you want to test a particular deployment using REST with your own credentials, you can do it by generating an Azure AD token for your account. Follow these steps:
+When working with REST, we recommend invoking batch endpoints using a service principal. However, if you want to test a particular deployment using REST with your own credentials, you can do it by generating a Microsoft Entra token for your account. Follow these steps:
 
 1. The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
 
@@ -130,7 +130,7 @@ When working with REST, we recommend invoking batch endpoints using a service pr
 
 ### Running jobs using a service principal
 
-In this case, we want to execute a batch endpoint using a service principal already created in Azure Active Directory. To complete the authentication, you will have to create a secret to perform the authentication. Follow these steps:
+In this case, we want to execute a batch endpoint using a service principal already created in Microsoft Entra ID. To complete the authentication, you will have to create a secret to perform the authentication. Follow these steps:
 
 # [Azure CLI](#tab/cli)
 

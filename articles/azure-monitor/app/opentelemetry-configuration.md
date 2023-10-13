@@ -12,8 +12,6 @@ ms.reviewer: mmcc
 
 This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
-> [!TIP]
-> For Node.js, this config guidance applies to the 3.X BETA Package only. If you're using a previous version, see the [Node.js Application Insights SDK Docs](nodejs.md).
 
 ## Connection string
 
@@ -376,9 +374,11 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 > [!TIP]
 > When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
 
-## Enable Entra ID (formerly Azure AD) authentication
+<a name='enable-entra-id-formerly-azure-ad-authentication'></a>
 
-You might want to enable Entra ID Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
+## Enable Microsoft Entra ID (formerly Azure AD) authentication
+
+You might want to enable Microsoft Entra authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
