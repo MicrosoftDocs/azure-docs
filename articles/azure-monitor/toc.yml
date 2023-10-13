@@ -107,7 +107,7 @@ items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
-          href: /app/opentelemetry-enable.md#frequently-asked-questions
+          href: app/opentelemetry-enable.md#frequently-asked-questions
       - name: Application Insights SDK (Classic API)
         items:
         - name: Client-side JavaScript
