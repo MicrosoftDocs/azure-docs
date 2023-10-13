@@ -124,6 +124,11 @@ sections:
           Azure Front Door is a dynamic service that routes traffic to the best available backend. It doesn't offer static or dedicated frontend anycast IPs at this time.
 
       - question: |
+          Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
+        answer:  |
+          Yes. For more details, [Microsoft response to DDoS attacks against HTTP/2](see https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
+
+      - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
         answer: |
           Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forwarded-Proto headers. These headers help Front Door identify the original client IP and protocol. If X-Forwarded-For is already present, Front Door adds the client socket IP to the end of the list. Otherwise, it creates the header with the client socket IP as the value. For X-Forwarded-Host and X-Forwarded-Proto, Front Door replaces the existing values with its own.
