@@ -28,7 +28,6 @@ To use Managed Identity with ACS, follow these steps:
 1. Grant your Managed Identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI and the Azure Communication Management SDKs.
 2. Use the Managed Identity to authenticate with ACS. Authentication can be done through the Azure SDKs or REST APIs that support Managed Identity.
 
-
 -----
 
 ## Add a system-assigned identity
