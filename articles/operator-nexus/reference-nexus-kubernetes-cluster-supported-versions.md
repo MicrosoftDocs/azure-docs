@@ -256,7 +256,7 @@ If you're on the *n-3* version or older, it means you're outside of support. Whe
 
 * If the oldest supported AKS version is *1.25.x* and you're on *1.24.x* or older, you're outside of support.
 * Successfully upgrading from *1.24.x* to *1.25.x* or higher brings you back within our support window.
-* Upgrade from *1.13.c* to *1.15.a* or higher isn't supported; but you may upgrade to *1.14.b* and then to *1.15.a* or higher.
+* "Skip-level upgrades" are not supported. In order to upgrade from *1.23.x* to *1.25.x* you must upgrade first to *1.24.x* and then to *1.25.x*.
 
 Downgrades aren't supported.
 
