@@ -281,7 +281,7 @@ Additionally, Nexus doesn't make any runtime or other guarantees for clusters ou
 
 For minor versions not supported by Nexus, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
 
-### Can I skip multiple AKS versions during cluster upgrade?
+### Can I skip multiple Kubernetes versions during cluster upgrade?
 
 When you upgrade a supported Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. Kubernetes control planes [version skew policy](https://kubernetes.io/releases/version-skew-policy/) doesn't support minor version skipping. For example, upgrades between:
 
