@@ -58,7 +58,7 @@ const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>', passcode:
   * Passcode: 6 characters
      
 - How often do we need to refresh passcode & ID?
-   * There is single pair for meeting. Developers don't need to refresh it.
+   * Meeting ID and passcode does not change once created. Developers don't need to refresh neither of those for change.
    * Teams meeting organizer can't regenerate the meeting ID and passcode.
        
 - Is there any difference in Teams meeting experience if the user joins through URL or meeting ID & passcode?
