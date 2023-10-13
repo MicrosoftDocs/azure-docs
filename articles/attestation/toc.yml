@@ -38,7 +38,7 @@
   - name: How to interpret Azure Attestation logs
     href: view-logs.md
   - name: Monitoring Azure Attestation
-    href: monitor-azure-attestation.md
+    href: monitor-logs.md
 - name: Examples
   items:
     - name: Attestation policy
