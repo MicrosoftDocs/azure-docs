@@ -32,7 +32,7 @@ Each number in the version indicates general compatibility with the previous ver
 
 * **Major version numbers** change when breaking changes to the API may be introduced
 * **Minor version numbers** change when functionality updates are made that are backwards compatible to the other minor releases.
-* **Patch versions** change when backwards-compatible bug fixes are made.
+* **Patch version numbers** change when backwards-compatible bug fixes are made.
 
 It's considered best practice and recommended staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](#upgrading-kubernetes-versions) section.
 
