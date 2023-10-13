@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/03/2023
+ms.date: 10/13/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -64,13 +64,17 @@ No. UDR isn't supported on an Azure Bastion subnet.
 
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
+### <a name="all-skus"></a> What SKU should I use?
+
+Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="upgradesku"></a> Can I upgrade a SKU?
 
 Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
-### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
+### <a name="downgradesku"></a> Can I downgrade a SKU?
 
-No. Downgrading from a Standard SKU to a Basic SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+No. Downgrading a SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 ### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
 
