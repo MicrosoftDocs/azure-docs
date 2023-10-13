@@ -87,7 +87,7 @@ When you create Azure Bastion in the portal using **Deploy Bastion**, Azure Bast
 1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**.
 1. On the Bastion page, select the arrow next to **Dedicated Deployment Options** to expand the section.
 
-   :::image type="content" source="./media/quickstart-host-portal/deploy-bastion-automatically.png" alt-text="Screenshot showing how to expand Dedicated Deployent Options and Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion-automatically.png":::
+   :::image type="content" source="./media/quickstart-host-portal/deploy-bastion-automatically.png" alt-text="Screenshot showing how to expand Dedicated Deployment Options and Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion-automatically.png":::
 1. In the Create Bastion section, select **Deploy Bastion**.
 1. Bastion begins deploying. This can take around 10 minutes to complete.
 

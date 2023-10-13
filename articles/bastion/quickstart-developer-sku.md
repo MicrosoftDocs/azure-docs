@@ -18,7 +18,7 @@ In this quickstart, you'll learn how to deploy Azure Bastion using the Developer
 
 ## About the Developer SKU
 
-The Bastion Developer SKU is a new lower-cost, lightweight SKU. You can connect to one Azure VM at a time directly through the VM Connect page. This SKU is ideal for Dev/Test users who want to securely connect to their VMs if they don't need additional features or scaling. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
+The Bastion Developer SKU is a new lower-cost, lightweight SKU. You can connect to one Azure VM at a time directly through the virtual machine connect page. This SKU is ideal for Dev/Test users who want to securely connect to their VMs if they don't need additional features or scaling. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
 
 When you deploy Bastion using the Developer SKU, the deployment requirements are different. Typically when you create a bastion host, a host is deployed to the AzureBastionSubnet in your virtual network. The Bastion host is dedicated for your use. When using the Developer SKU, a bastion host isn't deployed to your virtual network and you don't need a AzureBastionSubnet. However, the Developer SKU bastion host isn't a dedicated resource.
 
