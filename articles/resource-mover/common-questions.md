@@ -6,7 +6,7 @@ manager: evansma
 ms.service: resource-mover
 ms.custom: ignite-2022, engagement-fy23, UpdateFrequency.5
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 10/12/2023
 ms.author: ankitadutta
 ---
 
@@ -52,16 +52,12 @@ You can't select disks as resources to the moved across regions. However, disks 
 
 Currently, Azure Resource Mover only supports move across regions within the same subscription. Move across subscriptions is not supported. 
 
-However, on the Azure Portal, Azure Resource mover has an entry point to enable the move across subscriptions. The capability to move across subscriptions is supported by Azure Resource Manager (ARM). [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+However, on the Azure portal, Azure Resource mover has an entry point to enable the move across subscriptions. The capability to move across subscriptions is supported by Azure Resource Manager (ARM). [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Moving across regions and across subscriptions is a two-step process:
 
 1. Move resources across regions using Azure Resource Mover.
 1. Use Azure Resource Manager (ARM) to move across subscriptions once resources are in the desired target region.
-
-### What does it mean to move a resource group?
-
-When a resource is selected for move, the corresponding resource group is added automatically for moving. This is so that the destination resource can be placed in a resource group. You can choose to customize and provide an existing resource group after it's added for move. Moving a resource group doesn't mean that all the resources in the source resource group will be moved.
 
 ### Can I move resources across subscriptions when I move them across regions?
 
@@ -82,7 +78,7 @@ Yes, both in transit and at rest.
 
 ### How is managed identity used in Resource Mover?
 
-[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Azure AD.
+[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Microsoft Entra ID.
 - Resource Mover uses managed identity so that it can access Azure subscriptions to move resources across regions.
 - A move collection needs a system-assigned identity, with access to the subscription that contains resources you're moving.
 

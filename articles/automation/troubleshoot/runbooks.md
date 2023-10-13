@@ -165,7 +165,7 @@ To determine what's wrong, follow these steps:
    Connect-AzAccount -Credential $Cred
    ```
 
-1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the article [Authenticate to Azure using Azure Active Directory](../automation-use-azure-ad.md).
+1. If your authentication fails locally, you haven't set up your Microsoft Entra credentials properly. To get the Microsoft Entra account set up correctly, see the article [Authenticate to Azure using Microsoft Entra ID](../automation-use-azure-ad.md).
 
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
@@ -253,7 +253,7 @@ The subscription named <subscription name> cannot be found.
 This error can occur if:
 
 * The subscription name isn't valid.
-* The Azure AD user who's trying to get the subscription details isn't configured as an administrator of the subscription.
+* The Microsoft Entra user who's trying to get the subscription details isn't configured as an administrator of the subscription.
 * The cmdlet isn't available.
 * Context switching occurred.
 
@@ -307,7 +307,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ### Cause
 
-If you have multifactor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure. Instead, you need to use a certificate or a service principal to authenticate.
+If you have multifactor authentication on your Azure account, you can't use a Microsoft Entra user to authenticate to Azure. Instead, you need to use a certificate or a service principal to authenticate.
 
 ### Resolution
 
@@ -592,7 +592,7 @@ This error occurs because of one of the following issues:
 
 * **Module incompatible.** Module dependencies might not be correct. In this case, your runbook typically returns a `Command not found` or `Cannot bind parameter` message.
 
-* **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
+* **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Microsoft Entra ID by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
 
 ### Resolution
 
@@ -600,7 +600,7 @@ This error occurs because of one of the following issues:
 
 * **Module incompatible.** Update your Azure modules by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
-* **No authentication with Active Directory for sandbox.** When you authenticate to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
+* **No authentication with Active Directory for sandbox.** When you authenticate to Microsoft Entra ID with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
 
   If your runbook can't call an executable or subprocess running in an Azure sandbox, use the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid workers aren't limited by the memory and network limits that Azure sandboxes have.
 

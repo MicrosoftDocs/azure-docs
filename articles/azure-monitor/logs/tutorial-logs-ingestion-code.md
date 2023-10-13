@@ -27,7 +27,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     dotnet add package Azure.Monitor.Ingestion
     ```
 
-3. Create the following environment variables with values for your Microsoft Entra ID application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
+3. Create the following environment variables with values for your Microsoft Entra application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
 
    - `AZURE_TENANT_ID`
    - `AZURE_CLIENT_ID`
@@ -137,7 +137,7 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
-1. Create the following environment variables with values for your Microsoft Entra ID application. These values are used by `DefaultAzureCredential` in the Azure Identity module.
+1. Create the following environment variables with values for your Microsoft Entra application. These values are used by `DefaultAzureCredential` in the Azure Identity module.
 
    - `AZURE_TENANT_ID`
    - `AZURE_CLIENT_ID`
@@ -236,7 +236,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     </dependency>
     ```
 
-1. Create the following environment variables with values for your Microsoft Entra ID application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
+1. Create the following environment variables with values for your Microsoft Entra application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
 
    - `AZURE_TENANT_ID`
    - `AZURE_CLIENT_ID`
@@ -309,7 +309,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     npm install --save @azure/identity
     ```
 
-1. Create the following environment variables with values for your Microsoft Entra ID application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
+1. Create the following environment variables with values for your Microsoft Entra application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
 
    - `AZURE_TENANT_ID`
    - `AZURE_CLIENT_ID`
@@ -473,7 +473,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for P
     pip install azure-identity
     ```
 
-1. Create the following environment variables with values for your Microsoft Entra ID application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
+1. Create the following environment variables with values for your Microsoft Entra application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
 
    - `AZURE_TENANT_ID`
    - `AZURE_CLIENT_ID`
@@ -556,4 +556,3 @@ The cache that drives IntelliSense might take up to 24 hours to update.
 
 - [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
-

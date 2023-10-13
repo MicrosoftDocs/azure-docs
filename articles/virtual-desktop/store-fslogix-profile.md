@@ -35,7 +35,7 @@ The following tables compare the storage solutions Azure Storage offers for Azur
 |Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, on-premises|Cloud, on-premises|
 |Backup|Azure backup snapshot integration|Azure NetApp Files snapshots<br>Azure NetApp Files backup|Azure backup snapshot integration|
 |Security and compliance|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|[Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory integration|[Native Active Directory and Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/faq-smb.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
+|Microsoft Entra integration|[Native Active Directory and Microsoft Entra Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Microsoft Entra Domain Services and Native Active Directory](../azure-netapp-files/faq-smb.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Microsoft Entra Domain Services support only|
 
 Once you've chosen your storage method, check out [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for information about our pricing plans.
 

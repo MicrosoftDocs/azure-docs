@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/10/2023
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
@@ -199,7 +199,6 @@ The cold tier is now generally available in all public and Azure Government regi
 
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 - Setting the cold tier in a batch call is not yet supported (For example: using the [Blob Batch](/rest/api/storageservices/blob-batch) REST operation along with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) subrequest).

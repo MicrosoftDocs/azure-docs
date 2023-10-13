@@ -239,5 +239,5 @@ Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
 - [Migrate to the new developer portal](developer-portal-deprecated-migration.md) from the deprecated legacy portal.
-- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Azure AD](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
+- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
 - Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

@@ -11,7 +11,7 @@ ms.date: 08/08/2023
 ms.author: ryanwi
 ms.reviewer: arluca, ilanas, naha
 ms.custom: aaddev 
-#Customer intent: As a developer, I want workload identities so I can authenticate with Microsoft Entra ID and access Microsoft Entra ID protected resources.
+#Customer intent: As a developer, I want workload identities so I can authenticate with Microsoft Entra ID and access Microsoft Entra protected resources.
 ---
 
 # What are workload identities?
@@ -65,8 +65,8 @@ Intelligently detect compromised identities:
 
 Simplify lifecycle management:
 
-- Access Microsoft Entra ID protected resources without needing to manage secrets for workloads that run on Azure using [managed identities](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
-- Access Microsoft Entra ID protected resources without needing to manage secrets using [workload identity federation](workload-identity-federation.md) for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
+- Access Microsoft Entra protected resources without needing to manage secrets for workloads that run on Azure using [managed identities](../managed-identities-azure-resources/overview.md?toc=/azure/active-directory/workload-identities?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
+- Access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](workload-identity-federation.md) for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
 - Review service principals and applications that are assigned to privileged directory roles in Microsoft Entra ID using [access reviews for service principals](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json).
 
 ## Next steps

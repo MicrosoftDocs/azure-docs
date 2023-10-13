@@ -1,7 +1,7 @@
 ---
 title: Create a virtual network peering between different subscriptions
 titleSuffix: Azure Virtual Network
-description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions in the same or different Azure Active Directory tenant.
+description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions in the same or different Microsoft Entra tenant.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -10,9 +10,9 @@ ms.date: 08/23/2023
 ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 
-# Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants
+# Create a virtual network peering - Resource Manager, different subscriptions and Microsoft Entra tenants
 
-In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Azure Active Directory (Azure AD) tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
+In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Microsoft Entra tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
 Depending on whether, the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
@@ -40,9 +40,9 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
     - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the Network Contributor role to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
 
-    - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
+    - For more information about guest users, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
-    - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
+    - Each user must accept the guest user invitation from the opposite Microsoft Entra tenant.
 
 - Sign-in to the [Azure portal](https://portal.azure.com).
 
@@ -56,9 +56,9 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
     - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the Network Contributor role to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
 
-    - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
+    - For more information about guest users, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
-    - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
+    - Each user must accept the guest user invitation from the opposite Microsoft Entra tenant.
 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
@@ -78,9 +78,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 
     - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the Network Contributor role to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
 
-    - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
+    - For more information about guest users, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
-    - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
+    - Each user must accept the guest user invitation from the opposite Microsoft Entra tenant.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -88,7 +88,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-In the following steps, learn how to peer virtual networks in different subscriptions and Azure Active Directory tenants. 
+In the following steps, learn how to peer virtual networks in different subscriptions and Microsoft Entra tenants. 
 
 You can use the same account that has permissions in both subscriptions or you can use separate accounts for each subscription to set up the peering. An account with permissions in both subscriptions can complete all of the steps without signing out and signing in to portal and assigning permissions.
 

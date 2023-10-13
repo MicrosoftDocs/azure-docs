@@ -34,13 +34,13 @@ For information about how to use the gateway with these services, see these arti
   * Your Azure account needs to use either a work account or school account with the format `<username>@<organization>.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as accounts with hotmail.com or outlook.com domains.
 
     > [!NOTE]
-    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, your address might have the format `username@domain.onmicrosoft.com`. In this case, your account is stored in an Azure Active Directory (Azure AD) tenant. In most cases, the user principal name (UPN) for your Azure account is the same as your email address.
+    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, your address might have the format `username@domain.onmicrosoft.com`. In this case, your account is stored in a Microsoft Entra tenant. In most cases, the user principal name (UPN) for your Azure account is the same as your email address.
 
-    To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, first [create an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
+    To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, first [create a Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
 
-  * Your Azure account must belong only to a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use that account when you install and administer the gateway on your local computer.
+  * Your Azure account must belong only to a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use that account when you install and administer the gateway on your local computer.
 
-  * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Azure AD tenants.
+  * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Microsoft Entra tenants.
 
   * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that's associated with your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, you can use your Azure account to set up different gateway installations that are each associated with an Azure gateway resource. Your logic app workflows can then use these gateway resources in triggers and actions that can access on-premises data sources.
 
@@ -56,12 +56,12 @@ For information about how to use the gateway with these services, see these arti
 
   * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
-  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app workflow. By default, this region is the same location as your Azure AD tenant that manages your Azure user account. However, you can change the location during gateway installation or later.
+  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app workflow. By default, this region is the same location as your Microsoft Entra tenant that manages your Azure user account. However, you can change the location during gateway installation or later.
 
     > [!IMPORTANT]
     > During gateway setup, the **Change Region** command is unavailable if you signed in with your Azure Government account, which is associated with an 
-    > Azure AD tenant in the [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). The gateway 
-    > automatically uses the same region as your user account's Azure AD tenant.
+    > Microsoft Entra tenant in the [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). The gateway 
+    > automatically uses the same region as your user account's Microsoft Entra tenant.
     > 
     > To continue using your Azure Government account, but set up the gateway to work in the global multi-tenant Azure Commercial cloud instead, first sign 
     > in during gateway installation with the `prod@microsoft.com` username. This solution forces the gateway to use the global multi-tenant Azure cloud, 
@@ -99,7 +99,7 @@ For information about how to use the gateway with these services, see these arti
 
 1. Provide this information for your gateway installation:
 
-   * A gateway name that's unique across your Azure AD tenant
+   * A gateway name that's unique across your Microsoft Entra tenant
    * A recovery key that has at least eight characters
    * Confirmation of the recovery key
 
@@ -110,7 +110,7 @@ For information about how to use the gateway with these services, see these arti
 
    Note the **Add to an existing gateway cluster** option. When you install additional gateways for [high-availability scenarios](#high-availability-support), you use this option.
 
-1. Check the region for the gateway cloud service and [Azure Service Bus messaging instance](../service-bus-messaging/service-bus-messaging-overview.md) that your gateway installation uses. By default, this region is the same location as the Azure AD tenant for your Azure account.
+1. Check the region for the gateway cloud service and [Azure Service Bus messaging instance](../service-bus-messaging/service-bus-messaging-overview.md) that your gateway installation uses. By default, this region is the same location as the Microsoft Entra tenant for your Azure account.
 
    :::image type="content" source="./media/logic-apps-gateway-install/confirm-gateway-region.png" alt-text="Screenshot of part of the gateway installer window. The gateway cloud service region is highlighted.":::
 
@@ -196,7 +196,7 @@ If you must change your gateway's location, move your gateway installation to a 
 
 ## Tenant-level administration
 
-To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](/data-integration/gateway/service-gateway-tenant-level-admin).
+To get visibility into all the on-premises data gateways in a Microsoft Entra tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
@@ -242,30 +242,34 @@ These steps describe what happens when you interact with an element that's conne
 
 A stored credential is used to connect from the gateway to on-premises data sources. Regardless of the user, the gateway uses the stored credential to connect. There might be authentication exceptions for specific services, such as DirectQuery and LiveConnect for Analysis Services in Power BI.
 
-### Azure AD
+<a name='azure-ad'></a>
 
-Microsoft cloud services use [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the UPN for your account.
+### Microsoft Entra ID
+
+Microsoft cloud services use [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. A Microsoft Entra tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the UPN for your account.
 
 ### What is my UPN?
 
 If you're not a domain admin, you might not know your UPN. To find the UPN for your account, run the `whoami /upn` command from your workstation. Although the result looks like an email address, the result is the UPN for your local domain account.
 
-### Synchronize an on-premises Active Directory with Azure AD
+<a name='synchronize-an-on-premises-active-directory-with-azure-ad'></a>
 
-You need to use the same UPN for your on-premises Active Directory accounts and Azure AD accounts. So, make sure that the UPN for each on-premises Active Directory account matches your Azure AD account UPN. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If an account doesn't exist in Azure AD, you can't use that account.
+### Synchronize an on-premises Active Directory with Microsoft Entra ID
 
-Here are ways that you can match your on-premises Active Directory accounts with Azure AD.
+You need to use the same UPN for your on-premises Active Directory accounts and Microsoft Entra accounts. So, make sure that the UPN for each on-premises Active Directory account matches your Microsoft Entra account UPN. The cloud services know only about accounts within Microsoft Entra ID. So, you don't need to add an account to your on-premises Active Directory. If an account doesn't exist in Microsoft Entra ID, you can't use that account.
 
-* Add accounts manually to Azure AD.
+Here are ways that you can match your on-premises Active Directory accounts with Microsoft Entra ID.
+
+* Add accounts manually to Microsoft Entra ID.
 
   Create an account in the Azure portal or in the Microsoft 365 admin center. Make sure that the account name matches the UPN for the on-premises Active Directory account.
 
-* Synchronize local accounts to your Azure AD tenant by using the Azure AD Connect tool.
+* Synchronize local accounts to your Microsoft Entra tenant by using the Microsoft Entra Connect tool.
 
-  The Azure AD Connect tool provides options for directory synchronization and authentication setup. These options include password hash sync, pass-through authentication, and federation. If you're not a tenant admin or a local domain admin, contact your IT admin to get Azure AD Connect set up. Azure AD Connect ensures that your Azure AD UPN matches your local Active Directory UPN. This matching helps if you're using Analysis Services live connections with Power BI or single sign-on (SSO) capabilities.
+  The Microsoft Entra Connect tool provides options for directory synchronization and authentication setup. These options include password hash sync, pass-through authentication, and federation. If you're not a tenant admin or a local domain admin, contact your IT admin to get Microsoft Entra Connect set up. Microsoft Entra Connect ensures that your Microsoft Entra UPN matches your local Active Directory UPN. This matching helps if you're using Analysis Services live connections with Power BI or single sign-on (SSO) capabilities.
 
   > [!NOTE]
-  > Synchronizing accounts with the Azure AD Connect tool creates new accounts in your Azure AD tenant.
+  > Synchronizing accounts with the Microsoft Entra Connect tool creates new accounts in your Microsoft Entra tenant.
 
 <a name="faq"></a>
 
