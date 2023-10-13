@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Topologies for cross-tenant collaboration
 
-Whether your organization has multiple tenants due to mergers and acquisitions, for each business unit, or for management of critical resources, Microsoft Entra provides a flexible, out of the box solution to provision accounts across tenants and enable seamless collaboration. All three models below are supported 
+Whether your organization has multiple tenants due to mergers and acquisitions, for each business unit, or for management of critical resources, Microsoft Entra provides a flexible, out of the box solution to provision accounts across tenants and enable seamless collaboration. Microsoft Entra supports all three models below and adapts to meet your needs: 
 
 > [!div class="checklist"]
 > - Hub and spoke
@@ -27,7 +27,7 @@ Whether your organization has multiple tenants due to mergers and acquisitions, 
 ## Hub and Spoke
 There are two common patterns for a hub and spoke. Firstly, you can define a hub tenant where critical applications are integrated. Administrators of the spoke tenants can choose which users they want to provision into the hub for application access. Secondly, you can define a central user hub where all users originate, and then provision those users into the spoke tenants. Let's look at a few example scenarios and how they fit into each model. 
 
-### Collaborate after an acquisition (N:1)
+### Mergers and acquisitions (N:1)
 
 In cases where organizations undergo mergers and acquisitions, quickly enabling collaboration allows the business to operate while more complex IT decisions are made. For example, employees from a newly acquired company many need access to a central ShrePoint site or applications such as DropBox that may be integrated in the parent company. With cross-tenant synchronization, users from the acquired company can be provisioned from day one and get access to SaaS apps, on-prem apps, and other clouds on day one. The following example shows recently acquired tenants where users in multiple tenants need access to applications in the parent tenant.
 
@@ -35,25 +35,25 @@ In cases where organizations undergo mergers and acquisitions, quickly enabling 
 
 ## Separate collaboration and resource tenants (1:N)
 
-As organizations scale their Azure usage, they frequently employ a pattern where they centralize users in a hub tenant, sourced from their HR system, and provision accounts into spoke tenants used for management of Azure Resources. This enables administrators of the hub tenant to define central security and governance policies, while providing development teams greater autonomy to deploy the necessary Azure resources. 
+As organizations scale their Azure usage, they frequently centralize users in a hub tenant, sourced from their HR system, and provision accounts into spoke tenants used for management of Azure Resources. This enables administrators of the hub tenant to define central security and governance policies, while providing development teams greater autonomy to deploy the necessary Azure resources. 
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/Hub2.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
 
 ## Mesh
-### Collaborate within a portfolio company (N:N)
+While some companies have central IT teams and are able to manage  users in a single tenant, others have need a more decentralized structure with apps, HR systems, and AD domains integrated with each tenant. With cross-tenant synchronization, you have the flexibility to choose which users are provisioned into each tenant and ... 
 
-Your organization might be more complex that is similar to a mesh. The following example shows a topology where users flow across tenants in their organization. This topology is often used to enable people search scenarios where every user needs to be in every tenant to have a unified gallery.
+### Collaborate within a portfolio company (N:N)
+In the example below, each tenant represents a different company that is part of the same parent organization. Administrators of each tenant choose which users to provision. The tenants that collaborate closely, particularly in Microsoft Teams, provision all their users across tenants to enable a more seamless experience. However, tenant 4
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/Mesh.png" alt-text="Diagram that shows a hybrid topology synchronizing with multiple tenants.":::
 
 Cross-tenant synchronization is one way. An internal member user can be synchronized into multiple tenants as an external user. When the topology shows a synchronization going in both directions, it's a distinct set of users in each direction and each arrow is a separate configuration.
 
 ## Just-in-time 
-### Collaborate across organizations 
+While the scenarios above cover collaboration within an organization, there are many cases where collaboration across organizations is critical. This could be for joint ventures, organizations of independent legal entities, etc. By using connected organizations and entitlement management, you can define policies for who can access resources across connected organizations and enable users to request access to the resources that they need. 
 
-The following example shows a central user hub tenant where users need access to applications in smaller resource tenants across your organization.
-
-Customers commonly rely on this pattern when they have their organization in a single tenant, but parts of the organization need more control and autonomy to manage things like Azure resources. This topology allows you to create a single tenant for things like user onboarding, M365, etc. and have resource tenants that are used to provide access to applications such as Azure resources. 
+### Joint ventures
+Contoso and Litware are separate organizations, part of a multi-year joint venture and they need to collaborate closely. Administrators at Contoso have defined access packages with the resources that Litware users need. When a new employee at Litware needs access to resources in Contoso, they can request access to the access package and upon approval are provisioned access to the resources that they need. The access can be timelimited and reviewed pereodically to ensure that Contoso's governance requirements are met. 
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/ConnectedOrganization.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
 
