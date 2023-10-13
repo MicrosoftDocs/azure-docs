@@ -78,7 +78,6 @@ Developers can use multiple ways to join Teams meeting. One of them is meeting I
      1. Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
      1. Developers can't retrieve the meeting ID & passcode through calling SDK or retrieve it from verbose console logs.
 
-- Passcode is always required to join the Teams meeting. Passcode is case sensitive
 
 - How can I verify the meeting ID & passcode is correct?
   * MeetingId and passcode verification can be done via : https://www.microsoft.com/en-us/microsoft-teams/join-a-meeting
