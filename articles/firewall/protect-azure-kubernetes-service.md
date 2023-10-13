@@ -286,7 +286,7 @@ spec:
     spec:
       containers:
       - name: voting-storage
-        image: mcr.microsoft.com/aks/samples/voting/storage:2.0
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         args: ["--ignore-db-dir=lost+found"]
         resources:
           requests:
@@ -382,7 +382,7 @@ spec:
     spec:
       containers:
       - name: voting-app
-        image: mcr.microsoft.com/aks/samples/voting/app:2.0
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -443,7 +443,7 @@ spec:
     spec:
       containers:
       - name: voting-analytics
-        image: mcr.microsoft.com/aks/samples/voting/analytics:2.0
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
