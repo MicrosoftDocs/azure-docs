@@ -1218,7 +1218,7 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
-      - name: Use customer-managed keys across Azure AD tenants
+      - name: Use customer-managed keys across Microsoft Entra tenants
         href: disks-cross-tenant-customer-managed-keys.md
         displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
@@ -1758,7 +1758,7 @@
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
     href: mitigate-se.md
-  - name: Join a Linux VM to Azure Active Directory
+  - name: Join a Linux VM to Microsoft Entra ID
     displayName: Azure AD
     items:
     - name: Red Hat Enterprise Linux
@@ -1790,10 +1790,10 @@
     - name: Azure SDKs
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/toc.json
-  - name: Linux VMs SSH with Azure AD
+  - name: Linux VMs SSH with Microsoft Entra ID
     displayName: aad, ssh, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?toc=/azure/virtual-machines/toc.json
-  - name: Windows VMs and Azure AD
+  - name: Windows VMs and Microsoft Entra ID
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?toc=/azure/virtual-machines/toc.json
     displayname: aad, active directory
 - name: Updates and maintenance

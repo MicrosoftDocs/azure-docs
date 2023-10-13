@@ -23,15 +23,15 @@ ms.custom: devx-track-csharp
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
-| **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Don't use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
+| **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Microsoft Entra authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Don't use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use per device authentication credentials using SaS tokens](#authn-sas-tokens)</li></ul> |
-| **Azure Trust Boundary** | <ul><li>[Enable Azure AD Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
-| **Service Fabric Trust Boundary** | <ul><li>[Restrict anonymous access to Service Fabric Cluster](#anon-access-cluster)</li><li>[Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate](#fabric-cn-nn)</li><li>[Use AAD to authenticate clients to service fabric clusters](#aad-client-fabric)</li><li>[Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)](#fabric-cert-ca)</li></ul> |
+| **Azure Trust Boundary** | <ul><li>[Enable Microsoft Entra multifactor authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
+| **Service Fabric Trust Boundary** | <ul><li>[Restrict anonymous access to Service Fabric Cluster](#anon-access-cluster)</li><li>[Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate](#fabric-cn-nn)</li><li>[Use Microsoft Entra ID to authenticate clients to service fabric clusters](#aad-client-fabric)</li><li>[Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)](#fabric-cert-ca)</li></ul> |
 | **Identity Server** | <ul><li>[Use standard authentication scenarios supported by Identity Server](#standard-authn-id)</li><li>[Override the default Identity Server token cache with a scalable alternative](#override-token)</li></ul> |
 | **Machine Trust Boundary** | <ul><li>[Ensure that deployed application's binaries are digitally signed](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Enable authentication when connecting to MSMQ queues in WCF](#msmq-queues)</li><li>[WCF-Do not set Message clientCredentialType to none](#message-none)</li><li>[WCF-Do not set Transport clientCredentialType to none](#transport-none)</li></ul> |
 | **Web API** | <ul><li>[Ensure that standard authentication techniques are used to secure Web APIs](#authn-secure-api)</li></ul> |
-| **Azure AD** | <ul><li>[Use standard authentication scenarios supported by Azure Active Directory](#authn-aad)</li><li>[Override the default MSAL token cache with a distributed cache](#msal-distributed-cache)</li><li>[Ensure that TokenReplayCache is used to prevent the replay of inbound authentication tokens](#tokenreplaycache-msal)</li><li>[Use MSAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)](#msal-oauth2)</li></ul> |
+| **Microsoft Entra ID** | <ul><li>[Use standard authentication scenarios supported by Microsoft Entra ID](#authn-aad)</li><li>[Override the default MSAL token cache with a distributed cache](#msal-distributed-cache)</li><li>[Ensure that TokenReplayCache is used to prevent the replay of inbound authentication tokens](#tokenreplaycache-msal)</li><li>[Use MSAL libraries to manage token requests from OAuth2 clients to Microsoft Entra ID (or on-premises AD)](#msal-oauth2)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Authenticate devices connecting to the Field Gateway](#authn-devices-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Ensure that devices connecting to Cloud gateway are authenticated](#authn-devices-cloud)</li><li>[Use per-device authentication credentials](#authn-cred)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure that only the required containers and blobs are given anonymous read access](#req-containers-anon)</li><li>[Grant limited access to objects in Azure storage using SAS or SAP](#limited-access-sas)</li></ul> |
@@ -45,7 +45,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Azure AD</li><li>Federation - Identity Server</li></ul><p>Consider using a standard authentication mechanism to identify the source process</p>|
+| Details | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Microsoft Entra ID</li><li>Federation - Identity Server</li></ul><p>Consider using a standard authentication mechanism to identify the source process</p>|
 
 ## <a id="handle-failed-authn"></a>Applications must handle failed authentication scenarios securely
 
@@ -67,7 +67,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Verify the application has additional authorization (such as step up or adaptive authentication, via multi-factor authentication such as sending OTP in SMS, email etc. or prompting for re-authentication) so the user is challenged before being granted access to sensitive information. This rule also applies for making critical changes to an account or action</p><p>This also means that the adaptation of authentication has to be implemented in such a manner that the application correctly enforces context-sensitive authorization so as to not allow unauthorized manipulation by means of in example, parameter tampering</p>|
+| Details | <p>Verify the application has additional authorization (such as step up or adaptive authentication, via multifactor authentication such as sending OTP in SMS, email etc. or prompting for re-authentication) so the user is challenged before being granted access to sensitive information. This rule also applies for making critical changes to an account or action</p><p>This also means that the adaptation of authentication has to be implemented in such a manner that the application correctly enforces context-sensitive authorization so as to not allow unauthorized manipulation by means of in example, parameter tampering</p>|
 
 ## <a id="admin-interface-lockdown"></a>Ensure that administrative interfaces are appropriately locked down
 
@@ -124,7 +124,7 @@ ms.custom: devx-track-csharp
 | **References**              | [SQL Server - Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) |
 | **Steps** | Windows Authentication uses Kerberos security protocol, provides password policy enforcement with regard to complexity validation for strong passwords, provides support for account lockout, and supports password expiration.|
 
-## <a id="aad-authn-sql"></a>When possible use Azure Active Directory Authentication for Connecting to SQL Database
+## <a id="aad-authn-sql"></a>When possible use Microsoft Entra authentication for Connecting to SQL Database
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -132,8 +132,8 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](/azure/azure-sql/database/authentication-aad-overview) |
-| **Steps** | **Minimum version:** Azure SQL Database V12 required to allow Azure SQL Database to use AAD Authentication against the Microsoft Directory |
+| **References**              | [Connecting to SQL Database By Using Microsoft Entra authentication](/azure/azure-sql/database/authentication-aad-overview) |
+| **Steps** | **Minimum version:** Azure SQL Database V12 required to allow Azure SQL Database to use Microsoft Entra authentication against the Microsoft Directory |
 
 ## <a id="authn-account-pword"></a>When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server
 
@@ -168,7 +168,7 @@ ms.custom: devx-track-csharp
 | **References**              | [Event Hubs authentication and security model overview](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steps** | <p>The Event Hubs security model is based on a combination of Shared Access Signature (SAS) tokens and event publishers. The publisher name represents the DeviceID that receives the token. This would help associate the tokens generated with the respective devices.</p><p>All messages are tagged with originator on service side allowing detection of in-payload origin spoofing attempts. When authenticating devices, generate a per device SaS token scoped to a unique publisher.</p>|
 
-## <a id="multi-factor-azure-admin"></a>Enable Azure AD Multi-Factor Authentication for Azure Administrators
+## <a id="multi-factor-azure-admin"></a>Enable Microsoft Entra multifactor authentication for Azure Administrators
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -176,8 +176,8 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
-| **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that isn't easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
+| **References**              | [What is Microsoft Entra multifactor authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Steps** | <p>multifactor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that isn't easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Restrict anonymous access to Service Fabric Cluster
 
@@ -201,7 +201,7 @@ ms.custom: devx-track-csharp
 | **References**              | [Service Fabric Client-to-node certificate security](../../service-fabric/service-fabric-cluster-security.md#client-to-node-certificate-security), [Connect to a secure cluster using client certificate](../../service-fabric/service-fabric-connect-to-secure-cluster.md) |
 | **Steps** | <p>Client-to-node certificate security is configured while creating the cluster either through the Azure portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.</p><p>The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for Node-to-node security.</p>|
 
-## <a id="aad-client-fabric"></a>Use AAD to authenticate clients to service fabric clusters
+## <a id="aad-client-fabric"></a>Use Microsoft Entra ID to authenticate clients to service fabric clusters
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -210,7 +210,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
 | **References**              | [Cluster security scenarios - Security Recommendations](../../service-fabric/service-fabric-cluster-security.md#security-recommendations) |
-| **Steps** | Clusters running on Azure can also secure access to the management endpoints using Azure Active Directory (AAD), apart from client certificates. For Azure clusters, it is recommended that you use AAD security to authenticate clients and certificates for node-to-node security.|
+| **Steps** | Clusters running on Azure can also secure access to the management endpoints using Microsoft Entra ID, apart from client certificates. For Azure clusters, it is recommended that you use Microsoft Entra security to authenticate clients and certificates for node-to-node security.|
 
 ## <a id="fabric-cert-ca"></a>Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)
 
@@ -337,24 +337,24 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **Steps** | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Azure AD</li><li>Federation - Identity Server</li></ul><p>Links in the references section provide low-level details on how each of the authentication schemes can be implemented to secure a Web API.</p>|
+| **Steps** | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Microsoft Entra ID</li><li>Federation - Identity Server</li></ul><p>Links in the references section provide low-level details on how each of the authentication schemes can be implemented to secure a Web API.</p>|
 
-## <a id="authn-aad"></a>Use standard authentication scenarios supported by Azure Active Directory
+## <a id="authn-aad"></a>Use standard authentication scenarios supported by Microsoft Entra ID
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD |
+| **Component**               | Microsoft Entra ID |
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Authentication Scenarios for Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Azure Active Directory Code Samples](../../active-directory/azuread-dev/sample-v1-code.md), [Azure Active Directory developer's guide](../../active-directory/develop/index.yml) |
-| **Steps** | <p>Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Azure AD:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Azure AD</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Azure AD</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Azure AD</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
+| **References**              | [Authentication Scenarios for Microsoft Entra ID](../../active-directory/develop/authentication-vs-authorization.md), [Microsoft Entra code Samples](../../active-directory/azuread-dev/sample-v1-code.md), [Microsoft Entra developer's guide](../../active-directory/develop/index.yml) |
+| **Steps** | <p>Microsoft Entra ID simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Microsoft Entra ID:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Microsoft Entra ID</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Microsoft Entra ID</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Microsoft Entra ID</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Microsoft Entra ID</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Microsoft Entra ID</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
 
 ## <a id="msal-distributed-cache"></a>Override the default MSAL token cache with a distributed cache
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD |
+| **Component**               | Microsoft Entra ID |
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -365,11 +365,11 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD |
+| **Component**               | Microsoft Entra ID |
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications) |
+| **References**              | [Modern Authentication with Microsoft Entra ID for Web Applications](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications) |
 | **Steps** | <p>The TokenReplayCache property allows developers to define a token replay cache, a store that can be used for saving tokens for the purpose of verifying that no token can be used more than once.</p><p>This is a measure against a common attack, the aptly called token replay attack: an attacker intercepting the token sent at sign-in might try to send it to the app again (“replay” it) for establishing a new session. E.g., In OIDC code-grant flow, after successful user authentication, a request to "/signin-oidc" endpoint of the relying party is made with "id_token", "code" and "state" parameters.</p><p>The relying party validates this request and establishes a new session. If an adversary captures this request and replays it, he/she can establish a successful session and spoof the user. The presence of the nonce in OpenID Connect can limit but not fully eliminate the circumstances in which the attack can be successfully enacted. To protect their applications, developers can provide an implementation of ITokenReplayCache and assign an instance to TokenReplayCache.</p>|
 
 ### Example
@@ -422,11 +422,11 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 Please note that to test the effectiveness of this configuration, login into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
-## <a id="msal-oauth2"></a>Use MSAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)
+## <a id="msal-oauth2"></a>Use MSAL libraries to manage token requests from OAuth2 clients to Microsoft Entra ID (or on-premises AD)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD |
+| **Component**               | Microsoft Entra ID |
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -457,7 +457,7 @@ MSAL also maintains a token cache and refreshes tokens for you when they're clos
 | **Applicable Technologies** | Generic, C#, Node.JS,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
 | **References**              | N/A, [Azure IoT hub with .NET](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), [Getting Started with IoT hub and Node JS](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), [Securing IoT with SAS and certificates](../../iot-hub/iot-hub-dev-guide-sas.md), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
-| **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
+| **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Microsoft Entra ID, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
 
 ### Example
 ```csharp

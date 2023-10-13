@@ -47,7 +47,7 @@ npm install azure-maps-control@latest
 
 ## Review authentication methods (optional)
 
-To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Azure Active Directory Authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
+To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Microsoft Entra authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
 
 ## Testing
 

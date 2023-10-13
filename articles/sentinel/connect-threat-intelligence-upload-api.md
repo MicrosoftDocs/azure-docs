@@ -29,25 +29,27 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 ## Prerequisites  
 - In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
-- You must be able to register an Azure Active Directory (Azure AD) application. 
-- The Azure AD application must be granted the Microsoft Sentinel contributor role at the workspace level.
+- You must be able to register a Microsoft Entra application. 
+- The Microsoft Entra application must be granted the Microsoft Sentinel contributor role at the workspace level.
 
 ## Instructions
 Follow these steps to import threat indicators to Microsoft Sentinel from your integrated TIP or custom threat intelligence solution:
-1. Register an Azure AD application and record its application ID.
-1. Generate and record a client secret for your Azure AD application.
-1. Assign your Azure AD application the Microsoft Sentinel contributor role or equivalent.
+1. Register a Microsoft Entra application and record its application ID.
+1. Generate and record a client secret for your Microsoft Entra application.
+1. Assign your Microsoft Entra application the Microsoft Sentinel contributor role or equivalent.
 1. Enable the Threat Intelligence upload API data connector in Microsoft Sentinel.
 1. Configure your TIP solution or custom application.
 
-### Register an Azure AD application
+<a name='register-an-azure-ad-application'></a>
 
-The [default user role permissions](../active-directory/fundamentals/users-default-permissions.md#restrict-member-users-default-permissions) allow users to create application registrations. If this setting has been switched to **No**, you'll need permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
+### Register a Microsoft Entra application
+
+The [default user role permissions](../active-directory/fundamentals/users-default-permissions.md#restrict-member-users-default-permissions) allow users to create application registrations. If this setting has been switched to **No**, you'll need permission to manage applications in Microsoft Entra ID. Any of the following Microsoft Entra roles include the required permissions:
 - Application administrator
 - Application developer
 - Cloud application administrator
 
-For more information on registering your Azure AD application, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
+For more information on registering your Microsoft Entra application, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
 Once you've registered your application, record its Application (client) ID from the application's **Overview** tab.
 
@@ -67,7 +69,7 @@ The upload indicators API ingests threat indicators at the workspace level and a
 1. Select **Add** > **Add role assignment**.
 1. In the **Role** tab, select the **Microsoft Sentinel Contributor** role > **Next**.
 1. On the **Members** tab, select **Assign access to** > **User, group, or service principal**.
-1. **Select members**. By default, Azure AD applications aren't displayed in the available options. To find your application, search for it by name.
+1. **Select members**. By default, Microsoft Entra applications aren't displayed in the available options. To find your application, search for it by name.
     :::image type="content" source="media/connect-threat-intelligence-upload-api/assign-role.png" alt-text="Screenshot showing the Microsoft Sentinel contributor role assigned to the application at the workspace level.":::
 
 1. **Select** > **Review + assign**.  

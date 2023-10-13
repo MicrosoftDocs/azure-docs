@@ -59,4 +59,4 @@ You can also programmatically fetch Key Vault Uri using [Azure REST API](/rest/a
 ## Next steps
 
 - [Flexible Server encryption with Customer Managed Key (CMK)](../flexible-server/concepts-data-encryption.md)
-- [Azure Active Directory](../../active-directory-domain-services/overview.md)
+- [Microsoft Entra ID](../../active-directory-domain-services/overview.md)

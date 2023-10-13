@@ -24,7 +24,7 @@ To view, export, and delete personal data that may be subject to a data subject 
 
 ## Identifying customer data
 
-Azure Time Series Insights considers personal data to be data associated with administrators and users of Time Series Insights. Time Series Insights stores the Azure Active Directory object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Time Series Insights, they are dynamically looked up using the Azure Active Directory object-ID in Azure Active Directory.
+Azure Time Series Insights considers personal data to be data associated with administrators and users of Time Series Insights. Time Series Insights stores the Microsoft Entra object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Time Series Insights, they are dynamically looked up using the Microsoft Entra object-ID in Microsoft Entra ID.
 
 ## Deleting customer data
 
