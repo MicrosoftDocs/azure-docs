@@ -4,20 +4,20 @@ description: Learn how to deploy Bastion using settings that you specify - Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/05/2023
+ms.date: 10/13/2023
 ms.author: cherylmc
 
 ---
 
 # Tutorial: Deploy Bastion using specified settings
 
-This tutorial helps you deploy Azure Bastion from the Azure portal using your own specified manual settings. Azure Bastion is a PaaS service that's maintained for you, not a bastion host that you install on one of your VMs and maintain yourself. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md). To deploy Bastion using the Developer SKU, see [Deploy Azure Bastion - Developer SKU](deploy-host-developer-sku.md).
+This tutorial helps you deploy Azure Bastion from the Azure portal using your own specified manual settings. This article helps you deploy Bastion using a SKU that you specify. The SKU determines the features and connections that are available for your deployment. For more information about SKUs, see [Configuration settings - SKUs](configuration-settings.md#skus).
 
-When you use manual settings, you can specify configuration values such as instance counts and the SKU at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
+In the Azure portal, when you use the **Configure Manually** option to deploy Bastion, you can specify configuration values such as instance counts and SKUs at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host scaling (instance count). After the deployment is complete, you connect to your VM via private IP address. If your VM has a public IP address that you don't need for anything else, you can remove it.
+In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host scaling (instance count), which the Standard SKU supports. You could optionally deploy using a lower SKU, but you won't be able to adjust host scaling. After the deployment is complete, you connect to your VM via private IP address. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
 In this tutorial, you'll learn how to:
 
