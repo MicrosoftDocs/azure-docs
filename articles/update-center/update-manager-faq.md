@@ -17,13 +17,13 @@ This  FAQ is a list of commonly asked questions about Azure Update Manager. If y
 
 ### What are the benefits of using Azure Update Manager?
 
-Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multi-cloud environments.
+Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multicloud environments.
 Following are the benefits of using Azure Update Manager:
-- Oversee update compliance for your entire fleet of machines in Azure (Azure VMs), on premises, and multi-cloud environments (Arc-enabled Servers).
+- Oversee update compliance for your entire fleet of machines in Azure (Azure VMs), on premises, and multicloud environments (Arc-enabled Servers).
 - View and deploy pending updates to secure your machines [instantly](updates-maintenance-schedules.md#update-nowone-time-update).
 - Manage [extended security updates (ESUs)](https://learn.microsoft.com/azure/azure-arc/servers/prepare-extended-security-updates) for your Azure Arc-enabled Windows Server 2012/2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
 - Define recurring time windows during which your machines receive updates and might undergo reboots using [scheduled patching](scheduled-patching.md). Enforce machines grouped together based on standard Azure constructs (Subscriptions, Location, Resource Group, Tags etc.) to have common patch schedules using [dynamic scoping](dynamic-scope-overview.md). Sync patch schedules for Windows machines in relation to patch Tuesday, the unofficial term for month.
-- Enable incremental rollout of updates to Azure VMs in off-peak hours using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) and reduce reboots by enabling [hot patching](updates-maintenance-schedules.md#hotpatching).
+- Enable incremental rollout of updates to Azure VMs in off-peak hours using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) and reduce reboots by enabling [hotpatching](updates-maintenance-schedules.md#hotpatching).
 - Automatically [assess](assessment-options.md#periodic-assessment) machines for pending updates every 24 hours, and flag machines that are out of compliance. Enforce enabling periodic assessments on multiple machines at scale using [Azure Policy](periodic-assessment-at-scale.md).
 - Create [custom reports](workbooks.md) for deeper understanding of the updates data of the environment.
 - Granular access management to Azure resources with Azure roles and identity, to control who can perform update operations and edit schedules.

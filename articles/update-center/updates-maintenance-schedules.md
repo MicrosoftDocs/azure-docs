@@ -49,7 +49,7 @@ When you enable [automatic VM guest patching](../virtual-machines/automatic-vm-g
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
-- Patches are applied during all hours for Azure Virtual Machine Scale Sets [VMSS Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration).
+- Patches are applied during all hours for Azure Virtual Machine Scale Sets [VMSS Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration).
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 -  You can monitor application health through the [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
@@ -71,7 +71,8 @@ To enable the VM property, follow these steps:
 
 
 ## Hotpatching
-[Hotpatching](https://learn.microsoft.com/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that doesn't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process.
+
+[Hotpatching](https://learn.microsoft.com/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process.
 
 Following are the features of Hotpatching:
 
