@@ -107,9 +107,9 @@ The following sections describe the tables in Application Insights where you can
 | Table name | Description |
 |------------|-------------|
 | [Requests](#requests-table) | Details about the following events in workflow runs: <br><br>- Trigger and action events <br>- Retry attempts <br>- Connector usage |
-| [Traces](#traces-table) | Details about the following events in workflow runs: <br><br>- Workflow start and end events <br>- Batch send events and batch receive events |
+| [Traces](#traces-table) | Details about the following events in workflow runs: <br><br>- Workflow start and end events <br>- Batch send and batch receive events |
 | [Exceptions](#exceptions-table) | Details about exception events in workflow runs |
-| [Dependencies](#dependencies-table) | Details about dependency events workflow runs |
+| [Dependencies](#dependencies-table) | Details about dependency events in workflow runs |
 
 ### Requests table
 
@@ -409,7 +409,7 @@ The following list has example queries that you can create and run against the T
 |------|-------|
 | View start and end events in all workflow runs | [Query for start and end events in all workflow runs](#traces-table-view-all-start-end-events) |
 | View start and end events in a specific workflow run | [Query for start and end events in a workflow run](#traces-table-view-start-end-events-specific-run) |
-| View batch send and receive events in all workflow runs | [Query for batch send events and batch receive events in all workflow runs](#traces-table-view-all-batch-send-receive-events) |
+| View batch send and receive events in all workflow runs | [Query for batch send and batch receive events in all workflow runs](#traces-table-view-all-batch-send-receive-events) |
 
 <a name="traces-table-view-all-start-end-events"></a>
 
@@ -461,7 +461,7 @@ You can create a query against the Traces table to view the batch send and batch
    | where customDimensions.Category == "Workflow.Operations.Batch"
    ```
 
-   ![Screenshot shows Application Insights, Results tab for batch send events and batch receive events in all workflow runs.](media/enable-enhanced-telemetry-standard-workflows/traces-table/batch-events-all-runs.png)
+   ![Screenshot shows Application Insights, Results tab for batch send and batch receive events in all workflow runs.](media/enable-enhanced-telemetry-standard-workflows/traces-table/batch-events-all-runs.png)
 
 ### Exceptions table
 
@@ -671,11 +671,11 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
 
 ---
 
-<a name="view-enhanced-metrics"></a>
+<a name="view-workflow-metrics"></a>
 
-## View enhanced metrics in Application Insights
+## View workflow metrics in Application Insights
 
-With the telemetry enhancements in Application Insights, you also get an enhanced Metrics dashboard.
+With the telemetry enhancements in Application Insights, you also get workflow insights in the Metrics dashboard.
 
 <a name="open-metrics-dashboard"></a>
 
