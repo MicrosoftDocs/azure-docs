@@ -35,7 +35,7 @@ sections:
       - question: |
           How do I get an MSIX package?
         answer: |
-          Your software vendor will give you an MSIX package. You can also convert non-MSIX packages to MSIX. Learn more at [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
+          Your software vendor gives you an MSIX package. You can also convert non-MSIX packages to MSIX. Learn more at [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
           
       - question: |
           Which operating systems support MSIX app attach?
@@ -58,14 +58,14 @@ sections:
           For two versions of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
 
       - question: |
-          Should I disable auto-update when using MSIX app attach?
+          Should I disable automatic updating of applications when using MSIX app attach?
         answer: |
-          Yes. MSIX app attach doesn't support auto-update for MSIX applications.
+          Yes. MSIX app attach doesn't support automatic updating for MSIX applications.
 
       - question: |
           How do permissions work with MSIX app attach?
         answer: |
-          All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they'll need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
+          All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
 
       - question: |
           How many users can use an MSIX image handle?
@@ -115,7 +115,7 @@ sections:
           Each session host has different limits based on their CPU, memory, and OS. Going over these limits can affect application performance and overall user experience. However, MSIX app attach itself has no limit on how many applications it can use.
 
       - question: |
-          How many .VHD or .VHDX files can I mount on a host pool?
+          How many VHD or VHDX files can I mount on a host pool?
         answer: |
           MSIX app attach itself doesn't have a limit to the number of files you can mount. However, the host pool itself can be limited by the following factors:
 
