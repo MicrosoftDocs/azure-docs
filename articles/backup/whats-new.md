@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- Novemner 2023
+  - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
   - [Enhanced soft delete for Azure Backup is now generally available](#enhanced-soft-delete-for-azure-backup-is-now-generally-available)
@@ -67,6 +69,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## SAP HANA instance snapshot backup support is now generally available
+
+Azure Backup now supports SAP HANA instance snapshot backup that provides a cost-effective backup solution using Managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
+
+You can now take an instant snapshot of the entire HANA instance and backup logs for all databases, with a single solution. It also enables you to instantly restore the entire instance with point-in-time recovery using logs over the snapshot.
+
+For more information, see [Back up databases' instance snapshots](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
 ## Multi-user authorization using Resource Guard for Backup vault is now generally available
 
@@ -190,7 +200,7 @@ Azure Backup now supports SAP HANA instance snapshot backup that provides a cost
 
 You can now take an instant snapshot of the entire HANA instance and backup logs for all databases, with a single solution. It also enables you to instantly restore the entire instance with point-in-time recovery using logs over the snapshot.
 
-For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots-preview).
+For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
 ## SAP HANA System Replication database backup support (preview)
 

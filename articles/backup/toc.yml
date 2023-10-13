@@ -142,7 +142,7 @@
     href: backup-azure-vms-introduction.md
   - name: SAP HANA database on Azure VM backup
     items:
-    - name: About HANA database backup
+    - name: Overview
       href: sap-hana-database-about.md
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
