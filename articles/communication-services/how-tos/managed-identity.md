@@ -4,7 +4,7 @@ description: Learn about using Managed Identity with Azure Communication Service
 author: hrazi
 manager: mharbut
 services: azure-communication-services
-ms.author: haider.razi, joeleniqs
+ms.author: haider.razi
 ms.date: 07/24/2023
 ms.topic: how-to
 ms.service: azure-communication-services
