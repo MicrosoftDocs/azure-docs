@@ -241,7 +241,7 @@ The following examples demonstrate possible usage of this command:
     ```
 
 > [!IMPORTANT]
-> After you update SSH key, AKS doesn't automatically reimage your node pool, you can choose anytime to perform [the reimage operation][node-image-upgrade]. Only after reimage is complete, does the update SSH key operation take effect.
+> After you update SSH key, AKS doesn't automatically reimage your node pool, you can choose anytime to perform uograde to latest model and [the reimage operation][node-image-upgrade]. Only after reimage with latest model is complete, does the update SSH key operation take effect.
 
 
 ## Next steps
