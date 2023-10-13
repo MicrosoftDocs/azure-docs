@@ -53,16 +53,16 @@ This list summarizes the required setup steps:
 
 ### Configure the Azure Machine Learning Spark notebook
 
-You can create a new notebook and execute the instructions in this tutorial step by step. You can also open the existing notebook named *2. Enable materialization and backfill feature data.ipynb* from the *featurestore_sample/notebooks* directory, and then run it. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
+You can create a new notebook and execute the instructions in this tutorial step by step. You can also open the existing notebook named *Enable materialization and backfill feature data.ipynb* from the *featurestore_sample/notebooks* directory, and then run it. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
 1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
-1. Configure the session:
+2. Configure the session:
 
    1. On the toolbar, select **Configure session**.
-   1. On the **Python packages** tab, select **Upload Conda file**.
-   1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
-   1. Increase the session time-out (idle time) to avoid frequent prerequisite reruns.
+   2. On the **Python packages** tab, select **Upload Conda file**.
+   3. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
+   4. Increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/Enable materialization and backfill feature data.ipynb?name=start-spark-session)]
 
@@ -80,15 +80,15 @@ You can create a new notebook and execute the instructions in this tutorial step
 
    1. Install the Azure Machine Learning extension.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=install-ml-ext-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=install-ml-ext-cli)]
 
    1. Authenticate.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=auth-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=auth-cli)]
 
    1. Set the default subscription.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=set-default-subs-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=set-default-subs-cli)]
 
        ---
 
@@ -140,11 +140,11 @@ The materialization store uses these values. You can optionally override the def
 
       # [Azure CLI](#tab/cli)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=create-new-storage)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=create-new-storage)]
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=create-new-storage-container)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=create-new-storage-container)]
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=set-container-arm-id-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=set-container-arm-id-cli)]
 
       ---
 
@@ -156,7 +156,7 @@ The materialization store uses these values. You can optionally override the def
 
       # [Azure CLI](#tab/cli)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
 
       ---
 
@@ -182,7 +182,7 @@ The second option is to reuse an existing managed identity.
 
 Run this code sample in the SDK to retrieve the UAI properties.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=retrieve-uai-properties)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=retrieve-uai-properties)]
 
 ---
 
@@ -204,9 +204,9 @@ The next CLI commands assign the first two roles to the UAI. In this example, th
 
 # [Azure CLI](#tab/cli)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-uai-fs)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-uai-fs)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-uai-offline-store)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-uai-offline-store)]
 
 ---
 
@@ -232,9 +232,9 @@ The following steps grant the Storage Blob Data Reader role access to your user 
 
    Inspect file `xxxx`. This command attaches the offline store and the UAI, to update the feature store.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=dump_featurestore_yaml)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=dump_featurestore_yaml)]
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-store)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=enable-offline-store)]
 
    ---
 
@@ -248,7 +248,7 @@ The following steps grant the Storage Blob Data Reader role access to your user 
 
       # [Azure CLI](#tab/cli)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=enable-offline-mat-txns-fset)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=enable-offline-mat-txns-fset)]
 
       ---
 
