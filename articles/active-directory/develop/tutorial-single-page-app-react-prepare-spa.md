@@ -119,7 +119,7 @@ Identity related **npm** packages must be installed in the project to enable use
     ```
 ---
 
-To learn more about these packages refer to the documentation in [msal-browser](/javascript/api/@azure/msal-browser), [msal-common](/javascript/api/@azure/msal-common), [msal-react](/javascript/api/@azure/msal-react).
+To learn more about these packages refer to the documentation in [`msal-browser`](/javascript/api/@azure/msal-browser), [`msal-common`](/javascript/api/@azure/msal-common), [`msal-react`](/javascript/api/@azure/msal-react).
 
 ## Creating the authentication configuration file
 

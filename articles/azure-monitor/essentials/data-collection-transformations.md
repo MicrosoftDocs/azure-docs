@@ -6,7 +6,6 @@ author: bwren
 ms.author: bwren
 ms.date: 07/17/2023
 ms.reviwer: nikeist
-
 ---
 
 # Data collection transformations in Azure Monitor
@@ -236,7 +235,7 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 
 ### Combination of Azure and custom tables
 
-The following example is a DCR for data from the Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This DCR requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each.
+The following example is a DCR for data from the Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This DCR requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. When using custom tables, it is important to ensure that the schema of the destination (your custom table) contains the custom columns ([how-to add or delete custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column)) that match the schema of the records you are sending. For instance, if your record has a field called SyslogMessage, but the destination custom table only has TimeGenerated and RawData, you’ll receive an event in the custom table with only the TimeGenerated field populated and the RawData field will be empty. The SyslogMessage field will be dropped because the schema of the destination table doesn’t contain a string field called SyslogMessage.
 
 ```json
 { 
@@ -307,3 +306,4 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 ## Next steps
 
 [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine by using Azure Monitor Agent.
+

@@ -61,7 +61,6 @@ For Azure Container Apps, you can deploy the application code via the `az contai
 
 Then you can check the log or call the application to see if it can connect to the database on Azure successfully.
 
-
 ### Troubleshooting
 
 #### Permission
@@ -73,11 +72,11 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 | Permission | Operation |
 | --- | --- |
 | `Microsoft.DBforPostgreSQL/flexibleServers/read` | Required to get information of database server |
-| `Microsoft.DBforPostgreSQL/flexibleServers/write` | Required to enable Azure AD authentication for database server |
+| `Microsoft.DBforPostgreSQL/flexibleServers/write` | Required to enable Microsoft Entra authentication for database server |
 | `Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
 | `Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Microsoft Entra administrator |
+| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Microsoft Entra administrator |
 
 ::: zone-end
 
@@ -89,8 +88,8 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 | `Microsoft.DBforMySQL/flexibleServers/write` | Required to add the provided User assigned managed identity to database server |
 | `Microsoft.DBforMySQL/flexibleServers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
 | `Microsoft.DBforMySQL/flexibleServers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| `Microsoft.DBforMySQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| `Microsoft.DBforMySQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.DBforMySQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Microsoft Entra administrator |
+| `Microsoft.DBforMySQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Microsoft Entra administrator |
 
 ::: zone-end
 
@@ -102,18 +101,20 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 | `Microsoft.Sql/servers/read` | Required to get information of database server |
 | `Microsoft.Sql/servers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
 | `Microsoft.Sql/servers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| `Microsoft.Sql/servers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| `Microsoft.Sql/servers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.Sql/servers/administrators/read` | Required to check if Azure CLI login user is a database server Microsoft Entra administrator |
+| `Microsoft.Sql/servers/administrators/write` | Required to add Azure CLI login user as database server Microsoft Entra administrator |
 
 ::: zone-end
 
 In some cases, the permissions aren't required. For example, if the Azure CLI-authenticated user is already an Active Directory Administrator on SQL server, you don't need to have the `Microsoft.Sql/servers/administrators/write` permission.
 
-#### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-If you get an error `ERROR: AADSTS530003: Your device is required to be managed to access this resource.`, ask your IT department for help with joining this device to Azure Active Directory. For more information, see [Azure AD-joined devices](../active-directory/devices/concept-azure-ad-join.md).
+#### Microsoft Entra ID
 
-Service Connector needs to access Azure Active Directory to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Azure Active Directory:
+If you get an error `ERROR: AADSTS530003: Your device is required to be managed to access this resource.`, ask your IT department for help with joining this device to Microsoft Entra ID. For more information, see [Microsoft Entra joined devices](../active-directory/devices/concept-azure-ad-join.md).
+
+Service Connector needs to access Microsoft Entra ID to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Microsoft Entra ID:
 
 ```azurecli
 az ad signed-in-user show
@@ -127,12 +128,18 @@ If you don't log in interactively, you may also get the error and `Interactive a
 If your database server is in a virtual network, ensure your environment that runs the Azure CLI command can access the server in the virtual network.
 
 ::: zone-end
+<a name='connect-to-database-with-azure-active-directory-authentication'></a>
+
+## Connect to database with Microsoft Entra authentication
+
+After creating the connection, you can use the connection string in your application to connect to the database with Microsoft Entra authentication. For example, you can use the following solutions to connect to the database with Microsoft Entra authentication.
 
 ::: zone pivot="mysql"
 
 If your database server is in a virtual network, ensure your environment that runs the Azure CLI command can access the server in the virtual network.
 
 ::: zone-end
+[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-me-id.md)]
 
 ::: zone pivot="sql"
 
@@ -140,6 +147,39 @@ If your database server disallows public access, ensure your environment that ru
 
 ::: zone-end
 
+[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-me-id.md)]
+
+
+:::zone-end
+
+
+:::zone pivot="sql"
+
+[!INCLUDE [code sample for sql aad connection](./includes/code-sql-me-id.md)]
+
+
+:::zone-end
+
+
+## Deploy the application to an Azure hosting service
+
+Finally, deploy your application to an Azure hosting service. That source service can use managed identity to connect to the target database on Azure.
+
+### [App Service](#tab/appservice)
+
+For Azure App Service, you can deploy the application code via the `az webapp deploy` command. For more information, see [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
+
+### [Spring Apps](#tab/springapp)
+
+For Azure Spring Apps, you can deploy the application code via the `az spring app deploy` command. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md).
+
+### [Container Apps](#tab/containerapp)
+
+For Azure Container Apps, you can deploy the application code via the `az containerapp create` command. For more information, see [Quickstart: Deploy your first container app](../container-apps/get-started.md).
+
+---
+
+Then you can check the log or call the application to see if it can connect to the database on Azure successfully.
 
 ## Next steps
 

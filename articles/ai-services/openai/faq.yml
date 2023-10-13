@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 08/22/2023
+  ms.date: 10/12/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -25,7 +25,7 @@ sections:
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
-          Azure OpenAI supports the latest GPT-4 models. These models are currently only available by request. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+          Azure OpenAI supports the latest GPT-4 models.  It supports both GPT-4 and GPT-4-32K.
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
@@ -82,7 +82,10 @@ sections:
           If you wanted to help a GPT based model to accurately respond to the question "what model are you running?", you would need to provide that information to the model through techniques like [prompt engineering of the model's system message](/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions), [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) which is the technique used by [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data) where up-to-date information is injected to the system message at query time, or via [fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) where you could fine-tune specific versions of the model to answer that question in a certain way based on model version. 
 
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
-
+      - question: |
+          Where do I access pricing information for legacy models which are no longer available for new deployments? 
+        answer: | 
+          Legacy pricing information is available via a [downloadable PDF file](https://download.microsoft.com/download/a/b/5/ab542db1-f1a7-4f92-b615-2e2eaccb64ea/Azure-OpenAI-Legacy-Pricing.pdf). For all other models consult the [official pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/). 
 
           
   - name: Getting access to Azure OpenAI Service
@@ -90,7 +93,7 @@ sections:
       - question: |
           How do I get access to Azure OpenAI? 
         answer: |
-          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. In addition to applying for initial access, all solutions using Azure OpenAI are required to go through a use case review before they can be released for production use. Apply here for initial access or for a production review: [Apply now](https://aka.ms/oaiapply)          
+          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. Apply here for initial access: [Apply now](https://aka.ms/oaiapply)          
       - question: |
           After I apply for access, how long will I have to wait to get approved?
         answer: |
@@ -212,7 +215,7 @@ sections:
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
-          Index creation may fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
+          Index creation can fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
 
 additionalContent: |
 

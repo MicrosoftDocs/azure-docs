@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
-ms.date: 09/26/2023
+ms.date: 09/27/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -122,7 +122,7 @@ You now have a new kernel.  Next you'll open a notebook and use this kernel.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-1. You'll see the notebook is connected to the default kernel in the top right. Switch to use the **Tutorial Workstation Env** kernel.
+1. You'll see the notebook is connected to the default kernel in the top right. Switch to use the **Tutorial Workstation Env** kernel if you created the kernel.
 
 ## Develop a training script
 
@@ -219,7 +219,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     conda env list
     ```
 
-1. Activate your kernel:
+1. If you created a new kernel, activate it now:
 
     ```bash
     conda activate workstation_env

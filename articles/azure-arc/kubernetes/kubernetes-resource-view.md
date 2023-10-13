@@ -15,7 +15,7 @@ The Azure portal includes a Kubernetes resource view for easy access to the Kube
 
 - An account that can authenticate to the cluster and access the resources in the portal:
 
-  - If using [Azure RBAC](azure-rbac.md), ensure that the Azure Active Directory (Azure AD) account that will access the portal has a role that lets it authenticate to the cluster, such as [Azure Arc Kubernetes Viewer](/azure/role-based-access-control/built-in-roles):
+  - If using [Azure RBAC](azure-rbac.md), ensure that the Microsoft Entra account that will access the portal has a role that lets it authenticate to the cluster, such as [Azure Arc Kubernetes Viewer](/azure/role-based-access-control/built-in-roles):
 
    ```azurecli
    az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER

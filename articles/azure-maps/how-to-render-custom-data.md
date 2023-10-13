@@ -58,7 +58,7 @@ To get a static image with custom pins and labels:
 5. Enter the following URL:
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmain%2FStatic%2Fimages%2Ficons%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fsamples.azuremaps.com%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
 
 6. Select **Send**.

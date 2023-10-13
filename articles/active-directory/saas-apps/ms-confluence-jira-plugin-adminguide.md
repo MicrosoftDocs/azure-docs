@@ -64,7 +64,7 @@ The plug-in supports the following versions of Jira and Confluence:
 * JIRA also supports 5.2. For more details, click [Microsoft Entra single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 8.0.4.
+* Confluence: 7.0.1 to 8.5.1.
 
 ## Installation
 
@@ -148,7 +148,7 @@ Confluence:
 
 |Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
 |-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
-|  6.3.9          |   Bug Fixes:                                                                              | Confluence Server: 7.20.3 to 8.0.4  |
+|  6.3.9          |   Bug Fixes:                                                                              | Confluence Server: 7.20.3 to 8.5.1  |
 |                 |   System Error: Metadata link cannot be configured on SSO plugins.                        |                                     |
 |                 |                                                                                           |                                     |
 |  6.3.8          |   New Feature:                                                                            | Confluence Server: 5.0 to 7.20.1    |
@@ -212,7 +212,7 @@ The plug-in supports these versions:
 * JIRA also supports 5.2. For more details, click [Microsoft Entra single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 8.0.4.
+* Confluence: 7.0.1 to 8.5.1.
 
 ### Is the plug-in free or paid?
 

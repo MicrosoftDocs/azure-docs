@@ -2,6 +2,7 @@
 title: Monitor Azure Arc-enabled Kubernetes clusters
 ms.date: 08/02/2023
 ms.topic: article
+ms.custom: devx-track-azurecli
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
 ms.reviewer: aul
 ---
@@ -18,7 +19,7 @@ ms.reviewer: aul
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 >[!NOTE]
->If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-openshift-v4.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
+>If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-hybrid.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
 >
 
 

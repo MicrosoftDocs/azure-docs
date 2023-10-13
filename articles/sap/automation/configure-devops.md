@@ -8,7 +8,7 @@ ms.date: 12/1/2022
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-arm-template, devx-track-ansible
+ms.custom: devx-track-arm-template, devx-track-ansible, devx-track-azurecli
 ---
 
 # Use SAP Deployment Automation Framework from Azure DevOps Services
@@ -19,7 +19,7 @@ You can use Azure Repos to store your configuration files and use Azure Pipeline
 
 ## Sign up for Azure DevOps Services
 
-To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory. To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either sign in or create a new account.
+To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Microsoft Entra ID. To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either sign in or create a new account.
 
 ## Configure Azure DevOps Services for SAP Deployment Automation Framework
 

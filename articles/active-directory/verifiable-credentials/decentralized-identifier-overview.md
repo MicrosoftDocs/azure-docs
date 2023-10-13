@@ -4,7 +4,6 @@ description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
 manager: amycolannino
-editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
@@ -14,8 +13,6 @@ ms.reviewer:
 ---
 
 # Introduction to Microsoft Entra Verified ID
-
-[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Our digital and physical lives are increasingly linked to the apps, services, and devices we use to access a rich set of experiences. This digital transformation allows us to interact with hundreds of companies and thousands of other users in ways that were previously unimaginable.
 

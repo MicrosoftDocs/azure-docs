@@ -10,7 +10,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Optical character recognition (OCR)  
+# Optical character recognition (OCR)
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Optical character recognition (OCR) is an Azure AI Video Indexer AI feature that extracts text from images like pictures, street signs and products in media files to create insights.  
 

@@ -273,6 +273,10 @@ If you don't assign the User Access Administrator role to the service principal,
     # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
     enable_firewall_for_keyvaults_and_storage = false
 
+    # public_network_access_enabled controls if storage account and key vaults have public network access enabled
+    public_network_access_enabled = true
+
+
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
@@ -304,14 +308,21 @@ For example, choose **North Europe** as the deployment location, with the four-c
 
 The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
 
+Set the environment variables for the service principal:
+
+```bash
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+
+```
+
 1. Create the deployer and the SAP library. Add the service principal details to the deployment key vault.
 
     ```bash
 
-    export ARM_SUBSCRIPTION_ID="<subscriptionId>"
-    export       ARM_CLIENT_ID="<appID>"
-    export   ARM_CLIENT_SECRET="<password>"
-    export       ARM_TENANT_ID="<tenant>"
     export            env_code="MGMT"
     export           vnet_code="DEP00"
     export         region_code="<region_code>"
@@ -322,14 +333,17 @@ The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
     cd $CONFIG_REPO_PATH
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                               \
-        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars \
-        --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                                   \
-        --subscription "${ARM_SUBSCRIPTION_ID}"                                                                                                                 \
-        --spn_id "${ARM_CLIENT_ID}"                                                                                                                             \
-        --spn_secret "${ARM_CLIENT_SECRET}"                                                                                                                     \
-        --tenant_id "${ARM_TENANT_ID}"                                                                                                                          \
-        --auto-approve
+    deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+    library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+
+    ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+        --deployer_parameter_file "${deployer_parameter_file}"         \
+        --library_parameter_file "${library_parameter_file}"            \
+        --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+        --spn_id "${ARM_CLIENT_ID}"                                    \
+        --spn_secret "${ARM_CLIENT_SECRET}"                            \
+        --tenant_id "${ARM_TENANT_ID}"
+
     ```
 
     If you run into authentication issues, run `az logout` to sign out and clear the `token-cache`. Then run `az login` to reauthenticate.

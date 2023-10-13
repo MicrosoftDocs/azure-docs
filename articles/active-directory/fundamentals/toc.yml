@@ -34,7 +34,7 @@ items:
     href: how-to-create-delete-users.md
   - name: Apply licenses to users
     href: license-users-groups.md
-  - name: Manage users
+  - name: Users
     expanded: false
     items: 
     - name: Assign roles to users
@@ -49,7 +49,7 @@ items:
       href: users-restore.md
     - name: Set default user permissions
       href: users-default-permissions.md
-  - name: Manage groups
+  - name: Groups
     expanded: false
     items:
     - name: Learn about groups
@@ -58,11 +58,13 @@ items:
       href: ./groups-view-azure-portal.md
     - name: Manage groups
       href: how-to-manage-groups.md
-  - name: Manage licenses
+  - name: Licenses
     expanded: false
     items: 
     - name: Group-based licensing
       href: licensing-whatis-azure-portal.md
+    - name: Microsoft Entra ID preview program terms
+      href: licensing-preview-terms.md
     - name: Sign up for Microsoft Entra ID P1 or P2
       href: get-started-premium.md 
 - name: Quick security wins

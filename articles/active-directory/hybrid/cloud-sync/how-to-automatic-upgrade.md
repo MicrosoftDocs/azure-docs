@@ -36,12 +36,12 @@ To verify your version, right-click the executable and select properties and the
 To remove the agent, go to **Uninstall or change a program** and uninstall the following:
 
 - **Microsoft Entra Connect Agent Updater**
-- **Microsoft Entra Connect Provisioning Agent**
-- **Microsoft Entra Connect Provisioning Agent Package**
+- **Microsoft Entra Provisioning Agent**
+- **Microsoft Entra Provisioning Agent Package**
 
 ![Agent removal](media/how-to-automatic-upgrade/agent-3.png)
 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
