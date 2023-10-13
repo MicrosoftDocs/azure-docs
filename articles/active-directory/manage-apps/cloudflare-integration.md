@@ -52,14 +52,14 @@ Integrate Cloudflare Zero Trust account with an instance of Microsoft Entra ID.
 
    ![Screenshot of the Login methods option on Authentication.](./media/cloudflare-integration/login-methods.png)
 
-5. Under **Select an identity provider**, select **Azure AD.**
+5. Under **Select an identity provider**, select **Microsoft Entra ID**.
 
    ![Screenshot of the Microsoft Entra option under Select an identity provider.](./media/cloudflare-integration/idp.png)
 
 6. The **Add Azure ID** dialog appears. 
 7. Enter Microsoft Entra instance credentials and make needed selections.
 
-   ![Screenshot of options and selections for Add Azure AD.](./media/cloudflare-integration/add-idp.png)
+   ![Screenshot of options and selections for Add Microsoft Entra ID.](./media/cloudflare-integration/add-idp.png)
 
 8. Select **Save**.
 

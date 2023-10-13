@@ -98,7 +98,7 @@ To create a scale set and use a cloud-init file, add the `--custom-data` paramet
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \

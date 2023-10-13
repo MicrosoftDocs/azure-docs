@@ -3,11 +3,13 @@ title: Prerequisites for Azure Database Migration Service
 description: Learn about an overview of the prerequisites for using the Azure Database Migration Service to perform database migrations.
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 02/25/2020
 ms.service: dms
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Overview of prerequisites for using the Azure Database Migration Service

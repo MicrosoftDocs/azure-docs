@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.
 
-There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are let through the firewall. For example, these services include Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Azure Active Directory token, and must have permissions (configured as access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
+There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are let through the firewall. For example, these services include Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Microsoft Entra token, and must have permissions (configured as access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Usage scenarios
 

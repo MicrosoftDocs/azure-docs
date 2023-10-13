@@ -360,6 +360,18 @@ Here's the web apps configuration data that the appliance collects from each Win
 Web apps | Application Name <br/>Configuration Path <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode
 Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuration Location <br/>Version <br/>FQDN <br/>Credentials used for discovery <br/>List of Applications
 
+## Spring Boot web apps data
+
+The Azure Migrate appliance used for discovery can also collect data on Spring Boot web applications.
+
+Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
+
+**Entity** | **Data**
+--- | ---
+Web apps | Application name <br/>Maven artifact name <br/>JAR file location <br/>JAR file checksum <br/>JAR file size<br/>Spring Boot version<br/>Maven build JDK version <br/> Application property files <br/>Certificates file names <br/> Static content location <br/> Application port <br/> Binding ports (including app port) <br/> Logging configuration <br/> JAR file last modified time
+OS runtime | OS installed JDK version <br/> JVM options <br/> JVM heap memory <br/> OS name <br/> OS version <br/> Environment variables
+
+
 ## Application dependency data
 
 Azure Migrate appliance can collect data about inter-server dependencies for servers running in your VMware environment/Hyper-V environment/ physical servers or servers running on other clouds like AWS, GCP etc.

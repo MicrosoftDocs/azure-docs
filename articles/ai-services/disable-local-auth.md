@@ -5,7 +5,7 @@ description: "This article describes disabling local authentication in Azure AI 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 09/22/2023
 ms.author: pafarley
@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Disable local authentication in Azure AI Services
 
-Azure AI Services provides Azure Active Directory (Azure AD) authentication support for all resources. This gives organizations control to disable local authentication methods and enforce Azure AD authentication. This feature provides you with seamless integration when you require centralized control and management of identities and resource credentials.
+Azure AI Services provides Microsoft Entra authentication support for all resources. This gives organizations control to disable local authentication methods and enforce Microsoft Entra authentication. This feature provides you with seamless integration when you require centralized control and management of identities and resource credentials.
 
 You can disable local authentication using the Azure policy [Cognitive Services accounts should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71ef260a-8f18-47b7-abcb-62d0673d94dc). You can set it at the subscription level or resource group level to enforce the policy for a group of services.
 

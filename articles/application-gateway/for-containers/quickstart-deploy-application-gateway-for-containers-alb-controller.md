@@ -133,7 +133,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ALB Controller requires a federated credential with the name of _azure-alb-identity_.  Any other federated credential name is unsupported.
 
    > [!Note]
-   > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Azure AD prior to delegating the identity.
+   > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Microsoft Entra ID prior to delegating the identity.
 
 2. Install ALB Controller using Helm
 
@@ -166,6 +166,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace <helm-resource-namespace> \
         --version 0.5.024542 \
+        --set albController.namespace=<alb-controller-namespace> \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
 

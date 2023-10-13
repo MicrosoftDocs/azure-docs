@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page 
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 08/14/2023
+  ms.date: 09/29/2023
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -63,6 +64,10 @@ landingContent:
         links:
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
+          - text: Multi-user authorization for Backup vault 
+            url: multi-user-authorization-concept.md?tabs=backup-vault
+          - text: Enhanced soft delete
+            url: backup-azure-enhanced-soft-delete-about.md
           - text: Azure Kubernetes Service backup (preview)
             url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)

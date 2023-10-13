@@ -1,5 +1,5 @@
 ---
-title: Microsoft Entra Connect cloud sync transformations
+title: Microsoft Entra Cloud Sync transformations
 description: This article describes how to use transformations to alter the default attribute mappings.
 author: billmath
 ms.author: billmath
@@ -109,4 +109,4 @@ For information on the syntax and examples of expressions, see [Writing expressi
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

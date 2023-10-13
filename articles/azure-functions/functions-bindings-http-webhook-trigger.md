@@ -50,7 +50,26 @@ This article supports both programming models.
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-# [In-process](#tab/in-process)    
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
+
+The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
+
+```csharp
+[Function("HttpFunction")]
+public IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+{
+    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+}
+```
+
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+
+# [In-process model](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but a return value attribute isn't required.
 
@@ -77,25 +96,6 @@ public static async Task<IActionResult> Run(
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
-
-The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
-
-```csharp
-[Function("HttpFunction")]
-public IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
-{
-    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
-}
-```
-
-[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 
 ---
 
@@ -501,7 +501,17 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
+
+| Parameters | Description|
+|---------|----------------------|
+|  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
+| **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
+| **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
+
+# [In-process model](#tab/in-process)
 
 In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following parameters:
 
@@ -511,16 +521,6 @@ In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAt
 | **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
-
-# [Isolated process](#tab/isolated-process)
-
-In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
-
-| Parameters | Description|
-|---------|----------------------|
-|  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
-| **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 
 ---
 
@@ -645,11 +645,7 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 
 ### Payload
 
-# [In-process](#tab/in-process)   
-
-The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The trigger input type is declared as one of the following types:
 
@@ -683,6 +679,10 @@ namespace AspNetIntegration
 }
 ```
 
+# [In-process model](#tab/in-process)   
+
+The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+
 ---
 
 ::: zone-end 
@@ -699,23 +699,7 @@ You can customize this route using the optional `route` property on the HTTP tri
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
-
-The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
-
-```csharp
-[FunctionName("Function1")]
-public static IActionResult Run(
-[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "products/{category:alpha}/{id:int?}")] HttpRequest req,
-string category, int? id, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var message = String.Format($"Category: {category}, ID: {id}");
-    return (ActionResult)new OkObjectResult(message);
-}
-```
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
 
@@ -737,6 +721,22 @@ FunctionContext executionContext)
 }
 ```
 
+# [In-process model](#tab/in-process)
+
+The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
+
+```csharp
+[FunctionName("Function1")]
+public static IActionResult Run(
+[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "products/{category:alpha}/{id:int?}")] HttpRequest req,
+string category, int? id, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
+}
+```
 ---
 
 ::: zone-end
@@ -1012,7 +1012,11 @@ You can also read this information from binding data. This capability is only av
 ::: zone pivot="programming-language-csharp"
 Information regarding authenticated clients is available as a [ClaimsPrincipal], which is available as part of the request context as shown in the following example:
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
+
+# [In-process model](#tab/in-process)
 
 ```csharp
 using System.Net;
@@ -1041,10 +1045,6 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     return;
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
-
 ---
 
 ::: zone-end 

@@ -46,7 +46,7 @@
     - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
     - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
+      href: how-to-managed-cluster-app-deployment-template.md
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
@@ -425,7 +425,7 @@
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
       href: how-to-managed-cluster-connect.md
-    - name: Configure Azure Active Directory client access
+    - name: Configure Microsoft Entra client access
       href: how-to-managed-cluster-azure-active-directory-client.md
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
@@ -471,6 +471,8 @@
       href: how-to-managed-cluster-nat-gateway.md
     - name: Use public IP prefix in a managed cluster
       href: how-to-managed-cluster-public-ip-prefix.md
+    - name: Use multiple network interface cards
+      href: how-to-managed-cluster-use-multiple-network-interface-cards.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -545,9 +547,9 @@
           href: service-fabric-stateless-node-types.md
         - name: Deploy an Azure Service Fabric cluster with Managed data disks
           href: service-fabric-managed-disk.md
-        - name: Set up Azure Active Directory authentication
+        - name: Set up Microsoft Entra authentication
           href: service-fabric-cluster-creation-setup-aad.md
-        - name: Set up Azure Active Directory authentication in Azure portal
+        - name: Set up Microsoft Entra authentication in Azure portal
           href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md

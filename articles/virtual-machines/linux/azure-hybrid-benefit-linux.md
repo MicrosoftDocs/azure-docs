@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2023
 ms.author: dkulkarni
 ms.reviewer: mattmcinnes
-ms.custom: kr2b-contr-experiment, devx-track-linux
+ms.custom: kr2b-contr-experiment, devx-track-linux, devx-track-azurecli
 ---
 
 # Azure Hybrid Benefit for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines
@@ -49,7 +49,7 @@ Azure dedicated host instances and SQL hybrid benefits aren't eligible for Azure
 You can invoke AHB at the time of virtual machine creation. Benefits of doing so are threefold:
 
 - You can provision both PAYG and BYOS virtual machines by using the same image and process.
-- It enables future licensing mode changes. These changes aren't available with a BYOS-only image or if you bring your own virtual machine.
+- It enables future licensing mode changes. 
 - The virtual machine is connected to Red Hat Update Infrastructure (RHUI) by default, to help keep it up to date and secure. You can change the updated mechanism after deployment at any time.
 
 #### [Azure portal](#tab/ahbNewPortal)
@@ -85,6 +85,7 @@ You can use the `az vm extension` and `az vm update` commands to update new virt
 
 - SLES License Types: SLES_STANDARD, SLES_SAP, SLES_HPC​
 
+
 ---
 ### Enabling AHB on Existing VM
 #### [Azure portal](#tab/ahbExistingPortal)
@@ -114,7 +115,10 @@ You can use the `az vm extension` and `az vm update` commands to update existing
 
 - SLES License Types: SLES_STANDARD, SLES_SAP, SLES_HPC​
 
+
 ---
+
+
 
 
 
@@ -176,13 +180,16 @@ To start using Azure Hybrid Benefit for SUSE:
 2. Activate the subscription in the SUSE Customer Center.
 3. Register your virtual machines that are receiving Azure Hybrid Benefit with the SUSE Customer Center to get the updates from the SUSE Customer Center.
 
+
 ---
+
 
 
 ### Convert to BYOS using the Azure CLI
 
 #### [Red Hat (RHEL)](#tab/rhelAzcliByosConv)
 * For RHEL virtual machines, run the command with a `--license-type` parameter of `RHEL_BYOS`.
+
 ```azurecli
 # This will enable BYOS on a RHEL virtual machine using Azure Hybrid Benefit
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
@@ -239,6 +246,7 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
 
 #### [SUSE (SLES)](#tab/slesAzcliByosConv)
 * For SLES virtual machines, run the command with a `--license-type` parameter of `SLES_BYOS`.
+
 ```azurecli
 # This will enable BYOS on a SLES virtual machine
 az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
@@ -271,7 +279,12 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
     sudo zypper repos
     ```
 
+
 ---
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Entra Connect cloud sync deep dive - how it works'
+title: 'Microsoft Entra Cloud Sync deep dive - how it works'
 description: This topic provides deep dive information on how cloud sync works.
 services: active-directory
 author: billmath
@@ -90,4 +90,4 @@ For more information, see [Supported topologies](plan-cloud-sync-topologies.md).
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

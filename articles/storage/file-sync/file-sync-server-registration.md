@@ -4,7 +4,7 @@ description: Learn how to register and unregister a Windows Server with an Azure
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 10/04/2023
 ms.author: kendownie
 ---
 
@@ -164,7 +164,11 @@ Because Azure File Sync will rarely be the only service running in your datacent
 You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
 
 > [!NOTE]  
-> Network limits do not apply when a tiered file is accessed.
+> Network limits does not apply to the following scenarios:
+> - When a tiered file is accessed.
+> - Sync metadata that is exchanged between the registered server and Storage Sync Service.
+>  
+> Because this network traffic is not throttled, Azure File Sync may exceed the network limit configured. Our recommendation is to monitor the network traffic and adjust the limit to account for the network traffic that is not throttled. 
 
 For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
 
