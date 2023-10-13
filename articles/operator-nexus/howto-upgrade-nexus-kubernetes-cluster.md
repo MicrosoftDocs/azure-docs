@@ -80,7 +80,7 @@ You have the flexibility to upgrade to any of the available versions. However, t
 
 During the cluster upgrade process, Operator Nexus performs the following operations:
 
-* Add a new buffer control plane node with the specified Kubernetes version to the cluster.
+* Add a new control plane node with the specified Kubernetes version to the cluster.
 * After the new node has been added, cordon and drain one of the old control plane nodes, ensuring that the workloads running on it are gracefully moved to other healthy control plane nodes.
 * After the old control plane node has been drained, it's removed, and a new buffer control plane node is added to the cluster.
 * This process repeats until all control plane nodes in the cluster have been upgraded.
