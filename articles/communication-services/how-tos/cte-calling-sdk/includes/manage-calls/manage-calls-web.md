@@ -59,7 +59,7 @@ Developers can use multiple ways to join Teams meeting. One of them is meeting I
   * Meeting ID: 12 digits.
   * Passcode: 6 characters
      
-- How often do we need to refresh passcode & ID?
+- How often do you need to refresh meeting ID & passcode?
    * Meeting ID and passcode does not change once created. Developers don't need to refresh neither of those for change.
    * Teams meeting organizer can't regenerate the meeting ID and passcode.
        
