@@ -65,8 +65,6 @@ sections:
           
           - If you connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe via Expressroute Global Reach you will NOT incur any ExpressRoute Global Reach data transfer (egress and ingress) charges. Please note that there will be charges when using an ExpressRoute gateway.
 
-:::image type="content" source="media/data-transfer-charges.png" alt-text="Diagram showing data transfer charges for Azure VMware Solution." border="false" lightbox="media/data-transfer-charges.png":::
-
       - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 
           No, you don't need to procure additional VMware licensing beyond the Azure VMware Solution service. For more information, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) to see what VMware technology is included.     
