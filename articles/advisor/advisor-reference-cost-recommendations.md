@@ -3,7 +3,9 @@ title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 02/28/2023
+author: mabrahms
+ms.author: v-mabrahms
+ms.date: 10/15/2023
 ---
 
 # Cost recommendations
@@ -16,93 +18,78 @@ Azure Advisor helps you optimize and reduce your overall Azure spend by identify
 
 1. On the **Advisor** dashboard, select the **Cost** tab.
 
-## Compute
 
-### Use Standard Storage to store Managed Disks snapshots
 
-To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. It is the default option for Managed Disks snapshots. Migrate your snapshot from Premium to Standard Storage. Refer to Managed Disks pricing details.
 
-Learn more about [Managed Disk Snapshot - ManagedDiskSnapshot (Use Standard Storage to store Managed Disks snapshots)](https://aka.ms/aa_manageddisksnapshot_learnmore).
+## AI Services
 
-### Right-size or shutdown underutilized virtual machines
+### Potential Cost Savings on this Form Recognizer Resource
 
-We've analyzed the usage patterns of your virtual machine over the past seven days and identified virtual machines with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines.
+We observed that your Form Recognizer resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-Learn more about [Virtual machine - LowUsageVmV2 (Right-size or shutdown underutilized virtual machines)](https://aka.ms/aa_lowusagerec_learnmore).
+Learn more about [Cognitive Service - AzureAdvisorFRCommitment (Potential Cost Savings on this Form Recognzier Resource)](https://azure.microsoft.com/pricing/details/form-recognizer/).
 
-### You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.
+### Potential Cost Savings on this Computer Vision Resource
 
-We've observed that you have disks which haven't been attached to a VM for more than 30 days. Please evaluate if you still need the disk. If you decide to delete the disk, recovery isn't possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
+We observed that your Computer Vision resource has had enough READ usage in the past 30 days for you to consider using a Commitment tier.
 
-Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which haven't been attached to a VM for more than 30 days. Please evaluate if you still need the disk.)](https://aka.ms/unattacheddisks).
+Learn more about [Cognitive Service - AzureAdvisorCVReadCommitment (Potential Cost Savings on this Computer Vision Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/).
 
-## MariaDB
+### Potential Cost Savings on this Speech Service Resource
 
-### Right-size underutilized MariaDB servers
+We observed that your Speech Service resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-Our internal telemetry shows that the MariaDB database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Learn more about [Cognitive Service - AzureAdvisorSpeechCommitment (Potential Cost Savings on this Speech Service Resource)](https://azure.microsoft.com/pricing/details/form-recognizer/).
 
-Learn more about [MariaDB server - OrcasMariaDbCpuRightSize (Right-size underutilized MariaDB servers)](https://aka.ms/mariadbpricing).
+### Potential Cost Savings on this Translator Resource
 
-## MySQL
+We observed that your Translator resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-### Right-size underutilized MySQL servers
+Learn more about [Cognitive Service - AzureAdvisorTranslatorCommitment (Potential Cost Savings on this Translator Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 
-Our internal telemetry shows that the MySQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure, which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+### Potential Cost Savings on this LUIS Resource
 
-Learn more about [MySQL server - OrcasMySQLCpuRightSize (Right-size underutilized MySQL servers)](https://aka.ms/mysqlpricing).
+We observed that your LUIS resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-## PostgreSQL
+Learn more about [Cognitive Service - AzureAdvisorLUISCommitment (Potential Cost Savings on this LUIS Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
 
-### Right-size underutilized PostgreSQL servers
+### Potential Cost Savings on this Language Service Resource
 
-Our internal telemetry shows that the PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure, which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+We observed that your Language Service resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size underutilized PostgreSQL servers)](https://aka.ms/postgresqlpricing).
+Learn more about [Cognitive Service - AzureAdvisorTextAnalyticsCommitment (Potential Cost Savings on this Language Service Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
-## Azure Cosmos DB
+### Enable Autoscaling for Azure Databricks Clusters
 
-### Review the configuration of your Azure Cosmos DB free tier account
+Autoscaling makes it easier to achieve high cluster utilization, because you don’t need to provision the cluster to match a workload. When leveraging autoscaling, workloads can run faster and overall costs can be reduced compared to a statically-sized cluster.
 
-Your Azure Cosmos DB free tier account is currently containing resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s will be billed at the regular pricing. As a result, we anticipate that you will get charged for the throughput currently provisioned on your Azure Cosmos DB account.
+Learn more about [Databricks Workspace - DatabricksEnableAutoscaling (Enable Autoscaling for Azure Databricks Clusters)](https://learn.microsoft.com/en-us/azure/databricks/clusters/configure#cluster-size-and-autoscaling).
 
-Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
 
-### Consider taking action on your idle Azure Cosmos DB containers
 
-We haven't detected any activity over the past 30 days on one or more of your Azure Cosmos DB containers. Consider lowering their throughput, or deleting them if you don't plan on using them.
+## Analytics
 
-Learn more about [Azure Cosmos DB account - CosmosDBIdleContainers (Consider taking action on your idle Azure Cosmos DB containers)](/azure/cosmos-db/how-to-provision-container-throughput).
+### Unused, stopped, Data Explorer resources
 
-### Enable autoscale on your Azure Cosmos DB database or container
+This recommendation surfaces all stopped Data Explorer resources that have been stopped for at least 60 days. Consider deleting the resources.
 
-Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
-
-Learn more about [Azure Cosmos DB account - CosmosDBAutoscaleRecommendations (Enable autoscale on your Azure Cosmos DB database or container)](../cosmos-db/provision-throughput-autoscale.md).
-
-### Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
-
-Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%.
-
-Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutoscale (Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container)](../cosmos-db/how-to-choose-offer.md).
-
-## Data Explorer
+Learn more about [Data explorer resource - ADX stopped resource (Unused stopped Data Explorer resources)](https://aka.ms/adxunusedstoppedcluster).
 
 ### Unused/Empty Data Explorer resources
 
-This recommendation surfaces all Data Explorer resources provisioned more than 10 days from the last update, and found either empty or with no activity. The recommended action is to validate and consider deleting the resources.
+This recommendation surfaces all Data Explorer resources provisioned more than 10 days from the last update, and found either empty or with no activity. Consider deleting the resources.
 
 Learn more about [Data explorer resource - ADX Unused resource (Unused/Empty Data Explorer resources)](https://aka.ms/adxemptycluster).
 
 ### Right-size Data Explorer resources for optimal cost
 
-One or more of these were detected: Low data capacity, CPU utilization, or memory utilization. The recommended action to improve the performance is to scale down and/or scale in the resource to the recommended configuration shown.
+One or more of these were detected: Low data capacity, CPU utilization, or memory utilization. Scale down and/or scale in the resource to the recommended configuration shown.
 
 Learn more about [Data explorer resource - Right-size for cost (Right-size Data Explorer resources for optimal cost)](https://aka.ms/adxskusize).
 
 ### Reduce Data Explorer table cache policy to optimize costs
 
-Reducing the table cache policy will free up Data Explorer cluster nodes with low CPU utilization, memory, and a high cache size configuration.
+Reducing the table cache policy frees up Data Explorer cluster nodes with low CPU utilization, memory, and a high cache size configuration.
 
 Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables (Reduce Data Explorer table cache policy to optimize costs)](https://aka.ms/adxcachepolicy).
 
@@ -124,55 +111,157 @@ Looks like your resource could have automatically scaled to reduce costs (based 
 
 Learn more about [Data explorer resource - EnableOptimizedAutoscaleAzureDataExplorer (Enable optimized autoscale for Data Explorer resources)](https://aka.ms/adxoptimizedautoscale).
 
-## Network
+### Change Data Explorer clusters to a more cost effective and better performing SKU
 
-### Delete ExpressRoute circuits in the provider status of Not Provisioned
+You have resources operating under a non-optimal SKU. We recommend migrating to a more cost effective and better performing SKU. This SKU should reduce your costs and improve overall performance. We have calculated the required instance count that meets both the CPU and cache of your cluster.
 
-We noticed that your ExpressRoute circuit is in the provider status of Not Provisioned for more than one month. This circuit is currently billed hourly to your subscription. We recommend that you delete the circuit if you aren't planning to provision the circuit with your connectivity provider.
+Learn more about [Data explorer resource - SkuChangeForAzureDataExplorer (Change Data Explorer clusters to a more cost effective and better performing SKU)](https://aka.ms/clusterChooseSku).
 
-Learn more about [ExpressRoute circuit - ExpressRouteCircuit (Delete ExpressRoute circuits in the provider status of Not Provisioned)](https://aka.ms/expressroute).
+### Consider Changing Pricing Tier
 
-### Repurpose or delete idle virtual network gateways
+Based on your current usage volume, investigate changing your pricing (Commitment) tier to receive a discount and reduce costs.
 
-We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. You may want to reconfigure this gateway, or delete it if you do not intend to use it anymore.
+Learn more about [Log Analytics workspace - considerChangingPricingTier (Consider Changing Pricing Tier)](/azure/azure-monitor/logs/change-pricing-tier).
 
-Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
+### Consider configuring the low-cost Basic logs plan on selected tables
 
-## Recovery Services
+We have identified ingestion of more than 1 GB per month to tables that are eligible for the low cost Basic log data plan. The Basic log plan gives you search capabilities for debugging and troubleshooting at a much lower cost.
 
-### Use differential or incremental backup for database workloads
+Learn more about [Log Analytics workspace - EnableBasicLogs (Consider configuring the low-cost Basic logs plan on selected tables)](https://aka.ms/basiclogs).
 
-For SQL/HANA DBs in Azure VMs being backed up to Azure, using daily differential with weekly full backup is often more cost-effective than daily fully backups. For HANA, Azure Backup also supports incremental backup which is even more cost effective
+### Consider removing unused restored tables
 
-Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](https://aka.ms/DBBackupCostOptimization).
+You have one or more tables with restored data active in your workspace. If you are no longer using a restored data, delete the table to avoid unnecessary charges.
 
-## Storage
+Learn more about [Log Analytics workspace - DeleteRestoredTables (Consider removing unused restored tables)](https://aka.ms/LogAnalyticsRestore).
 
-### Revisit retention policy for classic log data in storage accounts
+### Consider enabling autopause on Spark compute
 
-Large classic log data is detected on your storage accounts. You are billed on capacity of data stored in storage accounts including classic logs. You are recommended to check the retention policy of classic logs and update with necessary period to retain less log data. This would reduce unnecessary classic log data and save your billing cost from less capacity.
+Auto-pause releases and shuts down unused Compute resources after a set idle period of inactivity.
 
-Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)](/azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
+Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoPauseGuidance (Consider enabling autopause feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoPauseGuidance).
 
-## Reserved Instances
+### Consider enabling autoscale on Spark compute
+
+Autoscale  automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Spark pool, you can set a minimum and maximum number of nodes when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
+
+Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance (Consider enabling autoscale feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoScaleGuidance).
+
+
+
+## Compute
+
+### Standard SSD disks billing caps.
+
+Customers running high IO workloads in Standard HDDs can upgrade to Standard SSDs and benefit from better performance and SLA and now experience a limit on the maximum number of billed transactions.
+
+Learn more about [Disk - UpgradeHDDtoSDD (Standard SSD disks billing caps.)]().
+
+### Underutilized Disks Identified
+
+You have disks that are utilized less than 10%, please Right-size to save cost.
+
+Learn more about [Disk - wiprounderutilizeddisks (Underutilized Disks Identified)]().
+
+### You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.
+
+We've observed that you have disks that haven't been attached to a VM for more than 30 days. Evaluate if you still need the disk. If you decide to delete the disk, recovery isn't possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
+
+Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which haven't been attached to a VM for more than 30 days. Please evaluate if you still need the disk.)](https://aka.ms/unattacheddisks).
+
+### Right-size or shutdown underutilized virtual machine scale sets
+
+We've analyzed the usage patterns of your virtual machine scale sets over the past 7 days and identified virtual machine scale sets with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machine scale sets.
+
+Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdown underutilized virtual machine scale sets)](https://aka.ms/aa_lowusagerec_vmss_learnmore).
+
+
+
+
+## Databases
+
+### Right-size underutilized MariaDB servers
+
+Our internal telemetry shows that your MariaDB database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure that can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+
+Learn more about [MariaDB server - OrcasMariaDbCpuRightSize (Right-size underutilized MariaDB servers)](https://aka.ms/mariadbpricing).
+
+### Right-size underutilized MySQL servers
+
+Our internal telemetry shows that your MySQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure, that can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+
+Learn more about [MySQL server - OrcasMySQLCpuRightSize (Right-size underutilized MySQL servers)](https://aka.ms/mysqlpricing).
+
+### Right-size underutilized PostgreSQL servers
+
+Our internal telemetry shows that your PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure, that can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+
+Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size underutilized PostgreSQL servers)](https://aka.ms/postgresqlpricing).
+
+### Review the configuration of your Azure Cosmos DB free tier account
+
+Your Azure Cosmos DB free tier account currently contains resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you will get charged for the throughput currently provisioned on your Azure Cosmos DB account.
+
+Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
+
+### Consider taking action on your idle Azure Cosmos DB containers
+
+We haven't detected any activity over the past 30 days on one or more of your Azure Cosmos DB containers. Consider lowering their throughput, or deleting them if you don't plan on using them.
+
+Learn more about [Azure Cosmos DB account - CosmosDBIdleContainers (Consider taking action on your idle Azure Cosmos DB containers)](/azure/cosmos-db/how-to-provision-container-throughput).
+
+### Enable Autoscale on your Azure Cosmos DB database or container
+
+Based on your usage in the past seven days, you can save by enabling Autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what Autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
+
+Learn more about [Azure Cosmos DB account - CosmosDBAutoscaleRecommendations (Enable autoscale on your Azure Cosmos DB database or container)](../cosmos-db/provision-throughput-autoscale.md).
+
+### Configure manual throughput instead of Autoscale on your Azure Cosmos DB database or container
+
+Based on your usage in the past 7 days, you can save by using manual throughput instead of Autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%.
+
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutoscale (Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container)](../cosmos-db/how-to-choose-offer.md).
+
+
+
+
+## Management and Governance
 
 ### Configure automatic renewal for your expiring reservation
 
-Reserved instances listed below are expiring soon or recently expired. Your resources will continue to operate normally, however, you will be billed at the on-demand rates going forward. To optimize your costs, configure automatic renewal for these reservations or purchase a replacement manually.
+The reserved instances listed are expiring soon or recently expired. Your resources will continue to operate normally, however, you will be billed at the on-demand rates going forward. To optimize your costs, configure automatic renewal for these reservations or purchase a replacement manually.
 
 Learn more about [Reservation - ReservedInstancePurchaseNew (Configure automatic renewal for your expiring reservation)](https://aka.ms/reservedinstances).
 
-### Buy virtual machine reserved instances to save money over pay-as-you-go costs
+### Buy virtual machine reserved instance to save money over pay-as-you-go costs
 
-Reserved instances can provide a significant discount over pay-as-you-go prices. With reserved instances, you can pre-purchase the base costs for your virtual machines. Discounts will automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the last 30 days and recommend money-saving reserved instances.
+Reserved instance can provide a significant discount over pay-as-you-go prices. With reserved instance, you can pre-purchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the last 30 days and recommend money-saving reserved instances.
 
 Learn more about [Virtual machine - ReservedInstance (Buy virtual machine reserved instances to save money over pay-as-you-go costs)](https://aka.ms/reservedinstances).
+
+### Consider App Service reserved instance to save over your on-demand costs
+
+We analyzed your App Service usage pattern over the selected term, look-back period, and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase hourly usage for the App Service plan and save over your Pay-as-you-go costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over selected Term, look-back period.
+
+Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Cosmos DB reserved instance to save over your pay-as-you-go costs
 
 We analyzed your Azure Cosmos DB usage pattern over last 30 days and calculate reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
 
 Learn more about [Subscription - CosmosDBReservedCapacity (Consider Azure Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
+
+### Consider virtual machine reserved instance to save over your on-demand costs
+
+Reserved instance can provide a significant discount over on-demand prices. With reserved instance, you can pre-purchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reserved instance. We analyzed your usage over the selected Term, look-back period, and recommend money-saving reserved instances.
+
+Learn more about [Subscription - ReservedInstance (Consider virtual machine reserved instance to save over your on-demand costs)](https://aka.ms/rirecommendations).
+
+### Consider Cosmos DB reserved instance to save over your pay-as-you-go costs
+
+We analyzed your Cosmos DB usage pattern over selected Term, look-back period and calculate reserved instance purchase that maximizes your savings. With reserved instance, you can pre-purchase Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and usage pattern over the selected Term, look-back period. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
+
+Learn more about [Subscription - CosmosDBReservedCapacity (Consider Cosmos DB reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
 ### Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs
 
@@ -294,37 +383,80 @@ We analyzed your VMware Cloud Simple usage over last 30 days and calculated rese
 
 Learn more about [Subscription - VMwareCloudSimpleReservedCapacity (Consider VMware Cloud Simple reserved instance )](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
 
-## Subscription
+### Purchasing a savings plan for compute could unlock lower prices
+
+We analyzed your compute usage over the last 30 days and recommend adding a savings plan to increase your savings. The savings plan unlocks lower prices on select compute services when you commit to spend a fixed hourly amount for 1 or 3 years. As you use select compute services globally, your usage is covered by the plan at reduced prices. During the times when your usage is above your hourly commitment, you’ll simply be billed at your regular pay-as-you-go prices. With savings automatically applying across compute usage globally, you’ll continue saving even as your usage needs change over time. Savings plan are more suited for dynamic workloads while accommodating for planned or unplanned changes while reservations are more suited for stable, predictable workloads with no planned changes. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope savings plans are available in purchase experience and can further increase savings.
+
+Learn more about [Subscription - SavingsPlan (Purchasing a savings plan for compute could unlock lower prices)](https://aka.ms/savingsplan-compute).
+
+
+
+
+
+## Networking
+
+### Delete ExpressRoute circuits in the provider status of Not Provisioned
+
+We noticed that your ExpressRoute circuit is in the provider status of Not Provisioned for more than one month. This circuit is currently billed hourly to your subscription. Delete the circuit if you aren't planning to provision the circuit with your connectivity provider.
+
+Learn more about [ExpressRoute circuit - ExpressRouteCircuit (Delete ExpressRoute circuits in the provider status of Not Provisioned)](https://aka.ms/expressroute).
+
+### Repurpose or delete idle virtual network gateways
+
+We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. Reconfigure this gateway, or delete it if you do not intend to use it anymore.
+
+Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
+
+
+
+
+
+## Storage
+
+### Use Standard Storage to store Managed Disks snapshots
+
+To save 60% of cost, store your snapshots in Standard Storage, regardless of the storage type of the parent disk. It is the default option for Managed Disks snapshots. Migrate your snapshot from Premium to Standard Storage. Refer to Managed Disks pricing details.
+
+Learn more about [Managed Disk Snapshot - ManagedDiskSnapshot (Use Standard Storage to store Managed Disks snapshots)](https://aka.ms/aa_manageddisksnapshot_learnmore).
+
+### Revisit retention policy for classic log data in storage accounts
+
+Large classic log data is detected on your storage accounts. You are billed on capacity of data stored in storage accounts including classic logs. Check the retention policy of classic logs and update with necessary period to retain less log data. This would reduce unnecessary classic log data and save your billing cost from less capacity.
+
+Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)](/azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
+
+### Based on your high transactions/TB  ratio, premium storage might be more cost effective
+
+Your transactions/TB ratio might be high. Exact number would depend on transaction mix and region but anywhere over 30 or 35 TPB/TB are good candidates to evaluate a move to Premium storage.
+
+Learn more about [Storage Account - MoveToPremiumStorage (Based on your high transactions/TB  ratio, there is a possibility that premium storage might be more cost effective in addition to being performant for your scenario. More details on pricing for premium and standard accounts can be found here)](https://aka.ms/azureblobstoragepricing).
+
+### Use differential or incremental backup for database workloads
+
+For SQL/HANA DBs in Azure VMs being backed up to Azure, using daily differential with weekly full backup is often more cost-effective than daily fully backups. For HANA, Azure Backup also supports incremental backup that is even more cost effective.
+
+Learn more about [Recovery Services vault - Optimize costs of database backup (Use differential or incremental backup for database workloads)](https://aka.ms/DBBackupCostOptimization).
 
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
-With Ephemeral OS Disk, Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads
+With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
 
 Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance)](/azure/virtual-machines/windows/ephemeral-os-disks).
 
-## Synapse
 
-### Consider enabling autopause feature on Spark compute.
 
-Auto-pause releases and shuts down unused compute resources after a set idle period of inactivity
 
-Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoPauseGuidance (Consider enabling autopause feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoPauseGuidance).
 
-### Consider enabling autoscale feature on Spark compute.
-
-Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Apache Spark for Azure Synapse Analytics pool, a minimum and maximum number of nodes can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
-
-Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance (Consider enabling autoscale feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoScaleGuidance).
 
 ## Web
 
 ### Right-size underutilized App Service plans
 
-We've analyzed the usage patterns of your app service plan over the past 7 days and identified low CPU usage. While certain scenarios can result in low utilization by design, you can often save money by choosing a less expensive SKU while retaining the same features.
+We've analyzed the usage patterns of your App Service plan over the past seven days and identified low CPU usage. While certain scenarios can result in low utilization by design, you can save money by choosing a less expensive SKU while retaining the same features.
 
 > [!NOTE]
 > - Currently, this recommendation only works for App Service plans running on Windows on a SKU that allows you to downscale to less expensive tiers without losing any features, like from P3v2 to P2v2 or from P2v2 to P1v2. 
-> - CPU bursts that last only a few minutes might not be correctly detected. Please perform a careful analysis in your App Service plan metrics blade before downscaling your SKU.
+> - CPU bursts that last only a few minutes might not be correctly detected. Perform a careful analysis in your App Service plan metrics blade before downscaling your SKU.
 
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
@@ -339,7 +471,7 @@ Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
 ## Azure Monitor
 
-For Azure Monitor cost optimization suggestions, please see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).
+For Azure Monitor cost optimization suggestions, see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).
 
 ## Next steps
 
