@@ -21,7 +21,7 @@ You can restore the HANA snapshot and storage snapshot as disks by selecting **A
 Here are the two workflows:
 
 - [Restore the entire HANA system (the system database and all tenant databases) to a single snapshot-based restore point](#restore-the-entire-system-to-a-snapshot-restore-point).
-- [Restore the system database and all tenant databases to a different logpoint-in-time over a snapshot](#restore-the-database-to-a-different-log-point-in-time-over-a-snapshot).
+- [Restore the system database and all tenant databases to a different logpoint-in-time over a snapshot](#restore-the-database-to-a-different-logpoint-in-time-over-a-snapshot).
 
 >[!Note]
 >SAP HANA recommends that you recover the entire system during the snapshot restore. This means that you would also restore the system database. If the system database is restored, the users/access information is also overwritten or updated, and subsequent attempts at recovery of tenant databases might fail after the system database recovery. The two options to resolve this issue are:
