@@ -126,7 +126,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 1. Access the application with the output application URL. The page should appear as you saw in localhost.
 
-1. Check each resource deployment details, which is useful for investigating any deployment issues.
+1. Check each resource deployment detail, which is useful for investigating any deployment issues.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -154,7 +154,7 @@ Now you can access the deployed app to see whether it works. Use the following s
 
 1. Access the application URL. The page should appear as you saw in localhost.
 
-1. Check each resource deployment details, which is useful for investigating any deployment issues.
+1. Check each resource deployment detail, which is useful for investigating any deployment issues.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -178,7 +178,7 @@ Access the application with the output endpoint. The page should appear as you s
 
 1. Access the application URL. The page should appear as you saw in localhost.
 
-1. Check each resource deployment details, which is useful for investigating any deployment issues.
+1. Check each resource deployment detail, which is useful for investigating any deployment issues.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 

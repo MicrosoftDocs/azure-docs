@@ -25,13 +25,13 @@ Use the following steps to create a Service Bus instance:
 
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form.
 
-   | Setting        | Suggested value                     | Description                                                                                                                                                                  |
-   |----------------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription   | Your subscription name.             | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.  |
-   | Resource group | *myresourcegroup*                   | A new resource group name or an existing one from your subscription.                                                                                                         |
-   | Namespace name | *my-srvbus*                         | A unique name that identifies your Service Bus service.                                                                                                                      |
-   | Location       | The location closest to your users. | The location that is closest to your users.                                                                                                                                  |
-   | Plan           | **Basic**                           | The pricing plan determines the resource and cost associated with your instance.                                                                                             |
+   | Setting            | Suggested value                     | Description                                                                                                                                                                 |
+   |--------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Subscription**   | Your subscription name.             | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
+   | **Resource group** | *myresourcegroup*                   | A new resource group name or an existing one from your subscription.                                                                                                        |
+   | **Namespace name** | *my-srvbus*                         | A unique name that identifies your Service Bus service.                                                                                                                     |
+   | **Location**       | The location closest to your users. | The location that is closest to your users.                                                                                                                                 |
+   | **Plan**           | **Basic**                           | The pricing plan determines the resource and cost associated with your instance.                                                                                            |
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create namespace page for Service Bus creation." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
 

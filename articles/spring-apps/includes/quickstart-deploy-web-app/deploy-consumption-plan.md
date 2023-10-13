@@ -166,7 +166,7 @@ Use the following steps to connect your service instances:
    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
 
-   The console outputs messages similar to the ones below:
+   The console outputs messages similar to the following example:
 
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
