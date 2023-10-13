@@ -94,6 +94,11 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Switzerland North</td>  
     <td>350 K</td>  
   </tr>  
+<tr>  
+    <td rowspan="2">Fine-tuning models (babbage-002, davinci-002, gpt-35-turbo-0613)</td>  
+    <td>North Central US, Sweden Central</td>  
+    <td>50 K</td>  
+  </tr>  
   <tr>  
     <td>all other models</td>  
     <td>East US, South Central US, West Europe, France Central</td>  
