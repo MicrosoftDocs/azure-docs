@@ -53,6 +53,8 @@
       href: hub-routing-preference-portal.md
     - name: Azure PowerShell
       href: hub-routing-preference-powershell.md
+    - name: Azure CLI
+      href: hub-routing-preference-cli.md
 - name: Reference
   items:
   - name: Azure PowerShell
