@@ -33,6 +33,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - [Discover GCP instances](tutorial-discover-gcp.md)
 - Ensure that you have performed software inventory by providing the server credentials on the appliance configuration manager. [Learn more](how-to-discover-applications.md).
 
+## Supported geographies
+
+|**Geo name**|
+|----|
+Asia Pacific
+Korea
+Japan
+United States
+Europe
+United Kingdom
+Canada
+Australia
+France
 
 ## Set up Kubernetes-based appliance
 
@@ -45,20 +58,18 @@ After you have performed server discovery and software inventory using the Azure
 1. Select the project where you have set up the Azure Migrate appliance as part of prerequisites above.
 1. You would see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
 5.	You can proceed by selecting the link on the message, which will help you get started with onboarding Kubernetes-based appliance.
+    
+    > [!Note]
+    > We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
+
 6.	In Step 1: Set up an appliance, select **Bring your own Kubernetes cluster** - You must bring your own Kubernetes cluster running on-premises, connect it to Azure Arc and use the installer script to set up the appliance.
 
-**Support** | **Details**
----- | ----
-**Validated Kubernetes distros** | See [Azure Arc-enabled Kubernetes validation](https://learn.microsoft.com/azure/azure-arc/kubernetes/validation-program).
-**Hardware configuration required** | 6 GB RAM, with 30GB storage, 4 Core CPU
-**Network Requirements** | Access to the following endpoints: <br/><br/> - api.snapcraft.io <br/><br/> - https://dc.services.visualstudio.com/v2/track <br/><br/> - [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud) <br/><br/> - [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
-
-#### Bring your own Kubernetes cluster (alternate option)
+#### Bring your own Kubernetes cluster
 
 1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you do not have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
     > [!Note]
-    > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project
+    > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project.
 
 2.	In Step 3: Provide appliance details for Azure Migrate, the appliance name is pre-populated, but you can choose to provide your own friendly name to the appliance.
 
@@ -72,18 +83,37 @@ After you have performed server discovery and software inventory using the Azure
     **Support** | **Details**
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
-    **Hardware configuration required** | 6 GB RAM, with 30GB storage, 4 Core CPU
+    **Hardware configuration required** | 6 GB RAM, with 30GB storage on root volume, 4 Core CPU
     **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
+
+#### Connect using an outbound proxy server
+If your machine is behind an outbound proxy server, requests must be routed via the outbound proxy server. Follow these steps to provide proxy settings:
+1.	Open the terminal on the server and execute the following command setup environment variables as a root user:
+    `sudo su -`
+2.	On the deployment machine, set the environment variables needed for `deploy.sh` to use the outbound proxy server:
+    ```
+    export HTTP_PROXY=”<proxy-server-ip-address>:<port>”
+    export HTTPS_PROXY=”<proxy-server-ip-address>:<port>”
+    export NO_PROXY=””
+    ```
+3. If your proxy uses a certificate, provide the absolute path to the certificate.
+   `export PROXY_CERT=””`
+
+> [!Note] 
+> The machine uses proxy details while installing the required prerequisites to run the `deploy.sh` script . It will not override the proxy settings of the Azure Arc-enabled Kubernetes cluster.
 
 #### Execute the installer script
 
 After you have saved the script on the Linux server, follow these steps:
 
 > [!Note]
-> - If you have chosen to deploy a packaged Kubernetes cluster and are running the installation script on any other Linux OS except Ubuntu, ensure to install the snap module by following the instructions [here](https://snapcraft.io/docs/installing-snap-on-red-hat), before executing the script.
-> - Also, ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the `yum install curl` command.
+> - This script needs to be run after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
+> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the `yum install curl` command.
+
+> [!Important]
+> Do not edit the script unless you want to clean up the setup.
 
 
 1.	Open the terminal on the server and execute the following command to execute the script as a root user:
@@ -94,7 +124,6 @@ After you have saved the script on the Linux server, follow these steps:
     1. Installing required CLI extensions.
     2. Registering Azure Resource Providers.
     3. Checking for prerequisites like connectivity to required endpoints.
-    4. Setting up MicroK8s Kubernetes cluster.
     5. Installing the required operators on the cluster.
     6. Creating the required Migrate resources.
 
@@ -106,6 +135,10 @@ After the script is executed successfully, configure the appliance through the p
 > export DELETE= “true”
 
 The *delete* mode helps to clean up any existing components installed on the server so that you can do a fresh installation. After running the script in *delete* mode, remove the line from the script and execute it again in the default mode.
+
+## Encryption at rest
+As you are bringing your own Kubernetes cluster, we would have shared responsibility to ensure that the secrets are secured. It is recommended to choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
+
 
 ## Configure Kubernetes-based appliance
 
@@ -126,6 +159,23 @@ After the credentials have been successfully synced, wait for 24 hours before yo
 
 > [!Note]
 > You can add/update credentials any time by navigating to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage** > **Appliances** page, selecting **Manage credentials** from the options available in the Kubernetes-based appliance.
+
+## Overview of Discovery results
+The **Discovered servers** screen provides the following information:
+- Displays all running Spring Boot workloads on your server-based environment.
+- Lists the basic information of each server in a table format.
+
+Select any web app to view its details. The **Web apps** screen provides the following information:
+- Provides a comprehensive view of each Spring Boot process on each server.
+- Displays the detailed information of each process, including:
+  - JDK version and Spring Boot version.
+  - Environment variable names and JVM options configured.
+  - Application configuration and certificate files in use.
+  - Location of JAR file for the process on the server.
+  - Static content locations and binding ports.
+
+
+
 
 ## Next steps
 - [Assess Spring Boot](tutorial-assess-spring-boot.md) apps for migration.

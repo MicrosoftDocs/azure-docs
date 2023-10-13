@@ -35,6 +35,12 @@ armclient get /subscriptions/<subscription>/resourceGroups/<resourceGroup> /prov
 11.	Go to the Key Vault, go to access policies, select the Principal ID from list and check the permissions it has OR create a new access policy specifically for the Principal ID you found by running the command above. 
 12.	Ensure that following permissions are assigned to the Principal ID: *Secret permission* and both *Secret Management Operations and Privileged Management Operations*.
 
+**Error Code** | **Action**
+---- | ----
+**Supported Linux OS** | Check if the credentials exist on the Key Vault <name>. Ensure that the extension identity for <Microsoft.ConnectedCredentials > has required permissions to delete the credentials from Key Vault. [Learn more](https://go.microsoft.com/fwlink/?linkid=2237575).
+**Hardware configuration required** | 6 GB RAM, with 30GB storage on root volume, 4 Core CPU
+**Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
+
 ## Next steps
 Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
 
