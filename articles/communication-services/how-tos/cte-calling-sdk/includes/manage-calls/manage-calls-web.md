@@ -73,7 +73,7 @@ Developers can use multiple ways to join Teams meeting. One of them is meeting I
 - Meeting ID & passcode are not printed to the console. Hence they cannot be found in verbose client logs.
 
 - How to get meeting ID & passcode ?
-     1. Graph API - onlineMeeting resource and property "joinMeetingIdSettings"
+     1. Graph API: Use Graph API to retrieve information about `onlineMeeting` resource and check the object in property `joinMeetingIdSettings`.
      1. Teams app -> Calendar -> Meeting info
      1. Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
      1. Developers can't retrieve the meeting ID & passcode through calling SDK or retrieve it from verbose console logs.
