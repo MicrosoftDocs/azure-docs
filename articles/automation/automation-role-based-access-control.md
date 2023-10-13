@@ -307,7 +307,7 @@ You can create [Azure custom roles](../role-based-access-control/custom-roles.md
 
 ## Update Management permissions
 
-Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Azure Active Directory (Azure AD) tenant, or across tenants using Azure Lighthouse. The following table lists the permissions needed to manage update deployments.
+Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Microsoft Entra tenant, or across tenants using Azure Lighthouse. The following table lists the permissions needed to manage update deployments.
 
 |**Resource** |**Role** |**Scope** |
 |---------|---------|---------|
@@ -358,7 +358,7 @@ You can remove the access permission for a user who isn't managing the Automatio
 
 You can also configure role-based access to an Automation account using the following [Azure PowerShell cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Azure Active Directory. You can use this cmdlet with the `Name` parameter to list all the actions that a specific role can perform.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Microsoft Entra ID. You can use this cmdlet with the `Name` parameter to list all the actions that a specific role can perform.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'

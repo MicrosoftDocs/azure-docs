@@ -27,7 +27,7 @@ Inter-directory provisioning allows us to create [hybrid identity](whatis-hybrid
 
 Microsoft Entra ID currently supports three methods for accomplishing inter-directory provisioning. These methods are:
 
-- [Microsoft Entra Connect cloud sync](./cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Microsoft Entra ID and is configured via the portal.
+- [Microsoft Entra Cloud Sync](./cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Microsoft Entra ID and is configured via the portal.
 
 - [Microsoft Entra Connect](./connect/whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Microsoft Entra ID.
 

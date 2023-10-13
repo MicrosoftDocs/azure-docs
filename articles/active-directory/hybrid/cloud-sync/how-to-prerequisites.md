@@ -1,5 +1,5 @@
 ---
-title: 'Prerequisites for Microsoft Entra Connect cloud sync in Microsoft Entra ID'
+title: 'Prerequisites for Microsoft Entra Cloud Sync in Microsoft Entra ID'
 description: This article describes the prerequisites and hardware requirements you need for cloud sync.
 services: active-directory
 author: billmath
@@ -13,20 +13,20 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Prerequisites for Microsoft Entra Connect cloud sync
-This article provides guidance on how to choose and use Microsoft Entra Connect cloud sync as your identity solution.
+# Prerequisites for Microsoft Entra Cloud Sync
+This article provides guidance on how to choose and use Microsoft Entra Cloud Sync as your identity solution.
 
 ## Cloud provisioning agent requirements
-You need the following to use Microsoft Entra Connect cloud sync:
+You need the following to use Microsoft Entra Cloud Sync:
 
-- Domain Administrator or Enterprise Administrator credentials to create the Microsoft Entra Connect Cloud Sync gMSA (group Managed Service Account) to run the agent service.	
+- Domain Administrator or Enterprise Administrator credentials to create the Microsoft Entra Cloud Sync gMSA (group Managed Service Account) to run the agent service.	
 - A hybrid identity administrator account for your Microsoft Entra tenant that is not a guest user.
 - An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).  Installing the agent on a domain controller is supported.
-- High availability refers to the Microsoft Entra Connect cloud sync's ability to operate continuously without failure for a long time.  By having multiple active agents installed and running, Microsoft Entra Connect cloud sync can continue to function even if one agent should fail.  Microsoft recommends having 3 active agents installed for high availability.
+- High availability refers to the Microsoft Entra Cloud Sync's ability to operate continuously without failure for a long time.  By having multiple active agents installed and running, Microsoft Entra Cloud Sync can continue to function even if one agent should fail.  Microsoft recommends having 3 active agents installed for high availability.
 - On-premises firewall configurations.
 
 ## Group Managed Service Accounts
-A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Microsoft Entra Connect cloud sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Microsoft Entra Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
 1. The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
@@ -140,7 +140,7 @@ If there's a firewall between your servers and Microsoft Entra ID, configure the
 ---
 ## NTLM requirement
 
-You should not enable NTLM on the Windows Server that is running the Microsoft Entra Connect Provisioning Agent and if it is enabled you should make sure you disable it. 
+You should not enable NTLM on the Windows Server that is running the Microsoft Entra Provisioning Agent and if it is enabled you should make sure you disable it. 
 
 ## Known limitations
 
@@ -170,4 +170,4 @@ When using OU scoping filter
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

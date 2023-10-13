@@ -175,7 +175,7 @@ items:
     items:
     - name: Role-based access control
       href: role-based-access-control.md
-    - name: Authentication with Azure Active Directory
+    - name: Authentication with Microsoft Entra ID
       href: ../authentication.md#authenticate-with-azure-active-directory
 - name: Tutorials
   items:

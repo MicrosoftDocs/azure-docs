@@ -97,4 +97,4 @@ You can use MS Graph API to enable Exchange hybrid writeback.  For more informat
 ## Next steps
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)

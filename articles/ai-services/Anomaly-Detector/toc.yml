@@ -120,7 +120,7 @@
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
         - name: Set up Virtual Networks
           href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/anomaly-detector/context/context
-        - name: Use Azure AD authentication
+        - name: Use Microsoft Entra authentication
           href: ../authentication.md?context=/azure/ai-services/anomaly-detector/context/context
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/ai-services/anomaly-detector/context/context
