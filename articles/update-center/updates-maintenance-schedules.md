@@ -8,14 +8,16 @@ author: snehasudhirG
 ms.author: sudhirsneha
 ---
 
-# Update options in Azure Update Manager
+# Update options and orchestration in Azure Update Manager
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 > [!IMPORTANT]
 > - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules fail to patch the VMs. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
 > - For Azure Arc-enabled servers, the updates and maintenance options such as automatic VM guest patching in Azure, Windows automatic updates, and hot patching aren't supported.
-This article provides an overview of the various update options and controls that are supported by Azure Update Manager.
+
+
+This article provides an overview of the various update options and orchestration in Azure Update Manager.
 
 ## Update Options
 
