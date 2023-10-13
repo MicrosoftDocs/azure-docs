@@ -96,7 +96,7 @@ sections:
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
       - question: Can I use the folder name "AVS-vendor-folders" for vCenter Server VM folders in Azure VMware Solution?
-        answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it may lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Please choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
+        answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it might lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Please choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
 
   - name: VMware solution software
     questions:
@@ -341,7 +341,7 @@ sections:
         answer: No, an Azure VMware Solution private cloud cannot be shared between end customers. 
 
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
-        answer: Customers can create multi-tenant environments in their Azure VMware Solution private cloud and sell to customers provided the product is not a standard VM and have added substantial intellectual property embedded in the VM as an application.
+        answer: Customers can create multitenant environments in their Azure VMware Solution private cloud and sell to customers provided the product is not a standard VM and have added substantial intellectual property embedded in the VM as an application.
 
       - question: As a service provider or customer, can I use my existing VMware Cloud Director (vCD) or new vCD deployment in Azure VMware Solution?
         answer: VMware does not allow vCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
