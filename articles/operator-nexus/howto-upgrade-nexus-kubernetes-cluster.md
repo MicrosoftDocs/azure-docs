@@ -22,7 +22,7 @@ This article provides instructions on how to upgrade an Operator Nexus Kubernete
 * Modifications made to core addon configurations are restored to the default addon configuration as part of the cluster upgrade process. Avoid customizing addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures.
 * When you upgrade the Operator Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is behind by more than one major version, you should perform multiple sequential upgrades.
 
-## Before you begin
+## Prerequisites
 
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * If you're using Azure CLI, this article requires that you're running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI](./howto-install-cli-extensions.md)
