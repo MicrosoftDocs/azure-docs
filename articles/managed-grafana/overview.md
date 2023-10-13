@@ -38,12 +38,12 @@ Azure Managed Grafana is available in the two service tiers presented below.
 
 | Tier      | Description                                                                                                                                                                               |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Essential              | Provides the core Grafana functionalities in use with Azure data sources. Since it doesn't provide an SLA guarantee, this tier should be used only for non-production environments.   |
+| Essential (preview)    | Provides the core Grafana functionalities in use with Azure data sources. Since it doesn't provide an SLA guarantee, this tier should be used only for non-production environments.   |
 | Standard              | The default tier, offering better performance, more features and an SLA. It's recommended for most situations.  |
 
 The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) gives more information on these tiers and the following table lists which main features are supported in each tier:
 
-| Feature                                                                                  | Essential                           | Standard                                                                                                        |
+| Feature                                                                                  | Essential (preview)                          | Standard                                                                                                        |
 |------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [Zone redundancy](how-to-enable-zone-redundancy.md)                                      | -                                   | ✔                                                                                                              |
 | [Deterministic outbound IPs](how-to-deterministic-ip.md)                                 | -                                   | ✔                                                                                                              |
@@ -56,11 +56,11 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 | [Grafana Enterprise](how-to-grafana-enterprise.md)                                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
-> Users can upgrade an instance from Essential to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential however isn't supported.
+> Users can upgrade an instance from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
 
 ## Quotas
 
-Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential and Standard pricing plans, see [quotas](known-limitations.md#quotas).
+Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#quotas).
 
 ## Next steps
 

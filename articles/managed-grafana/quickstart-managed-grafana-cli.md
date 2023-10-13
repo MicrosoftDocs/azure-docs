@@ -15,7 +15,7 @@ ms.custom: engagement-fy23, devx-track-azurecli
 Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate an Azure Managed Grafana instance.
 
 > [!NOTE]
-> Azure Managed Grafana now has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To generate a workspace in the newly released Essential plan, [use the Azure portal](quickstart-managed-grafana-portal.md). We are working on enabling the creation of a workspace in the Essential plan using the Azure CLI.
+> Azure Managed Grafana now has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To generate a workspace in the newly released Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md). We are working on enabling the creation of a workspace in the Essential (preview) plan using the Azure CLI.
 
 ## Prerequisites
 

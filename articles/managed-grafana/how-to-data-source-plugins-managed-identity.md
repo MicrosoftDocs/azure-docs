@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 10/06/2023
+ms.date: 10/13/2023
 ---
 
 # How to configure data sources for Azure Managed Grafana
@@ -20,7 +20,7 @@ By design, Grafana can be configured with multiple *data sources*. A data source
 
 Azure Managed Grafana supports many popular data sources. The table below lists the data sources that can be added to Azure Managed Grafana for each service tier.
 
-| Data sources                                                                                                                  | Essential | Standard |
+| Data sources                                                                                                                  | Essential (preview) | Standard |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------|----------|
 | [Alertmanager](https://grafana.com/docs/grafana/latest/datasources/alertmanager/)                                             | -         | ✔       |
 | [AWS CloudWatch](https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/)                                         | -         | ✔       |

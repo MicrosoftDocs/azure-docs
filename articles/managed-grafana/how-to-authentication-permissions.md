@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 10/06/2023
+ms.date: 10/13/2023
 ms.custom: engagement-fy23
 --- 
 
@@ -59,7 +59,7 @@ Create a workspace with the Azure portal or the CLI.
     | Resource group name | Create a resource group for your Azure Managed Grafana resources.                                                                                                                                                                                                                                                        | *my-resource-group* |
     | Location            | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you.                                                                                                                                                                                                      | *(US) East US*      |
     | Name                | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                                                                                                                                   | *my-grafana*        |
-    | Pricing Plan        | Choose between an Essential and a Standard plan. The Standard tier offers additional features. [More information about pricing plans](overview.md#service-tiers).                                                                                                                                                        | *Essential*          |
+    | Pricing Plan        | Choose between an Essential (preview) and a Standard plan. The Standard tier offers additional features. [More information about pricing plans](overview.md#service-tiers).                                                                                                                                                        | *Essential (preview)*          |
 
 1. Keep all other default values and select the tab **Permission** to control access rights for your Grafana instance and data sources:
 

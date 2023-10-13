@@ -42,7 +42,7 @@ Azure Managed Grafana has the following known limitations:
 
 ## Quotas
 
-The following quotas apply to the Essential and Standard tiers.
+The following quotas apply to the Essential (preview) and Standard plans.
 
 | Limit                                | Description                                                                                         | Essential       | Standard         |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------|------------------|

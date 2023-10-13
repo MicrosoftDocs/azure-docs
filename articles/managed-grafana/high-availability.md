@@ -5,13 +5,13 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: conceptual
-ms.date: 10/06/2023
+ms.date: 10/13/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
 # Azure Managed Grafana service reliability
 
-This article provides information on availability zone support, disaster recovery and availability of Azure Managed Grafana for instances in the Standard plan. The Essential plan doesn't offer the same reliability and isn't recommended for use in production.
+This article provides information on availability zone support, disaster recovery and availability of Azure Managed Grafana for instances in the Standard plan. The Essential plan (preview) doesn't offer the same reliability and isn't recommended for use in production.
 
 An Azure Managed Grafana instance in the Standard tier is hosted on a dedicated set of virtual machines (VMs). By default, two VMs are deployed to provide redundancy. Each VM runs a Grafana server. A network load balancer distributes browser requests amongst the Grafana servers. On the backend, the Grafana servers are connected to a common database that stores the configuration and other persistent data for an entire Managed Grafana instance.
 
