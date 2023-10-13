@@ -33,7 +33,9 @@ For more information about the supported configurations and scenarios, see [SAP 
 According to SAP, it's mandatory to run a weekly full backup of all databases within an instance. Currently, logs are also mandatory for a database when you're creating a policy. With snapshots happening daily, we don’t see a need for incremental or differential backups in the database policy. Therefore, all databases in the database instance, which is required to be protected by a snapshot, should have a database policy of only *weekly fulls + logs ONLY*, along with daily snapshots at an instance level.
 
 >[!Important]
->Because the policy doesn’t call for differential or incremental backups, we do *not* recommend that you trigger on-demand differential backups from any client.
+>- As per SAP advisory, we recommend you to configure *Database via Backint* with *weekly fulls + log backup only* policy before configuring *DB Instance via Snapshot* backup. If *weekly fulls + logs backup only using Backint based backup* isn't enabled, snapshot backup configuration will fail.
+>
+>- Because the policy doesn’t call for differential or incremental backups, we do *not* recommend that you trigger on-demand differential backups from any client.
 
 To summarize the backup policy:
 
@@ -84,16 +86,28 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore.":::
 
-   a. **Policy name**: Enter a unique policy name.  
-   b. **Snapshot Backup**: Set the **Time** and **Timezone** for backup in the dropdown lists. The default settings are *10:30 PM* and *(UTC) Coordinated Universal Time*.
+   1. **Policy name**: Enter a unique policy name.  
+   1. **Snapshot Backup**: Set the **Time** and **Timezone** for backup in the dropdown lists. The default settings are *10:30 PM* and *(UTC) Coordinated Universal Time*.
 
-     >[!Note]
-     >Azure Backup currently supports **Daily** backup only.
+      >[!Note]
+      >Azure Backup currently supports **Daily** backup only.
 
-   c. **Instant Restore**: Set the retention of recovery snapshots from *1* to *35* days. The default value is *2*.  
-   d. **Resource group**: Select the appropriate resource group in the drop-down list.  
-   e. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
+   1. **Instant Restore**: Set the retention of recovery snapshots from *1* to *35* days. The default value is *2*.  
+   1. **Resource group**: Select the appropriate resource group in the drop-down list.  
+   1. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
    
+      You can also create a new managed identity for snapshot backup and restore. To create a managed identity, follow these steps:
+
+      1. Select **+ Create**.
+      
+         :::image type="content" source="./media/sap-hana-database-instances-backup/start-create-managed-identity.png" alt-text="Screenshot that shows how to create managed identity.":::
+      
+      1. On the **Create User Assigned Managed Identity** page, choos the required *Subscription*, *Resource group*, *Instance region*, and add an *Instance name*.
+      1. Select **Review + create**.
+      
+         :::image type="content" source="./media/sap-hana-database-instances-backup/configure-new-managed-identity.png" alt-text="Screenshot that shows how to configure a new managed identity.":::
+
+
    You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup).
    
    To assign the Disk Snapshot Contributor role to the Backup Management Service manually in the snapshot resource group, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
