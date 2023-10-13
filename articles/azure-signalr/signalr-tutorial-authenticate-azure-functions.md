@@ -355,9 +355,11 @@ Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitt
 1. In the Azure portal, go to the resource page of your function app.
 1. Select **Settings** > **Authentication**.
 1. Select **Add identity provider**.
+
    :::image type="content" source="./media/signalr-tutorial-authenticate-azure-functions/function-app-authentication.png" alt-text="Screenshot of the function app Authentication page and the button for adding an identity provider.":::
 
 1. In the **Identity provider** list, select **Microsoft**. Then select **Add**.
+
    :::image type="content" source="media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png" alt-text="Screenshot of the page for adding an identity provider.":::
 
 The completed settings create an app registration that associates your identity provider with your function app.
