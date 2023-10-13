@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: peiliu
+author: mikehang-msft
 manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 04/20/2023
+ms.date: 10/13/2023
 ms.topic: include
 ms.custom: include file
-ms.author: peiliu
+ms.author: mikehang-msft
 ---
 
 ## Prerequisites
