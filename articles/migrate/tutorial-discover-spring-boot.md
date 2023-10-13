@@ -23,16 +23,6 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-## Prerequisites
-
-- Before you follow this tutorial to discover Spring Boot applications, make sure you've performed server discovery using the Azure Migrate appliance using the following tutorials:
-   - [Discover servers running in a VMware environment](tutorial-discover-vmware.md)
-   - [Discover servers running in Hyper-V environment](tutorial-discover-hyper-v.md)
-   - [Discover physical servers](tutorial-discover-physical.md)
-   - [Discover AWS instances](tutorial-discover-aws.md)
-   - [Discover GCP instances](tutorial-discover-gcp.md)
-- Ensure that you have performed software inventory by providing the server credentials on the appliance configuration manager. [Learn more](how-to-discover-applications.md).
-
 ## Supported geographies
 
 |**Geography**|
@@ -46,6 +36,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |Canada|
 |Australia|
 |France|
+
+## Prerequisites
+
+- Before you follow this tutorial to discover Spring Boot applications, make sure you've performed server discovery using the Azure Migrate appliance using the following tutorials:
+   - [Discover servers running in a VMware environment](tutorial-discover-vmware.md)
+   - [Discover servers running in Hyper-V environment](tutorial-discover-hyper-v.md)
+   - [Discover physical servers](tutorial-discover-physical.md)
+   - [Discover AWS instances](tutorial-discover-aws.md)
+   - [Discover GCP instances](tutorial-discover-gcp.md)
+- Ensure that you have performed software inventory by providing the server credentials on the appliance configuration manager. [Learn more](how-to-discover-applications.md).
 
 ## Set up Kubernetes-based appliance
 
@@ -63,7 +63,7 @@ After you have performed server discovery and software inventory using the Azure
 5.	You can proceed by selecting the link on the message, which helps you get started with onboarding Kubernetes-based appliance.
     
     > [!Note]
-    > We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
+    > We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](#encryption-at-rest) about encrypting data at rest in Kubernetes.
 
    :::image type="content" source="./media/tutorial-discover-spring-boot/onboard-kubernetes-inline.png" alt-text="Screenshot displays the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/onboard-kubernetes-expanded.png":::
 
@@ -145,7 +145,10 @@ If you encounter any issue during script execution, you need to run the script i
 The *delete* mode helps to clean up any existing components installed on the server so that you can do a fresh installation. After running the script in *delete* mode, remove the line from the script and execute it again in the default mode.
 
 ## Encryption at rest
-As you're bringing your own Kubernetes cluster, we would have shared responsibility to ensure that the secrets are secured. We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
+
+As you're bringing your own Kubernetes cluster, there is a shared responsibility to ensure that the secrets are secured. 
+- We recommend you choose a Kubernetes cluster with disk encryption for its services. 
+- [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
 
 
 ## Configure Kubernetes-based appliance
