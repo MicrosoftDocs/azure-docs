@@ -63,7 +63,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: Back up database instance snapshots
-            url: backup/sap-hana-database-about.md#back-up-database-instance-snapshots
+            url: sap-hana-database-about.md#back-up-database-instance-snapshots
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
           - text: Multi-user authorization for Backup vault 
