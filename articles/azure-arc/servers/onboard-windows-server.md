@@ -7,7 +7,9 @@ ms.topic: conceptual
 
 # Connect Windows Server machines to Azure through Azure Arc Setup
 
-Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
+Windows Server machines can be onboarded directly to [Azure Arc](https://azure.microsoft.com/en-us/products/azure-arc/) through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
+
+Onboarding to Azure Arc is not needed if the Windows Server machine is already running in Azure.
 
 > [!NOTE]
 > This feature only applies to Windows Server 2022 and later. It was released in the [Cumulative Update of 10/10/2023](https://support.microsoft.com/en-us/topic/october-10-2023-kb5031364-os-build-20348-2031-7f1d69e7-c468-4566-887a-1902af791bbc).
@@ -41,10 +43,6 @@ The Azure Arc Setup wizard is launched from a system tray icon at the bottom of 
 1. Provide the resource details of how your machine will work within Azure Arc, such as the **Subscription** and **Resource group**, and then select **Next**.
 
     :::image type="content" source="media/onboard-windows-server/resource-details.png" alt-text="Screenshot of resource details window with fields.":::
-
-1. Select an option for enabling Azure Automanage on your machine, and then click **Next**.
-
-    Azure Automanage machine best practices help enhance reliability, security, and management for virtual machines. To learn more, see [Azure Automanage machine best practices](/azure/automanage/overview-about).
 
 1. Once the configuration completes and your machine is onboarded to Azure Arc, select **Finish**.
 
