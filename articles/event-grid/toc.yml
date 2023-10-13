@@ -148,11 +148,11 @@ items:
           href: event-grid-namespace-managed-identity.md
         - name: Authenticate publishing clients using Microsoft Entra ID
           href: authenticate-with-active-directory-namespaces.md
-      - name: Monitoring data reference
+      - name: Monitoring
         items:
-        - name: Pull delivery monitoring
+        - name: Pull delivery data reference
           href: monitor-pull-reference.md
-        - name: Push delivery monitoring
+        - name: Push delivery data reference
           href: monitor-namespace-push-reference.md
       - name: Secure
         items:
