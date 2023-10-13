@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting your Astronomer deployment
-description: This article provides information about getting support and troubleshooting an Astronomer integration.
+title: Troubleshooting your Astro deployment
+description: This article provides information about getting support and troubleshooting an Apache Airflow on Astro - An Azure Native ISV Service integration.
 author: flang-msft
 
 ms.author: franlanglois
@@ -54,7 +54,7 @@ If the deployment fails and the Astro resource has a status of `Failed`, delete 
 
 ### Unable to use Single sign-on
 
-If SSO isn't working for the Astronomer portal, verify you're using the correct Azure Active Directory email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal. For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
+If SSO isn't working for the Astronomer portal, verify you're using the correct Azure Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal. For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
 
 ## Next steps
 
