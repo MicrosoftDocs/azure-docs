@@ -3,7 +3,7 @@ title: Azure HDInsight known issues
 description: Track known issues and the ETA for the fix in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting-known-issue
-ms.date: 10/12/2023
+ms.date: 10/13/2023
 ---
 
 # Azure HDInsight known issues
