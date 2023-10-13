@@ -29,11 +29,11 @@ Use the following steps to create all the Azure resources that the app depends o
 
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 
-   | Setting        | Suggested value                   | Description                                                                                                                                                                 |
-   |----------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
-   | Resource group | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
-   | Region         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
+   | Setting            | Suggested value                   | Description                                                                                                                                                                 |
+   |--------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
+   | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
+   | **Region**         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
 
    :::image type="content" source="../../media/quickstart/web-custom-deployment.png" alt-text="Screenshot of the Azure portal that shows the custom deployment for the web app." lightbox="../../media/quickstart/web-custom-deployment.png":::
 
