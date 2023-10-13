@@ -226,11 +226,15 @@ The following steps show how to bind applications running in the Azure Spring Ap
        --app cart-service \
        --connection cart_service_cache | jq -r '.configurations[0].value')
 
+   export GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+    
    az spring app update \
        --resource-group <resource-group-name> \
        --name cart-service \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
+       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}" "AUTH_URL=https://${GATEWAY_URL}"
    ```
 
 ## Access the application

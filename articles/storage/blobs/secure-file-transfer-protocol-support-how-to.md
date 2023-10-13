@@ -106,7 +106,7 @@ az storage account update -g <resource-group> -n <storage-account> --enable-sftp
 
 ## Configure permissions
 
-Azure Storage doesn't support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
+Azure Storage doesn't support shared access signature (SAS), or Microsoft Entra authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
 
 In this section, you'll learn how to create a local user, choose an authentication method, and assign permissions for that local user. 
 

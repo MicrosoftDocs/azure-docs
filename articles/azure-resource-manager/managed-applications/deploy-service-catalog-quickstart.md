@@ -398,7 +398,7 @@ Go to the managed resource group with the name prefix **mrg-sampleManagedApplica
 
 :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resources deployed by the managed application definition.":::
 
-The managed resource group and each resource created by the managed application has a role assignment. When you used a quickstart article to create the definition, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
+The managed resource group and each resource created by the managed application has a role assignment. When you used a quickstart article to create the definition, you created a Microsoft Entra group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
 
 To see the role assignment from the Azure portal:
 
@@ -407,7 +407,7 @@ To see the role assignment from the Azure portal:
 
    You can also view the resource's **Deny assignments**.
 
-The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignment_ excludes the Azure Active Directory group that was assigned in **Role assignments**.
+The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignment_ excludes the Microsoft Entra group that was assigned in **Role assignments**.
 
 ---
 

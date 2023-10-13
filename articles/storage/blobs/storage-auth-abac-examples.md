@@ -666,7 +666,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Write blobs in named containers with a path
 
-This condition allows a partner (an Azure AD guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
+This condition allows a partner (a Microsoft Entra guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
 
 You must add this condition to any role assignments that include the following actions.
 

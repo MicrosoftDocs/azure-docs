@@ -44,7 +44,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 
 
 ## Go samples
-You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.
+You can find Go samples for Azure Event Hubs in the [azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs) folder in the [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go/) GitHub repository.
 
 ## Azure CLI samples
 You can find Azure CLI samples for Azure Event Hubs in the [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub repository.
