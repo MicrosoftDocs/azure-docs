@@ -25,6 +25,7 @@ This example shows you how to configure a system-assigned managed identity on a 
 1. In the [Azure portal](https://portal.azure.com/), search for and select a VM.
 1. Under **Settings**, select **Identity**.
 1. On the **System assigned** tab, switch **Status** to **On**.
+
    ![Screenshot of selections for turning on system-assigned managed identities for a virtual machine.](./media/signalr-howto-authorize-managed-identity/identity-virtual-machine.png)
 1. Select the **Save** button to confirm the change.
 
