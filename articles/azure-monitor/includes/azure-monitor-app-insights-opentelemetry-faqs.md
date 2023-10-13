@@ -62,8 +62,6 @@ It depends. Consider that the Azure Monitor OpenTelemetry Distro is still "Previ
 
 The following chart breaks out OpenTelemetry feature support for each language.
 
-The following chart breaks out OpenTelemetry feature support for each language.
-
 |Feature                                                                                                             | .NET               | Node.js            | Python             | Java               |
 |--------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
 | [Distributed tracing](../app/distributed-tracing-telemetry-correlation.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
