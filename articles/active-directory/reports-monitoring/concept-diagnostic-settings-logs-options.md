@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/28/2023
+ms.date: 10/02/2023
 ms.author: sarahlipsey
 ms.reviewer: egreenberg14
 
@@ -86,9 +86,9 @@ The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you 
 
 ### Microsoft Graph activity logs
 
-The `MicrosoftGraphActivityLogs` provide administrators full visibility into all HTTP requests accessing your tenant's resources through the Microsoft Graph API. You can use these logs to identify activities that a compromised user account conducted in your tenant or to investigate problematic or unexpected behaviors for client applications, such as extreme call volumes. Route these logs to the same Log Analytics workspace with `SignInLogs` to cross-reference details of token requests for sign-in logs.
+The `MicrosoftGraphActivityLogs` is associated with a feature that's still in preview, but may be visible in the Microsoft Entra admin center. These logs provide administrators full visibility into all HTTP requests accessing your tenant's resources through the Microsoft Graph API. You can use these logs to identify activities that a compromised user account conducted in your tenant or to investigate problematic or unexpected behaviors for client applications, such as extreme call volumes. Route these logs to the same Log Analytics workspace with `SignInLogs` to cross-reference details of token requests for sign-in logs.
 
-The feature is currently in public preview. For more information, see [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview).
+The feature is currently in private preview. For more information, see [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview).
 
 ### Network access traffic logs
 
@@ -96,5 +96,5 @@ The `NetworkAccessTrafficLogs` logs are associated with Microsoft Entra Internet
 
 ## Next steps
 
-- [Learn about the sign-ins logs](concept-all-sign-ins.md)
+- [Learn about the sign-in logs](concept-all-sign-ins.md)
 - [Explore how to access the activity logs](howto-access-activity-logs.md)

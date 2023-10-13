@@ -2,7 +2,7 @@
 title: Distributed tracing and telemetry correlation in Azure Application Insights
 description: This article provides information about distributed tracing and telemetry correlation
 ms.topic: conceptual
-ms.date: 03/30/2023
+ms.date: 10/11/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
@@ -171,7 +171,7 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 ### Enable W3C distributed tracing support for web apps
 
-This feature is enabled by default for Javascript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
+This feature is enabled by default for JavaScript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
 
 - **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 

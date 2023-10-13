@@ -27,7 +27,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 
 1. Azure NetApp Files grants permissions to encryption keys to a managed identity. The managed identity is either a user-assigned managed identity that you create and manage or a system-assigned managed identity associated with the NetApp account.
 2. You configure encryption with a customer-managed key for the NetApp account.
-3. You use the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Azure Active Directory.
+3. You use the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Microsoft Entra ID.
 4. Azure NetApp Files wraps the account encryption key with the customer-managed key in Azure Key Vault.
 
     Customer-managed keys have no performance impact on Azure NetApp Files. Its only difference from Microsoft-managed keys is how the key is managed.
@@ -61,6 +61,7 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * Australia East
 * Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
 * Canada East
 * Central India

@@ -110,7 +110,7 @@ The following example dissociates a public IP address named *myVMPublicIP* from 
   
 ```azurepowershell
 $nic = Get-AzNetworkInterface -Name myVMNic -ResourceGroup myResourceGroup
-$nic.IpConfigurations.publicipaddress.id = $null
+$nic.IpConfigurations[0].PublicIpAddress = $null
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
 

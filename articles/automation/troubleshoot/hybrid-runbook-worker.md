@@ -18,6 +18,31 @@ This article provides information on troubleshooting and resolving issues with A
 
 The Hybrid Runbook Worker depends on an agent to communicate with your Azure Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Log Analytics agent for Windows. For Linux, it's the Log Analytics agent for Linux.
 
+
+### Unable to update Az modules while using the Hybrid Worker
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
+
+#### Resolution
+
+As a workaround, you can follow these steps:
+
+1. Go to the folder : C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
+1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
+1. Add the following lines inside the `<assemblyBinding>` tags:
+```xml
+<dependentAssembly>
+  <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+  <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+</dependentAssembly>
+```
+
+> [!NOTE]
+> The workaround replaces the file with the original if you restart MMA/server either by enabling solution or patching. For both these scenarios, we recommend that you replace the contents.
+
+
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
 #### Issue
@@ -151,7 +176,7 @@ A runbook running on a Hybrid Runbook Worker fails with the following error mess
 
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a Run As account in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 
@@ -324,7 +349,7 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 #### Resolution
 
-You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Microsoft Entra modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
 ​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters. 
 

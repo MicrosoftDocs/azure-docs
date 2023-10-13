@@ -23,7 +23,7 @@ In this quickstart you are going to learn how to start a call from Azure Communi
 4. Get Object ID of the Call Queue via Graph API.
 5. Start a call with Azure Communication Services Calling SDK.
 
-If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/voice-apps-calling).
 
 [!INCLUDE [Enable interoperability in your Teams tenant](../../concepts/includes/enable-interoperability-for-teams-tenant.md)]
 

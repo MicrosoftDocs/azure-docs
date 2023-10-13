@@ -393,6 +393,6 @@ Look under the 'status' section of the return object for relevant details
 
 ## Next steps
 
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
+- [Microsoft Entra Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

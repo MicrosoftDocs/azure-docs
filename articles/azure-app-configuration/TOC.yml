@@ -168,7 +168,7 @@
           href: concept-customer-managed-keys.md
         - name: Secure your config store using Private Endpoints
           href: concept-private-endpoint.md
-        - name: Enable access using Azure Active Directory
+        - name: Enable access using Microsoft Entra ID
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
@@ -233,14 +233,14 @@
               - name: Authentication
                 href: ./rest-api-authentication-index.md
                 items:
-                  - name: Azure Active Directory authentication
+                  - name: Microsoft Entra authentication
                     href: rest-api-authentication-azure-ad.md
                   - name: HMAC Authentication
                     href: rest-api-authentication-hmac.md
               - name: Authorization
                 href: ./rest-api-authorization-index.md
                 items:
-                  - name: Azure Active Directory authorization
+                  - name: Microsoft Entra authorization
                     href: rest-api-authorization-azure-ad.md
                   - name: HMAC authorization
                     href: rest-api-authorization-hmac.md
@@ -315,5 +315,7 @@
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
         - name: Rolling out new features
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
+        - name: Three reasons to use configuration snapshots
+          href: https://aka.ms/appconfig/snapshotVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

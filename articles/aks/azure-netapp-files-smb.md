@@ -440,7 +440,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
       clientSecret: rR0rUmWXfNioN1KhtHisiSAnoTherboGuskey6pU
     ``` 
 
-2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
+2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Microsoft Entra ID with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
 
     ```yaml
     apiVersion: trident.netapp.io/v1
