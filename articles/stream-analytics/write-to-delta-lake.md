@@ -83,7 +83,6 @@ At the failure of schema conversion, the job behavior will follow the [output da
 - Dynamic partition key isn't supported.
 - Writing to Delta lake is append only.
 - Schema checking in query testing isn't available.
-- Checkpoints for delta lake aren't taken by Stream Analytics.
 
 ## Next steps
 
