@@ -70,9 +70,10 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ---
 
-* The compute cluster where the endpoint is deployed has access to read the input data. 
+* The **compute cluster** where the endpoint is deployed has access to read the input data. 
 
-    * You may need to perform extra configuration in your endpoint depending on where the input data you want to send to the endpoint is located. If you are using a credential-less data store or external Azure Storage Account, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
+    > [!TIP]
+    > If you are using a credential-less data store or external Azure Storage Account as data input, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
 
 ## Understanding inputs and outputs
 
@@ -435,7 +436,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 Azure Machine Learning batch endpoints can read data from cloud locations in Azure Storage Accounts, both public and private. Use the following steps to run a batch endpoint job using data stored in a storage account:
 
 > [!NOTE]
-> Check the section [Security considerations when reading data](#security-considerations-when-reading-data) for learn more about additional configuration required to successfully read data from storage accoutns.
+> Check the section [Security considerations when reading data](how-to-authenticate-batch-endpoint.md#security-considerations-when-reading-data) for learn more about additional configuration required to successfully read data from storage accoutns.
 
 1. Create the input or request:
 
