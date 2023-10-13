@@ -117,7 +117,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ## 5. Validate the app
 
-After deployment, validate the app. Use the following steps to validate:
+This section describes how to validate your application.
 
 ::: zone pivot="sc-consumption-plan"
 

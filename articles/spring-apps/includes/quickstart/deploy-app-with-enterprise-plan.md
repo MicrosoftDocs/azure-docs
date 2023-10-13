@@ -36,7 +36,7 @@ To prepare the Spring project, follow the steps in the [Before you begin](https:
 
 ## 3. Prepare the cloud environment
 
-Use the following steps to create an Azure Spring Apps service instance.
+This section describes how to create an Azure Spring Apps service instance and prepare the Azure cloud environment.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
@@ -161,8 +161,6 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 ## 4. Deploy the app to Azure Spring Apps
 
-This section provides the steps to deploy your application to Azure Spring Apps.
-
 ### [Azure portal](#tab/Azure-portal-ent)
 
 [!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
@@ -181,6 +179,8 @@ az spring app deploy \
 Deploying the application can take a few minutes.
 
 ### [IntelliJ](#tab/IntelliJ)
+
+This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### 4.1. Import the project
 

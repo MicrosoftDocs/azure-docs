@@ -58,7 +58,7 @@ Use the following steps to initialize the application from the Azure Developer C
 
 ## 3. Prepare the cloud environment
 
-The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
+This section describes how to create an Azure Spring Apps service instance and prepare the Azure cloud environment.
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -75,6 +75,8 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 [!INCLUDE [provision-spring-apps](provision-consumption-azure-spring-apps.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+Use the following steps to create the required resources:
 
 1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already signed in.
 
@@ -113,8 +115,6 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 ---
 
 ## 4. Deploy the app to Azure Spring Apps
-
-This section provides the steps to deploy your application to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal)
 
