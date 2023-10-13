@@ -4,19 +4,21 @@ description: A share snapshot is a read-only version of an Azure file share that
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 10/13/2023
 ms.author: kendownie
 ---
 
 # Overview of share snapshots for Azure Files
 Azure Files provides the capability to take snapshots of SMB file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your use case.
 
+Snapshots for NFS file shares is currently in public preview.
+
 ## Applies to
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## When to use share snapshots
 
@@ -34,9 +36,9 @@ After you create a file share, you can periodically create a share snapshot of t
 
 ## Capabilities
 
-A share snapshot is a point-in-time, read-only copy of your data. Share snapshot capability is provided at the file share level. Retrieval is provided at the individual file level, to allow for restoring individual files. You can restore a complete file share by using SMB, the REST API, the Azure portal, the client library, or PowerShell/CLI.
+A share snapshot is a point-in-time, read-only copy of your data. Share snapshot capability is provided at the file share level. Retrieval is provided at the individual file level, to allow for restoring individual files. You can restore a complete file share by using SMB, NFS (preview), REST API, the Azure portal, the client library, or PowerShell/CLI.
 
-You can view snapshots of a share by using the REST API or SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#limits)). 
+You can view snapshots of a share by using the REST API, SMB, or NFS (preview). You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#limits)). 
 
 After a share snapshot is created, it can be read, copied, or deleted, but not modified. You can't copy a whole share snapshot to another storage account. You have to do that file by file, by using AzCopy or other copying mechanisms.
 
@@ -68,7 +70,7 @@ The maximum number of share snapshots that Azure Files allows today is 200 per s
 
 There's no limit to the simultaneous calls for creating share snapshots. There's no limit to amount of space that share snapshots of a particular file share can consume. 
 
-Taking snapshots of NFS Azure file shares isn't currently supported.
+Taking snapshots of NFS Azure file shares is currently in public preview with limited regional availability. The preview only supports management APIs (AzRmStorageShare), not data plane APIs (AzStorageShare).
 
 ## Copying data back to a share from share snapshot
 
@@ -84,7 +86,7 @@ When a destination file is overwritten with a copy, any share snapshots associat
 
 ## General best practices
 
-Automate backups for data recovery whenever possible. Automated actions are more reliable than manual processes, helping to improve data protection and recoverability. You can use Azure file share backup, the REST API, the Client SDK, or scripting for automation.
+Automate backups for data recovery whenever possible. Automated actions are more reliable than manual processes, helping to improve data protection and recoverability. You can use Azure file share backup (SMB file shares only), the REST API, the Client SDK, or scripting for automation.
 
 Before you deploy the share snapshot scheduler, carefully consider your share snapshot frequency and retention settings to avoid incurring unnecessary charges.
 
