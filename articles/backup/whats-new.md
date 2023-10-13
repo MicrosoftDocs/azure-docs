@@ -190,7 +190,7 @@ Azure Backup now supports SAP HANA instance snapshot backup that provides a cost
 
 You can now take an instant snapshot of the entire HANA instance and backup logs for all databases, with a single solution. It also enables you to instantly restore the entire instance with point-in-time recovery using logs over the snapshot.
 
-For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots-preview).
+For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots).
 
 ## SAP HANA System Replication database backup support (preview)
 
