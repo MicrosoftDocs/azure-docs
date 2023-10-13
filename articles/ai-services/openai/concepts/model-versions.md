@@ -19,7 +19,7 @@ Azure OpenAI Service is committed to providing the best generative AI models for
 
 In particular, the GPT-3.5 Turbo and GPT-4 models see regular updates with new features.  For example, versions 0613 of GPT-3.5 Turbo and GPT-4 introduced function calling.  Function calling is a popular feature that allows the model to create structured outputs that can be used to call external tools.  We'll continue to see increasing capabilities with these models in the future.
 
-## How Model Versions Work
+## How model versions work
 
 We want to make it easy for customers to stay up to date as models improve.  Customers can choose to start with a particular version and to automatically update as new versions are released.
 
@@ -31,11 +31,11 @@ Customers can also deploy a specific version like GPT-4 0314 or GPT-4 0613 and c
 * Deployments set to **Upgrade when expired** will be automatically updated when its current version is retired. 
 * Deployments that are set to **No Auto Upgrade** will stop working when the model is retired.
 
-## How Azure Updates OpenAI Models
+## How Azure updates OpenAI models
 
 Azure works closely with OpenAI to release new model versions.  When a new version of a model is released, a customer can immediately test it in new deployments.  Azure publishes when new versions of models are released, and notifies customers at least two weeks before a new version becomes the default version of the model.   Azure also maintains the previous major version of the model until its retirement date, so customers can switch back to it if desired.
 
-## What You Need to Know About Azure OpenAI Model Version Upgrades
+## What you need to nnow about Azure OpenAI model version upgrades
 
 As a customer of Azure OpenAI models, you might notice some changes in the model behavior and compatibility after a version upgrade.  These changes might affect your applications and workflows that rely on the models.  Here are some tips to help you prepare for version upgrades and minimize the impact:
 
@@ -46,4 +46,6 @@ As a customer of Azure OpenAI models, you might notice some changes in the model
 
 ## Next Steps
 
-Azure OpenAI models are constantly evolving and improving to provide the best and most reliable artificial intelligence solutions for customers.  By following the Azure OpenAI model version upgrade policies, you can stay updated with the latest advancements and innovations from OpenAI and ensure a smooth transition for your applications and workflows.
+- [Learn more about working with Azure OpenAI models](../how-to/working-with-models.md)
+- [Learn more about Azure OpenAI model regional availability](../concepts/models.md)
+- [Learn more about Azure OpenAI](../overview.md)
