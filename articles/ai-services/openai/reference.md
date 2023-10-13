@@ -406,11 +406,11 @@ The following parameters can be used inside of the `parameters` field inside of 
 curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/JOB_NAME?api-version=2023-10-01-preview \ 
 -H "Content-Type: application/json" \ 
 -H "api-key: YOUR_API_KEY" \ 
--H "searchServiceEndpoint: https://YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT.search.windows.net" \ 
+-H "searchServiceEndpoint: https://YOUR_AZURE_COGNITIVE_SEARCH_NAME.search.windows.net" \ 
 -H "searchServiceAdminKey: YOUR_SEARCH_SERVICE_ADMIN_KEY" \ 
 -H  "storageConnectionString: YOUR_STORAGE_CONNECTION_STRING" \ 
 -H "storageContainer: YOUR_INPUT_CONTAINER" \ 
--d \ '{ "dataRefreshIntervalInMinutes": 10 } '
+-d '{ "dataRefreshIntervalInMinutes": 10 }'
 ```
 
 ### Example response 
