@@ -11,15 +11,15 @@ ms.custom: template-how-to-pattern
 
 # Upgrade an Azure Operator Nexus Kubernetes cluster
 
-This article provides instructions on how to upgrade a Operator Nexus Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
+This article provides instructions on how to upgrade an Operator Nexus Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
 
 ## Limitations
 
-* The cluster upgrade process is a scale-out approach, meaning that at least one extra node is added (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)). If there isn't sufficient capacity available, the upgrade will fail to succeed.
+* The cluster upgrade process is a scale-out approach, meaning that at least one extra node is added (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)). If there isn't sufficient capacity available, the upgrade fails to succeed.
 * When new Kubernetes versions become available, tenant clusters won't undergo automatic upgrades. Users are required to initiate the upgrade when their network function is ready to support the new Kubernetes version. For more information, see [Upgrade the cluster](#upgrade-the-cluster).
 * Individual node pool upgrades aren't supported. Instead, Operator Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
 * Any customizations made to agent nodes will be lost as the nodes undergo reimaging.
-* Any modifications made to core addon configurations are overwritten, as Operator Nexus restores the addon configuration as part of the cluster upgrade process. It's crucial to avoid attempting to customize the addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures, making it advisable not to modify these configurations
+* Any modifications made to core addon configurations are overwritten, as Operator Nexus restores the addon configuration as part of the cluster upgrade process. It's crucial to avoid customizing the addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures, making it advisable not to modify these configurations
 * When you upgrade the Operator Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is out of date, we recommend you recreate your cluster.
 
 ## Before you begin
