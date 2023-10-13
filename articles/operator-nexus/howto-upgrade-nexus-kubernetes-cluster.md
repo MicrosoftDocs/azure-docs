@@ -11,16 +11,16 @@ ms.custom: template-how-to-pattern
 
 # Upgrade an Azure Operator Nexus Kubernetes cluster
 
-This article provides instructions on how to upgrade a Nexus Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
+This article provides instructions on how to upgrade a Operator Nexus Kubernetes cluster to get the latest features and security updates. Part of the Kubernetes cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your Kubernetes cluster.
 
 ## Limitations
 
-* The cluster upgrade process is a scale-out approach, meaning that at least one extra node is added (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)). If there isn't sufficient capacity available, the upgrade might not succeed.
+* The cluster upgrade process is a scale-out approach, meaning that at least one extra node is added (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)). If there isn't sufficient capacity available, the upgrade will fail to succeed.
 * When new Kubernetes versions become available, tenant clusters won't undergo automatic upgrades. Users are required to initiate the upgrade when their network function is ready to support the new Kubernetes version. For more information, see [Upgrade the cluster](#upgrade-the-cluster).
-* Individual node pool upgrades aren't supported. Instead, Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
+* Individual node pool upgrades aren't supported. Instead, Operator Nexus offers cluster-wide upgrades, ensuring consistency across all node pools. Also, the node image is upgraded as part of the cluster upgrade when a new version is available.
 * Any customizations made to agent nodes will be lost as the nodes undergo reimaging.
-* Any modifications made to core addon configurations are overwritten, as Nexus restores the addon configuration as part of the cluster upgrade process. It's crucial to avoid attempting to customize the addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures, making it advisable not to modify these configurations
-* When you upgrade the Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is out of date, we recommend you recreate your cluster.
+* Any modifications made to core addon configurations are overwritten, as Operator Nexus restores the addon configuration as part of the cluster upgrade process. It's crucial to avoid attempting to customize the addon configuration (for example, Calico, etc.) to prevent potential upgrade failures. If the addon configuration restoration encounters issues, it may lead to upgrade failures, making it advisable not to modify these configurations
+* When you upgrade the Operator Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed. If your version is out of date, we recommend you recreate your cluster.
 
 ## Before you begin
 
@@ -62,7 +62,7 @@ Sample output:
 ### Use the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to your Nexus Kubernetes cluster.
+2. Navigate to your Operator Nexus Kubernetes cluster.
 3. Under **Overview**, select **Available upgrades** tab.
 
 :::image type="content" source="media/nexus-kubernetes/available-upgrades.png" lightbox="media/nexus-kubernetes/available-upgrades.png" alt-text="Screenshot of available upgrades.":::
@@ -78,7 +78,7 @@ You have the flexibility to upgrade to any of the available versions. However, t
 
 ## Upgrade the cluster
 
-During the cluster upgrade process, Nexus performs the following operations:
+During the cluster upgrade process, Operator Nexus performs the following operations:
 
 * Add a new buffer control plane node with the specified Kubernetes version to the cluster.
 * After the new node has been added, cordon and drain one of the old control plane nodes, ensuring that the workloads running on it are gracefully moved to other healthy control plane nodes.
@@ -127,7 +127,7 @@ myNexusK8sCluster    myResourceGroup        Succeeded            Available      
 
 ## Customize node surge upgrade
 
-By default, Nexus configures upgrades to surge with one extra worker node. A default value of one for the max surge settings enables Nexus to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older versioned node. The max surge value can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the max surge value, the upgrade process completes faster. If you set a large value for max surge, you might experience disruptions during the upgrade process.
+By default, Operator Nexus configures upgrades to surge with one extra worker node. A default value of one for the max surge settings enables Operator Nexus to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older versioned node. The max surge value can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the max surge value, the upgrade process completes faster. If you set a large value for max surge, you might experience disruptions during the upgrade process.
 
 For example, a max surge value of 100% provides the fastest possible upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You might want to use a higher value such as this for testing environments. For production node pools, we recommend a max_surge setting of 33%.
 
@@ -136,7 +136,7 @@ API accepts both integer values and a percentage value for max surge. An integer
 During an upgrade, the max surge value can be a minimum of 1 and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge isn't higher than the number of nodes in the pool at the time of upgrade.
 
 > [!IMPORTANT]
-> The standard Kubernetes workloads natively cycle to the new nodes when they are drained from the nodes being torn down. Please keep in mind that Nexus Kubernetes service cannot make workload promises for nonstandard Kubernetes behaviors.
+> The standard Kubernetes workloads natively cycle to the new nodes when they are drained from the nodes being torn down. Please keep in mind that Operator Nexus Kubernetes service cannot make workload promises for nonstandard Kubernetes behaviors.
 
 ### Set max surge values
 

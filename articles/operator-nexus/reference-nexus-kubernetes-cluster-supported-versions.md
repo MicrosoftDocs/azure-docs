@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Supported Kubernetes versions in Azure Operator Nexus Kubernetes service
 
-This document provides an overview of the versioning schema used for the Nexus Kubernetes service, including the supported Kubernetes versions. It explains the differences between major, minor, and patch versions, and provides guidance on upgrading Kubernetes versions, and what the upgrade experience is like. The document also covers the version support lifecycle and end of life (EOL) for each minor version of Kubernetes.
+This document provides an overview of the versioning schema used for the Operator Nexus Kubernetes service, including the supported Kubernetes versions. It explains the differences between major, minor, and patch versions, and provides guidance on upgrading Kubernetes versions, and what the upgrade experience is like. The document also covers the version support lifecycle and end of life (EOL) for each minor version of Kubernetes.
 
 The Kubernetes community releases minor versions roughly every three months. Recently, the Kubernetes community has [increased the support window for each version from nine months to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), starting with version 1.19.
 
@@ -59,24 +59,24 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 
 ## Nexus Kubernetes service version components
 
-A Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
+An Operator Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
 
-* The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Azure Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Azure Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](../aks/supported-kubernetes-versions.md)
-* The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Azure Operator Nexus Kubernetes cluster, as a single number. For example, 2.
+* The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](../aks/supported-kubernetes-versions.md)
+* The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.
 The combination of these values is represented in the API as the single kubernetesVersion. For example, 1.25.4-2 or the alternatively supported “v” notation: v1.25.4-2.
 
 ### Version bundles
 
-By extending the version of Kubernetes to include a secondary value for the patch version, the version bundle, Nexus Kubernetes service can account for cases where the deployment is modified to include extra Operating System related updates. Such updates may include but aren't limited to: updated operating system images, patch releases for features (add-ons) and so on. Version bundles are always backward compatible with prior version bundles within the same patch version, for example, 1.25.4-2 is backwards compatible with 1.25.4-1.
+By extending the version of Kubernetes to include a secondary value for the patch version, the version bundle, Operator Nexus Kubernetes service can account for cases where the deployment is modified to include extra Operating System related updates. Such updates may include but aren't limited to: updated operating system images, patch releases for features (add-ons) and so on. Version bundles are always backward compatible with prior version bundles within the same patch version, for example, 1.25.4-2 is backwards compatible with 1.25.4-1.
 
-Changes to the configuration of a deployed Azure Operator Nexus Kubernetes cluster should only be applied within a Kubernetes minor version upgrade, not during a patch version upgrade. Examples of configuration changes that could be applied during the minor version upgrade include:
+Changes to the configuration of a deployed Operator Nexus Kubernetes cluster should only be applied within a Kubernetes minor version upgrade, not during a patch version upgrade. Examples of configuration changes that could be applied during the minor version upgrade include:
 
 * Changing the configuration of the kube-proxy from using the iptables to ipvs
 * Changing the CNI from one product to another
 
-When we follow these principles, it becomes easier to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Nexus Kubernetes service.
+When we follow these principles, it becomes easier to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Operator Nexus Kubernetes service.
 
-We can easily upgrade from any small update in one Nexus Kubernetes version to any small update in the next version, giving you flexibility. For example, an upgrade from 1.24.1-x to 1.25.4-x would be allowed, regardless of the presence of an intermediate 1.24.2-x version.
+We can easily upgrade from any small update in one Kubernetes version to any small update in the next version, giving you flexibility. For example, an upgrade from 1.24.1-x to 1.25.4-x would be allowed, regardless of the presence of an intermediate 1.24.2-x version.
 
 ### Components version and breaking changes
 
@@ -102,13 +102,13 @@ For more information on upgrading your cluster, see [Upgrade an Azure Operator N
 
 ## Kubernetes version support policy
 
-Nexus supports three minor versions of Kubernetes:
+Operator Nexus supports three minor versions of Kubernetes:
 
-* The latest GA minor version released in Nexus (which we refer to as *N*).
+* The latest GA minor version released in Operator Nexus (which we refer to as *N*).
 * Two previous minor versions.
   * Each supported minor version also supports a maximum of two latest stable patches while the previous patches are under platform support for the lifetime of the minor version.
 
-Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
+Operator Nexus Kubernetes service provides a standardized duration of support for each minor version of Kubernetes that is released. Versions adhere to two different timelines, reflecting:
 
 * Duration of support – How long is a version actively maintained. At the end of the supported period, the version is “End of life.”
 * Platform support – How long can a version be selected for deployment after "End of life."
@@ -116,9 +116,9 @@ Nexus Kubernetes service provides a standardized duration of support for each mi
 > [!NOTE]
 > Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported or LTS version of Kubernetes to receive full support.
 
-The supported window of Kubernetes versions on Nexus is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
+The supported window of Kubernetes versions on Operator Nexus is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
 
-For example, if Nexus introduces *1.17.a* today, support is provided for the following versions:
+For example, if Operator Nexus introduces *1.17.a* today, support is provided for the following versions:
 
 New minor version    |    Supported Version List
 -----------------    |    ----------------------
@@ -135,15 +135,15 @@ When a new minor version is introduced, the oldest supported minor version and p
 1.15.f
 ```
 
-When Nexus releases 1.18.\*, all the 1.15.\* versions go out of support.
+When Operator Nexus releases 1.18.\*, all the 1.15.\* versions go out of support.
 
 ### Support timeline
 
-Nexus Kubernetes service provides support for 12 months from the initial AKS GA release of a minor version typically. This timeline follows the timing of Azure AKS, which includes a declared Long-Term Support version 1.27.
+Operator Nexus Kubernetes service provides support for 12 months from the initial AKS GA release of a minor version typically. This timeline follows the timing of Azure AKS, which includes a declared Long-Term Support version 1.27.
 
 Supported versions:
 
-* Can be deployed as new Nexus Kubernetes clusters.
+* Can be deployed as new Operator Nexus Kubernetes clusters.
 * Can be the target of upgrades from prior versions. Limited by normal upgrade paths.
 * Are eligible for any provided SLA or agreement for support.
 * May have extra patches or Version Bundles within the minor version.
@@ -158,13 +158,13 @@ End of life (EOL) means no more patch or version bundles are produced. It's poss
 
 #### Early Termination of support for a release prior to scheduled EOL
 
-As an exceptional measure, Nexus Kubernetes service support for a release can be terminated early. Possible reasons include if there's a defect or discovery that presents a reputational risk to Microsoft or require Microsoft to jeopardize customers on behalf of another. Examples include, but aren't limited to:
+As an exceptional measure, Operator Nexus Kubernetes service support for a release can be terminated early. Possible reasons include if there's a defect or discovery that presents a reputational risk to Microsoft or require Microsoft to jeopardize customers on behalf of another. Examples include, but aren't limited to:
 
 * A critical security flaw that impacts individual customers to severe risk but doesn't have cross-customer impacts, within Microsoft’s judgment.
 * A critical security flaw that jeopardizes Microsoft infrastructure
 * A critical security flaw that introduces threats across customer boundaries.
 
-Nexus Kubernetes service versions that have been marked for early termination:
+Operator Nexus Kubernetes service versions that have been marked for early termination:
 
 * Shouldn't be generally available for deployment or upgrade purposes.
 * May continue running if there's acceptable risk and possible mitigation put into place in coordination with a specific customer and the customer acceptance of risk
@@ -178,9 +178,9 @@ At the end of the Extended Availability of the version, the machine and software
 
 ## Platform support policy
 
-Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
+Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers only receive support from Microsoft for Operator Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported version of Kubernetes to receive full support.
 
-Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Nexus can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
+Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
 
 This table outlines support guidelines for Community Support compared to Platform support.
 
@@ -242,15 +242,15 @@ The upstream community maintains a minor release of Kubernetes for one year from
 
 ## FAQ
 
-### How does Microsoft notify me of new Nexus Kubernetes versions?
+### How does Microsoft notify me of new Kubernetes versions?
 
 This document will be updated periodically with planned dates of the new Kubernetes versions. 
 
 ### How often should I expect to upgrade Kubernetes versions to stay in support?
 
-Starting with Kubernetes 1.19, the [open source community has expanded support to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). Nexus commits to enabling patches and support matching the upstream commitments. For Nexus clusters on 1.19 and greater, you can upgrade at a minimum of once a year to stay on a supported version.
+Starting with Kubernetes 1.19, the [open source community has expanded support to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). Operator Nexus commits to enabling patches and support matching the upstream commitments. For Operator Nexus clusters on 1.19 and greater, you can upgrade at a minimum of once a year to stay on a supported version.
 
-**What happens when you upgrade a Kubernetes cluster with a minor version that isn't supported?**
+### What happens when you upgrade a Kubernetes cluster with a minor version that isn't supported?
 
 If you're on the *n-3* version or older, it means you're outside of support. When your upgrade from version n-3 to n-2 succeeds, you're back within our support policies. For example:
 
@@ -275,15 +275,15 @@ If you don't upgrade your cluster before the end of the platform support period,
 * The version you're running is outside of the supported versions list.
 * You're asked to upgrade the cluster to a supported version when requesting support.
 
-Additionally, Nexus doesn't make any runtime or other guarantees for clusters outside of the supported versions list.
+Additionally, Operator Nexus doesn't make any runtime or other guarantees for clusters outside of the supported versions list.
 
 ### What happens when a user scales a Kubernetes cluster with a minor version that isn't supported?
 
-For minor versions not supported by Nexus, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
+For minor versions not supported by Operator Nexus, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
 
 ### Can I skip multiple Kubernetes versions during cluster upgrade?
 
-When you upgrade a supported Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. Kubernetes control planes [version skew policy](https://kubernetes.io/releases/version-skew-policy/) doesn't support minor version skipping. For example, upgrades between:
+When you upgrade a supported Operator Nexus Kubernetes cluster, Kubernetes minor versions can't be skipped. Kubernetes control planes [version skew policy](https://kubernetes.io/releases/version-skew-policy/) doesn't support minor version skipping. For example, upgrades between:
 
 * *1.12.x* -> *1.13.x*: allowed.
 * *1.13.x* -> *1.14.x*: allowed.
