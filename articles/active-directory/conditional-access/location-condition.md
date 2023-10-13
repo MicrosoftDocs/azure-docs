@@ -21,7 +21,7 @@ Conditional Access policies are at their most basic an if-then statement combini
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-As mentioned in the blog post [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451) we now support IPv6 in Microsoft Entra services.
+As mentioned in the blog post [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451), we now support IPv6 in Microsoft Entra services.
 
 Organizations can use these locations for common tasks like: 
 
@@ -100,6 +100,7 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 > [!IMPORTANT]
 > Users may receive prompts every hour letting them know that Microsoft Entra ID is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country/region.
+
 
 #### Include unknown countries/regions
 
