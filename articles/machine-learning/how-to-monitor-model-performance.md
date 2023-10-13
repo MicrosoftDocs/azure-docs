@@ -790,7 +790,7 @@ The component output port should have the following signature.
 
   | signature name | type | description | 
   |---|---|---|
-  | signal_metrics | mltable | The ml table which contains the computed metrics. The schema is defined in the signal_metrics schema section below. |
+  | signal_metrics | mltable | The ml table that contains the computed metrics. The schema is defined in the signal_metrics schema section in the next section. |
   
 #### signal_metrics schema
 The component output DataFrame should contain four columns: `group`, `metric_name`, `metric_value`, and `threshold_value`:
