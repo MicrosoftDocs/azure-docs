@@ -9,9 +9,6 @@ ms.date: 05/24/2022
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc-enabled servers in your enterprise.
 
-> [!IMPORTANT]
-> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
-
 ## Identity and access control
 
 [Azure role-based access control](../../role-based-access-control/overview.md) is used to control which accounts can see and manage your Azure Arc-enabled server. From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
@@ -98,11 +95,11 @@ The extension manager is responsible for installing, updating, and removing [VM 
 azcmagent config set extensions.enabled false
 ```
 
-Disabling the extension manager won't remove any extensions already installed on your server. Extensions that are hosted in their own Windows or Linux services, such as the Log Analytics Agent, may continue to run even if the extension manager is disabled. Other extensions that are hosted by the extension manager itself, like the Azure Monitor Agent, don't run if the extension manger is disabled. You should [remove any extensions](manage-vm-extensions-portal.md#remove-extensions) before disabling the extension manager to ensure no extensions continue to run on the server.
+Disabling the extension manager won't remove any extensions already installed on your server. Extensions that are hosted in their own Windows or Linux services, such as the Log Analytics Agent, might continue to run even if the extension manager is disabled. Other extensions that are hosted by the extension manager itself, like the Azure Monitor Agent, don't run if the extension manger is disabled. You should [remove any extensions](manage-vm-extensions-portal.md#remove-extensions) before disabling the extension manager to ensure no extensions continue to run on the server.
 
 ### Locked down machine best practices
 
-When configuring the Azure Connected Machine agent with a reduced set of capabilities, it's important to consider the mechanisms that someone could use to remove those restrictions and implement appropriate controls. Anybody capable of running commands as an administrator or root user on the server can change the Azure Connected Machine agent configuration. Extensions and guest configuration policies execute in privileged contexts on your server, and as such may be able to change the agent configuration. If you apply local agent security controls to lock down the agent, Microsoft recommends the following best practices to ensure only local server admins can update the agent configuration:
+When configuring the Azure Connected Machine agent with a reduced set of capabilities, it's important to consider the mechanisms that someone could use to remove those restrictions and implement appropriate controls. Anybody capable of running commands as an administrator or root user on the server can change the Azure Connected Machine agent configuration. Extensions and guest configuration policies execute in privileged contexts on your server, and as such might be able to change the agent configuration. If you apply local agent security controls to lock down the agent, Microsoft recommends the following best practices to ensure only local server admins can update the agent configuration:
 
 * Use allowlists for extensions instead of blocklists whenever possible.
 * Don't include the Custom Script Extension in the extension allowlist to prevent execution of arbitrary scripts that could change the agent configuration.

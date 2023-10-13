@@ -44,7 +44,7 @@ There are 4 ways to provide authentication credentials to the Azure connected ma
 
 ### Interactive browser login (Windows-only)
 
-This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option may be required if your organization has configured conditional access policies that require you to log in from trusted machines.
+This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option might be required if your organization has configured conditional access policies that require you to log in from trusted machines.
 
 No flag is required to use the interactive browser login.
 

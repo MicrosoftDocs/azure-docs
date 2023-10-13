@@ -65,7 +65,7 @@ Installing the Connected Machine agent for Window applies the following system-w
     | NT SERVICE\\himds | Unprivileged account used to run the Hybrid Instance Metadata Service. |
 
     > [!TIP]
-    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you may need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
+    > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you might need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
 
 * Agent installation creates the following local security group.
 
@@ -152,7 +152,7 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 * The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions may apply more restrictive CPU limits once installed. The following exceptions apply:
+* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
 
   | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
