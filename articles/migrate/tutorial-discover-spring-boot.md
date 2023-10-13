@@ -140,13 +140,13 @@ If you encounter any issue during script execution, you need to run the script i
 
 `export DELETE= “true”`
 
-:::image type="content" source="./media/tutorial-discover-spring-boot/delete-image-inline.png" alt-text="Screenshot displays Choose cluster option in the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/delete-image-expanded.png":::
+:::image type="content" source="./media/tutorial-discover-spring-boot/delete-image-inline.png" alt-text="Screenshot shows delete mode." lightbox="./media/tutorial-discover-spring-boot/delete-image-expanded.png":::
 
 The *delete* mode helps to clean up any existing components installed on the server so that you can do a fresh installation. After running the script in *delete* mode, remove the line from the script and execute it again in the default mode.
 
 ## Encryption at rest
 
-As you're bringing your own Kubernetes cluster, there is a shared responsibility to ensure that the secrets are secured. 
+As you're bringing your own Kubernetes cluster, there's a shared responsibility to ensure that the secrets are secured. 
 - We recommend you choose a Kubernetes cluster with disk encryption for its services. 
 - [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
 
