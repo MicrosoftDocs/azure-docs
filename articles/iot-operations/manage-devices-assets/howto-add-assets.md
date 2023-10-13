@@ -22,7 +22,7 @@ This article describes how to use the Digital Operation (preview) portal to manu
 - A running instance of Azure IoT Operations – enabled by Azure Arc.
 - An [asset endpoint profile](howto-configure-assets-endpoint.md).
 
-## Sign into to the Digital Operations portal
+## Sign in to the Digital Operations portal
 
 Navigate to the [Digital Operations portal](https://digitaloperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
 
@@ -84,7 +84,7 @@ To add an asset in the Digital Operations portal:
 
 Now you can define the tags associated with the asset. To add OPC UA tags:
 
-1. Select **Add** and then select **Add tag**. Enter your tag details:
+- Select **Add** and then select **Add tag**. Enter your tag details:
 
     - Node ID. This value is the node ID from the OPC UA server.
     - Tag name (Optional). This value is the friendly name that you want to use for the tag. If you don't specify a tag name, the node ID is used as the tag name.
