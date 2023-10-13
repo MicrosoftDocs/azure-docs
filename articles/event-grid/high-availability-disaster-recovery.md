@@ -22,19 +22,19 @@ Depending on the uptime goals you define for your MQTT solutions, you should det
 * COGS impact
 
 ## Intra-region HA
-Azure Event Grid MQTT namespace achieves intra-region high availability using availability zones. Azure Event Grid supports availablity zones in all the regions where Azure support availability zones. This configuration provides replication and redundancy within the region and increases application and data resiliency during data center failures. For more information about availability zones, see [Azure availability zones](../availability-zones/az-overview.md).
+Azure Event Grid MQTT namespace achieves intra-region high availability using availability zones. Azure Event Grid supports availability zones in all the regions where Azure support availability zones. This configuration provides replication and redundancy within the region and increases application and data resiliency during data center failures. For more information about availability zones, see [Azure availability zones](../availability-zones/az-overview.md).
 
 ## Cross region DR
-There could be some rare situations when a datacenter experiences extended outages due to power failures or other failures involving physical assets. Such events are rare during which the intra region HA capability described previously may not always help. Currently, Event Grid namespace doesn't support cross-region DR. For a workaround, see the next section.
+There could be some rare situations when a datacenter experiences extended outages due to power failures or other failures involving physical assets. Such events are rare during which the intra region HA capability described previously might not always help. Currently, Event Grid namespace doesn't support cross-region DR. For a workaround, see the next section.
 
 ## Achieve cross region HA
 You can achieve cross region high-availability through [client-side failover implementation](custom-disaster-recovery-client-side.md) by creating primary and secondary namespaces.
 
 Implement a custom (manual or automated) process to replicate namespace, client identities, and other configuration including CA certificates, client groups, topic spaces, permission bindings, routing, between primary and secondary regions.
 
-Implement a concierge service that provides clients with primary and secondary endpoints by performing a health check on endpoints.  The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques, for example, using Azure Traffic Manager.
+Implement a concierge service that provides clients with primary and secondary endpoints by performing a health check on endpoints. The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques, for example, using Azure Traffic Manager.
 
-An Active-Active DR solution can be achieved by replicating the metadata and balancing load across the namespaces. An Active-Passive DR solution can be achieved by replicating the metadata to keep the secondary namespace ready, in case primary namespace is unavailable, the traffic can be directed to secondary namespace.
+An Active-Active DR solution can be achieved by replicating the metadata and balancing load across the namespaces. An Active-Passive DR solution can be achieved by replicating the metadata to keep the secondary namespace ready so that when the primary namespace is unavailable, the traffic can be directed to secondary namespace.
 
 
 ## Next steps
