@@ -2,8 +2,8 @@
 title: How to use Azure OpenAI models in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description:  Use Azure OpenAI models in Azure Machine Learning
-ms.author: swatig
-author: swatig007
+ms.author: marouzba
+author: MahsaRouzbahman
 ms.reviewer: ssalgado
 ms.date: 10/12/2023
 ms.service: machine-learning
