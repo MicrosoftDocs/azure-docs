@@ -35,7 +35,7 @@ To invoke a batch endpoint, the user must present a valid Microsoft Entra token 
 You can either use one of the [built-in security roles](../role-based-access-control/built-in-roles.md) or create a new one. In any case, the identity used to invoke the endpoints requires to be granted the permissions explicitly. See [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
 
 > [!IMPORTANT]
-> The identity used for invoking a batch endpoint may not be used to read the underlying data depending on how the data store is configured. Please see [Security considerations when reading data](how-to-access-data-batch-endpoints-jobs.md#security-considerations-when-reading-data) for more details.
+> The identity used for invoking a batch endpoint may not be used to read the underlying data depending on how the data store is configured. Please see [Configure compute clusters for data access](#configure-compute-clusters-for-data-access) for more details.
 
 ## How to run jobs using different types of credentials
 

@@ -436,7 +436,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 Azure Machine Learning batch endpoints can read data from cloud locations in Azure Storage Accounts, both public and private. Use the following steps to run a batch endpoint job using data stored in a storage account:
 
 > [!NOTE]
-> Check the section [Security considerations when reading data](how-to-authenticate-batch-endpoint.md#security-considerations-when-reading-data) for learn more about additional configuration required to successfully read data from storage accoutns.
+> Check the section [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access) to learn more about additional configuration required to successfully read data from storage accoutns.
 
 1. Create the input or request:
 
