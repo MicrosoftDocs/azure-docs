@@ -25,7 +25,7 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to delete the resource group by using Azure CLI:
+Use the following command to delete the resource group by using the Azure CLI:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP}
@@ -37,13 +37,13 @@ Use the following steps to delete the resource group by using IntelliJ:
 
 1. Go to your Intellij IDEA and find the name of your resource group.
 
-1. Right-click the recourse group and select **Delete** to delete all related Azure resources.
+1. Right-click the resource group and select **Delete** to delete all related Azure resources.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 Use the following steps to delete the resource group by using Visual Studio Code:
 
-1. Go to your Visual Studio Code, select **Group By** to enable **Group by Resource Group**, and then find the name of your resource group.
+1. Go to Visual Studio Code, select **Group By** to enable **Group by Resource Group**, and then find the name of your resource group.
 
 1. Right-click the resource group and select **Delete Resource Group...** to delete all related Azure resources.
 

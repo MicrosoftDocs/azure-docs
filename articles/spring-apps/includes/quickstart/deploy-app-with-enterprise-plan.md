@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [spring-cloud-azure-tools releases](https://github.com/Azure/spring-cloud-azure-tools/releases) page on GitHub. No local preparation steps are needed.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -115,9 +115,9 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az term accept \
-      --publisher vmware-inc \
-      --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan asa-ent-hr-mtr
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
    ```
 
 1. Use the following command to create an Azure Spring Apps service instance:
