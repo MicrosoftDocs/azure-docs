@@ -103,7 +103,7 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 Users can modify the location reported by iOS and Android devices. As a result, Microsoft Authenticator is updating its security baseline for location-based Conditional Access policies. Authenticator will deny authentications where the user may be using a different location than the actual GPS location of the mobile device where Authenticator installed.  
 
-In the November 2023 release of Authenticator, users who modify the location of their device get a denial message in Authenticator when they try location-based authentication. Beginning January 2024, any users that run older Authenticator versions are blocked from location-based authentication:
+In the November 2023 release of Authenticator, users who modify the location of their device will get a denial message in Authenticator when they try location-based authentication. Beginning January 2024, any users that run older Authenticator versions will be blocked from location-based authentication:
   
 - Authenticator version 6.2309.6329 or earlier on Android
 - Authenticator version 6.7.16 or earlier on iOS
