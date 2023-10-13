@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/11/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -40,7 +40,7 @@ These basic controls include:
 
 ## Enabling security defaults
 
-If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation. 
+If your tenant was created on or after October 22, 2019, security defaults might be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation. 
 
 To help protect organizations, we're always working to improve the security of Microsoft account services. As part of this protection, customers are periodically notified for the automatic enablement of the security defaults if they: 
 
@@ -153,7 +153,7 @@ After you enable security defaults in your tenant, any user accessing the follow
 - Azure PowerShell 
 - Azure CLI 
 
-This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. This applies to ARM APIs such as accessing your subscription, VMs, storage accounts etc. This does not include Microsoft Entra ID or Microsoft Graph.
+This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. This applies to Azure Resource Manager APIs such as accessing your subscription, VMs, storage accounts etc. This doesn't include Microsoft Entra ID or Microsoft Graph.
 
 > [!NOTE]
 > Pre-2017 Exchange Online tenants have modern authentication disabled by default. In order to avoid the possibility of a login loop while authenticating through these tenants, you must [enable modern authentication](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
@@ -169,7 +169,7 @@ It's critical to inform users about upcoming changes, registration requirements,
 
 ### Authentication methods
 
-Security defaults users are required to register for and use multifactor authentication using the [Microsoft Authenticator app using notifications](../authentication/concept-authentication-authenticator-app.md). Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. Users can also use any third party application using [OATH TOTP](../authentication/concept-authentication-oath-tokens.md) to generate codes.
+Security defaults users are required to register for and use multifactor authentication using the [Microsoft Authenticator app using notifications](../authentication/concept-authentication-authenticator-app.md). Users might use verification codes from the Microsoft Authenticator app but can only register using the notification option. Users can also use any third party application using [OATH TOTP](../authentication/concept-authentication-oath-tokens.md) to generate codes.
 
 > [!WARNING]
 > Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
@@ -193,6 +193,25 @@ To disable security defaults in your directory:
 1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
 1. Select **Save**.
+
+### Move from security defaults to Conditional Access
+
+While security defaults are a good baseline to start your security posture from, they don't allow for the customization that many organizations require. Conditional Access policies provide a full range of customization that more complex organizations require.
+
+|| Security defaults | Conditional Access |
+| --- | --- | --- |
+| **Required licenses**| None | At least Microsoft Entra ID P1 |
+| **Customization**| No customization (on or off) | Fully customizable |
+| **Enabled by**| Microsoft or administrator | Administrator |
+| **Complexity**| Simple to use | Fully customizable based on your requirements |
+
+Recommended steps when moving from security defaults 
+
+Organizations who would like to test out the features of Conditional Access can [sign up for a free trial](get-started-premium.md) to get started.
+
+After administrators disable security defaults, organizations should immediately enable Conditional Access policies to protect their organization. These policies should include at least those policies in the [secure foundations category of Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md?tabs=secure-foundation#template-categories). Organizations with Microsoft Entra ID P2 licenses that include Microsoft Entra ID Protection can expand on this list to include [user and sign in risk-based policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) to further strengthen their posture. 
+
+We recommend that you exclude at least one account from your Conditional Access policies. These excluded **emergency access** or **break-glass** accounts help prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant to take steps to recover access. For more information, see the article [Manage emergency access accounts](../roles/security-emergency-access.md).
 
 ## Next steps
 
