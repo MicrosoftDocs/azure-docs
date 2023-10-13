@@ -90,46 +90,52 @@ items:
             href: configure-private-endpoints-mqtt.md
     - name: Namespace topics
       items:
-      - name: Overview
-        items:
-        - name: Pull delivery overview
-          href: pull-delivery-overview.md
-        - name: Push delivery overview
-          href: namespace-push-delivery-overview.md
+      - name: Pull delivery overview
+        href: pull-delivery-overview.md
+      - name: Push delivery overview
+        href: namespace-push-delivery-overview.md
       - name: Quickstarts
         items:
-        - name: Publish and subscribe using namespace topics
-          href: publish-events-using-namespace-topics.md
-        - name: Push delivery using namespace topics
-          href: 
-        - name: Send and pull messages
+        - name: Pull delivery
           items:
-          - name: .NET
-            href: event-grid-dotnet-get-started-pull-delivery.md
+          - name: Publish and subscribe using namespace topics
+            href: publish-events-using-namespace-topics.md
+          - name: Send and pull messages
+            items:
+            - name: .NET
+              href: event-grid-dotnet-get-started-pull-delivery.md
+        - name: Push delivery
+          items:
+          - name: Push delivery using namespace topics
+            href:
       - name: Concepts
         items:
-        - name: Pull delivery terminology
-          href: concepts-pull-delivery.md
-        - name: Push delivery terminology
-          href: concepts-namespace-push-delivery.md
+        - name: Pull delivery
+          items:
+          - name: Terminology
+            href: concepts-pull-delivery.md         
+        - name: Push delivery
+          items:
+          - name: Terminology
+            href: concepts-namespace-push-delivery.md
+          - name: Event handlers
+            items:
+            - name: Event Hubs
+              href: namespace-handler-event-hubs.md
+          - name: Delivery properties
+            href: namespace-delivery-properties.md
         - name: Publisher and subscriber operations
-          href: publisher-subscriber-operations.md
+          href: publisher-subscriber-operations.md     
         - name: Dead lettering for event subscriptions
           href: dead-letter-event-subscriptions-namespace-topics.md
         - name: Event retention
           href: event-retention.md
-        - name: Event handlers
-          items:
-            - name: Event Hubs
-              href: namespace-handler-event-hubs.md
         - name: Event delivery
           items:
             - name: Event filtering
               href: namespace-event-filtering.md
             - name: Delivery and retry
               href: 
-            - name: Delivery properties
-              href: namespace-delivery-properties.md
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
@@ -144,10 +150,14 @@ items:
           href: authenticate-with-active-directory-namespaces.md
       - name: Monitor
         items:
-        - name: Pull delivery monitoring data reference
-          href: monitor-pull-reference.md
-        - name: Push delivery Monitoring data reference
-          href: monitor-namespace-push-reference.md
+        - name: Pull delivery
+          items:
+          - name: Monitoring data reference
+            href: monitor-pull-reference.md
+        - name: Push delivery
+          items:
+          - name: Monitoring data reference
+            href: monitor-namespace-push-reference.md
       - name: Secure
         items:
         - name: Allow access from specific IP addresses
