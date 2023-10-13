@@ -82,7 +82,7 @@ During the cluster upgrade process, Operator Nexus performs the following operat
 
 * Add a new control plane node with the specified Kubernetes version to the cluster.
 * After the new node has been added, cordon and drain one of the old control plane nodes, ensuring that the workloads running on it are gracefully moved to other healthy control plane nodes.
-* After the old control plane node has been drained, it's removed, and a new buffer control plane node is added to the cluster.
+* After the old control plane node has been drained, it's removed, and a new control plane node is added to the cluster.
 * This process repeats until all control plane nodes in the cluster have been upgraded.
 * After control plane upgrade, add a new buffer worker node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. In cases where there are multiple agent pools, each agent pool undergoes a scale-out upgrade independently.
 * [Cordon and drain][kubernetes-drain] one of the old worker nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many worker nodes at the same time as the number of buffer nodes specified.
