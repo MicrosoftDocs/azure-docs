@@ -93,13 +93,13 @@ For models with a chat task type, each row in the dataset should be a list of JS
 
 * Validation data: Pass in the data you would like to use to validate your model. 
 
-1. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then deploy this finetuned model to an endpoint for inferencing.
+2. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then deploy this finetuned model to an endpoint for inferencing.
 
 **Customizing finetuning parameters:**
 
 If you would like to customize the finetuning parameters, you can select on the Customize button in the Finetune wizard to configure parameters such as batch size, number of epochs and learning rate multiplier. Each of these settings has default values, but can be customized via code based samples, if needed.
 
-:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-parameters.png" alt-text="Screenshot showing the finetune parameters in the finetune ui section.":::
+:::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/finetune-parameters.png" alt-text="Screenshot showing the finetune parameters in the finetune UI section.":::
 
 **Deploying finetuned models:**
 To run a deploy fine-tuned model job from Azure Machine Learning, in order to deploy finetuned an Azure OpenAI model:
