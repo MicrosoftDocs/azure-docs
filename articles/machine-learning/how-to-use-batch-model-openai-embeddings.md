@@ -99,20 +99,20 @@ You can configure the identity of the compute to have access to the Azure OpenAI
     az ml compute update --name $COMPUTE_NAME --identity-type system_assigned
     ```
 
-1. Get the managed identity name of the compute cluster you plan to use. 
+1. Get the managed identity principal ID assigned to the compute cluster you plan to use. 
 
     ```azurecli
     PRINCIPAL_ID=$(az ml compute show -n $COMPUTE_NAME --query identity.principal_id)
     ```
 
-1. Get the name of the resource group where the Azure OpenAI resource is deployed:
+1. Get the unique ID of the resource group where the Azure OpenAI resource is deployed:
 
     ```azurecli
     RG="<openai-resource-group-name>"
     RESOURCE_ID=$(az group show -g $RG --query "id" -o tsv)
     ```
 
-1. Grant the role to the managed identity:
+1. Grant the role **Cognitive Services User** to the managed identity:
 
     ```azurecli
     az role assignment create --role "Cognitive Services User" --assignee $PRINCIPAL_ID --scope $RESOURCE_ID
@@ -129,7 +129,10 @@ You can get an access key and configure the batch deployment to use the access k
 
 Model deployments in batch endpoints can only deploy registered models. You can use MLflow models with the flavor OpenAI to create a model in your workspace referencing a deployment in Azure OpenAI.
 
-1. Create an MLflow model in the workspace's models registry pointing to your OpenAI deployment with the model you want to use. Use MLflow SDK to register it:
+1. Create an MLflow model in the workspace's models registry pointing to your OpenAI deployment with the model you want to use. Use MLflow SDK to create the model:
+
+    > [!TIP]
+    > In the cloned repository in the folder **model** you already have an MLflow model to generate embeddings based on ADA-002 model in case you want to skip this step.
 
     ```python
     import mlflow
@@ -216,10 +219,13 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 1. Let's create a scoring script that performs the execution. In Batch Endpoints, MLflow models don't require a scoring script. However, in this case we want to extend a bit the capabilities of batch endpoints by:
 
     > [!div class="checklist"]
-    > * Allowing the endpoint to read multiple data input types, including `csv`, `tsv`, `parquet`, `json`, `jsonl`, `arrow`, and `txt`.
+    > * Allow the endpoint to read multiple data types, including `csv`, `tsv`, `parquet`, `json`, `jsonl`, `arrow`, and `txt`.
     > * Add some validations to ensure the MLflow model used has an OpenAI flavor on it.
-    > * Write outputs in `jsonl` format, which is appealing for a lot of scenarios.
-    > * Format the output.
+    > * Format the output in `jsonl` format.
+    > * Add an environment variable `AZUREML_BI_TEXT_COLUMN` to control (optionally) which input field you want to generate embeddings for.
+
+    > [!TIP]
+    > By default, MLflow will use the first text column available in the input data to generate embeddings from. Use the environment variable `AZUREML_BI_TEXT_COLUMN` with the name of an existing column in the input dataset to change the column if needed. Leave it blank if the defaut behavior works for you.
     
     The scoring script looks as follows:
 
