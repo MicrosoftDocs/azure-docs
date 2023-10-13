@@ -63,7 +63,7 @@ Learn more about [Cognitive Service - AzureAdvisorTextAnalyticsCommitment (Poten
 
 Autoscaling makes it easier to achieve high cluster utilization, because you don’t need to provision the cluster to match a workload. When you're using autoscaling, workloads can run faster and overall costs can be reduced compared to a static cluster.
 
-Learn more about [Databricks Workspace - DatabricksEnableAutoscaling (Enable Autoscaling for Azure Databricks Clusters)](https://aka.ms/configure#cluster-size-and-autoscaling).
+Learn more about [Databricks Workspace - DatabricksEnableAutoscaling (Enable Autoscaling for Azure Databricks Clusters)](https://aka.ms/configure).
 
 
 
