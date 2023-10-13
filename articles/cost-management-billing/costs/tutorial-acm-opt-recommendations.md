@@ -51,7 +51,7 @@ The **Impact** category, along with the **Potential yearly savings**, are design
 
 High impact recommendations include:
 - [Buy an Azure savings plan to save money on a variety of compute services](../savings-plan/buy-savings-plan.md)
-- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](../../advisor/advisor-reference-cost-recommendations.md#buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs)
+- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](../../advisor/advisor-reference-cost-recommendations.md#buy-virtual-machine-reserved-instance-to-save-money-over-pay-as-you-go-costs)
 - [Optimize virtual machine spend by resizing or shutting down underutilized instances](../../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances)
 - [Use Standard Storage to store Managed Disks snapshots](../../advisor/advisor-reference-cost-recommendations.md#use-standard-storage-to-store-managed-disks-snapshots)
 
