@@ -70,7 +70,7 @@ The maximum number of share snapshots that Azure Files allows today is 200 per s
 
 There's no limit to the simultaneous calls for creating share snapshots. There's no limit to amount of space that share snapshots of a particular file share can consume. 
 
-Taking snapshots of NFS Azure file shares is currently in public preview with limited regional availability. The preview only supports management APIs (AzRmStorageShare), not data plane APIs (AzStorageShare).
+Taking snapshots of NFS Azure file shares is currently in public preview with limited regional availability. The preview only supports management APIs (AzRmStorageShare), not data plane APIs (AzStorageShare), allowing you to create, list, and delete snapshots of NFS Azure file shares.
 
 ## Copying data back to a share from share snapshot
 
