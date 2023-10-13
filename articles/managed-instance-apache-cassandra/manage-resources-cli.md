@@ -220,6 +220,35 @@ az managed-cassandra datacenter update \
     --node-count 13 
 ```
 
+### <a id="get-yaml"></a>Get Cassandra configuration
+ 
+Get the current YAML configuration of a node by using the [az managed-cassandra cluster invoke-command](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-invoke-command) command:
+ 
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+clusterName='cassandra-hybrid-cluster'
+commandName='get-cassandra-yaml'
+ 
+az managed-cassandra cluster invoke-command \
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --host <ip address> \
+    --command-name 'get-cassandra-yaml'
+```
+
+> [!NOTE]
+> The output can be made more readable using the following commands:
+>
+> ```azurecli-interactive
+> $output = az managed-cassandra cluster invoke-command \
+>     --resource-group $resourceGroupName \
+>     --cluster-name $clusterName \
+>     --host <ip address> \
+>     --command-name 'get-cassandra-yaml' \
+>     | ConvertFrom-Json
+> $output.commandOutput
+> ```
+
 ### <a id="update-yaml"></a>Update Cassandra configuration
 
 Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). 
