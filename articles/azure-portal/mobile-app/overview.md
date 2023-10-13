@@ -52,4 +52,4 @@ You can download the Azure mobile app today for free from the [Apple App Store](
 
 ## Next steps
 
-- Learn about the [Azure mobile app **Home**](home.md) screen and how to customize it.
+- Learn about [Azure mobile app **Home**](home.md) and how to customize it.
