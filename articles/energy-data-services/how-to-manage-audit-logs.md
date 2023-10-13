@@ -24,6 +24,10 @@ For example, when you “Add a new member” to the ```users.datalake.admins``` 
  
 ## Enable audit logs
 To enable audit logs in diagnostic logging, select your Azure Data Manager for Energy instance in the Azure portal.
+
+> [!NOTE]
+> Currently, you can enable audit logs for OSDU Core Services, Seismic DMS, Petrel Data Services, and Wellbore DMS. 
+
 * Select the **Activity log** screen, and then select **Diagnostic settings**.
 * Select **+ Add diagnostic setting**.
 * Enter the Diagnostic settings name.
