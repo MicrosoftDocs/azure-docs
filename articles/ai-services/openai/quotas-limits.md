@@ -95,7 +95,7 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>350 K</td>  
   </tr>  
 <tr>  
-    <td rowspan="2">Fine-tuning models (babbage-002, davinci-002, gpt-35-turbo-0613)</td>  
+    <td>Fine-tuning models (babbage-002, davinci-002, gpt-35-turbo-0613)</td>  
     <td>North Central US, Sweden Central</td>  
     <td>50 K</td>  
   </tr>  
