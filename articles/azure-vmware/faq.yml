@@ -53,9 +53,9 @@ sections:
         answer: |
           Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. No billing for any Azure VMware Solution ExpressRoute circuit, or for Global Reach charges between Azure VMware Solution private clouds, or Azure VMware Solution to on-premises, other than standard egress charges for traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans. 
 
-          - **Azure VMware Solution to VNet** is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
+          - **Azure VMware Solution to VNet** is through an internal ExpressRoute circuit and is free of cost, regardless of region location (same region or cross-region).
 
-          - **Azure VMware Solution to on-premises** is done through VNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to VNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. 
+          - **Azure VMware Solution to on-premises** is done through VNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free aside from the standard egress charges from the ExpressRoute to on-premises network. 
 
           For example:
           
