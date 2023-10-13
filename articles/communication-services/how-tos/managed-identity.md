@@ -1,10 +1,10 @@
 ---
 title: Azure Communication Services support for Managed Identity 
 description: Learn about using Managed Identity with Azure Communication Services
-author: hrazi
-manager: mharbut
+author: joeleniqs
+manager: ankitarorabit
 services: azure-communication-services
-ms.author: harazi
+ms.author: joelen
 ms.date: 07/24/2023
 ms.topic: how-to
 ms.service: azure-communication-services
