@@ -37,15 +37,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 |**Geo name**|
 |----|
-Asia Pacific
-Korea
-Japan
-United States
-Europe
-United Kingdom
-Canada
-Australia
-France
+|Asia Pacific|
+|Korea|
+|Japan|
+|United States|
+|Europe|
+|United Kingdom|
+|Canada|
+|Australia|
+|France|
 
 ## Set up Kubernetes-based appliance
 
@@ -55,9 +55,9 @@ After you have performed server discovery and software inventory using the Azure
 
 1. Go to the [Azure portal](https://aka.ms/migrate/springboot). Sign in with your Azure account and search for Azure Migrate.
 2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
-1. Select the project where you have set up the Azure Migrate appliance as part of prerequisites above.
-1. You would see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
-5.	You can proceed by selecting the link on the message, which will help you get started with onboarding Kubernetes-based appliance.
+1. Select the project where you have set up the Azure Migrate appliance as part of the prerequisites.
+1. You see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
+5.	You can proceed by selecting the link on the message, which helps you get started with onboarding Kubernetes-based appliance.
     
     > [!Note]
     > We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
@@ -66,24 +66,24 @@ After you have performed server discovery and software inventory using the Azure
 
 #### Bring your own Kubernetes cluster
 
-1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you do not have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
+1.	In **Step 2: Choose connected cluster**, you need to select an existing Azure Arc connected cluster from your subscription. If you don't have an existing connected cluster, you can Arc enable a Kubernetes cluster running on-premises by following the steps [here](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
     > [!Note]
     > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project.
 
-2.	In Step 3: Provide appliance details for Azure Migrate, the appliance name is pre-populated, but you can choose to provide your own friendly name to the appliance.
+2.	In Step 3: Provide appliance details for Azure Migrate, the appliance name is prepopulated, but you can choose to provide your own friendly name to the appliance.
 
-3.	You can select a key vault from the drop-down or **Create new** key vault. This key vault is used to process the credentials provided in the project to start discovery of Spring Boot applications.
+3.	You can select a Key Vault from the drop-down or **Create new** Key Vault. This Key Vault is used to process the credentials provided in the project to start discovery of Spring Boot applications.
 
     > [!Note]
-    > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When creating/selecting a key vault, make sure that purge protection is disabled else there be will issues in processing of credentials through the key vault.
+    > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When creating/selecting a Key Vault, make sure that purge protection is disabled else there will be issues in processing of credentials through the Key Vault.
 
-4.	After providing the appliance name and key vault, select **Generate script** to generate an installer script that you can copy and paste on a Linux server on-premises. Before executing the script, ensure that you meet the following prerequisites on the Linux server:
+4.	After providing the appliance name and Key Vault, select **Generate script** to generate an installer script that you can copy and paste on a Linux server on-premises. Before executing the script, ensure that you meet the following prerequisites on the Linux server:
 
     **Support** | **Details**
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
-    **Hardware configuration required** | 6 GB RAM, with 30GB storage on root volume, 4 Core CPU
+    **Hardware configuration required** | 6-GB RAM, with 30 GB storage on root volume, 4 Core CPU
     **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
@@ -102,7 +102,7 @@ If your machine is behind an outbound proxy server, requests must be routed via 
    `export PROXY_CERT=””`
 
 > [!Note] 
-> The machine uses proxy details while installing the required prerequisites to run the `deploy.sh` script . It will not override the proxy settings of the Azure Arc-enabled Kubernetes cluster.
+> The machine uses proxy details while installing the required prerequisites to run the `deploy.sh` script . It won't override the proxy settings of the Azure Arc-enabled Kubernetes cluster.
 
 #### Execute the installer script
 
@@ -113,7 +113,7 @@ After you have saved the script on the Linux server, follow these steps:
 > - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the `yum install curl` command.
 
 > [!Important]
-> Do not edit the script unless you want to clean up the setup.
+> Don't edit the script unless you want to clean up the setup.
 
 
 1.	Open the terminal on the server and execute the following command to execute the script as a root user:
@@ -137,7 +137,7 @@ After the script is executed successfully, configure the appliance through the p
 The *delete* mode helps to clean up any existing components installed on the server so that you can do a fresh installation. After running the script in *delete* mode, remove the line from the script and execute it again in the default mode.
 
 ## Encryption at rest
-As you are bringing your own Kubernetes cluster, we would have shared responsibility to ensure that the secrets are secured. It is recommended to choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
+As you're bringing your own Kubernetes cluster, we would have shared responsibility to ensure that the secrets are secured. We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
 
 
 ## Configure Kubernetes-based appliance
@@ -146,7 +146,7 @@ After successfully setting up the appliance using the installer script, you need
 1.	Go to the Azure Migrate project where you started onboarding the Kubernetes-based appliance.
 2.	On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
 3.	In **Overview** > **Manage** > **Appliances**, a filtered list of appliances appears with actions pending.
-4.	Find the Kubernetes-based appliance that you have just set up and select **Credentials unavailable** status to configure the appliance.
+4.	Find the Kubernetes-based appliance that you have set up and select **Credentials unavailable** status to configure the appliance.
 5.	In the **Manage credentials** page, add the credentials to initiate discovery of the Spring Boot applications running on your servers.
 6.	Select **Add credentials**, choose a credential type from Linux (non-domain) or Domain credentials, provide a friendly name, username, and password. Select **Save**.
 
@@ -169,7 +169,7 @@ Select any web app to view its details. The **Web apps** screen provides the fol
 - Provides a comprehensive view of each Spring Boot process on each server.
 - Displays the detailed information of each process, including:
   - JDK version and Spring Boot version.
-  - Environment variable names and JVM options configured.
+  - Environment variable names and JVM options that are configured.
   - Application configuration and certificate files in use.
   - Location of JAR file for the process on the server.
   - Static content locations and binding ports.
