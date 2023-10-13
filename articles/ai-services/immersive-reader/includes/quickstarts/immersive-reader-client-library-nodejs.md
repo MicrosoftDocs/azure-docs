@@ -19,7 +19,7 @@ In this quickstart, you build a web app from scratch and integrate Immersive Rea
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -76,7 +76,7 @@ require('dotenv').config();
 
 Open the _routes\index.js_ file and replace the automatically generated code with the following code.
 
-This code creates an API endpoint that acquires an Azure AD authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
+This code creates an API endpoint that acquires a Microsoft Entra authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
 
 ```javascript
 var axios = require('axios');
@@ -258,4 +258,4 @@ When you select the "Immersive Reader" button, you'll see the Immersive Reader l
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)
+> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)

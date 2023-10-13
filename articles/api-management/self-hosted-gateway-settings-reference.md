@@ -25,22 +25,24 @@ Here is an overview of all configuration options:
 
 | Name                           | Description              | Required | Default           | Availability |
 |----|------|----------|-------------------|-------------------|
-| gateway.name | Id of the self-hosted gateway resource. | Yes, when using Azure AD authentication | N/A | v2.3+ |
+| gateway.name | Id of the self-hosted gateway resource. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
 | config.service.endpoint | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             | v2.0+ |
-| config.service.auth | Defines how the self-hosted gateway should authenticate to the Configuration API. Currently gateway token and Azure AD authentication are supported. | Yes | N/A | v2.0+ |
-| config.service.auth.azureAd.tenantId | ID of the Azure AD tenant. | Yes, when using Azure AD authentication | N/A | v2.3+ |
-| config.service.auth.azureAd.clientId | Client ID of the Azure AD app to authenticate with (also known as application ID). | Yes, when using Azure AD authentication | N/A | v2.3+ |
-| config.service.auth.azureAd.clientSecret | Secret of the Azure AD app to authenticate with. | Yes, when using Azure AD authentication (unless certificate is specified) | N/A | v2.3+ |
-| config.service.auth.azureAd.certificatePath | Path to certificate to authenticate with for the Azure AD app. | Yes, when using Azure AD authentication (unless secret is specified) | N/A | v2.3+ |
-| config.service.auth.azureAd.authority | Authority URL of Azure AD. | No | `https://login.microsoftonline.com` | v2.3+ |
+| config.service.auth | Defines how the self-hosted gateway should authenticate to the Configuration API. Currently gateway token and Microsoft Entra authentication are supported. | Yes | N/A | v2.0+ |
+| config.service.auth.azureAd.tenantId | ID of the Microsoft Entra tenant. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
+| config.service.auth.azureAd.clientId | Client ID of the Microsoft Entra app to authenticate with (also known as application ID). | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
+| config.service.auth.azureAd.clientSecret | Secret of the Microsoft Entra app to authenticate with. | Yes, when using Microsoft Entra authentication (unless certificate is specified) | N/A | v2.3+ |
+| config.service.auth.azureAd.certificatePath | Path to certificate to authenticate with for the Microsoft Entra app. | Yes, when using Microsoft Entra authentication (unless secret is specified) | N/A | v2.3+ |
+| config.service.auth.azureAd.authority | Authority URL of Microsoft Entra ID. | No | `https://login.microsoftonline.com` | v2.3+ |
+| config.service.auth.tokenAudience | Audience of token used for Microsoft Entra authentication | No | `https://azure-api.net/configuration` | v2.3+ |
 | config.service.endpoint.disableCertificateValidation | Defines if the self-hosted gateway should validate the server-side certificate of the Configuration API. It is recommended to use certificate validation, only disable for testing purposes and with caution as it can introduce security risk. | No | `false` |  v2.0+ |
+| config.service.integration.timeout | Defines the timeout for interacting with the Configuration API. | No | `00:01:40` |  v2.3.5+ |
 
 The self-hosted gateway provides support for a few authentication options to integrate with the Configuration API which can be defined by using `config.service.auth`.
 
 This guidance helps you provide the required information to define how to authenticate:
 
 - For gateway token-based authentication, specify an access token (authentication key) of the self-hosted gateway in the Azure portal under **Gateways** > **Deployment**.
-- For Azure AD-based authentication, specify `azureAdApp` and provide the additional `config.service.auth.azureAd` authentication settings.
+- For Microsoft Entra ID-based authentication, specify `azureAdApp` and provide the additional `config.service.auth.azureAd` authentication settings.
 
 ## Cross-instance discovery & synchronization
 
@@ -86,6 +88,14 @@ This guidance helps you provide the required information to define how to authen
 | certificates.local.ca.enabled | Indication whether or not the self-hosted gateway should use local CA certificates that are mounted. It's required to run the self-hosted gateway as root or with user ID 1001. | No | `false` | v2.0+ |
 | net.server.tls.ciphers.allowed-suites |   Comma-separated list of ciphers to use for TLS connection between API client and the self-hosted gateway. | No | `TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA` | v2.0+ |
 | net.client.tls.ciphers.allowed-suites | Comma-separated list of ciphers to use for TLS connection between the self-hosted gateway and the backend. | No | `TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA` | v2.0+ |
+
+## Sovereign clouds
+
+Here is an overview of settings that need to be configured to be able to work with sovereign clouds
+
+| Name                              | Public                                         | Azure China                          | US Government  |
+|-----------------------------------|------------------------------------------------|--------------------------------------|----------------|
+| config.service.auth.tokenAudience | `https://azure-api.net/configuration` (Default) | `https://azure-api.cn/configuration` | `https://azure-api.us/configuration` |
 
 ## How to configure settings
 

@@ -6,56 +6,54 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Overview
+      href: start.md
+    - name: Quickstarts
+      items: 
+      - name: Deploy from an existing container image
+        items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Command line
+          href: get-started.md
+      - name: Deploy from code
+        items:
+        - name: Command line
+          href: quickstart-code-to-cloud.md
+        - name: Visual Studio
+          href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
+      - name: Run a job
+        items:
+        - name: Azure portal
+          href: jobs-get-started-portal.md
+        - name: Command line
+          href: jobs-get-started-cli.md
+- name: Key concepts
+  items:
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: Code to cloud options
-      href: code-to-cloud-options.md
-    - name: Overview
-      items:
-        - name: Start here
-          href: start.md
-        - name: What's new
-          href: whats-new.md
-        - name: Plans
-          href: plans.md
-        - name: Environment
-          href: environment.md
-        - name: Containers
-          href: containers.md 
-        - name: Revisions
-          href: revisions.md
-        - name: Application lifecycle management
-          href: application-lifecycle-management.md
-        - name: Jobs
-          href: jobs.md
-        - name: Microservices
-          href: microservices.md
-        - name: Build and deliver apps with Container Apps (video)
-          href: https://www.youtube.com/watch?v=b3dopSTnSRg
-- name: Quickstarts
-  items: 
-  - name: Deploy from an existing container image
-    items:
-    - name: Azure portal
-      href: quickstart-portal.md
-    - name: Command line
-      href: get-started.md
-  - name: Deploy from code
-    items:
-    - name: Command line
-      href: quickstart-code-to-cloud.md
-    - name: Visual Studio
-      href: deploy-visual-studio.md
-    - name: Visual Studio Code
-      href: deploy-visual-studio-code.md
-  - name: Run a job
-    items:
-    - name: Azure portal
-      href: jobs-get-started-portal.md
-    - name: Command line
-      href: jobs-get-started-cli.md
-- name: Develop and deploy
+    - name: Plans
+      href: plans.md
+    - name: Environment
+      href: environment.md
+    - name: Containers
+      href: containers.md 
+    - name: Revisions
+      href: revisions.md
+    - name: Application lifecycle management
+      href: application-lifecycle-management.md
+    - name: Jobs
+      href: jobs.md
+    - name: Microservices
+      href: microservices.md
+    - name: Build and deliver apps with Container Apps (video)
+      href: https://www.youtube.com/watch?v=b3dopSTnSRg
+- name: Develop & deploy
   items:
+    - name: Deployment options
+      href: code-to-cloud-options.md
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
     - name: Create and deploy a container app using the CLI
@@ -116,7 +114,7 @@
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md
-- name: Logs and monitoring
+- name: Logs & monitoring
   items:
     - name: Overview
       href: observability.md
@@ -134,7 +132,7 @@
       href: log-monitoring.md
     - name: Alerts
       href: alerts.md
-- name: Scaling and performance
+- name: Scaling & performance
   items:
     - name: Overview
       href: scale-app.md
@@ -157,7 +155,7 @@
       href: authentication.md
     - name: Enable authentication
       items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: authentication-azure-active-directory.md
         - name: Facebook
           href: authentication-facebook.md
@@ -213,6 +211,8 @@
           href: microservices-dapr-azure-resource-manager.md
         - name: Deploy a Dapr application using GitHub Actions
           href: dapr-github-actions.md
+        - name: Deploy Azure Functions with the Dapr extension
+          href: dapr-functions-extension.md
 - name: Networking, ingress, and network security
   items:
     - name: Architecture overview
@@ -255,13 +255,17 @@
       href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
-- name: Billing and quotas
+- name: Billing & quotas
   items:
     - name: Billing
       href: billing.md
     - name: Quotas
       href: quotas.md
-- name: API docs and reference
+- name: Product updates
+  items:
+    - name: What's new
+      href: whats-new.md
+- name: API docs & reference
   items:
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
@@ -303,7 +307,7 @@
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
-- name: Samples and FAQs
+- name: Samples & FAQs
   items:
     - name: Samples
       href: samples.md

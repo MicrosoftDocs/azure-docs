@@ -110,7 +110,7 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
     - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
     - [Azure Key Vault](../../key-vault/general/overview.md)
-    - [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+    - [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
     - [Application Gateway](../../application-gateway/overview.md)
     - [Azure Firewall](../../firewall/overview.md)
     - [Azure Front Door](../../frontdoor/front-door-overview.md)

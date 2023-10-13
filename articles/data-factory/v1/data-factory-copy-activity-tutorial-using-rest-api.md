@@ -43,7 +43,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
 * Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 
-  1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
+  1. Create a Web application named **ADFCopyTutorialApp** in Microsoft Entra ID.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
   4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
@@ -306,8 +306,10 @@ Run the following command after updating the name of the data factory you are us
 $adf = "ADFCopyTutorialDF"
 ```
 
-## Authenticate with AAD
-Run the following command to authenticate with Azure Active Directory (AAD): 
+<a name='authenticate-with-aad'></a>
+
+## Authenticate with Microsoft Entra ID
+Run the following command to authenticate with Microsoft Entra ID: 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };

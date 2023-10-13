@@ -27,24 +27,26 @@ Minimum hardware requirements for a configuration server are summarized in the f
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## Azure Active Directory permission requirements
+<a name='azure-active-directory-permission-requirements'></a>
 
-You must have a user with one of the following permissions set in Azure Active Directory (Azure AD) to register the configuration server with Azure Site Recovery services.
+## Microsoft Entra permission requirements
+
+You must have a user with one of the following permissions set in Microsoft Entra ID to register the configuration server with Azure Site Recovery services.
 
 1. The user must have an application developer role to create an application.
     - To verify, sign in to the Azure portal.
-    - Go to **Azure Active Directory** > **Roles and administrators**.
+    - Go to **Microsoft Entra ID** > **Roles and administrators**.
     - Verify that the application developer role is assigned to the user. If not, use a user with this permission or contact an [administrator to enable the permission](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. If the application developer role can't be assigned, ensure that the **Users can register applications** flag is set as **true** for the user to create an identity. To enable these permissions:
     1. Sign in to the Azure portal.
-    1. Go to **Azure Active Directory** > **User settings**.
+    1. Go to **Microsoft Entra ID** > **User settings**.
     1. Under **App registrations**, **Users can register applications**, select **Yes**.
 
       ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory Federation Services *isn't supported*. Use an account managed through [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
+> Active Directory Federation Services *isn't supported*. Use an account managed through [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## Download the template
 
@@ -100,7 +102,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 5. Enter a name that's used to register the configuration server with Site Recovery. Then select **Next**.
 6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.</br>
     a. The credentials must have access to the vault in which you want to register the configuration server.</br>
-    b. Ensure that the chosen user account has permission to create an application in Azure. To enable the required permissions, follow the guidelines in the section [Azure Active Directory permission requirements](#azure-active-directory-permission-requirements).
+    b. Ensure that the chosen user account has permission to create an application in Azure. To enable the required permissions, follow the guidelines in the section [Microsoft Entra permission requirements](#azure-active-directory-permission-requirements).
 7. The tool performs some configuration tasks, and then reboots.
 8. Sign in to the machine again. The configuration server management wizard starts automatically in a few seconds.
 
@@ -111,8 +113,8 @@ Make sure the machine can access these URLs based on your environment:
 
 IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
 
-- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
-- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Microsoft Entra ID, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Microsoft Entra ID, Backup, Replication, and Storage URLs.  
 
 ### Configure settings
 

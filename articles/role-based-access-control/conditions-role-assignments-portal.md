@@ -110,7 +110,7 @@ Once you have the Add role assignment condition page open, you can review the ba
     - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
-    - **Principal** (preview) indicates that the attribute is an Azure AD custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
+    - **Principal** (preview) indicates that the attribute is a Microsoft Entra custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
 
 1. In the **Attribute** list, select an attribute for the left side of the expression.
 

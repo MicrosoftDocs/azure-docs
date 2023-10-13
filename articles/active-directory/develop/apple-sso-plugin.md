@@ -61,7 +61,7 @@ Use the following information to enable the SSO plug-in by using MDM.
 
 If you use Microsoft Intune as your MDM service, you can use built-in configuration profile settings to enable the Microsoft Enterprise SSO plug-in:
 
-1. Configure the [SSO app extension](/mem/intune/configuration/device-features-configure#single-sign-on-app-extension) settings of a configuration profile. 
+1. Configure the [SSO app plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune) settings of a configuration profile. 
 1. If the profile isn't already assigned, [assign the profile to a user or device group](/mem/intune/configuration/device-profile-assign).
 
 The profile settings that enable the SSO plug-in are automatically applied to the group's devices the next time each device checks in with Intune.

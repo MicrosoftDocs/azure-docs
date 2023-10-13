@@ -53,7 +53,9 @@
       href: tutorial-springboot-azure-kubernetes-service.md
     - name: Jupyter notebooks
       items:
-        - name: Create notebook
+        - name: Create notebook (VSCode)
+          href: tutorial-create-notebook-vscode.md
+        - name: Create notebook (Azure portal)
           href: tutorial-create-notebook.md
         - name: Import notebooks from GitHub
           href: tutorial-import-notebooks.md
@@ -789,8 +791,6 @@
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Use Azure Key Vault to store keys
           href: ../store-credentials-key-vault.md
-        - name: Use certificates to access data
-          href: certificate-based-authentication.md
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB

@@ -51,11 +51,11 @@ Use the **Sign-ins** log to find more information about the sign-in:
 
 - Under the **Authentication details** tab, the **Requirement** column shows the name of the authentication strength policy.
 
-  :::image type="content" source="./media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
+  :::image type="content" source="./media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the sign-in log.":::
 
 - Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look for **Grant controls** to see the authentication strength that was enforced. 
 
-  :::image type="content" source="./media/troubleshoot-authentication-strengths/sign-in-logs-control.png" alt-text="Screenshot showing the authentication strength under Conditional Access Policy details in the Sign-ins log.":::
+  :::image type="content" source="./media/troubleshoot-authentication-strengths/sign-in-logs-control.png" alt-text="Screenshot showing the authentication strength under Conditional Access Policy details in the sign-in log.":::
 
 ## Users can't use their FIDO2 security key to sign in
 An Authentication Policy Administrator can restrict access to specific security keys. When a user tries to sign in by using a key they can't use, this **You can't get there from here** message appears. The user has to restart the session, and sign-in with a different FIDO2 security key.

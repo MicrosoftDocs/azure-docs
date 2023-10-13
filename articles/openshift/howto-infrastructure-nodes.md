@@ -43,9 +43,6 @@ In order for Azure VMs added to an ARO cluster to be recognized as infrastructur
     - Standard_E4s_v5
     - Standard_E8s_v5
     - Standard_E16s_v5
-    - Standard_E4as_v5
-    - Standard_E8as_v5
-    - Standard_E16as_v5
     
 - There can be no more than three nodes. Any additional nodes are charged an OpenShift fee.
 
