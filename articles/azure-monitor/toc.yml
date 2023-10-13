@@ -236,7 +236,6 @@ items:
         - name: Migrate from URL ping tests
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
-        items:
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
