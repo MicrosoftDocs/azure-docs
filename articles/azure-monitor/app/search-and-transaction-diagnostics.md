@@ -29,7 +29,7 @@ You can find **Search** in the Azure portal or Visual Studio.
 
 You can open transaction search from the Application Insights **Overview** tab of your application. You can also select **Search** under **Investigate** on the left menu.
 
-:::image type="content" source="./media/diagnostic-search/view-custom-events.png" lightbox="./media/diagnostic-search/view-custom-events.png" alt-text="Screenshot that shows the Search tab.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/view-custom-events.png" lightbox="./media/search-and-transaction-diagnostics/view-custom-events.png" alt-text="Screenshot that shows the Search tab.":::
 
 Go to the **Event types** dropdown menu to see a list of telemetry items such as server requests, page views, and custom events that you've coded. At the top of the **Results** list is a summary chart showing counts of events over time.
 
@@ -41,11 +41,11 @@ In Visual Studio, there's also an **Application Insights Search** window. It's m
 
 Open the **Application Insights Search** window in Visual Studio:
 
-:::image type="content" source="./media/diagnostic-search/32.png" lightbox="./media/diagnostic-search/32.png" alt-text="Screenshot that shows Visual Studio open to Application Insights Search.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/32.png" lightbox="./media/search-and-transaction-diagnostics/32.png" alt-text="Screenshot that shows Visual Studio open to Application Insights Search.":::
 
 The **Application Insights Search** window has features similar to the web portal:
 
-:::image type="content" source="./media/diagnostic-search/34.png" lightbox="./media/diagnostic-search/34.png" alt-text="Screenshot that shows Visual Studio Application Insights Search window.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/34.png" lightbox="./media/search-and-transaction-diagnostics/34.png" alt-text="Screenshot that shows Visual Studio Application Insights Search window.":::
 
 The **Track Operation** tab is available when you open a request or a page view. An "operation" is a sequence of events that's associated with a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The **Track Operation** tab shows graphically the timing and duration of these events in relation to the request or page view.
 
@@ -53,7 +53,7 @@ The **Track Operation** tab is available when you open a request or a page view.
 
 Select any telemetry item to see key fields and related items.
 
-:::image type="content" source="./media/diagnostic-search/telemetry-item.png" lightbox="./media/diagnostic-search/telemetry-item.png" alt-text="Screenshot that shows an individual dependency request.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/telemetry-item.png" lightbox="./media/search-and-transaction-diagnostics/telemetry-item.png" alt-text="Screenshot that shows an individual dependency request.":::
 
 The end-to-end transaction details view opens.
 
@@ -73,7 +73,7 @@ The event types are:
 
 ## Filter on property values
 
-You can filter events on the values of their properties. The available properties depend on the event types you selected. Select **Filter** :::image type="content" source="./media/diagnostic-search/filter-icon.png" lightbox="./media/diagnostic-search/filter-icon.png" alt-text="Filter icon"::: to start.
+You can filter events on the values of their properties. The available properties depend on the event types you selected. Select **Filter** :::image type="content" source="./media/search-and-transaction-diagnostics/filter-icon.png" lightbox="./media/search-and-transaction-diagnostics/filter-icon.png" alt-text="Filter icon"::: to start.
 
 Choosing no values of a particular property has the same effect as choosing all values. It switches off filtering on that property.
 
@@ -83,7 +83,7 @@ Notice that the counts to the right of the filter values show how many occurrenc
 
 To find all the items with the same property value, either enter it in the **Search** box or select the checkbox when you look through properties on the **Filter** tab.
 
-:::image type="content" source="./media/diagnostic-search/filter-property.png" lightbox="./media/diagnostic-search/filter-property.png" alt-text="Screenshot that shows selecting the checkbox of a property on the Filter tab.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/filter-property.png" lightbox="./media/search-and-transaction-diagnostics/filter-property.png" alt-text="Screenshot that shows selecting the checkbox of a property on the Filter tab.":::
 
 ## Search the data
 
@@ -95,7 +95,7 @@ You can search for terms in any of the property values. This capability is usefu
 
 You might want to set a time range because searches over a shorter range are faster.
 
-:::image type="content" source="./media/diagnostic-search/search-property.png" lightbox="./media/diagnostic-search/search-property.png" alt-text="Screenshot that shows opening a diagnostic search.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/search-property.png" lightbox="./media/search-and-transaction-diagnostics/search-property.png" alt-text="Screenshot that shows opening a diagnostic search.":::
 
 Search for complete words, not substrings. Use quotation marks to enclose special characters.
 
@@ -125,7 +125,7 @@ You can create a bug in GitHub or Azure DevOps with the details from any telemet
 
 Go to the end-to-end transaction detail view by selecting any telemetry item. Then select **Create work item**.
 
-:::image type="content" source="./media/diagnostic-search/work-item.png" lightbox="./media/diagnostic-search/work-item.png" alt-text="Screenshot that shows Create work item.":::
+:::image type="content" source="./media/search-and-transaction-diagnostics/work-item.png" lightbox="./media/search-and-transaction-diagnostics/work-item.png" alt-text="Screenshot that shows Create work item.":::
 
 The first time you do this step, you're asked to configure a link to your Azure DevOps organization and project. You can also configure the link on the **Work Items** tab.
 
@@ -174,7 +174,7 @@ Components are independently deployable parts of your distributed or microservic
 
 This view has four key parts: a results list, a cross-component transaction chart, a time-sequence list of all telemetry related to this operation, and the details pane for any selected telemetry item on the left.
 
-:::image type="content" source="media/transaction-diagnostics/4partsCrossComponent.png" lightbox="media/transaction-diagnostics/4partsCrossComponent.png" alt-text="Screenshot that shows the four key parts of the view.":::
+:::image type="content" source="media/search-and-transaction-diagnostics/4partsCrossComponent.png" lightbox="media/search-and-transaction-diagnostics/4partsCrossComponent.png" alt-text="Screenshot that shows the four key parts of the view.":::
 
 ## Cross-component transaction chart
 
@@ -192,19 +192,19 @@ This chart provides a timeline with horizontal bars during requests and dependen
 
 This section shows a flat list view in a time sequence of all the telemetry related to this transaction. It also shows the custom events and traces that aren't displayed in the transaction chart. You can filter this list to telemetry generated by a specific component or call. You can select any telemetry item in this list to see corresponding [details on the right](#details-of-the-selected-telemetry).
 
-:::image type="content" source="media/transaction-diagnostics/allTelemetryDrawerOpened.png" lightbox="media/transaction-diagnostics/allTelemetryDrawerOpened.png" alt-text="Screenshot that shows the time sequence of all telemetry.":::
+:::image type="content" source="media/search-and-transaction-diagnostics/allTelemetryDrawerOpened.png" lightbox="media/search-and-transaction-diagnostics/allTelemetryDrawerOpened.png" alt-text="Screenshot that shows the time sequence of all telemetry.":::
 
 ## Details of the selected telemetry
 
 This collapsible pane shows the detail of any selected item from the transaction chart or the list. **Show all** lists all the standard attributes that are collected. Any custom attributes are listed separately under the standard set. Select the ellipsis button (...) under the **Call Stack** trace window to get an option to copy the trace. **Open profiler traces** and **Open debug snapshot** show code-level diagnostics in corresponding detail panes.
 
-:::image type="content" source="media/transaction-diagnostics/exceptiondetail.png" lightbox="media/transaction-diagnostics/exceptiondetail.png" alt-text="Screenshot that shows exception details.":::
+:::image type="content" source="media/search-and-transaction-diagnostics/exceptiondetail.png" lightbox="media/search-and-transaction-diagnostics/exceptiondetail.png" alt-text="Screenshot that shows exception details.":::
 
 ## Search results
 
 This collapsible pane shows the other results that meet the filter criteria. Select any result to update the respective details of the preceding three sections. We try to find samples that are most likely to have the details available from all components, even if sampling is in effect in any of them. These samples are shown as suggestions.
 
-:::image type="content" source="media/transaction-diagnostics/searchResults.png" lightbox="media/transaction-diagnostics/searchResults.png" alt-text="Screenshot that shows search results.":::
+:::image type="content" source="media/search-and-transaction-diagnostics/searchResults.png" lightbox="media/search-and-transaction-diagnostics/searchResults.png" alt-text="Screenshot that shows search results.":::
 
 ## Profiler and Snapshot Debugger
 
@@ -214,7 +214,7 @@ If you can't get Profiler working, contact serviceprofilerhelp\@microsoft.com.
 
 If you can't get Snapshot Debugger working, contact snapshothelp\@microsoft.com.
 
-:::image type="content" source="media/transaction-diagnostics/profilerTraces.png" lightbox="media/transaction-diagnostics/profilerTraces.png" alt-text="Screenshot that shows Profiler integration.":::
+:::image type="content" source="media/search-and-transaction-diagnostics/profilerTraces.png" lightbox="media/search-and-transaction-diagnostics/profilerTraces.png" alt-text="Screenshot that shows Profiler integration.":::
 
 ## Frequently asked questions
 
