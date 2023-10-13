@@ -34,7 +34,7 @@ Each number in the version indicates general compatibility with the previous ver
 * **Minor version numbers** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch version numbers** change when backwards-compatible bug fixes are made.
 
-We strongly recommend staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](howto-upgrade-nexus-kubernetes-cluster) documentation.
+We strongly recommend staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](./howto-upgrade-nexus-kubernetes-cluster.md) documentation.
 
 ## Nexus Kubernetes release calendar
 
