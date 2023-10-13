@@ -17,7 +17,7 @@ Azure Front Door offers two different tiers, Standard and Premium. Both Azure Fr
 :::image type="content" source="../media/tier-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
 > [!NOTE]
-> To switch between tiers, you will need to recreate the Azure Front Door profile. Currently in Public Preview, you can use the [**migration capability**](../migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](../tier-upgrade.md).
+> To switch between tiers, you will need to recreate the Azure Front Door profile. You can use the [**migration capability**](../migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](../tier-upgrade.md).
 > 
 
 ## Feature comparison between tiers
