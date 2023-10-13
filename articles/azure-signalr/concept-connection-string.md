@@ -153,7 +153,7 @@ Endpoint=https://<resource_name>.service.signalr.net;AuthType=azure.msi;ClientId
 For more information about how to configure managed identities, see [Authorize requests to SignalR resources with Microsoft Entra managed identities](signalr-howto-authorize-managed-identity.md).
 
 > [!NOTE]
-> We highly recommended that you use managed identities to authenticate with Azure SignalR Service, because they're more secure than access keys. If you don't use access keys for authentication, consider completely disabling them in the Azure portal (select **Keys** > **Access Key** > **Disable**).
+> We highly recommend that you use managed identities to authenticate with Azure SignalR Service, because they're more secure than access keys. If you don't use access keys for authentication, consider completely disabling them in the Azure portal (select **Keys** > **Access Key** > **Disable**).
 >
 > If you decide to use access keys, we recommend that you rotate them regularly. For more information, see [Rotate access keys for Azure SignalR Service](signalr-howto-key-rotation.md).
 
@@ -210,7 +210,7 @@ In a local development environment, the configuration is stored in a file (_apps
 In a production environment, you can use other Azure services to manage configurations and secrets, like Azure [Key Vault](../key-vault/general/overview.md) and [App Configuration](../azure-app-configuration/overview.md). See their documentation to learn how to set up a configuration provider for those services.
 
 > [!NOTE]
-> Even when you're directly setting a connection string by using code, we don't recommended that you hard-code the connection string in source code. Instead, read the connection string from a secret store like Key Vault and pass it to `AddAzureSignalR()`.
+> Even when you're directly setting a connection string by using code, we don't recommend that you hard-code the connection string in source code. Instead, read the connection string from a secret store like Key Vault and pass it to `AddAzureSignalR()`.
 
 ### Configure multiple connection strings
 
