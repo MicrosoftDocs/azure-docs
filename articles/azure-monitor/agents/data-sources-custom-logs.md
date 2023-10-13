@@ -18,7 +18,7 @@ The Custom Logs data source for the Log Analytics agent in Azure Monitor allows 
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-![Diagram that shows custom log collection.](media/data-sources-custom-logs/overview.png)
+:::image type="content" source="media/data-sources-custom-logs/overview.png" lightbox="media/data-sources-custom-logs/overview.png" alt-text="Diagram that shows custom log collection.":::
 
 The log files to be collected must match the following criteria:
 

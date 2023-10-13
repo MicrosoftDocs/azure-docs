@@ -69,11 +69,11 @@ A channel acts like a filter and allows you to select specific log levels to sen
 
 The following graphic shows this relationship.
 
-![Diagnostics Public Configuration](media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png)
+:::image type="content" source="media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png" lightbox="media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png" alt-text="Diagnostics Public Configuration":::
 
 The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink at the top level acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 
-![Diagnostics Sinks  Configuration with Application Insights](media/diagnostics-extension-to-application-insights/Azure_Diagnostics_Sinks.png)
+:::image type="content" source="media/diagnostics-extension-to-application-insights/Azure_Diagnostics_Sinks.png" lightbox="media/diagnostics-extension-to-application-insights/Azure_Diagnostics_Sinks.png" alt-text="Diagnostics Sinks  Configuration with Application Insights":::
 
 ## Complete sink configuration example
 Here is a complete example of the public configuration file that

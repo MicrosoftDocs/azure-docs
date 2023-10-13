@@ -92,7 +92,7 @@ To create the data collection rule in the Azure portal:
 1. On the **Monitor** menu, select **Data Collection Rules**.
 1. Select **Create** to create a new data collection rule and associations.
 
-    [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen.":::
 
 1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, **Platform Type**, and **Data Collection Endpoint**:
 
@@ -100,7 +100,7 @@ To create the data collection rule in the Azure portal:
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
     - **Data Collection Endpoint** is required to collect custom logs.
 
-    [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
 
 1. On the **Resources** tab: 
     1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
@@ -113,12 +113,12 @@ To create the data collection rule in the Azure portal:
     1. Select **Enable Data Collection Endpoints**.
     1. Select a data collection endpoint for each of the resources associate to the data collection rule.
 
-    [ ![Screenshot that shows the Resources tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
 
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select **Custom Text Logs**.
 
-    [ ![Screenshot that shows the Add data source screen for a data collection rule in Azure portal.](media/data-collection-text-log/custom-text-log-data-collection-rule.png)](media/data-collection-text-log/custom-text-log-data-collection-rule.png#lightbox)
+    :::image type="content" source="media/data-collection-text-log/custom-text-log-data-collection-rule.png" lightbox="media/data-collection-text-log/custom-text-log-data-collection-rule.png" alt-text="Screenshot that shows the Add data source screen for a data collection rule in Azure portal.":::
 
 1. Specify the following information:
  
@@ -139,7 +139,7 @@ To create the data collection rule in the Azure portal:
  
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
-    [ ![Screenshot that shows the destination tabe of the Add data source screen for a data collection rule in Azure portal.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the destination tabe of the Add data source screen for a data collection rule in Azure portal.":::
 
 1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
