@@ -7,8 +7,8 @@ ms.author: hannahhunter
 ms.reviewer: paulyuk
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 09/19/2023
-ms.custom: devx-track-linux
+ms.date: 10/13/2023
+ms.custom: devx-track-linux, references_regions
 # Customer Intent: I'm a developer who wants to use the Dapr extension for Azure Functions in my Dapr-enabled container app
 ---
 
@@ -91,7 +91,7 @@ Specifying one of the available regions, create a resource group for your contai
    Please provide string value for 'resourceNamePrefix' (? for help): {your-resource-name-prefix} 
    ```
 
-   The template deploys the following resources and may take a while:
+   The template deploys the following resources and might take a while:
 
     - A Container App Environment
     - A Function App
@@ -107,7 +107,6 @@ Specifying one of the available regions, create a resource group for your contai
 1. In the Azure portal, navigate to your resource group and select **Deployments** to track the deployment status.
 
    :::image type="content" source="media/dapr-binding-functions/deployment-status.png" alt-text="Screenshot showing the deployment group deployment status in the Azure portal.":::
-
 
 ## Verify the result
 
