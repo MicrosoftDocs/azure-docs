@@ -74,15 +74,15 @@ Microsoft has many products and services that enable you to customize your IT en
 
   * [Microsoft Defender for Identity architecture](/defender-for-identity/architecture)
   * [Connect Microsoft Defender for Identity to Active Directory quickstart](/defender-for-identity/install-step2)
-  * [Azure security baseline for Microsoft Defender for Identity](/defender-for-identity/security-baseline)
+  * [Azure security baseline for Microsoft Defender for Identity](/security/benchmark/azure/baselines/defender-for-identity-security-baseline)
   * [Monitoring Active Directory for Signs of Compromise](/windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise)
 
 * Cloud-based Azure environments
 
-  * [Monitor sign-ins with the Microsoft Entra sign-in log](../reports-monitoring/concept-all-sign-ins.md)
+  * [Monitor sign-ins with the Microsoft Entra sign-in log](../reports-monitoring/concept-sign-ins.md)
   * [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md)
   * [Investigate risk with Microsoft Entra ID Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
-  * [Connect Microsoft Entra ID Protection data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
+  * [Connect Microsoft Entra ID Protection data to Microsoft Sentinel](/azure/sentinel/data-connectors/azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -97,19 +97,19 @@ Microsoft has many products and services that enable you to customize your IT en
 The log files you use for investigation and monitoring are:
 
 * [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md)
-* [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
+* [Sign-in logs](../reports-monitoring/concept-sign-ins.md)
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
-* [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
+* [Azure Key Vault logs](/azure/key-vault/general/logging?tabs=Vault)
 
 From the Azure portal, you can view the Microsoft Entra audit logs. Download logs as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)** - Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](/azure/sentinel/overview)** - Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
 * **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** - Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Monitor](/azure/azure-monitor/overview)** - Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Microsoft Entra logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)** integrated with a SIEM. Microsoft Entra logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/howto-stream-logs-to-event-hub.md).
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** - Enables you to discover and manage apps, govern across apps and resources, and check the compliance of your cloud apps.
 
@@ -185,9 +185,9 @@ As part of an Azure cloud-based environment, the following items should be basel
 
 * **Graph API** - The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources. After you register your app and get authentication tokens for a user or service, you can make requests to the Microsoft Graph API. For more information, see [Overview of Microsoft Graph](/graph/overview).
 
-* **Domain Service** - Microsoft Entra Domain Services (AD DS) provides managed domain services such as domain join, group policy. For more information, see [What is Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md).
+* **Domain Service** - Microsoft Entra Domain Services (AD DS) provides managed domain services such as domain join, group policy. For more information, see [What is Microsoft Entra Domain Services](/entra/identity/domain-services/overview).
 
-* **Azure Resource Manager** - Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. For more information, see [What is Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+* **Azure Resource Manager** - Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. For more information, see [What is Azure Resource Manager](/azure/azure-resource-manager/management/overview).
 
 * **Managed identity** - Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. For more information, see [What are managed identities for Azure resources](../managed-identities-azure-resources/overview.md).
 
@@ -197,7 +197,7 @@ As part of an Azure cloud-based environment, the following items should be basel
 
 * **Entitlement management** - Microsoft Entra entitlement management is an [identity governance](../governance/identity-governance-overview.md) feature. Organizations can manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration. For more information, see [What is Microsoft Entra entitlement management](../governance/entitlement-management-overview.md).
 
-* **Activity logs** - The Activity log is an Azure [platform log](../../azure-monitor/essentials/platform-logs-overview.md) that provides insight into subscription-level events. This log includes such information as when a resource is modified or when a virtual machine is started. For more information, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md).
+* **Activity logs** - The Activity log is an Azure [platform log](/azure/azure-monitor/essentials/platform-logs-overview) that provides insight into subscription-level events. This log includes such information as when a resource is modified or when a virtual machine is started. For more information, see [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
 * **Self-service password reset service** - Microsoft Entra self-service password reset (SSPR) gives users the ability to change or reset their password. The administrator or help desk isn't required. For more information, see [How it works: Microsoft Entra self-service password reset](../authentication/concept-sspr-howitworks.md).
 

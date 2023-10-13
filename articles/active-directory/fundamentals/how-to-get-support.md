@@ -31,11 +31,11 @@ Microsoft Q&A is Azure's recommended source for community support. We recommend 
 
 | Component/area| Tags  |
 |------------|---------------------------|
-| Microsoft Authentication Library (MSAL)                                     | [[`msal`]](/answers/topics/azure-ad-msal.html)                            |
+| Microsoft Authentication Library (MSAL)                                     | [[`msal`]](/answers/tags/455/entra-id)                            |
 | Open Web Interface for .NET (OWIN) middleware                               | [[`azure-active-directory`]](/answers/topics/azure-active-directory.html) |
-| [Microsoft Entra B2B / External Identities](../external-identities/what-is-b2b.md) | [[`azure-ad-b2b`]](/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[`azure-ad-b2c`]](/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[`azure-ad-graph`]](/answers/topics/azure-ad-graph.html)                 |
+| [Microsoft Entra B2B / External Identities](../external-identities/what-is-b2b.md) | [[`azure-ad-b2b`]](/answers/tags/438/entra-external-id)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[`azure-ad-b2c`]](/answers/tags/438/entra-external-id)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[`azure-ad-graph`]](/answers/tags/455/entra-id)                 |
 | All other authentication and authorization areas                            | [[`azure-active-directory`]](/answers/topics/azure-active-directory.html) |
 
 ## Open a support request
@@ -81,12 +81,12 @@ If you're still unable to resolve the issue, select **Next** to continue creatin
 
 Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. Complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](../../azure-portal/supportability/how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. Complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](/azure/azure-portal/supportability/how-to-manage-azure-support-request#file-upload-guidelines).
 
 1. In the **Advanced diagnostic information** section, select **Yes** or **No**.
 
     - Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources.
-    - If you prefer not to share this information, select **No**. For more information about the types of files we might collect, see [Advanced diagnostic information logs](../../azure-portal/supportability/how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) section.
+    - If you prefer not to share this information, select **No**. For more information about the types of files we might collect, see [Advanced diagnostic information logs](/azure/azure-portal/supportability/how-to-create-azure-support-request#advanced-diagnostic-information-logs) section.
     - In some scenarios, an administrator in your tenant may need to approve Microsoft Support access to your Microsoft Entra identity data.
 
 1. In the **Support method** section, select your preferred contact method and support language.
@@ -106,7 +106,7 @@ A support engineer will contact you using the method you indicated. For informat
 
 ## Get Microsoft 365 admin center support
 
-Support for Microsoft Entra ID in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](/microsoft-365/admin).
+Support for Microsoft Entra ID in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators through the admin center. Review the [support for Microsoft 365 for business article](/microsoft-365/admin/).
 
 ## Stay informed
 Things can change quickly. The following resources provide updates and information on the latest releases.

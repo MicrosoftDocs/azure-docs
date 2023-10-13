@@ -40,7 +40,7 @@ Other services such as Teams, SharePoint, and Managed Desktop don’t have separ
 
 ![Azure RBAC versus Microsoft Entra roles](./media/concept-understand-roles/azure-roles-azure-ad-roles.png)
 
-When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information, see [Roles for Microsoft 365 services in Microsoft Entra ID](m365-workload-docs.md) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information, see [Roles for Microsoft 365 services in Microsoft Entra ID](m365-workload-docs.md) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles).
 
 <a name='why-some-azure-ad-roles-are-for-other-services'></a>
 

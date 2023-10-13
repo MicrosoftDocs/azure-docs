@@ -508,7 +508,7 @@ For additional information about service tiers, see [High Availability with Azur
 
 ### User experience improvements
 
-The following improvements are available in [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+The following improvements are available in [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 
 - Azure Arc and Azure CLI extensions now generally available. 
 - Changed edit commands for SQL Managed Instance for Azure Arc dashboard to use `update`, reflecting Azure CLI changes. This works in indirect or direct mode. 
@@ -566,7 +566,7 @@ This release is published November 3, 2021
 
 #### Azure Data Studio
 
-Install or update to the latest version of [Arc extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-arc-extension).
+Install or update to the latest version of [Arc extension for Azure Data Studio](/azure-data-studio/extensions/azure-arc-extension).
 
 #### Azure (`az`) CLI
 

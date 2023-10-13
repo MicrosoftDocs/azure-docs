@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js, engagement-fy23
 
 # Scenario: Single-page application
 
-Learn all you need to build a single-page application (SPA). For instructions regarding Azure Static Web Apps, see [Authentication and Authorization for Static Web Apps](../../static-web-apps/authentication-authorization.md) instead.
+Learn all you need to build a single-page application (SPA). For instructions regarding Azure Static Web Apps, see [Authentication and Authorization for Static Web Apps](/azure/static-web-apps/authentication-authorization) instead.
 
 ## Getting started
 

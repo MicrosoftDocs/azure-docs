@@ -42,7 +42,7 @@ Use LDAP synchronization when you need to synchronize identity data between your
 
 Explore the following resources to learn more about LDAP synchronization with Microsoft Entra ID.
 
-* [Hybrid Identity: Directory integration tools comparison](../hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison.md) describes differences between Microsoft Entra Connect Sync and Microsoft Entra Connect cloud provisioning.
+* [Hybrid Identity: Directory integration tools comparison](../hybrid/index.yml) describes differences between Microsoft Entra Connect Sync and Microsoft Entra Connect cloud provisioning.
 * [Microsoft Entra Connect and Microsoft Entra Connect Health installation roadmap](../hybrid/connect/how-to-connect-install-roadmap.md) provides detailed installation and configuration steps.
 * The [Generic LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) enables you to integrate the synchronization service with an LDAP v3 server.
 

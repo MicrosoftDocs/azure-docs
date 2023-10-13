@@ -142,7 +142,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: ./azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
@@ -701,7 +701,7 @@ productDirectory:
       imageSrc: /sql/tools/media/overview-sql-tools/azure-data-studio.svg
       azureCategories:
         - developer-tools
-      url: /sql/azure-data-studio/
+      url: /azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software

@@ -42,7 +42,7 @@ In order to troubleshoot issues with your custom claims provider REST API endpoi
 
 You can also use [Microsoft Entra sign-in logs](../reports-monitoring/concept-sign-ins.md) in addition to your REST API logs, and hosting environment diagnostics solutions. Using Microsoft Entra sign-in logs, you can find errors, which may affect the users' sign-ins. The Microsoft Entra sign-in logs provide  information about the HTTP status, error code, execution duration, and number of retries that occurred the API was called by Microsoft Entra ID.
 
-Microsoft Entra sign-in logs also integrate with [Azure Monitor](../../azure-monitor/index.yml). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
+Microsoft Entra sign-in logs also integrate with [Azure Monitor](/azure/azure-monitor/). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
 
 To access the Microsoft Entra sign-in logs:
 
@@ -186,7 +186,7 @@ One of the most common issues is that your custom claims provider API doesn't re
 
 1. If your API accesses any downstream APIs, cache the access token used to call these APIs, so a new token doesn't have to be acquired on every execution.
 1. Performance issues are often related to downstream services. Add logging, which records the process time to call to any downstream services. 
-1. If you use a cloud provider to host your API, use a hosting plan that keeps the API always "warm". For Azure Functions, it can be either [the Premium plan or Dedicated plan](../../azure-functions/functions-scale.md).
+1. If you use a cloud provider to host your API, use a hosting plan that keeps the API always "warm". For Azure Functions, it can be either [the Premium plan or Dedicated plan](/azure/azure-functions/functions-scale).
 1. [Run automated integration tests](test-automate-integration-testing.md) for your authentications. You can also use Postman or other tools to test just your API performance.
 
 ## Next steps

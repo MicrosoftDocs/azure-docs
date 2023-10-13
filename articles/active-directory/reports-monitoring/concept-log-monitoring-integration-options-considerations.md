@@ -64,11 +64,11 @@ Because the size and cost for sending logs to an endpoint is difficult to predic
 
 Other considerations for sending Microsoft Entra logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
 
-- [Azure Monitor logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
-- [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
-- [Optimize costs in Azure Monitor](../../azure-monitor/best-practices-cost.md)
+- [Azure Monitor logs cost calculations and options](/azure/azure-monitor/logs/cost-logs)
+- [Azure Monitor cost and usage](/azure/azure-monitor/usage-estimated-costs)
+- [Optimize costs in Azure Monitor](/azure/azure-monitor/best-practices-cost)
 
-Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Microsoft Entra ID. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).
+Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Microsoft Entra ID. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](/azure/azure-monitor/essentials/data-collection-transformations).
 
 ## Estimate your costs
 
@@ -101,7 +101,7 @@ To get an idea of how much a log integration could cost for your organization, y
 
 To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md) article. If possible, create a new resource group for the logs and endpoint you want to try out. Having a devoted resource group makes it easy to view the cost analysis and then delete it when you're done.
 
-With the integration enabled, navigate to **Azure portal** > **Cost Management** > **Cost analysis**. There are several ways to analyze costs. This [Cost Management quickstart](../../cost-management-billing/costs/quick-acm-cost-analysis.md) should help you get started. The figures in the following screenshot are used for example purposes and are not intended to reflect actual amounts.
+With the integration enabled, navigate to **Azure portal** > **Cost Management** > **Cost analysis**. There are several ways to analyze costs. This [Cost Management quickstart](/azure/cost-management-billing/costs/quick-acm-cost-analysis) should help you get started. The figures in the following screenshot are used for example purposes and are not intended to reflect actual amounts.
 
 ![Screenshot of a cost analysis breakdown as a pie chart.](media/concept-activity-logs-azure-monitor/cost-analysis-breakdown.png)
 
@@ -122,7 +122,7 @@ Once you have an estimate for the GB/day that will be sent to an endpoint, enter
 
 ## Next steps
 
-* [Create a storage account](../../storage/common/storage-account-create.md)
+* [Create a storage account](/azure/storage/common/storage-account-create)
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

@@ -553,7 +553,7 @@ To create a policy with a Deny effect for an anonymous access setting that allow
 
 After you create the policy with the Deny effect and assign it to a scope, a user can't create a storage account that allows anonymous access. Nor can a user make any configuration changes to an existing storage account that currently allows anonymous access. Attempting to do so results in an error. The anonymous access setting for the storage account must be set to **false** to proceed with account creation or configuration.
 
-The following image shows the error that occurs if you try to create a storage account that allows anonymous access (the default for a new account) when a policy with a Deny effect requires that anonymous access is disallowed.
+The following image shows the error that occurs if you try to create a storage account that allows anonymous access when a policy with a Deny effect requires that anonymous access is disallowed.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 

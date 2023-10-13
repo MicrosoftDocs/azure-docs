@@ -51,7 +51,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Commerce Tools Authentication Service
 - Microsoft Forms
 - Microsoft Intune
-- [Microsoft Intune Enrollment](/intune/enrollment/multi-factor-authentication)
+- [Microsoft Intune Enrollment](/mem/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft Power Apps
 - Microsoft Power Automate
@@ -112,7 +112,7 @@ Because the policy is applied to the Azure management portal and API, services, 
 - Microsoft IoT Central
 
 > [!NOTE]
-> The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview), which calls the [Microsoft Graph API](/graph/overview).
+> The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](/azure/azure-resource-manager/management/overview). It does not apply to [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview), which calls the [Microsoft Graph API](/graph/overview).
 
 For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
 
@@ -161,11 +161,11 @@ In some cases, an **All cloud apps** policy could inadvertently block user acces
 
 - Calls to Azure AD Graph and MS Graph, to access user profile, group membership and relationship information that is commonly used by applications excluded from policy. The excluded scopes are listed below. Consent is still required for apps to use these permissions. 
    - For native clients:
-      - Azure AD Graph: email, offline_access, openid, profile, User.read
-      - MS Graph: User.read, People.read, and UserProfile.read 
+      - Azure AD Graph: email, offline_access, openid, profile, User.Read
+      - MS Graph: email, offline_access, openid, profile, User.Read, People.Read
    - For confidential / authenticated clients:
-      - Azure AD Graph: email, offline_access, openid, profile, User.read, User.read.all, and User.readbasic.all
-      - MS Graph: User.read,User.read.all, User.read.All People.read, People.read.all, GroupMember.Read.All, Member.Read.Hidden, and UserProfile.read 
+      - Azure AD Graph: email, offline_access, openid, profile, User.Read, User.Read.All, and User.ReadBasic.All
+      - MS Graph: email, offline_access, openid, profile, User.Read, User.Read.All, User.ReadBasic.All, People.Read, People.Read.All, GroupMember.Read.All, Member.Read.Hidden
 
 ## User actions
 
@@ -183,9 +183,9 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 ## Traffic forwarding profiles
 
-Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to apply a Conditional Access policy to these traffic profiles, see the article [How to apply Conditional Access policies to the Microsoft 365 traffic profile](../../global-secure-access/how-to-target-resource-microsoft-365-profile.md).
+Traffic forwarding profiles in Global Secure Access enable administrators to define and control how traffic is routed through Microsoft Entra Internet Access and Microsoft Entra Private Access. Traffic forwarding profiles can be assigned to devices and remote networks. For an example of how to apply a Conditional Access policy to these traffic profiles, see the article [How to apply Conditional Access policies to the Microsoft 365 traffic profile](/entra/global-secure-access/how-to-target-resource-microsoft-365-profile).
 
-For more information about these profiles, see the article [Global Secure Access traffic forwarding profiles](../../global-secure-access/concept-traffic-forwarding.md).
+For more information about these profiles, see the article [Global Secure Access traffic forwarding profiles](/entra/global-secure-access/concept-traffic-forwarding).
 
 ## Authentication context
 
@@ -222,8 +222,8 @@ To delete an authentication context, it must have no assigned Conditional Access
 
 For more information about authentication context use in applications, see the following articles.
 
-- [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
-- [Microsoft Defender for Cloud Apps](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
+- [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/purview/sensitivity-labels-teams-groups-sites)
+- [Microsoft Defender for Cloud Apps](/defender-cloud-apps/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## Next steps
@@ -231,4 +231,3 @@ For more information about authentication context use in applications, see the f
 - [Conditional Access: Conditions](concept-conditional-access-conditions.md)
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Client application dependencies](service-dependencies.md)
-

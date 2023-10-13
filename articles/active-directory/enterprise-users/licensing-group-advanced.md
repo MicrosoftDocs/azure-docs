@@ -211,7 +211,7 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/concept-group-based-licensing.md)
 * [Assigning licenses to a group in Microsoft Entra ID](licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Microsoft Entra ID](licensing-groups-migrate-users.md)

@@ -47,7 +47,7 @@ Team members who need to create sensitivity labels require permissions to:
 
 * Microsoft 365 Defender portal,
 * Microsoft Purview compliance portal, or 
-* [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
+* [Microsoft Purview compliance portal](/purview/microsoft-365-compliance-center?view=o365-worldwide&preserve-view=true)
 
 By default, tenant Global Administrators have access to admin centers and can provide access, without granting tenant Admin permissions. For this delegated limited admin access, add users to the following role groups: 
 
@@ -74,7 +74,7 @@ Consider the content categories that external users can't have access to, such a
 
 Sensitivity labels can be applied automatically or manually to content. 
 
-See, [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
+See, [Apply a sensitivity label to content automatically](/purview/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
 
 #### Sensitivity labels on email and content
 
@@ -107,17 +107,17 @@ Sensitivity labels applied to a container, such as a SharePoint site, aren't app
 
 Learn more:
 
-* [Enable sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide&preserve-view=true).
-* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+* [Enable sensitivity labels for Office files in SharePoint and OneDrive](/purview/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide&preserve-view=true).
+* [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/purview/sensitivity-labels-teams-groups-sites)
 * [Assign sensitivity labels to Microsoft 365 groups in Microsoft Entra ID](../enterprise-users/groups-assign-sensitivity-labels.md)
 
 ### Implement sensitivity labels
 
 After you determine use of sensitivity labels, see the following documentation for implementation.
 
-* [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
-* [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide&preserve-view=true)
-* [Restrict access to content by using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Get started with sensitivity labels](/purview/get-started-with-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Create and publish sensitivity labels](/purview/create-sensitivity-labels?view=o365-worldwide&preserve-view=true)
+* [Restrict access to content by using sensitivity labels to apply encryption](/purview/encryption-sensitivity-labels?view=o365-worldwide&preserve-view=true)
 
 ## Next steps
 

@@ -219,5 +219,5 @@ This article describes the Microsoft Entra sign-in log schema in Azure Monitor. 
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
-* [Read more about Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-monitoring-health.md)
+* [Read more about Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview)

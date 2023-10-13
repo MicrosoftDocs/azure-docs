@@ -195,7 +195,7 @@ For domains that set the **SupportsMfa** property, these rules determine how **f
 - If the **federatedIdpMfaBehavior** property is never set, Microsoft Entra ID will continue to honor the **SupportsMfa** setting.
 - If **federatedIdpMfaBehavior** or **SupportsMfa** isn't set, Microsoft Entra ID will default to `acceptIfMfaDoneByFederatedIdp` behavior.
 
-You can check the status of **federatedIdpMfaBehavior** by using [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true).
+You can check the status of **federatedIdpMfaBehavior** by using [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true&viewFallbackFrom=graph-powershell-beta).
 
 ```powershell
 Get-MgDomainFederationConfiguration –DomainID yourdomain.com

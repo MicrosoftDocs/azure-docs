@@ -35,13 +35,13 @@ To analyze activity logs with Log Analytics, you need:
 
 ### Log Analytics workspace
 
-You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending the data.
+You must create a [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending the data.
 
-For more information, see [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md).
+For more information, see [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access).
 
 ### Azure Monitor roles
 
-Azure Monitor provides [two built-in roles](../../azure-monitor/roles-permissions-security.md#monitoring-reader) for viewing monitoring data and editing monitoring settings. Azure role-based access control (RBAC) also provides two Log Analytics built-in roles that grant similar access.
+Azure Monitor provides [two built-in roles](/azure/azure-monitor/roles-permissions-security#monitoring-reader) for viewing monitoring data and editing monitoring settings. Azure role-based access control (RBAC) also provides two Log Analytics built-in roles that grant similar access.
 
 - **View**:
     - Monitoring Reader
@@ -51,9 +51,9 @@ Azure Monitor provides [two built-in roles](../../azure-monitor/roles-permission
     - Monitoring Contributor
     - Log Analytics Contributor
 
-For more information on the Azure Monitor built-in roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md#monitoring-reader).
+For more information on the Azure Monitor built-in roles, see [Roles, permissions, and security in Azure Monitor](/azure/azure-monitor/roles-permissions-security#monitoring-reader).
 
-For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+For more information on the Log Analytics RBAC roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
 
 <a name='azure-ad-roles'></a>
 
@@ -118,13 +118,13 @@ You can also set up alerts on a query. After running a query, the **+ New alert 
 
 1. From Log Analytics, select the **+ New alert rule** button.
     - The **Create a rule** process involves several sections to customize the criteria for the rule.
-    - For more information on creating alert rules, see [Create a new alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md) from the Azure Monitor documentation, starting with the **Condition** steps.
+    - For more information on creating alert rules, see [Create a new alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule) from the Azure Monitor documentation, starting with the **Condition** steps.
     
     ![Screenshot of the "+ New alert rule" button in Log Analytics.](media/howto-analyze-activity-logs-log-analytics/log-analytics-new-alert.png)
 
 1. On the **Actions** tab, select the **Action Group** that will receive the alert when the signal occurs.
     - You can choose to notify your team via email or text message, or you could automate the action using webhooks, Azure functions or logic apps.
-    - Learn more about [creating and managing alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md).
+    - Learn more about [creating and managing alert groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 1. On the **Details** tab, give the alert rule a name and associate it with a subscription and resource group.
 
@@ -142,5 +142,5 @@ Microsoft Entra workbooks provide several reports related to common scenarios in
 
 ## Next steps
 
-* [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
-* [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
+* [Get started with queries in Azure Monitor logs](/azure/azure-monitor/logs/get-started-queries)
+* [Create and manage alert groups in the Azure portal](/azure/azure-monitor/alerts/action-groups)

@@ -143,10 +143,10 @@
             href: tutorial-single-page-app-react-call-api.md
         - name: Angular
           href: tutorial-v2-angular-auth-code.md
-        - name: Blazor WebAssembly
-          href: tutorial-blazor-webassembly.md
         - name: JavaScript
           href: tutorial-v2-javascript-auth-code.md
+        - name: Blazor WebAssembly
+          href: tutorial-blazor-webassembly.md
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#single-page-applications
@@ -710,7 +710,7 @@
             - name: Migrate to MSAL.iOS / macOS
               href: migrate-objc-adal-msal.md
         - name: MSAL Java
-          href: /entra/msal/java
+          href: /entra/msal/java/
         - name: MSAL.js
           displayName: Angular, JavaScript, Node.js, React
           items:
@@ -824,7 +824,7 @@
     - name: Scopes for web API accepting v1.0 tokens
       href: msal-v1-app-scopes.md
     - name: Spring Cloud Azure
-      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support    
+      href: /azure/developer/java/spring-framework/developer-guide-overview?toc=/azure/active-directory/develop/toc.json#spring-security-support    
     - name: Configured permissions limits troubleshooting
       href: troubleshoot-required-resource-access-limits.md
     - name: Microsoft auth libraries by app type

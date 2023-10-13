@@ -44,7 +44,7 @@ Microsoft is actively collaborating with members of the Decentralized Identity F
 
 Before we can understand DIDs, it helps to compare them with current identity systems. Email addresses and social network IDs are human-friendly aliases for collaboration but are now overloaded to serve as the control points for data access across many scenarios beyond collaboration. This creates a potential problem, because access to these IDs can be removed at any time by external parties.
 
-Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and tamper evasiveness. These attributes are critical for any ID system intended to provide self-ownership and user control. 
+Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems trust systems. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and tamper evasiveness. These attributes are critical for any ID system intended to provide self-ownership and user control.
 
 Microsoft’s verifiable credential solution uses decentralized credentials (DIDs) to cryptographically sign as proof that a relying party (verifier) is attesting to information proving they are the owners of a verifiable credential. A basic understanding of DIDs is recommended for anyone creating a verifiable credential solution based on the Microsoft offering.
 
@@ -67,11 +67,7 @@ To deliver on these promises, we need a technical foundation made up of seven ke
 IDs users create, own, and control independently of any organization or government. DIDs are globally unique identifiers linked to Decentralized Public Key Infrastructure (DPKI) metadata composed of JSON documents that contain public key material, authentication descriptors, and service endpoints.
 
 **2. Trust System**.
-In order to be able to resolve DID documents, DIDs are typically recorded on an underlying network of some kind that represents a trust system. Microsoft currently supports two trust systems, which are:
-
-- DID:Web is a permission based model that allows trust using a web domain’s existing reputation. DID:Web is in support status General Available.
-
-- ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. DID:ION is in preview.
+In order to be able to resolve DID documents, DIDs are typically recorded on an underlying network of some kind that represents a trust system. Microsoft currently supports DID:Web trust system. DID:Web is a permission based model that allows trust using a web domain’s existing reputation. DID:Web is in support status General Available.
 
 **3. DID User Agent/Wallet: Microsoft Authenticator App**.
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.

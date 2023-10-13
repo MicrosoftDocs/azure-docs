@@ -160,4 +160,4 @@ See the [team domain](https://developers.cloudflare.com/cloudflare-one/glossary#
 
 - Go to developer.cloudflare.com for [Integrate SSO](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/)
 - [Tutorial: Configure Conditional Access policies for Cloudflare Access](cloudflare-conditional-access-policies.md)
-- [Tutorial: Configure Cloudflare Web Application Firewall with Azure AD B2C](../../active-directory-b2c/partner-cloudflare.md)
+- [Tutorial: Configure Cloudflare Web Application Firewall with Azure AD B2C](/azure/active-directory-b2c/partner-cloudflare)

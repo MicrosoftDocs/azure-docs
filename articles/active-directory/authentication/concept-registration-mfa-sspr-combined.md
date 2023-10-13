@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 10/17/2023
 
 ms.author: justinha
 author: justinha
@@ -46,6 +46,7 @@ Combined registration supports the authentication methods and actions in the fol
 | Office phone* | Yes | Yes | Yes |
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
+| Passwords | No | Yes | No |
 | App passwords* | Yes | No | Yes |
 | FIDO2 security keys*| Yes | No | Yes |
 
@@ -118,9 +119,13 @@ If the SSPR policy requires users to review their security info at regular inter
 
 ### Manage mode
 
-Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) or by selecting **Security info** from My Account. From there, users can add methods, delete or change existing methods, change the default method, and more.
+Users can access manage mode by going to [Security info](https://aka.ms/mysecurityinfo) or by selecting **Security info** from My Account. From there, users can add methods, delete or change existing methods, change the default method, and more.
 
 ## Key usage scenarios
+
+### Update a password in MySignIns (preview)
+A user navigates to [Security info](https://aka.ms/mysecurityinfo). After signing in, the user can update their password. For more information about different authentication methods that you can require by using Conditional Access policies, see [How to secure the registration of security info](/azure/active-directory/conditional-access/howto-conditional-access-policy-registration). When finished, the user has the new password updated on the Security info page.
+
 
 ### Protect Security info registration with Conditional Access
 To secure when and how users register for Microsoft Entra multifactor authentication and self-service password reset, you can use user actions in Conditional Access policy. This functionality may be enabled in organizations that want users to register for Microsoft Entra multifactor authentication and SSPR from a central location, such as a trusted network location during HR onboarding. Learn more on how to configure [common Conditional Access policies for securing security info registration.](../conditional-access/howto-conditional-access-policy-registration.md)

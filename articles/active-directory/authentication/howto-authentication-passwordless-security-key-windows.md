@@ -31,7 +31,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Microsoft Entra hybrid joined devices](../devices/concept-hybrid-join.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Microsoft Entra Hybrid Authentication Management module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/2.1.1.0) |   | X |
-| [Microsoft Intune](/intune/fundamentals/what-is-intune) (Optional) | X | X |
+| [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
 
@@ -72,7 +72,7 @@ Organizations may choose to use one or more of the following methods to enable t
 
 To enable the use of security keys using Intune, complete the following steps:
 
-1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com).
+1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
 1. Browse to **Devices** > **Enroll Devices** > **Windows enrollment** > **Windows Hello for Business**.
 1. Set **Use security keys for sign-in** to **Enabled**.
 
@@ -85,7 +85,7 @@ Configuration of security keys for sign-in isn't dependent on configuring Window
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune:
 
-1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com).
+1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
 1. Browse to **Devices** > **Windows** > **Configuration profiles** > **Create profile**.
 1. Configure the new profile with the following settings:
    - Platform: Windows 10 and later
@@ -98,7 +98,7 @@ To target specific device groups to enable the credential provider, use the foll
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Data Type: Integer
       - Value: 1
-1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/intune/device-profile-assign).
+1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
 ### Enable with a provisioning package
 

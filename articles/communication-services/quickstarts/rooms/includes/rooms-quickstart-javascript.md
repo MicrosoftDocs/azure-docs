@@ -134,10 +134,12 @@ Create a new `room` using the `participants` defined in the code snippet above:
 // Create a room
 var validFrom = new Date(Date.now());
 var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);
+var pstnDialOutEnabled = false;
 
 const createRoomOptions = {
   validFrom,
   validUntil,
+  pstnDialOutEnabled,
   participants
 };
 
@@ -166,14 +168,16 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 // Update room lifetime
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
-
+pstnDialOutEnabled = true;
+// request payload to update a room
 const updateRoomOptions = {
   validFrom,
-  validUntil
+  validUntil,
+  pstnDialOutEnabled,
 };
 
 const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
-console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, " and validUntil: ", updateRoom.validUntil);
+console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, ", validUntil: ", updateRoom.validUntil, " and pstnDialOutEnabled: ", updateRoom.pstnDialOutEnabled);
 ```
 
 ## Get list of rooms
@@ -261,13 +265,13 @@ node index.js
 The expected output describes each completed action:
 
 ```console
-Azure Communication Services - Rooms Quickstart
+Azure Communication Services - Rooms QuickStart
 
 Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
+Updated room with validFrom:  2023-05-11T22:11:46.784Z, validUntil:  2023-05-11T22:16:46.784Z and pstnDialOutEnabled: true
 
 Retrieved list of rooms; printing first room:
 

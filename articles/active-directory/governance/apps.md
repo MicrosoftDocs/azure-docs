@@ -219,7 +219,7 @@ Microsoft Entra ID Governance can be integrated with many other applications, us
 | Microsoft 365 | ● | ● |
 | Microsoft Active Directory Domain Services | | ● |
 | Microsoft Azure | ● | ● |
-| [Microsoft Entra Domain Services](../../active-directory-domain-services/synchronization.md) | ● | ● |
+| [Microsoft Entra Domain Services](/entra/identity/domain-services/synchronization) | ● | ● |
 | Microsoft Azure SQL ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
 | Microsoft Lightweight Directory Server (ADAM) ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | Microsoft SharePoint Server (SharePoint) | ● |  |

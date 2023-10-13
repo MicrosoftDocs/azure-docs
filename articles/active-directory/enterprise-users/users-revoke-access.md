@@ -81,7 +81,7 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
 As an administrator in Microsoft Entra ID, open PowerShell, run ``Connect-AzureAD``, and take the following actions:
 
-1. Disable the user in Microsoft Entra ID. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
+1. Disable the user in Microsoft Entra ID. Refer to [Set-AzureADUser](/powershell/module/azuread/set-azureaduser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
@@ -124,7 +124,7 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 > [!NOTE]
 > Data on the device cannot be recovered after a wipe.
 
-- Use [Microsoft Defender for Cloud Apps to block data download](/cloud-app-security/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
+- Use [Microsoft Defender for Cloud Apps to block data download](/defender-cloud-apps/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
 
 - Enable [Continuous Access Evaluation (CAE) in Microsoft Entra ID](../conditional-access/concept-continuous-access-evaluation.md). CAE allows admins to revoke the session tokens and access tokens for applications that are CAE capable.  
 

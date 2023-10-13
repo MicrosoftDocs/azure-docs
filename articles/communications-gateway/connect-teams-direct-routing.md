@@ -12,7 +12,7 @@ ms.custom:
 
 # Connect Azure Communications Gateway to Microsoft Teams Direct Routing
 
-After you have deployed Azure Communications Gateway, you need to connect it to the Microsoft Phone System and to your core network.
+After you have deployed Azure Communications Gateway and connected it to your core network, you need to connect it to Microsoft Phone System.
 
 This article describes how to start setting up Azure Communications Gateway for Microsoft Teams Direct Routing. When you have finished the steps in this article, you can set up test users for test calls and prepare for live traffic.
 

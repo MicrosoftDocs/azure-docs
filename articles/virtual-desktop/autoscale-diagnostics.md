@@ -25,7 +25,7 @@ To enable diagnostics for your scaling plan for pooled host pools:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter **Azure Virtual Desktop**, then select the service from the drop-down menu.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Scaling plans**, then select the scaling plan you'd like the report to track.
 
@@ -54,6 +54,8 @@ To enable diagnostics for your scaling plan for personal host pools:
 1. Next, select **Autoscale logs for personal host pools** and choose either **storage account** or **event hub** depending on where you want to send the report.
 
 1. Select **Save**.
+
+---
 
 ## Find autoscale diagnostic logs in Azure Storage
 

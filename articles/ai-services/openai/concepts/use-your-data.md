@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 09/13/2023
+ms.date: 10/17/2023
 recommendations: false
 ---
 
@@ -35,11 +35,6 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 Azure OpenAI on your data uses an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.
 
-## Ingesting your data into Azure Cognitive Search
-
-For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395) to ingest the data into cognitive search. The script chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Document Intelligence](../../../ai-services/document-intelligence/overview.md).
-
-
 ## Data formats and file types
 
 Azure OpenAI on your data supports the following filetypes:
@@ -64,13 +59,101 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
     This will impact the quality of Azure Cognitive Search and the model response. 
 
+
+## Ingesting your data into Azure Cognitive Search
+
+> [!TIP]
+> For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
+
+There are three different sources of data that you can use with Azure OpenAI on your data. 
+* Blobs in an Azure storage container that you provide
+* Local files uploaded using the Azure OpenAI Studio 
+* URLs/web addresses. 
+
+Once data is ingested, an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
+
+**Data ingestion from Azure storage containers**
+
+1. Ingestion assets are created in Azure Cognitive Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
+
+2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1024 tokens each. If vector search is enabled, the service will calculate the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
+
+3. The preprocessed data is loaded from the chunks container, and indexed in the Azure Cognitive Search index. 
+
+
+**Data ingestion from local files**
+
+Using the Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
+
+**Data ingestion from URLs** 
+
+A crawling component first crawls the provided URL and stores its contents to an Azure Storage Container. The service then performs ingestion from the container. 
+
+### Troubleshooting failed ingestion jobs
+
+To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
+**Quota Limitations Issues** 
+
+*An index with the name X in service Y could not be created. Index quota has been exceeded for this service. You must either delete unused indexes first, add a delay between index creation requests, or upgrade the service for higher limits.*
+
+*Standard indexer quota of X has been exceeded for this service. You currently have X standard indexers. You must either delete unused indexers first, change the indexer 'executionMode', or upgrade the service for higher limits.* 
+
+Resolution: 
+
+Upgrade to a higher pricing tier or delete unused assets. 
+
+**Preprocessing Timeout Issues** 
+
+*Could not execute skill because the Web Api request failed*
+
+*Could not execute skill because Web Api skill response is invalid* 
+
+Resolution: 
+
+Break down the input documents into smaller documents and try again. 
+
+**Permissions Issues** 
+
+*This request is not authorized to perform this operation*
+
+Resolution: 
+
+This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
+## Custom parameters
+
+In the **Data parameters** section in Azure OpenAI Studio, you can modify following additional settings. 
+
+
+|Parameter name  | Description  |
+|---------|---------|
+|**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 3.       |
+| **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
+
 ## Virtual network support & private endpoint support
+
+See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure Cognitive Search index**. 
+
+| Network access to the Azure OpenAI Resource | Network access to the Azure Cognitive search resource | Is vector search enabled? | Azure OpenAI studio | Chat with the model using the API |
+|---------------------------------------------|-------------------------------------------------------|---------------------------|---------------------|-----------------------------------|
+| Public                                      | Public                                                | Either                    | Supported           | Supported                         |
+| Private                                     | Public                                                | Yes                       | Not supported       | Supported                         |
+| Private                                     | Public                                                | No                        | Supported           | Supported                         |
+| Regardless of resource access allowances    | Private                                               | Either                    | Not supported       | Supported                         |
+
+Additionally, data ingestion has the following configuration support:
+
+| Network access to the Azure OpenAI Resource | Network access to the Azure Cognitive search resource | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
+|---------------------------------------------|-------------------------------------------------------|-----------------------------|-----------------------------------------------------------------|
+| Public                                      | Public                                                | Supported                   | Supported                                                       |
+| Private                                     | Regardless of resource access allowances.             | Not supported               | Not supported                                                   |
+| Public                                      | Private                                               | Not supported               | Not supported                                                   |
+
+
 
 ### Azure OpenAI resources
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
-> [!NOTE]
-> If you disable public network access for your Azure OpenAI resources, you can call the `/extensions/chat/completions` API or chat with your existing index in Azure OpenAI Studio. However, vector search and blob/file ingestion in the studio is not supported.
 
 ### Azure Cognitive Search resources
 
@@ -82,8 +165,6 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
 
-> [!NOTE]
-> Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
 ### Storage accounts
 
 Storage accounts in virtual networks, firewalls, and private endpoints are currently not supported by Azure OpenAI on your data.
@@ -93,12 +174,18 @@ Storage accounts in virtual networks, firewalls, and private endpoints are curre
 To add a new data source to your Azure OpenAI resource, you need the following Azure RBAC roles.
 
 
-|Azure RBAC role  |Needed when  |
-|---------|---------|
-|[Cognitive Services Contributor](../how-to/role-based-access-control.md#cognitive-services-contributor) | You want to use Azure OpenAI on your data. |
-|[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor)     | You plan to create a new Azure Cognitive Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
+|Azure RBAC role  | Which resource needs this role? | Needed when  |
+|---------|---------|---------|
+| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure Cognitive Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
+|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure Cognitive Search resource.    | You want to use Azure OpenAI on your data.        |
+|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure Cognitive Search resource.    | You plan to create a new Azure Cognitive Search index.        |
+|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure Cognitive Search and Azure OpenAI resources, to access the storage account.       |
+| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
+| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
+| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure Cognitive Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
+
+
+
 
 ## Document-level access control
 
@@ -199,7 +286,7 @@ This system message can help improve the quality of the response by specifying t
 
 > [!NOTE]
 > The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It does not affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
-> The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior may occur if the system message contradicts with these behaviors. 
+> The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior might occur if the system message contradicts with these behaviors. 
 
 ### Maximum response 
 
@@ -207,7 +294,7 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 
 ### Limit responses to your data 
 
-This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model may more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
+This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model might more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
 
 ### Search options
 
@@ -233,7 +320,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
 | *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
-The optimal search option can vary depending on your dataset and use-case. You may need to experiment with multiple options to determine which works best for your use-case.
+The optimal search option can vary depending on your dataset and use-case. You might need to experiment with multiple options to determine which works best for your use-case.
 
 ### Index field mapping 
 
@@ -293,7 +380,7 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 
 > [!NOTE]
 > Deploying to Power Virtual Agents from Azure OpenAI is only available to US regions.
-> Power Virtual Agents supports Azure Cognitive Search indexes with keyword or semantic search only. Other data sources and advanced features may not be supported.
+> Power Virtual Agents supports Azure Cognitive Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
 
 #### Using the web app
 
@@ -317,7 +404,7 @@ When customizing the app, we recommend:
 
 ##### Important considerations
 
-- Publishing creates an Azure App Service in your subscription. It may incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
+- Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 

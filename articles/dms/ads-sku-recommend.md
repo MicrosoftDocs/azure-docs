@@ -13,7 +13,7 @@ ms.custom:
 
 # Get Azure recommendations to migrate your SQL Server database (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) helps you to assess your database requirements, get the right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
+The [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension) helps you to assess your database requirements, get the right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
 
 Learn how to use this unified experience,  collecting performance data from your source SQL Server instance to get right-sized Azure recommendations for your Azure SQL targets.
 
@@ -33,8 +33,8 @@ The diagram presents the workflow for Azure recommendations in the Azure SQL Mig
 
 To get started with Azure recommendations (Preview) for your SQL Server database migration, you must meet the following prerequisites:
 
-- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
+- [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+- [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 - Ensure that the login you use to connect the source SQL Server instance, has the [minimum permissions](#minimum-permissions).
 
 ## Supported sources and targets

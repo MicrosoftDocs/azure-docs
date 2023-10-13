@@ -24,7 +24,7 @@ Learn how to enable authentication for your web app running on Azure App Service
 
 App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app. Using the App Service authentication/authorization module isn't required, but helps simplify authentication and authorization for your app. This article shows how to secure your web app with the App Service authentication/authorization module by using Microsoft Entra ID as the identity provider.
 
-The authentication/authorization module is enabled and configured through the Azure portal and app settings. No SDKs, specific languages, or changes to application code are required.​ A variety of identity providers are supported, which includes Microsoft Entra ID, Microsoft Account, Facebook, Google, and Twitter​​. When the authentication/authorization module is enabled, every incoming HTTP request passes through it before being handled by app code.​​ To learn more, see [Authentication and authorization in Azure App Service](../../app-service/overview-authentication-authorization.md).
+The authentication/authorization module is enabled and configured through the Azure portal and app settings. No SDKs, specific languages, or changes to application code are required.​ A variety of identity providers are supported, which includes Microsoft Entra ID, Microsoft Account, Facebook, Google, and Twitter​​. When the authentication/authorization module is enabled, every incoming HTTP request passes through it before being handled by app code.​​ To learn more, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
 In this tutorial, you learn how to:
 
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Create and publish a web app on App Service
 
-For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow one of the [ASP.NET Core](../../app-service/quickstart-dotnetcore.md), [Node.js](../../app-service/quickstart-nodejs.md), [Python](../../app-service/quickstart-python.md), or [Java](../../app-service/quickstart-java.md) quickstarts to create and publish a new web app to App Service.
+For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow one of the [ASP.NET Core](/azure/app-service/quickstart-dotnetcore), [Node.js](/azure/app-service/quickstart-nodejs), [Python](/azure/app-service/quickstart-python), or [Java](/azure/app-service/quickstart-java) quickstarts to create and publish a new web app to App Service.
 
 Whether you use an existing web app or create a new one, take note of the following:
 
@@ -50,7 +50,7 @@ You need these names throughout this tutorial.
 
 ## Configure authentication and authorization
 
-You now have a web app running on App Service. Next, you enable authentication and authorization for the web app. You use Microsoft Entra ID as the identity provider. For more information, see [Configure Microsoft Entra authentication for your App Service application](../../app-service/configure-authentication-provider-aad.md).
+You now have a web app running on App Service. Next, you enable authentication and authorization for the web app. You use Microsoft Entra ID as the identity provider. For more information, see [Configure Microsoft Entra authentication for your App Service application](/azure/app-service/configure-authentication-provider-aad).
 
 In the [Azure portal](https://portal.azure.com) menu, select **Resource groups**, or search for and select **Resource groups** from any page.
 

@@ -209,4 +209,4 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 ## Next steps
 
 * [Understand Microsoft Entra application proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Microsoft Entra ID](/answers/topics/azure-active-directory.html) or create a ticket with our support team.
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Microsoft Entra ID](/answers/tags/455/entra-id) or create a ticket with our support team.

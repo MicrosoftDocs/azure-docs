@@ -67,5 +67,5 @@ When assign licenses to a group, Microsoft Entra ID processes all existing membe
 
 To learn more about the feature set for license assignment using groups, see the following articles:
 
-- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [What is group-based licensing in Microsoft Entra ID?](../fundamentals/concept-group-based-licensing.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)

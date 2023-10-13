@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 10/17/2023
 
 ms.author: justinha
 author: sabina-smith
@@ -149,7 +149,7 @@ If the sign-in was done by phone app notification, under **authenticationAppDevi
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 
 ## Push notifications in Authenticator Lite
-Push notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The settings for features included in the Authenticator Lite experience are listed in the following table. Every authentication includes a number matching prompt and does not include app and location context, regardless of Microsoft Authentiator feature settings.
+Push notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. Authenticator Lite doesn't support passwordless authentication mode. The settings for features included in the Authenticator Lite experience are listed in the following table. Every authentication includes a number matching prompt and does not include app and location context, regardless of Microsoft Authentiator feature settings.
 
 | Authenticator Feature    | Authenticator Lite Experience|
 |:------------------------:|:----------------------------:|
@@ -168,8 +168,6 @@ Authenticator Lite enforces number matching in every authentication. If your ten
 To learn more about verification notifications, see [Microsoft Authenticator authentication method](concept-authentication-authenticator-app.md).
 
 ## Common questions
-### Are users on the legacy policy eligible for Authenticator Lite? 
-No, only those users configured for Authenticator app via the modern authentication methods policy are eligible for this experience. If your tenant is currently on the legacy policy and you are interested in this feature, please migrate your users to the modern auth policy.
 
 ### Does Authenticator Lite work as a broker app?
 No, Authenticator Lite is only available for push notifications and TOTP. 

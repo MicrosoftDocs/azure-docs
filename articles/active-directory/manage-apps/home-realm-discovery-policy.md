@@ -114,7 +114,7 @@ The json object is an example HRD policy definition:
   }
   ```
 
-The policy type is "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)".
+The policy type is "[HomeRealmDiscoveryPolicy](/graph/api/resources/homerealmdiscoverypolicy)".
 
 **AccelerateToFederatedDomain** is optional. If **AccelerateToFederatedDomain** is false, the policy has no effect on auto-acceleration. If **AccelerateToFederatedDomain** is true and there's only one verified and federated domain in the tenant, then users will be taken straight to the federated IdP for sign-in. If it's true and there's more than one verified domain in the tenant, **PreferredDomain** must be specified.
 

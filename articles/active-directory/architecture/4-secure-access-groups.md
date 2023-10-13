@@ -119,7 +119,7 @@ Use Microsoft Entra security groups to assign:
   * Microsoft 365
   * Dynamics 365
   * Enterprise mobility and security
-  * See, [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+  * See, [What is group-based licensing in Microsoft Entra ID?](../fundamentals/concept-group-based-licensing.md)
 * Elevated permissions
   * See, [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md)
 

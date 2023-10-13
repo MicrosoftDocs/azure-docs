@@ -92,12 +92,12 @@ The Application Gateway [Firewall logs][waf-logs] provide more details about the
 
 ## Next steps
 
-To prevent false positives, learn how to [Customize Web Application Firewall rules](../../web-application-firewall/ag/application-gateway-customize-waf-rules-portal.md), configure [Web Application Firewall exclusion lists](../../web-application-firewall/ag/application-gateway-waf-configuration.md?tabs=portal), or [Web Application Firewall custom rules](../../web-application-firewall/ag/create-custom-waf-rules.md).
+To prevent false positives, learn how to [Customize Web Application Firewall rules](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal), configure [Web Application Firewall exclusion lists](/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal), or [Web Application Firewall custom rules](/azure/web-application-firewall/ag/create-custom-waf-rules).
 
-[waf-overview]: ../../web-application-firewall/ag/ag-overview.md
-[appgw_quick]: ../../application-gateway/quick-create-portal.md
+[waf-overview]: /azure/web-application-firewall/ag/ag-overview
+[appgw_quick]: /azure/application-gateway/quick-create-portal
 [appproxy-add-app]: ./application-proxy-add-on-premises-application.md
 [appproxy-optimize]: ./application-proxy-network-topology.md
 [appproxy-custom-domain]: ./application-proxy-configure-custom-domain.md
-[private-dns]: ../../dns/private-dns-getstarted-portal.md
-[waf-logs]: ../../application-gateway/application-gateway-diagnostics.md#firewall-log
+[private-dns]: /azure/dns/private-dns-getstarted-portal
+[waf-logs]: /azure/application-gateway/application-gateway-diagnostics#firewall-log

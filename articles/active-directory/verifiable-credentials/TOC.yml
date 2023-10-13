@@ -10,8 +10,10 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Set up the Verified ID service
+  - name: Manual Verified ID setup
     href: verifiable-credentials-configure-tenant.md
+  - name: Quick Verified ID setup
+    href: verifiable-credentials-configure-tenant-quick.md
   - name: Issue a verifiable credential
     href: verifiable-credentials-configure-issuer.md
   - name: Verify a verifiable credential

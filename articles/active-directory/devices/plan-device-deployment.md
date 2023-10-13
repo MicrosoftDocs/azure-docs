@@ -130,11 +130,11 @@ Microsoft Entra registered devices provide support for Bring Your Own Devices (B
 
 ### Registering devices
 
-Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
+Registered devices are often managed with [Microsoft Intune](/mem/intune/fundamentals/deployment-guide-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
 
 BYOD and corporate owned mobile device are registered by users installing the Company portal app.
 
-* [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
+* [iOS](/mem/intune/user-help/sign-in-to-the-company-portal)
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 * [Windows 10 or newer](/mem/intune/user-help/enroll-windows-10-device)
 * [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)

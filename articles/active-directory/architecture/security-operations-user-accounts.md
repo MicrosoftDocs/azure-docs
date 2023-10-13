@@ -74,11 +74,11 @@ The log files you use for investigation and monitoring are:
 
 * [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md)
 
-* [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
+* [Sign-in logs](../reports-monitoring/concept-sign-ins.md)
 
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
-* [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
+* [Azure Key Vault logs](/azure/key-vault/general/logging?tabs=Vault)
 
 * [Risky Users log](../identity-protection/howto-identity-protection-investigate-risk.md)
 
@@ -86,13 +86,13 @@ The log files you use for investigation and monitoring are:
 
 From the Azure portal, you can view the Microsoft Entra audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](/azure/sentinel/overview)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
 * **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Monitor](/azure/azure-monitor/overview)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
+* **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)** integrated with a SIEM - [Microsoft Entra logs can be integrated to other SIEMs](../reports-monitoring/howto-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
 
@@ -145,14 +145,14 @@ Frequently, user accounts have an attribute that identifies a real user. For exa
 | - | - | - | - | - |
 | User accounts that don't have expected attributes defined.| Low| Microsoft Entra audit logs| Activity: Add user<br>Status = success| Look for accounts with your standard attributes either null or in the wrong format. For example, EmployeeID <br> [Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/Useraccountcreatedwithoutexpectedattributesdefined.yaml) |
 | User accounts created using incorrect naming format.| Low| Microsoft Entra audit logs| Activity: Add user<br>Status = success| Look for accounts with a UPN that does not follow your naming policy. <br> [Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/UserAccountCreatedUsingIncorrectNamingFormat.yaml) |
-| Privileged accounts that don't follow naming policy.| High| Azure Subscription| [List Azure role assignments using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where sign-in name does not match your organizations format. For example, ADM_ as a prefix. |
+| Privileged accounts that don't follow naming policy.| High| Azure Subscription| [List Azure role assignments using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-list-portal)| List role assignments for subscriptions and alert where sign-in name does not match your organizations format. For example, ADM_ as a prefix. |
 | Privileged accounts that don't follow naming policy.| High| Microsoft Entra directory| [List Microsoft Entra role assignments](../roles/view-assignments.md)| List roles assignments for Microsoft Entra roles alert where UPN doesn't match your organizations format. For example, ADM_ as a prefix. |
 
 For more information on parsing, see:
 
-* Microsoft Entra audit logs - [Parse text data in Azure Monitor Logs](../../azure-monitor/logs/parse-text.md)
+* Microsoft Entra audit logs - [Parse text data in Azure Monitor Logs](/azure/azure-monitor/logs/parse-text)
 
-* Azure Subscriptions - [List Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md)
+* Azure Subscriptions - [List Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell)
 
 * Microsoft Entra ID - [List Microsoft Entra role assignments](../roles/view-assignments.md)
 
@@ -220,7 +220,7 @@ For this risk area, we recommend you monitor standard user accounts and privileg
 
 ### How to detect
 
-You use Azure Identity Protection and the Microsoft Entra sign-in logs to help discover threats indicated by unusual sign-in characteristics. Information about Identity Protection is available at [What is Identity Protection](../identity-protection/overview-identity-protection.md). You can also replicate the data to Azure Monitor or a SIEM for monitoring and alerting purposes. To define normal for your environment and to set a baseline, determine:
+You use Microsoft Entra ID Protection and the Microsoft Entra sign-in logs to help discover threats indicated by unusual sign-in characteristics. Information about Identity Protection is available at [What is Identity Protection](../identity-protection/overview-identity-protection.md). You can also replicate the data to Azure Monitor or a SIEM for monitoring and alerting purposes. To define normal for your environment and to set a baseline, determine:
 
 * the parameters you consider normal for your user base.
 

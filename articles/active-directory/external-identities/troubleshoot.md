@@ -20,7 +20,7 @@ Here are some remedies for common problems with Microsoft Entra B2B collaboratio
    > [!IMPORTANT]
    >
    > - **Starting July 12, 2021**,  if Microsoft Entra B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](/azure/active-directory-b2c/identity-provider-google) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 ## Guest sign-in fails with error code AADSTS50020
@@ -75,7 +75,7 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 
 ## My guest invite settings and domain restrictions aren't being respected by SharePoint Online/OneDrive
 
-By default, SharePoint Online and OneDrive have their own set of external user options and don't use the settings from Microsoft Entra ID.  You need to enable [SharePoint and OneDrive integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration-preview) to ensure the options are consistent among those applications.
+By default, SharePoint Online and OneDrive have their own set of external user options and don't use the settings from Microsoft Entra ID.  You need to enable [SharePoint and OneDrive integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration) to ensure the options are consistent among those applications.
 ## Invitations have been disabled for directory
 
 If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Identity > Users > User settings > External users > Manage external collaboration settings:
@@ -162,7 +162,7 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 
 ## In an Azure US Government tenant, I can't invite a B2B collaboration guest user
 
-Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Microsoft Entra ID P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
+Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Microsoft Entra ID P1 and P2 Variations](/azure/azure-government/compare-azure-government-global-azure#azure-active-directory-premium-p1-and-p2).
 
 If you need to collaborate with a Microsoft Entra organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings](cross-cloud-settings.md) to enable B2B collaboration.
 
@@ -202,7 +202,7 @@ Let's say you inadvertently invite a guest user with an email address that match
 
 ## External access blocked by policy error on the login screen
 
-When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](/azure/active-directory/manage-apps/tenant-restrictions).
+When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](../manage-apps/tenant-restrictions.md).
 
 ## Invitation is blocked due missing cross-tenant access settings 
 

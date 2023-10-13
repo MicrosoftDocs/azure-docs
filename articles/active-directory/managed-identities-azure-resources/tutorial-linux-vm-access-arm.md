@@ -33,7 +33,7 @@ You learn how to:
 - An understanding of Managed identities. If you're not familiar with managed identities, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
 - You also need a Linux Virtual machine that has system assigned managed identities enabled. If you have a VM but need to enable [system assigned managed identities](qs-configure-portal-windows-vm.md) you can do it in the identity section of the virtual machine's properties. 
-  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](/azure/virtual-machines/linux/quick-create-portal#create-virtual-machine)
 
 ## Grant access
 
@@ -56,7 +56,7 @@ When you use managed identities for Azure resources, your code can get access to
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Resource Manager
 
-To complete these steps, you need an SSH client. If you're using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client. If you're using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, select **Connect**.
 
@@ -117,5 +117,5 @@ The response back with the specific Resource Group information:
 In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API. For more information about Azure Resource Manager, see:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+>[Azure Resource Manager](/azure/azure-resource-manager/management/overview)
 >[Create, list or delete a user-assigned managed identity using Azure PowerShell](how-to-manage-ua-identity-powershell.md)

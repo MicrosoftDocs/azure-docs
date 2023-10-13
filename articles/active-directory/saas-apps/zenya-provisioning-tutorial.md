@@ -124,7 +124,9 @@ For more information (in dutch) also read: [`Implementatie SCIM koppeling`](http
    |userName|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
-
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |title|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
 
 
 1. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Zenya**.

@@ -99,7 +99,7 @@ items:
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
     - name: Sign-ins using legacy authentication  
-      href: workbook-legacy authentication.md
+      href: workbook-legacy-authentication.md
 
 - name: Identity monitoring
   expanded: true

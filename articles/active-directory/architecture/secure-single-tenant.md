@@ -44,7 +44,7 @@ By using Privileged Identity Management (PIM) you can define who in your organiz
 >[!NOTE]
 >Using PIM requires and Microsoft Entra ID P2 license per human.
 
-If you must ensure that global administrators are unable to manage a specific resource, you must isolate that resource in a separate tenant with separate global administrators. This can be especially important for backups, see [multi-user authorization guidance](../../backup/multi-user-authorization.md) for examples of this.
+If you must ensure that global administrators are unable to manage a specific resource, you must isolate that resource in a separate tenant with separate global administrators. This can be especially important for backups, see [multi-user authorization guidance](/azure/backup/multi-user-authorization) for examples of this.
 
 ## Common usage
 
@@ -63,7 +63,7 @@ Another scenario for isolation within a single tenant could be separation betwee
 
 Azure RBAC role assignments allow scoped administration of Azure resources. Similarly, Microsoft Entra ID allows granular management of Microsoft Entra ID trusting applications through multiple capabilities such as Conditional Access, user and group filtering, administrative unit assignments and application assignments.
 
-If you must ensure full isolation (including staging of organization-level configuration) of Microsoft 365 services, you need to choose a [multiple tenant isolation](../../backup/multi-user-authorization.md).
+If you must ensure full isolation (including staging of organization-level configuration) of Microsoft 365 services, you need to choose a [multiple tenant isolation](/azure/backup/multi-user-authorization).
 
 ## Scoped management in a single tenant
 
@@ -84,7 +84,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 * **Individual resources** - You can assign roles to specific resources so that they don't impact any other resources. In the example above, the Benefits engineering team can assign a data analyst the Cosmos DB Account Reader role just for the test instance of the Azure Cosmos DB database, without interfering with the test web app or any production resource.
 
-For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles) and [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview).
 
 This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there's to lower levels. Top-level scopes affect all Azure resources in the Microsoft Entra tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](https://www.microsoft.com/security/business/identity-access/microsoft-entra-permissions-management) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
 
@@ -92,7 +92,7 @@ This is a hierarchical structure, so the higher up in the hierarchy, the more sc
 
 * Global Administrators can [elevate access](https://aka.ms/AzureADSecuredAzure/12a) to all subscriptions and management groups.
 
-Both top-level scopes should be strictly monitored. It's important to plan for other dimensions of resource isolation such as networking. For general guidance on Azure networking, see [Azure best practices for network security](../../security/fundamentals/network-best-practices.md). Infrastructure as a Service (IaaS) workloads have special scenarios where both identity and resource isolation need to be part of the overall design and strategy.
+Both top-level scopes should be strictly monitored. It's important to plan for other dimensions of resource isolation such as networking. For general guidance on Azure networking, see [Azure best practices for network security](/azure/security/fundamentals/network-best-practices). Infrastructure as a Service (IaaS) workloads have special scenarios where both identity and resource isolation need to be part of the overall design and strategy.
 
 Consider isolating sensitive or test resources according to [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/). For example, Identity subscription should be assigned to separated management group and all subscriptions for development purposes could be separated in "Sandbox" management group. More details can be found in the [Enterprise-Scale documentation](/azure/cloud-adoption-framework/ready/enterprise-scale/faq). Separation for testing purposes within a single tenant is also considered in the [management group hierarchy of the reference architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/testing-approach).
 

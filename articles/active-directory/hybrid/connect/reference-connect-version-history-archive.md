@@ -1289,7 +1289,7 @@ Released: November 2015
 
 **New supported scenario:**
 
-* Supports multiple on-premises Exchange organizations. For more information, see [Hybrid deployments with multiple Active Directory forests](/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
+* Supports multiple on-premises Exchange organizations. For more information, see [Hybrid deployments with multiple Active Directory forests](/Exchange/hybrid-deployment/hybrid-with-multiple-forests).
 
 **Fixed issues:**
 

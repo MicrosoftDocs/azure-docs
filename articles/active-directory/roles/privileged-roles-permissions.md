@@ -47,7 +47,7 @@ When you create a custom role, you can see which permissions are privileged and 
 
 In Microsoft Graph PowerShell, check whether the `IsPrivileged` property is set to `True`.
 
-To list privileged roles, use the [Get-MgBetaRoleManagementDirectoryRoleDefinition](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryRoleDefinition) command.
+To list privileged roles, use the [Get-MgBetaRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.beta.identity.governance/get-mgbetarolemanagementdirectoryroledefinition) command.
 
 ```powershell
 Get-MgBetaRoleManagementDirectoryRoleDefinition -Filter "isPrivileged eq true" | Format-List
@@ -89,7 +89,7 @@ AdditionalProperties    : {[inheritsPermissionsFrom@odata.context, https://graph
 ...
 ```
 
-To list privileged permissions, use the [Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction) command.
+To list privileged permissions, use the [Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction](/powershell/module/microsoft.graph.beta.identity.governance/get-mgbetarolemanagementdirectoryresourcenamespaceresourceaction) command.
 
 ```powershell
 Get-MgBetaRoleManagementDirectoryResourceNamespaceResourceAction -UnifiedRbacResourceNamespaceId "microsoft.directory" -Filter "isPrivileged eq true" | Format-List
@@ -123,7 +123,7 @@ AdditionalProperties            : {}
 ...
 ```
 
-To list privileged role assignments, use the [Get-MgBetaRoleManagementDirectoryRoleAssignment](/powershell/module/Microsoft.Graph.Beta.Identity.Governance/Get-MgBetaRoleManagementDirectoryRoleAssignment) command.
+To list privileged role assignments, use the [Get-MgBetaRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.beta.identity.governance/get-mgbetarolemanagementdirectoryroleassignment) command.
 
 ```powershell
 Get-MgBetaRoleManagementDirectoryRoleAssignment -ExpandProperty "roleDefinition" -Filter "roleDefinition/isPrivileged eq true" | Format-List

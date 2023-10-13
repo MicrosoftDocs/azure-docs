@@ -55,7 +55,7 @@ Workaround for managed identities in a subscription that has been moved to anoth
  - For system assigned managed identities: disable and re-enable. 
  - For user assigned managed identities: delete, re-create, and attach them again to the necessary resources (for example, virtual machines)
 
-For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
+For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](/azure/role-based-access-control/transfer-subscription).
 
 ## Error during managed identity assignment operations
 In rare cases, you may see error messages indicating errors related to assignment of managed identities with Azure resources. Some of the example error messages are as follows: 

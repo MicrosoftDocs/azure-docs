@@ -208,7 +208,7 @@ To match the display and rules definitions, you should make your application's o
 },
 ```
 
-**For Azure Active Directory B2C**: Configuring other claims in your ID token depends on whether your B2C policy is a *user flow* or a *custom policy*. For information about user flows, see [Set up a sign-up and sign-in flow in Azure Active Directory B2C](../../active-directory-b2c/add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow). For information about custom policy, see [Provide optional claims to your app](../../active-directory-b2c/configure-tokens.md?pivots=b2c-custom-policy#provide-optional-claims-to-your-app).  
+**For Azure Active Directory B2C**: Configuring other claims in your ID token depends on whether your B2C policy is a *user flow* or a *custom policy*. For information about user flows, see [Set up a sign-up and sign-in flow in Azure Active Directory B2C](/azure/active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-user-flow). For information about custom policy, see [Provide optional claims to your app](/azure/active-directory-b2c/configure-tokens?pivots=b2c-custom-policy#provide-optional-claims-to-your-app).  
 
 For other identity providers, see the relevant documentation.
 

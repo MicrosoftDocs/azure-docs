@@ -67,7 +67,7 @@ For detailed information on the topic, see [KCD for single sign-on](application-
 
 * **DNS records for URLs**
 
-   * Before using custom domains in Application Proxy you must create a CNAME record in public DNS, allowing clients to resolve the custom defined external URL to the pre-defined Application Proxy address. Failing to create a CNAME record for an application that uses a custom domain will prevent remote users from connecting to the application. Steps required to add CNAME records can vary from DNS provider to provider, so learn how to [manage DNS records and record sets by using the Microsoft Entra admin center](../../dns/dns-operations-recordsets-portal.md).
+   * Before using custom domains in Application Proxy you must create a CNAME record in public DNS, allowing clients to resolve the custom defined external URL to the pre-defined Application Proxy address. Failing to create a CNAME record for an application that uses a custom domain will prevent remote users from connecting to the application. Steps required to add CNAME records can vary from DNS provider to provider, so learn how to [manage DNS records and record sets by using the Microsoft Entra admin center](/azure/dns/dns-operations-recordsets-portal).
 
    * Similarly, connector hosts must be able to resolve the internal URL of applications being published.
 
@@ -300,7 +300,7 @@ The connectors and the service take care of all the high availability tasks. You
 
 #### Windows event logs and performance counters
 
-Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Microsoft Entra application proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/agents/data-sources-windows-events.md).
+Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Microsoft Entra application proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](/azure/azure-monitor/agents/data-sources-windows-events).
 
 ### Troubleshooting guide and steps
 

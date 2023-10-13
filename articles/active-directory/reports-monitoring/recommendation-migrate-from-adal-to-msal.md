@@ -78,7 +78,7 @@ df.onecloud.azure-test.net/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBla
 
 ### [Microsoft Graph PowerShell SDK](#tab/Microsoft-Graph-PowerShell-SDK)
 
-You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](/graph/powershell/installation) to get a list of all applications in your tenant that use ADAL.
+You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) to get a list of all applications in your tenant that use ADAL.
 
 1. Open Windows PowerShell as an administrator.
 

@@ -29,7 +29,7 @@ The following Windows components play a key role in requesting and using a PRT:
 * **Microsoft Entra CloudAP plugin**: a Microsoft Entra specific plugin built on the CloudAP framework that verifies user credentials with Microsoft Entra ID during Windows sign in.
 * **Microsoft Entra WAM plugin**: a Microsoft Entra specific plugin built on the WAM framework that enables SSO to applications that rely on Microsoft Entra ID for authentication.
 * **Dsreg**: a Microsoft Entra specific component on Windows 10 or newer, that handles the device registration process for all device states.
-* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](/windows/security/hardware-security/tpm/trusted-platform-module-overview).
 
 ## What does the PRT contain?
 
@@ -44,7 +44,7 @@ A PRT is an opaque blob sent from Microsoft Entra whose contents aren't known to
 
 ## How is a PRT issued?
 
-Device registration is a prerequisite for device based authentication in Microsoft Entra ID. A PRT is issued to users only on registered devices. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). During device registration, the dsreg component generates two sets of cryptographic key pairs:
+Device registration is a prerequisite for device based authentication in Microsoft Entra ID. A PRT is issued to users only on registered devices. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](./device-registration-how-it-works.md). During device registration, the dsreg component generates two sets of cryptographic key pairs:
 
 * Device key (dkpub/dkpriv)
 * Transport key (tkpub/tkpriv)
@@ -129,7 +129,7 @@ A PRT can get a multifactor authentication claim in specific scenarios. When an 
    * As Windows Hello for Business is considered multifactor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with Windows Hello for Business.
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim isn't updated continuously, so the MFA duration is based on the lifetime set on the directory.
-   * When a previous existing PRT and RT are used for access to an app, the PRT and RT are regarded as the first proof of authentication. A new AT is required with a second proof and an imprinted MFA claim. This process also issues a new PRT and RT.
+   * When a previous existing PRT and RT are used for access to an app, the PRT and RT are regarded as the first proof of authentication. A new RT is required with a second proof and an imprinted MFA claim. This process also issues a new PRT and RT.
 
 Windows 10 or newer maintain a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
 

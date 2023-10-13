@@ -121,7 +121,7 @@ Like a user in your organization, a device is a core identity you want to protec
 
 You can carry out this goal by bringing device identities and managing them in Microsoft Entra ID by using one of the following methods:
 
-- Organizations can use [Microsoft Intune](/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set Conditional Access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Configuration Manager) and Android mobile devices.
+- Organizations can use [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set Conditional Access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Configuration Manager) and Android mobile devices.
 - [Microsoft Entra hybrid join](../devices/how-to-hybrid-join.md) provides management with Group Policies or Microsoft Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Microsoft Entra ID maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md) at the same time.
 
 If you have domain-joined Windows devices that aren't registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without Conditional Access policies, then you should register the unregistered devices and, in either case, [use Microsoft Entra hybrid join as a control](../conditional-access/concept-conditional-access-grant.md) in your Conditional Access policies.
@@ -252,7 +252,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 #### Conditional Access recommended reading
 
 - [Best practices for Conditional Access in Microsoft Entra ID](../conditional-access/overview.md)
-- [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Identity and device access configurations](/microsoft-365/security/office-365-security/microsoft-365-policies-configurations)
 - [Microsoft Entra Conditional Access settings reference](../conditional-access/concept-conditional-access-conditions.md)
 - [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
 
@@ -269,7 +269,7 @@ Legacy authentication is a term that refers to authentication protocols used by 
 
 Attackers strongly prefer these protocols - in fact, nearly [100% of password spray attacks](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) use legacy authentication protocols! Hackers use legacy authentication protocols, because they don't support interactive sign-in, which is needed for additional security challenges like multifactor authentication and device authentication.
 
-If legacy authentication is widely used in your environment, you should plan to migrate legacy clients to clients that support [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) as soon as possible. In the same token, if you have some users already using modern authentication but others that still use legacy authentication, you should take the following steps to lock down legacy authentication clients:
+If legacy authentication is widely used in your environment, you should plan to migrate legacy clients to clients that support [modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016) as soon as possible. In the same token, if you have some users already using modern authentication but others that still use legacy authentication, you should take the following steps to lock down legacy authentication clients:
 
 1. Use [Sign-In Activity reports](../reports-monitoring/concept-sign-ins.md) to identify users who are still using legacy authentication and plan remediation:
 
@@ -312,7 +312,7 @@ Below are a list of apps with permissions you might want to scrutinize for Micro
 | Microsoft Graph API| Directory.AccessAsUser.All |
 | Azure REST API | user_impersonation |
 
-To avoid this scenario, you should refer to [detect and remediate illicit consent grants in Office 365](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) to identify and fix any applications with illicit grants or applications that have more grants than are necessary. Next, [remove self-service altogether](../manage-apps/configure-user-consent.md) and [establish governance procedures](../manage-apps/configure-admin-consent-workflow.md). Finally, schedule regular reviews of app permissions and remove them when they are not needed.
+To avoid this scenario, you should refer to [detect and remediate illicit consent grants in Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) to identify and fix any applications with illicit grants or applications that have more grants than are necessary. Next, [remove self-service altogether](../manage-apps/configure-user-consent.md) and [establish governance procedures](../manage-apps/configure-admin-consent-workflow.md). Finally, schedule regular reviews of app permissions and remove them when they are not needed.
 
 #### Consent grants recommended reading
 
@@ -352,7 +352,7 @@ Attackers originate from various parts of the world. Manage this risk by using C
 
 ![Create a new named location](./media/ops-guide-auth/ops-img14.png)
 
-If available, use a security information and event management (SIEM) solution to analyze and find patterns of access across regions. If you don't use a SIEM product, or it isn't ingesting authentication information from Microsoft Entra ID, we recommend you use [Azure Monitor](../../azure-monitor/overview.md) to identify patterns of access across regions.
+If available, use a security information and event management (SIEM) solution to analyze and find patterns of access across regions. If you don't use a SIEM product, or it isn't ingesting authentication information from Microsoft Entra ID, we recommend you use [Azure Monitor](/azure/azure-monitor/overview) to identify patterns of access across regions.
 
 ## Access usage
 
@@ -360,7 +360,7 @@ If available, use a security information and event management (SIEM) solution t
 
 ### Microsoft Entra logs archived and integrated with incident response plans
 
-Having access to sign-in activity, audits and risk events for Microsoft Entra ID is crucial for troubleshooting, usage analytics, and forensics investigations. Microsoft Entra ID provides access to these sources through REST APIs that have a limited retention period. A security information and event management (SIEM) system, or equivalent archival technology, is key for long-term storage of audits and supportability. To enable long-term storage of Microsoft Entra logs, you must either add them to your existing SIEM solution or use [Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md). Archive logs that can be used as part of your incident response plans and investigations.
+Having access to sign-in activity, audits and risk events for Microsoft Entra ID is crucial for troubleshooting, usage analytics, and forensics investigations. Microsoft Entra ID provides access to these sources through REST APIs that have a limited retention period. A security information and event management (SIEM) system, or equivalent archival technology, is key for long-term storage of audits and supportability. To enable long-term storage of Microsoft Entra logs, you must either add them to your existing SIEM solution or use [Azure Monitor](../reports-monitoring/concept-log-monitoring-integration-options-considerations.md). Archive logs that can be used as part of your incident response plans and investigations.
 
 #### Logs recommended reading
 
@@ -369,7 +369,7 @@ Having access to sign-in activity, audits and risk events for Microsoft Entra ID
 - [Get data using the Microsoft Entra reporting API with certificates](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 - [Microsoft Graph for Microsoft Entra ID Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 Management Activity API reference](/office/office-365-management-api/office-365-management-activity-api-reference)
-- [How to use the Microsoft Entra ID Power BI Content Pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
+- [How to use the Microsoft Entra ID Power BI Content Pack](../reports-monitoring/howto-use-workbooks.md)
 
 ## Summary
 

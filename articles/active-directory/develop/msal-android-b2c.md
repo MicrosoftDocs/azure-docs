@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Use MSAL for Android with B2C
 
-The Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
+The Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](/azure/active-directory-b2c/). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
 
 ## Choosing a compatible authorization_user_agent
 The B2C identity management system supports authentication with a number of social account providers such as Google, Facebook, Twitter, and Amazon. If you plan to support such account types in your app, it is recommended that you configure your MSAL public client application to use either the `DEFAULT` or `BROWSER` value when specifying your manifest's [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) due to restrictions prohibiting use of WebView-based authentication with some external identity providers.
@@ -59,7 +59,7 @@ The configuration file for the app would declare two `authorities`. One for each
 }
 ```
 
-The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](../../active-directory-b2c/authorization-code-flow.md).
+The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](/azure/active-directory-b2c/authorization-code-flow).
 
 ## Initialize IPublicClientApplication
 
@@ -232,7 +232,7 @@ String tenantId = account.getTenantId();
 
 ### IdToken claims
 
-Claims returned in the IdToken are populated by the Security Token Service (STS), not by MSAL. Depending on the identity provider (IdP) used, some claims may be absent. Some IdPs don't currently provide the `preferred_username` claim. Because this claim is used by MSAL for caching, a placeholder value, `MISSING FROM THE TOKEN RESPONSE`, is used in its place. For more information on B2C IdToken claims, see [Overview of tokens in Azure Active Directory B2C](../../active-directory-b2c/tokens-overview.md#claims).
+Claims returned in the IdToken are populated by the Security Token Service (STS), not by MSAL. Depending on the identity provider (IdP) used, some claims may be absent. Some IdPs don't currently provide the `preferred_username` claim. Because this claim is used by MSAL for caching, a placeholder value, `MISSING FROM THE TOKEN RESPONSE`, is used in its place. For more information on B2C IdToken claims, see [Overview of tokens in Azure Active Directory B2C](/azure/active-directory-b2c/tokens-overview#claims).
 
 ## Managing accounts and policies
 
@@ -244,4 +244,4 @@ When you renew tokens for a policy with `acquireTokenSilent`, provide the same `
 
 ## Next steps
 
-Learn more about Azure Active Directory B2C (Azure AD B2C) at [What is Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
+Learn more about Azure Active Directory B2C (Azure AD B2C) at [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)

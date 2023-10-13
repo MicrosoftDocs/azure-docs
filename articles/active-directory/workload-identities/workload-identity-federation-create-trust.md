@@ -36,7 +36,7 @@ To learn more about supported regions, time to propagate federated credential up
 ::: zone pivot="identity-wif-apps-methods-azp"
 
 ## Prerequisites
-[Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
+[Create an app registration](../develop/quickstart-register-app.md) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of app registrations and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
@@ -145,7 +145,7 @@ Select the **Kubernetes accessing Azure resources** scenario from the dropdown m
 
 Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
 
-- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
+- **Cluster issuer URL** is the [OIDC issuer URL](/azure/aks/use-oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
 - **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod.
 - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which can't be changed later.
@@ -182,7 +182,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- [Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
+- [Create an app registration](../develop/quickstart-register-app.md) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
 - Find the object ID, app (client) ID, or identifier URI of the app, which you need in the following steps.  You can find these values in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of registered applications and select your app registration.  In **Overview**->**Essentials**, get the **Object ID**, **Application (client) ID**, or **Application ID URI** value, which you need in the following steps.
 - Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
@@ -219,7 +219,7 @@ az ad app federated-credential create --id f6475511-fd81-4965-a00e-41e7792b7b9c 
 
 ### Kubernetes example
 
-*issuer* is your service account issuer URL (the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).
+*issuer* is your service account issuer URL (the [OIDC issuer URL](/azure/aks/use-oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).
 
 *subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
 
@@ -310,9 +310,9 @@ az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c 
 ## Prerequisites
 
 - To run the example scripts, you have two options:
-  - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
+  - Use [Azure Cloud Shell](/azure/cloud-shell/overview), which you can open by using the **Try It** button in the upper-right corner of code blocks.
   - Run scripts locally with Azure PowerShell, as described in the next section.
-- [Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
+- [Create an app registration](../develop/quickstart-register-app.md) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
 - Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of registered applications and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 - Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
@@ -364,7 +364,7 @@ New-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -Audience api:/
 ### Kubernetes example
 
 - *ApplicationObjectId*: the object ID of the app (not the application (client) ID) you previously registered in Microsoft Entra ID.
-- *Issuer* is your service account issuer URL (the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).
+- *Issuer* is your service account issuer URL (the [OIDC issuer URL](/azure/aks/use-oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).
 - *Subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
 - *Name* is the name of the federated credential, which can't be changed later.
 - *Audience* lists the audiences that can appear in the `aud` claim of the external token.
@@ -416,7 +416,7 @@ Remove-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -FederatedCr
 ::: zone pivot="identity-wif-apps-methods-rest"
 
 ## Prerequisites
-[Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
+[Create an app registration](../develop/quickstart-register-app.md) in Microsoft Entra ID.  Grant your app access to the Azure resources targeted by your external software workload.
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of registered applications and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
@@ -464,7 +464,7 @@ And you get the response:
 
 Run the following method to configure a federated identity credential on an app and create a trust relationship with a Kubernetes service account.  Specify the following parameters:
 
-- *issuer* is your service account issuer URL (the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).
+- *issuer* is your service account issuer URL (the [OIDC issuer URL](/azure/aks/use-oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).
 - *subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
 - *name* is the name of the federated credential, which can't be changed later.
 - *audiences* lists the audiences that can appear in the external token.  This field is mandatory.  The recommended value is "api://AzureADTokenExchange".
@@ -587,5 +587,5 @@ az rest -m DELETE  -u 'https://graph.microsoft.com/applications/f6475511-fd81-49
 - To learn how to use workload identity federation for Kubernetes, see [Microsoft Entra Workload ID for Kubernetes](https://azure.github.io/azure-workload-identity/docs/quick-start.html) open source project.
 - To learn how to use workload identity federation for GitHub Actions, see [Configure a GitHub Actions workflow to get an access token](/azure/developer/github/connect-from-azure).
 - Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
-- For more information, read about how Microsoft Entra ID uses the [OAuth 2.0 client credentials grant](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
+- For more information, read about how Microsoft Entra ID uses the [OAuth 2.0 client credentials grant](../develop/v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
 - For information about the required format of JWTs created by external identity providers, read about the [assertion format](/azure/active-directory/develop/active-directory-certificate-credentials#assertion-format).

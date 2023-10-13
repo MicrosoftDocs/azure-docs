@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
 
@@ -87,7 +87,7 @@ If you're in the middle of creating a support request *and* the options you sele
 
     ![Screenshot of the support request fields that start the sign-in diagnostics.](media/howto-use-sign-in-diagnostics/sign-in-support-request.png)
 
-## How to use the diagnostic Results
+## How to use the diagnostic results
 
 After the Sign-in diagnostic completes its search, a few things appear on the screen:
 

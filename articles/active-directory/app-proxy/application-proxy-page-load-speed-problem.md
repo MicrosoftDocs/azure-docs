@@ -20,7 +20,7 @@ This article helps you to understand why a Microsoft Entra application proxy app
 ## Overview
 Although your applications are working, they can experience a long latency. There might be network topology tweaks that you can make to improve speed. For an evaluation of different topologies, see the [network considerations document](application-proxy-network-topology.md).
 
-Besides network topology, there are currently no further recommendations for performance tuning. As the Application Proxy service expands it might come to a data center that is physically closer. The closer proximity might help with latency. For a list of Azure data centers, see the [latency test page](http://www.azurespeed.com/Azure/Latency). 
+Besides network topology, there are currently no further recommendations for performance tuning. As the Application Proxy service expands it might come to a data center that is physically closer. The closer proximity might help with latency. For a list of Azure data centers, see the [latency test page](https://www.azurespeed.com/Azure/Latency). 
 
 ## Next steps
 [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)

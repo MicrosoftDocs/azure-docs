@@ -257,3 +257,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
 
     Yes, you can select multiple clusters at the time of creating the datastore. Additional clusters may be added or removed after the initial creation as well.
+
+- **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution SDDCs?**
+
+    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network.

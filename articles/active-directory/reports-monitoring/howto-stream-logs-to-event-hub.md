@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 10/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -22,7 +22,7 @@ This article shows how you can stream your logs to an event hub, to integrate wi
 
 To stream logs to a SIEM tool, you first need to create an **Azure event hub**. 
 
-Once you have an event hub that contains Microsoft Entra activity logs, you can set up the SIEM tool integration using the **Microsoft Entra Diagnostics Settings**.
+Once you have an event hub that contains Microsoft Entra activity logs, you can set up the SIEM tool integration using the **Microsoft Entra diagnostic settings**.
 
 ## Stream logs to an event hub
 
@@ -111,7 +111,7 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 ## Activity log integration options and considerations
 
-If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up **custom tooling** by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up **custom tooling** by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 **IBM QRadar** is another option for integrating with Microsoft Entra activity logs. The DSM and Azure Event Hubs Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
 

@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 A common challenge for developers is the management of secrets, credentials, certificates, and keys used to secure communication between services. Managed identities eliminate the need for developers to manage these credentials. 
 
-While developers can securely store the secrets in [Azure Key Vault](../../key-vault/general/overview.md), services need a way to access Azure Key Vault. Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication. Applications can use managed identities to obtain Microsoft Entra tokens without having to manage any credentials.
+While developers can securely store the secrets in [Azure Key Vault](/azure/key-vault/general/overview), services need a way to access Azure Key Vault. Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication. Applications can use managed identities to obtain Microsoft Entra tokens without having to manage any credentials.
 
 The following video shows how you can use managed identities:</br>
 
@@ -48,7 +48,7 @@ There are two types of managed identities:
     - You authorize the managed identity to have access to one or more services.
     - The name of the system-assigned service principal is always the same as the name of the Azure resource it is created for. For a deployment slot, the name of its system-assigned identity is ```<app-name>/slots/<slot-name>```.
 
-- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:      
+- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](./how-to-manage-ua-identity-portal.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:
     - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is managed separately from the resources that use it. 
     - User-assigned identities can be used by multiple resources.
     - You authorize the managed identity to have access to one or more services.
@@ -83,15 +83,15 @@ Resources that support system assigned managed identities allow you to:
 
 - Enable or disable managed identities at the resource level.
 - Use role-based access control (RBAC) to [grant permissions](howto-assign-access-portal.md).
-- View the create, read, update, and delete (CRUD) operations in [Azure Activity logs](../../azure-monitor/essentials/activity-log.md).
+- View the create, read, update, and delete (CRUD) operations in [Azure Activity logs](/azure/azure-monitor/essentials/activity-log).
 - View sign in activity in Microsoft Entra ID [sign in logs](../reports-monitoring/concept-sign-ins.md).
 
 If you choose a user assigned managed identity instead:
 
-- You can [create, read, update, and delete](how-to-manage-ua-identity-portal.md) the identities.
+- You can [create, read, update, and delete](./how-to-manage-ua-identity-portal.md) the identities.
 - You can use RBAC role assignments to [grant permissions](howto-assign-access-portal.md).
 - User assigned managed identities can be used on more than one resource.
-- CRUD operations are available for review in [Azure Activity logs](../../azure-monitor/essentials/activity-log.md).
+- CRUD operations are available for review in [Azure Activity logs](/azure/azure-monitor/essentials/activity-log).
 - View sign in activity in Microsoft Entra ID [sign in logs](../reports-monitoring/concept-sign-ins.md).
 
 Operations on managed identities can be performed by using an Azure Resource Manager template, the Azure portal, Azure CLI, PowerShell, and REST APIs.
@@ -101,7 +101,7 @@ Operations on managed identities can be performed by using an Azure Resource Man
 * [Developer introduction and guidelines](overview-for-developers.md)
 * [Use a Windows VM system-assigned managed identity to access Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Use a Linux VM system-assigned managed identity to access Resource Manager](tutorial-linux-vm-access-arm.md)
-* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
-* [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
+* [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
+* [How to use managed identities with Azure Container Instances](/azure/container-instances/container-instances-managed-identity)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
 * Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra protected resources without managing secrets

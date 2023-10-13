@@ -28,7 +28,7 @@ SHA enables organizations to continue using investments in F5 network and applic
 When Microsoft Entra ID pre-authenticates access to BIG-IP published services, there are many benefits:
 
 - Password-less authentication with:
-  -  [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview)
+  -  [Windows Hello](/windows/security/identity-protection/hello-for-business/)
   -  [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
   -  [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md)
   -  [Certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
@@ -46,7 +46,7 @@ Other benefits include:
 - Entitlement management for governed guest access
   - [Partner collaboration](../governance/entitlement-management-external-users.md)
 - App discovery and control
-  - [Defender for Cloud Apps (CASB)](/cloud-app-security/what-is-cloud-app-security)
+  - [Defender for Cloud Apps (CASB)](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 - Threat monitoring and analytics with [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
 ## Scenario description
@@ -77,7 +77,7 @@ The following diagram illustrates the front-end pre-authentication exchange betw
 2. BIG-IP redirects the user to the SAML identity provider (IdP), Microsoft Entra ID, for pre-authentication
 3. Microsoft Entra ID processes Conditional Access policies and [session controls](../conditional-access/concept-conditional-access-session.md) for authorization
 4. User goes back to BIG-IP, and presents the SAML claims issued by Microsoft Entra ID
-5. BIG-IP requests session information for [SSO](../hybrid/connect/how-to-connect-sso.md) and [role-based access control (RBAC)](../../role-based-access-control/overview.md) to the published service
+5. BIG-IP requests session information for [SSO](../hybrid/connect/how-to-connect-sso.md) and [role-based access control (RBAC)](/azure/role-based-access-control/overview) to the published service
 6. BIG-IP forwards the client request to the back-end service
 
 ## User experience
@@ -96,7 +96,7 @@ Users access the My Apps portal to find BIG-IP published services and to manage 
 
 You can monitor deployed BIG-IP instances to ensure published services are highly available, at an SHA level and operationally.
 
-There are several options to log events locally, or remotely through a Security Information and Event Management (SIEM) solution, which enables storage and telemetry processing. To monitor Microsoft Entra ID and SHA activity, you can use [Azure Monitor](../../azure-monitor/overview.md) and [Microsoft Sentinel](../../sentinel/overview.md), together:
+There are several options to log events locally, or remotely through a Security Information and Event Management (SIEM) solution, which enables storage and telemetry processing. To monitor Microsoft Entra ID and SHA activity, you can use [Azure Monitor](/azure/azure-monitor/overview) and [Microsoft Sentinel](/azure/sentinel/overview), together:
 
 - Overview of your organization, potentially across multiple clouds, and on-premises locations, including BIG-IP infrastructure
 - One control plane with view of signals, avoiding reliance on complex, and disparate tools
@@ -140,7 +140,7 @@ Advanced configuration tutorials:
 
 - [Securing F5 BIG-IP SSL-VPN with Microsoft Entra SHA](f5-passwordless-vpn.md)
 
-- [Extend Azure AD B2C to protect applications using F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
+- [Extend Azure AD B2C to protect applications using F5 BIG-IP](/azure/active-directory-b2c/partner-f5)
 
 - [F5 BIG-IP APM and Microsoft Entra SSO to Kerberos applications](f5-big-ip-kerberos-advanced.md)
 

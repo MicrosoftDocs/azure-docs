@@ -69,7 +69,7 @@ You can arrange more interworking function as part of your initial network desig
 
 [!INCLUDE [microsoft-phone-system-requires-e164-numbers](includes/communications-gateway-e164-for-phone-system.md)]
 
-[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
+[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)] By default, traffic for Operator Connect or Teams Phone Mobile contains an X-MS-TenantID header. This header identifies the enterprise that is sending the traffic and can be used by your billing systems.
 
 ## RTP and SRTP media
 

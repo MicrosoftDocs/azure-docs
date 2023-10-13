@@ -1,6 +1,6 @@
 ---
 title: Risk-based user sign-in protection in Microsoft Entra ID
-description: In this tutorial, you learn how to enable Azure Identity Protection to protect users when risky sign-in behavior is detected on their account.
+description: In this tutorial, you learn how to enable Microsoft Entra ID Protection to protect users when risky sign-in behavior is detected on their account.
 
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ author: justinha
 manager: amycolannino
 ms.collection: M365-identity-device-management
 
-# Customer intent: As a Microsoft Entra Administrator, I want to learn how to use Azure Identity Protection to protect users by automatically detecting risk sign-in behavior and prompting for additional forms of authentication or request a password change.
+# Customer intent: As a Microsoft Entra Administrator, I want to learn how to use Microsoft Entra ID Protection to protect users by automatically detecting risk sign-in behavior and prompting for additional forms of authentication or request a password change.
 ---
 # Tutorial: Use risk detections for user sign-ins to trigger Microsoft Entra multifactor authentication or password changes
 

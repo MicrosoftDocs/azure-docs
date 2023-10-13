@@ -8,7 +8,7 @@ ms.topic: include
 ---
 
 ### Migrate databases with Azure SQL Migration extension for Azure Data Studio
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
+The [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
 - A responsive user interface that provides you with an end-to-end migration experience that starts with a migration readiness assessment, and SKU recommendation (based on performance data), and finalizes with the actual migration to Azure SQL.
 - An enhanced assessment mechanism that can evaluate SQL Server instances, identifying databases that are ready for migration to the different Azure SQL targets.
 - An SKU recommendations engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.

@@ -53,4 +53,4 @@ You can configure each Microsoft Entra organization independently to get data sy
 
 ## Next steps
 
-For Microsoft Entra ID licensing considerations and best practices, see [What is Microsoft Entra ID licensing?](../fundamentals/licensing-whatis-azure-portal.md).
+For Microsoft Entra ID licensing considerations and best practices, see [What is Microsoft Entra ID licensing?](../fundamentals/concept-group-based-licensing.md).

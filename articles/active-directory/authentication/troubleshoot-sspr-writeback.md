@@ -40,7 +40,7 @@ For Azure AD Connect version *1.1.443.0* and above, *outbound HTTPS* access is r
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
 
-Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers):
+Azure [GOV endpoints](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
 
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*
@@ -204,7 +204,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 31017| AuthTokenSuccess| This event indicates that we successfully retrieved an authorization token for the Global Administrator specified during Microsoft Entra Connect setup to start the offboarding or onboarding process.|
 | 31018| KeyPairCreationSuccess| This event indicates that we successfully created the password encryption key. This key is used to encrypt passwords from the cloud to be sent to your on-premises environment.|
 | 31019| ServiceBusHeartBeat| This event indicates that we successfully sent a request to your tenant's Service Bus instance.|
-| 31034| ServiceBusListenerError| This event indicates that there was an error connecting to your tenant's Service Bus listener. If the error message includes "The remote certificate is invalid", check to make sure that your Microsoft Entra Connect server has all the required Root CAs as described in [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md). |
+| 31034| ServiceBusListenerError| This event indicates that there was an error connecting to your tenant's Service Bus listener. If the error message includes "The remote certificate is invalid", check to make sure that your Microsoft Entra Connect server has all the required Root CAs as described in [Azure TLS certificate changes](/azure/security/fundamentals/tls-certificate-changes). |
 | 31044| PasswordResetService| This event indicates that password writeback is not working. The Service Bus listens for requests on two separate relays for redundancy. Each relay connection is managed by a unique Service Host. The writeback client returns an error if either Service Host is not running.|
 | 32000| UnknownError| This event indicates an unknown error occurred during a password management operation. Look at the exception text in the event for more details. If you're having problems, try disabling and then re-enabling password writeback. If this doesn't help, include a copy of your event log along with the tracking ID specified when you open a support request.|
 | 32001| ServiceError| This event indicates there was an error connecting to the cloud password reset service. This error generally occurs when the on-premises service was unable to connect to the password-reset web service.|
@@ -234,7 +234,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 
 ## Microsoft Entra forums
 
-If you have general questions about Microsoft Entra ID and self-service password reset, you can ask the community for assistance on the [Microsoft Q&A question page for Microsoft Entra ID](/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have general questions about Microsoft Entra ID and self-service password reset, you can ask the community for assistance on the [Microsoft Q&A question page for Microsoft Entra ID](/answers/tags/455/entra-id). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 ## Contact Microsoft support
 

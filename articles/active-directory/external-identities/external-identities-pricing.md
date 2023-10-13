@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 10/05/2023
 
 ms.author: mimart
 author: msmimart
@@ -17,10 +17,12 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # Billing model for Microsoft Entra External ID
 
-Microsoft Entra External ID pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Microsoft Entra guest user collaboration (B2B) and [Azure AD B2C tenants](../../active-directory-b2c/billing.md). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing and linking your Microsoft Entra tenants to a subscription.
+Microsoft Entra External ID pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Microsoft Entra guest user collaboration (B2B) and [Azure AD B2C tenants](/azure/active-directory-b2c/billing). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing and linking your Microsoft Entra tenants to a subscription.
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+>
+> In Azure Government, the External ID billing model doesn't apply because the service is available through Preview only.
 
 ## What do I need to do?
 
@@ -71,7 +73,7 @@ If no subscriptions are available in the **Link a subscription** pane, here are 
 
 - A subscription exists, but it hasn't been associated with your directory yet. You can [associate an existing subscription to your tenant](../fundamentals/how-subscriptions-associated-directory.md) and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
-- No subscription exists. In the **Link a subscription** pane, you can create a subscription by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) in the new subscription, and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
+- No subscription exists. In the **Link a subscription** pane, you can create a subscription by selecting the link **if you don't already have a subscription you may create one here**. After you create a new subscription, you'll need to [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) in the new subscription, and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
 ## Next steps
 

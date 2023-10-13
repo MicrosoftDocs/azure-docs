@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 10/02/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,9 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Investigate risk
 
-Identity Protection provides organizations with three reports they can use to investigate identity risks in their environment. These reports are the **risky users**, **risky sign-ins**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy.
-
-All three reports allow for downloading of events in .CSV format for further analysis. The risky users and risky sign-ins reports allow for downloading the most recent 2500 entries, while the risk detections report allows for downloading the most recent 5000 records.
+Identity Protection provides organizations with reporting they can use to investigate identity risks in their environment. These reports include **risky users**, **risky sign-ins**, **risky workload identities**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy. All of these reports allow for downloading of events in .CSV format or integration with other security solutions like a dedicated SIEM tool for further analysis.
 
 Organizations can take advantage of the Microsoft Graph API integrations to aggregate data with other sources they may have access to as an organization.
 
@@ -68,6 +66,16 @@ Administrators can then choose to take action on these events. Administrators ca
 - Dismiss user risk
 - Block user from signing in
 - [Investigate further using Microsoft Defender for Identity](#investigate-risk-with-microsoft-365-defender)
+
+#### Understand the scope
+
+1. Consider creating a known traveler database for updated organizational travel reporting and use it to cross-reference travel activity.
+1. Add corporate VPN's and IP Address ranges to named locations to reduce false positives.
+1. Review the logs to identify similar activities with the same characteristics. This could be an indication of more compromised accounts.
+   1. If there are common characteristics, like IP address, geography, success/failure, etc..., consider blocking these with a Conditional Access policy.
+   1. Review which resource may have been compromised, such as potential data downloads or administrative modifications.
+   1. Enable self-remediation policies through Conditional Access
+1. If you see that the user performed other risky activities, such as downloading a large volume of files from a new location, this is a strong indication of a possible compromise.
 
 ## Risky sign-ins
 
@@ -123,7 +131,7 @@ Organizations may use the following frameworks to begin their investigation into
       1. Location - Is the user traveling to a different location or accessing devices from multiple locations?
       1. IP address 
       1. User agent string
-   1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
+   1. If you have access to other security tools like [Microsoft Sentinel](/azure/sentinel/overview), check for corresponding alerts that might indicate a larger issue.
    1. Organizations with access to [Microsoft 365 Defender](/defender-for-identity/understanding-security-alerts) can follow a user risk event through other related alerts and incidents and the MITRE ATT&CK chain. 
        1. Select the user in the Risky users report.
        1. Select the **ellipsis (...)** in the toolbar then choose **Investigate with Microsoft 365 Defender**.
@@ -134,7 +142,8 @@ Organizations may use the following frameworks to begin their investigation into
       1. Location 
       1. IP address 
 
-<a name='investigate-azure-ad-threat-intelligence-detections'></a>
+> [!IMPORTANT]
+> If you suspect an attacker can impersonate the user, reset their password, and perform MFA; you should block the user and revoke all refresh and access tokens.
 
 ### Investigate Microsoft Entra threat intelligence detections
 
@@ -147,7 +156,7 @@ If more information is shown for the detection:
    1. Does the IP generate a high number of failures for a user or set of users in your directory?
    1. Is the traffic of the IP coming from an unexpected protocol or application, for example Exchange legacy protocols?
    1. If the IP address corresponds to a cloud service provider, rule out that there are no legitimate enterprise applications running from the same IP.
-1. This account was attacked by a Password spray:
+1. This account was the victim of a password spray attack:
    1. Validate that no other users in your directory are targets of the same attack.
    1. Do other users have sign-ins with similar atypical patterns seen in the detected sign-in within the same time frame? Password spray attacks may display unusual patterns in:
       1. User agent string
@@ -155,9 +164,9 @@ If more information is shown for the detection:
       1. Protocol
       1. Ranges of IPs/ASNs
       1. Time and frequency of sign-ins
-  1. This detection was triggered by a real-time rule
-      1. Validate that no other users in your directory are targets of the same attack. This can be found by the TI_RI_#### number assigned to the rule.
-      1. Real-time rules protect against novel attacks identified by Microsoft's threat intelligence. If multiple users in your directory were targets of the same attack, investigate unusual patterns in other attributes of the sign in.
+1. This detection was triggered by a real-time rule:
+   1. Validate that no other users in your directory are targets of the same attack. This can be found by the TI_RI_#### number assigned to the rule.
+   1. Real-time rules protect against novel attacks identified by Microsoft's threat intelligence. If multiple users in your directory were targets of the same attack, investigate unusual patterns in other attributes of the sign in.
 
 ## Investigate risk with Microsoft 365 Defender
 

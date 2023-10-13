@@ -111,7 +111,7 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 
 ### Identity secure score
 
-The [identity secure score](./../fundamentals/identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It's key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
+The [identity secure score](../reports-monitoring/concept-identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It's key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements
@@ -123,7 +123,7 @@ If your organization currently has no program in place to monitor changes in Ide
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It's important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Microsoft Entra Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one Global Administrator account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It's important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/microsoft-365/admin/manage/message-center) and request that notifications (including Microsoft Entra Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one Global Administrator account with an email address, be sure to configure at least two email-capable accounts.
 
 There are two "From" addresses used by Microsoft Entra ID: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 
@@ -146,7 +146,7 @@ Refer to the following table to learn the type of notifications that are sent an
 
 #### Notifications recommended reading
 
-- [Change your organization's address, technical contact, and more](/office365/admin/manage/change-address-contact-and-more)
+- [Change your organization's address, technical contact, and more](/microsoft-365/admin/manage/change-address-contact-and-more)
 
 ## Operational surface area
 
@@ -164,7 +164,7 @@ The Active Directory administrative tier model was designed to protect identity 
 
 ![Diagram showing the three layers of the Tier model](./media/ops-guide-auth/ops-img18.png)
 
-The [tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
+The [tier model](/security/privileged-access-workstations/privileged-access-access-model) is composed of three levels and only includes administrative accounts, not standard user accounts.
 
 - **Tier 0** - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they're all effectively in control of each other.
 - **Tier 1** - Control of enterprise servers and applications. Tier 1 assets include server operating systems, cloud services, and enterprise applications. Tier 1 administrator accounts have administrative control of a significant amount of business value that is hosted on these assets. A common example role is server administrators who maintain these operating systems with the ability to impact all enterprise services.

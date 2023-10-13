@@ -221,7 +221,7 @@ When the sum of all IP ranges specified in location policies exceeds 5,000, user
 | Semi-Annual Enterprise Channel | If set to enabled or 1, CAE won't be supported. | If set to enabled or 1, CAE won't be supported. |
 | Current Channel <br> or <br> Monthly Enterprise Channel | CAE is supported whatever the setting | CAE is supported whatever the setting |
 
-For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). The recommendation is that organizations don't disable Web Account Manager (WAM).
+For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/updates/overview-update-channels). The recommendation is that organizations don't disable Web Account Manager (WAM).
 
 ### Coauthoring in Office apps
 

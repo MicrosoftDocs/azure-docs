@@ -31,7 +31,7 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Microsoft Entra guidance and recommendations|
 |-|-|
-|**10.2.1** Audit logs are enabled and active for all system components and cardholder data.|Archive Microsoft Entra audit logs to obtain changes to security policies and Microsoft Entra tenant configuration. </br> Archive Microsoft Entra activity logs in a security information and event management (SIEM) system to learn about usage. [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md)|
+|**10.2.1** Audit logs are enabled and active for all system components and cardholder data.|Archive Microsoft Entra audit logs to obtain changes to security policies and Microsoft Entra tenant configuration. </br> Archive Microsoft Entra activity logs in a security information and event management (SIEM) system to learn about usage. [Microsoft Entra activity logs in Azure Monitor](../reports-monitoring/concept-log-monitoring-integration-options-considerations.md)|
 |**10.2.1.1** Audit logs capture all individual user access to cardholder data.|Not applicable to Microsoft Entra ID.|
 |**10.2.1.2** Audit logs capture all actions taken by any individual with administrative access, including any interactive use of application or system accounts.|Not applicable to Microsoft Entra ID.|
 |**10.2.1.3** Audit logs capture all access to audit logs.|In Microsoft Entra ID, you can’t wipe or modify logs. Privileged users can query logs from Microsoft Entra ID. [Least privileged roles by task in Microsoft Entra ID](../roles/delegate-by-task.md) </br> When audit logs are exported to systems such as Azure Log Analytics Workspace, storage accounts, or third-party SIEM systems, monitor them for access.|
@@ -64,7 +64,7 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Microsoft Entra guidance and recommendations|
 |-|-|
-|**10.5.1** Retain audit log history for at least 12 months, with at least the most recent three months immediately available for analysis.|Integrate with Azure Monitor and export the logs for long term archival. [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) </br> Learn about Microsoft Entra logs data retention policy. [Microsoft Entra data retention](../reports-monitoring/reference-reports-data-retention.md)|
+|**10.5.1** Retain audit log history for at least 12 months, with at least the most recent three months immediately available for analysis.|Integrate with Azure Monitor and export the logs for long term archival. [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md) </br> Learn about Microsoft Entra logs data retention policy. [Microsoft Entra data retention](../reports-monitoring/reference-reports-data-retention.md)|
 
 ## 10.6 Time-synchronization mechanisms support consistent time settings across all systems.
 

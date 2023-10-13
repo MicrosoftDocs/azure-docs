@@ -145,4 +145,4 @@ Managing devices in Intune is *not* supported at this time.
 
 - [Create or delete administrative units](admin-units-manage.md)
 - [Restricted management administrative units](admin-units-restricted-management.md)
-- [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)
+- [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=/azure/active-directory/roles/context/ugr-context)

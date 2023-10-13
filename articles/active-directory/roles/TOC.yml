@@ -15,7 +15,7 @@
   - name: Compare roles
     items:
     - name: Compare Azure and Microsoft Entra roles    
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
   - name: Use groups to manage role assignments

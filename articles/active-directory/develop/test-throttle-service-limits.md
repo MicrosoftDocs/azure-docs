@@ -27,7 +27,7 @@ Microsoft Entra ID, Microsoft Graph, and other Azure services also limit the num
 <a name='azure-ad-service-limits-relevant-to-testing'></a>
 
 ## Microsoft Entra service limits relevant to testing
-General Microsoft Entra usage constraints and service limits can be found [here](../enterprise-users/directory-service-limits-restrictions.md).  General Azure subscription and service limits, quotas, and constraints can be found [here](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+General Microsoft Entra usage constraints and service limits can be found [here](../enterprise-users/directory-service-limits-restrictions.md).  General Azure subscription and service limits, quotas, and constraints can be found [here](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 The following table lists Microsoft Entra service limits to consider when setting up a test environment or running tests. 
 

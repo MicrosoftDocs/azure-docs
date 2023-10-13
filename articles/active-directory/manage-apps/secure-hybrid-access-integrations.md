@@ -19,7 +19,7 @@ ms.custom: not-enterprise-apps
 
 Microsoft Entra ID supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Microsoft Entra ID and provide authentication for legacy applications.
 
-Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
+Learn more: [Zero Trust security](/azure/security/fundamentals/zero-trust)
 
 Microsoft Entra ID natively supports modern protocols:
 
@@ -136,7 +136,7 @@ We recommend use of the following APIs. Use Microsoft Entra ID to configure dele
 * **Conditional Access API** - Apply Microsoft Entra Conditional Access policies to user applications 
   * Permissions required: Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All
 
-Learn more [Use the Microsoft Graph API](/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0&preserve-view=true)
+Learn more [Use the Microsoft Graph API](/graph/use-the-api?context=graph/api/1.0&view=graph-rest-1.0&preserve-view=true)
 
 ## Microsoft Graph API scenarios
 

@@ -31,7 +31,7 @@ Workbooks are found in Microsoft Entra ID and in Azure Monitor. The concepts, pr
 
 ![Screenshot of the Microsoft Entra workbooks gallery.](./media/overview-workbooks/workbooks-gallery.png)
 
-For more information on workbooks for other Azure services, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+For more information on workbooks for other Azure services, see [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 
 ## How does it help me?
 
@@ -67,5 +67,5 @@ Public workbook templates are built, updated, and deprecated to reflect the need
 ## Next steps
 
 - Learn [how to use Azure Workbooks for Microsoft Entra ID](howto-use-azure-monitor-workbooks.md)
-- [Create your own workbook](../../azure-monitor/visualize/workbooks-create-workbook.md)
-- Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
+- [Create your own workbook](/azure/azure-monitor/visualize/workbooks-create-workbook)
+- Create a [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace)

@@ -40,7 +40,7 @@ You also must enable **Allow updates to status bar via script** in the user’s 
 
 To register Windows downlevel devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers is available in the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/mem/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Microsoft Entra ID by using the user credentials after it authenticates with Microsoft Entra ID.
 

@@ -167,7 +167,7 @@ The Microsoft Teams admin center displays reporting for shared channels, includi
 
 - **Current limitations**: An access review can detect internal users and external B2B direct connect users, but not other teams that have been added to a shared channel. To view and remove teams that have been added to a shared channel, the shared channel owner can manage membership from within Teams.
 
-For more information about Microsoft Teams audit logs, see the [Microsoft Teams auditing documentation](/microsoftteams/audit-log-events).
+For more information about Microsoft Teams audit logs, see the [Microsoft Teams auditing documentation](/purview/audit-teams-audit-log-events).
 
 ## Privacy and data handling
 
@@ -190,4 +190,4 @@ You might want to consider using cross-tenant access settings to restrict B2B di
 ## Next steps
 
 - [Configure cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md)
-- See the Microsoft Teams documentation for details about [data loss prevention](/microsoft-365/compliance), [retention policies](/microsoftteams/retention-policies), and [eDiscovery](/microsoftteams/ediscovery-investigation).
+- See the Microsoft Teams documentation for details about [data loss prevention](/purview/), [retention policies](/microsoftteams/retention-policies), and [eDiscovery](/purview/ediscovery-teams-investigation).

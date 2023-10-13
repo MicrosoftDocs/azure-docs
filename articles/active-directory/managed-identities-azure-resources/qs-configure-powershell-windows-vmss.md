@@ -41,12 +41,12 @@ In this article, using PowerShell, you learn how to perform the managed identiti
     > [!NOTE]
     > No additional Microsoft Entra directory role assignments required.
 
-    - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system-assigned managed and/or user-assigned managed identity from a virtual machine scale set.
-    - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
-    - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system-assigned managed and/or user-assigned managed identity from a virtual machine scale set.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
+    - Use the [Azure Cloud Shell](/azure/cloud-shell/overview), which you can open using the **Try It** button on the top-right corner of code blocks.
     - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell), then sign in to Azure using `Connect-AzAccount`. 
 
 ## System-assigned managed identity
@@ -138,5 +138,5 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 - [Managed identities for Azure resources overview](overview.md)
 - For the full Azure VM creation Quickstarts, see:
   
-  - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+  - [Create a Windows virtual machine with PowerShell](/azure/virtual-machines/windows/quick-create-powershell) 
+  - [Create a Linux virtual machine with PowerShell](/azure/virtual-machines/linux/quick-create-powershell)

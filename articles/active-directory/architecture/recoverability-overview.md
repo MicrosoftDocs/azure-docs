@@ -152,7 +152,7 @@ The deletion of some objects can cause a ripple effect because of dependencies. 
 
 ## Monitoring and data retention
 
-The [Microsoft Entra audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0](/graph/api/directory-deleteditems-list?tabs=http).
+The [Microsoft Entra audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management tool such as [Microsoft Sentinel](/azure/sentinel/overview). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0](/graph/api/directory-deleteditems-list?tabs=http).
 
 ### Audit logs
 

@@ -52,7 +52,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 #### Option 1: Use Azure Key Vault (recommended)
 
-To create a certificate, you can use [Azure Key Vault](../../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
+To create a certificate, you can use [Azure Key Vault](/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **Content Type**: `PKCS #12`
 - **Lifetime Acton Type**: `Email all contacts at a given percentage lifetime` or `Email all contacts a given number of days before expiry`
@@ -60,7 +60,7 @@ To create a certificate, you can use [Azure Key Vault](../../key-vault/certifica
 - **Key Size**: `2048`
 - **Exportable Private Key**: `Yes` (in order to be able to export `.pfx` file)
 
-You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md).
+You can then [export the certificate](/azure/key-vault/certificates/how-to-export-certificate).
 
 #### Option 2: prepare a self-signed certificate using PowerShell
 
@@ -80,7 +80,7 @@ To configure an API Connector with client certificate authentication, follow the
 1. Select **Save**.
 
 ### Perform authorization decisions 
-Your API must implement the authorization based on sent client certificates in order to protect the API endpoints. For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and *validate the certificate from your API code*.  You can alternatively use Azure API Management as a layer in front of any API service to [check client certificate properties](
+Your API must implement the authorization based on sent client certificates in order to protect the API endpoints. For Azure App Service and Azure Functions, see [configure TLS mutual authentication](/azure/app-service/app-service-web-configure-tls-mutual-auth) to learn how to enable and *validate the certificate from your API code*.  You can alternatively use Azure API Management as a layer in front of any API service to [check client certificate properties](
 ../../api-management/api-management-howto-mutual-certificates-for-clients.md) against desired values.
 
 ### Renewing certificates
@@ -92,7 +92,7 @@ To upload a new certificate to an existing API connector, select the API connect
 
 ## API key authentication
 
-Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development by requiring the caller to include a unique key as an HTTP header or HTTP query parameter. For [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL** of your API connector. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
+Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development by requiring the caller to include a unique key as an HTTP header or HTTP query parameter. For [Azure Functions](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL** of your API connector. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
 
 This isn't a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you don't wish to implement any authentication method (not recommended) for development purposes, you can select 'basic' authentication in the API connector configuration and use temporary values for `username` and `password` that your API can disregard while you implement proper authorization.
 

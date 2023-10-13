@@ -41,7 +41,7 @@ Important points to be aware of when synchronizing groups from Active Directory 
 
 * Microsoft Entra Connect doesn't support synchronizing [Primary Group memberships](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) to Microsoft Entra ID.
 
-* Microsoft Entra Connect doesn't support synchronizing [Dynamic Distribution Group memberships](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) to Microsoft Entra ID.
+* Microsoft Entra Connect doesn't support synchronizing [Dynamic Distribution Group memberships](/exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) to Microsoft Entra ID.
 
 * To synchronize an Active Directory group to Microsoft Entra ID as a mail-enabled group:
 

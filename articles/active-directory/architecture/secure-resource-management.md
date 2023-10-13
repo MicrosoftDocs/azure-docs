@@ -26,25 +26,25 @@ The following are some of the terms you should be familiar with:
 
 **Resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources.
 
-**Resource group** - A container that holds related resources for an Azure solution such as a collection of virtual machines, associated VNets, and load balancers that require management by specific teams. The [resource group](../../azure-resource-manager/management/overview.md) includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. Resource groups can also be used to help with life-cycle management by deleting all resources that have the same lifespan at one time. This approach also provides security benefit by leaving no fragments that might be exploited.
+**Resource group** - A container that holds related resources for an Azure solution such as a collection of virtual machines, associated VNets, and load balancers that require management by specific teams. The [resource group](/azure/azure-resource-manager/management/overview) includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. Resource groups can also be used to help with life-cycle management by deleting all resources that have the same lifespan at one time. This approach also provides security benefit by leaving no fragments that might be exploited.
 
 **Subscription** - From an organizational hierarchy perspective, a subscription is a billing and management container of resources and resource groups. An Azure subscription has a trust relationship with Microsoft Entra ID. A subscription trusts Microsoft Entra ID to authenticate users, services, and devices.
 
 >[!Note]
 >A subscription may trust only one Microsoft Entra tenant. However, each tenant may trust multiple subscriptions and subscriptions can be moved between tenants.
 
-**Management group** - [Azure management groups](../../governance/management-groups/overview.md) provide a hierarchical method of applying policies and compliance at different scopes above subscriptions. It can be at the tenant root management group (highest scope) or at lower levels in the hierarchy. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Note, policy definitions can be applied to a management group or subscription.
+**Management group** - [Azure management groups](/azure/governance/management-groups/overview) provide a hierarchical method of applying policies and compliance at different scopes above subscriptions. It can be at the tenant root management group (highest scope) or at lower levels in the hierarchy. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Note, policy definitions can be applied to a management group or subscription.
 
-**Resource provider** - A service that supplies Azure resources. For example, a common [resource provider](../../azure-resource-manager/management/resource-providers-and-types.md) is Microsoft. Compute, which supplies the virtual machine resource. Microsoft. Storage is another common resource provider.
+**Resource provider** - A service that supplies Azure resources. For example, a common [resource provider](/azure/azure-resource-manager/management/resource-providers-and-types) is Microsoft. Compute, which supplies the virtual machine resource. Microsoft. Storage is another common resource provider.
 
-**Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, tenant, or management group. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../../azure-resource-manager/templates/overview.md). Additionally, the [Bicep language](../../azure-resource-manager/bicep/overview.md) can be used instead of JSON.
+**Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, tenant, or management group. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](/azure/azure-resource-manager/templates/overview). Additionally, the [Bicep language](/azure/azure-resource-manager/bicep/overview) can be used instead of JSON.
 
 ## Azure Resource Management Model
 
-Each Azure subscription is associated with controls used by [Azure Resource Manager](../../azure-resource-manager/management/overview.md) (ARM). Resource Manager is the deployment and management service for Azure, it has a trust relationship with Microsoft Entra ID for identity management for organizations, and the Microsoft Account (MSA) for individuals. Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features like access control, locks, and tags, to secure and organize your resources after deployment.
+Each Azure subscription is associated with controls used by [Azure Resource Manager](/azure/azure-resource-manager/management/overview) (ARM). Resource Manager is the deployment and management service for Azure, it has a trust relationship with Microsoft Entra ID for identity management for organizations, and the Microsoft Account (MSA) for individuals. Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features like access control, locks, and tags, to secure and organize your resources after deployment.
 
 >[!NOTE]
->Prior to ARM, there was another deployment model named Azure Service Manager (ASM) or "classic". To learn more, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md). Managing environments with the ASM model is out of scope of this content.
+>Prior to ARM, there was another deployment model named Azure Service Manager (ASM) or "classic". To learn more, see [Azure Resource Manager vs. classic deployment](/azure/azure-resource-manager/management/deployment-models). Managing environments with the ASM model is out of scope of this content.
 
 Azure Resource Manager is the front-end service, which hosts the REST APIs used by PowerShell, the Azure portal, or other clients to manage resources. When a client makes a request to manage a specific resource, Resource Manager proxies the request to the resource provider to complete the request. For example, if a client makes a request to manage a virtual machine resource, Resource Manager proxies the request to the Microsoft. Compute resource provider. Resource Manager requires the client to specify an identifier for both the subscription and the resource group to manage the virtual machine resource.
 
@@ -52,17 +52,17 @@ Before any resource management request can be executed by Resource Manager, a se
 
 * **Valid user check** - The user requesting to manage the resource must have an account in the Microsoft Entra tenant associated with the subscription of the managed resource.
 
-* **User permission check** - Permissions are assigned to users using [role-based access control (RBAC)](../../role-based-access-control/overview.md). An RBAC role specifies a set of permissions a user may take on a specific resource. RBAC helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+* **User permission check** - Permissions are assigned to users using [role-based access control (RBAC)](/azure/role-based-access-control/overview). An RBAC role specifies a set of permissions a user may take on a specific resource. RBAC helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
-* **Azure policy check** - [Azure policies](../../governance/policy/overview.md) specify the operations allowed or explicitly denied for a specific resource. For example, a policy can specify that users are only allowed (or not allowed) to deploy a specific type of virtual machine.
+* **Azure policy check** - [Azure policies](/azure/governance/policy/overview) specify the operations allowed or explicitly denied for a specific resource. For example, a policy can specify that users are only allowed (or not allowed) to deploy a specific type of virtual machine.
 
 The following diagram summarizes the resource model we just described.
 
 ![Diagram that shows Azure resource management with ARM and Microsoft Entra ID.](media/secure-resource-management/resource-model.png)
 
-**Azure Lighthouse** - [Azure Lighthouse](../../lighthouse/overview.md) enables resource management across tenants. Organizations can delegate roles at the subscription or resource group level to identities in another tenant.
+**Azure Lighthouse** - [Azure Lighthouse](/azure/lighthouse/overview) enables resource management across tenants. Organizations can delegate roles at the subscription or resource group level to identities in another tenant.
 
-Subscriptions that enable [delegated resource management](../../lighthouse/concepts/architecture.md) with Azure Lighthouse have attributes that indicate the tenant IDs that can manage subscriptions or resource groups, and mapping between the built-in RBAC role in the resource tenant to identities in the service provider tenant. At runtime, Azure Resource Manager will consume these attributes to authorize tokens coming from the service provider tenant.
+Subscriptions that enable [delegated resource management](/azure/lighthouse/concepts/architecture) with Azure Lighthouse have attributes that indicate the tenant IDs that can manage subscriptions or resource groups, and mapping between the built-in RBAC role in the resource tenant to identities in the service provider tenant. At runtime, Azure Resource Manager will consume these attributes to authorize tokens coming from the service provider tenant.
 
 It's worth noting that Azure Lighthouse itself is modeled as an Azure resource provider, which means that aspects of the delegation across a tenant can be targeted through Azure Policies.
 
@@ -95,7 +95,7 @@ When an Account Owner creates an Azure subscription within an enterprise agreeme
 
 * The Azure subscription is associated with the same Microsoft Entra tenant of the Account Owner.
 
-* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md).)
+* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment](/azure/azure-resource-manager/management/deployment-models).)
 
 An enterprise agreement can be configured to support multiple tenants by setting the authentication type of "Work or school account cross-tenant" in the Azure EA Portal. Given the above, organizations can set multiple accounts for each tenant, and multiple subscriptions for each account, as shown in the diagram below.
 
@@ -105,13 +105,13 @@ It's important to note that the default configuration described above grants the
 
  To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription's tenant can be [changed](../fundamentals/how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Microsoft Entra tenant the subscription is moved to, they can't regain the service owner role.
 
-To learn more, visit [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
+To learn more, visit [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles).  
 
 ### Microsoft Customer Agreement
 
-Customers enrolled with a [Microsoft Customer Agreement](../../cost-management-billing/understand/mca-overview.md) (MCA) have a different billing management system with its own roles.
+Customers enrolled with a [Microsoft Customer Agreement](/azure/cost-management-billing/understand/mca-overview) (MCA) have a different billing management system with its own roles.
 
-A [billing account](../../cost-management-billing/manage/understand-mca-roles.md) for the Microsoft Customer Agreement contains one or more [billing profiles](../../cost-management-billing/manage/understand-mca-roles.md) that allow managing invoices and payment methods. Each billing profile contains one or more [invoice sections](../../cost-management-billing/manage/understand-mca-roles.md) to organize costs on the billing profile's invoice.
+A [billing account](/azure/cost-management-billing/manage/understand-mca-roles) for the Microsoft Customer Agreement contains one or more [billing profiles](/azure/cost-management-billing/manage/understand-mca-roles) that allow managing invoices and payment methods. Each billing profile contains one or more [invoice sections](/azure/cost-management-billing/manage/understand-mca-roles) to organize costs on the billing profile's invoice.
 
 In a Microsoft Customer Agreement, billing roles come from a single Microsoft Entra tenant. To provision subscriptions for multiple tenants, the subscriptions must be initially created in the same Microsoft Entra tenant as the MCA, and then changed. In the diagram below, the subscriptions for the Corporate IT pre-production environment were moved to the ContosoSandbox tenant after creation.
 
@@ -119,15 +119,15 @@ In a Microsoft Customer Agreement, billing roles come from a single Microsoft En
 
 ## RBAC and role assignments in Azure
 
-In the Microsoft Entra Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles](../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
+In the Microsoft Entra Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles](/azure/role-based-access-control/built-in-roles). You can create [custom roles](/azure/role-based-access-control/custom-roles), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
 
-Microsoft Entra roles operate on concepts like [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC uses Azure Resource Management to control access to Azure resources such as virtual machines or storage, and Microsoft Entra roles control access to Microsoft Entra ID, applications, and Microsoft services such as Office 365.
+Microsoft Entra roles operate on concepts like [Azure role-based access control](/azure/role-based-access-control/overview). The [difference between these two role-based access control systems](/azure/role-based-access-control/rbac-and-directory-admin-roles) is that Azure RBAC uses Azure Resource Management to control access to Azure resources such as virtual machines or storage, and Microsoft Entra roles control access to Microsoft Entra ID, applications, and Microsoft services such as Office 365.
 
 Both Microsoft Entra roles and Azure RBAC roles integrate with Microsoft Entra Privileged Identity Management to enable just-in-time activation policies such as approval workflow and MFA.
 
 ## ABAC and role assignments in Azure
 
-[Attribute-based access control (ABAC)](../../role-based-access-control/conditions-overview.md) is an authorization system that defines access based on attributes associated with security principals, resources, and environment. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
+[Attribute-based access control (ABAC)](/azure/role-based-access-control/conditions-overview) is an authorization system that defines access based on attributes associated with security principals, resources, and environment. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
 
 Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A role assignment condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. A condition filters down permissions granted as a part of the role definition and role assignment. For example, you can add a condition that requires an object to have a specific tag to read the object. You can't explicitly deny access to specific resources using conditions.
 
@@ -262,7 +262,7 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 * Consider a location that is geographically closed to the servers and applications that require Microsoft Entra Domain Services services.
 
-* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-service-support.md).
+* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](/azure/reliability/availability-zones-service-support).
 
 **Object provisioning** - Microsoft Entra Domain Services synchronizes identities from the Microsoft Entra ID that is associated with the subscription that Microsoft Entra Domain Services is deployed into. It's also worth noting that if the associated Microsoft Entra ID has synchronization set up with Microsoft Entra Connect (user forest scenario) then the life cycle of these identities can also be reflected in Microsoft Entra Domain Services. This service has two modes that can be used for provisioning user and group objects from Microsoft Entra ID.
 
@@ -270,23 +270,23 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 * **Scoped**: Only users in scope of a group(s) are synchronized from Microsoft Entra ID into Microsoft Entra Domain Services.
 
-When you first deploy Microsoft Entra Domain Services, an automatic one-way synchronization is configured to replicate the objects from Microsoft Entra ID. This one-way synchronization continues to run in the background to keep the Microsoft Entra Domain Services managed domain up to date with any changes from Microsoft Entra ID. No synchronization occurs from Microsoft Entra Domain Services back to Microsoft Entra ID. For more information, see [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/synchronization.md).
+When you first deploy Microsoft Entra Domain Services, an automatic one-way synchronization is configured to replicate the objects from Microsoft Entra ID. This one-way synchronization continues to run in the background to keep the Microsoft Entra Domain Services managed domain up to date with any changes from Microsoft Entra ID. No synchronization occurs from Microsoft Entra Domain Services back to Microsoft Entra ID. For more information, see [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/synchronization).
 
 It's worth noting that if you need to change the type of synchronization from All to Scoped (or vice versa), then the Microsoft Entra Domain Services managed domain will need to be deleted, recreated and configured. In addition, organizations should consider the use of "scoped" provisioning to reduce the identities to only those that need access to Microsoft Entra Domain Services resources as a good practice.
 
-**Group Policy Objects (GPO)** - To configure GPO in a Microsoft Entra Domain Services managed domain you must use Group Policy Management tools on a server that has been domain joined to the Microsoft Entra Domain Services managed domain. For more information, see [Administer Group Policy in a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/manage-group-policy.md).
+**Group Policy Objects (GPO)** - To configure GPO in a Microsoft Entra Domain Services managed domain you must use Group Policy Management tools on a server that has been domain joined to the Microsoft Entra Domain Services managed domain. For more information, see [Administer Group Policy in a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/manage-group-policy).
 
-**Secure LDAP** - Microsoft Entra Domain Services provides a secure LDAP service that can be used by applications that require it. This setting is disabled by default and to enable secure LDAP a certificate needs to be uploaded, in addition, the NSG that secures the VNet that Microsoft Entra Domain Services is deployed on to must allow port 636 connectivity to the Microsoft Entra Domain Services managed domains. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
+**Secure LDAP** - Microsoft Entra Domain Services provides a secure LDAP service that can be used by applications that require it. This setting is disabled by default and to enable secure LDAP a certificate needs to be uploaded, in addition, the NSG that secures the VNet that Microsoft Entra Domain Services is deployed on to must allow port 636 connectivity to the Microsoft Entra Domain Services managed domains. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-configure-ldaps).
 
-**Administration** - To perform administration duties on Microsoft Entra Domain Services (for example, domain join machines or edit GPO), the account used for this task needs to be part of the Microsoft Entra DC Administrators group. Accounts that are members of this group can't directly sign-in to domain controllers to perform management tasks. Instead, you create a management VM that is joined to the Microsoft Entra Domain Services managed domain, then install your regular AD DS management tools. For more information, see [Management concepts for user accounts, passwords, and administration in Microsoft Entra Domain Services](../../active-directory-domain-services/administration-concepts.md).
+**Administration** - To perform administration duties on Microsoft Entra Domain Services (for example, domain join machines or edit GPO), the account used for this task needs to be part of the Microsoft Entra DC Administrators group. Accounts that are members of this group can't directly sign-in to domain controllers to perform management tasks. Instead, you create a management VM that is joined to the Microsoft Entra Domain Services managed domain, then install your regular AD DS management tools. For more information, see [Management concepts for user accounts, passwords, and administration in Microsoft Entra Domain Services](/entra/identity/domain-services/administration-concepts).
 
 **Password hashes** - For authentication with Microsoft Entra Domain Services to work, password hashes for all users need to be in a format that is suitable for NT LAN Manager (NTLM) and Kerberos authentication. To ensure authentication with Microsoft Entra Domain Services works as expected, the following prerequisites need to be performed.
 
 * **Users synchronized with Microsoft Entra Connect (from AD DS)** - The legacy password hashes need to be synchronized from on-premises AD DS to Microsoft Entra ID.
 
-* **Users created in Microsoft Entra ID** - Need to reset their password for the correct hashes to be generated for usage with Microsoft Entra Domain Services. For more information, see [Enable synchronization of password hashes](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md).
+* **Users created in Microsoft Entra ID** - Need to reset their password for the correct hashes to be generated for usage with Microsoft Entra Domain Services. For more information, see [Enable synchronization of password hashes](/entra/identity/domain-services/tutorial-configure-password-hash-sync).
 
-**Network** - Microsoft Entra Domain Services is deployed on to an Azure VNet so considerations need to be made to ensure that servers and applications are secured and can access the managed domain correctly. For more information, see [Virtual network design considerations and configuration options for Microsoft Entra Domain Services](../../active-directory-domain-services/network-considerations.md).
+**Network** - Microsoft Entra Domain Services is deployed on to an Azure VNet so considerations need to be made to ensure that servers and applications are secured and can access the managed domain correctly. For more information, see [Virtual network design considerations and configuration options for Microsoft Entra Domain Services](/entra/identity/domain-services/network-considerations).
 
 * Microsoft Entra Domain Services must be deployed in its own subnet: Don't use an existing subnet or a gateway subnet.
 
@@ -294,7 +294,7 @@ It's worth noting that if you need to change the type of synchronization from Al
 
 * **Microsoft Entra Domain Services requires 3-5 IP addresses** - Make sure that your subnet IP address range can provide this number of addresses. Restricting the available IP addresses can prevent Microsoft Entra Domain Services from maintaining two domain controllers.
 
-* **VNet DNS Server** - As previously discussed about the "hub and spoke" model, it's important to have DNS configured correctly on the VNets to ensure that servers joined to the Microsoft Entra Domain Services managed domain have the correct DNS settings to resolve the Microsoft Entra Domain Services managed domain. Each VNet has a DNS server entry that is passed to servers as they obtain an IP address and these DNS entries need to be the IP addresses of the Microsoft Entra Domain Services managed domain. For more information, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md).
+* **VNet DNS Server** - As previously discussed about the "hub and spoke" model, it's important to have DNS configured correctly on the VNets to ensure that servers joined to the Microsoft Entra Domain Services managed domain have the correct DNS settings to resolve the Microsoft Entra Domain Services managed domain. Each VNet has a DNS server entry that is passed to servers as they obtain an IP address and these DNS entries need to be the IP addresses of the Microsoft Entra Domain Services managed domain. For more information, see [Update DNS settings for the Azure virtual network](/entra/identity/domain-services/tutorial-create-instance).
 
 **Challenges** - The following list highlights key challenges with using this option for Identity Isolation.
 
@@ -336,7 +336,7 @@ Conditional Access: A key benefit of using Microsoft Entra ID for signing into A
 
 **Challenges**: The list below highlights key challenges with using this option for identity isolation.
 
-* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](../../automation/update-management/overview.md) to manage patching and updates of these servers.
+* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](/azure/automation/update-management/overview) to manage patching and updates of these servers.
 
 * Not suitable for multi-tiered applications that have requirements to authenticate with on-premises mechanisms such as Windows Integrated Authentication across these servers or services. If this is a requirement for the organization, then it's recommended that you explore the Standalone Active Directory Domain Services, or the Microsoft Entra Domain Services scenarios described in this section.
 
