@@ -41,7 +41,7 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro ove
    - Preserves traces with service components using Application Insights SDKs
    - [Microsoft Entra authentication](../app/azure-ad-authentication.md)
    - [Offline Storage and Automatic Retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
-   - [Statsbeat](./statsbeat.md)
+   - [Statsbeat](../app/statsbeat.md)
    - [Application Insights Standard Metrics](../app/standard-metrics.md)
    - Detect resource metadata to autopopulate [Cloud Role Name](../app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
    - [Live Metrics](../app/live-stream.md) (future)
@@ -116,7 +116,7 @@ Yes, we understand some customers might want to instrument using a "piecemeal ap
 
 ### What's the difference between manual and auto-instrumentation?
 
-See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrumentation-options).
+See the [OpenTelemetry Overview](../app/opentelemetry-overview.md#instrumentation-options).
 
 ### Can I use the OpenTelemetry Collector?
 
