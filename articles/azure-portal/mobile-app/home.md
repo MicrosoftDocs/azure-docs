@@ -1,17 +1,17 @@
 ---
 title: Azure mobile app Home
-description: The Azure mobile app Home surfaces the most essential information and the resources you use most often.
+description: Azure mobile app Home surfaces the most essential information and the resources you use most often.
 ms.date: 10/13/2023
 ms.topic: conceptual
 ---
 
 # Azure mobile app Home
 
-The Azure mobile app **Home** surfaces the most essential information and the resources you use most often. It provides a convenient way to access and manage your Azure resources or your Microsoft Entra tenant from your mobile device.
+Azure mobile app **Home** surfaces the most essential information and the resources you use most often. It provides a convenient way to access and manage your Azure resources or your Microsoft Entra tenant from your mobile device.
 
 ## Display cards
 
-The Azure mobile app **Home** consists of customizable display cards that show information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
+Azure mobile app **Home** consists of customizable display cards that show information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
 
 Current card options include:
 
