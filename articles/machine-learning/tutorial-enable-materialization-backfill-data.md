@@ -80,7 +80,7 @@ You can create a new notebook and execute the instructions in this tutorial step
 
    1. Install the Azure Machine Learning extension.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=install-ml-ext-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/Enable materialization and backfill feature data.ipynb?name=install-ml-ext-cli)]
 
    1. Authenticate.
 

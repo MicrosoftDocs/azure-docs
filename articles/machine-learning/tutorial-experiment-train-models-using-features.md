@@ -73,7 +73,7 @@ Before you proceed with the following procedures, be sure to complete the first 
 
       1. Authenticate.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=auth-cli)]
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=auth-cli)]
 
       1. Set the default subscription.
 
