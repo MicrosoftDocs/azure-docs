@@ -6,7 +6,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/13/2022
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
@@ -15,7 +15,7 @@ ms.author: mmitrik
 > [!NOTE]
 > API version 2 is the latest API version and should be used in place of v1. See the [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md) for details.
 
-The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
+The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
     * [Store (STOW-RS)](#store-stow-rs)
@@ -856,9 +856,5 @@ The query API won't return `413 (request entity too large)`. If the requested qu
 * Matching is case insensitive and accent sensitive for other string VR types.
 * If there's a scenario where canceling a Workitem and querying the same happens at the same time, then the query will most likely exclude the Workitem that's getting updated and the response code will be `206 (Partial Content)`.
 
-### Next Steps
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
 
-For more information about the DICOM service, see 
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)

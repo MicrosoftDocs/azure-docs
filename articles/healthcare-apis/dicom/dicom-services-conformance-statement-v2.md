@@ -6,16 +6,16 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/20/2023
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
 # DICOM Conformance Statement v2
 
 > [!NOTE]
-> API version 2 is the latest API version.  For a list of changes in v2 compared to v1, see [DICOM Service API v2 Changes](dicom-service-v2-api-changes.md)
+> API version 2 is the latest API version.  For a list of changes in v2 compared to v1, see [DICOM service API v2 changes](dicom-service-v2-api-changes.md)
 
-The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
+The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
     * [Store (STOW-RS)](#store-stow-rs)
@@ -939,7 +939,7 @@ The query API returns one of the following status codes in the response:
 | `403 (Forbidden)`           | The user isn't authorized. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
-#### Additional Notes
+#### Additional notes
 
 The query API won't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
 
@@ -948,9 +948,4 @@ The query API won't return `413 (request entity too large)`. If the requested qu
 * Matching is case insensitive and accent sensitive for other string VR types.
 * If there's a scenario where canceling a Workitem and querying the same happens at the same time, then the query will most likely exclude the Workitem that's getting updated and the response code will be `206 (Partial Content)`.
 
-### Next Steps
-
-For more information about the DICOM service, see 
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
