@@ -460,6 +460,8 @@ items:
             href: auth0-log-stream-blob-storage.md
           - name: Send Auth0 events to Azure Application Insights
             href: auth0-log-stream-app-insights.md
+        - name: Subscribe to Microsoft Entra ID events
+          href: subscribe-to-microsoft-entra-id-events.md                 
         - name: Subscribe to Microsoft Graph API events
           href: subscribe-to-graph-api-events.md
         - name: Enable managed identity for a partner topic
