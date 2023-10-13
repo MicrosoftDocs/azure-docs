@@ -22,21 +22,21 @@ Microsoft is making these preconfigured security settings available to everyone,
 
 These basic controls include:
 
-- [Requiring all users to register for multifactor authentication](#require-all-users-to-register-for-azure-ad-multifactor-authentication).
-- [Requiring administrators to do multifactor authentication](#require-administrators-to-do-multifactor-authentication).
-- [Requiring users to do multifactor authentication when necessary](#require-users-to-do-multifactor-authentication-when-necessary).
-- [Blocking legacy authentication protocols](#block-legacy-authentication-protocols).
-- [Protecting privileged activities like access to the Azure portal](#protect-privileged-activities-like-access-to-the-azure-portal).
+- [Requiring all users to register for multifactor authentication](#require-all-users-to-register-for-azure-ad-multifactor-authentication)
+- [Requiring administrators to do multifactor authentication](#require-administrators-to-do-multifactor-authentication)
+- [Requiring users to do multifactor authentication when necessary](#require-users-to-do-multifactor-authentication-when-necessary)
+- [Blocking legacy authentication protocols](#block-legacy-authentication-protocols)
+- [Protecting privileged activities like access to the Azure portal](#protect-privileged-activities-like-access-to-the-azure-portal)
 
 ## Who's it for?
 
 - Organizations who want to increase their security posture, but don't know how or where to start.
-- Organizations using the free tier of Microsoft Entra licensing.
+- Organizations using the free tier of Microsoft Entra ID licensing.
 
 ### Who should use Conditional Access?
 
 - If you're an organization with Microsoft Entra ID P1 or P2 licenses, security defaults are probably not right for you.
-- If your organization has complex security requirements, you should consider [Conditional Access](../conditional-access/concept-conditional-access-policy-common.md#template-categories)
+- If your organization has complex security requirements, you should consider [Conditional Access](../conditional-access/concept-conditional-access-policy-common.md#template-categories).
 
 ## Enabling security defaults
 
@@ -44,9 +44,9 @@ If your tenant was created on or after October 22, 2019, security defaults may b
 
 To help protect organizations, we're always working to improve the security of Microsoft account services. As part of this protection, customers are periodically notified for the automatic enablement of the security defaults if they: 
 
-- Haven't enabled Conditional Access policies.
-- Don't have premium licenses.
-- Aren’t actively using legacy authentication clients.
+- Haven't enabled Conditional Access policies
+- Don't have premium licenses
+- Aren’t actively using legacy authentication clients
 
 After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, refer to the email you received and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
 
@@ -56,7 +56,7 @@ To enable security defaults:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Overview** > **Properties**.
-   1. Select **Manage security defaults**.
+1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
 
@@ -121,8 +121,8 @@ One common method to improve protection for all users is to require a stronger f
 
 To give your users easy access to your cloud apps, we support various authentication protocols, including legacy authentication. *Legacy authentication* is a term that refers to an authentication request made by:
 
-- Clients that don't use modern authentication (for example, an Office 2010 client).
-- Any client that uses older mail protocols such as IMAP, SMTP, or POP3.
+- Clients that don't use modern authentication (for example, an Office 2010 client)
+- Any client that uses older mail protocols such as IMAP, SMTP, or POP3
 
 Today, most compromising sign-in attempts come from legacy authentication. Legacy authentication doesn't support multifactor authentication. Even if you have a multifactor authentication policy enabled on your directory, an attacker can authenticate by using an older protocol and bypass multifactor authentication. 
 
@@ -190,7 +190,7 @@ To disable security defaults in your directory:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Overview** > **Properties**.
-   1. Select **Manage security defaults**.
+1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
 1. Select **Save**.
 

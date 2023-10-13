@@ -96,7 +96,7 @@
         - name: Private access
           href: concepts-private-access.md
           displayName: private, link
-        - name: Azure AD and Postgres authentication
+        - name: Microsoft Entra ID and Postgres authentication
           href: concepts-authentication.md
           displayName: Azure Active Directory, AAD, authentication, PostgreSQL roles
         - name: Node DNS names
@@ -162,7 +162,7 @@
           href: howto-ingest-azure-data-factory.md
     - name: Manage
       items:
-        - name: Manage Azure AD and Postgres authentication
+        - name: Manage Microsoft Entra ID and Postgres authentication
           href: how-to-configure-authentication.md
         - name: Schedule maintenance
           href: howto-maintenance.md
@@ -219,7 +219,7 @@
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
-        - name: Manage Azure AD and Postgres users
+        - name: Manage Microsoft Entra ID and Postgres users
           href: how-to-configure-authentication.md
           displayName: Azure Active Directory, PosgreSQL roles, authentication
         - name: Customer managed keys

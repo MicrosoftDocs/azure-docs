@@ -22,7 +22,7 @@ Microsoft uses TLS certificates from the set of Root Certificate Authorities (CA
 
 All Azure services are impacted by this change. Details for some services are listed below:
 
-- [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
+- [Microsoft Entra ID](../../active-directory/index.yml) (Microsoft Entra ID) services began this transition on July 7, 2020.
 - For the most up-to-date information about the TLS certificate changes for Azure IoT services, refer to [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
   - [Azure IoT Hub](../../iot-hub/iot-hub-tls-support.md) began this transition in February 2023 with an expected completion in October 2023.
   - [Azure IoT Central](../../iot-central/index.yml) will begin this transition in July 2023.

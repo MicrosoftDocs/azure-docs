@@ -80,7 +80,10 @@ Learn how to set display preferences, such as orientation and resolution.
 
 ### Set orientation
 
-You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 and Windows Server 2012 R2 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
+You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
+
+   > [!IMPORTANT]
+   > Support for Windows Server 2012 R2 ended on October 10, 2023. For more information, view [SQL Server 2012 and Windows Server 2012/2012 R2 end of support](/lifecycle/announcements/sql-server-2012-windows-server-2012-2012-r2-end-of-support).
 
 To set the orientation:
 

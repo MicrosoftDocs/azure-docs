@@ -32,7 +32,7 @@ The confidential ledger is exposed through REST APIs which can be integrated int
 
 ## Ledger security
 
-The ledger APIs support certificate-based authentication process with owner roles as well as Azure Active Directory (AAD) based authentication and also role-based access (for example, owner, reader, and contributor).
+The ledger APIs support certificate-based authentication process with owner roles as well as Microsoft Entra ID based authentication and also role-based access (for example, owner, reader, and contributor).
 
 The data to the ledger is sent through TLS 1.3 connection and the TLS 1.3 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves). This ensures that no one can intercept the connection between a customer's client and the confidential ledger server nodes.
 

@@ -156,7 +156,7 @@ items:
       href: manage-sim-groups.md
   - name: Local monitoring tools
     items:
-    - name: Enable Azure Active Directory
+    - name: Enable Microsoft Entra ID
       href: enable-azure-active-directory.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md

@@ -18,7 +18,7 @@ ms.reviewer: tspring
 
 # What are flagged sign-ins in Microsoft Entra ID?
 
-As an IT admin, when a user failed to sign-in, you want to resolve the issue as soon as possible to unblock your user. Due to the amount of available data in the sign-ins log, locating the right information can be a challenge.
+As an IT admin, when a user failed to sign-in, you want to resolve the issue as soon as possible to unblock your user. Due to the amount of available data in the sign-in log, locating the right information can be a challenge.
 
 This article gives you an overview of a feature that significantly improves the time it takes to resolve user sign-in problems by making the related problems easy to find.
 
@@ -28,7 +28,7 @@ Microsoft Entra sign-in events are critical to understanding what went right or 
 
 Flagged Sign-ins is a feature intended to increase the signal to noise ratio for user sign-ins requiring help. The functionality is intended to empower users to raise awareness about sign-in errors they want help with. Admins and help desk workers also benefit from finding the right events more efficiently. Flagged Sign-in events contain the same information as other sign-in events contain with one addition: they also indicate that a user flagged the event for review by admins.
  
-Flagged sign-ins give the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event then appears as “Flagged for Review” in the Microsoft Entra sign-ins log.
+Flagged sign-ins give the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event then appears as “Flagged for Review” in the Microsoft Entra sign-in log.
 
 In summary, you can use flagged sign-ins to:
 

@@ -80,7 +80,7 @@ The following table compares the features in each version.
 |  |Tenant restrictions v1  |Tenant restrictions v2  |
 |----------------------|---------|---------|
 |**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Microsoft Entra ID control plane.         |     Options: <br></br>- Universal tenant restrictions in Global Secure Access (preview), which uses policy signaling to tag all traffic, providing both authentication and data plane support on all platforms. <br></br>- Authentication plane-only protection, where the corporate proxy sets tenant restrictions v2 signals on all traffic. <br></br>- Windows device management, where devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud.     |
-|**Policy enforcement limitation**    | Manage corporate proxies by adding tenants to the Microsoft Entra ID traffic allowlist. The character limit of the header value in Restrict-Access-To-Tenants: `<allowed-tenant-list>` limits the number of tenants that can be added. |     Managed by a cloud policy in the cross-tenant access policy. A partner policy is created for each external tenant. Currently, the configuration for all external tenants is contained in one policy with a 25KB size limit.  |
+|**Policy enforcement limitation**    | Manage corporate proxies by adding tenants to the Microsoft Entra traffic allowlist. The character limit of the header value in Restrict-Access-To-Tenants: `<allowed-tenant-list>` limits the number of tenants that can be added. |     Managed by a cloud policy in the cross-tenant access policy. A partner policy is created for each external tenant. Currently, the configuration for all external tenants is contained in one policy with a 25KB size limit.  |
 |**Malicious tenant requests** | Microsoft Entra ID blocks malicious tenant authentication requests to provide authentication plane protection.         |    Microsoft Entra ID blocks malicious tenant authentication requests to provide authentication plane protection.     |
 |**Granularity**           | Limited.        |   Tenant, user, group, and application granularity. (User-level granularity isn't supported with Microsoft Accounts.)      |
 |**Anonymous access**      | Anonymous access to Teams meetings and file sharing is allowed.         |   Anonymous access to Teams meetings is blocked. Access to anonymously shared resources (“Anyone with the link”) is blocked.      |
@@ -368,7 +368,7 @@ Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Wi
 
 ### Migrate tenant restrictions v1 policies to v2
 
-Migration of Tenant Restrictions from V1 to V2 is an one time operation. Once you have moved from TRv1 to TRv2 on proxy, no client side changes are required and any policy changes need to just happen on the cloud via Entra portal.
+Migrating tenant restriction policies from v1 to v2 is a one-time operation. After migration, no client-side changes are required. You can make any subsequent policy changes via the Microsoft Entra admin center.
 
 On your corporate proxy, you can move from tenant restrictions v1 to tenant restrictions v2 by changing this tenant restrictions v1 header:
 
@@ -378,7 +378,7 @@ to this tenant restrictions v2 header:
 
 `sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>`
 
-where `<DirectoryID>` is your Azure AD tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy.
+where `<DirectoryID>` is your Microsoft Entra tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy.
 
 #### Tenant restrictions v1 settings on the corporate proxy
 
@@ -394,7 +394,7 @@ You can configure the corporate proxy to enable client-side tagging of the tenan
 
 `sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>`
    
-where `<DirectoryID>` is your Azure AD tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy. For details, see [Set up tenant restrictions v2 on your corporate proxy](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)
+where `<DirectoryID>` is your Microsoft Entra tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy. For details, see [Set up tenant restrictions v2 on your corporate proxy](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)
 
 You can configure server-side cloud tenant restrictions v2 policies by following the steps at [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners). Be sure to follow these guidelines:
 
@@ -410,7 +410,7 @@ You can configure server-side cloud tenant restrictions v2 policies by following
 >Blocking the MSA tenant will not block user-less traffic for devices, including:
 >
 >- Traffic for Autopilot, Windows Update, and organizational telemetry.
->- B2B authentication of consumer accounts, or "passthrough" authentication, where Azure apps and Office.com apps use Azure AD to sign in consumer users in a consumer context.
+>- B2B authentication of consumer accounts, or "passthrough" authentication, where Azure apps and Office.com apps use Microsoft Entra ID to sign in consumer users in a consumer context.
 
 #### Tenant restrictions v2 with no support for break and inspect
 
