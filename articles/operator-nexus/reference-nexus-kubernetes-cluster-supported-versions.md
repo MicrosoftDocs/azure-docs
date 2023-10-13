@@ -34,14 +34,14 @@ Each number in the version indicates general compatibility with the previous ver
 * **Minor version numbers** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch version numbers** change when backwards-compatible bug fixes are made.
 
-It's considered best practice and recommended staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](#upgrading-kubernetes-versions) section.
+We strongly recommend staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](howto-upgrade-nexus-kubernetes-cluster) documentation.
 
 ## Nexus Kubernetes release calendar
 
 View the upcoming version releases on the Nexus Kubernetes release calendar.
 
 > [!NOTE]
-> To read more about our support policy for Kubernetes versioning, please read section [Kubernetes version support policy](#kubernetes-version-support-policy).
+> Read more about [our support policy for Kubernetes versioning](#kubernetes-version-support-policy).
 
 For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
@@ -63,7 +63,7 @@ An Operator Nexus Kubernetes service version is made of two discrete components 
 
 * The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](../aks/supported-kubernetes-versions.md)
 * The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.
-The combination of these values is represented in the API as the single kubernetesVersion. For example, 1.25.4-2 or the alternatively supported “v” notation: v1.25.4-2.
+The combination of these values is represented in the API as the single kubernetesVersion. For example, `1.25.4-2` or the alternatively supported “v” notation: `v1.25.4-2`.
 
 ### Version bundles
 
@@ -110,7 +110,7 @@ Operator Nexus Kubernetes service provides a standardized duration of support fo
 * Platform support – How long can a version be selected for deployment after "End of life."
 
 > [!NOTE]
-> Platform support policy is a reduced support plan for EOL kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Any issues related to Kubernetes functionality and components aren't supported. Customers are responsible for upgrading to a supported or LTS version of Kubernetes to receive full support.
+> Platform support policy is a reduced support plan for EOL Kubernetes versions. During platform support, customers only receive support from Microsoft for Nexus platform related issues. Microsoft will provide best effort support, but may ultimately recommend an upgrade in order to resolve an issue. Customers are responsible for upgrading to a supported or LTS version of Kubernetes to receive full support.
 
 The supported window of Kubernetes versions on Operator Nexus is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
 
@@ -150,7 +150,7 @@ Supported versions:
 
 ### End of life (EOL)
 
-End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade it's to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Platfrom Support` may be utilized to return to a supported version.
+End of life (EOL) means no more patch or version bundles are produced. It's possible the cluster you've set up can't be upgraded anymore because the latest supported versions are no longer available. In this event, the only way to upgrade is to completely recreate the Nexus Kubernetes cluster using the newer version that is supported. Unsupported upgrades through `Platform Support` may be utilized to return to a supported version.
 
 #### Early Termination of support for a release prior to scheduled EOL
 
@@ -234,7 +234,7 @@ Azure Kubernetes Service (AKS) provides a Long Term Support (LTS) version of Kub
 The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
 
 > [!IMPORTANT]
-> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on Nexus Kubernetes service.
+> Kubernetes version 1.27 is the first supported LTS version of Kubernetes on Operator Nexus Kubernetes service.
 
 ## FAQ
 
@@ -248,7 +248,7 @@ Starting with Kubernetes 1.19, the [open source community has expanded support t
 
 ### What happens when you upgrade a Kubernetes cluster with a minor version that isn't supported?
 
-If you're on the *n-3* version or older, it means you're outside of support. When your upgrade from version n-3 to n-2 succeeds, you're back within our support policies. For example:
+If you're on the *N-3* version or older, you are outside of the support window. When you upgrade from version N-3 to N-2, you're back within our support window. For example:
 
 * If the oldest supported AKS version is *1.25.x* and you're on *1.24.x* or older, you're outside of support.
 * Successfully upgrading from *1.24.x* to *1.25.x* or higher brings you back within our support window.
