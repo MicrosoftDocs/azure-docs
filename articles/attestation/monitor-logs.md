@@ -22,7 +22,7 @@ See Azure [Attestation Monitoring data reference](../attestation/logs-data-ref
 
 ## Collection and routing 
 
-Activity logs are collected and stored automatically, but can be routed to other locations by using a diagnostic setting. Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. More details can be found [here](../azure-monitor/essentials/diagnostic-settings.md#portal)
+Activity logs are collected and stored automatically, but can be routed to other locations by using a diagnostic setting. Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. More details can be found [here](../azure-monitor/essentials/diagnostic-settings.md)
 
 To create a diagnostic setting for Azure Attestation, see [Azure Attestation logging](../attestation/enable-logging.md).  
 
