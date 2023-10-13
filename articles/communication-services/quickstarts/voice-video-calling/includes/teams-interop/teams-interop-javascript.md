@@ -96,9 +96,9 @@ hangUpButton.addEventListener("click", async () => {
 teamsMeetingJoinButton.addEventListener("click", () => {    
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
-     (or)
-   // join with meetingId and passcode
-   call = callAgent.join({meetingId: meetingIdInput.value, passcode: meetingPasscodeInput.value}, {});
+
+   //(or) to join with meetingId and passcode use the below code snippet.
+   //call = callAgent.join({meetingId: meetingIdInput.value, passcode: meetingPasscodeInput.value}, {});
     
     call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
@@ -123,6 +123,11 @@ teamsMeetingJoinButton.addEventListener("click", () => {
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+## Get the Teams meeting ID and passcode
+* Graph API: Use Graph API to retrieve information about onlineMeeting resource and check the object in property joinMeetingIdSettings.
+* Teams: In your Teams application go to Calendar app and open details of a meeting. Online meetings have meeting ID and passcode in the definition of the meeting.
+* Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
 
 ## Run the code
 
