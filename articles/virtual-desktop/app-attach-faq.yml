@@ -78,9 +78,9 @@ sections:
           MSIX app attach doesn't currently support Azure AD DS. Because Azure AD DS computer objects aren't synchronized to Azure Active Directory (Azure AD), the administrator can't provide the required role-based access control (RBAC) permissions for Azure Files.
 
       - question: |
-          Can I use Azure AD Joined VM's with MSIX app attach?
+          Can I use Microsoft Entra ID joined VMs with MSIX app attach?
         answer: |
-          MSIX app attach doesn't currently support Azure AD Joined VM's. 
+          MSIX app attach doesn't support Microsoft Entra ID joined VMs.
 
       - question: |
           Can I use MSIX app attach for HTTP or HTTPs?
@@ -105,7 +105,7 @@ sections:
           Certain applications can't be application layered, which means they can't be repackaged into an MSIX file. Here's a list of the applications that can't be repackaged:
           
           - Drivers 
-          - Active-X or Silverlight
+          - ActiveX or Silverlight
           - VPN clients
           - Antivirus programs
 
