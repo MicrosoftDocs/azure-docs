@@ -146,9 +146,6 @@ New-AzNetworkCloudVirtualMachine -Name $VM_NAME `
 
 After a few minutes, the command completes and returns information about the virtual machine. You've created the virtual machine. You're now ready to use them.
 
-> [!NOTE]
-> If each server has two CPU chipsets and each CPU chip has 28 cores, then with hyperthreading enabled (default), the CPU chip supports 56 vCPUs. With 8 vCPUs in each chip reserved for infrastructure (OS and agents), the remaining 48 are available for tenant workloads.
-
 ## Review deployed resources
 
 [!INCLUDE [quickstart-review-deployment-poweshell](./includes/virtual-machine/quickstart-review-deployment-ps.md)]
