@@ -109,10 +109,9 @@ These metrics are available for Azure Database for MySQL:
 |Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum.|
 |Storage Used|storage_used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 |Data Storage Used|data_storage_used|Bytes|The amound of storage used for storing database files.|
-|Data Storage Used|data_storage_used|Bytes|The amound of storage used for storing database files.|
 |ibdata1 Storage Used|ibdata1_storage_used|Bytes|The amount of storage used for storing ibdata1 file.|
 |Binlog Storage Used|binlog_storage_used|Bytes|The amount of storage used for storing binlog files.|
-|Other Storage Used|other_storage_used|Bytes| The amount of storage used for other components and files on your server.| 
+|Other Storage Used|other_storage_used|Bytes| The amount of storage used for other components and metadata files.| 
 |Backup Storage Used|backup_storage_used|Bytes|The amount of backup storage used.|
 
 
