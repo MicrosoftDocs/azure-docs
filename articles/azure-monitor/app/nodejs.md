@@ -486,4 +486,4 @@ process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
 
 <!--references-->
 
-[FAQ]: ../faq.yml
+[FAQ]: ./app-insights-overview.md#frequently-asked-questions
