@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/12/2023
+ms.date: 10/13/2023
 ---
 
 # About Bastion configuration settings
@@ -28,9 +28,9 @@ The Developer SKU has different requirements and limitations than the other SKU 
 
 | Method | SKU Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Developer | [How-to](deploy-host-developer-sku.md)|
-| Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
+| Azure portal | Tier - Developer | [Quickstart](deploy-host-developer-sku.md)|
 | Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
+| Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
 | Azure PowerShell | Tier - Basic or Standard |[How-to](bastion-create-host-powershell.md) |
 | Azure CLI | Tier - Basic or Standard | [How-to](create-host-cli.md) |
 
