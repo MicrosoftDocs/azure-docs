@@ -135,10 +135,6 @@ The following table summarizes the overhead percentages observed in internal tes
 | 1536              | 4                  | 1%               |  
 These results demonstrate the relationship between dimensions, HNSW parameter `m`, and memory overhead for the HNSW algorithm.  
 
-
-
-
-
 ### Overhead from deleting or updating documents within the index
 
 When a document with a vector field is either deleted or updated (updates are internally represented as a delete and insert operation), the underlying document is marked as deleted and skipped during subsequent queries. As new documents are indexed and the internal vector index grows, the system cleans up these deleted documents and reclaims the resources. This means you'll likely observe a lag between deleting documents and the underlying resources being freed.
