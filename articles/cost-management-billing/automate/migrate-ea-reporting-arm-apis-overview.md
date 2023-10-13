@@ -33,7 +33,7 @@ The following information describes the differences between the older Azure Ente
 
 | Use | Azure Enterprise Reporting APIs | Microsoft Cost Management APIs |
 | --- | --- | --- |
-| Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Azure Active Directory (Azure AD) Authentication using user tokens or service principals. Service principals take the place of API keys. |
+| Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
 | Development status | In maintenance mode. On the path to deprecation. | In active development |
@@ -76,5 +76,5 @@ After you've migrated to the Cost Management APIs for your existing reporting sc
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
 - If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
-- If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
-- If needed, update any of your programming code to use [Azure AD authentication](/rest/api/azure/#create-the-request) with your service principal.
+- If you're not already using Azure Resource Manager APIs, [register your client app with Microsoft Entra ID](/rest/api/azure/#register-your-client-application-with-azure-ad).
+- If needed, update any of your programming code to use [Microsoft Entra authentication](/rest/api/azure/#create-the-request) with your service principal.

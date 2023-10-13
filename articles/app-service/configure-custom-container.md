@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 09/14/2023
+ms.date: 10/12/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -128,13 +128,13 @@ az resource update --resource-group <group-name> --name <app-name> --resource-ty
 
 ## I don't see the updated container
 
-If you change your Docker container settings to point to a new container, it may take a few minutes before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
+If you change your Docker container settings to point to a new container, it might take a few minutes before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
 
 ## How container images are stored
 
 The first time you run a custom Docker image in App Service, App Service does a `docker pull` and pulls all image layers. These layers are stored on disk, like if you were using Docker on-premises. Each time the app restarts, App Service does a `docker pull`, but only pulls layers that have changed. If there have been no changes, App Service uses existing layers on the local disk.
 
-If the app changes compute instances for any reason, such as scaling up and down the pricing tiers, App Service must pull down all layers again. The same is true if you scale out to add additional instances. There are also rare cases where the app instances may change without a scale operation.
+If the app changes compute instances for any reason, such as scaling up and down the pricing tiers, App Service must pull down all layers again. The same is true if you scale out to add additional instances. There are also rare cases where the app instances might change without a scale operation.
 
 ## Configure port number
 
@@ -154,7 +154,7 @@ App Service currently allows your container to expose only one port for HTTP req
 
 ## Configure environment variables
 
-Your custom container may use environment variables that need to be supplied externally. You can pass them in via the [Cloud Shell](https://shell.azure.com). In Bash:
+Your custom container might use environment variables that need to be supplied externally. You can pass them in via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings DB_HOST="myownserver.mysql.database.azure.com"
@@ -251,16 +251,15 @@ The front ends are located inside Azure data centers. If you use TLS/SSL with yo
 
  During the container start, automatically generated keys are injected into the container as the machine keys for ASP.NET cryptographic routines. You can [find these keys in your container](#connect-to-the-container) by looking for the following environment variables: `MACHINEKEY_Decryption`, `MACHINEKEY_DecryptionKey`, `MACHINEKEY_ValidationKey`, `MACHINEKEY_Validation`. 
 
-The new keys at each restart may reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables). 
+The new keys at each restart might reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables). 
 
 ## Connect to the container
 
-You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Here's how it works:
+You can connect to your Windows container directly for diagnostic tasks by navigating to `https://<app-name>.scm.azurewebsites.net/` and choosing the SSH option. A direct SSH session with your container is established in which you can run commands inside your container
 
-- The debug console lets you execute interactive commands, such as starting PowerShell sessions, inspecting registry keys, and navigate the entire container file system.
 - It functions separately from the graphical browser above it, which only shows the files in your [shared storage](#use-persistent-shared-storage).
-- In a scaled-out app, the debug console is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top menu.
-- Any change you make to the container from within the console does *not* persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
+- In a scaled-out app, the SSH session is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top Kudu menu.
+- Any change you make to the container from within the SSH session does *not* persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
 
 ## Access diagnostic logs
 
@@ -283,11 +282,11 @@ Navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and click th
 
 In the console terminal, you can't access the `C:\home\LogFiles` folder by default because persistent shared storage is not enabled. To enable this behavior in the console terminal, [enable persistent shared storage](#use-persistent-shared-storage).
 
-If you try to download the Docker log that is currently in use using an FTP client, you may get an error because of a file lock.
+If you try to download the Docker log that is currently in use by using an FTP client, you might get an error because of a file lock.
 
 ### With the Kudu API
 
-Navigate directly to `https://<app-name>.scm.azurewebsites.net/api/logs/docker` to see metadata for the Docker logs. You may see more than one log file listed, and the `href` property lets you download the log file directly. 
+Navigate directly to `https://<app-name>.scm.azurewebsites.net/api/logs/docker` to see metadata for the Docker logs. You might see more than one log file listed, and the `href` property lets you download the log file directly. 
 
 To download all the logs together in one ZIP file, access `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`.
 
@@ -322,7 +321,7 @@ The value is defined in MB and must be less and equal to the total physical memo
 
 ## Customize the number of compute cores
 
-By default, a Windows container runs with all available cores for your chosen pricing tier. You may want to reduce the number of cores that your staging slot uses, for example. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, a Windows container runs with all available cores for your chosen pricing tier. You might want to reduce the number of cores that your staging slot uses, for example. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --slot staging --settings WEBSITE_CPU_CORES_LIMIT=1
@@ -344,7 +343,7 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-The processors may be multicore or hyperthreading processors. Information on how many cores are available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
+The processors might be multicore or hyperthreading processors. Information on how many cores are available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
 
 ## Customize health ping behavior
 

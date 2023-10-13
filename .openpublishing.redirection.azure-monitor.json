@@ -6350,6 +6350,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/opentelemetry-nodejs-exporter.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable?tabs=nodejs",
+            "redirect_document_id": false
+            },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/work-item-integration.md",
             "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=work-item-integration",
             "redirect_document_id": false

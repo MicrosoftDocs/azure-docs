@@ -24447,6 +24447,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-database-offline-ads.md",
+            "redirect_url": "/azure/dms/tutorial-sql-server-azure-sql-database-offline",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/aks/command-invoke.md",
             "redirect_url": "/azure/aks/access-private-cluster",
             "redirect_document_id": false

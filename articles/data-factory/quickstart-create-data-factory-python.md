@@ -36,7 +36,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
+* [An application in Microsoft Entra ID](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
 
 ## Create and upload an input file
 

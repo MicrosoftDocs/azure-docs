@@ -9,12 +9,12 @@ ms.date: 07/31/2023
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. This identity can be a *managed identity* or *service principal*. A system-assigned managed identity is automatically created when you create an AKS cluster. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources][managed-identity-resources-overview].
+Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. This identity can be a *managed identity* or *service principal*. A system-assigned managed identity is automatically created when you create an AKS cluster. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources][managed-identity-resources-overview].
 
 AKS doesn't automatically create a [service principal](kubernetes-service-principal.md), so you have to create one. Clusters that use a service principal eventually expire, and the service principal must be renewed to avoid impacting cluster authentication with the identity. Managing service principals adds complexity, so it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities. Managed identities use certificate-based authentication. Each managed identity's credentials have an expiration of *90 days* and are rolled after *45 days*. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
 
 > [!NOTE]
-> If you're considering implementing [Azure AD pod-managed identity][aad-pod-identity] on your AKS cluster, we recommend you first review the [Azure AD workload identity overview][workload-identity-overview]. This authentication method replaces Azure AD pod-managed identity (preview) and is the recommended method.
+> If you're considering implementing [Microsoft Entra pod-managed identity][aad-pod-identity] on your AKS cluster, we recommend you first review the [Microsoft Entra Workload ID overview][workload-identity-overview]. This authentication method replaces Microsoft Entra pod-managed identity (preview) and is the recommended method.
 
 ## Before you begin
 
@@ -27,8 +27,8 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 ## Limitations
 
 * Tenants moving or migrating a managed identity-enabled cluster isn't supported.
-* If the cluster has Azure AD pod-managed identity (`aad-pod-identity`) enabled, Node-Managed Identity (NMI) pods modify the iptables of the nodes to intercept calls to the Azure Instance Metadata (IMDS) endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI, even if the pod doesn't use `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` of any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with `kubernetes.azure.com/managedby: aks` label in *kube-system* namespace should be excluded in  `aad-pod-identity` by configuring the AzurePodIdentityException CRD.
-  * For more information, see [Disable aad-pod-identity for a specific pod or application](./use-azure-ad-pod-identity.md#clean-up).
+* If the cluster has Microsoft Entra pod-managed identity (`aad-pod-identity`) enabled, Node-Managed Identity (NMI) pods modify the iptables of the nodes to intercept calls to the Azure Instance Metadata (IMDS) endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI, even if the pod doesn't use `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` of any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with `kubernetes.azure.com/managedby: aks` label in *kube-system* namespace should be excluded in  `aad-pod-identity` by configuring the AzurePodIdentityException CRD.
+  * For more information, see [Disable Microsoft Entra ID-pod-identity for a specific pod or application](./use-azure-ad-pod-identity.md#clean-up).
   * To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 * AKS doesn't support the use of a system-assigned managed identity if using a custom private DNS zone.
 
@@ -50,7 +50,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD). | N/A | Steps to grant permission at [Azure AD Pod Identity Role Assignment configuration](./use-azure-ad-pod-identity.md).
+| OSS project | Microsoft Entra ID-pod-identity | Enables applications to access cloud resources securely with Microsoft Entra ID. | N/A | Steps to grant permission at [Microsoft Entra Pod Identity Role Assignment configuration](./use-azure-ad-pod-identity.md).
 
 ## Enable managed identities on a new AKS cluster
 

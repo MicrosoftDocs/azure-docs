@@ -27,7 +27,7 @@ The following table lists the current versions available for the public and Insi
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
 - Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
-- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Turkey).
+- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
 - Fixed a bug that caused a crash when using Teams Media Optimization. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 

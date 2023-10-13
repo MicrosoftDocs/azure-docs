@@ -6,7 +6,7 @@ ms.reviewer: amberrb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 10/02/2022
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ During the first 30 days after you've created an Azure free account, you have $2
 
 If you don’t use all of your credit by the end of the first 30 days, it's lost. After the first 30 days and up to 12 months after sign-up, you can only use a limited quantity of *some services*—not all Azure services are free. If you upgrade before 30 days and have remaining credit, you can use the rest of your credit with a pay-as-you-go subscription for the remaining days. For example, if you sign up for the free account on November 1 and upgrade on November 5, you have until November 30 to use your credit in the new pay-as-you-go subscription. 
 
-Your Azure free account includes a *specified quantity* of free services for 12 months and a set of services that are always free. Only some tiers of services are available for free within certain quantities. For example, Azure has many virtual machines intended for different needs. The free account only includes access to one type of VM for free—the B1S Burstable B series that’s usable for up to 750 hours per month. By staying in the free account limits, you can use the free services in various configurations. For more information about the Azure free account and the products that are available for free, see [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
+Your Azure free account includes a *specified quantity* of free services for 12 months and a set of services that are always free. Only some tiers of services are available for free within certain quantities. For example, Azure has many virtual machines intended for different needs. The free account includes access to three types of VMs for free—the B1S, B2pts v2 (ARM-based), and B2ats v2 (AMD-based) burstable VMs that are usable for up to 750 hours per month. By staying in the free account limits, you can use the free services in various configurations. For more information about the Azure free account and the products that are available for free, see [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
 
 ## Create free services in the Azure portal
 

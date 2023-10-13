@@ -7,11 +7,11 @@ ms.date: 11/08/2021
 
 # Authenticate against Azure resources with Azure Arc-enabled servers
 
-Applications or processes running directly on an Azure Arc-enabled servers can use managed identities to access other Azure resources that support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Azure Arc-enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
+Applications or processes running directly on an Azure Arc-enabled servers can use managed identities to access other Azure resources that support Microsoft Entra ID-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Azure Arc-enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
 
 Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, and understand the distinction between system-assigned and user-assigned identities.
 
-In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy the certificates to Windows or Linux servers outside of Azure.
+In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Microsoft Entra ID. For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy the certificates to Windows or Linux servers outside of Azure.
 
 ## Security overview
 
@@ -19,7 +19,7 @@ While onboarding your server to Azure Arc-enabled servers, several actions are p
 
 - Azure Resource Manager receives a request to enable the system-assigned managed identity on the Azure Arc-enabled server.
 
-- Azure Resource Manager creates a service principal in Azure AD for the identity of the server. The service principal is created in the Azure AD tenant that's trusted by the subscription.
+- Azure Resource Manager creates a service principal in Microsoft Entra ID for the identity of the server. The service principal is created in the Microsoft Entra tenant that's trusted by the subscription.
 
 - Azure Resource Manager configures the identity on the server by updating the Azure Instance Metadata Service (IMDS) identity endpoint for [Windows](../../virtual-machines/windows/instance-metadata-service.md) or [Linux](../../virtual-machines/linux/instance-metadata-service.md) with the service principal client ID and certificate. The endpoint is a REST endpoint accessible only from within the server using a well-known, non-routable IP address. This service provides a subset of metadata information about the Azure Arc-enabled server to help manage and configure it.
 

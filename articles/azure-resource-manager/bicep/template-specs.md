@@ -329,6 +329,8 @@ az deployment group create \
 
 ---
 
+Currently, you can't deploy a template spec with a [.bicepparam file](./parameter-files.md).
+
 ## Versioning
 
 When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
