@@ -1,24 +1,22 @@
 ---
-title: 'How to deploy Bastion using the Developer SKU: Azure portal'
+title: 'Quickstart: Bastion using the Developer SKU: Azure portal'
 description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: bastion
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 10/12/2023
 ms.author: cherylmc
 
 ---
 
-# Deploy Bastion using the Developer SKU (Preview)
+# Quickstart: Deploy Bastion using the Developer SKU (Preview)
 
-In this article, you'll learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+In this quickstart, you'll learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ## About the Developer SKU
-
- of the Azure Bastion service. With Bastion Developer, users can connect to one Azure VM at a time directly through the VM connect blade, with portal-based access for RDP/SSH and CLI-based access for SSH coming soon. Bastion Developer is ideal for Dev/Test users who want to securely connect to their VMs without the need for additional features or scaling. Learn to configure Bastion Developer (link to docs).
 
 The Bastion Developer SKU is a new lower-cost, lightweight SKU. You can connect to one Azure VM at a time directly through the VM Connect page. This SKU is ideal for Dev/Test users who want to securely connect to their VMs if they don't need additional features or scaling. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
 
@@ -120,6 +118,10 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-* To upgrade the Developer SKU to a higher SKU, see [Upgrade SKUs](upgrade-sku.md).
+In this quickstart, you deployed Bastion using the Developer SKKU, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
 
-* For more information about settings, see [Azure Bastion configuration settings and features](configuration-settings.md).
+> [!div class="nextstepaction"]
+> [Upgrade SKUs](upgrade-sku.md)
+
+> [!div class="nextstepaction"]
+> [Azure Bastion configuration settings and features](configuration-settings.md)
