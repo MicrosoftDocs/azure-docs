@@ -12,7 +12,7 @@ ms.date: 09/27/2023
 
 # Auto-shutdown the VM
 
-In this tutorial, you'll learn how to automatically shut-down virtual machines (VMs) in Azure. The auto-shutdown feature for Azure VMs can help reduce costs by shutting down the VMs during off hours when they aren't needed and automatically restarting them when they're needed again.
+In this tutorial, you learn how to automatically shut-down virtual machines (VMs) in Azure. The auto-shutdown feature for Azure VMs can help reduce costs by shutting down the VMs during off hours when they aren't needed and automatically restarting them when they're needed again.
 
 ## Configure auto-shutdown for a virtual machine
 
@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to automatically shut-down virtual machines (
 Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the Azure portal, navigate to the virtual machine you want to configure auto-shutdown for.
 2. In the virtual machine's detail page, select "Auto-shutdown" under the **Operations** section.
-3. In the "Auto-shutdown" configuration screen, toggle the switch to "On".
+3. In the "Auto-shutdown" configuration screen, toggle the switch to "On."
 4. Set the time you want the virtual machine to shut down.
 5. Select "Save" to save the auto-shutdown configuration.
 
@@ -85,7 +85,7 @@ done
 
 The above scripts use the `az vm auto-shutdown` and `az vm restart` commands to set the `auto-shutdown` and `restart` properties of all the VMs in the specified resource group. The `--ids` option is used to specify the VMs by their IDs, and the `--time` and `--auto-start-`enabled options are used to set the auto-shutdown and autostart properties, respectively.
 
-Both scripts also prompt to choose whether to auto-restart the machines or leave them off until they're manually restarted. The choice is used to set the -`-auto-shutdown-enabled` property of the VMs.
+Both scripts also prompt to choose whether to auto restart the machines or leave them off until they're manually restarted. The choice is used to set the -`-auto-shutdown-enabled` property of the VMs.
 
 ---
 
