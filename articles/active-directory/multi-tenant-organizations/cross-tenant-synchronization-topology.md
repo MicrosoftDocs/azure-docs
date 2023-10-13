@@ -32,17 +32,17 @@ The simplest example of a multi-tenant organization is one with a production ten
 
 :::image type="content" source="./media/cross-tenant-synchronization-topology/topology-single-source-single-target.png" alt-text="Diagram that shows a single source tenant synchronizing with a single target tenant.":::
 
-## Collaborate after an acquisitions (N:1)
+## Collaborate after an acquisition (N:1)
 
 In cases where organizations undergo mergers and acquisitions, quickly enabling collaboration allows the business to operate while more complex IT decisions are made. For example, employees from a newly acquired company many need access to a central ShrePoint site or applications such as DropBox that may be integrated in the parent company. With cross-tenant synchronization, users from the acquired company can be provisioned from day one and get access to SaaS apps, on-prem apps, and other clouds on day one. The following example shows recently acquired tenants where users in multiple tenants need access to applications in the parent tenant.
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/topology-multiple-source-single-target.png" alt-text="Diagram that shows multiple source tenants synchronizing with a single target tenant.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/hub1.png" alt-text="Diagram that shows multiple source tenants synchronizing with a single target tenant.":::
 
 ## Collaborate within a portfolio company (N:N)
 
 Your organization might be more complex that is similar to a mesh. The following example shows a topology where users flow across tenants in their organization. This topology is often used to enable people search scenarios where every user needs to be in every tenant to have a unified gallery.
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/topology-mesh-peer-peer.png" alt-text="Diagram that shows a hybrid topology synchronizing with multiple tenants.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/mesh.png" alt-text="Diagram that shows a hybrid topology synchronizing with multiple tenants.":::
 
 Cross-tenant synchronization is one way. An internal member user can be synchronized into multiple tenants as an external user. When the topology shows a synchronization going in both directions, it's a distinct set of users in each direction and each arrow is a separate configuration.
 
@@ -53,7 +53,7 @@ The following example shows a central user hub tenant where users need access to
 
 Customers commonly rely on this pattern when they have their organization in a single tenant, but parts of the organization need more control and autonomy to manage things like Azure resources. This topology allows you to create a single tenant for things like user onboarding, M365, etc. and have resource tenants that are used to provide access to applications such as Azure resources. 
 
-:::image type="content" source="./media/cross-tenant-synchronization-topology/topology-single-source-multiple-targets.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
+:::image type="content" source="./media/cross-tenant-synchronization-topology/hub2.png" alt-text="Diagram that shows a source tenant synchronizing with multiple target tenants.":::
 
 
 ## Collaborate across organizations 
