@@ -254,7 +254,7 @@ Starting with Kubernetes 1.19, the [open source community has expanded support t
 
 If you're on the *n-3* version or older, it means you're outside of support. When your upgrade from version n-3 to n-2 succeeds, you're back within our support policies. For example:
 
-* If the oldest supported AKS version is *1.15.a* and you're on *1.14.b* or older, you're outside of support.
+* If the oldest supported AKS version is *1.25.x* and you're on *1.24.x* or older, you're outside of support.
 * When you successfully upgrade from *1.14.b* to *1.15.a* or higher, you're back within our support policies.
 * Upgrade from *1.13.c* to *1.15.a* or higher isn't supported; but you may upgrade to *1.14.b* and then to *1.15.a* or higher.
 
