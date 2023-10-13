@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Connect Windows Server machines to Azure through Azure Arc Setup
 
-Windows Server machines can be onboarded directly to [Azure Arc](https://azure.microsoft.com/en-us/products/azure-arc/) through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
+Windows Server machines can be onboarded directly to [Azure Arc](https://azure.microsoft.com/products/azure-arc/) through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Azure Arc onboarding and fetching and installing the latest version of the Azure Connected Machine (AzCM) agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Azure Arc-enabled resource.
 
 Onboarding to Azure Arc is not needed if the Windows Server machine is already running in Azure.
 
