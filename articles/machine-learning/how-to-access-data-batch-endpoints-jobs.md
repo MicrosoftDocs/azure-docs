@@ -17,11 +17,62 @@ ms.custom: devplatv2, devx-track-azurecli
 
 Batch endpoints can be used to perform long batch operations over large amounts of data. Such data can be placed in different places. Some type of batch endpoints can also receive literal parameters as inputs. In this tutorial we'll cover how you can specify those inputs, and the different types or locations supported.
 
-## Prerequisites
+## Before invoking an endpoint
 
-* This example assumes that you've created a batch endpoint with at least one deployment. To create an endpoint, follow the steps at [How to use batch endpoints for production workloads](how-to-use-batch-endpoints.md).
+To successfully invoke a batch endpoint and create jobs, ensure you have the following:
 
-* You would need permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) for details.
+* You have permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
+
+* You have a valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. For testing purposes, you can use your own credentials for the invocation as mentioned below. To learn more about how to authenticate with multiple type of credentials read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md).
+
+    # [Azure CLI](#tab/cli)
+    
+    Use the Azure CLI to log in using either interactive or device code authentication:
+    
+    ```azurecli
+    az login
+    ```
+    
+    # [Python](#tab/sdk)
+    
+    Use the Azure Machine Learning SDK for Python to log in:
+    
+    ```python
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredentials
+    
+    ml_client = MLClient.from_config(DefaultAzureCredentials())
+    ```
+    
+    If running outside of Azure Machine Learning compute, you need to indicate the workspace where the endpoint is deployed:
+    
+    ```python
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredentials
+    
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredentials(), subscription_id, resource_group, workspace)
+    ```
+       
+    # [REST](#tab/rest)
+    
+    The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
+    
+    ```azurecli
+    az account get-access-token --resource https://ml.azure.com --query "accessToken" --output tsv
+    ```
+    
+    > [!TIP]
+    > When working with REST, we recommend invoking batch endpoints using a service principal. See [Running jobs using a service principal (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest#running-jobs-using-a-service-principal) to learn how to get a token for a Service Principal using REST.
+    
+    ---
+
+* The compute cluster where the endpoint is deployed has access to read the input data. 
+
+    * You may need to perform extra configuration in your endpoint depending on where the input data you want to send to the endpoint is located. If you are using a credential-less data store or external Azure Storage Account, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
 
 ## Understanding inputs and outputs
 
@@ -74,78 +125,6 @@ See [Create jobs with literal inputs](#create-jobs-with-literal-inputs) to learn
 
 Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name and Azure Machine Learning automatically assign a unique path to each named output. However, you can indicate another path if required. Batch Endpoints only support writing outputs in blob Azure Machine Learning data stores. 
 
-## Before invoking an endpoint
-
-To successfully invoke a batch endpoint and create jobs, ensure you have the following:
-
-* You would need permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) for details.
-
-* You need a valid Azure AD token to invoke the endpoint. Go over the [Authenticate](#authenticate) section to know how.
-
-* This example assumes that you've created a batch endpoint with at least one deployment. You need the endpoint name or the endpoint REST URI to invoke it. See [Get the endpoint details](#get-the-endpoint-details) if you don't know how to get them. 
-
-### Authenticate
-
-To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a security principal. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. To learn more about how to authenticate with multiple type of credentials read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md). 
-
-For testing purposes, you can use your own credentials for the invocation:
-
-# [Azure CLI](#tab/cli)
-
-Use the Azure CLI to log in using either interactive or device code authentication:
-
-```azurecli
-az login
-```
-
-# [Python](#tab/sdk)
-
-Use the Azure Machine Learning SDK for Python to log in:
-
-```python
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredentials
-
-ml_client = MLClient.from_config(DefaultAzureCredentials())
-```
-
-If running outside of Azure Machine Learning compute, you need to indicate the workspace where the endpoint is deployed:
-
-```python
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredentials
-
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-
-ml_client = MLClient(DefaultAzureCredentials(), subscription_id, resource_group, workspace)
-```
-   
-# [REST](#tab/rest)
-
-The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
-
-```azurecli
-az account get-access-token --resource https://ml.azure.com --query "accessToken" --output tsv
-```
-
-> [!TIP]
-> When working with REST, we recommend invoking batch endpoints using a service principal. See [Running jobs using a service principal (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest#running-jobs-using-a-service-principal) to learn how to get a token for a Service Principal using REST.
-
----
-
-Once you have a token or are authenticated, you are ready to invoke the endpoint.
-
-### Security considerations when reading data
-
-You may need to perform extra configuration in your endpoint depending on where the input data you want to send to the endpoint is located. If you are using a credential-less data store or external Azure Storage Account, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
-
-### Get the endpoint details
-
-To invoke the endpoint, you will need the details about it. When using the Azure CLI or Azure Machine Learning SDK, you need the endpoint name. When using REST APIs, you need the REST endpoint URI. The easier way to get the details is using the Azure Machine Learning studio:
-
-:::image type="content" source="./media/how-to-access-data-batch-endpoints/endpoint-batch-details.png" alt-text="Screeshot of the details page of a batch endpoint in Azure Machine Learning studio.":::
 
 ## Create jobs with data inputs
 
