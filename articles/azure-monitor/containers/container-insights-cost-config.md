@@ -69,8 +69,7 @@ The **Collected data** option when configuring cost optimization in the Azure po
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |
 
-[![Screenshot that shows the collected data options.](media/container-insights-cost-config/collected-data-options.png)](media/container-insights-cost-config/collected-data-options.png#lightbox)
-
+:::image type="content" source="media/container-insights-cost-config/collected-data-options.png" alt-text="Screenshot that shows the collected data options." lightbox="media/container-insights-cost-config/collected-data-options.png" :::
 
 
 ## [CLI](#tab/cli)
@@ -96,7 +95,7 @@ When you use CLI to configure monitoring for your AKS cluster, you provide the c
 
 ### New AKS cluster
 
-Use the following command to create a new AKS cluster with monitoring enabled:
+Use the following command to create a new AKS cluster with monitoring enabled. This assumes a configuration file named **dataCollectionSettings.json**.
 
 ```azcli
 az aks create -g <clusterResourceGroup> -n <clusterName> --enable-managed-identity --node-count 1 --enable-addons monitoring --data-collection-settings dataCollectionSettings.json --generate-ssh-keys 
@@ -105,12 +104,14 @@ az aks create -g <clusterResourceGroup> -n <clusterName> --enable-managed-identi
 ### Existing AKS Cluster
 
 **Cluster without the monitoring addon**
+Use the following command to add monitoring to an existing cluster without Container insights enabled. This assumes a configuration file named **dataCollectionSettings.json**.
 
 ```azcli
 az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --data-collection-settings dataCollectionSettings.json
 ```
 
 **Cluster with an existing monitoring addon**
+Use the following command to add a new configuration to an existing cluster with Container insights enabled. This assumes a configuration file named **dataCollectionSettings.json**.
 
 ```azcli    
 # get the configured log analytics workspace resource id
@@ -124,6 +125,7 @@ az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --
 ```
 
 ## Arc-enabled Kubernetes cluster
+Use the following command to add monitoring to an existing Arc-enabled Kubernetes cluster. See [Data collection parameters](#data-collection-parameters) for definitions of the available settings.
 
 ```azcli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
@@ -133,6 +135,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 > When deploying on a Windows machine, the dataCollectionSettings field must be escaped. For example, dataCollectionSettings={\"interval\":\"1m\",\"namespaceFilteringMode\": \"Include\", \"namespaces\": [ \"kube-system\"]} instead of dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"]}'
 
 ## AKS hybrid Cluster
+Use the following command to add monitoring to an existing AKS hybrid cluster. See [Data collection parameters](#data-collection-parameters) for definitions of the available settings.
 
 ```azcli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode":"Include", "namespaces": ["kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
@@ -141,15 +144,13 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!NOTE]
 > When deploying on a Windows machine, the dataCollectionSettings field must be escaped. For example, dataCollectionSettings={\"interval\":\"1m\",\"namespaceFilteringMode\": \"Include\", \"namespaces\": [ \"kube-system\"]} instead of dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"]}'
 
-The collection settings can be modified through the input of the `dataCollectionSettings` field.
+
 
 
 ## [ARM](#tab/arm)
 
 
-## AKS cluster
-
-1. Download the Azure Resource Manager template and parameter files using the following commands.
+1. Download the Azure Resource Manager template and parameter files using the following commands. See below for the template and parameter files for each cluster configuration.
 
     ```bash
     curl -L \<template file\> -o existingClusterOnboarding.json
@@ -157,21 +158,21 @@ The collection settings can be modified through the input of the `dataCollection
     ```
 
     **AKS cluster**
-    - https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file
-    - https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file 
+    - Template: https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file
+    - Parameter: https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file 
 
     **Arc-enabled Kubernetes**
-    - https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-file
-    - https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-parameter-file
+    - Template: https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-file
+    - Parameter: https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-parameter-file
 
     **AKS hybrid cluster**
-    - https://aka.ms/existingClusterOnboarding.json
-    - https://aka.ms/existingClusterParam.json
+    - Template: https://aka.ms/existingClusterOnboarding.json
+    - Parameter: https://aka.ms/existingClusterParam.json
 
-1. Edit the values in the parameter file: existingClusterParam.json.
+1. Edit the values in the parameter file: existingClusterParam.json. See [Data collection parameters](#data-collection-parameters) for details on each setting. See below for settings unique to each cluster configuration.
 
-    **AKS cluster**
-    For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
+    **AKS cluster**<br>
+    - For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
 
     **Arc-enabled Kubernetes**
     - For _clusterResourceId_ and _clusterResourceLocation_, use the values on the  **Overview**  page for the AKS hybrid cluster.
@@ -181,13 +182,13 @@ The collection settings can be modified through the input of the `dataCollection
     
 
 
-1. Deploy the ARM template.
+1. Deploy the ARM template with the following commands:
 
-```azcli
-az login
-az account set --subscription"Cluster Subscription Name"
-az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-```
+    ```azcli
+    az login
+    az account set --subscription"Cluster Subscription Name"
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+    ```
 
 
 
@@ -200,14 +201,14 @@ The following table describes the supported data collection settings and the nam
 
 | Name | Description |
 |:---|:---|
-| CLI: `interval`<br>ARM: `dataCollectionInterval`<br>Portal: Collection frequency | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
-| CLI: `namespaceFilteringMode`<br>ARM: `namespaceFilteringModeForDataCollection`<br>Portal: Namespace filtering | *Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br>*Off*: Ignores any *namespace* selections and collect data on all namespaces.
-| CLI: `namespaces`<br>ARM: `namespacesForDataCollection`<br>Portal: Namespace filtering | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = \["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
-| CLI: `enableContainerLogV2`<br>ARM: `enableContainerLogV2`<br>Portal: Enable ContainerLogV2 | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
-| CLI: `streams`<br>ARM: `streams`<br>Portal: Collected Data | An array of container insights table streams. See the supported streams above to table mapping. |
+| Portal: Collection frequency<br>CLI: interval<br>ARM: dataCollectionInterval | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
+| Portal: Namespace filtering<br>CLI: namespaceFilteringMode<br>ARM: namespaceFilteringModeForDataCollection | *Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br>*Off*: Ignores any *namespace* selections and collect data on all namespaces.
+| Portal: Namespace filtering<br>CLI: namespaces<br>ARM: namespacesForDataCollection | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = \["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
+| Portal: Enable ContainerLogV2<br>CLI: enableContainerLogV2<br>ARM: enableContainerLogV2 | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
+| Portal: Collected Data<br>CLI: streams<br>ARM: streams | An array of container insights table streams. See the supported streams above to table mapping. |
 
 ### Applicable tables
-The settings for collection frequency and namespace filtering do not apply to all Container insights data. The following table lists the tables int he Log Analytics workspace used by Container insights and the settings that apply to each. 
+The settings for **collection frequency** and **namespace filtering** do not apply to all Container insights data. The following table lists the tables in the Log Analytics workspace used by Container insights and the settings that apply to each. 
 
 
 | Table name | Interval? | Namespaces? | Remarks |
@@ -233,7 +234,7 @@ The settings for collection frequency and namespace filtering do not apply to al
 
 
 
-## Log Analytics data collection
+## Stream values
 When you specify the tables to collect using CLI or ARM, you specify a stream name that corresponds to a particular table in the Log Analytics workspace. The following table lists the stream name for each table.
 
 | Stream | Container insights table |
@@ -293,9 +294,6 @@ To update your data collection Settings, modify the values in parameter files an
 - Recommended alerts will not work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
 
-
-
-[![Screenshot that shows the custom experience.](media/container-insights-cost-config/container-insights-cost-custom.png)](media/container-insights-cost-config/container-insights-cost-custom.png#lightbox)
 
 
 >[!NOTE]
