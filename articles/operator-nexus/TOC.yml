@@ -95,6 +95,8 @@
           href: howto-kubernetes-cluster-connect.md
         - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
           href: howto-disable-cgroupsv2.md
+        - name: Customize cluster DNS
+          href: how-to-customize-kubernetes-cluster-dns.md
     - name: Nexus Virtual Machine
       expanded: false
       items:

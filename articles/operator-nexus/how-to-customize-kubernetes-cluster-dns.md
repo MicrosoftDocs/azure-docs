@@ -1,7 +1,7 @@
 ---
-title: Customize DNS for Nexus Kubernetes Service (NKS)
+title: Customize DNS for a Nexus Kubernetes cluster
 description: Learn how to customize DNS.
-ms.subservice: azure-operator-nexus
+ms.service: azure-operator-nexus
 author: jcroth
 ms.topic: how-to
 ms.date: 10/9/2023
@@ -9,17 +9,17 @@ ms.author: jcroth
 
 ---
 
-# Customize DNS with Nexus Kubernetes Service
+# Customize DNS on a Nexus Kubernetes cluster
 
-Nexus Kubernetes Service (NKS) use a combination of CoreDNS and node-local-DNS for cluster DNS management and resolution, with node-local-DNS taking precidence for name resolution outside the cluster. 
+Nexus Kubernetes clusters use a combination of CoreDNS and node-local-DNS for cluster DNS management and resolution, with node-local-DNS taking precidence for name resolution outside the cluster. 
 
-NKS is a managed service, so you can't modify the main configuration for CoreDNS or node-local-dns. Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default CoreDNS and node-local-dns ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` or `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml`command.
+Azure Operator Nexus is a managed service, so you can't modify the main configuration for CoreDNS or node-local-dns. Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default CoreDNS and node-local-dns ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` or `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml`command.
 
 This article shows you how to use ConfigMaps for basic DNS customization options of in NKS. 
 
 ## Before you begin
 
-* This article assumes that you have an existing NKS cluster. 
+* This article assumes that you have an existing Nexus Kubernetes cluster. 
 * When you create configurations like the examples below, your names in the *data* section must end in *.server* or *.override*. This naming convention is defined in the default NKS node-local-dns ConfigMap, which you can view using the `kubectl get configmaps --namespace=kube-system node-local-dns -o yaml` command.
 
 <!-- ## Plugin support
