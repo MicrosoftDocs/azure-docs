@@ -957,6 +957,12 @@ We have identified that you're using Premium SSD Unmanaged Disks in Storage acco
 
 Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](https://aka.ms/premium_blob_quota).
 
+### Use Azure Disks with Zone Redundant Storage for higher resiliency and availability
+
+Azure Disks with ZRS provide synchronous replication of data across three Availability Zones in a region, making the disk tolerant to zonal failures without disruptions to applications. Migrate disks from LRS to ZRS for higher resiliency and availability.
+
+Learn more about [Changing Disk type of an Azure managed disk](https://aka.ms/migratedisksfromLRStoZRS).
+
 ### Use Managed Disks to improve data reliability 
 
 Virtual machines in an Availability Set with disks that share either storage accounts or storage scale units aren't resilient to single storage scale unit failures during outages. Migrate to Azure Managed Disks to ensure that the disks of different VMs in the Availability Set are sufficiently isolated to avoid a single point of failure.
