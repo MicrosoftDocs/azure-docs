@@ -39,8 +39,8 @@ Azure works closely with OpenAI to release new model versions.  When a new versi
 
 As a customer of Azure OpenAI models, you may notice some changes in the model behavior and compatibility after a version upgrade.  These changes may affect your applications and workflows that rely on the models.  Here are some tips to help you prepare for version upgrades and minimize the impact:
 
-•	Read the documenatation on [what’s new](../whatsnew.md) and [models](../concepts/models.md) to understand the changes and new features.
-•	Read the documentationon on [model deployments](../how-to/create-resource.md) and [version upgrades](../concepts/model-versions.md) to understand how to work with model versions.
+•	Read [what’s new](../whats-new.md) and [models](../concepts/models.md) to understand the changes and new features.
+•	Read the documentation on [model deployments](../how-to/create-resource.md) and [version upgrades](../concepts/model-versions.md) to understand how to work with model versions.
 •	Test your applications and workflows with the new model version after release.
 •	Update your code and configuration to use the new features and capabilities of the new model version.
 
