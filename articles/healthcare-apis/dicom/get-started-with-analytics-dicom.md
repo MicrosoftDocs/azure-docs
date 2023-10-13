@@ -6,13 +6,13 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/14/2023
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
 # Get Started using DICOM Data in Analytics Workloads
 
-This article details how to get started using DICOM data in analytics workloads with Azure Data Factory and Microsoft Fabric.
+This article details how to get started using DICOM&reg; data in analytics workloads with Azure Data Factory and Microsoft Fabric.
 
 ## Prerequisites
 Before getting started, ensure you have done the following steps:
@@ -236,6 +236,6 @@ Learn more about Azure Data Factory pipelines:
 
 * [Pipelines and activities in Azure Data Factory](../../data-factory/concepts-pipelines-activities.md)
 
-Learn more about using Microsoft Fabric notebooks:
-
 * [How to use Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook)
+* 
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

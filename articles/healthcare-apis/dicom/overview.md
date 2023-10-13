@@ -4,13 +4,13 @@ description: The DICOM service is a cloud-based solution for storing, managing, 
 author: mmitrik
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 10/06/2023
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
 # What is the DICOM service?
 
-The DICOM service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
+The DICOM &reg;service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb-enabled systems or applications. The DICOM service is part of [Azure Health Data Services](../healthcare-apis-overview.md).
 
 The DICOM service offers many benefits, including:
 
@@ -28,9 +28,9 @@ The DICOM service offers many benefits, including:
 
 To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist securely in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
 
-FHIR supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
+FHIR&reg; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
-- **Image back up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
+- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
 
 - **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
@@ -70,5 +70,4 @@ Your organization needs an Azure subscription to configure and run the component
 
 [Use DICOMweb standard APIs](dicomweb-standard-apis-with-dicom-services.md)
 
-> [!NOTE]
-> FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

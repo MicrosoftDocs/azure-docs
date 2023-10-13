@@ -11,7 +11,7 @@ ms.author: mikaelw
 
 # What is Azure Health Data Services?
 
-Azure Health Data Services is a cloud-based solution that helps you collect, store, and analyze health data from different sources and formats. It supports various healthcare standards, such as FHIR and DICOM, and converts data from legacy or proprietary device formats to FHIR. 
+Azure Health Data Services is a cloud-based solution that helps you collect, store, and analyze health data from different sources and formats. It supports various healthcare standards, such as FHIR&reg; and DICOM&reg;, and converts data from legacy or proprietary device formats to FHIR. 
 
 Azure Health Data Services enables you to:
 
@@ -34,13 +34,9 @@ In addition, Azure Health Data Services has a business model and infrastructure 
 
 ## Next steps
 
-To work with Azure Health Data Services, first you need to create an [Azure workspace](workspace-overview.md). 
+[Workspace overview](workspace-overview.md)
 
-Follow the steps in this quickstart guide:
-
-> [!div class="nextstepaction"]
-> [Create a workspace](healthcare-apis-quickstart.md)
+[Create a workspace](healthcare-apis-quickstart.md)
 
 
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]

@@ -12,13 +12,13 @@ ms.custom: mode-api
 
 # Get started with the DICOM service
 
-This article outlines the basic steps to get started with the DICOM service in [Azure Health Data Services](../healthcare-apis-overview.md). 
+This article outlines the basic steps to get started with the DICOM&reg; service in [Azure Health Data Services](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is needed only if you connect imaging data with electronic health records of the patient via DICOMcast.
+As a prerequisite, you need an Azure subscription and proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You need a workspace to provision a DICOM service. A FHIR&reg; service is optional and is needed only if you connect imaging data with electronic health records of the patient via DICOMcast.
 
 [![Screenshot of Get Started with DICOM diagram.](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
 
-## Create a workspace in your Azure Subscription
+## Create a workspace in your Azure subscription
 
 You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
@@ -33,7 +33,7 @@ Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) a
 
 ## Access the DICOM service
 
-The DICOM service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
+The DICOM service is secured by a Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
 
 ### Register a client application
 
@@ -49,7 +49,7 @@ You can grant access permissions or assign roles from the [Azure portal](../conf
 
 ### Perform create, read, update, and delete (CRUD) transactions
 
-You can perform create, read (search), update and delete (CRUD) transactions against the DICOM service in your applications or by using tools such as Postman, REST Client, cURL, and Python. Because the DICOM service is secured by default, you must obtain an access token and include it in your transaction request.
+You can perform, create, read (search), update, or delete (CRUD) transactions against the DICOM service in your applications or by using tools such as Postman, REST Client, cURL, and Python. Because the DICOM service is secured by default, you must obtain an access token and include it in your transaction request.
 
 #### Get an access token
 
@@ -73,9 +73,7 @@ DICOMcast is currently available as an [open source](https://github.com/microsof
 
 ## Next steps
 
-This article described the basic steps to get started using the DICOM service. For information about deploying the DICOM service in the workspace, see
+[Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]
