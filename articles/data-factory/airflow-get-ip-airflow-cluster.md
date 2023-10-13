@@ -37,7 +37,7 @@ For more information, see the below screenshots.
 
 1. Using Managed Airflow's UI:
 
-    :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-ui.png" alt-text="Screenshot showing sample airflow api request using bearer token fetched in initial step." lightbox="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-ui.png":::         
+    :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-ui.png" alt-text="Screenshot showing how to retrieve cluster's IP using UI." lightbox="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-ui.png":::         
 
 2. Using Rest API: 
     Refer to the documentation [Managed Airflow IP address - Get](/rest/api/datafactory/integration-runtimes/get?tabs=HTTP#code-try-0).
@@ -45,7 +45,7 @@ For more information, see the below screenshots.
     You should retrieve the Airflow cluster's IP address from the response as shown in the screenshot:
     Sample Response:
 
-    :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-api.png" alt-text="Screenshot showing sample airflow api request using bearer token fetched in initial step." lightbox="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-api.png":::
+    :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-api.png" alt-text="Screenshot showing how to retrieve cluster's IP using API." lightbox="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-api.png":::
 
 ### Step 3: Add the Managed Airflow cluster IP address to the storage account you want to secure
 
