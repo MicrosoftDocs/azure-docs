@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 
 ## Create spacecraft resource
 
-1. In the Azure Portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. In the **Spacecraft** page, select Create.
 3. In **Create spacecraft resource**, enter or select this information in the Basics tab:
 
