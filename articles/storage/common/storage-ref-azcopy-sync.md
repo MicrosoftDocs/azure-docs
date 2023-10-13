@@ -19,8 +19,8 @@ Replicates the source location to the destination location. This article provide
 The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. Alternatively, you can use the `--compare-hash` flag to transfer only files which differ in their MD5 hash. The supported pairs are:
   
 - Local <-> Azure Blob / Azure File (either SAS or OAuth authentication can be used)
-- Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
-- Azure File <-> Azure File (Source must include a SAS or is publicly accessible; SAS authentication should be used for destination)
+- Azure Blob <-> Azure Blob (either SAS or OAuth authentication can be used)
+- Azure File <-> Azure File (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure File
 
 The sync command differs from the copy command in several ways:
