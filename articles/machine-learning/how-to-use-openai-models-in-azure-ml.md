@@ -116,7 +116,7 @@ To enable users to quickly get started with code based finetuning, we have publi
 ### Troubleshooting
 Here are some steps to help you resolve any of the following issues with your Azure OpenAI in Azure Machine Learning experience.
 
-Currently, only a maximum of 10 workspaces can be designated for a particular subscription. If a user creates more workspaces, they will get access to the models but their jobs will fail. If you are receiving failed jobs and you have designated more than 10 workspaces, ensure you are not working on one of the workspaces that has been designated over the limit. 
+Currently, only a maximum of 10 workspaces can be designated for a particular subscription. If a user creates more workspaces, they will get access to the models but their jobs will fail. 
 
 You might receive any of the following errors when you try to deploy an Azure OpenAI model.
 
