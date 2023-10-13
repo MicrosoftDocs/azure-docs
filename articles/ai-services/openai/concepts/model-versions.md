@@ -27,9 +27,9 @@ When a customer deploys GPT-3.5-Turbo and GPT-4 on Azure OpenAI Service, the sta
 
 Customers can also deploy a specific version like GPT-4 0314 or GPT-4 0613 and choose an update policy, which can include the following options:
 
-* Deployments set to **Auto-update to default** will be automatically updated to use the new default version. 
-* Deployments set to **Upgrade when expired** will be automatically updated when its current version is retired. 
-* Deployments that are set to **No Auto Upgrade** will stop working when the model is retired.
+* Deployments set to **Auto-update to default** automatically update to use the new default version. 
+* Deployments set to **Upgrade when expired** automatically update when its current version is retired. 
+* Deployments that are set to **No Auto Upgrade** stop working when the model is retired.
 
 ## How Azure updates OpenAI models
 
