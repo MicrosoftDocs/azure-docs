@@ -14,7 +14,7 @@ ms.custom: subject-cost-optimization
 
 This article helps you estimate the cost to transfer blobs by using AzCopy. 
 
-Each calculation in this article is based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
+All calculations are based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
 
 > [!IMPORTANT]
 > These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
@@ -25,23 +25,23 @@ When you run the [azcopy copy](../common/storage-use-azcopy-blobs-upload.md?toc=
 
 ### Cost of uploading to the Blob Service endpoint
 
-If you upload data to the Blob Service endpoint, then AzCopy uploads each blob in 8 MiB blocks. 
+If you upload data to the Blob Service endpoint, then AzCopy uploads each blob in 8-MiB blocks. 
 
 AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
 
-The table below calculates the number of write operations required to upload these blobs. 
+The following table calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
 |---|---|
 | Number of MiB in 10 GiB | 5,120 |
-| PutBlock operations per per blob (5,120 MiB / 8 MiB block) | 640 |
+| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640 |
 | PutBlockList operations per blob | 1 |
 | **Total write operations (1,000 * 641)** | **641,000** |
 
 > [!TIP]
 > You can reduce the number of operations by configuring AzCopy to use a larger block size.  
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to upload these blobs.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs.
 
 | Price factor                                        | Hot        | Cool      | Cold       | Archive   |
 |-----------------------------------------------------|------------|-----------|------------|-----------|
@@ -53,19 +53,19 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ### Cost of uploading to the Data Lake Storage endpoint
 
-If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4 MiB blocks. This value is non-configurable. 
+If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is nonconfigurable. 
 
-AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block which is billed as a write operation.
+AzCopy uses the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation to upload each block, which is billed as a write operation.
 
-The table below calculates the number of write operations required to upload these blobs. 
+The following table calculates the number of write operations required to upload these blobs. 
 
 | Calculation | Value
 |---|---|
 | Number of MiB in 5 GiB | 5,120 |
-| Path - Update operations per per blob (5,120 MiB / 4 MiB block) | 1,280 |
+| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280 |
 | **Total write operations (1,000 * 1,280)** | **1,280,000** |
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to upload these blobs
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs
 
 | Price factor                                        | Hot         | Cool       | Cold       | Archive    |
 |-----------------------------------------------------|-------------|------------|------------|------------|
@@ -82,6 +82,9 @@ If you download blobs from the Blob Service endpoint, AzCopy uses the [List Blob
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
+> [!NOTE]
+> This table excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
+
 | Price factor                                            | Hot          | Cool        | Cold        |
 |---------------------------------------------------------|--------------|-------------|-------------|
 | Price of a single list operation (price/ 10,000)        | $0.0000055   | $0.0000055  | $0.0000065  |
@@ -92,24 +95,26 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Cost of data retrieval (1000 * operation price)**     | **$0.00**    | **$5.00**   | **$15.00**  |
 | **Total cost (list + read + retrieval)**                | **$0.0059**  | **$5.01**   | **$15.02**  |
 
-> [!NOTE]
-> The table above excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
+
 
 ### Cost of downloading from the Data Lake Storage endpoint
 
-If you download blobs by using the Data Lake Storage endpoint, AzCopy reads each blob in 4 MiB blocks. This value is non-configurable. 
+If you download blobs by using the Data Lake Storage endpoint, AzCopy reads each blob in 4-MiB blocks. This value is nonconfigurable. 
 
 AzCopy uses the [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) and [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) operation. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
 
-The table below calculates the number of write operations required to upload the blobs. 
+The following table calculates the number of write operations required to upload the blobs. 
 
 | Calculation | Value
 |---|---|
-| Number of MiB in 5 Gib | 5,120 |
-| Path - Update operations per per blob (5,120 MiB / 4 MiB block) | 1,280 |
+| Number of MiB in 5 GiB | 5,120 |
+| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280 |
 | Total read operations (1000* 1,280) | **1,280,000** |
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table table calculates the cost to download these blobs.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
+
+> [!NOTE]
+> This table excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 | Price factor                                                   | Hot         | Cool        | Cold         |
 |----------------------------------------------------------------|-------------|-------------|--------------|
@@ -121,8 +126,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Cost of data retrieval (1000 * operation price)**            | **$0.00**   | **$10.00**  | **$30.00**   |
 | **Total cost (read + iterative read + retrieval)**             | **$0.73**   | **$11.67**  | **$46.65**   |
 
-> [!NOTE]
-> The table above excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
+
 
 ## The cost to copy between containers
 
@@ -192,7 +196,7 @@ The costs associated with this scenario are identical to those described in the 
 
 ### Cost to synchronize containers
 
-AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) operation to find each blob at the source and each blob at the destination. If the last modified time of these blobs differ from one another, then AzCopy performs the exact same tasks as described in the [Calculate the cost to copy between containers](#calculate-the-cost-to-copy-between-containers) section in this article. 
+AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) operation to find each blob at the source and each blob at the destination. If the last modified times of these blobs differ from one another, then AzCopy performs the exact same tasks as described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section in this article. 
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to list 1000 blobs in each container
 
@@ -205,7 +209,7 @@ The following table shows the cost to list the blobs in each container.
 | Cost to list blobs in the destination container (1000 * price of list operation) | $0.0055    | $0.0055    | $0.0065    |
 | **Total cost to list blobs in each container**                                   | **$0.011** | **$0.011** | **$0.013** |
 
-The following table shows the total cost of synchronizing changes for each scenario described in the [Calculate the cost to copy between containers](#calculate-the-cost-to-copy-between-containers) section. This table assumes that all 1000 blobs were modified and then copied. In your model, you can use a more realistic proportion of modified blobs to total blobs. 
+The following table shows the total cost of synchronizing changes for each scenario described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section. This table assumes that all 1000 blobs were modified and then copied. In your model, you can use a more realistic proportion of modified blobs to total blobs. 
 
 | Scenario                                                                | Hot     | Cool    | Cold    |
 |-------------------------------------------------------------------------|---------|---------|---------|
@@ -232,7 +236,7 @@ The following table contains all of the estimates presented in this article. All
 | Synchronize containers in separate accounts<sup>1</sup>            | $3.541  | $10.021  | $30.033  | N/A     |
 | Synchronize containers in separate regions<sup>1</sup>             | $107.06 | $120.02  | $160.04  | N/A     |
 
-<sup>1</sup>    To keep these examples, these estimate assumes that all 1000 blobs listed were modified and then copied. In most cases, only some smaller portion of the total number blobs would be modified and then copied. 
+<sup>1</sup>    To keep the example simple, the estimate assumes that all 1000 blobs listed were modified and then copied. In most cases, only some smaller portion of the total number blobs would be modified and then copied. 
 
 ## Sample prices
 
@@ -242,7 +246,7 @@ The following table includes sample (fictitious) prices for each request to the 
 |--------------------------------------------|---------|---------|---------|---------|
 | Price of write transactions (per 10,000)   | $0.055  | $0.10   | $0.18   | $0.10   |
 | Price of read transactions (per 10,000)    | $0.0044 | $0.01   | $0.10   | $5.00   |
-| Price of data retrieval (per GB)           | Free    | $0.01   | $0.03   | $0.02   |
+| Price of data retrieval (per GiB)           | Free    | $0.01   | $0.03   | $0.02   |
 | List and container operations (per 10,000) | $0.055  | $0.055  | $0.065  | $0.055  |
 | All other operations (per 10,000)          | $0.0044 | $0.0044 | $0.0052 | $0.0044 |
 
@@ -250,9 +254,9 @@ The following table includes sample prices (fictitious) prices for each request 
 
 | Price factor                                        | Hot      | Cool     | Cold     | Archive |
 |-----------------------------------------------------|----------|----------|----------|---------|
-| Price of write transactions (every 4MB, per 10,000) | $0.0715  | $0.13    | $0.234   | $0.143  |
-| Price of read transactions (every 4MB, per 10,000)  | $0.0057  | $0.013   | $0.13    | $7.15   |
-| Price of data retrieval (per GB)                    | Free     | $0.01    | $0.03    | $0.022  |
+| Price of write transactions (every 4MiB, per 10,000) | $0.0715  | $0.13    | $0.234   | $0.143  |
+| Price of read transactions (every 4MiB, per 10,000)  | $0.0057  | $0.013   | $0.13    | $7.15   |
+| Price of data retrieval (per GiB)                    | Free     | $0.01    | $0.03    | $0.022  |
 | Iterative Read operations (per 10,000)              | $0.0715  | $0.0715  | $0.0845  | $0.0715 |
 | Iterative Write operations (per 10,000)             | $0.0715  | $0.13    | $0.234   | $0.143  |
 | All other operations (per 10,000)                   | $0.00572 | $0.00572 | $0.00676 | $0.0052 |
