@@ -65,7 +65,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-env-standard-azure-portal.md)]
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-environment-standard-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 

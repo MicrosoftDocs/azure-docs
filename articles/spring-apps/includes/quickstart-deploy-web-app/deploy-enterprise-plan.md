@@ -34,7 +34,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-env-enterprise-azure-portal.md)]
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-environment-enterprise-azure-portal.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
