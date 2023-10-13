@@ -45,8 +45,10 @@ items:
           href: mqtt-client-groups.md      
         - name: Topic spaces
           href: mqtt-topic-spaces.md
+        - name: High availability and disaster recovery
+          href: high-availability-disaster-recovery.md
         - name: Routing MQTT messages
-          href: mqtt-routing.md
+          href: mqtt-routing.md          
           items:
           - name: Routing event schema
             href: mqtt-routing-event-schema.md
