@@ -3,7 +3,7 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/04/2022
+ms.date: 10/13/2023
 ---
 
 # Bicep modules
@@ -95,11 +95,11 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 #### Public module registry
 
-The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The [README file](https://github.com/azure/bicep-registry-modules#readme) in the GitHub repo lists the available modules and their latest versions:
+The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). To view the available modules and their versions, see [Bicep registry Module Index](https://aka.ms/br-module-index). 
 
 :::image type="content" source="./media/modules/bicep-public-module-registry-modules.png" alt-text="The screenshot of public module registry.":::
 
-Select the versions to see the available versions. You can also select **Code** to see the module source code, and open the Readme files.
+Select the versions to see the available versions. You can also select **Source code** to see the module source code, and open the Readme files.
 
 There are only a few published modules currently. More modules are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 
