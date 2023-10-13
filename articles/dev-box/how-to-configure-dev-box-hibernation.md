@@ -42,6 +42,9 @@ There are two steps in enabling hibernation; you must enable hibernation on your
 - Hibernation doesn't support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev box disables this feature automatically.
 
 - Auto-stop schedules still shutdown the dev boxes. If you want to hibernate your dev box, you can do it through the developer portal or using the CLI.
+ 
+  > [!NOTE]
+  > The functionality to schedule dev boxes to hibernate automatically is available in Private Preview. You can sign up for the private preview here: [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp). 
 
 ### Settings not compatible with hibernation
 
@@ -91,7 +94,7 @@ You can enable hibernation as you create a dev box definition, providing that th
 
 All new dev boxes created in dev box pools that use a dev box definition with hibernation enabled can hibernate in addition to shutting down. If a pool has dev boxes that were created before hibernation was enabled, they continue to only support shutdown. 
 
-Dev Box validates your image for hibernate support. Your dev box definition may fail validation if hibernation couldn't be successfully enabled using your image. 
+Dev Box validates your image for hibernate support. Your dev box definition might fail validation if hibernation couldn't be successfully enabled using your image. 
 
 You can enable hibernation on a dev box definition by using the Azure portal or the CLI.
 
