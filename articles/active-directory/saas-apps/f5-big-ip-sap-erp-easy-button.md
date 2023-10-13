@@ -99,17 +99,17 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 The Easy Button client must also be registered in Microsoft Entra ID, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Microsoft Entra ID as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
+1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights.
 
-2. From the left navigation pane, select the **Microsoft Entra ID** service
+2. From the left navigation pane, select the **Microsoft Entra ID** service.
 
-3. Under Manage, select **App registrations > New registration**
+3. Under Manage, select **App registrations** > **New registration**.
 
-4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button*
+4. Enter a display name for your application, such as `F5 BIG-IP Easy Button`.
 
-5. Specify who can use the application > **Accounts in this organizational directory only**
+5. Specify who can use the application > **Accounts in this organizational directory only**.
 
-6. Select **Register** to complete the initial app registration
+6. Select **Register** to complete the initial app registration.
 
 7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 

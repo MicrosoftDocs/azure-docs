@@ -27,7 +27,7 @@ This article shows you how to limit the source accounts of copy operations to ac
 The **AllowedCopyScope** property of a storage account is used to specify the environments from which data can be copied to the destination account. It is displayed in the Azure portal as configuration setting **Permitted scope for copy operations (preview)**. The property is not set by default and does not return a value until you explicitly set it. It has three possible values:
 
 - ***(null)*** (default): Allow copying from any storage account to the destination account.
-- **AAD**: Permits copying only from accounts within the same Azure AD tenant as the destination account.
+- **Microsoft Entra ID**: Permits copying only from accounts within the same Microsoft Entra tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
 The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations. Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
@@ -38,7 +38,7 @@ The **AllowedCopyScope** property is supported for storage accounts that use the
 
 ## Identify the source storage accounts of copy operations
 
-Before changing the value of **AllowedCopyScope** for a storage account, identify users, applications or services that would be affected by the change. Depending on your findings, it might be necessary to adjust the setting to a scope that includes all of the desired copy sources, or to adjust the network or Azure AD configuration for some of the source storage accounts.
+Before changing the value of **AllowedCopyScope** for a storage account, identify users, applications or services that would be affected by the change. Depending on your findings, it might be necessary to adjust the setting to a scope that includes all of the desired copy sources, or to adjust the network or Microsoft Entra configuration for some of the source storage accounts.
 
 Azure Storage logs capture details in Azure Monitor about requests made against the storage account, including the source and destination of copy operations. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md). Enable and analyze the logs to identify copy operations that might be affected by changing **AllowedCopyScope** for the destination storage account.
 
@@ -95,14 +95,14 @@ To set the **AllowedCopyScope** property for the storage account, a user must ha
 - The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
 - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
 
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+These roles do not provide access to data in a storage account via Microsoft Entra ID. However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
 
 Role assignments must be scoped to the level of the storage account or higher to permit a user to restrict the scope of copy operations for the account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Configure the Permitted scope for copy operations (preview)
 
@@ -117,7 +117,7 @@ To configure the permitted scope for copy operations for an existing storage acc
 1. Set **Permitted scope for copy operations (preview)** to one of the following:
 
     - *From any storage account*
-    - *From storage accounts in the same Azure AD tenant*
+    - *From storage accounts in the same Microsoft Entra tenant*
     - *From storage accounts that have a private endpoint to the same virtual network*
 
     :::image type="content" source="media\security-restrict-copy-operations\portal-set-scope.png" alt-text="Screenshot showing how to disallow Shared Key access for a storage account." lightbox="media\security-restrict-copy-operations\portal-set-scope.png":::
@@ -126,9 +126,9 @@ To configure the permitted scope for copy operations for an existing storage acc
 
 # [PowerShell](#tab/azure-powershell)
 
-To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the **allowedCopyScope** parameter are *AAD* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
+To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the **allowedCopyScope** parameter are *Microsoft Entra ID* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
 
-The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
+The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Microsoft Entra tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -156,9 +156,9 @@ To configure the permitted scope for copy operations for a new or existing stora
     >
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. Use the **allowed-copy-scope** argument of the `az storage account create` or `az storage account update` command to configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the argument are *AAD* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
+1. Use the **allowed-copy-scope** argument of the `az storage account create` or `az storage account update` command to configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the argument are *Microsoft Entra ID* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
 
-The following example shows how to configure the **AllowedCopyScope** property for an existing storage account to allow copying data to the destination account only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
+The following example shows how to configure the **AllowedCopyScope** property for an existing storage account to allow copying data to the destination account only from storage accounts within the same Microsoft Entra tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
 ```azurecli
 az storage account update \
@@ -181,5 +181,5 @@ az storage account update \
 ## Next steps
 
 - [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md)
-- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
+- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
 - [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)

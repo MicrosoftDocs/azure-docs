@@ -118,7 +118,7 @@ Here is what the condition looks like in code:
 
 1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
-1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
+1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the anonymous access level to **Private (no anonymous access)**.
 
 1. Use [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) to upload a text file to the container.
 

@@ -306,7 +306,7 @@ sections:
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
-        answer: You're provided credentials for a cloudadmin user in vCenter Server and admin access on NSX-T Manager. You can also use a CloudAdmin group to incorporate Azure Active Directory. For more information, see [Access and identity Concepts](concepts-identity.md).
+        answer: You're provided credentials for a cloudadmin user in vCenter Server and admin access on NSX-T Manager. You can also use a CloudAdmin group to incorporate Microsoft Entra ID. For more information, see [Access and identity Concepts](concepts-identity.md).
           
       - question: Can have administrator access to ESXi hosts?
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.

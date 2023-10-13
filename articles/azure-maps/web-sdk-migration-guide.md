@@ -2,8 +2,8 @@
 title: The Azure Maps Web SDK v1 migration guide
 titleSuffix: Microsoft Azure Maps
 description: Find out how to migrate your Azure Maps Web SDK v1 applications to the most recent version of the Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 08/18/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -47,7 +47,7 @@ npm install azure-maps-control@latest
 
 ## Review authentication methods (optional)
 
-To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Azure Active Directory Authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
+To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Microsoft Entra authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
 
 ## Testing
 

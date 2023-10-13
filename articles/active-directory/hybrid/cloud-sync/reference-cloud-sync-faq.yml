@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Entra Connect cloud sync FAQ
+  title: Microsoft Entra Cloud Sync FAQ
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
@@ -12,9 +12,9 @@ metadata:
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-title: Microsoft Entra Connect cloud sync FAQ
+title: Microsoft Entra Cloud Sync FAQ
 summary: |
-  Read about frequently asked questions for Microsoft Entra Connect cloud sync.
+  Read about frequently asked questions for Microsoft Entra Cloud Sync.
 
 sections:
   - name: General installation
@@ -37,7 +37,7 @@ sections:
       - question: |
           What's the difference between Microsoft Entra Connect Sync and cloud sync?
         answer: |
-          With Microsoft Entra Connect Sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Microsoft Entra Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Microsoft Entra provisioning service. See the detailed article [What is Microsoft Entra Connect cloud sync](what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) for a detailed comparison.
+          With Microsoft Entra Connect Sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Microsoft Entra Cloud Sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Microsoft Entra provisioning service. See the detailed article [What is Microsoft Entra Cloud Sync](what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) for a detailed comparison.
 
       - question: |
           Can I use cloud sync to sync from multiple Active Directory forests?
@@ -115,11 +115,11 @@ sections:
           Nothing.  The users won't be deleted if the OU is renamed or moved.
 
       - question: |
-          Does Microsoft Entra Connect cloud sync support large groups?
+          Does Microsoft Entra Cloud Sync support large groups?
         answer: |
           Yes. Today we support up to 50,000 group members synchronized using the OU scope filtering. 
       - question: |
-          Does Microsoft Entra Connect cloud sync support nested groups with group scoping?
+          Does Microsoft Entra Cloud Sync support nested groups with group scoping?
         answer: |
           No. Nested objects beyond the first level won't be included when scoping using security groups. Only use group scope filtering for pilot scenarios, there are limitations to syncing large groups. 
       - question: |
@@ -135,5 +135,5 @@ additionalContent: |
   ## Next steps 
   
   - [What is provisioning?](../what-is-provisioning.md)
-  - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+  - [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
           

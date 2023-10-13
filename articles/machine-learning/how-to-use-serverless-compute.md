@@ -37,7 +37,7 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
 * Lesser wait times before jobs start executing in some cases.
 * User identity and workspace user-assigned managed identity is supported for job submission. 
-* With managed network isolation, you can streamline and automate your network isolation configuration.
+* With managed network isolation, you can streamline and automate your network isolation configuration. **Customer virtual network** support is coming soon
 * Admin control through quota and Azure policies
 
 ## How to use serverless compute
@@ -82,7 +82,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
 ## Identity support and credential pass through
 
-* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Microsoft Entra ID. 
 
     # [Python SDK](#tab/python)
 

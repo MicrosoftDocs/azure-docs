@@ -6,7 +6,6 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.custom: docutune-disable
 ms.topic: how-to
 ms.date: 09/27/2023
 ms.author: celested
@@ -14,15 +13,16 @@ ms.reviewer: nicholepet
 
 # Customer intent: As a content creator, employee of an organization with internal documentation for IT or identity security admins, developer of Azure AD-enabled apps, ISV, or Microsoft partner, I want to learn how to correctly update our documentation or content to use the new name for Azure AD.
 ---
+
 # How to: Rename Azure AD
 
-Azure Active Directory (Azure AD) is being renamed to Microsoft Entra ID to better communicate the multicloud, multiplatform functionality of the product and unify the naming of the Microsoft Entra product family.
+Azure Active Directory (Azure AD) has been renamed to Microsoft Entra ID to better communicate the multicloud, multiplatform functionality of the product and unify the naming of the Microsoft Entra product family.
 
 This article provides best practices and support for customers and organizations who wish to update their documentation or content with the new product name and icon.
 
 ## Prerequisites
 
-Before changing instances of Azure AD in your documentation or content, familiarize yourself with the guidance in [New name for Azure AD](new-name.md) to:
+Before changing instances of Azure AD to Microsoft Entra ID in your documentation or content, familiarize yourself with the guidance in [New name for Azure AD](new-name.md) to:
 
 - Understand the product name and why we made the change
 - Download the new product icon
@@ -69,27 +69,27 @@ Update your organization's content and experiences using the relevant tools.
 Use the following criteria to determine what change(s) you need to make to instances of `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD`.
 
 1. If the text string is found in the naming dictionary of previous terms, change it to the new term.
-1. If a punctuation mark follows "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD," replace with 'Microsoft Entra ID' because that's the product name.
-1. If `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` is followed by `for`, `Premium`, `Plan`, `P1`, or `P2`, replace with `Microsoft Entra ID` because it refers to a SKU name or Service Plan.
+1. If a punctuation mark follows `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, or `AAD`, replace with `Microsoft Entra ID` because that's the product name.
+1. If `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, or `AAD` is followed by `for`, `Premium`, `Plan`, `P1`, or `P2`, replace with `Microsoft Entra ID` because it refers to a SKU name or Service Plan.
 1. If an article (`a`, `an`, `the`) or possessive (`your`, `your organization's`) precedes (`Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD`), then replace with `Microsoft Entra` because it's a feature name. For example:
    1. "an Azure AD tenant" becomes "a Microsoft Entra tenant"
    1. "your organization's Azure AD tenant" becomes "your Microsoft Entra tenant"
 
-1. If `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` is followed by an adjective or noun not in the previous steps, then replace with `Microsoft Entra` because it's a feature name. For example,"Azure AD Conditional Access" becomes "Microsoft Entra Conditional Access," while "Azure AD tenant" becomes "Microsoft Entra tenant."
-1. Otherwise, replace `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with `Microsoft Entra ID`
+1. If `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, or `AAD` is followed by an adjective or noun not in the previous steps, then replace with `Microsoft Entra` because it's a feature name. For example, `Azure AD Conditional Access` becomes `Microsoft Entra Conditional Access`, while `Azure AD tenant` becomes `Microsoft Entra tenant`.
+1. Otherwise, replace `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, or `AAD` with `Microsoft Entra ID`.
 
 See the section [Glossary of updated terminology](new-name.md#glossary-of-updated-terminology) to further refine your custom logic.
 
 ### Update graphics and icons
 
 1. Replace the Azure AD icon with the Microsoft Entra ID icon.
-1. Replace titles or text containing `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with `Microsoft Entra ID`.
+1. Replace titles or text containing `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, or `AAD` with `Microsoft Entra ID`.
 
 ## Sample PowerShell script
 
 You can use following PowerShell script as a baseline to rename Azure AD references in your documentation or content. This code sample:
 
-- Scans .resx files within a specified folder and all nested folders.
+- Scans `.resx` files within a specified folder and all nested folders.
 - Edits files by replacing any references to `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with the correct terminology according to [New name for Azure AD](new-name.md).
 
 Edit the baseline script according to your needs and the scope of files you need to update. You may need to account for edge cases and modify the script according to how you've defined the messages in your source files. The script is not fully automated. If you use the script as-is, you must review the outputs and may need to make additional adjustments to follow the guidance in [New name for Azure AD](new-name.md).
@@ -283,12 +283,12 @@ $postTransforms = @(
     @{ Key = ' an ME-ID'; Value = ' a ME-ID' }
     @{ Key = '>An ME-ID'; Value = '>A ME-ID' }
     @{ Key = 'Microsoft Entra ID administration portal'; Value = 'Microsoft Entra administration portal' }
-    @{ Key = 'Microsoft Entra IDvanced Threat'; Value = 'Azure Advanced Threat' }
+    @{ Key = 'Microsoft Entra ID Advanced Threat'; Value = 'Azure Advanced Threat' }
     @{ Key = 'Entra ID hybrid join'; Value = 'Entra hybrid join' }
     @{ Key = 'Microsoft Entra ID join'; Value = 'Microsoft Entra join' }
     @{ Key = 'ME-ID join'; Value = 'Microsoft Entra join' }
     @{ Key = 'Microsoft Entra ID service principal'; Value = 'Microsoft Entra service principal' }
-    @{ Key = 'DownloMicrosoft Entra Connector'; Value = 'Download connector' }
+    @{ Key = 'Download Microsoft Entra Connector'; Value = 'Download connector' }
     @{ Key = 'Microsoft Microsoft'; Value = 'Microsoft' }
 )
 
@@ -332,7 +332,7 @@ function Update-Terminology {
     foreach ($item in $Terminology.GetEnumerator()) {
         $old = [regex]::Escape($item.Key)
         $new = $item.Value
-        $toReplace = '(?<!(name=\"[^$]*|https?:\/\/aka.ms/[a-z|0-1]*))' + $($old)
+        $toReplace = '(?<!(name=\"[^$]{1,100}|https?://aka.ms/[a-z0-9/-]{1,100}))' + $($old)
 
         # Replace the old terminology with the new one
         $Content.Value = $Content.Value -replace $toReplace, $new
@@ -359,12 +359,14 @@ foreach ($file in $filteredFiles) {
 
 ```
 
-## Communicate the change to your customers
+### Communicate the change to your customers
 
 To help your customers with the transition, it's helpful to add a note: "Azure Active Directory is now Microsoft Entra ID" or follow the new name with "formerly Azure Active Directory" for the first year.
 
 ## Next steps
 
-- [Stay up-to-date with what's new in Azure AD/Microsoft Entra ID](whats-new.md)
+- [Stay up-to-date with what's new in Microsoft Entra ID (formerly Azure AD)](./whats-new.md)
 - [Get started using Microsoft Entra ID at the Microsoft Entra admin center](https://entra.microsoft.com/)
-- [Learn more about Microsoft Entra with content from Microsoft Learn](/entra)
+- [Learn more about Microsoft Entra ID with content from Microsoft Learn](/entra)
+
+<!-- docutune:ignore "Azure Active Directory" "Azure AD" "AAD" -->

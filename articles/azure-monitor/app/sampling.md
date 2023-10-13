@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 10/11/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -357,7 +357,7 @@ By default no sampling is enabled in the Java autoinstrumentation and SDK. Curre
 
 ### Configuring fixed-rate sampling for OpenCensus Python applications
 
-Instrument your application with the latest [OpenCensus Azure Monitor exporters](./opencensus-python.md).
+Instrument your application with the latest [OpenCensus Azure Monitor exporters](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 > [!NOTE]
 > Fixed-rate sampling is not available for the metrics exporter. This means custom metrics are the only types of telemetry where sampling can NOT be configured. The metrics exporter will send all telemetry that it tracks.

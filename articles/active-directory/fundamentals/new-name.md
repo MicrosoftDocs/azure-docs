@@ -6,7 +6,7 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.custom: has-azure-ad-ps-ref, docutune-disable
+ms.custom: has-azure-ad-ps-ref
 ms.topic: overview
 ms.date: 09/27/2023
 ms.author: celested
@@ -17,11 +17,11 @@ ms.reviewer: nicholepet
 
 # New name for Azure Active Directory
 
-To communicate the multicloud, multiplatform functionality of the products, alleviate confusion with Windows Server Active Directory, and unify the [Microsoft Entra](/entra) product family, the new name for Azure Active Directory (Azure AD) is Microsoft Entra ID.  
+Microsoft has reamed Azure Active Directory (Azure AD) to Microsoft Entra ID for the following reasons: (1) to communicate the multicloud, multiplatform functionality of the products, (2) to alleviate confusion with Windows Server Active Directory, and (3) to unify the [Microsoft Entra](/entra) product family.  
 
 ## No interruptions to usage or service
 
-If you're using Azure AD today or are currently deploying Azure AD in your organizations, you can continue to use the service without interruption. All existing deployments, configurations, and integrations continue to function as they do today without any action from you.
+If you're currently using Azure AD today or are have previously deployed Azure AD in your organizations, you can continue to use the service without interruption. All existing deployments, configurations, and integrations continue to function as they do today without any action from you.
 
 You can continue to use familiar Azure AD capabilities that you can access through the Azure portal, Microsoft 365 admin center, and the [Microsoft Entra admin center](https://entra.microsoft.com).
 
@@ -29,7 +29,7 @@ All features and capabilities are still available in the product. Licensing, ter
 
 To make the transition seamless, all existing login URLs, APIs, PowerShell cmdlets, and Microsoft Authentication Libraries (MSAL) stay the same, as do developer experiences and tooling.
 
-Service plan display names will change on October 1, 2023. Microsoft Entra ID Free, Microsoft Entra ID P1, and Microsoft Entra ID P2 will be the new names of standalone offers, and all capabilities included in the current Azure AD plans remain the same. Microsoft Entra ID – currently known as Azure AD – continues to be included in Microsoft 365 licensing plans, including Microsoft 365 E3 and Microsoft 365 E5. Details on pricing and what’s included are available on the [pricing and free trials page](https://aka.ms/PricingEntra).
+Service plan display names changed on October 1, 2023. Microsoft Entra ID Free, Microsoft Entra ID P1, and Microsoft Entra ID P2 are the new names of standalone offers, and all capabilities included in the current Azure AD plans remain the same. Microsoft Entra ID – previously known as Azure AD – continues to be included in Microsoft 365 licensing plans, including Microsoft 365 E3 and Microsoft 365 E5. Details on pricing and what’s included are available on the [pricing and free trials page](https://aka.ms/PricingEntra).
 
 :::image type="content" source="./media/new-name/azure-ad-new-name.png" alt-text="Diagram showing the new name for Azure AD and Azure AD External Identities." border="false" lightbox="./media/new-name/azure-ad-new-name-high-res.png":::
 
@@ -95,11 +95,11 @@ The Microsoft Entra ID name more accurately represents the multicloud and multip
 
 ### What is Microsoft Entra?
 
-Microsoft Entra helps you protect all identities and secure network access everywhere. The expanded product family includes:
+The Microsoft Entra product family helps you protect all identities and secure network access everywhere. The expanded product family includes:
 
 | Identity and access management | New identity categories | Network access |
 |---------|---------|---------|
-| [Microsoft Entra ID (currently known as Azure AD)](../index.yml) | [Microsoft Entra Verified ID](../verifiable-credentials/index.yml) | [Microsoft Entra Internet Access](https://aka.ms/GlobalSecureAccessDocs) |
+| [Microsoft Entra ID (previously known as Azure AD)](../index.yml) | [Microsoft Entra Verified ID](../verifiable-credentials/index.yml) | [Microsoft Entra Internet Access](https://aka.ms/GlobalSecureAccessDocs) |
 | [Microsoft Entra ID Governance](../governance/index.yml) | [Microsoft Entra Permissions Management](../cloud-infrastructure-entitlement-management/index.yml) | [Microsoft Entra Private Access](https://aka.ms/GlobalSecureAccessDocs) |
 | [Microsoft Entra External ID](../external-identities/index.yml) | [Microsoft Entra Workload ID](../workload-identities/index.yml) |  |
 
@@ -109,7 +109,7 @@ You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the
 
 ### What are the display names for service plans and SKUs?
 
-Licensing, pricing, and functionality aren't changing. Display names will be updated October 1, 2023 as follows.
+Licensing, pricing, and functionality aren't changing. Display names were updated October 1, 2023 as follows.
 
 | **Old display name for service plan** | **New display name for service plan** |
 |---------|---------|
@@ -155,21 +155,21 @@ No. Prices, terms and service level agreements (SLAs) remain the same. Pricing d
 
 ### Will Microsoft Entra ID be available as a free service with an Azure subscription?
 
-Customers currently using Azure AD Free as part of their Azure, Microsoft 365, Dynamics 365, Teams, or Intune subscription continue to have access to the same capabilities. It will be called Microsoft Entra ID Free. Get the free version at <https://www.microsoft.com/security/business/microsoft-entra-pricing>.
+Customers using Azure AD Free as part of their Azure, Microsoft 365, Dynamics 365, Teams, or Intune subscription continue to have access to the same capabilities. This is now called Microsoft Entra ID Free. Get the free version at <https://www.microsoft.com/security/business/microsoft-entra-pricing>.
 
 ### What's changing for Microsoft 365 or Azure AD for Office 365?
 
-Microsoft Entra ID – currently known as Azure AD – continues to be available within Microsoft 365 enterprise and business premium offers. Office 365 was renamed Microsoft 365 in 2022. Unique capabilities in the Azure AD for Office 365 apps (such as company branding and self-service sign-in activity search) are now be available to all Microsoft customers in Microsoft Entra ID Free.
+Microsoft Entra ID – previously known as Azure AD – continues to be available within Microsoft 365 enterprise and business premium offers. Office 365 was renamed Microsoft 365 in 2022. Unique capabilities in the Azure AD for Office 365 apps (such as company branding and self-service sign-in activity search) are now be available to all Microsoft customers in Microsoft Entra ID Free.
 
 ### What's changing for Microsoft 365 E3?
 
-There are no changes to the identity features and functionality available in Microsoft 365 E3. Microsoft 365 E3 includes Microsoft Entra ID P1, currently known as Azure AD Premium P1.
+There are no changes to the identity features and functionality available in Microsoft 365 E3. Microsoft 365 E3 includes Microsoft Entra ID P1, previously known as Azure AD Premium P1.
 
 ### What's changing for Microsoft 365 E5?
 
-In addition to the capabilities they already have, Microsoft 365 E5 customers also get access to new identity protection capabilities like token protection, Conditional Access based on GPS-based location and step-up authentication for the most sensitive actions. Microsoft 365 E5 includes Microsoft Entra P2, currently known as Azure AD Premium P2.
+In addition to the capabilities they already have, Microsoft 365 E5 customers also get access to new identity protection capabilities like token protection, Conditional Access based on GPS-based location and step-up authentication for the most sensitive actions. Microsoft 365 E5 includes Microsoft Entra P2, previously known as Azure AD Premium P2.
 
-### What's changing for identity developer and devops experience?
+### What's changing for identity developer and devops experiences?
 
 Identity developer and devops experiences aren't being renamed. To make the transition seamless, all existing login URLs, APIs, PowerShell cmdlets, and Microsoft Authentication Libraries (MSAL) stay the same, as do developer experiences and tooling.
 
@@ -251,6 +251,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |            | Azure AD cloud-only identities<br/> Azure Active Directory cloud-only identities | Microsoft Entra cloud-only identities |
 |            | Azure AD Connect<br/> Azure Active Directory Connect | Microsoft Entra Connect |
 |            | Azure AD Connect Sync<br/> Azure Active Directory Connect Sync | Microsoft Entra Connect Sync |
+|            | Azure AD connector<br/> Azure Active Directory connector | Microsoft Entra connector |
 |            | Azure AD domain<br/> Azure Active Directory domain | Microsoft Entra domain |
 |            | Azure AD Domain Services<br/> Azure Active Directory Domain Services | Microsoft Entra Domain Services |
 |            | Azure AD enterprise application<br/> Azure Active Directory enterprise application | Microsoft Entra enterprise application |
@@ -261,6 +262,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |            | Azure AD identity protection<br/> Azure Active Directory identity protection | Microsoft Entra ID Protection |
 |            | Azure AD integrated authentication<br/> Azure Active Directory integrated authentication | Microsoft Entra integrated authentication |
 |            | Azure AD join<br/> Azure AD joined<br/> Azure Active Directory join<br/> Azure Active Directory joined | Microsoft Entra join<br/> Microsoft Entra joined  |
+|            | Azure AD license<br/> Azure Active Directory license | Microsoft Entra ID license or license for Microsoft Entra ID |
 |            | Azure AD login<br/> Azure Active Directory login | Microsoft Entra login |
 |            | Azure AD managed identities<br/> Azure Active Directory managed identities | Microsoft Entra managed identities |
 |            | Azure AD multifactor authentication (MFA)<br/> Azure Active Directory multifactor authentication (MFA) | Microsoft Entra multifactor authentication (MFA)<br/> (Second use: MFA) |
@@ -271,6 +273,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |            | Azure AD password authentication<br/> Azure Active Directory password authentication | Microsoft Entra password authentication |
 |            | Azure AD password hash synchronization (PHS)<br/> Azure Active Directory password hash synchronization (PHS) | Microsoft Entra password hash synchronization |
 |            | Azure AD password protection<br/> Azure Active Directory password protection | Microsoft Entra password protection |
+|            | Azure AD Premium<br/> Azure Active Directory Premium | Microsoft Entra ID P1 or P2 |
 |            | Azure AD principal ID<br/> Azure Active Directory principal ID | Microsoft Entra principal ID |
 |            | Azure AD Privileged Identity Management (PIM)<br/> Azure Active Directory Privileged Identity Management (PIM) | Microsoft Entra Privileged Identity Management (PIM) |
 |            | Azure AD registered<br/> Azure Active Directory registered | Microsoft Entra registered |
@@ -291,6 +294,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 
 | Date | Change description |
 |------|--------------------|
+| October 12, 2023 | <br/>&#8226;Updated statement about availability of license plans.  <br/>&#8226; Added three other terms in the glossary: "Azure AD connector", "Azure AD license", and "Azure AD Premium" |
 | September 15, 2023 | Added a link to the new article, [How to: Rename Azure AD](how-to-rename-azure-ad.md), updated the description for Azure AD B2C, and added more info about why the name Azure AD is changing. |
 | August 29, 2023 | <br/>&#8226; In the [glossary](#glossary-of-updated-terminology), corrected the entry for "Azure AD activity logs" to separate "Azure AD audit log", which is a distinct type of activity log. <br/>&#8226; Added Azure AD Sync and DirSync to the [What names aren't changing](#what-names-arent-changing) section. |
 | August 18, 2023 | <br/>&#8226; Updated the article to include a new section [Glossary of updated terminology](#glossary-of-updated-terminology), which includes the old and new terminology.<br/>&#8226; Updated info and added link to usage of the Microsoft Entra ID icon, and updates to verbiage in some sections.  |
@@ -299,6 +303,8 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 ## Next steps
 
 - [How to: Rename Azure AD](how-to-rename-azure-ad.md)
-- [Stay up-to-date with what's new in Azure AD/Microsoft Entra ID](whats-new.md)
+- [Stay up-to-date with what's new in Microsoft Entra ID (formerly Azure AD)](./whats-new.md)
 - [Get started using Microsoft Entra ID at the Microsoft Entra admin center](https://entra.microsoft.com/)
-- [Learn more about Microsoft Entra with content from Microsoft Learn](/entra)
+- [Learn more about the Microsoft Entra family with content from Microsoft Learn](/entra)
+
+<!-- docutune:ignore "Azure Active Directory" "Azure AD" "AAD" "Entra ID" "Cloud Knox" "Identity Governance" -->

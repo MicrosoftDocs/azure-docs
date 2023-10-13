@@ -102,6 +102,8 @@
     href: notification-hubs-aspnet-cross-platform-notification.md
   - name: Push rich content to devices
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+  - name: Send browser push notifications
+    href: browser-push.md
   - name: Send scheduled notifications
     href: notification-hubs-send-push-notifications-scheduled.md      
   - name: Deploy and manage notification hubs using Azure PowerShell

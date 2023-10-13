@@ -53,19 +53,21 @@ Finally, make sure the appropriate roles are granted and have not been revoked.
 
 This error is caused by changing workspace customer managed key used for encryption. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. Learn here how to [manage the workspace keys](../security/workspaces-encryption.md#manage-the-workspace-customer-managed-key).
 
-### Synapse serverless SQL pool is unavailable after transferring a subscription to a different Azure AD tenant
+<a name='synapse-serverless-sql-pool-is-unavailable-after-transferring-a-subscription-to-a-different-azure-ad-tenant'></a>
 
-If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure support will contact you to resolve the issue.
+### Synapse serverless SQL pool is unavailable after transferring a subscription to a different Microsoft Entra tenant
+
+If you moved a subscription to another Microsoft Entra tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure support will contact you to resolve the issue.
 
 ## Storage access
 
-If you get errors while you try to access files in Azure storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Azure Active Directory (Azure AD) identity can directly access the files.
+If you get errors while you try to access files in Azure storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Microsoft Entra identity can directly access the files.
 
 If you have a shared access signature key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
-If you use an Azure AD login without explicit credentials, make sure that your Azure AD identity can access the files in storage. To access the files, your Azure AD identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](../../storage/blobs/data-lake-storage-access-control-model.md). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
+If you use a Microsoft Entra login without explicit credentials, make sure that your Microsoft Entra identity can access the files in storage. To access the files, your Microsoft Entra identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](../../storage/blobs/data-lake-storage-access-control-model.md). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
 
 If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has the **Data Reader** or **Contributor role** or specific ACL permissions. If you used a [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
 
@@ -73,13 +75,13 @@ If you use a SQL login and the `OPENROWSET` function [without a data source](dev
 
 ### Query fails because file can't be opened
 
-If your query fails with the error `File cannot be opened because it does not exist or it is used by another process` and you're sure that both files exist and aren't used by another process, serverless SQL pool can't access the file. This problem usually happens because your Azure AD identity doesn't have rights to access the file or because a firewall is blocking access to the file.
+If your query fails with the error `File cannot be opened because it does not exist or it is used by another process` and you're sure that both files exist and aren't used by another process, serverless SQL pool can't access the file. This problem usually happens because your Microsoft Entra identity doesn't have rights to access the file or because a firewall is blocking access to the file.
 
-By default, serverless SQL pool tries to access the file by using your Azure AD identity. To resolve this issue, you must have proper rights to access the file. The easiest way is to grant yourself a Storage Blob Data Contributor role on the storage account you're trying to query.
+By default, serverless SQL pool tries to access the file by using your Microsoft Entra identity. To resolve this issue, you must have proper rights to access the file. The easiest way is to grant yourself a Storage Blob Data Contributor role on the storage account you're trying to query.
 
 For more information, see:
 
-- [Azure AD access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
+- [Microsoft Entra ID access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
 - [Control storage account access for serverless SQL pool in Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### Alternative to Storage Blob Data Contributor role
@@ -119,8 +121,8 @@ If you want to query data2.csv in this example, the following permissions are ne
 
 This error indicates that the user who's querying Azure Data Lake can't list the files in storage. There are several scenarios where this error might happen:
 
-- The Azure AD user who's using [Azure AD pass-through authentication](develop-storage-files-storage-access-control.md?tabs=user-identity) doesn't have permission to list the files in Data Lake Storage.
-- The Azure AD or SQL user who's reading data by using a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) and that key or identity doesn't have permission to list the files in storage.
+- The Microsoft Entra user who's using [Microsoft Entra pass-through authentication](develop-storage-files-storage-access-control.md?tabs=user-identity) doesn't have permission to list the files in Data Lake Storage.
+- The Microsoft Entra ID or SQL user who's reading data by using a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) and that key or identity doesn't have permission to list the files in storage.
 - The user who's accessing Dataverse data who doesn't have permission to query data in Dataverse. This scenario might happen if you use SQL users.
 - The user who's accessing Delta Lake might not have permission to read the Delta Lake transaction log.
 
@@ -128,16 +130,16 @@ The easiest way to resolve this issue is to grant yourself the **Storage Blob Da
 
 For more information, see:
 
-- [Azure AD access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
+- [Microsoft Entra ID access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
 - [Control storage account access for serverless SQL pool in Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### Content of Dataverse table can't be listed
 
-If you are using the Azure Synapse Link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
+If you are using the Azure Synapse Link for Dataverse to read the linked DataVerse tables, you need to use Microsoft Entra account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
 
 If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error: `External table '???' is not accessible because content of directory cannot be listed.`
 
-Dataverse external tables always use Azure AD passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
+Dataverse external tables always use Microsoft Entra passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
 #### Content of Delta Lake transaction log can't be listed
 
@@ -576,15 +578,15 @@ There are reasons why this error code can happen:
 
 #### [0x80070005](#tab/x80070005)
 
-This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires.
+This error can occur when the authentication method is user identity, which is also known as Microsoft Entra pass-through, and the Microsoft Entra access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour. 
 
 The error message might also resemble: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
-- The Azure AD authentication token might be cached by the client applications. For example, Power BI caches the Azure AD token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
+- The Microsoft Entra authentication token might be cached by the client applications. For example, Power BI caches the Microsoft Entra token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
 
 Consider the following mitigations:
 
-- Restart the client application to obtain a new Azure AD token.
+- Restart the client application to obtain a new Microsoft Entra token.
 
 #### [0x80070008](#tab/x80070008)
 
@@ -639,15 +641,15 @@ To read or download a blob in the Archive tier, rehydrate it to an online tier. 
 
 #### [0x80070057](#tab/x80070057)
 
-This error can occur when the authentication method is user identity, which is also known as Azure AD pass-through, and the Azure AD access token expires.
+This error can occur when the authentication method is user identity, which is also known as Microsoft Entra pass-through, and the Microsoft Entra access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour.
 
 The error message might also resemble the following pattern: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
-- The Azure AD authentication token might be cached by the client applications. For example, Power BI caches an Azure AD token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
+- The Microsoft Entra authentication token might be cached by the client applications. For example, Power BI caches a Microsoft Entra token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
 
 Consider the following mitigations to resolve the issue:
 
-- Restart the client application to obtain a new Azure AD token.
+- Restart the client application to obtain a new Microsoft Entra token.
 
 #### [0x80072EE7](#tab/x80072EE7)
 
@@ -781,12 +783,14 @@ Here's the solution:
         WITH ( FORMAT_TYPE = PARQUET)
         ```
 
-### Can't create Azure AD login or user
+<a name='cant-create-azure-ad-login-or-user'></a>
 
-If you get an error while you're trying to create a new Azure AD login or user in a database, check the login you used to connect to your database. The login that's trying to create a new Azure AD user must have permission to access the Azure AD domain and check if the user exists. Be aware that:
+### Can't create Microsoft Entra login or user
+
+If you get an error while you're trying to create a new Microsoft Entra login or user in a database, check the login you used to connect to your database. The login that's trying to create a new Microsoft Entra user must have permission to access the Microsoft Entra domain and check if the user exists. Be aware that:
 
 - SQL logins don't have this permission, so you'll always get this error if you use SQL authentication.
-- If you use an Azure AD login to create new logins, check to see if you have permission to access the Azure AD domain.
+- If you use a Microsoft Entra login to create new logins, check to see if you have permission to access the Microsoft Entra domain.
 
 ## Azure Cosmos DB
 
@@ -920,7 +924,7 @@ If you created a Delta table in Spark, and it is not shown in the serverless SQL
 
 ## Lake database
 
-The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Azure AD users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
+The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Microsoft Entra users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
 
 ### A table created in Spark is not available in serverless pool
 
@@ -938,7 +942,7 @@ The Lake databases are replicated from the Apache Spark pool and managed by Apac
 
 Only the following operations are allowed in the Lake databases:
 - Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the **schemas other than `dbo`**. 
-- Creating and dropping the database users from Azure Active Directory.
+- Creating and dropping the database users from Microsoft Entra ID.
 - Adding or removing database users from `db_datareader` schema.
 
 Other operations are not allowed in Lake databases.
@@ -1035,11 +1039,13 @@ If a user can't access a lakehouse or Spark database, the user might not have pe
 
 ### SQL user can't access Dataverse tables
 
-Dataverse tables access storage by using the caller's Azure AD identity. A SQL user with high permissions might try to select data from a table, but the table wouldn't be able to access Dataverse data. This scenario isn't supported.
+Dataverse tables access storage by using the caller's Microsoft Entra identity. A SQL user with high permissions might try to select data from a table, but the table wouldn't be able to access Dataverse data. This scenario isn't supported.
 
-### Azure AD service principal sign-in failures when SPI creates a role assignment
+<a name='azure-ad-service-principal-sign-in-failures-when-spi-creates-a-role-assignment'></a>
 
-If you want to create a role assignment for a service principal identifier (SPI) or Azure AD app by using another SPI, or you've already created one and it fails to sign in, you'll probably receive the following error: `Login error: Login failed for user '<token-identified principal>'.`
+### Microsoft Entra service principal sign-in failures when SPI creates a role assignment
+
+If you want to create a role assignment for a service principal identifier (SPI) or Microsoft Entra app by using another SPI, or you've already created one and it fails to sign in, you'll probably receive the following error: `Login error: Login failed for user '<token-identified principal>'.`
 
 For service principals, login should be created with an application ID as a security ID (SID) not with an object ID. There's a known limitation for service principals, which prevents Azure Synapse from fetching the application ID from Microsoft Graph when it creates a role assignment for another SPI or app.
 

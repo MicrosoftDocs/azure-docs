@@ -31,10 +31,10 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 > [!NOTE]
 > Manually setting the employeeLeaveDateTime for cloud-only users requires special permissions. For more information, see: [Configure the employeeLeaveDateTime property for a user](/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime)
 
-This document explains how to set up synchronization from on-premises Microsoft Entra Connect cloud sync and Microsoft Entra Connect for the required attributes.
+This document explains how to set up synchronization from on-premises Microsoft Entra Connect cloud sync or Microsoft Entra Connect for the required attributes.
 
 >[!NOTE]
-> There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.
+> There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're synchronizing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.
 
 
 ## Understanding EmployeeHireDate and EmployeeLeaveDateTime formatting
@@ -110,7 +110,7 @@ For more information on attributes, see [Attribute mapping in Microsoft Entra Co
 ## How to create a custom sync rule in Microsoft Entra Connect for EmployeeHireDate
 The following example walks you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Microsoft Entra ID.
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
-   1. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
+   1. Go to Start\Microsoft Entra Connect\ and open the Synchronization Rules Editor
    1. Ensure the direction at the top is set to **Inbound**.
    1. Select **Add Rule.**
    1. On the **Create Inbound synchronization rule** screen, enter the following information and select **Next**.
@@ -173,7 +173,7 @@ To update this mapping, you'd do the following:
 1.  Add your source attribute(s) created as Type String, and select on the CheckBox for required.
     :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/edit-attribute-list.png" alt-text="Screenshot of source api list.":::
     > [!NOTE]
-    > The number, and name, of source attributes added will depend on which attributes you are syncing.
+    > The number, and name, of source attributes added will depend on which attributes you are syncing from Active Directory.
 1.  Select Save. 
 
 1. From there you must map the HRM attributes to the added Active Directory attributes. To do this, Add New Mapping using an Expression. 
