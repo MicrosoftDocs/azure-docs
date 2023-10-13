@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 08/07/2023
+ms.date: 10/10/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -218,9 +218,9 @@ After you finish writing your code, compile to make sure that no build errors ex
 
 1. Confirm that the following items exist in your logic app project:
 
-   - In your workspace, expand the folowing folders: **LogicApp** > **lib\custom** > **net472**. Confirm that the subfolder named **net472** contains the multiple assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
+   - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **net472**. Confirm that the subfolder named **net472** contains the multiple assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
 
-   - In your workspace, expand the folowing folders: **LogicApp** > **lib\custom** > **<*function-name*>**. Confirm that the subfolder named **<*function-name*>** contains a **function.json** file, which includes the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+   - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **<*function-name*>**. Confirm that the subfolder named **<*function-name*>** contains a **function.json** file, which includes the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
    The following example shows sample generated assemblies and other files in the logic app project:
 

@@ -62,7 +62,7 @@ sections:
       - question: |
           What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
+          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and Microsoft Entra hybrid joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Microsoft Entra organizations.
 
       - question: |
           How many organizations can I add in cross-tenant access settings?
@@ -95,8 +95,7 @@ sections:
           Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Microsoft Entra admin center. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
           
           1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as a security administrator or a Conditional Access administrator.
-          2. In the Microsoft Entra admin center, select **Microsoft Entra ID**. 
-          3. Under **Manage**, select **Security**.
+          2. In the Microsoft Entra admin center, under **Protection**, select **Security Center**. 
           4. Under **Protect**, select **Conditional Access**. Select **New policy**.
           5. On the **New** page, in the **Name** textbox, enter a name for the policy (for example "Block guests from accessing the portal").
           6. Under **Assignments**, select **Users and groups**.
@@ -117,12 +116,12 @@ sections:
         answer: |
           If your Microsoft Entra tenant is the home directory for a user, you can [reset the user's password](../fundamentals/users-reset-password-azure-portal.md) from the Microsoft Entra admin center. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Microsoft Entra directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
            
-          * Guest users in an Azure AD tenant that are marked "Guest" (UserType==Guest) can't register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
+          * Guest users in a Microsoft Entra tenant that are marked "Guest" (UserType==Guest) can't register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
           * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
           * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider's SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
           * If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](../enterprise-users/domains-admin-takeover.md) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.
           
-          * If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Microsoft Entra admin center.
+          * If the guest user's home directory is your Microsoft Entra tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Microsoft Entra admin center.
           
       - question: |
           Does Microsoft Dynamics 365 provide online support for Microsoft Entra B2B collaboration?
@@ -198,7 +197,7 @@ sections:
           It depends. By default, Microsoft Entra-only allows UPN for login ID. When UPN and email are the same, Microsoft Entra B2B invitations and subsequent sign-ins work as expected. However, issues can arise when a user’s email and UPN don’t match, and the email is used instead of the UPN to sign in.
           When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](redemption-experience.md#redemption-process-through-the-invitation-email), but redemptions via a [direct link](redemption-experience.md#redemption-process-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Microsoft Entra ID or a federated identity provider) is configured to allow email as an alternative login ID. 
           This issue can be mitigated by:
-          1. [Enabling email as an alternate login ID](../authentication/howto-authentication-use-email-signin.md) in the invited/home Azure AD tenant
+          1. [Enabling email as an alternate login ID](../authentication/howto-authentication-use-email-signin.md) in the invited/home Microsoft Entra tenant
           2. Enabling the federated identity provider to support email as login ID (if Microsoft Entra ID is federated to another identity provider) or
           3. Instructing the user to redeem/sign-in using their UPN.
 
@@ -221,4 +220,4 @@ additionalContent: |
 
   ## Next steps
   
-  [What is Azure AD B2B collaboration?](what-is-b2b.md)
+  [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)

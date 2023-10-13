@@ -380,6 +380,8 @@
         href: britive-tutorial.md
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
+      - name: Brocade SANnav Management Portal
+        href: brocade-sannav-management-portal-tutorial.md
       - name: Broker groupe Achat Solutions
         href: broker-groupe-tutorial.md
       - name: BrowserStack Single Sign-on
@@ -472,6 +474,8 @@
         href: chronicx-tutorial.md
       - name: Chronus SAML
         href: chronus-saml-tutorial.md
+      - name: CIC - Controle Inteligente de Compensação
+        href: cic-intelligent-compensation-control-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
       - name: Circus Street
@@ -570,6 +574,8 @@
         href: cognidox-tutorial.md
       - name: Cognician
         href: cognician-tutorial.md
+      - name: CoLab
+        href: colab-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Colloquial
@@ -732,6 +738,8 @@
         href: desknets-neo-tutorial.md
       - name: Deskradar
         href: deskradar-tutorial.md
+      - name: Diffchecker
+        href: diffchecker-tutorial.md
       - name: DigiCert
         href: digicert-tutorial.md
       - name: Digital Pigeon
@@ -740,6 +748,8 @@
         href: dining-sidekick-tutorial.md  
       - name: Direct
         href: direct-tutorial.md
+      - name: Directory Services Protector
+        href: directory-services-protector-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
       - name: directprint.io Cloud Print Administration
@@ -1003,6 +1013,8 @@
         href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
+      - name: Flock Safety
+        href: flock-safety-tutorial.md
       - name: FloQast
         href: floqast-tutorial.md
       - name: Fluxx Labs
@@ -1089,6 +1101,8 @@
         href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glia Hub
+        href: glia-hub-tutorial.md
       - name: Glint Inc
         href: glint-inc-tutorial.md  
       - name: GlobalOne
@@ -1101,6 +1115,8 @@
         href: gofluent-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
+      - name: GovWin IQ
+        href: govwin-iq-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
       - name: gr8 People
@@ -1109,6 +1125,8 @@
         href: grape-tutorial.md
       - name: Grammarly
         href: grammarly-tutorial.md  
+      - name: Granite
+        href: granite-tutorial.md
       - name: Greenhouse
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
@@ -1127,6 +1145,8 @@
         href: gtnexus-sso-module-tutorial.md  
       - name: Guardium Data Protection
         href: guardium-data-protection-tutorial.md
+      - name: Guru
+        href: guru-tutorial.md
     - name: H - I
       items:
       - name: Hackerone
@@ -1301,12 +1321,16 @@
         href: innotas-tutorial.md
       - name: Innovation Hub
         href: innovationhub-tutorial.md
+      - name: Insider
+        href: insider-tutorial.md
       - name: Insider Track
         href: insidertrack-tutorial.md
       - name: InsideView
         href: insideview-tutorial.md
       - name: Insight4GRC
         href: insight4grc-tutorial.md
+      - name: Insightsfirst
+        href: insightsfirst-tutorial.md
       - name: Insignia SAML SSO
         href: insigniasamlsso-tutorial.md
       - name: Insperity ExpensAble
@@ -1415,6 +1439,8 @@
         href: juriblox-tutorial.md  
       - name: JustLogin
         href: justlogin-tutorial.md
+      - name: Kairos Business
+        href: kairos-business-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: KanbanBOX
@@ -1471,6 +1497,8 @@
         href: knowledgeowl-tutorial.md
       - name: Knowledge Work
         href: knowledge-work-tutorial.md
+      - name: Kofax TotalAgility
+        href: kofax-totalagility-tutorial.md
       - name: Kontiki
         href: kontiki-tutorial.md
       - name: Korn Ferry 360
@@ -1623,6 +1651,8 @@
         href: maxxpoint-tutorial.md
       - name: MCM
         href: mcm-tutorial.md
+      - name: MDComune Business
+        href: mdcomune-business-tutorial.md
       - name: Menlo Security
         href: menlosecurity-tutorial.md
       - name: Meraki Dashboard
@@ -1645,6 +1675,8 @@
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
+      - name: MIC SAAS Portal
+        href: mic-saas-portal-tutorial.md
       - name: MiHCM
         href: mihcm-tutorial.md  
       - name: Mimecast
@@ -1685,6 +1717,8 @@
         href: montageonline-tutorial.md
       - name: Moqups
         href: moqups-tutorial.md
+      - name: Mosaic Project Operations
+        href: mosaic-project-operations-tutorial.md
       - name: Motus
         href: motus-tutorial.md
       - name: MOVEit Transfer - Microsoft Entra integration
@@ -1993,6 +2027,8 @@
         href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
+      - name: PressReader
+        href: pressreader-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
       - name: PrinterLogic
@@ -2037,6 +2073,8 @@
         href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
+      - name: Prosci Portal
+        href: prosci-portal-tutorial.md
       - name: Proto.io
         href: proto.io-tutorial.md
       - name: Proware
@@ -2068,7 +2106,9 @@
       - name: QReserve
         href: qreserve-tutorial.md
       - name: Qualaroo
-        href: qualaroo-tutorial.md  
+        href: qualaroo-tutorial.md
+      - name: Quarem
+        href: quarem-tutorial.md
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -2161,6 +2201,8 @@
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
         href: rstudio-server-pro-tutorial.md
+      - name: RoleMapper
+        href: rolemapper-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
@@ -2281,6 +2323,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: Senomix Timesheets
+        href: senomix-timesheets-tutorial.md
       - name: SendPro Enterprise
         href: sendpro-enterprise-tutorial.md
       - name: SendSafely
@@ -2291,6 +2335,8 @@
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
+      - name: Serenity Connect
+        href: serenity-connect-tutorial.md
       - name: SoSafe
         href: servicessosafe-tutorial.md
       - name: ServiceChannel
@@ -2399,6 +2445,8 @@
         href: smartlpa-tutorial.md
       - name: Smartlook
         href: smartlook-tutorial.md
+      - name: Smart Map Pro
+        href: smart-map-pro-tutorial.md
       - name: SmartRecruiters
         href: smartrecruiters-tutorial.md
       - name: smartvid.io
@@ -2435,6 +2483,10 @@
         href: speexx-tutorial.md  
       - name: Splashtop
         href: splashtop-tutorial.md
+      - name: Splashtop Secure Workspace
+        href: splashtop-secure-workspace-tutorial.md
+      - name: SPS|Production Manager
+        href: sps-production-manager-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst
@@ -2475,6 +2527,8 @@
         href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: Supply Chain Catalyst
+        href: supply-chain-catalyst-tutorial.md
       - name: SURFconext
         href: surfconext-tutorial.md
       - name: SURFsecureID - Azure MFA
@@ -2577,6 +2631,8 @@
         href: textmagic-tutorial.md
       - name: The Funding Portal
         href: the-funding-portal-tutorial.md
+      - name: The People Experience Hub
+        href: the-people-experience-hub-tutorial.md
       - name: Theom
         href: theom-tutorial.md
       - name: ThirdLight
@@ -2647,6 +2703,8 @@
         href: tranxfer-tutorial.md
       - name: TravelPerk
         href: travelperk-tutorial.md  
+      - name: Treasury Intelligence Solutions (TIS)
+        href: treasury-intelligence-solutions-tis-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trend Micro Web Security(TMWS)
@@ -2769,6 +2827,8 @@
         href: visitly-tutorial.md
       - name: Visma
         href: visma-tutorial.md
+      - name: Visual Paradigm Online
+        href: visual-paradigm-online-tutorial.md
       - name: VMware Horizon - Unified Access Gateway
         href: vmware-horizon-unified-access-gateway-tutorial.md
       - name: VMware Identity Service
@@ -3080,6 +3140,8 @@
         href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-provisioning-tutorial.md
+      - name: Bustle B2B Transport Systems
+        href: bustle-b2b-transport-systems-provisioning-tutorial.md
       - name: Canva
         href: canva-provisioning-tutorial.md
       - name: Cato Networks Provisioning
@@ -3114,6 +3176,8 @@
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
         href: cofense-provision-tutorial.md
+      - name: Colloquial
+        href: colloquial-provisioning-tutorial.md
       - name: Connecter
         href: connecter-provisioning-tutorial.md
       - name: Contentful
@@ -3144,6 +3208,8 @@
         href: dialpad-provisioning-tutorial.md
       - name: directprint.io
         href: directprint-io-provisioning-tutorial.md
+      - name: Diffchecker
+        href: diffchecker-provisioning-tutorial.md
       - name: Druva
         href: druva-provisioning-tutorial.md
       - name: embed signage
@@ -3308,6 +3374,8 @@
         href: looop-provisioning-tutorial.md
       - name: LogMeIn
         href: logmein-provisioning-tutorial.md
+      - name: M-Files
+        href: m-files-provisioning-tutorial.md
       - name: Maptician
         href: maptician-provisioning-tutorial.md
       - name: Markit Procurement Service
@@ -3436,6 +3504,8 @@
         href: sap-successfactors-writeback-tutorial.md
       - name: SchoolStream ASA
         href: schoolstream-asa-provisioning-tutorial.md
+      - name: ScreenSteps
+        href: screensteps-provisioning-tutorial.md
       - name: SECURE DELIVER
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
@@ -3500,6 +3570,8 @@
         href: taskize-connect-provisioning-tutorial.md
       - name: Teamgo
         href: teamgo-provisioning-tutorial.md
+      - name: Team Today
+        href: team-today-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: TerraTrue
@@ -3580,6 +3652,8 @@
         href: wrike-provisioning-tutorial.md
       - name: Xledger
         href: xledger-provisioning-tutorial.md
+      - name: XM Fax and XM SendSecure
+        href: xm-fax-and-xm-send-secure-provisioning-tutorial.md
       - name: Yellowbox
         href: yellowbox-provisioning-tutorial.md
       - name: Zapier

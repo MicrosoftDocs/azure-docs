@@ -69,7 +69,7 @@ In semantic ranking, the query subsystem passes search results as an input to th
 
 Each document is now represented by a single long string.
 
-The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
+**Maximum token counts (256)**. The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
 
 > [!NOTE]
 > Tokenization is determined in part by the [analyzer assignment](search-analyzers.md) on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from semantic ranking. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).

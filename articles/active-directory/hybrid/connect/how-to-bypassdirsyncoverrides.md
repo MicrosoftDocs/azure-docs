@@ -122,13 +122,13 @@ Get-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -FromAzureAD
 ### Set _MobilePhone_ and _AlternateMobilePhones_ properties in Microsoft Entra ID:
 
 ```powershell
-Set-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobileInAD '999888777'  -OtherMobileInAD '0987654','1234567'
+Set-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobilePhoneInAAD '999888777' -AlternateMobilePhonesInAAD '0987654','1234567'
 ```
 
 ### Set _Mobile_ and _otherMobile_ properties in on-premises Active Directory:
 
 ```powershell
-Set-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobilePhoneInAAD '999888777' -AlternateMobilePhonesInAAD '0987654','1234567'
+Set-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobileInAD '999888777' -OtherMobileInAD '0987654','1234567'
 ```
 
 <a name='clear-mobilephone-and-alternatemobilephones-properties-in-azure-ad'></a>
@@ -136,15 +136,15 @@ Set-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobilePhoneInAAD '99988
 ### Clear _MobilePhone_ and _AlternateMobilePhones_ properties in Microsoft Entra ID:
 
 ```powershell
-Clear-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobileInAD -OtherMobileInAD
+Clear-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobilePhoneInAAD -AlternateMobilePhonesInAAD
 ```
 
 ### Clear _Mobile_ and _otherMobile_ properties in on-premises Active Directory:
 
 ```powershell
-Clear-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobilePhoneInAAD -AlternateMobilePhonesInAAD
+Clear-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobileInAD -OtherMobileInAD
 ```
 
 ## Next Steps
 
-Learn more about [Microsoft Entra Connect: ADSyncTools PowerShell Module](reference-connect-adsynctools.md)
+Learn more about [Microsoft Entra Connect: `ADSyncTools` PowerShell module](reference-connect-adsynctools.md)

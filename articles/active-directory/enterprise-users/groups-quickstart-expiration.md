@@ -41,9 +41,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Select Microsoft Entra ID.
-
-2. Select **Groups** > **All groups** and then select **General**.
+1. Browse to **Identity** > **Groups** > **All groups** and then select **General**.
   
    ![Self-service group settings page](./media/groups-quickstart-expiration/self-service-settings.png)
 
@@ -54,8 +52,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 ## Set group expiration
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
-1. Select Microsoft Entra ID.
-1. Select **Groups** > **All groups** > **Expiration** to open the expiration settings.
+1. Browse to **Identity** > **Groups** > **All groups** > **Expiration** to open the expiration settings.
   
    ![Expiration settings page for group](./media/groups-quickstart-expiration/expiration-settings.png)
 
@@ -74,14 +71,13 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 ### To remove the expiration policy
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
-1. Select Microsoft Entra ID.
-1. Select **Groups** > **All groups** > **Expiration**.
+1. Browse to **Identity** > **Groups** > **All groups** > **Expiration**.
 1. Set **Enable expiration for these Microsoft 365 groups** to **None**.
 
 ### To turn off user creation for groups
 
-1. Select **Microsoft Entra ID** > **Groups** > **General**. 
-2. Set **Users can create Microsoft 365 groups in Azure portals** to **No**.
+1. Browse to **Identity** > **Groups** > **Group settings** >  **General**. 
+1. Set **Users can create Microsoft 365 groups in Azure portals** to **No**.
 
 ## Next steps
 

@@ -6,7 +6,6 @@ ms.custom: subject-monitoring
 ms.date: 10/11/2022
 ---
 
-
 # Monitoring Azure Service Bus data reference
 See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
 
@@ -97,25 +96,36 @@ This section lists the types of resource logs you can collect for Azure Service 
 
 - Operational logs
 - Virtual network and IP filtering logs
+- Runtime Audit logs
+
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
+
+:::image type="content" source="media/monitor-service-bus-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/destination-table-toggle.png":::
 
 ### Operational logs
 Operational log entries include elements listed in the following table:
 
-| Name | Description |
-| ------- | ------- |
-| `ActivityId` | Internal ID, used to identify the specified activity |
-| `EventName` | Operation name |
-| `ResourceId` | Azure Resource Manager resource ID |
-| `SubscriptionId` | Subscription ID |
-| `EventTimeString` | Operation time |
-| `EventProperties` | Operation properties |
-| `Status` | Operation status |
-| `Caller` | Caller of operation (the Azure portal or management client) |
-| `Category` | OperationalLogs |
+| Name | Description | Supported in AzureDiagnostics | Supported in AZMSOperationalLogs (Resource Specific table)|
+| ------- | ------- |---| ---|
+| `ActivityId` | Internal ID, used to identify the specified activity | Yes | Yes|
+| `EventName` | Operation name | Yes | Yes|
+| `ResourceId` | Azure Resource Manager resource ID | Yes | Yes|
+| `SubscriptionId` | Subscription ID | Yes | Yes|
+| `EventtimeString`| Operation Time | Yes | No|
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes|
+| `EventProperties` | Operation properties | Yes | Yes|
+| `Status` | Operation status | Yes | Yes|
+| `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
+|  `Type 	`| Type of logs emitted | No | Yes|
+| `Category`| Log Category | Yes | No|
 
 Here's an example of an operational log JSON string:
 
+AzureDiagnostics:
+
 ```json
+
 {
   "ActivityId": "0000000000-0000-0000-0000-00000000000000",
   "EventName": "Create Queue",
@@ -127,6 +137,28 @@ Here's an example of an operational log JSON string:
   "Caller": "ServiceBus Client",
   "category": "OperationalLogs"
 }
+
+
+```
+Resource specific table entry:
+
+```json
+
+{
+
+  "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+  "EventName": "Retrieve Queue",
+  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+  "SubscriptionId": "0000000000-0000-0000-0000-00000000000000",
+  "TimeGenerated(UTC)": "9/28/2023 8:40:06 PM +00:00",
+  "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+  "Status": "Succeeded",
+  "Caller": "ServiceBus Client",
+  "type": "AZMSOperationalLogs",
+  "Provider" : "SERVICEBUS"
+
+}
+
 ```
 
 ### Events and operations captured in operational logs
@@ -137,12 +169,13 @@ Operational logs capture all management operations that are performed on the Azu
 
 The following management operations are captured in operational logs: 
 
-| Scope | Operation|
-|-------| -------- |
-| `Namespace` | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
-| `Queue` | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
-| `Topic` | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
-| `Subscription` | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
+| Scope | Operation |
+|-------|-----------|
+| Namespace | - Create Namespace<br>- Update Namespace<br>- Delete Namespace<br>- Update Namespace<br>- Retrieve Namespace<br>- SharedAccess Policy |
+| Queue | - Create Queue<br>- Update Queue<br>- Delete Queue<br>- AutoDelete Delete Queue<br>- Retrieve Queue |
+| Topic | - Create Topic<br>- Update Topic<br>- Delete Topic<br>- AutoDelete Delete Topic<br>- Retrieve Topic |
+| Subscription | - Create Subscription<br>- Update Subscription<br>- Delete Subscription<br>- AutoDelete Delete Subscription<br>- Retrieve Subscription |
+
 
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
@@ -150,22 +183,27 @@ The following management operations are captured in operational logs:
 ### Virtual network and IP filtering logs
 Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
 
-| Name | Description |
-| ---  | ----------- | 
-| `SubscriptionId` | Azure subscription ID |
-| `NamespaceName` | Namespace name |
-| `IPAddress` | IP address of a client connecting to the Service Bus service |
-| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
-| `Reason` | Provides a reason why the action was done |
-| `Count` | Number of occurrences for the given action |
-| `ResourceId` | Azure Resource Manager resource ID. |
-| `Category` | ServiceBusVNetConnectionEvent |
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents (Resource specific table) 
+| ---  | ----------- |---| ---| 
+| `SubscriptionId` | Azure subscription ID | Yes | Yes
+| `NamespaceName` | Namespace name | Yes | Yes
+| `IPAddress` | IP address of a client connecting to the Service Bus service | Yes | Yes 
+| `AddressIP` | IP address of client connecting to service bus | Yes | Yes
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC) | Yes | Yes 
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. | Yes | Yes 
+| `Reason` | Provides a reason why the action was done | Yes | Yes
+| `Count` | Number of occurrences for the given action | Yes | Yes
+| `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
+| `Category` |  Log Category | Yes | No
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+|  `Type`  | Type of Logs Emitted | No | Yes
 
 > [!NOTE] 
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
 
 Here's an example of a virtual network log JSON string:
 
+AzureDiagnostics;
 ```json
 {
     "SubscriptionId": "0000000-0000-0000-0000-000000000000",
@@ -174,8 +212,22 @@ Here's an example of a virtual network log JSON string:
     "Action": "Accept Connection",
     "Reason": "IP is accepted by IPAddress filter.",
     "Count": 1,
-    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
     "Category": "ServiceBusVNetConnectionEvent"
+}
+```
+Resource specific table entry:
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "AddressIp": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Message": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "Provider" : "SERVICEBUS",
+    "Type": "AZMSVNetConnectionEvents"
 }
 ```
 
@@ -187,24 +239,28 @@ Runtime audit logs capture aggregated diagnostic information for various data pl
 
 Runtime audit logs include the elements listed in the following table:
 
-Name | Description
-------- | -------
-`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
-`ActivityName` | Runtime operation name.  
-`ResourceId` | Resource associated with the activity. 
-`Timestamp` | Aggregation time.
-`Status` | Status of the activity (success or failure).
-`Protocol` | Type of the protocol associated with the operation.
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
-`NetworkType` | Type of the network access: `Public` or`Private`.
-`ClientIP` | IP address of the client application.
-`Count` | Total number of operations performed during the aggregated period of 1 minute. 
-`Properties` | Metadata that is specific to the data plane operation. 
-`Category` | Log category
+Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAuditLogs (Resource specific table)
+------- | -------| ---|---| 
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes
+`ActivityName` | Runtime operation name.  | Yes | Yes
+`ResourceId` | Resource associated with the activity. | Yes | Yes
+`Timestamp` | Aggregation time. | Yes | No
+`time Generated (UTC)` | Aggregated time | No | Yes
+`Status` | Status of the activity (success or failure).| Yes | Yes
+`Protocol` | Type of the protocol associated with the operation. | Yes | Yes
+`AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy). | Yes | Yes
+`AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes
+`NetworkType` | Type of the network access: `Public` or`Private`. | yes | Yes
+`ClientIP` | IP address of the client application. | Yes | Yes
+`Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes
+`Properties` | Metadata that is specific to the data plane operation. | yes | Yes
+`Category` | Log category | Yes | No
+ `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+ `Type`  | Type of Logs emitted | No | Yes
 
 Here's an example of a runtime audit log entry:
 
+AzureDiagnostics:
 ```json
 {
     "ActivityId": "<activity id>",
@@ -222,7 +278,25 @@ Here's an example of a runtime audit log entry:
  }
 
 ```
+Resource specific table entry:
+```json
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthKey": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Provider": "SERVICEBUS",
+    "Type"   : "AZMSRuntimeAuditLogs"
+ }
 
+```
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 

@@ -1,6 +1,6 @@
 ---
 title: High availability for Azure MFA Server
-description: Deploy multiple instances of Azure multifactor authentication Server in configurations that provide high availability.
+description: Deploy multiple instances of Azure Multi-Factor Authentication Server in configurations that provide high availability.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Configure Azure multifactor authentication Server for high availability
+# Configure Azure Multi-Factor Authentication Server for high availability
 
 To achieve high-availability with your Azure Server MFA deployment, you need to deploy multiple MFA servers. This section provides information on a load-balanced design to achieve your high availability targets in your Azure MFS Server deployment.
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure multifactor authentication Server. Beginning September 30, 2024, Azure multifactor authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 >

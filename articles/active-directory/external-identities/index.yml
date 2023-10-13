@@ -3,12 +3,12 @@
 ## FRONT MATTER START
 title: Microsoft Entra External ID documentation # < 60 chars
 summary: >
-  With Microsoft Entra External ID, also known as Azure Active Directory (Azure AD) External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
+  With Microsoft Entra External ID, formerly known as Azure Active Directory (Azure AD) External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
 brand: azure
 
 metadata:
   title: Microsoft Entra External ID documentation
-  description: Learn how to use Microsoft Entra ID for customers to manage how partners and customers sign in to your applications.
+  description: Learn how to use Microsoft Entra External ID for customers to manage how partners and customers sign in to your applications.
   services: active-directory
   ms.service: active-directory
   ms.subservice: ciam
@@ -42,7 +42,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Microsoft Entra ID for customers (CIAM)
+    - title: Microsoft Entra External ID for customers (CIAM)
       items:
         # Card
         - title: Overview

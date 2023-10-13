@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot insufficient access rights error
 description: Learn how to troubleshoot InsufficientAccessRights error when provisioning to on-premises Active Directory.
-author: jfields
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -89,7 +89,7 @@ Expression $dsaclsCMD | Out-Null
 ```
 
 If the Cx needs more help on troubleshooting on-premises AD permissions, engage Windows Server Support team.
-This article on [AdminSDHolder issues with Azure AD Connect](https://c7solutions.com/2017/03/administrators-aadconnect-and-adminsdholder-issues) has more examples on DSACLS usage.
+This article on [AdminSDHolder issues with Microsoft Entra Connect](https://c7solutions.com/2017/03/administrators-aadconnect-and-adminsdholder-issues) has more examples on DSACLS usage.
 
 **Option 3: Assign full control to provAgentgMSA account**
 

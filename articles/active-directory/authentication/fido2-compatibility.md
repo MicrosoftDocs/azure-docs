@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/26/2023
+ms.date: 10/09/2023
 
 author: justinha
 ms.author: justinha
 manager: amycolannino
-ms.reviewer: 
+ms.reviewer: calui
 
 ms.collection: M365-identity-device-management
 ---
@@ -74,7 +74,7 @@ The following tables show which transports are supported for each platform. Supp
 |---------|------|-----|-----|
 | Edge    | &#10060; | &#10060; | &#10060; |
 | Chrome  | &#x2705; | &#10060; | &#10060; |
-| Firefox | &#x2705; | &#10060; | &#10060; |
+| Firefox | &#10060; | &#10060; | &#10060; |
 
 
 ### iOS
@@ -98,7 +98,7 @@ The following tables show which transports are supported for each platform. Supp
 | Chrome  | &#10060;  | &#10060; | &#10060; |
 | Firefox | &#10060;  | &#10060; | &#10060; |
 
-<sup>1</sup>Security key biometrics or PIN for user verficiation isn't currently supported on Android by Google. Microsoft Entra ID requires user verification for all FIDO2 authentications.
+<sup>1</sup>Security key biometrics or PIN for user verficiation are currently supported on Android by Google. Microsoft Entra ID requires user verification for all FIDO2 authentications.
 
 ## Minimum browser version
 

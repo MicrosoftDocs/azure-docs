@@ -25,11 +25,14 @@ This article explains how the local administrators membership update works and h
 
 ## How it works
 
-When you connect a Windows device with Microsoft Entra ID using a Microsoft Entra join, Microsoft Entra ID adds the following security principals to the local administrators group on the device:
+At the time of Microsoft Entra join, we add the following security principals to the local administrators group on the device:
 
 - The Microsoft Entra Global Administrator role
 - The Azure AD Joined Device Local Administrator role 
 - The user performing the Microsoft Entra join   
+
+> [!NOTE]
+> This is done during the join operation only. If an administrator makes changes after this point they will need to update the group membership on the device.
 
 By adding Microsoft Entra roles to the local administrators group, you can update the users that can manage a device anytime in Microsoft Entra ID without modifying anything on the device. Microsoft Entra ID also adds the Azure AD Joined Device Local Administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to users with the Global Administrator role, you can also enable users that have been *only* assigned the Azure AD Joined Device Local Administrator role to manage a device. 
 
@@ -54,7 +57,7 @@ To modify the Azure AD Joined Device Local Administrator role, configure **Addit
 > [!NOTE]
 > This option requires Microsoft Entra ID P1 or P2 licenses. 
 
-Azure AD Joined Device Local Administrators are assigned to all Microsoft Entra joined devices. You can’t scope this role to a specific set of devices. Updating the Azure AD Joined Device Local Administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege elevation takes place when *both* the below actions happen:
+Microsoft Entra joined Device Local Administrators are assigned to all Microsoft Entra joined devices. You can’t scope this role to a specific set of devices. Updating the Azure AD Joined Device Local Administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege elevation takes place when *both* the below actions happen:
 
 - Upto 4 hours have passed for Microsoft Entra ID to issue a new Primary Refresh Token with the appropriate privileges. 
 - User signs out and signs back in, not lock/unlock, to refresh their profile.
@@ -111,5 +114,5 @@ Additionally, you can also add users using the command prompt:
 
 ## Next steps
 
-- To get an overview of how to manage devices, see [managing devices using the Azure portal](manage-device-identities.md).
+- To get an overview of how to manage devices, see [managing device identities](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Conditional Access: Require compliant or Microsoft Entra hybrid joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md).

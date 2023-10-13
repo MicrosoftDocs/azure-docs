@@ -64,7 +64,7 @@ Azure Data Manager for Energy service continuously monitors service health in th
 ##### Managing the resources in your subscription
 You must handle the failover of your business apps connecting to Azure Data Manager for Energy resource and hosted in the same primary region. Additionally, you're responsible for recovering any diagnostic logs stored in your Log Analytics Workspace. 
 
-If you [set up private links](how-to-set-up-private-links.md) to your Azure Data Manager for Energy resource in the primary region, then you must create a secondary private endpoint to the same resource in the [paired region](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).  
+If you [set up private links](how-to-set-up-private-links.md) to your Azure Data Manager for Energy resource in the primary region, then you must create a secondary private endpoint to the same resource in the [paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions).  
     
 > [!CAUTION]
 > If you don't enable public access networks or create a secondary private endpoint before an outage, you'll lose access to the failed over Azure Data Manager for Energy resource in the secondary region. You will be able to access the Azure Data Manager for Energy resource only after the primary region failback is complete.

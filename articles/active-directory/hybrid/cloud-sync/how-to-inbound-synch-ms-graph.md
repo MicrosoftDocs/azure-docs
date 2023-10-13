@@ -34,7 +34,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Review status](#review-status)
   - [Next steps](#next-steps)
 
-Use these [Azure AD PowerShell Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
+Use these [Azure AD PowerShell module](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 
@@ -393,6 +393,6 @@ Look under the 'status' section of the return object for relevant details
 
 ## Next steps
 
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
+- [Microsoft Entra Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

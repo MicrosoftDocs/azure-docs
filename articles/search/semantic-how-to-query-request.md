@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 09/22/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -34,7 +34,7 @@ To use semantic ranking:
 + Review [semantic ranking](semantic-search-overview.md) if you need an introduction to the feature.
 
 > [!NOTE]
-> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to determine what part of your content have the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking.
+> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to recognize content having the characteristics of a caption or answer, but doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking. If you want chat-style interaction with generated responses, see [Retrieval Augmented Generation (RAG)](retrieval-augmented-generation-overview.md).
 
 ## 1 - Choose a client
 
@@ -42,45 +42,30 @@ Choose a search client that supports preview APIs on the query request. Here are
 
 + [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration.
 
-+ [Postman app](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
++ [Postman app](https://www.postman.com/downloads/) using [Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
 
-+ [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET Preview.
++ [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET.
 
 + [Azure.Search.Documents 11.3.0b6](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.3.0b6/azure.search.documents.aio.html) in the Azure SDK for Python.
 
 ## 2 - Create a semantic configuration
 
-> [!IMPORTANT]
-> A semantic configuration is required for the 2021-04-30-Preview REST APIs, Search explorer, and some versions of the beta SDKs. If you're using the 2020-06-30-preview REST API, skip this step and use the ["searchFields" approach for field prioritization](#2b---use-searchfields-for-field-prioritization) instead.
+A *semantic configuration* is a section in your index that establishes field inputs for semantic ranking. You can add or update a semantic configuration at any time, no rebuild necessary. At query time, specify one on a [query request](#4---set-up-the-query). A semantic configuration has a name and the following properties:
 
-A *semantic configuration* specifies how fields are used in semantic ranking. It gives the underlying models hints about which index fields are most important for semantic ranking, captions, highlights, and answers. 
+| Property | Characteristics |
+|----------|-----------------|
+| Title field | A short string, ideally under 25 words. This field could be the title of a document, name of a product, or a unique identifier. If you don't have suitable field, leave it blank. | 
+| Content fields | Longer chunks of text in natural language form, subject to [maximum token input limits](semantic-search-overview.md#how-inputs-are-prepared) on the machine learning models. Common examples include the body of a document, description of a product, or other free-form text. | 
+| Keyword fields | A list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. | 
 
-Add a semantic configuration to your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). The following tabbed sections provide instructions for the REST APIs, Azure portal, and the .NET SDK Preview. 
+You can only specify one title field, but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
 
-You can add or update a semantic configuration at any time without rebuilding your index. When you issue a query, add the semantic configuration (one per query) that specifies which semantic configuration to use for the query.
+Across all semantic configuration properties, the fields you assign must be:
 
-1. Review the properties needed in the configuration. A semantic configuration has a name and at least one each of the following properties:
++ Attributed as `searchable` and `retrievable`.
++ Strings of type `Edm.String`, `Edm.ComplexType`, or `Collection(Edm.String)`.
 
-    + **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This field could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
-    + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the body of a document, the description of a product, or other free-form text.
-    + **Keyword fields** - Keyword fields should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
-
-    You can only specify one title field but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
-
-1. For the above properties, determine which fields to assign.
-
-   A field must be searchable and retrievable.
-
-   A field must be a [supported data type](/rest/api/searchservice/supported-data-types) and it should contain strings. If you happen to include an invalid field, there's no error, but those fields aren't used in semantic ranking.
-
-    | Data type | Example from hotels-sample-index |
-    |-----------|----------------------------------|
-    | Edm.String | HotelName, Category, Description |
-    | Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
-    | Collection(Edm.String) | Tags (a comma-delimited list of strings) |
-
-    > [!NOTE]
-    > Subfields of Collection(Edm.ComplexType) fields aren't currently supported by semantic search and aren't used for semantic ranking, captions, or answers.
+  String subfields of `Collection(Edm.ComplexType)` fields aren't currently supported in semantic ranking, captions, or answers.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -98,7 +83,10 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 ### [**REST API**](#tab/rest)
 
-1. Formulate a [Create or Update Index](/rest/api/searchservice/preview-api/create-or-update-index?branch=main) request.
+> [!IMPORTANT]
+> A semantic configuration was added and is now required in 2021-04-30-Preview and newer API versions. In the 2020-06-30-Preview REST API, `searchFields` was used for field inputs. This approach only worked in 2020-06-30-Preview and is now obsolete.
+
+1. Formulate a [Create or Update Index (Preview)](/rest/api/searchservice/preview-api/create-or-update-index?branch=main) request.
 
 1. Add a semantic configuration to the index definition, perhaps after `scoringProfiles` or `suggesters`.
 
@@ -167,46 +155,7 @@ adminClient.CreateOrUpdateIndex(definition);
 ---
 
 > [!TIP]
-> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
-[semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
-
-## 2b - Use searchFields for field prioritization
-
-This step is only for solutions using the 2020-06-30-Preview REST API or a beta SDK that doesn't support semantic configurations. Instead of setting field prioritization in the index through a semantic configuration, set the priority at query time, using the searchFields parameter of a query.
-
-Using searchFields for field prioritization was an early implementation detail that won't be supported once semantic search exits public preview. We encourage you to use semantic configurations if your application requirements allow it.
-
-```http
-POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
-{    
-    "search": " Where was Alan Turing born?",    
-    "queryType": "semantic",  
-    "searchFields": "title,url,body",  
-    "queryLanguage": "en-us"  
-}
-```
-
-Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Preprocessing during semantic ranking](semantic-search-overview.md#how-inputs-are-prepared).
-
-+ If you're specifying just one field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
-
-+ For two or more fields in `searchFields`:
-
-  + The first field should always be concise (such as a title or name), ideally a string that is under 25 words.
-
-  + If the index has a URL field that is human readable such as `www.domain.com/name-of-the-document-and-other-details` (rather than machine focused, such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there's no concise title field).
-
-  + Follow the above fields with other descriptive fields, where the answer to semantic queries may be found, such as the main content of a document.
-
-When setting `searchFields`, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types): 
-
-| Data type | Example from hotels-sample-index |
-|-----------|----------------------------------|
-| Edm.String | HotelName, Category, Description |
-| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
-| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
-
-If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
+> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
 
 ## 3 - Avoid features that bypass relevance scoring
 
@@ -290,7 +239,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
    Answers are extracted from passages found in fields listed in the semantic configuration. This behavior is why you want to include content-rich fields in the prioritizedContentFields of a semantic configuration, so that you can get the best answers and captions in a response. Answers aren't guaranteed on every request. To get an answer, the query must look like a question and the content must include text that looks like an answer.
 
-1. Set "captions" to specify whether semantic captions are included in the result. If you're using a semantic configuration, you should set this parameter. While the ["searchFields" approach](#2b---use-searchfields-for-field-prioritization) automatically included captions, "semanticConfiguration" doesn't. 
+1. Set "captions" to specify whether semantic captions are included in the result. If you're using a semantic configuration, you should set this parameter. 
 
    Currently, the only valid value for this parameter is "extractive". Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`.
 

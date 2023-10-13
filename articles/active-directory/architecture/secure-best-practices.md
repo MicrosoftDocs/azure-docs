@@ -349,7 +349,7 @@ Detailed information on using automated or manual processes and tools to monitor
 
 Some environments might have regulatory requirements that limit which data (if any) can leave a given environment. If centralized monitoring across environments isn't possible, teams should have operational procedures to correlate activities of identities across environments for auditing and forensics purposes such as cross-environment lateral movement attempts. It's recommended that the object unique identifiers human identities belonging to the same person is discoverable, potentially as part of the identity provisioning systems.
 
-The log strategy must include the following Microsoft Entra ID logs for each tenant used in the organization:
+The log strategy must include the following Microsoft Entra logs for each tenant used in the organization:
 
 * Sign-in activity
 
@@ -389,7 +389,7 @@ All hybrid identity infrastructure OS logs should be archived and carefully moni
 
 The following scenarios must be explicitly monitored and investigated:
 
-* **Suspicious activity** - All [Microsoft Entra ID risk events](../identity-protection/overview-identity-protection.md) should be monitored for suspicious activity. All tenants should define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center. It's recommended that any risk detection investigation includes all the environments the identity is provisioned (for example, if a human identity has an active risk detection in the corporate tenant, the team operating the customer facing tenant should also investigate the activity of the corresponding account in that environment).
+* **Suspicious activity** - All [Microsoft Entra risk events](../identity-protection/overview-identity-protection.md) should be monitored for suspicious activity. All tenants should define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center. It's recommended that any risk detection investigation includes all the environments the identity is provisioned (for example, if a human identity has an active risk detection in the corporate tenant, the team operating the customer facing tenant should also investigate the activity of the corresponding account in that environment).
 
 * **User entity behavioral analytics (UEBA) alerts** - UEBA should be used to get insightful information based on anomaly detection. [Microsoft Microsoft 365 Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) provides [UEBA in the cloud](/defender-cloud-apps/tutorial-ueba). Customers can integrate [on-premises UEBA from Microsoft Microsoft 365 Defender for Identity](/defender-cloud-apps/mdi-integration). MCAS reads signals from Microsoft Entra ID Protection.
 

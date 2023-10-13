@@ -10,15 +10,11 @@ ms.topic: conceptual
 # Update Management overview
 
 > [!Important]
-> - Automation Update management relies on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. 
-> - [Azure Update Manager](../../update-center/overview.md) (AUM) is the v2 version of Automation Update management and the future of Update management in Azure. AUM is a native service in Azure and does not rely on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../../azure-monitor/agents/agents-overview.md).
-> - Follow [guidance](../../update-center/guidance-migration-automation-update-management-azure-update-manager.md) to migrate machines and schedules from Automation Update Management to Azure Update Manager.
-> - If you are using Automation Update Management, we recommend that you continue to use the Log Analytics agent and *not* migrate to the Azure Monitor agent until machines and schedules are migrated to Azure Update Manager.
-> - The Log Analytics agent wouldn't be deprecated before moving all Automation Update Management customers to Update Manager.
+> Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date. Follow the [guidance](../../update-center/guidance-migration-automation-update-management-azure-update-manager.md) to move your machines and schedules from Automation Update Management to Azure Update Manager.
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to Update Management. 
 
-As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Azure Active Directory (Azure AD) tenant, or across tenants using Azure Lighthouse.
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Microsoft Entra tenant, or across tenants using Azure Lighthouse.
 
 Microsoft offers other capabilities to help you manage updates for your Azure VMs or Azure virtual machine scale sets that you should consider as part of your overall update management strategy. 
 

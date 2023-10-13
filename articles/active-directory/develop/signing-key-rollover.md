@@ -19,7 +19,7 @@ ms.custom: aaddev
 This article discusses what you need to know about the public keys that are used by the Microsoft identity platform to sign security tokens. It's important to note that these keys roll over on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use the Microsoft identity platform should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application or establish a periodic manual rollover process to handle key rollover if necessary.
 
 ## Overview of signing keys in the Microsoft identity platform
-The Microsoft identity platform uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: The Microsoft identity platform uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses the Microsoft identity platform for authentication, the Microsoft identity platform creates a security token that contains information about the user. This token is signed by the Microsoft identity platform using its private key before it's sent back to the application. To verify that the token is valid and originated from Microsoft identity platform, the application must validate the token’s signature using the public keys exposed by the Microsoft identity platform that is contained in the tenant’s [OpenID Connect discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) or SAML/WS-Fed [federation metadata document](../azuread-dev/azure-ad-federation-metadata.md).
+The Microsoft identity platform uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: The Microsoft identity platform uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses the Microsoft identity platform for authentication, the Microsoft identity platform creates a security token that contains information about the user. This token is signed by the Microsoft identity platform using its private key before it's sent back to the application. To verify that the token is valid and originated from Microsoft identity platform, the application must validate the token’s signature using the public keys exposed by the Microsoft identity platform that is contained in the tenant’s [OpenID Connect discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) or SAML/WS-Fed [federation metadata document](federation-metadata.md).
 
 For security purposes, the Microsoft identity platform’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. There's no set or guaranteed time between these key rolls - any application that integrates with the Microsoft identity platform should be prepared to handle a key rollover event no matter how frequently it may occur. If your application doesn't handle sudden refreshes, and attempts to use an expired key to verify the signature on a token, your application will incorrectly reject the token.  Checking every 24 hours for updates is a best practice, with throttled (once every five minutes at most) immediate refreshes of the key document if a token is encountered that doesn't validate with the keys in your application's cache. 
 
@@ -109,7 +109,8 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="passport"></a>Web applications / APIs protecting resources using Node.js passport-azure-ad module
+### <a name="passport"></a>Web applications / APIs protecting resources using Node.js `passport-azure-ad` module
+
 If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover automatically.
 
 You can confirm that your application passport-ad by searching for the following snippet in your application's app.js
@@ -292,9 +293,9 @@ If the key is being stored somewhere or hardcoded in your application, you can m
 
 You can validate whether your application supports automatic key rollover by using the following PowerShell scripts.
 
-To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module.
 
-1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module:
 
     ```powershell
     Install-Module -Name MSIdentityTools
@@ -333,9 +334,9 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
 ## How to perform a manual rollover if your application does not support automatic rollover
 If your application doesn't support automatic rollover, you need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly.
 
-To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+To check and update signing keys with PowerShell, you'll need the [`MSIdentityTools`](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module.
 
-1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+1. Install the [`MSIdentityTools`](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module:
 
     ```powershell
     Install-Module -Name MSIdentityTools

@@ -145,6 +145,8 @@
         - name: Azure Cosmos DB resource model
           displayName: collection, document
           href: ../resource-model.md
+        - name: Indexing
+          href: indexing.md
         - name: Partitioning (sharding)
           items:
             - name: Partitioning overview
@@ -357,8 +359,6 @@
               href: find-request-unit-charge.md
             - name: Change streams
               href: change-streams.md
-            - name: Manage data indexing
-              href: indexing.md
             - name: Time to live
               href: time-to-live.md
             - name: Use multi-document transactions

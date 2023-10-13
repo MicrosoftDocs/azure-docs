@@ -123,7 +123,7 @@ On-premises accounts synced from Active Directory are marked to never expire in 
 
 We recommend the following provisioning methods:
 
-- **Provision from cloud HR apps to Azure AD.** This provisioning enables an on-premises compromise to be isolated. This isolation doesn't disrupt your joiner-mover-leaver cycle from your cloud HR apps to Microsoft Entra ID.
+- **Provision from cloud HR apps to Microsoft Entra ID.** This provisioning enables an on-premises compromise to be isolated. This isolation doesn't disrupt your joiner-mover-leaver cycle from your cloud HR apps to Microsoft Entra ID.
 - **Cloud applications.** Where possible, deploy Microsoft Entra app provisioning as opposed to on-premises provisioning solutions. This method protects some of your software as a service (SaaS) apps from malicious hacker profiles in on-premises breaches. For more information, see [What is app provisioning in Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 - **External identities.** Use Microsoft Entra B2B collaboration to reduce the dependency on on-premises accounts for external collaboration with partners, customers, and suppliers. Carefully evaluate any direct federation with other identity providers. For more information, see [B2B collaboration overview](../external-identities/what-is-b2b.md).
 
@@ -178,7 +178,7 @@ Deploy Microsoft Entra joined Windows 10 workstations with mobile device managem
 
 - **Application and workload servers**
 
-  Applications or resources that required servers can be migrated to Azure infrastructure as a service (IaaS). Use Microsoft Entra Domain Services (Microsoft Entra DS) to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Microsoft Entra DS don't have a connection to corporate networks. See [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md).
+  Applications or resources that required servers can be migrated to Azure infrastructure as a service (IaaS). Use Microsoft Entra Domain Services to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Microsoft Entra Domain Services don't have a connection to corporate networks. See [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md).
 
   Use credential tiering. Application servers are typically considered tier-1 assets. For more information, see [Enterprise access model](/security/compass/privileged-access-access-model#ADATM_BM).
 
@@ -198,7 +198,7 @@ Use Microsoft Entra Conditional Access to interpret signals and use them to make
 
 ## Monitor
 
-After you configure your environment to protect your Microsoft 365 from an on-premises compromise, proactively monitor the environment. For more information, see [What is Microsoft Entra ID monitoring](../reports-monitoring/overview-monitoring.md).
+After you configure your environment to protect your Microsoft 365 from an on-premises compromise, proactively monitor the environment. For more information, see [What is Microsoft Entra monitoring?](../reports-monitoring/overview-monitoring-health.md)
 
 ### Scenarios to monitor
 
@@ -206,7 +206,7 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 - **Suspicious activity**
 
-  Monitor all Microsoft Entra ID risk events for suspicious activity. See [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md). Microsoft Entra ID Protection is natively integrated with [Microsoft Defender for Identity](/defender-for-identity/what-is).
+  Monitor all Microsoft Entra risk events for suspicious activity. See [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md). Microsoft Entra ID Protection is natively integrated with [Microsoft Defender for Identity](/defender-for-identity/what-is).
 
   Define network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
 
@@ -253,9 +253,9 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 Define a log storage and retention strategy, design, and implementation to facilitate a consistent tool set. For example, you could consider security information and event management (SIEM) systems like Microsoft Sentinel, common queries, and investigation and forensics playbooks.
 
-- **Microsoft Entra ID logs**. Ingest generated logs and signals by consistently following best practices for settings such as diagnostics, log retention, and SIEM ingestion.
+- **Microsoft Entra logs**. Ingest generated logs and signals by consistently following best practices for settings such as diagnostics, log retention, and SIEM ingestion.
 
-  The log strategy must include the following Microsoft Entra ID logs:
+  The log strategy must include the following Microsoft Entra logs:
 
   - Sign-in activity
   - Audit logs
@@ -265,7 +265,7 @@ Define a log storage and retention strategy, design, and implementation to facil
 
   Use the Microsoft Graph API to ingest risk events. See [Use the Microsoft Graph identity protection APIs](/graph/api/resources/identityprotection-root).
 
-  You can stream Microsoft Entra ID logs to Azure Monitor logs. See [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+  You can stream Microsoft Entra logs to Azure Monitor logs. See [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 - **Hybrid infrastructure operating system security logs**. All hybrid identity infrastructure operating system logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements:
 

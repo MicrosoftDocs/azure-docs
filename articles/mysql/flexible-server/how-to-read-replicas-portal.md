@@ -26,8 +26,6 @@ In this article, you learn how to create and manage read replicas in the Azure D
 
 ## Create a read replica
 
-> [!IMPORTANT]  
-> When you create a replica for a source that has no existing replicas, the source first restarts to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 A read replica server can be created using the following steps:
 
@@ -141,3 +139,4 @@ To delete a source server from the Azure portal, use the following steps:
 - Learn more about [read replicas](concepts-read-replicas.md)
 - You can also monitor the replication latency by following the steps mentioned [here](../how-to-troubleshoot-replication-latency.md).
 - To troubleshoot high replication latency observed in Metrics, visit the [link](../how-to-troubleshoot-replication-latency.md#common-scenarios-for-high-replication-latency).
+

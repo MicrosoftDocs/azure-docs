@@ -358,15 +358,15 @@ If available, use a security information and event management (SIEM) solution t
 
 <a name='azure-ad-logs-archived-and-integrated-with-incident-response-plans'></a>
 
-### Microsoft Entra ID logs archived and integrated with incident response plans
+### Microsoft Entra logs archived and integrated with incident response plans
 
-Having access to sign-in activity, audits and risk events for Microsoft Entra ID is crucial for troubleshooting, usage analytics, and forensics investigations. Microsoft Entra ID provides access to these sources through REST APIs that have a limited retention period. A security information and event management (SIEM) system, or equivalent archival technology, is key for long-term storage of audits and supportability. To enable long-term storage of Microsoft Entra ID Logs, you must either add them to your existing SIEM solution or use [Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md). Archive logs that can be used as part of your incident response plans and investigations.
+Having access to sign-in activity, audits and risk events for Microsoft Entra ID is crucial for troubleshooting, usage analytics, and forensics investigations. Microsoft Entra ID provides access to these sources through REST APIs that have a limited retention period. A security information and event management (SIEM) system, or equivalent archival technology, is key for long-term storage of audits and supportability. To enable long-term storage of Microsoft Entra logs, you must either add them to your existing SIEM solution or use [Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md). Archive logs that can be used as part of your incident response plans and investigations.
 
 #### Logs recommended reading
 
-- [Microsoft Entra ID audit API reference](/graph/api/resources/directoryaudit)
+- [Microsoft Entra audit API reference](/graph/api/resources/directoryaudit)
 - [Microsoft Entra sign-in activity report API reference](/graph/api/resources/signin)
-- [Get data using the Microsoft Entra ID Reporting API with certificates](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
+- [Get data using the Microsoft Entra reporting API with certificates](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 - [Microsoft Graph for Microsoft Entra ID Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 Management Activity API reference](/office/office-365-management-api/office-365-management-activity-api-reference)
 - [How to use the Microsoft Entra ID Power BI Content Pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
@@ -386,7 +386,7 @@ There are 12 aspects to a secure Identity infrastructure. This list will help yo
 - Lock down legacy authentication protocols.
 - Detect and remediate illicit consent grants.
 - Lock down user and group settings.
-- Enable long-term storage of Microsoft Entra ID logs for troubleshooting, usage analytics, and forensics investigations.
+- Enable long-term storage of Microsoft Entra logs for troubleshooting, usage analytics, and forensics investigations.
 
 ## Next steps
 

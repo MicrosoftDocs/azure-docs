@@ -97,16 +97,16 @@ If your app will primarily be used by a single organization (commonly referred t
 
 Replicating Conditional Access policies ensures you don't encounter unexpected blocked access when moving to production and your application can appropriately handle the errors it's likely to receive.
 
-Viewing your production tenant Conditional Access policies may need to be performed by a company administrator.
+Viewing your production tenant Conditional Access policies may need to be performed by a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 
 1. Go to **Identity** > **Applications** > **Enterprise applications** > **Conditional Access**.
 1. View the list of policies in your tenant. Click the first one.
 1. Navigate to **Cloud apps or actions**.
 1. If the policy only applies to a select group of apps, then move on to the next policy. If not, then it will likely apply to your app as well when you move to production. You should copy the policy over to your test tenant.
 
-In a new tab or browser session, sign in to the [Azure portal](https://portal.azure.com) to access your test tenant.
+In a new tab or browser session, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) to access your test tenant.
 
-1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**
 1. Copy the settings from the production tenant policy, identified through the previous steps.
 

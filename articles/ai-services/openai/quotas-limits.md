@@ -5,10 +5,9 @@ description: Quick reference, detailed description, and best practices on the qu
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 10/06/2023
 ms.author: mbullwin
 ---
 
@@ -62,6 +61,11 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
     <td>300 K</td>  
+  </tr> 
+   <tr>  
+    <td>gpt-35-turbo-instruct</td>  
+    <td>East US, Sweden Central</td>  
+    <td>240 K</td>  
   </tr>  
   <tr>  
     <td rowspan="2">gpt-4</td>  
@@ -75,7 +79,7 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td rowspan="2">gpt-4-32k</td>  
     <td>East US, South Central US, West Europe, France Central</td>  
-    <td>40 K</td>  
+    <td>60 K</td>  
   </tr>  
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  
@@ -109,7 +113,7 @@ To minimize issues related to rate limits, it's a good idea to use the following
 
 ### How to request increases to the default quotas and limits
 
-Quota increase requests can be submitted from the [Quotas](./how-to/quota.md) page of Azure OpenAI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
+Quota increase requests can be submitted from the [Quotas](./how-to/quota.md) page of Azure OpenAI Studio. Please note that due to overwhelming demand, quota increase requests are being accepted and will be filled in the order they are received. Priority will be given to customers who generate traffic that consumes the existing quota allocation, and your request may be denied if this condition is not met.
 
 For other rate limits, please [submit a service request](../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context).
 

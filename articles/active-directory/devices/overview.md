@@ -57,5 +57,5 @@ Getting devices in to Microsoft Entra ID can be done in a self-service manner or
 - Learn more about [Microsoft Entra registered devices](concept-device-registration.md)
 - Learn more about [Microsoft Entra joined devices](concept-directory-join.md)
 - Learn more about [Microsoft Entra hybrid joined devices](concept-hybrid-join.md)
-- To get an overview of how to manage device identities, see [Managing device identities using the Azure portal](manage-device-identities.md).
+- To get an overview of how to manage device identities, see [Managing device identities](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Configure Microsoft Entra device-based Conditional Access policies](../conditional-access/concept-conditional-access-grant.md).

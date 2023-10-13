@@ -5,6 +5,7 @@ ms.author: avijitgupta
 author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: devx-track-bicep
 ms.topic: reference
 ms.date: 09/07/2023
 ---
