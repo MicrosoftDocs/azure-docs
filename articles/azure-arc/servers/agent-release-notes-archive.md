@@ -49,7 +49,7 @@ To check if you're running the latest version of the Azure connected machine age
 - Improved output of the [azcmagent check](azcmagent-check.md) command
 - Better handling of spaces in the `--location` parameter of [azcmagent connect](azcmagent-connect.md)
 
-## Version 1.30 - might 2023
+## Version 1.30 - May 2023
 
 Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
