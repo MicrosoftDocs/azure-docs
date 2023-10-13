@@ -3,8 +3,8 @@ title: Azure support for export controls
 description: Customer guidance for Azure export control support
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
 ms.date: 05/31/2023
