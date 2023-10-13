@@ -46,11 +46,14 @@ Each Azure VMware Solution architectural component has the following function:
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-## Azure Region Availability Zone (AZ) to SKU mapping
+## Azure Region Availability Zone (AZ) to SKU mapping table
 
-When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). This is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Storage (CBS). The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the table below.
+When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). 
 
-Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open an SR with Microsoft requesting a "special placement policy" for your Subscription, Azure region, Availability Zone, and SKU type. This policy will remain in place until you request it be removed or changed.
+>[!IMPORTANT]
+> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Storage (CBS). 
+
+The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
 
 | Azure region | Availability Zone | SKU   | Multi-AZ SDDC |
 | :---         | :---:             | :---: | :---:         |
@@ -163,5 +166,9 @@ Now that you've covered Azure VMware Solution private cloud concepts, you might 
 
 <!-- LINKS - external-->
 [vCSA versions]: https://kb.vmware.com/s/article/2143838
+
 [ESXi versions]: https://kb.vmware.com/s/article/2143832
+
 [vSAN versions]: https://kb.vmware.com/s/article/2150753
+
+
