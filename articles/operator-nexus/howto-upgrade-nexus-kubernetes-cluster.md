@@ -91,7 +91,7 @@ During the cluster upgrade process, Operator Nexus performs the following operat
 
 > [!IMPORTANT]
 > Ensure that any `PodDisruptionBudgets` (PDBs) allow for at least *one* pod replica to be moved at a time otherwise the drain/evict operation will fail.
-> If the drain operation fails, the upgrade operation will fail by design to ensure that the applications are not disrupted. Please correct what caused the operation to stop (incorrect PDBs, lack of quota, and so on) and re-try the operation.
+> If the drain operation fails, the upgrade operation will fail as well, to ensure that the applications are not disrupted. Please correct what caused the operation to stop (i.e. incorrect PDBs, lack of quota, etc.) and re-try the operation.
 
 1. Upgrade your cluster using the `networkcloud kubernetescluster update` command.
 
