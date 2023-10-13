@@ -864,4 +864,6 @@ For more information about OpenTelemetry SDK configuration, see the [OpenTelemet
 
 ---
 
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/ azure-monitor-app-insights-opentelemetry-faqs.md)]
+
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]

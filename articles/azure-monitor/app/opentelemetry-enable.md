@@ -303,6 +303,8 @@ You've now enabled Application Insights for your application. All the following 
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/ azure-monitor-app-insights-opentelemetry-faqs.md)]
+
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 
 ## Next steps
