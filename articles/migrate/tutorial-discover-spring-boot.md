@@ -83,7 +83,7 @@ After you have performed server discovery and software inventory using the Azure
     **Support** | **Details**
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
-    **Hardware configuration required** | 6-GB RAM, with 30 GB storage on root volume, 4 Core CPU
+    **Hardware configuration required** | 6 GB RAM, with 30 GB storage on root volume, 4 Core CPU
     **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
