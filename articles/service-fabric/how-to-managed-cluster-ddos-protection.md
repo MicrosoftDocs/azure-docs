@@ -12,9 +12,9 @@ ms.date: 09/05/2023
 
 # Use Azure DDoS Protection in a Service Fabric managed cluster
 
-[Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides enhanced DDoS mitigation features to defend against [Distributed denial of service (DDoS) attacks](https://www.microsoft.com/en-us/security/business/security-101/what-is-a-ddos-attack). It's automatically tuned to help protect your specific Azure resources in a virtual network. There are a [number of benefits to using Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md#key-benefits).
+[Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides enhanced DDoS mitigation features to defend against [Distributed denial of service (DDoS) attacks](https://www.microsoft.com/en-us/security/business/security-101/what-is-a-ddos-attack). It's automatically tuned to help protect your specific Azure resources in a virtual network. There are a [number of benefits to using Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md#azure-ddos-protection-key-features).
 
-Service Fabric managed cluster supports Azure DDoS Network Protection and allows you to associate your VMSS with [Azure DDoS Network Protection Plan](../ddos-protection/ddos-protection-sku-comparison#ddos-network-protection). The plan is created by the customer, and they pass the resource id of the plan in managed cluster arm template.
+Service Fabric managed cluster supports Azure DDoS Network Protection and allows you to associate your VMSS with [Azure DDoS Network Protection Plan](../ddos-protection/ddos-protection-sku-comparison.md#ddos-network-protection). The plan is created by the customer, and they pass the resource id of the plan in managed cluster arm template.
 
 ## Use DDoS Protection in a Service Fabric managed cluster
 
@@ -26,7 +26,7 @@ Use Service Fabric API version 2023-07-01-preview or later.
 
 The following section describes the steps that should be taken to use DDoS Network Protection in a Service Fabric managed cluster: 
 
-1. Follow the steps in the [Quickstart: Create and configure Azure DDoS Network Protection](../ddos-protection/manage-ddos-protection) to create a DDoS Network Protection plan through Portal, [Azure PowerShell](../ddos-protection/manage-ddos-protection-powershell), or Azure CLI. Note the ddosProtectionPlanName and ddosProtectionPlanId for use in a later step. 
+1. Follow the steps in the [Quickstart: Create and configure Azure DDoS Network Protection](../ddos-protection/manage-ddos-protection.md) to create a DDoS Network Protection plan through Portal, [Azure PowerShell](../ddos-protection/manage-ddos-protection-powershell.md), or Azure CLI. Note the ddosProtectionPlanName and ddosProtectionPlanId for use in a later step. 
 
 2. Link your DDoS Protection plan to the virtual network that the Service Fabric managed cluster manages for you. To do this, you must grant SFMC permission to join your DDoS Protection plan with the virtual network. This permission is granted by assigning SFMC the “Network Contributor” Azure role as described in steps below:
 
@@ -58,7 +58,7 @@ A. Get the service `Id` from your subscription for Service Fabric Resource Provi
 
 
        
-B. The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) adds a role assignment to the DDoS Protection Plan with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles#all). This role assignment is defined in the resources section of template         with PrincipalId and a role definition ID determined from the first step. 
+B. The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) adds a role assignment to the DDoS Protection Plan with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles.md#all). This role assignment is defined in the resources section of template         with PrincipalId and a role definition ID determined from the first step. 
 
 
 ```json
