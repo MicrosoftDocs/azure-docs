@@ -5,13 +5,13 @@ ms.date: 10/13/2023
 ms.topic: conceptual
 ---
 
-# Azure mobile app Home screen
+# Azure mobile app Home
 
-The Azure mobile app **Home** screen surfaces the most essential information and the resources you use most often. It provides a convenient way to access and manage your Azure resources or your Microsoft Entra tenant from your mobile device.
+The Azure mobile app **Home** surfaces the most essential information and the resources you use most often. It provides a convenient way to access and manage your Azure resources or your Microsoft Entra tenant from your mobile device.
 
 ## Display cards
 
-The Azure mobile app **Home** screen consists of customizable display cards that show information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
+The Azure mobile app **Home** consists of customizable display cards that show information and let you quickly access frequently-used resources and services. You can select and organize these cards depending on what's most important for you and how you want to use the app.
 
 Current card options include:
 
@@ -27,21 +27,21 @@ Current card options include:
 
 :::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards."::: 
 
-## Customize Azure mobile app Home screen
+## Customize Azure mobile app Home
 
-You can customize the cards displayed on your Azure mobile app **Home** screen by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: **Edit** icon in the top right of the **Home**  screen. From there, you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home** screen.
+You can customize the cards displayed on your Azure mobile app **Home** by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: **Edit** icon in the top right of the **Home**  screen. From there, you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home**.
 
 For instance, you could rearrange the default order as follows:
 
 :::image type="content" source="media/azure-mobile-app-home-edit.png" alt-text="Screenshot showing the customization screen for the Azure mobile app Home screen.":::
 
-This would result in a **Home** screen similar to the following image:
+This would result in a **Home** similar to the following image:
 
 :::image type="content" source="media/azure-mobile-app-updated-home.png" alt-text="Screenshot of the Azure mobile app Home screen with display cards in a new order.":::
 
 ## Global search
 
-The global search button appears the top left of the **Home** screen. Select this button to search for anything specific you may be looking for on your Azure account. This includes:
+The global search button appears the top left of the **Home**. Select this button to search for anything specific you may be looking for on your Azure account. This includes:
 
 - Resources
 - Services
@@ -52,7 +52,7 @@ You can filter these results by subscription using the **Home** filtering option
 
 ## Filtering
 
-In the top right of the **Home** screen, you'll see a filter option. When selecting the filter icon, the app gives you the option to filter the results shown on the **Home** screen by specific subscriptions. This includes results for:
+In the top right of the **Home**, you'll see a filter option. When selecting the filter icon, the app gives you the option to filter the results shown on the **Home** by specific subscriptions. This includes results for:
 
 - Resource groups
 - Azure services
@@ -60,7 +60,7 @@ In the top right of the **Home** screen, you'll see a filter option. When select
 - Service health
 - Global search
 
-This filtering option is specific to the **Home** screen, and doesn't filter for the other bottom navigation sections.
+This filtering option is specific to the **Home**, and doesn't filter for the other bottom navigation sections.
 
 ## Next steps
 

@@ -62,7 +62,7 @@
   - name: Overview
     href: mobile-app/overview.md
     displayName: mobile, app, ios, android
-  - name: Home screen
+  - name: Home
     href: mobile-app/home.md
     displayName: mobile, app, start
 - name: Reference

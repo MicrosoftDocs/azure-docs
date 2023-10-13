@@ -11,9 +11,9 @@ The Azure mobile app is a tool that allows you to monitor and manage your Azure 
 
 To use the app, you need an Azure account with the appropriate permissions to access your resources. The app supports multiple accounts, and you can switch between them easily. The app also supports Microsoft Entra ID authentication and multifactor authentication for enhanced security. The Azure mobile app is a convenient way to stay connected to your Azure resources and Entra tenant, and manage much more on the go.
 
-## Azure mobile app Home screen
+## Azure mobile app Home
 
-When you first open the Azure mobile app, its **Home** screen shows an overview of your Azure account. View and customize display cards, including:
+When you first open the Azure mobile app, its **Home** shows an overview of your Azure account. View and customize display cards, including:
 
 - Microsoft Entra ID
 - Resource groups
@@ -26,7 +26,7 @@ When you first open the Azure mobile app, its **Home** screen shows an overview 
 - Learn
 - Privileged Identity Management
 
-You can select which of these tiles appear on your **Home** screen and rearrange them.
+You can select which of these tiles appear on your **Home** and rearrange them.
 
 For more information, see [Azure mobile app Home](home.md).
 
