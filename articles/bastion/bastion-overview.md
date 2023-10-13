@@ -76,7 +76,7 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 ## Next steps
 
 * [Quickstart: Quickstart: Deploy Bastion automatically - Basic SKU](quickstart-host-portal.md)
-* [Quickstart: Deploy Bastion automatically - Developer SKU](deploy-host-developer-sku.md)
+* [Quickstart: Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md)
 * [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md)
 * [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure

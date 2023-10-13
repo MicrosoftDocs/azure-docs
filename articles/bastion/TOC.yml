@@ -50,7 +50,7 @@
     - name: Azure CLI
       href: create-host-cli.md
     - name: Developer SKU
-      href: deploy-host-developer-sku.md
+      href: quickstart-developer-sku.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
