@@ -171,11 +171,11 @@ After you create the polygons for an image, select **Submit** to save your work,
 If your project is of type "Semantic segmentation (Preview)," use the paintbrush to paint a mask over the area you wish to tag.
 
 1. Select a tag for the area you will paint over.
-1. Select the **paintbrush** tool ![Paintbrush tool](./media/how-to-label-data/paintbrush-tool.png).
-1. Select the **size** tool![Size tool](./media/how-to-label-data/width-tool.png) to pick a size for your paintbrush.
+1. Select the **paintbrush** tool ![Screenshot of the Paintbrush tool.](./media/how-to-label-data/paintbrush-tool.png).
+1. Select the **size** tool![Screenshot of the Size tool.](./media/how-to-label-data/width-tool.png) to pick a size for your paintbrush.
 1. Paint over the area you wish to tag.  The color corresponding to your tag will be applied to the area you paint over.
     
-    :::image type="content" source="media/how-to-label-data/paintbrush.gif" alt-text="Paint area for cat and dog faces for semantic segmentation.":::
+    :::image type="content" source="media/how-to-label-data/paintbrush.gif" alt-text="Screenshot of paint area for cat and dog faces for semantic segmentation.":::
 
 To delete parts of the area, select **Eraser** tool.
 
