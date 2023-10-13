@@ -30,7 +30,7 @@ Examples:
 
 Each number in the version indicates general compatibility with the previous version:
 
-* **Major versions** change when incompatible API updates or backwards compatibility may be broken.
+* **Major version numbers** change when breaking changes to the API may be introduced
 * **Minor versions** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch versions** change when backwards-compatible bug fixes are made.
 
