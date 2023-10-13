@@ -70,7 +70,7 @@ az webapp connection create postgres-flexible \
 
 ::: zone pivot="mysql"
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli-interactive
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -184,28 +184,28 @@ az webapp connection create sql \
 This Service Connector command completes the following tasks in the background:
 
 * Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
-* Set the Azure Active Directory admin to the current signed-in user.
+* Set the Microsoft Entra admin to the current signed-in user.
 * Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
 * Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
   * For App Service, the configurations are set in the **App Settings** blade.
   * For Spring Apps, the configurations are set when the application is launched.
   * For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
 
-## Connect to a database with Azure Active Directory
+## Connect to a database with Microsoft Entra authentication
 
-After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory. For example, you can use the following solutions to connect to the database with Azure Active Directory.
+After creating the connection, you can use the connection string in your application to connect to the database with Microsoft Entra authentication. For example, you can use the following solutions to connect to the database with Microsoft Entra authentication.
 
 :::zone pivot="postgresql"
 
 
-[!INCLUDE [code sample for postgres aad connection](./code-postgres-aad.md)]
+[!INCLUDE [code sample for postgres Microsoft Entra authentication connection](./code-postgres-me-id.md)]
 
 
 :::zone-end
 
 :::zone pivot="mysql"
 
-[!INCLUDE [code sample for mysql aad connection](./code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql Microsoft Entra authentication connection](./code-mysql-me-id.md)]
 
 
 :::zone-end
@@ -214,7 +214,7 @@ After creating the connection, you can use the connection string in your applica
 :::zone pivot="sql"
 
 
-[!INCLUDE [code sample for sql aad connection](./code-sql-aad.md)]
+[!INCLUDE [code sample for sql Microsoft Entra authentication connection](./code-sql-me-id.md)]
 
 
 :::zone-end

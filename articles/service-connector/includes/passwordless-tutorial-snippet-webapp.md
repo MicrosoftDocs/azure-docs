@@ -55,7 +55,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 ### [Azure Database for MySQL](#tab/mysql)
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli-interactive
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -73,7 +73,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 * `GroupMember.Read.All`
 * `Application.Read.All`
 
-For more information, see the [Permissions](../../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../../mysql/flexible-server/concepts-azure-ad-authentication.md).
+For more information, see the [Permissions](../../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Microsoft Entra authentication](../../mysql/flexible-server/concepts-azure-ad-authentication.md).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
@@ -151,7 +151,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 This Service Connector command completes the following tasks in the background:
 
 * Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
-* Set the Azure Active Directory admin to the current signed-in user.
+* Set the Microsoft Entra admin to the current signed-in user.
 * Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
 * Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
 * For App Service, the configurations are set in the **App Settings** blade.
@@ -172,16 +172,16 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 ### [Azure SQL Database](#tab/sqldatabase)
 
-[!INCLUDE [code sample for postgres aad connection](./code-sql-aad.md)]
+[!INCLUDE [code sample for postgres Microsoft Entra authentication connection](./code-sql-me-id.md)]
 
 
 ### [Azure Database for MySQL](#tab/mysql)
 
-[!INCLUDE [code sample for mysql aad connection](./code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql Microsoft Entra authentication connection](./code-mysql-me-id.md)]
 
 
 ### [Azure Database for PostgreSQL](#tab/postgresql)
 
-[!INCLUDE [code sample for sql aad connection](./code-postgres-aad.md)]
+[!INCLUDE [code sample for sql Microsoft Entra authentication connection](./code-postgres-me-id.md)]
 
 ---
