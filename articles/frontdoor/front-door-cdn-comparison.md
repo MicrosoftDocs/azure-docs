@@ -14,7 +14,7 @@ ms.author: duau
 
 Azure Front Door and Azure CDN are both Azure services that offer global content delivery with intelligent routing and caching capabilities at the application layer. Both services can be used to optimize and accelerate your applications by providing a globally distributed network of points of presence (POP) close to your users. Both services also offer a variety of features to help you secure your applications from malicious attacks and to help you monitor your application's health and performance.
 
-:::image type="content" source="../media/front-door-cdn-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
+:::image type="content" source="./media/front-door-cdn-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
 > [!NOTE]
 > To switch between tiers, you will need to recreate the Azure Front Door profile. You can use the [**migration capability**](../migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](../tier-upgrade.md).
