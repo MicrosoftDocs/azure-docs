@@ -18,7 +18,9 @@ For errors related to the access policy on the Key Vault, follow these steps to 
  
 1.	Go to your Azure Migrate project. 
 2.	Navigate to Azure Migrate: Discovery and assessment> **Overview** > **Manage** > **Appliances** and find the name of the Kubernetes-based appliance whose service principal you need to find. 
- 
+
+    :::image type="content" source="./media/tutorial-discover-spring-boot/troubleshoot.png" alt-text="Screenshot of Appliances screen.":::
+
 3.	You can also find the Key Vault associated with the appliance by selecting the appliance name and finding the Key Vault name in appliance properties. 
 4.	Go to your workstation and open PowerShell as an administrator.
 5.	Install the [ARM Client](https://github.com/projectkudu/ARMClient/releases/download/v1.9/ARMClient.zip) zip folder.

@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Supported geographies
 
-|**Geo name**|
+|**Geography**|
 |----|
 |Asia Pacific|
 |Korea|
@@ -57,10 +57,15 @@ After you have performed server discovery and software inventory using the Azure
 2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 1. Select the project where you have set up the Azure Migrate appliance as part of the prerequisites.
 1. You see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
+
+   :::image type="content" source="./media/tutorial-discover-spring-boot/discover-banner-inline.png" alt-text="Screenshot shows the banner for discovery and assessment of web apps." lightbox="./media/tutorial-discover-spring-boot/discover-banner-expanded.png":::   
+
 5.	You can proceed by selecting the link on the message, which helps you get started with onboarding Kubernetes-based appliance.
     
     > [!Note]
     > We recommend you choose a Kubernetes cluster with disk encryption for its services. [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
+
+   :::image type="content" source="./media/tutorial-discover-spring-boot/onboard-kubernetes-inline.png" alt-text="Screenshot displays the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/onboard-kubernetes-expanded.png":::
 
 6.	In Step 1: Set up an appliance, select **Bring your own Kubernetes cluster** - You must bring your own Kubernetes cluster running on-premises, connect it to Azure Arc and use the installer script to set up the appliance.
 
@@ -70,6 +75,8 @@ After you have performed server discovery and software inventory using the Azure
 
     > [!Note]
     > You can only select an existing connected cluster, deployed in the same region as that of your Azure Migrate project.
+
+   :::image type="content" source="./media/tutorial-discover-spring-boot/choose-cluster-inline.png" alt-text="Screenshot displays Choose cluster option in the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/choose-cluster-expanded.png":::
 
 2.	In Step 3: Provide appliance details for Azure Migrate, the appliance name is prepopulated, but you can choose to provide your own friendly name to the appliance.
 
@@ -129,10 +136,11 @@ After you have saved the script on the Linux server, follow these steps:
 
 After the script is executed successfully, configure the appliance through the portal. 
 
-> [!Note] 
-> If you encounter any issue during script execution, you need to run the script in *delete* mode by adding the following after line #19 in the `deploy.sh` script:
->
-> export DELETE= “true”
+If you encounter any issue during script execution, you need to run the script in *delete* mode by adding the following after line #19 in the `deploy.sh` script:
+
+`export DELETE= “true”`
+
+:::image type="content" source="./media/tutorial-discover-spring-boot/delete-image-inline.png" alt-text="Screenshot displays Choose cluster option in the Onboard Kubernetes appliance screen." lightbox="./media/tutorial-discover-spring-boot/delete-image-expanded.png":::
 
 The *delete* mode helps to clean up any existing components installed on the server so that you can do a fresh installation. After running the script in *delete* mode, remove the line from the script and execute it again in the default mode.
 
@@ -145,12 +153,21 @@ As you're bringing your own Kubernetes cluster, we would have shared responsibil
 After successfully setting up the appliance using the installer script, you need to configure the appliance by following these steps:
 1.	Go to the Azure Migrate project where you started onboarding the Kubernetes-based appliance.
 2.	On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
+
+   :::image type="content" source="./media/tutorial-discover-spring-boot/pending-action-inline.png" alt-text="Screenshot displays the Pending action option." lightbox="./media/tutorial-discover-spring-boot/pending-action-expanded.png":::
+
 3.	In **Overview** > **Manage** > **Appliances**, a filtered list of appliances appears with actions pending.
 4.	Find the Kubernetes-based appliance that you have set up and select **Credentials unavailable** status to configure the appliance.
+
+   :::image type="content" source="./media/tutorial-discover-spring-boot/appliances-inline.png" alt-text="Screenshot displays the details of the appliance." lightbox="./media/tutorial-discover-spring-boot/appliances-expanded.png":::
+
 5.	In the **Manage credentials** page, add the credentials to initiate discovery of the Spring Boot applications running on your servers.
+
+   :::image type="content" source="./media/tutorial-discover-spring-boot/manage-appliances-inline.png" alt-text="Screenshot displays the Manage credentials option." lightbox="./media/tutorial-discover-spring-boot/manage-appliances-expanded.png":::
+
 6.	Select **Add credentials**, choose a credential type from Linux (non-domain) or Domain credentials, provide a friendly name, username, and password. Select **Save**.
 
-   >[!Note]
+   > [!Note]
    > - The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
   > - After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
 
@@ -165,6 +182,8 @@ The **Discovered servers** screen provides the following information:
 - Displays all running Spring Boot workloads on your server-based environment.
 - Lists the basic information of each server in a table format.
 
+   :::image type="content" source="./media/tutorial-discover-spring-boot/discovered-servers-inline.png" alt-text="Screenshot displays the discovered servers." lightbox="./media/tutorial-discover-spring-boot/discovered-servers-expanded.png":::
+
 Select any web app to view its details. The **Web apps** screen provides the following information:
 - Provides a comprehensive view of each Spring Boot process on each server.
 - Displays the detailed information of each process, including:
@@ -174,7 +193,7 @@ Select any web app to view its details. The **Web apps** screen provides the fol
   - Location of JAR file for the process on the server.
   - Static content locations and binding ports.
 
-
+   :::image type="content" source="./media/tutorial-discover-spring-boot/web-apps-inline.png" alt-text="Screenshot displays the Web apps screen." lightbox="./media/tutorial-discover-spring-boot/web-apps-expanded.png":::
 
 
 ## Next steps
