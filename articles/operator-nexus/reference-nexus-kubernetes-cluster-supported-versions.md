@@ -228,7 +228,7 @@ Install-AzAksKubectl -Version latest
 
 ## Long Term Support (LTS)
 
-AKS provides a Long Term Support (LTS) version of Kubernetes for a two-year period. There's only a single minor version of Kubernetes deemed LTS at any one time.  
+Azure Kubernetes Service (AKS) provides a Long Term Support (LTS) version of Kubernetes for a two-year period. There's only a single minor version of Kubernetes deemed LTS at any one time.  
 
 |   | Community Support  |Long Term Support   |
 |---|---|---|
