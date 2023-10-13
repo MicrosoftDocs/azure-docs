@@ -18,6 +18,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.35 - October 2023
 
+Download for [Windows](https://download.microsoft.com/download/e/7/0/e70b1753-646e-4aea-bac4-40187b5128b0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
 ### New features
 
 - The Linux installation script now downloads supporting assets with either wget or curl, depending on which tool is available on the system
