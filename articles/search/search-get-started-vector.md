@@ -243,7 +243,7 @@ You should get a status HTTP 201 success.
 
 ## Upload documents
 
-Use the [Add, Update, or Delete Documents](/rest/api/searchservice/2023-10-01-preview/documents/) REST API for this request.
+Use the [Index Documents](/rest/api/searchservice/2023-10-01-preview/documents/) REST API for this request.
 
 For readability, the following excerpt shows just the fields used in queries, minus the vector values associated with `DescriptionVector`. Each vector field contains 1536 embeddings, so those values are omitted for readability.
 

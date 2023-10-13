@@ -52,19 +52,24 @@ Your search index should include fields and content for all of the query scenari
 
 A short example of a documents payload that includes vector and non-vector fields is in the [load vector data](#load-vector-data-for-indexing) section of this article.
 
-## Add a vector field to the fields collection
+## Add a vector search configuration
 
 The schema must include a field for the document key, a vector configuration object, vector fields, and any other fields that you need for hybrid search scenarios.
 
-+ A vector configuration object specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. 
+A vector configuration object specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. 
 
-+ Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a vector configuration property.
+You can define multiple [algorithm configurations](vector-search-ranking.md). In the fields definition, you'll choose one for each vector field. During indexing, nearest neighbor algorithm determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
-During indexing, nearest neighbor algorithm determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
+In the **2023-10-01-Preview**, you can specify either approximate or exhaustive nearest neighbor algorithms:
+
++ Hierarchical Navigable Small World (HNSW)
++ Exhaustive KNN
+
+If you choose HNSW on a field, we can opt in for exhaustive KNN at query time. But the other direction won’t work: if you choose exhaustive, you can’t later request HNSW search because the extra data structures that enable approximate search don’t exist.
 
 You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors. To evaluate the newest vector search behaviors, use the **2023-10-01-Preview** REST API version.
 
-### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
+### [**2023-10-01-Preview**](#tab/config-2023-10-01-Preview)
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces breaking changes to vector configuration and vector field definitions. This version adds:
 
@@ -133,6 +138,88 @@ In the following REST API example, "title" and "content" contain textual content
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
    + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
+### [**2023-07-01-Preview**](#tab/rest-add-config)
+
+REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) enables vector scenarios. This version adds:
+
++ `vectorConfigurations`
++ `hnsw` nearest neighbor algorithm for indexing vector content
+
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+
+> [!TIP]
+> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
+
+1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
+
+1. Add a `vectorSearch` section in the index that specifies the similarity algorithm used to create the embedding space. In this API version, only `"hnsw"` is supported. For "metric", valid values are `cosine`, `euclidean`, and `dotProduct`. The `cosine` metric is specified because it's the similarity metric that the Azure OpenAI models use to create embeddings.
+
+   ```json
+    "vectorSearch": {
+        "algorithmConfigurations": [
+            {
+                "name": "vectorConfig",
+                "kind": "hnsw",
+                "hnswParameters": {
+                    "m": 4,
+                    "efConstruction": 400,
+                    "efSearch": 500,
+                    "metric": "cosine"
+                }
+            }
+        ]
+    }
+   ```
+
+   **Key points**:
+
+   + Name of the configuration. The name must be unique within the index.
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Only Hierarchical Navigable Small World (HNSW) is supported in this API version. 
+   + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
+   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
+   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
+
+### [**.NET**](#tab/dotnet-add-config)
+
++ Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
+
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
+
+### [**Python**](#tab/python-add-config)
+
++ Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
+
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
+
+### [**JavaScript**](#tab/js-add-config)
+
++ Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
+
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
+
+---
+
+
+
+
+## Add a vector field to the fields collection
+
+The fields collection must include a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
+
+Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and specifies a vector configuration.
+
+You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors. To evaluate the newest vector search behaviors, use the **2023-10-01-Preview** REST API version.
+
+### [**2023-10-01-Preview**](#tab/rest-2023-10-01-Preview)
+
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+
+> [!TIP]
+> Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`
+
+1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to create the index.
+
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
    + Assign the `Collection(Edm.Single)` data type.
@@ -151,7 +238,7 @@ In the following REST API example, "title" and "content" contain textual content
    The following example shows the fields collection:
 
     ```http
-    PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-07-01-Preview&allowIndexDowntime=true
+    PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-10-01-Preview&allowIndexDowntime=true
     Content-Type: application/json
     api-key: {{admin-api-key}}
     {
@@ -201,43 +288,12 @@ In the following REST API example, "title" and "content" contain textual content
 
 REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) enables vector scenarios. This version adds:
 
-+ `vectorConfigurations`
-+ `hnsw` nearest neighbor algorithm for indexing vector content
-
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
 
 > [!TIP]
 > Updating an existing index to include vector fields? Make sure the `allowIndexDowntime` query parameter is set to `true`.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
-
-1. Add a `vectorSearch` section in the index that specifies the similarity algorithm used to create the embedding space. Currently, only `"hnsw"` is supported. For "metric", valid values are `cosine`, `euclidean`, and `dotProduct`. The `cosine` metric is specified because it's the similarity metric that the Azure OpenAI models use to create embeddings.
-
-   ```json
-    "vectorSearch": {
-        "algorithmConfigurations": [
-            {
-                "name": "vectorConfig",
-                "kind": "hnsw",
-                "hnswParameters": {
-                    "m": 4,
-                    "efConstruction": 400,
-                    "efSearch": 500,
-                    "metric": "cosine"
-                }
-            }
-        ]
-    }
-   ```
-
-   **Key points**:
-
-   + Name of the configuration. The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Only Hierarchical Navigable Small World (HNSW) is supported in this API version. 
-   + "m" (bi-directional link count) default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
-   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
-   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
-   + "metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
 1. Add vector fields to the fields collection. You can store one generated embedding per document field. For each vector field:
 
@@ -386,7 +442,7 @@ You can use either [push or pull methodologies](search-what-is-data-import.md) f
 
 ### [**Push APIs**](#tab/push)
 
-Use the [Add, Update, or Delete Documents Preview REST API](/rest/api/searchservice/preview-api/add-update-delete-documents) to push documents containing vector data.
+Use the [Add, Update, or Delete Documents (2023-07-01-Preview)](/rest/api/searchservice/preview-api/add-update-delete-documents) or [Index Documents (2023-10-01-Preview)](/rest/api/searchservice/2023-10-01-preview/documents/) to push documents containing vector data.
 
 ```http
 POST https://my-search-service.search.windows.net/indexes/my-index/docs/index?api-version=2023-07-01-Preview
