@@ -6358,6 +6358,16 @@
             "source_path_from_root": "/articles/azure-monitor/app/work-item-integration.md",
             "redirect_url": "/azure/azure-monitor/app/release-and-work-item-insights?tabs=work-item-integration",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/diagnostic-search.md",
+            "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/transaction-diagnostics.md",
+            "redirect_url": "/azure/azure-monitor/app/search-and-transaction-diagnostics?tabs=transaction-diagnostics",
+            "redirect_document_id": false
         }
     ]
 }
