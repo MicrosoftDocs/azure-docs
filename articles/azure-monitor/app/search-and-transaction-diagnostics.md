@@ -180,10 +180,10 @@ This view has four key parts: a results list, a cross-component transaction char
 
 This chart provides a timeline with horizontal bars during requests and dependencies across components. Any exceptions that are collected are also marked on the timeline.
 
-1. The top row on this chart represents the entry point. It's the incoming request to the first component called in this transaction. The duration is the total time taken for the transaction to complete.
-1. Any calls to external dependencies are simple noncollapsible rows, with icons that represent the dependency type.
-1. Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
-1. By default, the request, dependency, or exception that you selected appears on the right side. Select any row to see its [details](#details-of-the-selected-telemetry).
+- The top row on this chart represents the entry point. It's the incoming request to the first component called in this transaction. The duration is the total time taken for the transaction to complete.
+- Any calls to external dependencies are simple noncollapsible rows, with icons that represent the dependency type.
+- Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
+- By default, the request, dependency, or exception that you selected appears on the right side. Select any row to see its [details](#details-of-the-selected-telemetry).
 
 > [!NOTE]
 > Calls to other components have two rows. One row represents the outbound call (dependency) from the caller component. The other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
