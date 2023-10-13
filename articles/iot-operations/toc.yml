@@ -23,7 +23,11 @@ items:
         - name: OPC UA broker overview
           href: manage-devices-assets/concept-opcua-broker-overview.md
       - name: How to 
-        items: 
+        items:
+        - name: Configure an assets endpoint
+          href: manage-devices-assets/howto-configure-assets-endpoint.md
+        - name: Create assets and tags
+          href: manage-devices-assets/howto-add-assets.md
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
     - name: Publish/Subscribe with MQTT
