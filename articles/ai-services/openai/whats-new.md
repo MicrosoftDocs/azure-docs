@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: whats-new
-ms.date: 10/10/2023
+ms.date: 10/16/2023
 recommendations: false
 keywords:  
 ---
@@ -18,11 +18,15 @@ keywords:
 
 ### New fine-tuning models (preview)
 
-- `gpt-35-turbo-0613` is now available for fine-tuning.
+- `gpt-35-turbo-0613` is [now available for fine-tuning](./how-to/fine-tuning.md).
 
-- `babbage-002` and `davinci-002` are now available for fine-tuning. These models replace the legacy ada, babbage, curie, and davinci base models that were previously available for fine-tuning.
+- `babbage-002` and `davinci-002` are [now available for fine-tuning](./how-to/fine-tuning.md)). These models replace the legacy ada, babbage, curie, and davinci base models that were previously available for fine-tuning.
 
-Fine-tuning model availability is limited to certain regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+- Fine-tuning availability is limited to certain regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+- Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
+
+- [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
 
 ## September 2023
 

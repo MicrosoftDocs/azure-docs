@@ -15,7 +15,7 @@ ms.custom:
 
 # Fine-tuning tutorial
 
-This tutorial walks you through fine-tuning a gpt-35-turbo model.
+This tutorial walks you through fine-tuning a `gpt-35-turbo-0613` model.
 
 In this tutorial you learn how to:
 
@@ -33,10 +33,10 @@ In this tutorial you learn how to:
 - Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
 - Python 3.7.1 or later version
 - The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
-- The OpenAI Python library should be at least `0.28.1`.
+- The OpenAI Python library should be at least version: `0.28.1`.
 - [Jupyter Notebooks](https://jupyter.org/)
 - An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
-- Necessary Role-based access control permissions. To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
+- Necessary [Role-based access control permissions](../how-to/role-based-access-control.md). To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
 
 ## Set up
 
@@ -47,7 +47,6 @@ If you haven't already, you need to install the following libraries:
 ```cmd
 pip install openai json requests os tiktoken time
 ```
-
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
@@ -102,7 +101,7 @@ For this example we'll modify this slightly by changing to:
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 100 high quality examples**.
+While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples**.
 
 You'll need to create two files `training_set.jsonl` and `validation_set.jsonl`.
 
@@ -111,7 +110,7 @@ Create the files in the same directory that you're running the Jupyter Notebook,
 **`training_set.jsonl`**
 
 ```json
-{"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "Who discovered America?"}, {"role": "assistant", "content": "Some chap named Christopher Columbus, as if they don't teach that in every school!"}]}
+{"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "Who discovered Antarctica?"}, {"role": "assistant", "content": "Some chaps named Fabian Gottlieb von Bellingshausen and Mikhail Lazarev, as if they don't teach that in every school!"}]}
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "What is the biggest ocean?"}, {"role": "assistant", "content": "The Pacific Ocean. It's not like it's a small pond or anything."}]}
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "What is the largest planet?"}, {"role": "assistant", "content": "It's called Jupiter, you may have heard of it...or not."}]}
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "Who painted the Mona Lisa?"}, {"role": "assistant", "content": "Oh, some obscure artist named Leonardo da Vinci. Not that he is famous or anything."}]}
@@ -180,7 +179,7 @@ First example in validation set:
 {'role': 'assistant', 'content': "It's Canberra, not Sydney. Shocking, I know!"}
 ```
 
-If that completes successfully, you can then run some additional code from OpenAI using the tiktoken library to validate the token counts.
+If that completes successfully, you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
 
 ```python
 import json
@@ -435,7 +434,7 @@ fine_tuned_model = response["fine_tuned_model"]
 
 ## Deploy fine-tuned model
 
-Unlike the previous REST API commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API, which requires separate authorization, a different API path, and a different API version.
+Unlike the previous Python SDK commands in this tutorial, since the introduction of the quota feature, model deployment must be done using the control plane API, which requires separate authorization, a different API path, and a different API version.
 
 |variable      | Definition|
 |--------------|-----------|
@@ -488,7 +487,9 @@ You can check on your deployment progress in the Azure OpenAI Studio:
 
 :::image type="content" source="../media/tutorials/fine-tuning/status.png" alt-text="Screenshot of the initial DataFrame table results from the CSV file." lightbox="../media/tutorials/fine-tuning/status.png":::
 
-It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models. 
+It isn't uncommon for this process to take some time to complete when dealing with deploying fine-tuned models.
+
+Once your deployment has successfully completed you can begin testing your fine-tuned turbo model in either the Chat Playground in the Azure OpenAI Studio, or via the chat completion API.
 
 ## Next steps
 
