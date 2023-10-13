@@ -131,7 +131,7 @@ To restore the tenant databases using the Azure portal, follow these steps:
 1. Select **Validate**.
 1. After the validation is complete, select **OK** to restore.
 
-You use HANA Studio to recover all tenant databases from a data snapshot. For more information, see the [HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
+You can also use HANA Studio to recover all tenant databases from a data snapshot. For more information, see the [HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
 
 ## Restore the database to a different log point in time over a snapshot
 
