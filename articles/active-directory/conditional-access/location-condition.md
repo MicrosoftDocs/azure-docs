@@ -101,6 +101,7 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 > [!IMPORTANT]
 > Users may receive prompts every hour letting them know that Microsoft Entra ID is checking their location in the Authenticator app. The preview should only be used to protect very sensitive apps where this behavior is acceptable or where access needs to be restricted to a specific country/region.
 
+#### Deny requests with modified location
 Users can modify the location reported by iOS and Android devices. As a result, Microsoft Authenticator is updating its security baseline for location-based Conditional Access policies. Authenticator will deny authentications where the user may be using a different location than the actual GPS location of the mobile device where Authenticator installed.  
 
 In the November 2023 release of Authenticator, users who modify the location of their device will get a denial message in Authenticator when they try location-based authentication. Beginning January 2024, any users that run older Authenticator versions will be blocked from location-based authentication:
