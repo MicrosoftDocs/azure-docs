@@ -24,6 +24,9 @@ In this how-to guide you learn how to create a Site Network Service (SNS) using 
 
 1. In the Azure portal, select **Create resource**.
 1. In the search bar, search for *Site Network Service* and then select **Create**.
+
+    :::image type="content" source="media/how-to-create-site-network-service-search-site-network-services.png" alt-text="Diagram showing the Azure portal Create resource page and search for Site Network Service." lightbox="media/how-to-create-site-network-service-search-site-network-services.png":::
+
 1. On the **Basics** tab, enter or select the information shown in the table. Accept the default values for the remaining settings.
 
     |Setting|Value| 
@@ -35,6 +38,8 @@ In this how-to guide you learn how to create a Site Network Service (SNS) using 
     |Site| Select the name of the Site.|
     |Managed Identity Type | This setting relies on the Network Service Design Version (NSDV). Consult your Network Service Design (NSD) designer for guidance. |
 
+    :::image type="content" source="media/how-to-create-site-network-service-basics-tab.png" alt-text="Screenshot showing the Basics tab with the mandatory fields." lightbox="media/how-to-create-site-network-service-basics-tab.png":::
+
 ## Choose a Network Service Design
 
 1. On the *Choose a Network Service Design* tab, select the **Publisher**, **Network Service Design Resource**, **Network Service Design Version** that you published earlier.
@@ -42,7 +47,12 @@ In this how-to guide you learn how to create a Site Network Service (SNS) using 
     > [!NOTE]
     > Consult the documentation from your Network Service Design (NSD) Publisher or directly contact them to obtain the Publisher Offering Location, Publisher, Network Service Design Resource and Network Service Design version.
 
+    :::image type="content" source="media/how-to-create-site-network-service-choose-design-tab.png" alt-text="Screenshot showing the Choose a Network Service Design tab with the mandatory fields." lightbox="media/how-to-create-site-network-service-choose-design-tab.png":::
+
 1. On the *Set initial configuration* tab, select a Configuration Group Value resource for each schema listed in the selected Network Service Design.
+
+    :::image type="content" source="media/how-to-create-site-network-service-set-initial-configuration-tab.png" alt-text="Screenshot showing the Set initial configuration tab and Create New tab." lightbox="media/how-to-create-site-network-service-set-initial-configuration-tab.png":::
+
 1. Select **Create New** on the *Set initial configuration* page.
 1. Enter the name for the Configuration Group into the **Configuration Group name** field.
 1. Enter the configuration into the *Editor* panel.
@@ -56,6 +66,8 @@ To configure settings in the *editor* panel, your input must be in JSON format:
 - Hover your mouse cursor over the red squiggle to reveal the fields that require input.
 - More red squiggles might appear for any remaining errors. Follow the same process to address these issues.
 - Once all errors have been resolved, select **Create Configuration**.
+
+    :::image type="content" source="media/how-to-create-site-network-service-editor-panel-set-config.png" alt-text="Screenshot showing the editor panel with a sample error to correct." lightbox="media/how-to-create-site-network-service-editor-panel-set-config.png":::
 
 > [!NOTE]
 > Consult the documentation from your Network Service Design (NSD) Publisher or directly contact them to obtain the Configuration Group Value.
