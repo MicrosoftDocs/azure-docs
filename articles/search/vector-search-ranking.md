@@ -132,7 +132,7 @@ The following table identifies the scoring property returned on each match, algo
 
 | Search method | Parameter | Scoring algorithm | Range |
 |---------------|-----------|-------------------|-------|
-| vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine) | 
+| vector search | `@search.score` | HNSW or KNN algorithm, using the similarity metric specified in the algorithm configuration. | 0.333 - 1.00 (Cosine) | 
 
 ## Number of ranked results in a vector query response
 
