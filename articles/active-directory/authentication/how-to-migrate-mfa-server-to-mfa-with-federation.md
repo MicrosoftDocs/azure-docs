@@ -1,8 +1,9 @@
 ---
-title: Migrate to Azure AD MFA with federations
-description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA with federation
+title: Migrate to Microsoft Entra multifactor authentication with federations
+description: Step-by-step guidance to move from MFA Server on-premises to Microsoft Entra multifactor authentication with federation
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: gasinh
@@ -11,11 +12,11 @@ manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
-# Migrate to Azure AD MFA with federation
+# Migrate to Microsoft Entra multifactor authentication with federation
 
-Moving your multi-factor-authentication (MFA) solution to Azure Active Directory (Azure AD) is a great first step in your journey to the cloud. Consider also moving to Azure AD for user authentication in the future. For more information, see the process for migrating to Azure AD MFA with cloud authentication.
+Moving your multifactor-authentication (MFA) solution to Microsoft Entra ID is a great first step in your journey to the cloud. Consider also moving to Microsoft Entra ID for user authentication in the future. For more information, see the process for migrating to Microsoft Entra multifactor authentication with cloud authentication.
 
-To migrate to Azure AD MFA with federation, the Azure AD MFA authentication provider is installed on AD FS. The Azure AD relying party trust and other relying party trusts are configured to use Azure AD MFA for migrated users.
+To migrate to Microsoft Entra multifactor authentication with federation, the Microsoft Entra multifactor authentication authentication provider is installed on AD FS. The Microsoft Entra ID relying party trust and other relying party trusts are configured to use Microsoft Entra multifactor authentication for migrated users.
 
 The following diagram shows the migration process.
 
@@ -23,9 +24,9 @@ The following diagram shows the migration process.
 
 ## Create migration groups
 
-To create new Conditional Access policies, you'll need to assign those policies to groups. You can use Azure AD security groups or Microsoft 365 Groups for this purpose. You can also create or sync new ones.
+To create new Conditional Access policies, you'll need to assign those policies to groups. You can use Microsoft Entra security groups or Microsoft 365 Groups for this purpose. You can also create or sync new ones.
 
-You'll also need an Azure AD security group for iteratively migrating users to Azure AD MFA. These groups are used in your claims rules.
+You'll also need a Microsoft Entra security group for iteratively migrating users to Microsoft Entra multifactor authentication. These groups are used in your claims rules.
 
 Don't reuse groups that are used for security. If you're using a security group to secure a group of high-value apps with a Conditional Access policy, only use the group for that purpose.
 
@@ -33,11 +34,13 @@ Don't reuse groups that are used for security. If you're using a security group 
 
 ### Upgrade AD FS server farm to 2019, FBL 4
 
-In AD FS 2019, you can specify additional authentication methods for a relying party, such as an application. You use group membership to determine authentication provider. By specifying an additional authentication method, you can transition to Azure AD MFA while keeping other authentication intact during the transition. For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server). The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
+In AD FS 2019, you can specify additional authentication methods for a relying party, such as an application. You use group membership to determine authentication provider. By specifying an additional authentication method, you can transition to Microsoft Entra multifactor authentication while keeping other authentication intact during the transition. For more information, see [Upgrading to AD FS in Windows Server 2016 using a WID database](/windows-server/identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server). The article covers both upgrading your farm to AD FS 2019 and upgrading your FBL to 4.
 
-### Configure claims rules to invoke Azure AD MFA
+<a name='configure-claims-rules-to-invoke-azure-ad-mfa'></a>
 
-Now that Azure AD MFA is an additional authentication method, you can assign groups of users to use it. You do so by configuring claims rules, also known as relying party trusts. By using groups, you can control which authentication provider is called globally or by application. For example, you can call Azure AD MFA for users who have registered for combined security information, while calling MFA Server for those who haven't.
+### Configure claims rules to invoke Microsoft Entra multifactor authentication
+
+Now that Microsoft Entra multifactor authentication is an additional authentication method, you can assign groups of users to use it. You do so by configuring claims rules, also known as relying party trusts. By using groups, you can control which authentication provider is called globally or by application. For example, you can call Microsoft Entra multifactor authentication for users who have registered for combined security information, while calling MFA Server for those who haven't.
 
    > [!NOTE]
    > Claims rules require on-premises security group. Before making changes to claims rules, back them up.
@@ -81,7 +84,7 @@ This command will move the logic from your current Access Control Policy into Ad
 
 #### Set up the group, and find the SID
 
-You'll need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You'll need the security identifier (SID) for that group.
+You'll need to have a specific group in which you place users for whom you want to invoke Microsoft Entra multifactor authentication. You'll need the security identifier (SID) for that group.
 
 To find the group SID, use the following command, with your group name
 
@@ -89,9 +92,11 @@ To find the group SID, use the following command, with your group name
 
    ![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
 
-#### Setting the claims rules to call Azure AD MFA
+<a name='setting-the-claims-rules-to-call-azure-ad-mfa'></a>
 
-The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid" with the SID found by running the above cmdlet.
+#### Setting the claims rules to call Microsoft Entra multifactor authentication
+
+The following PowerShell cmdlets invoke Microsoft Entra multifactor authentication for users in the group when not on the corporate network. Replace "YourGroupSid" with the SID found by running the above cmdlet.
 
 Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
 
@@ -158,23 +163,27 @@ Value=="YourGroupSid"]) => issue(Type =
 ```
 
 
-### Configure Azure AD MFA as an authentication provider in AD FS
+<a name='configure-azure-ad-mfa-as-an-authentication-provider-in-ad-fs'></a>
 
-To configure Azure AD MFA for AD FS, you must configure each AD FS server. If you have multiple AD FS servers in your farm, you can configure them remotely using Azure AD PowerShell.
+### Configure Microsoft Entra multifactor authentication as an authentication provider in AD FS
 
-For step-by-step directions on this process, see [Configure the AD FS servers](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa) in the article [Configure Azure AD MFA as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa).
+To configure Microsoft Entra multifactor authentication for AD FS, you must configure each AD FS server. If you have multiple AD FS servers in your farm, you can configure them remotely using Azure AD PowerShell.
 
-Once you've configured the servers, you can add Azure AD MFA as an additional authentication method. 
+For step-by-step directions on this process, see [Configure the AD FS servers](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa) in the article [Configure Microsoft Entra multifactor authentication as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa).
 
-![Screen shot showing the Edit authentication methods screen with Azure AD MFA and Azure Multi-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
+Once you've configured the servers, you can add Microsoft Entra multifactor authentication as an additional authentication method. 
 
-## Prepare Azure AD and implement migration
+![Screen shot showing the Edit authentication methods screen with Microsoft Entra multifactor authentication and Azure Multi-Factor Authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
+
+<a name='prepare-azure-ad-and-implement-migration'></a>
+
+## Prepare Microsoft Entra ID and implement migration
 
 This section covers final steps before migrating user MFA settings. 
 
 ### Set federatedIdpMfaBehavior to enforceMfaByFederatedIdp
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true ).
+For federated domains, MFA may be enforced by Microsoft Entra Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Microsoft Entra ID accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Microsoft Entra ID redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true).
 
    >[!NOTE]
    > The **federatedIdpMfaBehavior** setting is a new version of the **SupportsMfa** property of the [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration) cmdlet. 
@@ -182,9 +191,9 @@ For federated domains, MFA may be enforced by Azure AD Conditional Access or by 
 For domains that set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
 - Switching between **federatedIdpMfaBehavior** and **SupportsMfa** isn't supported.
-- Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
-- If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
-- If **federatedIdpMfaBehavior** or **SupportsMfa** isn't set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
+- Once **federatedIdpMfaBehavior** property is set, Microsoft Entra ID ignores the **SupportsMfa** setting.
+- If the **federatedIdpMfaBehavior** property is never set, Microsoft Entra ID will continue to honor the **SupportsMfa** setting.
+- If **federatedIdpMfaBehavior** or **SupportsMfa** isn't set, Microsoft Entra ID will default to `acceptIfMfaDoneByFederatedIdp` behavior.
 
 You can check the status of **federatedIdpMfaBehavior** by using [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true).
 
@@ -252,9 +261,9 @@ Content-Type: application/json
 
 If you use Conditional Access to determine when users are prompted for MFA, you shouldn't need to change your policies.
 
-If your federated domain(s) have SupportsMfa set to false, analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
+If your federated domain(s) have SupportsMfa set to false, analyze your claims rules on the Microsoft Entra ID relying party trust and create Conditional Access policies that support the same security goals.
 
-After creating Conditional Access policies to enforce the same controls as AD FS, you can back up and remove your claim rules customizations on the Azure AD Relying Party.
+After creating Conditional Access policies to enforce the same controls as AD FS, you can back up and remove your claim rules customizations on the Microsoft Entra ID Relying Party.
 
 For more information, see the following resources:
 
@@ -263,7 +272,9 @@ For more information, see the following resources:
 * [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
 
 
-## Register users for Azure AD MFA
+<a name='register-users-for-azure-ad-mfa'></a>
+
+## Register users for Microsoft Entra multifactor authentication
 
 This section covers how users can register for combined security (MFA and self-service-password reset) and how to migrate their MFA settings. Microsoft Authenticator can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
 
@@ -274,14 +285,14 @@ We recommend having your users register for combined security information, which
 Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. 
 These include templates for email, posters, table tents, and various other assets. Users register their information at `https://aka.ms/mysecurityinfo`, which takes them to the combined security registration screen. 
 
-We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration.md) that requires the registration to occur from a trusted device or location. For information on tracking registration statuses, see [Authentication method activity for Azure Active Directory](howto-authentication-methods-activity.md).
+We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration.md) that requires the registration to occur from a trusted device or location. For information on tracking registration statuses, see [Authentication method activity for Microsoft Entra ID](howto-authentication-methods-activity.md).
 
    > [!NOTE]
    > Users who must register their combined security information from a non-trusted location or device can be issued a Temporary Access Pass or alternatively, temporarily excluded from the policy.
 
 ### Migrate MFA settings from MFA Server
 
-You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to synchronize registered MFA settings for users from MFA Server to Azure AD. 
+You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to synchronize registered MFA settings for users from MFA Server to Microsoft Entra ID. 
 You can synchronize phone numbers, hardware tokens, and device registrations such as Microsoft Authenticator settings. 
 
 ### Add users to the appropriate groups
@@ -294,27 +305,27 @@ We don't recommend that you reuse groups that are used for security. If you're u
 
 ## Monitoring
 
-Azure AD MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
+Microsoft Entra multifactor authentication registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/). This report can be found in Microsoft Entra ID. Select **Monitoring**, then select **Usage & insights**. 
 
 In Usage & insights, select **Authentication methods**. 
 
-Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multi-factor authentication** hyperlink.
+Detailed Microsoft Entra multifactor authentication registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multifactor authentication** hyperlink.
 
    ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-mfa-with-federation/authentication-methods.png)
 
 ## Cleanup steps
 
-Once you have completed migration to Azure AD MFA and are ready to decommission the MFA Server, do the following three things: 
+Once you have completed migration to Microsoft Entra multifactor authentication and are ready to decommission the MFA Server, do the following three things: 
 
 1. Revert your claim rules on AD FS to their pre-migration configuration and remove the MFA Server authentication provider.
 
-1. Remove MFA server as an authentication provider in AD FS. This will ensure all users use Azure AD MFA as it will be the only additional authentication method enabled. 
+1. Remove MFA server as an authentication provider in AD FS. This will ensure all users use Microsoft Entra multifactor authentication as it will be the only additional authentication method enabled. 
 
 1. Decommission the MFA Server.
 
 ### Revert claims rules on AD FS and remove MFA Server authentication provider
 
-Follow the steps under Configure claims rules to invoke Azure AD MFA to revert back to the backed up claims rules and remove any AzureMFAServerAuthentication claims rules. 
+Follow the steps under Configure claims rules to invoke Microsoft Entra multifactor authentication to revert back to the backed up claims rules and remove any AzureMFAServerAuthentication claims rules. 
 
 For example, remove the following from the rule(s): 
 
@@ -331,11 +342,11 @@ Value=="YourGroupSid"]) => issue(Type =
 
 ### Disable MFA Server as an authentication provider in AD FS
 
-This change ensures only Azure AD MFA is used as an authentication provider.
+This change ensures only Microsoft Entra multifactor authentication is used as an authentication provider.
 
 1. Open the **AD FS management console**.
 
-1. Under **Services**, right-click on **Authentication Methods**, and select **Edit Multi-factor Authentication Methods**. 
+1. Under **Services**, right-click on **Authentication Methods**, and select **Edit multifactor authentication Methods**. 
 
 1. Uncheck the box next to **Azure Multi-Factor Authentication Server**. 
 
@@ -351,12 +362,12 @@ Possible considerations when decommissions the MFA Servers include:
 
 * Optionally clean up logs and data directories that are left behind after backing them up first. 
 
-* Uninstall the Multi-Factor Authentication Web Server SDK if applicable, including any files left over in etpub\wwwroot\MultiFactorAuthWebServiceSdk and or MultiFactorAuth directories
+* Uninstall the multifactor authentication Web Server SDK if applicable, including any files left over in etpub\wwwroot\MultiFactorAuthWebServiceSdk and or MultiFactorAuth directories
 
-* For MFA Server versions prior to 8.0, it may also be necessary to remove the Multi-Factor Auth Phone App Web Service
+* For MFA Server versions prior to 8.0, it may also be necessary to remove the multifactor authentication Phone App Web Service
 
 ## Next Steps
 
-- [Deploy password hash synchronization](../hybrid/whatis-phs.md)
+- [Deploy password hash synchronization](../hybrid/connect/whatis-phs.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)
-- [Migrate applications to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
+- [Migrate applications to Microsoft Entra ID](../manage-apps/migrate-adfs-apps-phases-overview.md)

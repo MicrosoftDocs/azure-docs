@@ -4,9 +4,13 @@ description: This article describes how to get started with Azure AI Video Index
 ms.date: 07/03/2023
 ms.topic: tutorial
 ms.custom: devx-track-csharp
+author: IngridAtMicrosoft
+ms.author: inhenkel
 ---
 
 # Tutorial: Use the Azure AI Video Indexer API
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
@@ -24,7 +28,7 @@ Before you start, see the [Recommendations](#recommendations) section (that foll
 
    > [!Important]
    > * You must use the same provider you used when you signed up for Azure AI Video Indexer.
-   > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
+   > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Microsoft Entra ID.
    > * There can be only one active account per email. If a user tries to sign in with user@gmail.com for LinkedIn and later with user@gmail.com for Google, the latter will display an error page, saying the user already exists.
 	
    ![Sign in to the Azure AI Video Indexer API developer portal](./media/video-indexer-use-apis/sign-in.png)
@@ -228,4 +232,3 @@ After you're done with this tutorial, delete resources that you aren't planning 
 
 - [Examine details of the output JSON](video-indexer-output-json-v2.md)
 - Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer) that demonstrates important aspect of uploading and indexing a video. Following the code will give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advice.
-

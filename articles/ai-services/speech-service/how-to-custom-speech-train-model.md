@@ -5,10 +5,9 @@ description: Learn how to train Custom Speech models. Training a speech to text 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 09/15/2023
 ms.author: eur
 ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
@@ -19,7 +18,7 @@ zone_pivot_groups: speech-studio-cli-rest
 In this article, you'll learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a Custom Speech model will remain consistent, even when a new base model is released.
 
 > [!NOTE]
-> You pay for Custom Speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md), but you are not charged for training a model. 
+> You pay for Custom Speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md). You'll also be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
 
 Training a model is typically an iterative process. You will first select a base model that is the starting point for a new model. You train a model with [datasets](./how-to-custom-speech-test-and-train.md) that can include text and audio, and then you test. If the recognition quality or accuracy doesn't meet your requirements, you can create a new model with additional or modified training data, and then test again.
 

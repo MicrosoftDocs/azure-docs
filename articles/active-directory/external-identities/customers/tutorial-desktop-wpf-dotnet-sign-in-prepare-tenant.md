@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Prepare your customer tenant to sign in user in .NET WPF application"
-description: Learn about how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users to your .NET WPF application
+description: Learn about how to prepare your Microsoft Entra ID for customers tenant to sign in users to your .NET WPF application
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -15,7 +15,7 @@ ms.date: 07/26/2023
 
 # Tutorial: Prepare your customer tenant to sign in user in .NET WPF application
 
-The first step in securing your applications is to register them. In this tutorial, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. This tutorial is part of a series that guides you to add authentication to a .NET Windows Presentation Form (WPF) app that signs in and signs out users using Azure AD for customers.
+The first step in securing your applications is to register them. In this tutorial, you prepare your Microsoft Entra ID for customers tenant for authentication. This tutorial is part of a series that guides you to add authentication to a .NET Windows Presentation Form (WPF) app that signs in and signs out users using Microsoft Entra ID for customers.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- Microsoft Entra ID for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
  
 ## Register the desktop app
 

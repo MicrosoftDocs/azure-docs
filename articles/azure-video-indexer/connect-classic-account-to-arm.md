@@ -2,12 +2,15 @@
 title: Connect a classic Azure AI Video Indexer account to ARM
 description: This topic explains how to connect an existing classic paid Azure AI Video Indexer account to an ARM-based account
 ms.topic: how-to
-ms.author: itnorman
 ms.date: 03/20/2023
 ms.custom: ignite-fall-2021
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
-# Connect an existing classic paid Azure AI Video Indexer account to ARM-based account  
+# Connect an existing classic paid Azure AI Video Indexer account to ARM-based account
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to connect an existing classic paid Azure AI Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). To understand the Azure AI Video Indexer account types, review [account types](accounts-overview.md).
 
@@ -51,7 +54,7 @@ Before the end of the 30 days of transition state, you can remove access from us
 
 ### Browse to the [Azure AI Video Indexer website](https://aka.ms/vi-portal-link)
 
-1. Sign in using your Azure AD account.
+1. Sign in using your Microsoft Entra account.
 1. On the top right bar press *User account* to open the side pane account list.
 1. Select the Azure AI Video Indexer classic account you wish to connect to ARM (classic accounts will be tagged with a *classic tag*).
 1. Click **Settings**.

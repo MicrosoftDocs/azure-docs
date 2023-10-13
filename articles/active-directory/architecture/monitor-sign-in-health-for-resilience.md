@@ -1,5 +1,5 @@
 ---
-title: Monitor application sign-in health for resilience in Azure Active Directory
+title: Monitor application sign-in health for resilience in Microsoft Entra ID
 description: Create queries and notifications to monitor the sign-in health of your applications.
 services: active-directory
 author: janicericketts
@@ -34,14 +34,14 @@ During an impacting event, two things may happen:
 
 ## Prerequisites
 
-- An Azure AD tenant.
-- A user with global administrator or security administrator role for the Azure AD tenant.
+- A Microsoft Entra tenant.
+- A user with global administrator or security administrator role for the Microsoft Entra tenant.
 - A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. Learn how to  [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
-- Azure AD logs integrated with Azure Monitor logs. Learn how to [Integrate Azure AD Sign- in Logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- Microsoft Entra logs integrated with Azure Monitor logs. Learn how to [Integrate Microsoft Entra sign-in logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ## Configure the App sign-in health workbook 
 
-To access workbooks in the **Azure portal**, select **Azure Active Directory**, select **Workbooks**. The following screenshot shows the Workbooks Gallery in the Azure portal.
+To access workbooks in the **Azure portal**, select **Microsoft Entra ID**, select **Workbooks**. The following screenshot shows the Workbooks Gallery in the Azure portal.
 
 :::image type="content" source="./media/monitor-sign-in-health-for-resilience/sign-in-health-workbook.png" alt-text="Screenshot showing the workbooks gallery in the Azure portal.":::
 
@@ -65,7 +65,7 @@ Use the following instructions to create email alerts based on the queries refle
 - The successful usage drops by 90% from the same hour two days ago, as shown in the preceding hourly usage graph example.
 - The failure rate increases by 90% from the same hour two days ago, as shown in the preceding hourly failure rate graph example.
 
-To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](../../azure-monitor/alerts/alerts-log.md).
+To configure the underlying query and set alerts, complete the following steps using the sample query as the basis for your configuration. The query structure description appears at the end of this section. Learn how to create, view, and manage log alerts using Azure Monitor in [Manage log alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 1. In the workbook, select **Edit** as shown in the following screenshot. Select the **query icon** in the upper right corner of the graph.
 

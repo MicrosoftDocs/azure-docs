@@ -3,12 +3,12 @@ title: Authorize access to queues using Azure role assignment conditions
 titleSuffix: Azure Storage
 description: Authorize access to Azure queues using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Storage attributes.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-queue-storage
 ms.topic: conceptual
 ms.date: 10/19/2022
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: nachakra
 ---
 
@@ -20,7 +20,7 @@ Attribute-based access control (ABAC) is an authorization strategy that defines 
 
 ## Overview of conditions in Azure Storage
 
-You can [use of Azure Active Directory](../common/authorize-data-access.md) (Azure AD) to authorize requests to Azure storage resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access Azure storage data. You can also define custom roles with select sets of permissions. Azure Storage supports role assignments for both storage accounts and blob containers or queues.
+You can [use of Microsoft Entra ID](../common/authorize-data-access.md) (Microsoft Entra ID) to authorize requests to Azure storage resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access Azure storage data. You can also define custom roles with select sets of permissions. Azure Storage supports role assignments for both storage accounts and blob containers or queues.
 
 Azure ABAC builds on Azure RBAC by adding [role assignment conditions](../../role-based-access-control/conditions-overview.md) in the context of specific actions. A *role assignment condition* is an additional check that is evaluated when the action on the storage resource is being authorized. This condition is expressed as a predicate using attributes associated with any of the following:
 - Security principal that is requesting authorization
@@ -48,7 +48,7 @@ You can use conditions with custom roles so long as the role includes [actions t
 
 The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows use of `@Principal`, `@Resource` or `@Request` attributes in the conditions. A `@Principal` attribute is a custom security attribute on a principal, such as a user, enterprise application (service principal), or managed identity. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account or a queue. A `@Request` attribute refers to an attribute or parameter included in a storage operation request.
 
-Azure RBAC currently supports 2,000 role assignments in a subscription. If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Azure AD custom security attributes]() for principals.
+Azure RBAC currently supports 2,000 role assignments in a subscription. If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Microsoft Entra custom security attributes]() for principals.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Splan Visitor'
-description: Learn how to configure single sign-on between Azure Active Directory and Splan Visitor.
+title: 'Tutorial: Integrate Microsoft Entra single sign-on (SSO) with Splan Visitor'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Splan Visitor.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,61 +14,64 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Splan Visitor
+# Tutorial: Integrate Microsoft Entra single sign-on (SSO) with Splan Visitor
 
-In this tutorial, you'll learn how to integrate Splan Visitor with Azure Active Directory (Azure AD). When you integrate Splan Visitor with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Splan Visitor with Microsoft Entra ID. When you integrate Splan Visitor with Microsoft Entra ID, you can:
 
-* Use Azure AD to control who has access to Splan Visitor.
-* Enable users to be automatically signed in to Splan Visitor with their Azure AD accounts.
+* Use Microsoft Entra ID to control who has access to Splan Visitor.
+* Enable users to be automatically signed in to Splan Visitor with their Microsoft Entra accounts.
 * Manage your accounts in one central location, the Azure portal.
 
 ## Prerequisites
 
 To get started, you need:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Splan Visitor single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra SSO in a test environment.
 
 * Splan Visitor supports IdP-initiated SSO.
 
 ## Add Splan Visitor from the gallery
 
-To configure the integration of Splan Visitor into Azure AD, add Splan Visitor from the gallery to your list of managed SaaS apps.
+To configure the integration of Splan Visitor into Microsoft Entra ID, add Splan Visitor from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using a work or school account, or a personal Microsoft account.
-1. On the left pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **Splan Visitor** in the search box.
 1. Select **Splan Visitor** from the results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Splan Visitor
+<a name='configure-and-test-azure-ad-sso-for-splan-visitor'></a>
 
-Configure and test Azure AD SSO with Splan Visitor by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Splan Visitor.
+## Configure and test Microsoft Entra SSO for Splan Visitor
 
-To configure and test Azure AD SSO with Splan Visitor, perform the following steps:
+Configure and test Microsoft Entra SSO with Splan Visitor by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Splan Visitor.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with test user B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Splan Visitor, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with test user B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Splan Visitor SSO](#configure-splan-visitor-sso)** to configure the single sign-on settings with Splan Visitor.
-    1. **[Create a Splan Visitor test user](#create-a-splan-visitor-test-user)** to have a counterpart of B.Simon in Splan Visitor that is linked to the Azure AD representation of user.
+    1. **[Create a Splan Visitor test user](#create-a-splan-visitor-test-user)** to have a counterpart of B.Simon in Splan Visitor that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal:
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Splan Visitor** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO in the Azure portal:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Splan Visitor** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the **pencil** icon for **Basic SAML Configuration** to edit the settings.
 
@@ -84,11 +87,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 	![Screenshot highlighting the configuration URLs section.](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user named B.Simon in the Azure portal.
+### Create a Microsoft Entra test user
 
-1. On the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+In this section, you'll create a test user named B.Simon.
+
+1. In the Microsoft Entra admin center, navigate to **Identity** > **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter **B.Simon**.  
@@ -96,12 +101,14 @@ In this section, you'll create a test user named B.Simon in the Azure portal.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Splan Visitor.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Splan Visitor** to open the app overview.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Splan Visitor.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Splan Visitor** to open the app overview.
 1. Find the **Manage** section, and then select **Users and groups**.
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list, and then click **Select** at the bottom of the screen.
@@ -110,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Splan Visitor SSO
 
-To configure single sign-on with Splan Visitor, send the **Federation Metadata XML** that you downloaded and appropriate copied URLs from the Azure portal to the [Splan Visitor support team](mailto:support@splan.com). This ensures that the SAML SSO connection is set properly on both sides.
+To configure single sign-on with Splan Visitor, send the **Federation Metadata XML** that you downloaded and appropriate copied URLs to the [Splan Visitor support team](mailto:support@splan.com). This ensures that the SAML SSO connection is set properly on both sides.
 
 ### Create a Splan Visitor test user
 
@@ -118,7 +125,7 @@ Create a test user named **Britta Simon** in Splan Visitor. Work with the [Spla
 
 ## Test SSO
 
-Test your Azure AD single sign-on configuration with one of the following options:
+Test your Microsoft Entra single sign-on configuration with one of the following options:
 
 * **Azure portal**: Select **Test this application** to automatically sign in to the Splan Visitor for which you set up SSO.
 * **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).

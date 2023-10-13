@@ -179,6 +179,41 @@
             "source_path": "articles/sentinel/store-logs-in-azure-data-explorer.md",
             "redirect_url": "/azure/azure-monitor/logs/data-retention-archive",
             "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/review-fine-tune-overview.md",
+            "redirect_url": "/azure/sentinel/deploy-overview",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/box-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/box-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/office-365.md",
+            "redirect_url": "/azure/sentinel/data-connectors/microsoft-365",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/sophos-endpoint-protection-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/sophos-endpoint-protection-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/proofpoint-tap-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/proofpoint-tap-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/rubrik-security-cloud-data-connector-using-azure-functions",
+            "redirect_document_id": true
           }
     ]
 }

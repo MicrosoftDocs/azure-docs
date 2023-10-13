@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 03/28/2022
 ms.devlang: csharp
@@ -14,6 +14,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Manage container properties and metadata with .NET
+
+[!INCLUDE [storage-dev-guide-selector-manage-properties-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-container.md)]
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 

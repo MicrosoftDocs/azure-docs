@@ -54,7 +54,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 1. Select **(+) Add**.
 
-    :::image type="content" source="media/workflow-automation/logic-apps-create-new.png" alt-text="Screenshot of the screen to create a logic app." lightbox="media/workflow-automation/logic-apps-create-new.png":::
+    :::image type="content" source="media/workflow-automation/logic-apps-create-new.png" alt-text="Screenshot of where to create a logic app." lightbox="media/workflow-automation/logic-apps-create-new.png":::
 
 1. Fill out all required fields and select **Review + Create**.
 

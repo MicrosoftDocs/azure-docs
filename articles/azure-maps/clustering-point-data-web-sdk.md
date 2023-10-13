@@ -1,8 +1,8 @@
 ---
 title: Clustering point data in the Web SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Web SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -61,10 +61,7 @@ For a complete working sample of how to implement displaying clusters using a bu
 <!----------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Basic bubble layer clustering" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Basic bubble layer clustering</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ---------------------------------------------------------------------->
 
 ## Display clusters using a symbol layer
@@ -80,10 +77,7 @@ For a complete working sample of how to implement displaying clusters using a sy
 <!----------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Clustered Symbol layer" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>Clustered Symbol layer</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true]
 -------------------------------------------------------------------------->
 
 ## Clustering and the heat maps layer
@@ -97,10 +91,7 @@ For a complete working sample that demonstrates how to create a heat map that us
 <!----------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Cluster weighted Heat Map" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster weighted Heat Map</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true]
 -------------------------------------------------------------------------->
 
 ## Mouse events on clustered data points
@@ -156,10 +147,7 @@ function clusterClicked(e) {
 <!----------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Cluster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Cluster getClusterExpansionZoom</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------------------>
 
 ## Display cluster area
@@ -173,10 +161,7 @@ For a complete working sample that demonstrates how to do this, see [Display clu
 <!----------------------------------------------------------------------
 <br/>
 
- <iframe height="500" scrolling="no" title="Cluster area convex hull" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster area convex hull</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+ > [!VIDEO //codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------------------>
 
 ## Aggregating data in clusters
@@ -188,10 +173,7 @@ The [Cluster aggregates] sample uses an aggregate expression. The code calculate
 :::image type="content" source="./media/cluster-point-data-web-sdk/cluster-aggregates.png" alt-text="Screenshot showing a map that uses clustering defined using data-driven style expression calculation. These calculations aggregate values across all points contained within the cluster.":::
 
 <!----------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Cluster aggregates" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Cluster aggregates</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------------------>
 
 ## Next steps

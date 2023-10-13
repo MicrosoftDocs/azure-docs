@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/19/2022
+ms.date: 09/13/2023
 ms.topic: how-to
 ms.custom: references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -24,15 +24,16 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 [!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
 :::moniker-end
 
-Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
-
 [!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
+Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 :::moniker range="azureml-api-2"
+* [Use managed networks](how-to-managed-network.md) (preview)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure machine learning registries](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
@@ -55,7 +56,7 @@ For a tutorial on creating a secure workspace, see [Tutorial: Create a secure wo
 
 ## Prerequisites
 
-This article assumes that you have familiarity with the following topics:
+This article assumes that you have familiarity with the following articles:
 + [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
 + [IP networking](../virtual-network/ip-services/public-ip-addresses.md)
 + [Azure Machine Learning workspace with private endpoint](how-to-configure-private-link.md)
@@ -82,7 +83,7 @@ The following table compares how services access different parts of an Azure Mac
 * **Inference compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
 
 
-The next sections show you how to secure the network scenario described above. To secure your network, you must:
+The next sections show you how to secure the network scenario described previously. To secure your network, you must:
 
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
 1. Secure the [**training environment**](#secure-the-training-environment).
@@ -98,7 +99,7 @@ The next sections show you how to secure the network scenario described above. T
 
 If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
 
-1. Create an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
+1. Create an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). This network secures the resources used by the workspace.
 1. Use __one__ of the following options to create a publicly accessible workspace:
 
     :::moniker range="azureml-api-2"
@@ -137,7 +138,7 @@ If you want to access the workspace over the public internet while keeping all t
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
 :::moniker range="azureml-api-2"
-1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources. Then create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). This network secures the workspace and other resources. Then create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
     | Service | Endpoint information | Allow trusted information |
@@ -147,7 +148,7 @@ Use the following steps to secure your workspace and associated resources. These
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 :::moniker-end
 :::moniker range="azureml-api-1"
-1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources. Then create a [Private Link-enabled workspace](./v1/how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). This virtual network secures the workspace and other resources. Then create a [Private Link-enabled workspace](./v1/how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
     | Service | Endpoint information | Allow trusted information |
@@ -203,7 +204,7 @@ For detailed instructions on how to complete these steps, see [Secure a training
 
 ### Example training job submission 
 
-In this section, you learn how Azure Machine Learning securely communicates between services to submit a training job. This shows you how all your configurations work together to secure communication.
+In this section, you learn how Azure Machine Learning securely communicates between services to submit a training job. This example shows you how all your configurations work together to secure communication.
 
 1. The client uploads training scripts and training data to storage accounts that are secured with a service or private endpoint.
 

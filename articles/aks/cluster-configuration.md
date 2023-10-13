@@ -485,19 +485,19 @@ az provider register --namespace Microsoft.ContainerService
 To create a cluster using node resource group lockdown, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This configuration allows you to view the resources, but not modify them.
 
 ```azurecli-interactive
-az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+az aks create -n aksTest -g aksTest --nrg-lockdown-restriction-level ReadOnly
 ```
 
 ### Update an existing cluster with node resource group lockdown
 
 ```azurecli-interactive
-az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level ReadOnly
 ```
 
 ### Remove node resource group lockdown from a cluster
 
 ```azurecli-interactive
-az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestricted
+az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level Unrestricted
 ```
 
 

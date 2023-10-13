@@ -63,7 +63,7 @@ items:
         href: how-to-recognize-speech.md
       - name: Get speech recognition results
         href: get-speech-recognition-results.md
-      - name: Real-time diarization
+      - name: Real-time diarization quickstart
         href: get-started-stt-diarization.md
     - name: Batch transcription
       items:
@@ -111,6 +111,8 @@ items:
       href: improve-accuracy-phrase-list.md
     - name: Display text formatting
       href: display-text-format.md
+    - name: Whisper model from OpenAI
+      href: whisper-overview.md
     - name: Speech to text FAQ
       displayName: FAQ,STT,frequently asked questions
       href: faq-stt.yml
@@ -340,9 +342,9 @@ items:
         href: how-to-select-audio-input-devices.md
     - name: Access control and authentication
       items:
-      - name: Role-based access with Azure Active Directory 
+      - name: Role-based access with Microsoft Entra ID 
         href: role-based-access-control.md
-      - name: Use Azure Active Directory Authentication
+      - name: Use Microsoft Entra authentication
         href: how-to-configure-azure-ad-auth.md
     - name: Endpoint connections
       items:
@@ -441,6 +443,9 @@ items:
               href: how-to-migrate-to-prebuilt-neural-voice.md 
         - name: Speech to text REST API migration
           items:
+          - name: From Speech to text v3.1 to v3.2
+            href: migrate-v3-1-to-v3-2.md
+            displayName: migrate,migration,deprecate,retire,sunset
           - name: From Speech to text v3.0 to v3.1
             href: migrate-v3-0-to-v3-1.md
             displayName: migrate,migration,deprecate,retire,sunset

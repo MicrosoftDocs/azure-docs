@@ -5,13 +5,14 @@ description: Personalizer uses features, information about actions and context, 
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 12/28/2022
 ---
 
 # Context and actions
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Personalizer works by learning what your application should show to users in a given context. Context and actions are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
 

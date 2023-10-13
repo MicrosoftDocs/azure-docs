@@ -25,7 +25,7 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
    :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::  
 
-3. A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
+3. A service principal for the Stream Analytics job's identity is created in Microsoft Entra ID. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
 
    When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:  
 
@@ -149,7 +149,7 @@ Using Azure Resource Manager allows you to fully automate the deployment of your
     }
     ```
 
-   Take note of the **principalId** from the job's definition, which identifies your job's Managed Identity within Azure Active Directory and will be used in the next step to grant the Stream Analytics job access to the storage account.
+   Take note of the **principalId** from the job's definition, which identifies your job's Managed Identity within Microsoft Entra ID and will be used in the next step to grant the Stream Analytics job access to the storage account.
 
 3. Now that the job is created, see the [Give the Stream Analytics job access to your storage account](#give-the-stream-analytics-job-access-to-your-storage-account) section of this article.
 
@@ -250,9 +250,9 @@ Below are the current limitations of this feature:
 
 1. Classic Azure Storage accounts.
 
-2. Azure accounts without Azure Active Directory.
+2. Azure accounts without Microsoft Entra ID.
 
-3. Multi-tenant access is not supported. The Service principal created for a given Stream Analytics job must reside in the same Azure Active Directory tenant in which the job was created, and cannot be used with a resource that resides in a different Azure Active Directory tenant.
+3. Multi-tenant access is not supported. The Service principal created for a given Stream Analytics job must reside in the same Microsoft Entra tenant in which the job was created, and cannot be used with a resource that resides in a different Microsoft Entra tenant.
 
 
 ## Next steps

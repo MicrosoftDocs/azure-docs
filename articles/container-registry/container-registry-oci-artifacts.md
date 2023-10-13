@@ -32,7 +32,7 @@ REGISTRY=$ACR_NAME.azurecr.io
 
 ## Sign in to a registry
 
-Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
+Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
 # Login to Azure
@@ -210,9 +210,9 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 
 <!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
-[oras-install-docs]:        https://oras.land/docs/category/cli
-[oras-cli]:                 https://oras.land/docs/category/cli-reference
-[oras-push-multifiles]:     https://oras.land/docs/cli/pushing/#pushing-artifacts-with-multiple-files
+[oras-install-docs]:        https://oras.land/docs/installation
+[oras-cli]:                 https://oras.land/blog/oras-0.15-a-fully-functional-registry-client/
+[oras-push-multifiles]:     https://oras.land/docs/how_to_guides/pushing_and_pulling/#pushing-artifacts-with-multiple-files
 
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr

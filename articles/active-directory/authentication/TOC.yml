@@ -9,7 +9,7 @@
   items:
   - name: Enable self-service password reset
     href: tutorial-enable-sspr.md
-  - name: Enable Azure AD Multi-Factor Authentication
+  - name: Enable Microsoft Entra multifactor authentication
     href: tutorial-enable-azure-mfa.md
   - name: Enable cloud sync password writeback
     href: tutorial-enable-cloud-sync-sspr-writeback.md
@@ -54,7 +54,7 @@
       href: concept-sspr-policy.md
     - name: Licenses
       href: concept-sspr-licensing.md
-  - name: Multifactor Authentication
+  - name: Multifactor authentication
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
@@ -64,6 +64,8 @@
       href: concept-system-preferred-multifactor-authentication.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
+    - name: Understanding telephony fraud
+      href: concept-mfa-telephony-fraud.md
     - name: Regional opt-in
       href: concept-mfa-regional-opt-in.md
     - name: Data residency
@@ -123,18 +125,18 @@
         - name: Use Authenticator Lite 
           href: how-to-mfa-authenticator-lite.md
         - name: Use Microsoft managed settings 
-          href: how-to-mfa-microsoft-managed.md
+          href: ./concept-authentication-default-enablement.md
       - name: Windows Hello for Business
         href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
       - name: Certificate-based authentication
         items:
-        - name: Azure AD CBA
+        - name: Microsoft Entra CBA
           items:
           - name: Overview
             href: concept-certificate-based-authentication.md
-          - name: How Azure AD CBA works
+          - name: How Microsoft Entra CBA works
             href: concept-certificate-based-authentication-technical-deep-dive.md
-          - name: Configure Azure AD CBA
+          - name: Configure Microsoft Entra CBA
             href: how-to-certificate-based-authentication.md
           - name: Windows smart card logon
             href: concept-certificate-based-authentication-smartcard.md
@@ -148,7 +150,7 @@
             href: concept-certificate-based-authentication-migration.md
           - name: FAQ
             href: certificate-based-authentication-faq.yml
-        - name: Federated CBA with Azure AD
+        - name: Federated CBA with Microsoft Entra ID
           items:
           - name: Configure CBA with federation
             href: certificate-based-authentication-federation-get-started.md
@@ -156,18 +158,18 @@
             href: certificate-based-authentication-federation-android.md
           - name: Use on iOS Devices
             href: certificate-based-authentication-federation-ios.md
-      - name: Use a Temporary Access Pass
-        href: howto-authentication-temporary-access-pass.md
-      - name: Use SMS-based authentication
-        items:  
-        - name: Manage
-          href: howto-authentication-sms-signin.md
-        - name: Supported apps for SMS-based authentication
-          href: how-to-authentication-sms-supported-apps.md
-        - name: Two-way SMS unsupported
-          href: how-to-authentication-two-way-sms-unsupported.md
-      - name: Use email address sign-in
-        href: howto-authentication-use-email-signin.md
+  - name: Use a Temporary Access Pass
+    href: howto-authentication-temporary-access-pass.md
+  - name: Use SMS-based authentication
+    items:  
+    - name: Manage
+      href: howto-authentication-sms-signin.md
+    - name: Supported apps for SMS-based authentication
+      href: how-to-authentication-sms-supported-apps.md
+    - name: Two-way SMS unsupported
+      href: how-to-authentication-two-way-sms-unsupported.md
+  - name: Use email address sign-in
+    href: howto-authentication-use-email-signin.md
   - name: Self-service password reset
     items:
     - name: Deployment guide
@@ -178,7 +180,7 @@
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
-  - name: Azure AD Multi-Factor Authentication
+  - name: Microsoft Entra multifactor authentication
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
@@ -210,7 +212,7 @@
         href: howto-mfa-nps-extension.md
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
-      - name: Azure VPN and Azure AD MFA
+      - name: Azure VPN and Microsoft Entra multifactor authentication
         href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
@@ -236,7 +238,7 @@
       href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Azure AD smart lockout
+  - name: Microsoft Entra smart lockout
     href: howto-password-smart-lockout.md
   - name: Reporting
     items:
@@ -250,7 +252,7 @@
       href: howto-mfa-reporting-datacollection.md
   - name: MFA Server
     items:
-    - name: Migrate MFA Server to Azure AD MFA
+    - name: Migrate MFA Server to Microsoft Entra multifactor authentication
       items:
       - name: Overview
         href: how-to-migrate-mfa-server-to-azure-mfa.md

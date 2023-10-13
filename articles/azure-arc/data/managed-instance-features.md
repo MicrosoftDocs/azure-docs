@@ -84,7 +84,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | Contained databases | Yes |
 | Encryption for backups | Yes |
 | SQL Server Authentication | Yes |
-| Azure Active Directory Authentication | No |
+| Microsoft Entra authentication | No |
 | Windows Authentication | Yes |
 
 ## <a name="RDBMSM"></a> RDBMS Manageability  
@@ -110,7 +110,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|
 | JSON | Yes |
-| Query Store | No | 
+| Query Store | Yes | 
 | Temporal | Yes | 
 | Native XML support | Yes | 
 | XML indexing | Yes | 

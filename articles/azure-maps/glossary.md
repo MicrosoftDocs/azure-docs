@@ -47,7 +47,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: The former name of Azure Maps when it was in preview.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft's cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps APIs. Azure AD supports Azure role-based access control (Azure RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD] and [Manage authentication in Azure Maps].
+<a name="azure-active-directory"></a> **Microsoft Entra ID**: Microsoft Entra ID is Microsoft's cloud-based identity and access management service. Azure Maps Microsoft Entra integration is currently available in preview for all Azure Maps APIs. Microsoft Entra ID supports Azure role-based access control (Azure RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Microsoft Entra integration, see [Azure Maps and Microsoft Entra ID] and [Manage authentication in Azure Maps].
 
 <a name="azure-maps-key"></a> **Azure Maps key**: See [Shared key authentication].
 
@@ -331,7 +331,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="shapefile-shp"></a> **Shapefile (SHP)**: Or _ESRI Shapefile_, is a vector data storage format for storing the location, shape, and attributes of geographic features. A shapefile is stored in a set of related files.
 
-<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It's recommended that keys are regularly regenerated for security. Two keys are provided so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Azure AD] and [Manage authentication in Azure Maps].
+<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It's recommended that keys are regularly regenerated for security. Two keys are provided so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Microsoft Entra ID] and [Manage authentication in Azure Maps].
 
 <a name="software-development-kit-sdk"></a> **Software development kit (SDK)**: A collection of documentation, sample code, and sample apps to help a developer use an API to build apps.
 
@@ -402,28 +402,28 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="zip-code"></a> **Zip code**: See [Postal code].
 
-<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map is often visible. But, the map shows limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map displays an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see [Zoom levels and tile grid].
+<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map is often visible. But, the map shows limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map displays an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid] documentation.
 
-[Satellite imagery]: #satellite-imagery
-[Shared key authentication]: #shared-key-authentication
+[Altitude]: #altitude
 [Azure Maps and Azure AD]: azure-maps-authentication.md
-[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Bearing]: #heading
 [Bounding box]: #bounding-box
-[Parcel]: #parcel
 [consumption model documentation]: consumption-model.md
+[EPSG:3857]: https://epsg.io/3857
 [Extended geojson]: extend-geojson.md
-[Bearing]: #bearing
-[Reachable Range]: #reachable-range
-[Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
-[Postal code]: #postal-code
 [Isochrone]: #isochrone
 [Isodistance]: #isodistance
-[Transformation]: #transformation
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Parcel]: #parcel
+[Postal code]: #postal-code
 [Queries Per Second (QPS)]: #queries-per-second-qps
-[EPSG:3857]: https://epsg.io/3857
+[Reachable Range]: #reachable-range
+[Satellite imagery]: #satellite-imagery
+[Shared key authentication]: #shared-key-authentication
 [Spatial Data (SQL Server)]: /sql/relational-databases/spatial/spatial-data-sql-server
 [Tile layer]: #tile-layer
+[Transformation]: #transformation
 [Traveling Salesmen Problem]: #traveling-salesmen-problem-tsp
 [Vehicle Routing Problem]: #vehicle-routing-problem-vrp
-[Altitude]: #altitude
 [Web Mercator]: #web-mercator
+[Zoom levels and tile grid]: zoom-levels-and-tile-grid.md

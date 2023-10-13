@@ -47,8 +47,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and Function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AutonomousDevelopmentPlatform** | Autonomous Development Platform | Both | Yes | Yes |
-| **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
-| **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
+| **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
+| **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | Yes |
 | **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. | Outbound | No | Yes |
 | **AzureAttestation** | Azure Attestation. | Outbound | No | Yes | 
@@ -76,6 +76,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This only includes probe traffic, not real traffic to your backend resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
 | **AzureLoadTestingInstanceManagement** | This service tag is used for inbound connectivity from Azure Load Testing service to the load generation instances injected into your virtual network in the private load testing scenario. <br/><br/>**Note:** This tag is intended to be used in Azure Firewall, NSG, UDR and all other gateways for inbound connectivity. | Inbound | No | Yes |
 | **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
+| **AzureMachineLearningInference** | This service tag is used for restricting public network ingress in private network managed inferencing scenarios. | Inbound | No | Yes |
 | **AzureManagedGrafana** | Azure Managed Grafana instance endpoint. | Outbound | No | Yes |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>**Note**: For Log Analytics, the **Storage** tag is also required. If Linux agents are used, **GuestAndHybridManagement** tag is also required. | Outbound | No | Yes |
 | **AzureOpenDatasets** | Azure Open Datasets.<br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** and **Storage** tag. | Outbound | No | Yes |
@@ -96,7 +97,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ChaosStudio** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | No | Yes |
 | **CognitiveServicesFrontend** | The address ranges for traffic for Azure AI services frontend portals. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure AI services. | Both | No | Yes |
-| **DataFactory**  | Azure Data Factory | Both | No | Yes |
+| **DataFactory**  | Azure Data Factory | Both | Yes | Yes |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | Yes |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Both | Yes | Yes |
 | **Dynamics365BusinessCentral** | This tag or the IP addresses covered by this tag can be used to restrict access from/to the Dynamics 365 Business Central Services. | Both | No | Yes |
@@ -110,7 +111,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **LogicApps** | Logic Apps. | Both | No | Yes |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | Yes |
 | **Marketplace** | Represents the entire suite of Azure 'Commercial Marketplace Experiences' services. | Both | No | Yes |
-| **M365ManagementActivityApi** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Azure Active Directory activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
+| **M365ManagementActivityApi** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **M365ManagementActivityApiWebhook** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Outbound | No | Yes |
 | **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | Yes |

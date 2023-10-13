@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 04/15/2022
 ms.author: eur
@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites-openai.md)]
 
 ## Set up the environment
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
@@ -166,7 +166,7 @@ Follow these steps to create a new console application.
     }
     ```
 
-1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `MaxTokens` property in the `CompletionsOptions` class instance. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview.md#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
+1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `MaxTokens` property in the `CompletionsOptions` class instance. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
 Run your new console application to start speech recognition from a microphone:
 
@@ -175,7 +175,7 @@ dotnet run
 ```
 
 > [!IMPORTANT]
-> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. The console output includes the prompt for you to begin speaking, then your request as text, and then the response from Azure OpenAI as text. The response from Azure OpenAI should be converted from text to speech and then output to the default speaker.
 
@@ -199,8 +199,8 @@ Now that you've completed the quickstart, here are some more considerations:
 
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/ai-services/speech-service/language-identification.md). 
 - To change the voice that you hear, replace `en-US-JennyMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). If the voice doesn't speak the language of the text returned from Azure OpenAI, the Speech service doesn't output synthesized audio.
-- To use a different [model](/azure/ai-services/openai/concepts/models.md#model-summary-table-and-region-availability), replace `text-davinci-003` with the ID of another [deployment](/azure/ai-services/openai/how-to/create-resource.md#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
-- Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filtering](/azure/ai-services/openai/concepts/content-filters.md) article.
+- To use a different [model](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability), replace `text-davinci-003` with the ID of another [deployment](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
+- Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filtering](/azure/ai-services/openai/concepts/content-filter) article.
 
 ## Clean up resources
 

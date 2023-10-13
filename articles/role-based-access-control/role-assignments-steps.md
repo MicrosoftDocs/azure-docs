@@ -21,10 +21,10 @@ You first need to determine who needs access. You can assign a role to a user, g
 
 ![Security principal for a role assignment](./media/shared/rbac-security-principal.png)
 
-- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
-- Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
+- User - An individual who has a profile in Microsoft Entra ID. You can also assign roles to users in other tenants. For information about users in other organizations, see [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md).
+- Group - A set of users created in Microsoft Entra ID. When you assign a role to a group, all users within that group have that role. 
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
-- Managed identity - An identity in Azure Active Directory that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
+- Managed identity - An identity in Microsoft Entra ID that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
 ## Step 2: Select the appropriate role
 
@@ -74,7 +74,7 @@ When you assign a role at a parent scope, those permissions are inherited to the
 
 [!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] For more information, see [Understand scope](scope-overview.md).
 
-## Step 4. Check your prerequisites
+## Step 4: Check your prerequisites
 
 To assign roles, you must be signed in with a user that is assigned a role that has role assignments write permission, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role. Similarly, to remove a role assignment, you must have the role assignments delete permission.
 
@@ -83,9 +83,9 @@ To assign roles, you must be signed in with a user that is assigned a role that 
 
 If your user account doesn't have permission to assign a role within your subscription, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write'." In this case, contact the administrators of your subscription as they can assign the permissions on your behalf.
 
-If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Azure Active Directory (Azure AD) and the service principal cannot read Azure AD by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Azure AD lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
+If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Microsoft Entra ID and the service principal cannot read Microsoft Entra ID by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Microsoft Entra lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
 
-## Step 5. Assign role
+## Step 5: Assign role
 
 Once you know the security principal, role, and scope, you can assign the role. You can assign roles using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs.
 

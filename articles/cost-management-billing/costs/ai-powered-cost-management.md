@@ -1,19 +1,19 @@
 ---
 title: Understand and optimize your cloud costs with AI-powered functionality in Cost Management
 titleSuffix: Microsoft Cost Management
-description: This article helps you to understand and concepts about optimizing your cloud costs with AI-powered functionality in Cost Management.
+description: This article helps you to understand the concepts about optimizing your cloud costs with AI-powered functionality in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/22/2023
+ms.date: 10/04/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: amberb
 ---
 
-# Understand and optimize your cloud costs with AI-powered functionality in Cost Management
+# Understand and optimize costs with AI-powered Cost Management - Preview
 
-Today, we're pleased to announce the  preview of Microsoft Cost Management's new AI-powered functionality. This interactive experience, available through the Azure portal, provides users with quick analysis, insights, and recommendations to help them better understand, analyze, manage, and forecast their cloud costs and bills.
+AI-powered Microsoft Cost Management is available in preview. This interactive experience, available through the Azure portal, provides users with quick analysis, insights, and recommendations to help them better understand, analyze, manage, and forecast their cloud costs and bills.
 
 Whether you're part of a large organization, a budding developer, or a student you can use the new experience. With it you can gain greater control over your cloud spending and ensure that your investments are utilized in the most effective way possible.
 

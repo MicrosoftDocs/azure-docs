@@ -4,7 +4,7 @@ description: Learn how to track custom operations with the Application Insights 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 11/26/2019
+ms.date: 10/10/2023
 ms.reviewer: mmcc
 ---
 
@@ -80,6 +80,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         catch (Exception e)
         {
             requestTelemetry.Success = false;
+            requestTelemetry.ResponseCode;
             telemetryClient.TrackException(e);
             throw;
         }
@@ -277,7 +278,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency types
 
-Application Insights uses dependency type to customize UI experiences. For queues, it recognizes the following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./transaction-diagnostics.md):
+Application Insights uses dependency type to customize UI experiences. For queues, it recognizes the following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics):
 
 - `Azure queue` for Azure Storage queues
 - `Azure Event Hubs` for Azure Event Hubs
@@ -414,7 +415,7 @@ Each Application Insights operation (request or dependency) involves `Activity`.
 ## Next steps
 
 - Learn the basics of [telemetry correlation](distributed-tracing-telemetry-correlation.md) in Application Insights.
-- Check out how correlated data powers [transaction diagnostics experience](./transaction-diagnostics.md) and [Application Map](./app-map.md).
+- Check out how correlated data powers [transaction diagnostics experience](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) and [Application Map](./app-map.md).
 - See the [data model](./data-model-complete.md) for Application Insights types and data model.
 - Report custom [events and metrics](./api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.

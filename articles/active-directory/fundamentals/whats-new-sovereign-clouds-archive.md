@@ -1,5 +1,5 @@
 ---
-title: Archive for What's new in Sovereign Clouds?
+title: Archive for What's new in Azure Sovereign Clouds?
 description: The What's new in sovereign cloud release notes in the Overview section of this content set contain six months of activity. After six months, the items are removed from the main article and put into this archive article for the next two years.
 services: active-directory
 author: owinfreyATL
@@ -48,7 +48,7 @@ Restore a recently deleted application, group, servicePrincipal, administrative 
 **Service category:** Authentications (Logins)     
 **Product capability:** Identity Security & Protection   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md).
 
 ---
 
@@ -327,7 +327,7 @@ Identity Protection now emits risk (such as unfamiliar sign-in properties) on no
 
 Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Azure AD tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Azure AD protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Azure AD protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials.
 
-For more information on this capability and supported scenarios, see: [Workload identity federation](../develop/workload-identity-federation.md).
+For more information on this capability and supported scenarios, see: [Workload identity federation](../workload-identities/workload-identity-federation.md).
  
 
 ---

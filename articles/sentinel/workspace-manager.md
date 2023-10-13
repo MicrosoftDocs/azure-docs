@@ -23,7 +23,7 @@ Here are the active content types supported with workspace manager:
 
 - You need at least two Microsoft Sentinel workspaces. One workspace to manage from and at least one other workspace to be managed.
 - The [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) is required on the central workspace (where workspace manager is enabled on), and on the member workspace(s) the contributor needs to manage. To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
-- Enable Azure Lighthouse if you're managing workspaces across multiple Azure AD tenants. To learn more, see [Manage Microsoft Sentinel workspaces at scale](/azure/lighthouse/how-to/manage-sentinel-workspaces).
+- Enable Azure Lighthouse if you're managing workspaces across multiple Microsoft Entra tenants. To learn more, see [Manage Microsoft Sentinel workspaces at scale](/azure/lighthouse/how-to/manage-sentinel-workspaces).
 
 
 ## Considerations
@@ -81,6 +81,10 @@ Workspace manager groups allow you to organize workspaces together based on busi
 ## Publish the Group definition
 At this point, the content items selected haven't been published to the member workspace(s) yet.
 
+> [!NOTE]
+> The publish action will fail if the [maximum publish operations](#known-limitations) are exceeded.
+> Consider splitting up member workspaces into additional groups if you approach this limit. 
+
 1. Select the group > **Publish content**.
 
     :::image type="content" source="media/workspace-manager/publish-group.png" alt-text="Screenshot shows the group publish window.":::
@@ -111,6 +115,7 @@ Common reasons for failure include:
 - A member workspace has been deleted.
 
 ### Known limitations
+- The maximum published operations per group is 2000. *Published operations* = (*member workspaces*) * (*content items*).<br>For example, if you have 10 member workspaces in a group and you publish 20 content items in that group,<br>*published operations* = *10* * *20* = *200*.
 - Playbooks attributed or attached to analytics and automation rules aren't currently supported.
 - Workbooks stored in bring-your-own-storage aren't currently supported.
 - Workspace manager only manages content items published from the central workspace. It doesn't manage content created locally from member workspace(s).

@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 08/03/2023
+ms.date: 09/27/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021, engagement-fy23
 ---
@@ -104,19 +104,9 @@ Yes,
 
 In Azure, VNet peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While VNet peering works by creating a 1:1 mapping between each peered VNet, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each VNet without the need for individual peering relationships.
 
-### How can I explicitly allow Azure SQL Managed Instance traffic before having deny rules?
+### Do security admin rules apply to Azure Private Endpoints?
 
-Azure SQL Managed Instance has some network requirements. If your security admin rules can block the network requirements, you can use the below sample rules to allow SQLMI traffic with higher priority than the deny rules that can block the traffic of SQL Managed Instance.
-
-#### Inbound rules
-
-| Port | Protocol | Source | Destination | Action |
-| ---- | -------- | ------ | ----------- | ------ |
-| 9000, 9003, 1438, 1440, 1452 | TCP | SqlManagement | **VirtualNetwork** | Allow |
-| 9000, 9003 | TCP | CorpnetSaw | **VirtualNetwork** | Allow |
-| 9000, 9003 | TCP | CorpnetPublic | **VirtualNetwork** | Allow |
-| Any | Any | **VirtualNetwork** | **VirtualNetwork** | Allow |
-| Any | Any | **AzureLoadBalancer** | **VirtualNetwork** | Allow |
+Currently, security admin rules don't apply to Azure Private Endpoints that fall under the scope of a virtual network managed by Azure Virtual Network Manager.
 
 #### Outbound rules
 

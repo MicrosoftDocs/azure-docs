@@ -38,9 +38,9 @@ When the evaluation has finished, the tool generates a report of the affected po
 
 ## Running the tool
 
-You can find the **What If** tool in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **What If**.
+You can find the **What If** tool in the **Microsoft Entra admin center** > **Protection** > **Conditional Access** > **Policies** > **What If**.
 
-:::image type="content" source="./media/what-if-tool/portal-showing-location-of-what-if-tool.png" alt-text="Screenshot of the Conditional Access - Policies page in the Azure portal. In the toolbar, the What if item is highlighted." border="false" lightbox="media/what-if-tool/portal-showing-location-of-what-if-tool.png":::
+:::image type="content" source="./media/what-if-tool/portal-showing-location-of-what-if-tool.png" alt-text="Screenshot of the Conditional Access Policies page. In the toolbar, the What if item is highlighted." border="false" lightbox="media/what-if-tool/portal-showing-location-of-what-if-tool.png":::
 
 Before you can run the What If tool, you must provide the conditions you want to evaluate.
 
@@ -48,7 +48,7 @@ Before you can run the What If tool, you must provide the conditions you want to
 
 The only condition you must make is selecting a user or workload identity. All other conditions are optional. For a definition of these conditions, see the article [Building a Conditional Access policy](concept-conditional-access-policies.md).
 
-:::image type="content" source="./media/what-if-tool/supply-conditions-to-evaluate-in-the-what-if-tool.png" alt-text="Screenshot of the Azure portal What If page ready for conditions to be entered." border="false" lightbox="media/what-if-tool/supply-conditions-to-evaluate-in-the-what-if-tool.png":::
+:::image type="content" source="./media/what-if-tool/supply-conditions-to-evaluate-in-the-what-if-tool.png" alt-text="Screenshot of the What If page ready for conditions to be entered." border="false" lightbox="media/what-if-tool/supply-conditions-to-evaluate-in-the-what-if-tool.png":::
 
 ## Evaluation
 

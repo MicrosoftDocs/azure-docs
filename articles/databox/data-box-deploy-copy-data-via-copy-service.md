@@ -3,13 +3,13 @@ title: "Tutorial: Use data copy service to copy to your device"
 titleSuffix: Azure Data Box
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Use the data copy service to copy data into Azure Data Box (preview)

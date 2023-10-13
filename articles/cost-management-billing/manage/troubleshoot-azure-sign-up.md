@@ -78,7 +78,7 @@ To resolve this issue, double-check whether the following items are true:
 
 #### You see the message 'Your current account type is not supported'
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/enterprise-users/directory-self-service-signup.md), and it isn't in your organization's Azure AD directory. To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
+This issue can occur if the account is registered in an [unmanaged Microsoft Entra directory](../../active-directory/enterprise-users/directory-self-service-signup.md), and it isn't in your organization's Microsoft Entra directory. To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Microsoft Entra ID](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 The issue can also occur if the account was created using the Microsoft 365 Developer Program. Microsoft doesn't allow purchasing other paid services using your Microsoft 365 Developer Program subscription. For more information, see [Does the subscription also include a subscription to Azure?](/office/developer-program/microsoft-365-developer-program-faq#does-the-subscription-also-include-a-subscription-to-azure-)
 

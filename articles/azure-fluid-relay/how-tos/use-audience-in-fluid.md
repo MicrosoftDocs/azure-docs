@@ -1,8 +1,6 @@
 ---
-author: hickeys
 description: Learn how to use audience features in the Fluid Framework
 title: 'How to: Use audience features in the Fluid Framework'
-ms.author: hickeys
 ms.date: 11/04/2022
 ms.service: azure-fluid
 ms.topic: reference

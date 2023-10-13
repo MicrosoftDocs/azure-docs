@@ -5,8 +5,8 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/07/2023
-ms.custom: template-how-to
+ms.date: 08/18/2023
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 <!-- 
@@ -20,7 +20,7 @@ REVIEW Engineering: not reviewed
 EDIT PASS: started
 
 Initial doc score: 93
-Current doc score: 100 (3269 words and 0 issues)
+Current doc score: 100 (3365 words and 0 issues)
 
 !########################################################
 -->
@@ -29,7 +29,7 @@ Current doc score: 100 (3269 words and 0 issues)
 
 While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail.
 
-A storage mover endpoint is a resource that contains the path to either a source or destination location and other relevant information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
+A storage mover endpoint is a resource that contains the path to either a source or destination location and other relevant information. Endpoints are used in the creation of a job definition to define the source and target locations for a particular copy operation. Only certain types of endpoints may be used as a source or a target, respectively. For example, data contained within an NFS (Network File System) file share endpoint can only be copied to a blob storage container. Similarly, copy operations  with an SMB-based (Server Message Block) file share target can only be migrated to an Azure file share,
 
 This article guides you through the creation and management of Azure Storage Mover endpoints. To follow these examples, you need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
@@ -39,7 +39,7 @@ After you complete the steps within this article, you'll be able to create and m
 
 Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes both the source and target locations for your migration project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationships between a Storage Mover, its endpoints, and its projects.
 
-Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS (Network File System) shares, SMB (Server Message Block) shares, and Azure Storage blob container endpoints each require fundamentally different information.
+Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS (Network File System) shares, SMB  shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
 [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
@@ -58,11 +58,11 @@ Agent access to both your Key Vault and target storage resources is controlled t
 
 There are many use cases that require preserving metadata values such as file and folder timestamps, ACLs, and file attributes. Storage Mover supports the same level of file fidelity as the underlying Azure file share. Azure Files in turn [supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). The following table represents common metadata that is migrated:
 
-|Metadata property      |Outcome                                                                                        |
-|-----------------------|-----------------------------------------------------------------------------------------------|
+|Metadata property      |Outcome                                                                                   |
+|-----------------------|------------------------------------------------------------------------------------------|
 |Directory structure    |The original directory structure of the source is preserved on the target share.          |
-|Access permissions     |Permissions on the source file or directory are preserved on the target share.             |
-|Symbolic links         |Symbolic links on the source are preserved and mapped on the target share.                 |
+|Access permissions     |Permissions on the source file or directory are preserved on the target share.            |
+|Symbolic links         |Symbolic links on the source are preserved and mapped on the target share.                |
 |Create timestamp       |The original create timestamp of the source file is preserved on the target share.        |
 |Change timestamp       |The original change timestamp of the source file is preserved on the target share.        |
 |Modified timestamp     |The original modified timestamp of the source file is preserved on the target share.      |
@@ -351,9 +351,9 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
    1. On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated properties. To view provisioned destination endpoint, select **Target endpoints**. You can filter the results further by selecting the **Protocol** or **Host** filters and the relevant option.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the endpoint details and the location of the target endpoint filters." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing endpoint details and the target endpoint filters location." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
 
-   At this time, the Azure Portal doesn't provide the ability to to directly modify provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage.md?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure Portal should be deleted and recreated.
+   At this time, the Azure portal doesn't support the direct modification of provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage.md?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure portal should be deleted and recreated.
 
 ### [PowerShell](#tab/powershell)
 

@@ -3,10 +3,9 @@ title: "Use Document Intelligence (formerly Form Recognizer) SDK for C# / .NET (
 description: 'Use the Document Intelligence SDK for C# / .NET (REST API v3.0) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/21/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -18,40 +17,35 @@ ms.custom: devx-track-csharp
 
 > [!IMPORTANT]
 >
-> This project targets Document Intelligence REST API version **3.0**.
+> This project targets Document Intelligence REST API version 3.1.
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../../sdk-overview.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
+- The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
+- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
-* The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/). <!-- or [.NET Core](https://dotnet.microsoft.com/download). -->
-
-* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint.
-
-* You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-
-
-
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API.
+  1. After your resource deploys, select **Go to resource**.
+  1. In the left navigation menu, select **Keys and Endpoint**.
+  1. Copy one of the keys and the **Endpoint** for use later in this article.
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-* Finally, you need a document file at a URL location. For this project, you can use the sample forms provided in the following table for each feature:
+- A document file at a URL location. For this project, you can use the sample forms provided in the following table for each feature:
 
-    **Sample documents**
-
-    | **Feature**   | **{modelID}**   | **{document-url}** |
-    | --- | --- |--|
-    | **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
-    | **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
-    | **General document model** | prebuilt-document | [Sample SEC report](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-    | **W-2 form model**  | prebuilt-tax.us.w2 | [Sample W-2 form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png) |
-    | **Invoice model**  | prebuilt-invoice | [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
-    | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
-    | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
-    | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
+  | Feature   | modelID   | document-url |
+  | --- | --- |--|
+  | **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
+  | **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
+  | **General document model** | prebuilt-document | [Sample SEC report](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
+  | **W-2 form model**  | prebuilt-tax.us.w2 | [Sample W-2 form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png) |
+  | **Invoice model**  | prebuilt-invoice | [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
+  | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
+  | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
+  | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
@@ -62,21 +56,21 @@ ms.custom: devx-track-csharp
 
 1. Start Visual Studio.
 
-1. On the start page, choose Create a new project.
+1. On the start page, choose **Create a new project**.
 
-    :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot of Visual Studio start window.":::
+   :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot of Visual Studio start window.":::
 
-1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
+1. On the **Create a new project** page, enter *console* in the search box. Select the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
+   :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `formRecognizer_app` in the Project name box. Then choose Next.
+1. In the **Configure your new project** page, under **Project name** enter *formRecognizer_app*. Then select **Next**.
 
-    :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studio's configure new project dialog window.":::
+   :::image type="content" source="../../../media/quickstarts/configure-new-project-console.png" alt-text="Screenshot of Visual Studio's configure new project page.":::
 
-1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
+1. In the **Additional information** page, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information page.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=setup) -->
@@ -85,13 +79,13 @@ ms.custom: devx-track-csharp
 
  1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
+    :::image type="content" source="../../../media/quickstarts/select-nuget-package-console.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
- 1. Select the Browse tab and type Azure.AI.FormRecognizer.
+ 1. Select the **Browse** tab and type *Azure.AI.FormRecognizer*.
 
-     :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
+    :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
- 1. Select version **4.0.0** from the dropdown menu and install the package in your project.
+ 1. Select a version from the dropdown menu and install the package in your project.
 <!-- --- -->
 
 <!-- > [!div class="nextstepaction"]
@@ -101,36 +95,30 @@ ms.custom: devx-track-csharp
 
 > [!NOTE]
 >
-> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
-> * The new output uses recent C# features that simplify the code you need to write.
-> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
-> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+> Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions. The new output uses recent C# features that simplify the code you need to write.
+>
+> When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives. For more information, see [C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
 
-1. Open the **Program.cs** file.
+1. Open the *Program.cs* file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`.
 
-    * [prebuilt-read](#read-model)
+1. Select one of the following code samples to copy and paste into your application's *Program.cs* file:
 
-    * [prebuilt-layout](#layout-model)
+   - [prebuilt-read](#use-the-read-model)
+   - [prebuilt-layout](#use-the-layout-model)
+   - [prebuilt-document](#use-the-general-document-model)
+   - [prebuilt-tax.us.w2](#use-the-w-2-tax-model)
+   - [prebuilt-invoice](#use-the-invoice-model)
+   - [prebuilt-receipt](#use-the-receipt-model)
+   - [prebuilt-idDocument](#use-the-id-document-model)
+   - [prebuilt-businessCard](#use-the-business-card-model)
 
-    * [prebuilt-document](#general-document-model)
-
-    * [prebuilt-tax.us.w2](#w-2-tax-model)
-
-    * [prebuilt-invoice](#invoice-model)
-
-    * [prebuilt-receipt](#receipt-model)
-
-    * [prebuilt-idDocument](#id-document-model)
-
-    * [prebuilt-businessCard](#business-card-model)
-
-1. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+1. After you add a code sample to your application, choose the green **Start** button next to the project name to build and run your program, or press **F5**.
 
     :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 
-## Read model
+## Use the Read model
 
 ```csharp
 using Azure;
@@ -197,11 +185,9 @@ foreach (DocumentLanguage language in result.Languages)
 > [!div class="nextstepaction"]
 <!-- > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-read) -->
 
-### Read model output
-
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/read-model-output.md).
 
-## Layout model
+## Use the Layout model
 
 ```csharp
 using Azure;
@@ -216,7 +202,7 @@ DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), cr
 // sample document document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png");
 
- operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -300,11 +286,9 @@ for (int i = 0; i < result.Tables.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
 
-### Layout model output
-
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/layout-model-output.md).
 
-## General document model
+## Use the General document model
 
 ```csharp
 using Azure;
@@ -317,7 +301,7 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 // sample document document
- fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+Uri fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-document", fileUri);
 
@@ -405,11 +389,9 @@ for (int i = 0; i < result.Tables.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
 
-### General document model output
-
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## W-2 tax model
+## Use the W-2 tax model
 
 ```csharp
 
@@ -522,11 +504,9 @@ for (int i = 0; i < result.Documents.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
 
-### W-2 model output
-
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
-## Invoice model
+## Use the Invoice model
 
 ```csharp
 using Azure;
@@ -637,11 +617,9 @@ for (int i = 0; i < result.Documents.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
 
-### Invoice model output
-
 Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## Receipt model
+## Use the Receipt model
 
 ```csharp
 
@@ -655,7 +633,7 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 // sample document document
- receiptUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png");
+Uri receiptUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png");
 
 AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-receipt", receiptUri);
 
@@ -734,8 +712,6 @@ foreach (AnalyzedDocument receipt in receipts.Documents)
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-reecipt) -->
-
-### Receipt model output
 
 Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/receipt-model-output.md).
 
@@ -848,11 +824,9 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
 
-### ID document model output
-
 Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/id-document-model-output.md).
 
-## Business card model
+## Use the Business card model
 
 ```csharp
 using Azure;
@@ -865,7 +839,7 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 // sample document document
- businessCardUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/business-card-english.jpg");
+Uri businessCardUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/business-card-english.jpg");
 
 AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-businessCard", businessCardUri);
 
@@ -1058,7 +1032,5 @@ foreach (AnalyzedDocument businessCard in businessCards.Documents)
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-### Business card model output
 
 Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/business-card-model-output.md).

@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure Elasti
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/03/2023
+ms.date: 09/07/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -14,18 +14,16 @@ ms.custom: references_regions
 
 ## Prerequisites
 
-- This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
-- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
-- Follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md) to assign [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the AKS managed identity and install Azure Container Storage Preview.
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
+- If you haven't already installed Azure Container Storage Preview, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
+
+> [!NOTE]
+> To use Azure Container Storage with Azure Elastic SAN Preview, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Regional availability
 
-Azure Container Storage Preview is only available in the following Azure regions:
-
-- East US
-- West Europe
-- West US 2
-- West US 3
+[!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
 ## Create a storage pool
 

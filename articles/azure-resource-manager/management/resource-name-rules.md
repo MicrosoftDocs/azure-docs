@@ -856,7 +856,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
-> | serverfarms | resource group | 1-40 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
+> | serverfarms | resource group | 1-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 > | sites | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 

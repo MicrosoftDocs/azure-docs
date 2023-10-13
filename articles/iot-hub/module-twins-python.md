@@ -39,6 +39,14 @@ At the end of this article, you have three Python apps:
 
 * [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
+## Module authentication
+
+You can use symmetric keys or X.509 certificates to authenticate module identities. For X.509 certificate authentication, the module's certificate *must* have its common name (CN) formatted like `CN=<deviceid>/<moduleid>`. For example:
+
+```bash
+openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
+```
+
 ## Get the IoT hub connection string
 
 In this article, you create a back-end service that adds a device in the identity registry and then adds a module to that device. This service requires the **registry write** permission (which also includes **registry read**). You also create a service that adds desired properties to the module twin for the newly created module. This service needs the **service connect** permission. Although there are default shared access policies that grant these permissions individually, in this section, you create a custom shared access policy that contains both of these permissions.

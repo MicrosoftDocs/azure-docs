@@ -5,10 +5,9 @@ description: Learn how to convert speech to text, including object construction,
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 09/01/2023
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python

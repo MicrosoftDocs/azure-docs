@@ -98,7 +98,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- **Arc only** - Ensure the Defender extension is installed.
+- **Arc only** - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
 - **EKS or GKE only** - Ensure the default audit log collection autoprovisioning options are enabled.
 
 **To simulate a Kubernetes control plane security alert**:
@@ -122,7 +122,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- Ensure the Defender profile\extension is installed.
+- Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
 
 **To simulate a a Kubernetes workload security alert**:
 

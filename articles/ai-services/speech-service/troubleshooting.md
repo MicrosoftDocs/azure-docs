@@ -5,8 +5,7 @@ description: This article provides information to help you solve issues you migh
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: troubleshooting
 ms.date: 12/08/2022
 ms.author: eur

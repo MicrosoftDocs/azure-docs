@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Amazon Web Services to connect multiple accounts"
-description: Learn how to configure single sign-on between Azure AD and Amazon Web Services (legacy tutorial).
+title: "Tutorial: Microsoft Entra integration with Amazon Web Services to connect multiple accounts"
+description: Learn how to configure single sign-on between Microsoft Entra ID and Amazon Web Services (legacy tutorial).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory integration with Amazon Web Services
+# Tutorial: Microsoft Entra integration with Amazon Web Services
 
-In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with Amazon Web Services (AWS) (legacy tutorial).
+In this tutorial, you learn how to integrate Microsoft Entra ID with Amazon Web Services (AWS) (legacy tutorial).
 
 This integration provides the following benefits:
 
-- You can control in Azure AD who has access to AWS.
-- You can enable your users to automatically sign in to AWS by using single sign-on (SSO) with their Azure AD accounts.
+- You can control in Microsoft Entra ID who has access to AWS.
+- You can enable your users to automatically sign in to AWS by using single sign-on (SSO) with their Microsoft Entra accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
-![Diagram of Azure AD integration with AWS.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![Diagram of Microsoft Entra integration with AWS.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> We recommend that you _not_ connect one AWS app to all your AWS accounts. Instead, we recommend that you use [Azure AD SSO integration with AWS](./amazon-web-service-tutorial.md) to configure multiple instances of your AWS account to multiple instances of AWS apps in Azure AD.
+> We recommend that you _not_ connect one AWS app to all your AWS accounts. Instead, we recommend that you use [Microsoft Entra SSO integration with AWS](./amazon-web-service-tutorial.md) to configure multiple instances of your AWS account to multiple instances of AWS apps in Microsoft Entra ID.
 
 We recommend that you _not_ connect one AWS app to all your AWS accounts, for the following reasons:
 
-- Use this approach only if you have a small number of AWS accounts and roles, because this model isn't scalable as the number of AWS accounts and the roles within them increase. The approach doesn't use AWS role-import functionality with Azure AD user provisioning, so you have to manually add, update, or delete the roles.
+- Use this approach only if you have a small number of AWS accounts and roles, because this model isn't scalable as the number of AWS accounts and the roles within them increase. The approach doesn't use AWS role-import functionality with Microsoft Entra user provisioning, so you have to manually add, update, or delete the roles.
 
 - You have to use the Microsoft Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
 
@@ -42,9 +42,9 @@ We recommend that you _not_ connect one AWS app to all your AWS accounts, for th
 
 ## Prerequisites
 
-To configure Azure AD integration with AWS, you need the following items:
+To configure Microsoft Entra integration with AWS, you need the following items:
 
-- An Azure AD subscription. If you don't have an Azure AD subscription, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- A Microsoft Entra subscription. If you don't have a Microsoft Entra subscription, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 - An AWS SSO-enabled subscription.
 
 > [!NOTE]
@@ -52,18 +52,16 @@ To configure Azure AD integration with AWS, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 AWS supports SP-initiated and IDP-initiated SSO.
 
 ## Add AWS from the gallery
 
-To configure the integration of AWS into Azure AD, you add AWS from the gallery to your list of managed software as a service (SaaS) apps.
+To configure the integration of AWS into Microsoft Entra ID, you add AWS from the gallery to your list of managed software as a service (SaaS) apps.
 
-1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
-1. On the left pane, select the Azure AD service you want to work with.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add an application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Amazon Web Services** in the search box.
 1. In the results list, select **Amazon Web Services**, and then add the app. In a few seconds, the app is added to your tenant.
 
@@ -71,25 +69,32 @@ To configure the integration of AWS into Azure AD, you add AWS from the gallery 
 
    ![Screenshot of the Object ID box on the Properties pane.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-## Configure and test Azure AD SSO
+<a name='configure-and-test-azure-ad-sso'></a>
 
-In this section, you configure and test Azure AD single sign-on with AWS based on a test user called "Britta Simon."
+## Configure and test Microsoft Entra SSO
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in AWS is to the Azure AD user. In other words, a link relationship between the Azure AD user and the same user in AWS needs to be established.
+In this section, you configure and test Microsoft Entra single sign-on with AWS based on a test user called "Britta Simon."
 
-In AWS, assign the value of the **user name** in Azure AD as the value of the AWS **Username** to establish the link relationship.
+For single sign-on to work, Microsoft Entra ID needs to know what the counterpart user in AWS is to the Microsoft Entra user. In other words, a link relationship between the Microsoft Entra user and the same user in AWS needs to be established.
 
-To configure and test Azure AD single sign-on with AWS, do the following:
+In AWS, assign the value of the **user name** in Microsoft Entra ID as the value of the AWS **Username** to establish the link relationship.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+To configure and test Microsoft Entra single sign-on with AWS, do the following:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 1. **[Configure AWS SSO](#configure-aws-sso)** to configure SSO settings on the application side.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-In this section, you enable Azure AD SSO in the Azure portal and configure SSO in your AWS application by doing the following:
+### Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the left pane of the **Amazon Web Services (AWS)** application integration page, select **Single sign-on**.
+In this section, you enable Microsoft Entra SSO in the Azure portal and configure SSO in your AWS application by doing the following:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** >
+ **Amazon Web Services (AWS)**.
+1. select **Single sign-on**.
 
    ![Screenshot of the "Single sign-on" command.](common/select-sso.png)
 
@@ -134,7 +139,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
    f. Select **Ok**, and then select **Save**.
 
    > [!NOTE]
-   > For more information about roles in Azure AD, see [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
+   > For more information about roles in Microsoft Entra ID, see [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the federation metadata XML file, and then save it to your computer.
 
@@ -224,21 +229,21 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
    ![Screenshot showing where the account ID is displayed on the "Identity and Access Management" pane.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Sign in to the Azure portal, and then go to **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and then browse to **Groups**.
 
 1. Create new groups with the same name as that of the IAM roles you created earlier, and then note the value in the **Object Id** box of each of these new groups.
 
    ![Screenshot of the account details for a new group.](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
-1. Sign out of the current AWS account, and then sign in to another account where you want to configure SSO with Azure AD.
+1. Sign out of the current AWS account, and then sign in to another account where you want to configure SSO with Microsoft Entra ID.
 
 1. After you've created all the roles in the accounts, they're displayed in the **Roles** list for those accounts.
 
    ![Screenshot of the roles list, showing each role's name, description, and trusted entities.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
-You next need to capture all the role ARNs and trusted entities for all roles across all accounts. You'll need to map them manually with the Azure AD application. To do so:
+You next need to capture all the role ARNs and trusted entities for all roles across all accounts. You'll need to map them manually with the Microsoft Entra application. To do so:
 
-1. Select each role to copy its role ARN and trusted entity values. You'll need them for all the roles that you'll create in Azure AD.
+1. Select each role to copy its role ARN and trusted entity values. You'll need them for all the roles that you'll create in Microsoft Entra ID.
 
    ![Screenshot of the Summary pane for the role ARNs and trusted entities.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
@@ -267,7 +272,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
    f. From the list of service principals, get the one you need to modify.
 
-   You can also search the application for all the listed service principals by selecting Ctrl+F. To get a specific service principal, include in the query the service principal object ID, which you copied earlier from the Azure AD Properties pane, as shown here:
+   You can also search the application for all the listed service principals by selecting Ctrl+F. To get a specific service principal, include in the query the service principal object ID, which you copied earlier from the Microsoft Entra Properties pane, as shown here:
 
    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
@@ -321,7 +326,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
    ```
 
    > [!Note]
-   > You can add new roles only after you've added _msiam_access_ for the patch operation. You can also add as many roles as you want, depending on your organization's needs. Azure AD sends the _value_ of these roles as the claim value in the SAML response.
+   > You can add new roles only after you've added _msiam_access_ for the patch operation. You can also add as many roles as you want, depending on your organization's needs. Microsoft Entra ID sends the _value_ of these roles as the claim value in the SAML response.
 
    j. In Microsoft Graph Explorer, change the method from **GET** to **PATCH**. Patch the service principal object with the roles you want by updating the appRoles property, like the one shown in the preceding example. Select **Run Query** to execute the patch operation. A success message confirms the creation of the role for your AWS application.
 
@@ -347,7 +352,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
 ### Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using Microsoft My Apps.
+In this section, you test your Microsoft Entra single sign-on configuration by using Microsoft My Apps.
 
 When you select the **AWS** tile in My Apps, the AWS application page opens with an option to select the role.
 

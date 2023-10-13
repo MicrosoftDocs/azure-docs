@@ -11,7 +11,6 @@ ms.topic: include
   * [SSH](../articles/bastion/bastion-connect-vm-ssh-windows.md)
 * Connect to a Linux VM
   * [SSH](../articles/bastion/bastion-connect-vm-ssh-linux.md)
-  * [RDP](../articles/bastion/bastion-connect-vm-rdp-linux.md)
 * [Connect to a scale set](../articles/bastion/bastion-connect-vm-scale-set.md)
 * [Connect via IP address](../articles/bastion/connect-ip-address.md)
 * Connect from a native client

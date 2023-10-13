@@ -42,7 +42,7 @@ Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do
 
 A private endpoint (also called a private link) gives your storage account a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your storage account stays within peered virtual networks, including those in other regions and on premises. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) apply.
 
-If you don't require a static IP address, you can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Files within the virtual network. A service endpoint configures storage accounts to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Azure AD tenant. There's no extra charge for using service endpoints. 
+If you don't require a static IP address, you can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Files within the virtual network. A service endpoint configures storage accounts to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. 
 
 If you want to access shares from on-premises, then you must set up a VPN or ExpressRoute in addition to a private endpoint. Requests that don't originate from the following sources will be rejected:
 
@@ -97,7 +97,7 @@ The status of items that appear in this table may change over time as support co
 NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to the high number of open and close operations.
 
 > [!NOTE]
-> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 ## Workloads
 > [!IMPORTANT]

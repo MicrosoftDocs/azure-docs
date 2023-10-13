@@ -16,6 +16,8 @@
     href: create-virtual-network-manager-cli.md
   - name: Create Virtual Network Manager - Terraform
     href: create-virtual-network-manager-terraform.md
+  - name: Create Virtual Network Manager - ARM
+    href: create-virtual-network-manager-template.md
   - name: Create Virtual Network Manager - Bicep
     href: create-virtual-network-manager-bicep.md
   expanded: true
@@ -59,6 +61,8 @@
     items:
     - name: Event Log Options for Azure Virtual Network Manager
       href: concept-event-logs.md
+    - name: Monitoring security admin rules with Virtual Network Flow Logs
+      href: concept-virtual-network-flow-logs.md
 - name: Samples
   items:
     - name: Resource Manager Templates
@@ -97,6 +101,8 @@
     items:
     - name: Configure Event Logs for Azure Virtual Network Manager
       href: how-to-configure-event-logs.md
+    - name: Monitor security admin rules with Virtual Network Flow Logs
+      href: concept-virtual-network-flow-logs.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy

@@ -6,13 +6,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: concept-article
-ms.date: 07/25/2023
-ms.custom: template-concept
+ms.date: 08/21/2023
 ---
 
 # Next Hop IP support
 
-With the support for Next Hop IP in Azure Route Server, you can peer with network virtual appliances (NVAs) that are deployed behind an Azure internal load balancer. The internal load balancer lets you set up active-passive connectivity scenarios and leverage load balancing to improve connectivity performance.
+With the support for Next Hop IP in Azure Route Server, you can peer with network virtual appliances (NVAs) that are deployed behind an Azure internal load balancer. The internal load balancer lets you set up active-passive connectivity scenarios and use load balancing to improve connectivity performance.
 
 :::image type="content" source="./media/next-hop-ip/route-server-next-hop.png" alt-text="Diagram of two NVAs behind a load balancer and a Route Server.":::
 

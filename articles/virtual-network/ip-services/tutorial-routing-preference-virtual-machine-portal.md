@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Configure routing preference for a VM - Azure portal'
 description: In this tutorial, learn how to create a VM with a public IP address with routing preference choice using the Azure portal.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.date: 10/01/2021
 ms.custom: template-tutorial
 ---
 

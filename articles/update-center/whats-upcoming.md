@@ -1,25 +1,24 @@
 ---
-title: What's upcoming in Update management center (Preview)
-description: Learn about what's upcoming and updates in the Update management center (Preview) service.
-ms.service: update-management-center
+title: What's upcoming in Azure Update Manager
+description: Learn about what's upcoming and updates in Azure Update Manager.
+ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/01/2023
+ms.date: 09/27/2023
 ---
 
-# What's upcoming in Update management center (Preview)
+# What are the upcoming features in Azure Update Manager
 
-The primary [what's New in Update management center (preview)](whats-new.md) contains updates of feature releases and this article lists all the upcoming features.
+The article [What's new in Azure Update Manager](whats-new.md) contains updates of feature releases. This article lists all the upcoming features for Azure Update Manager.
 
-## Expanded support for Operating system and VM images
- 
-Expanded support for [specialized images](../virtual-machines/linux/imaging.md#specialized-images), VMs created by Azure Migrate, Azure Backup, Azure Site Recovery, and marketplace images are upcoming in Q3, CY 2023. Until then, we recommend that you continue using [Automation update management](../automation/update-management/overview.md) for these images. [Learn more](support-matrix.md#supported-operating-systems).
+## Alerting 
+Enable alerts to address events as captured in updates data.
 
-## Update management center will be GA soon
+## Prescript and postscript
 
-Update management center will be declared GA soon.
+The ability to execute Azure Automation runbook scripts before or after deploying scheduled updates to machines will be available by the fourth quarter of 2023.
 
 ## Next steps
 
-- [Learn more](support-matrix.md) about supported regions.
+For more information about supported regions, see [Support matrix for Update Manager](support-matrix.md).

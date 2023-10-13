@@ -88,8 +88,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 20,000* |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum storage per container (API for NoSQL, MongoDB, Table, and Gremlin)| 1 TB  |
-| Maximum storage per container (API for Cassandra)| 1 TB  |
+| Maximum storage per container | 1 TB  |
 
 *Maximum RU/sec availability is dependent on data stored in the container. See, [Serverless Performance](serverless-performance.md)
 
@@ -152,10 +151,8 @@ Here's a list of limits per account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases and containers per account  | 100¹ |
+| Maximum number of databases and containers per account  | 500 |
 | Maximum number of regions | 1 (Any Azure region) |
-
-¹ You can increase any of these per-account limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## Per-container limits
 
@@ -223,7 +220,7 @@ Azure Cosmos DB uses HMAC for authorization. You can use either a primary key, o
 
 ## Limits for autoscale provisioned throughput
 
-See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#how-do-i-lower-the maximum-ru-s---) for more detailed explanation of the throughput and storage limits with autoscale.
+See the [Autoscale](./provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](./autoscale-faq.yml#how-do-i-lower-the-maximum-ru-s-) for more detailed explanation of the throughput and storage limits with autoscale.
 
 | Resource | Limit |
 | --- | --- |

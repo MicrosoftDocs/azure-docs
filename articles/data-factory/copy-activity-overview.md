@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -39,7 +39,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
 > [!NOTE]
-> In case if a self-hosted integration runtime is used in either source or sink data store within a copy activity, than both the source and sink must be accessible from the server hosting the integartion runtime for the copy activity to be successful.
+> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integartion runtime for the Copy activity to be successful.
 
 ## Supported data stores and formats
 
@@ -181,8 +181,8 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
-- When copy from file-based source, store the relative file path as an additional column to trace from which file the data comes from.
-- Duplicate the specified source column as another column. 
+- When you copy from a file-based source, store the relative file path as an additional column to trace from which file the data comes from.
+- Duplicate the specified source column as another column.
 - Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.
 
@@ -242,16 +242,16 @@ To configure it programmatically, add the `additionalColumns` property in your c
 ]
 ```
 >[!TIP]
->After configuring additional columns remember to map them to you destination sink, in the Mapping tab.
+>After configuring additional columns remember to map them to your destination sink, in the Mapping tab.
 
 ## Auto create sink tables
 
-When copying data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
+When you copy data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
 
 This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* -> *Copy activity sink* -> *Table option* -> *Auto create table*, or via `tableOption` property in copy activity sink payload.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
+- [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
@@ -266,7 +266,7 @@ By default, the Copy activity stops copying data and returns a failure when sour
 When you move data from source to destination store, copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
 
 ## Session log
-You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session log in copy activity](copy-activity-log.md) for details.
+You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session sign in copy activity](copy-activity-log.md) for details.
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

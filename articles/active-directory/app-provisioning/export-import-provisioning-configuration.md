@@ -1,6 +1,6 @@
 ---
-title: Export Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory
-description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory.
+title: Export Application Provisioning configuration and roll back to a known good state for disaster recovery in Microsoft Entra ID
+description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/12/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 
 In this article, you learn how to:
 
-- Export and import your provisioning configuration from the Azure portal
+- Export and import your provisioning configuration from the Microsoft Entra admin center
 - Export and import your provisioning configuration by using the Microsoft Graph API
 
-## Export and import your provisioning configuration from the Azure portal
+## Export and import your provisioning configuration from the Microsoft Entra admin center
 
 ### Export your provisioning configuration
 
@@ -28,9 +28,8 @@ In this article, you learn how to:
 
 To export your configuration:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left navigation panel, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** and choose your application.
 1. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. The schema editor opens.
 1. Click on download in the command bar at the top of the page to download your schema.
 
@@ -45,11 +44,11 @@ Some things to consider when rolling back to a previous configuration:
 
 ## Export and import your provisioning configuration by using the Microsoft Graph API
 
-You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration.
+You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Microsoft Entra ID. You can also use the steps captured here to create a backup of your provisioning configuration.
 
 ### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), and navigate to the Properties section of your provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it's used in Microsoft Graph Explorer operations.
 
    ![Workday App Service Principal ID](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -57,7 +56,7 @@ You can use the Microsoft Graph API and the Microsoft Graph Explorer to export y
 ### Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Administrator or App Admin credentials.
+1. Click on the "Sign-In with Microsoft" button and sign-in using Microsoft Entra Global Administrator or App Admin credentials.
 
     ![Microsoft Graph Sign-in](./media/export-import-provisioning-configuration/wd_export_02.png)
 
@@ -88,7 +87,7 @@ Copy the JSON object from the response and save it to a file to create a backup 
 ### Step 5: Import the Provisioning Schema
 
 > [!CAUTION]
-> Perform this step only if you need to modify the schema for configuration that cannot be changed using the Azure portal or if you need to restore the configuration from a previously backed up file with valid and working schema.
+> Perform this step only if you need to modify the schema for configuration that cannot be changed using the Microsoft Entra admin center or if you need to restore the configuration from a previously backed up file with valid and working schema.
 
 In the Microsoft Graph Explorer, configure the following PUT query, replacing [servicePrincipalId] and [ProvisioningJobId] with the ServicePrincipalId and the ProvisioningJobId retrieved in the previous steps.
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot primary refresh token issues on Windows devices
-description: Troubleshoot primary refresh token issues during authentication through Azure Active Directory (Azure AD) credentials on Azure AD-joined Windows devices.
+description: Troubleshoot primary refresh token issues during authentication through Microsoft Entra credentials on Microsoft Entra joined Windows devices.
 
 services: active-directory
 ms.service: active-directory
@@ -15,13 +15,15 @@ ms.reviewer: gudlapreethi, bemey, filuz, robgarcia, v-leedennis
 ---
 # Troubleshoot primary refresh token issues on Windows devices
 
-This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate on a Microsoft Azure Active Directory (Azure AD)-joined Windows device by using your Azure AD credentials.
+This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate on a Microsoft Entra joined Windows device by using your Microsoft Entra credentials.
 
-On devices that are joined to Azure AD or hybrid Azure AD, the main component of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Azure AD credentials on an Azure AD-joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
+<!-- docutune:ignore AAD -->
 
-As part of the process of locking and unlocking the device or signing in again to Windows, a background network authentication attempt is made one time every four hours to refresh the PRT. If problems occur that prevent refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Azure AD resources. It also causes sign-in prompts to be shown.
+On devices that are joined to Microsoft Entra ID or hybrid Microsoft Entra ID, the main component of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Microsoft Entra credentials on a Microsoft Entra joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
 
-If you suspect that a PRT problem exists, we recommend that you first collect Azure AD logs, and follow the steps that are outlined in the troubleshooting checklist. Do this for any Azure AD client issue first, ideally within a repro session. Complete this process before you file a support request.
+As part of the process of locking and unlocking the device or signing in again to Windows, a background network authentication attempt is made one time every four hours to refresh the PRT. If problems occur that prevent refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Microsoft Entra resources. It also causes sign-in prompts to be shown.
+
+If you suspect that a PRT problem exists, we recommend that you first collect Microsoft Entra logs, and follow the steps that are outlined in the troubleshooting checklist. Do this for any Microsoft Entra client issue first, ideally within a repro session. Complete this process before you file a support request.
 
 ## Troubleshooting checklist
 
@@ -52,13 +54,13 @@ If you suspect that a PRT problem exists, we recommend that you first collect Az
    +----------------------------------------------------------------------+
    ```
 
-1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, an error occurred when you tried to acquire the PRT status from Azure AD.
+1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, an error occurred when you tried to acquire the PRT status from Microsoft Entra ID.
 
 1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours, a problem is likely preventing the PRT from refreshing. Lock and unlock the device to force a PRT refresh, and then check whether the time is updated.
 
 ### Step 2: Get the error code
 
-The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires the Windows 10 May 2021 update (version 21H1) or a later version. The other method is to find the error code in Azure AD analytic and operational logs.
+The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires the Windows 10 May 2021 update (version 21H1) or a later version. The other method is to find the error code in Microsoft Entra analytic and operational logs.
 
 #### Method 1: Examine the device registration command output
 
@@ -84,7 +86,9 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
   Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
 ```
 
-#### Method 2: Use Event Viewer to examine Azure AD analytic and operational logs
+<a name='method-2-use-event-viewer-to-examine-azure-ad-analytic-and-operational-logs'></a>
+
+#### Method 2: Use Event Viewer to examine AAD analytic and operational logs
 
 1. Select **Start**, and then search for and select **Event Viewer**.
 1. If the console tree doesn't appear in the **Event Viewer** window, select the **Show/Hide Console Tree** icon to make the console tree visible.
@@ -93,9 +97,9 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 1. In the console tree, expand **Applications and Services Logs** > **Microsoft** > **Windows** > **AAD**. The **Operational** and **Analytic** child nodes appear. 
 
    > [!NOTE]  
-   > In the Azure AD Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You have to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
+   > In the Microsoft Entra Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You have to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
 
-1. In the console tree, select the **Analytic** node to view Azure AD-related analytic events.
+1. In the console tree, select the **Analytic** node to view AAD-related analytic events.
 1. In the list of analytic events, search for Event IDs 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that occurred between Event ID 1006 and Event ID 1007 are logged as part of the PRT acquisition flow. The following table shows an example event listing.
 
    | Level           | Date and Time            | Source  | Event ID | Task Category                  |
@@ -124,10 +128,10 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 
 ##### Cause
 
-- The device can't connect to the Azure AD authentication service.
+- The device can't connect to the Microsoft Entra authentication service.
 - The device received a `400 Bad Request` HTTP error response from one of the following sources:
 
-  - The Azure AD authentication service
+  - The Microsoft Entra authentication service
   - An endpoint for the [WS-Trust protocol][WS-Trust] (required for federated authentication)
 
 ##### Solution
@@ -136,9 +140,9 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 
 - Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-  In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
+  In the Microsoft Entra operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Microsoft Entra authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Microsoft Entra analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
 
-  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -148,16 +152,16 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 
 The device received a `400 Bad Request` HTTP error response from one of the following sources:
 
-- The Azure AD authentication service
+- The Microsoft Entra authentication service
 - An endpoint for the [WS-Trust protocol][WS-Trust] (required for federated authentication)
 
 ##### Solution
 
 Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
+In the Microsoft Entra operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Microsoft Entra authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Microsoft Entra analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
 
-To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+To view Event IDs in the Microsoft Entra operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -169,7 +173,7 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 
 - The device received a `4xx` HTTP error response from one of the following sources:
 
-  - The Azure AD authentication service
+  - The Microsoft Entra authentication service
   - An endpoint for the [WS-Trust protocol][WS-Trust] (required for federated authentication)
 - A network connectivity issue to a required endpoint exists.
 
@@ -177,11 +181,11 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 
 - Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-  In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088.
+  In the Microsoft Entra operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Microsoft Entra authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088.
 
-- For a network connectivity issue, get the URL that's being accessed and the suberror code from the network stack. Event ID 1022 in the Azure AD analytic logs contains the URL that's being accessed. Event ID 1084 in the Azure AD operational logs contains the suberror code from the network stack.
+- For a network connectivity issue, get the URL that's being accessed and the suberror code from the network stack. Event ID 1022 in the Microsoft Entra analytic logs contains the URL that's being accessed. Event ID 1084 in the Microsoft Entra operational logs contains the suberror code from the network stack.
 
-To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+To view Event IDs in the Microsoft Entra operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -189,15 +193,15 @@ To view Event IDs in the Azure AD operational and analytic logs, refer to the [M
 
 ##### Cause
 
-The user realm discovery failed because the Azure AD authentication service can't find the user's domain.
+The user realm discovery failed because the Microsoft Entra authentication service can't find the user's domain.
 
 ##### Solution
 
-- Add the domain of the user principal name (UPN) of the user as a custom domain in Azure AD. To find the provided UPN, look for Event ID 1144 in the Azure AD analytic logs.
+- Add the domain of the user principal name (UPN) of the user as a custom domain in Microsoft Entra ID. To find the provided UPN, look for Event ID 1144 in the Microsoft Entra analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 
-- If the on-premises domain name can't be routed (for example, if the UPN is something such as `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
+- If the on-premises domain name can't be routed (for example, if the UPN is something such as `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your Microsoft Entra hybrid join implementation][hybrid-azure-ad-join-plan].)
 </details>
 
 #### Common CloudAP plug-in error codes ("AAD_CLOUDAP_E_" prefix, codes that begin with "0xc004")
@@ -211,16 +215,16 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 
 | Device join type               | UPN value                                                             |
 |--------------------------------|-----------------------------------------------------------------------|
-| Azure AD-joined devices        | The text that's entered when the user signs in                        |
-| Hybrid Azure AD-joined devices | The UPN that the domain controller returns during the sign-in process |
+| Microsoft Entra joined devices        | The text that's entered when the user signs in                        |
+| Microsoft Entra hybrid joined devices | The UPN that the domain controller returns during the sign-in process |
 
 ##### Solution
 
-- Set the UPN of the user to an internet-style sign-in name, based on internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). To find the current UPN, look for event ID 1144 in the Azure AD analytic logs.
+- Set the UPN of the user to an internet-style sign-in name, based on internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). To find the current UPN, look for event ID 1144 in the Microsoft Entra analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 
-- For hybrid Azure AD-joined devices, make sure that you configured the domain controller to return the UPN in the correct format. To display the configured UPN in the domain controller, run the following [whoami](/windows-server/administration/windows-commands/whoami) command:
+- For Microsoft Entra hybrid joined devices, make sure that you configured the domain controller to return the UPN in the correct format. To display the configured UPN in the domain controller, run the following [whoami](/windows-server/administration/windows-commands/whoami) command:
 
   ```cmd
   whoami /upn
@@ -228,7 +232,7 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 
   If Active Directory is configured with the correct UPN, [collect time travel traces](#time-travel-traces) for the Local Security Authority Subsystem Service (LSASS or *lsass.exe*).
 
-- If the on-premises domain name can't be routed (for example, if the UPN is something such as `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
+- If the on-premises domain name can't be routed (for example, if the UPN is something such as `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your Microsoft Entra hybrid join implementation][hybrid-azure-ad-join-plan].)
 </details>
 
 <details>
@@ -236,7 +240,7 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 
 ##### Cause
 
-The user security identifier (SID) is missing in the ID token that the Azure AD authentication service returns.
+The user security identifier (SID) is missing in the ID token that the Microsoft Entra authentication service returns.
 
 ##### Solution
 
@@ -254,9 +258,9 @@ You received an error from the [WS-Trust protocol][WS-Trust] endpoint (required 
 
 - Make sure that the network proxy doesn't interfere with or modify the server response.
 
-- Get the server error code and error description from Event ID 1088 in the Azure AD operational logs. Then, go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
+- Get the server error code and error description from Event ID 1088 in the Microsoft Entra operational logs. Then, go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-  To view Event IDs in the Azure AD operational logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra operational logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -300,27 +304,27 @@ The XML response from the [WS-Trust protocol][WS-Trust] endpoint (required for f
 
 - Fix the configuration in the identity provider to avoid sending the DTD in the XML response.
 
-- Get the URL that's being accessed from Event ID 1022 in the Azure AD analytic logs.
+- Get the URL that's being accessed from Event ID 1022 in the Microsoft Entra analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 </details>
 
 #### Common server error codes ("AADSTS" prefix)
 
-You can find a full list and description of server error codes in [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md).
+You can find a full list and description of server error codes in [Microsoft Entra authentication and authorization error codes](../develop/reference-error-codes.md).
 
 <details>
 <summary>AADSTS50155: Device authentication failed</summary>
 
 ##### Cause
 
-- Azure AD can't authenticate the device to issue a PRT.
+- Microsoft Entra ID can't authenticate the device to issue a PRT.
 
-- The device might have been deleted or disabled in the Azure portal. (For more information, see [Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?](./faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices))
+- The device might have been deleted or disabled. (For more information, see [Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?](./faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices))
 
 ##### Solution
 
-Re-register the device based on the device join type. For instructions, see [I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?](./faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do).
+Re-register the device based on the device join type. For instructions, see [I disabled or deleted my device. But the local state on the device says it's still registered. What should I do?](./faq.yml#i-disabled-or-deleted-my-device--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do).
 </details>
 
 <details>
@@ -328,15 +332,15 @@ Re-register the device based on the device join type. For instructions, see [I d
 
 ##### Cause
 
-Azure AD can't find the user account in the tenant.
+Microsoft Entra ID can't find the user account in the tenant.
 
 ##### Solution
 
 - Make sure that the user is entering the correct UPN.
-- Make sure that the on-premises user account is being synchronized to Azure AD.
-- Get the provided UPN by looking for Event ID 1144 in the Azure AD analytic logs.
+- Make sure that the on-premises user account is being synchronized to Microsoft Entra ID.
+- Get the provided UPN by looking for Event ID 1144 in the Microsoft Entra analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -345,15 +349,15 @@ Azure AD can't find the user account in the tenant.
 ##### Cause
 
 - The user entered an incorrect username or password in the sign-in UI.
-- The password hasn't been synchronized to Azure AD because of the following scenario:
+- The password hasn't been synchronized to Microsoft Entra ID because of the following scenario:
 
   - The tenant has enabled [password hash synchronization](../hybrid/connect/whatis-phs.md).
-  - The device is a hybrid Azure AD-joined device.
+  - The device is a Microsoft Entra hybrid joined device.
   - The user recently changed the password.
 
 ##### Solution
 
-To acquire a fresh PRT that has the new credentials, wait for the Azure AD synchronization to finish.
+To acquire a fresh PRT that has the new credentials, wait for the Microsoft Entra synchronization to finish.
 </details>
 
 #### Common network error codes ("ERROR_WINHTTP_" prefix)
@@ -372,9 +376,9 @@ Common general network-related issues.
 
 ##### Solution
 
-- Get the URL that's being accessed. You can find the URL in Event ID 1084 of the Azure AD operational log or Event ID 1022 of the Azure AD analytic log.
+- Get the URL that's being accessed. You can find the URL in Event ID 1084 of the Microsoft Entra operational log or Event ID 1022 of the Microsoft Entra analytic log.
 
-  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Microsoft Entra operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Microsoft Entra analytic and operational logs][view-event-ids] section.
 
 - If the on-premises environment requires an outbound proxy, make sure that the computer account of the device can discover and silently authenticate to the outbound proxy.
 
@@ -390,7 +394,7 @@ Common general network-related issues.
      ```
 
   1. Lock the device.
-  1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task finish.
+  1. If the device is a Microsoft Entra hybrid joined device, wait at least 60 seconds to let the PRT acquisition task finish.
   1. Unlock the device.
   1. Run the following [netsh trace stop](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj129382(v=ws.11)#stop) command:
 
@@ -415,7 +419,7 @@ Common general network-related issues.
 
 1. Switch the Windows user account to go to your problem user's session.
 1. Lock the device.
-1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task finish.
+1. If the device is a Microsoft Entra hybrid joined device, wait at least 60 seconds to let the PRT acquisition task finish.
 1. Unlock the device.
 1. Switch the Windows user account back to your administrative session that's running the tracing session.
 1. After you reproduce the issue, run the following command to end the tracing session:
@@ -467,4 +471,4 @@ The following procedure describes how to capture traces by using the [Time Trave
 [server-errors]: #common-server-error-codes-aadsts-prefix
 [view-event-ids]: #method-2-use-event-viewer-to-examine-azure-ad-analytic-and-operational-logs
 [alt-login-id]: /windows-server/identity/ad-fs/operations/configuring-alternate-login-id
-[hybrid-azure-ad-join-plan]: ./hybrid-azuread-join-plan.md
+[hybrid-azure-ad-join-plan]: ./hybrid-join-plan.md

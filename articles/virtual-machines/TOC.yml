@@ -135,6 +135,8 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
+  - name: Ubuntu
+    href: ./workloads/canonical/ubuntu-pro-in-place-upgrade.md
   - name: OpenShift
     items:
     - name: OpenShift Container Platform 4.x
@@ -191,6 +193,8 @@
         href: av2-series.md
       - name: B-series burstable
         items:
+        - name: B-series CPU Credit Model
+          href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: B-series V1
           href: sizes-b-series-burstable.md
         - name: Bsv2-series 
@@ -278,6 +282,8 @@
         href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
+      - name: Msv3 and Mdsv3 Medium Memory Series
+        href: msv3-mdsv3-medium-series.md
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
@@ -709,7 +715,7 @@
         href: ./linux/image-builder-troubleshoot.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
-        href: image-builder-reliability.md
+        href: ../reliability/reliability-image-builder.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
         href: vm-boot-optimization.md
@@ -1122,7 +1128,18 @@
       href: ./create-portal-availability-zone.md
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ../availability-zones/migrate-vm.md
+      href: ../availability-zones/migrate-vm.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
+    - name: Regional to zonal move guides
+      items:
+      - name: Portal
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-portal.md
+      - name: PowerShell and CLI
+        displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-powershell.md
+      - name: FAQ
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview
@@ -1201,7 +1218,7 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
-      - name: Use customer-managed keys across Azure AD tenants
+      - name: Use customer-managed keys across Microsoft Entra tenants
         href: disks-cross-tenant-customer-managed-keys.md
         displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
@@ -1657,8 +1674,12 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring overview
+    - name: Enable Trusted Launch on existing VM
+      href: trusted-launch-existing-vm.md
+    - name: Boot integrity monitoring
       href: boot-integrity-monitoring-overview.md
+    - name: Trusted Launch FAQs
+      href: trusted-launch-faq.md
  
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
@@ -1737,7 +1758,7 @@
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
     href: mitigate-se.md
-  - name: Join a Linux VM to Azure Active Directory
+  - name: Join a Linux VM to Microsoft Entra ID
     displayName: Azure AD
     items:
     - name: Red Hat Enterprise Linux
@@ -1769,10 +1790,10 @@
     - name: Azure SDKs
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/toc.json
-  - name: Linux VMs SSH with Azure AD
+  - name: Linux VMs SSH with Microsoft Entra ID
     displayName: aad, ssh, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?toc=/azure/virtual-machines/toc.json
-  - name: Windows VMs and Azure AD
+  - name: Windows VMs and Microsoft Entra ID
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?toc=/azure/virtual-machines/toc.json
     displayname: aad, active directory
 - name: Updates and maintenance
@@ -1816,7 +1837,7 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?toc=/azure/virtual-machines/toc.json
-  - name: Update management center (preview)
+  - name: Update Manager
     href: ../update-center/index.yml
   - name: Maintenance
     items:

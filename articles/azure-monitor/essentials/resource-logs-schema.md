@@ -25,13 +25,13 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 | Name | Required or optional | Description |
 |---|---|---|
-| `time` | Required | The timestamp (UTC) of the event. |
+| `time` | Required | The timestamp (UTC) of the event being logged. |
 | `resourceId` | Required | The resource ID of the resource that emitted the event. For tenant services, this is of the form */tenants/tenant-id/providers/provider-name*. |
 | `tenantId` | Required for tenant logs | The tenant ID of the Active Directory tenant that this event is tied to. This property is used only for tenant-level logs. It does not appear in resource-level logs. |
-| `operationName` | Required | The name of the operation that this event represents. If the event represents an Azure role-based access control (RBAC) operation, this is the Azure RBAC operation name (for example, `Microsoft.Storage/storageAccounts/blobServices/blobs/Read`). This name is typically modeled in the form of an Azure Resource Manager operation, even if it's not a documented Resource Manager operation: (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
+| `operationName` | Required | The name of the operation that this event is logging, for example `Microsoft.Storage/storageAccounts/blobServices/blobs/Read`. The operationName is typically modeled in the form of an Azure Resource Manager operation, `Microsoft.<providerName>/<resourceType>/<subtype>/<Write|Read|Delete|Action>`, even if it's not a documented Resource Manager operation. |
 | `operationVersion` | Optional | The API version associated with the operation, if `operationName` was performed through an API (for example, `http://myservice.windowsazure.net/object?api-version=2016-06-01`). If no API corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
-| `category` | Required | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. Typical log categories are `Audit`, `Operational`, `Execution`, and `Request`. |
-| `resultType` | Optional | The status of the event. Typical values include `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, and `Resolved`. |
+| `category` | Required | The log category of the event being logged. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. Typical log categories are `Audit`, `Operational`, `Execution`, and `Request`. |
+| `resultType` | Optional | The status of the logged event, if applicable. Values include `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, and `Resolved`. |
 | `resultSignature` | Optional | The substatus of the event. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
 | `resultDescription `| Optional | The static text description of this operation; for example, `Get storage file`. |
 | `durationMs` | Optional | The duration of the operation in milliseconds. |
@@ -48,7 +48,7 @@ The schema for resource logs varies depending on the resource and log category. 
 
 | Service or feature | Schema and documentation |
 | --- | --- |
-| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md), [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Microsoft Entra ID | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md), [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Azure Analysis Services | [Azure Analysis Services: Set up diagnostic logging](../../analysis-services/analysis-services-logging.md) |
 | Azure API Management | [API Management resource logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Azure App Service | [App Service logs](../../app-service/troubleshoot-diagnostic-logs.md)

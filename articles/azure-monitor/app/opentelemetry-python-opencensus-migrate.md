@@ -2,14 +2,15 @@
 title: Migrating Azure Monitor Application Insights Python from OpenCensus to OpenTelemetry
 description: This article provides guidance on how to migrate from the Azure Monitor Application Insights Python SDK and OpenCensus exporter to OpenTelemetry.
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 10/10/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
 ---
 # Migrating from OpenCensus Python SDK and Azure Monitor OpenCensus exporter for Python to Azure Monitor OpenTelemetry Python Distro
 
-[OpenCensus is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus) and the repositories are archived.
+> [!NOTE]
+> [OpenCensus Python SDK is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus/), but Microsoft supports it until retirement on September 30, 2024. We now recommend the [OpenTelemetry-based Python offering](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable?tabs=python) and provide [migration guidance](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-python-opencensus-migrate?tabs=aspnetcore).
 
 Follow these steps to migrate Python applications to the [Azure Monitor](../overview.md) [Application Insights](./app-insights-overview.md) [OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python).
 
@@ -132,3 +133,5 @@ Coming soon.
 ### Performance Counters
 
 The OpenCensus Python Azure Monitor exporter automatically collected system and performance related metrics called [performance counters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#performance-counters). These metrics appear in `performanceCounters` in your Application Insights instance. In OpenTelemetry, we no longer send these metrics explicitly to `performanceCounters`. Metrics related to incoming/outgoing requests can be found under [standard metrics](./standard-metrics.md). If you would like OpenTelemetry to autocollect system related metrics, you can use the experimental system metrics [instrumentation](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-system-metrics), contributed by the OpenTelemetry Python community. This package is experimental and not officially supported by Microsoft.
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]

@@ -3,9 +3,13 @@ title: View closed captions
 description: Learn how to view captions using the Azure AI Video Indexer website.
 ms.topic: how-to
 ms.date: 10/24/2022
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # View closed captions in the Azure AI Video Indexer website
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to view closed captions in the [Azure AI Video Indexer video player](https://www.videoindexer.ai).
 

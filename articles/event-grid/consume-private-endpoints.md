@@ -2,7 +2,7 @@
 title: Deliver events using private link service
 description: This article describes how to work around the limitation of not able to deliver events using private link service. 
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 08/16/2023
 ---
 
 # Deliver events using private link service
@@ -42,9 +42,10 @@ To deliver events to Storage queues using managed identity, follow these steps:
 1. [Add the identity to the **Storage Queue Data Message Sender**](../storage/blobs/assign-azure-role-data-access.md) role on Azure Storage queue.
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Storage queue as an endpoint to use the system-assigned or user-assigned managed identity.
 
-> [!NOTE]
-> - If there's no firewall or virtual network rules configured for the Azure Storage account, you can use both user-assigned and system-assigned identities to deliver events to the Azure Storage account. 
-> - If a firewall or virtual network rule is configured for the Azure Storage account, you can use only the system-assigned managed identity if **Allow Azure services on the trusted service list to access the storage account** is also enabled on the storage account. You can't use user-assigned managed identity whether this option is enabled or not. 
+## Firewall and virtual network rules
+If there's no firewall or virtual network rules configured for the destination Storage account, Event Hubs namespace, or Service Bus namespace, you can use both user-assigned and system-assigned identities to deliver events. 
+
+If a firewall or virtual network rule is configured for the destination Storage account, Event Hubs namespace, or Service Bus namespace, you can use only the system-assigned managed identity if **Allow Azure services on the trusted service list to access the storage account** is also enabled on the destinations. You can't use user-assigned managed identity whether this option is enabled or not. 
 
 ## Next steps
 For more information about delivering events using a managed identity, see [Event delivery using a managed identity](managed-service-identity.md).

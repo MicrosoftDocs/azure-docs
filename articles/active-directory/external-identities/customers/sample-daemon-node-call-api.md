@@ -1,6 +1,6 @@
 ---
 title: Call an API in a sample Node.js daemon application
-description: Learn how to configure a sample Node.js daemon application that calls an API protected Azure Active Directory (Azure AD) for customers
+description: Learn how to configure a sample Node.js daemon application that calls an API protected Microsoft Entra ID for customers
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -12,14 +12,14 @@ ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
 ms.custom: developer, devx-track-js
-#Customer intent: As a dev, devops, I want to configure a sample Node.js daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to configure a sample Node.js daemon application that calls an API protected by Microsoft Entra ID for customers tenant
 ---
 
 # Call an API in a sample Node.js daemon application 
 
-This article uses a sample Node.js daemon application to show you how a daemon app acquires a token to call a web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
+This article uses a sample Node.js daemon application to show you how a daemon app acquires a token to call a web API. Microsoft Entra ID for customers protects the Web API. 
 
-A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. 
+A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to External ID. 
 
 A daemon app uses the standard [OAuth 2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md). To simplify the process of acquiring the token, the sample we use in this article uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
@@ -32,7 +32,7 @@ A daemon app uses the standard [OAuth 2.0 client credentials grant](../../develo
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register a daemon application and a web API
 
