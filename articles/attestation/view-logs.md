@@ -81,4 +81,4 @@ The properties contain additional Azure attestation specific context:
 |    infoDataReceived                       |     Information about the request received from the client. Includes some HTTP headers, the number of headers received, the content type and content length    |
 
 ## Next steps
-- [How to enable Microsoft Azure Attestation logging ](enable-logs.md)
+- [How to enable Microsoft Azure Attestation logging](enable-logging.md)
