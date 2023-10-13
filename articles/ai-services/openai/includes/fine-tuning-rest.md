@@ -147,7 +147,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-09-15-preview 
   -H "Content-Type: multipart/form-data" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -F "purpose=fine-tune" \
-  -F "file=@/c/fine-tuning/training_set.jsonl;type=application/json"
+  -F "file=@C:\\fine-tuning\\training_set.jsonl;type=application/json"
 ```
 
 ### Upload validation data
@@ -157,7 +157,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-09-15-preview 
   -H "Content-Type: multipart/form-data" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -F "purpose=fine-tune" \
-  -F "file=@/c/fine-tuning/validation_set.jsonl;type=application/json"
+  -F "file=@C:\\fine-tuning\\validation_set.jsonl;type=application/json"
 ```
 
 ## Create a customized model
@@ -200,15 +200,15 @@ The following Python example shows how to use the REST API to create a model dep
 | fine_tuned_model | Retrieve this value from your fine-tuning job results in the previous step. It will look like `gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83`. You will need to add that value to the deploy_data json. |
 
 ```bash
-curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.CognitiveServices/accounts/$RESOURCE_NAME/deployments/$MODEL_DEPLOYMENT_NAME?api-version=2023-05-01" \
-  -H "Authorization: Bearer $TEMP_AUTH_TOKEN" \
+curl -X POST "https://management.azure.com/subscriptions/<SUBSCRIPTION>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.CognitiveServices/accounts/<RESOURCE_NAME>/deployments/<MODEL_DEPLOYMENT_NAME>api-version=2023-05-01" \
+  -H "Authorization: Bearer <TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{
-    "sku": {"name": "provisioned", "capacity": 300},
+    "sku": {"name": "standard", "capacity": 1},
     "properties": {
         "model": {
             "format": "OpenAI",
-            "name": "'$MODEL_NAME'",
+            "name": "<FINE_TUNED_MODEL>",
             "version": "1"
         }
     }

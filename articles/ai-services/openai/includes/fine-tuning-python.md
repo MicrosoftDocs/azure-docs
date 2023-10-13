@@ -17,7 +17,8 @@ keywords:
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
-- The following Python libraries: `os`, `json`.
+- The following Python libraries: `os`, `json`, `requests`, `openai`.
+- The OpenAI Python library **should be at least version 0.28.1**.
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
@@ -135,6 +136,7 @@ The following Python example uploads local training and validation files by usin
 # Upload fine-tuning files
 
 import openai
+import os
 
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
 openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
@@ -206,7 +208,7 @@ When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in
 > [!NOTE]
 > As with all applications, Microsoft requires a review process for your custom model before it's available live.
 
-You can use either [Azure OpenAI](#deploy-a-fine-tuned-model) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
+You can use either [Azure OpenAI](#deploy-fine-tuned-model) or the [Azure CLI](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error occurs if you select an already-deployed customized model.
@@ -226,6 +228,8 @@ Unlike the previous SDK commands, deployment must be done using the control plan
 
 ```python
 import json
+import os
+import requests
 
 token= os.getenv("TEMP_AUTH_TOKEN") 
 subscription = "<YOUR_SUBSCRIPTION_ID>"  
@@ -237,11 +241,11 @@ deploy_params = {'api-version': "2023-05-01"}
 deploy_headers = {'Authorization': 'Bearer {}'.format(token), 'Content-Type': 'application/json'}
 
 deploy_data = {
-    "sku": {"name": "standard", "capacity": 1}, # for PTU: "sku": {"name": "provisioned", "capacity": 300}
+    "sku": {"name": "standard", "capacity": 1}, 
     "properties": {
         "model": {
             "format": "OpenAI",
-            "name": fine_tuned_model, #retrieve this value from the previous call, it will look like gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83
+            "name": <"fine_tuned_model">, #retrieve this value from the previous call, it will look like gpt-35-turbo-0613.ft-b044a9d3cf9c4228b5d393567f693b83
             "version": "1"
         }
     }
@@ -256,7 +260,7 @@ r = requests.put(request_url, params=deploy_params, headers=deploy_headers, data
 
 print(r)
 print(r.reason)
-json_object = r.json()
+print(r.json())
 
 ```
 
