@@ -17,7 +17,7 @@ keywords:
 
 Azure OpenAI Service is committed to providing the best generative AI models for customers. As part of this commitment, Azure OpenAI Service regularly releases new model versions to incorporate the latest features and improvements from OpenAI.
 
-In particular, the GPT-3.5 Turbo and GPT-4 models see regular updates with new features.  For example, versions 0613 of GPT-3.5 Turbo and GPT-4 introduced function calling.  Function calling is a popular feature that allows the model to create structured outputs that can be used to call external tools.  We will continue to see increasing capabilities with these models in the future.
+In particular, the GPT-3.5 Turbo and GPT-4 models see regular updates with new features.  For example, versions 0613 of GPT-3.5 Turbo and GPT-4 introduced function calling.  Function calling is a popular feature that allows the model to create structured outputs that can be used to call external tools.  We'll continue to see increasing capabilities with these models in the future.
 
 ## How Model Versions Work
 
