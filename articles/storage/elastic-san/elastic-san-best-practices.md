@@ -17,19 +17,23 @@ This article provides some general guidance on getting optimal performance with 
 
 ### General Recommendations (Windows & Linux)
 
--	For best performance, deploy your VMs and Elastic SAN in the same zone and the same region.
--	VM storage I/O to Elastic SAN volumes uses VM network bandwidth, so traditional disk throughput limits on a VM don't apply to Elastic SAN volumes. Choose a VM that can provide sufficient bandwidth for production/VM-to-VM I/O and iSCSI I/O to attached Elastic SAN volumes. Generally, you should use Gen 5 (D / E / M series) VMs for the best performance.
--	Enable “Accelerated Networking” on the VM, during VM creation. To do it via Azure PowerShell or Azure CLI or to enable Accelerated Networking on existing VMs, see [Use Azure PowerShell to create a VM with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md)
+For best performance, deploy your VMs and Elastic SAN in the same zone and the same region.
+
+
+VM storage I/O to Elastic SAN volumes uses VM network bandwidth, so traditional disk throughput limits on a VM don't apply to Elastic SAN volumes. Choose a VM that can provide sufficient bandwidth for production/VM-to-VM I/O and iSCSI I/O to attached Elastic SAN volumes. Generally, you should use Gen 5 (D / E / M series) VMs for the best performance.
+
+
+Enable “Accelerated Networking” on the VM, during VM creation. To do it via Azure PowerShell or Azure CLI or to enable Accelerated Networking on existing VMs, see [Use Azure PowerShell to create a VM with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md)
 
     :::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Enable Accelerated Networking during VM creation." lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png":::
 
--	Generally, you should use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md#connect-to-a-volume) or [Linux](elastic-san-connect-linux.md#connect-to-a-volume) or in the portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
+Generally, you should use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md#connect-to-a-volume) or [Linux](elastic-san-connect-linux.md#connect-to-a-volume) or in the Azure portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
 
 
 ### MPIO
 
 #### Windows
-Use the following script to update your settings to what you generally should use:
+Use the following script to update your settings:
 
 ```powershell
 # Enable multipath support for iSCSI devices
@@ -48,7 +52,7 @@ For more information regarding MPIO cmdlets, see [https://learn.microsoft.com/en
 
 #### Linux
 
-Update /etc/multipath.conf file with the following recommended values. 
+Update /etc/multipath.conf file with the following: 
 
 ```config
 defaults {
