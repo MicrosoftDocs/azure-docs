@@ -46,7 +46,7 @@ To add a system-assigned managed identity to your Azure SignalR Service instance
 
 ### Add a user-assigned identity
 
-To add a user-assigned identity to your Azure SignalR Service instance, you need to create the identity then add it to the service.
+To add a user-assigned identity to your Azure SignalR Service instance, you need to create the identity and then add it to the service.
 
 1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 1. In the Azure portal, browse to your Azure SignalR Service instance.
@@ -107,6 +107,7 @@ You can easily set access validation for a function app without code changes by 
 1. On the **Basics** tab, in the **Identity provider** dropdown list, select **Microsoft**.
 1. In **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
 1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
+
    :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
 1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
