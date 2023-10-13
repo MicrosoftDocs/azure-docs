@@ -237,7 +237,6 @@ items:
           href: app/availability-test-migration.md
           displayName: ping test, availability, migrate, convert, standard test, synthetics
         items:
-          displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
