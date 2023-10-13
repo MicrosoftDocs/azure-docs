@@ -13,7 +13,7 @@ To use the app, you need an Azure account with the appropriate permissions to ac
 
 ## Azure mobile app Home
 
-When you first open the Azure mobile app, its **Home** shows an overview of your Azure account. View and customize display cards, including:
+When you first open the Azure mobile app, **Home** shows an overview of your Azure account. View and customize display cards, including:
 
 - Microsoft Entra ID
 - Resource groups
@@ -26,7 +26,7 @@ When you first open the Azure mobile app, its **Home** shows an overview of your
 - Learn
 - Privileged Identity Management
 
-You can select which of these tiles appear on your **Home** and rearrange them.
+You can select which of these tiles appear on **Home** and rearrange them.
 
 For more information, see [Azure mobile app Home](home.md).
 

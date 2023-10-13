@@ -29,7 +29,7 @@ Current card options include:
 
 ## Customize Azure mobile app Home
 
-You can customize the cards displayed on your Azure mobile app **Home** by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: **Edit** icon in the top right of the **Home**  screen. From there, you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home**.
+You can customize the cards displayed on your Azure mobile app **Home** by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: **Edit** icon in the top right of **Home**. From there, you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home**.
 
 For instance, you could rearrange the default order as follows:
 
@@ -41,7 +41,7 @@ This would result in a **Home** similar to the following image:
 
 ## Global search
 
-The global search button appears the top left of the **Home**. Select this button to search for anything specific you may be looking for on your Azure account. This includes:
+The global search button appears the top left of **Home**. Select this button to search for anything specific you may be looking for on your Azure account. This includes:
 
 - Resources
 - Services
@@ -52,7 +52,7 @@ You can filter these results by subscription using the **Home** filtering option
 
 ## Filtering
 
-In the top right of the **Home**, you'll see a filter option. When selecting the filter icon, the app gives you the option to filter the results shown on the **Home** by specific subscriptions. This includes results for:
+In the top right of **Home**, you'll see a filter option. When selecting the filter icon, the app gives you the option to filter the results shown on **Home** by specific subscriptions. This includes results for:
 
 - Resource groups
 - Azure services
@@ -60,7 +60,7 @@ In the top right of the **Home**, you'll see a filter option. When selecting the
 - Service health
 - Global search
 
-This filtering option is specific to the **Home**, and doesn't filter for the other bottom navigation sections.
+This filtering option is specific to **Home**, and doesn't filter for the other bottom navigation sections.
 
 ## Next steps
 
