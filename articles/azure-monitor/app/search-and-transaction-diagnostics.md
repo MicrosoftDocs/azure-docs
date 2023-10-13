@@ -2,7 +2,7 @@
 title: Transaction Search and Diagnostics
 description: This article explains Application Insights end-to-end transaction diagnostics and how to search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 10/13/2023
 ms.reviewer: cogoodson
 
 ---
